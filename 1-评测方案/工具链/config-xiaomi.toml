@@ -1,0 +1,10 @@
+# Codex 模型路由：小米 MiMo V2.6 Flash（Token Plan 端点）
+# 2026-10-16 批次（r1016x-*）专用；glm 配置在 /root/.codex/config.toml 不动（保历史 run 可复核）
+model = "mimo-v2.6-flash"
+model_provider = "xiaomi"
+
+[model_providers.xiaomi]
+name = "xiaomi"
+base_url = "https://token-plan-cn.xiaomimimo.com/v1"
+env_key = "XIAOMI_API_KEY"
+wire_api = "responses"

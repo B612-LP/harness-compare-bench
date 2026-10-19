@@ -1,0 +1,26 @@
+{
+    "task": {
+        "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/int-sum-sort"
+    },
+    "trial_name": "int-sum-sort__98CZQjG",
+    "trials_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs/r1016-intsum-dsh",
+    "timeout_multiplier": 3.0,
+    "agent": {
+        "name": "dsh_agent:Dsh",
+        "model_name": "glm-5.3-flash",
+        "kwargs": {
+            "version": "0.2.0-rc.2",
+            "config": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/dsh-proto/cordis.patch.yml"
+        },
+        "env": {
+            "ZAI_API_KEY": "${ZAI_API_KEY}"
+        }
+    },
+    "environment": {
+        "type": "docker",
+        "extra_docker_compose": [
+            "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+        ]
+    },
+    "job_id": "077eefe1-2029-4d87-bd59-e7e442d9d384"
+}

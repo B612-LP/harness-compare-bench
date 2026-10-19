@@ -1,0 +1,28 @@
+{
+    "task": {
+        "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/int-sum-sort"
+    },
+    "trial_name": "int-sum-sort__eCXhjej",
+    "trials_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs/r1016x-intsum-codex",
+    "timeout_multiplier": 3.0,
+    "agent": {
+        "name": "codex",
+        "model_name": "mimo-v2.6-flash",
+        "kwargs": {
+            "version": "0.162.1",
+            "config": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/config-xiaomi.toml",
+            "disable_web_search": true
+        },
+        "env": {
+            "XIAOMI_API_KEY": "tp-c****3f4",
+            "OPENAI_API_KEY": "tp-c****3f4"
+        }
+    },
+    "environment": {
+        "type": "docker",
+        "extra_docker_compose": [
+            "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+        ]
+    },
+    "job_id": "8db20e78-ee7a-479e-84aa-b2c2cc75ca9c"
+}

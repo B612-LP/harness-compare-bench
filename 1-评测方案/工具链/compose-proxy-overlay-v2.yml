@@ -1,0 +1,15 @@
+# Harbor overlay v2（2026-10-16）
+# 与 v1 的唯一差异：open.bigmodel.cn 移出 NO_PROXY，智谱 API 流量改走代理。
+# 原因：2026-10-16 实测 WSL/容器直连智谱超时（IPv4/IPv6 均 000），走 172.21.240.1:7891 返回 200；
+#   v1 的 NO_PROXY 直连策略已不可用。代理对国内域名本就直出，智谱流量无速度损失。
+# Ubuntu 源仍保留在 NO_PROXY：apt 走境外代理极慢（v3 教训不变）。
+# 前置依赖：Windows 侧 netsh portproxy 172.21.240.1:7891 -> 127.0.0.1:7890
+services:
+  main:
+    environment:
+      HTTPS_PROXY: http://172.21.240.1:7891
+      HTTP_PROXY: http://172.21.240.1:7891
+      https_proxy: http://172.21.240.1:7891
+      http_proxy: http://172.21.240.1:7891
+      NO_PROXY: localhost,127.0.0.1,archive.ubuntu.com,security.ubuntu.com,azure.archive.ubuntu.com
+      no_proxy: localhost,127.0.0.1,archive.ubuntu.com,security.ubuntu.com,azure.archive.ubuntu.com

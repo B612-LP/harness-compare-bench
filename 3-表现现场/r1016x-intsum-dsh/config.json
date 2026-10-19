@@ -1,0 +1,29 @@
+{
+    "job_name": "r1016x-intsum-dsh",
+    "jobs_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs",
+    "timeout_multiplier": 3.0,
+    "environment": {
+        "type": "docker",
+        "extra_docker_compose": [
+            "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+        ]
+    },
+    "agents": [
+        {
+            "name": "dsh_agent:Dsh",
+            "model_name": "mimo-v2.6-flash",
+            "kwargs": {
+                "version": "0.2.0-rc.2",
+                "config": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/dsh-proto/cordis-xiaomi.patch.yml"
+            },
+            "env": {
+                "XIAOMI_API_KEY": "tp-c****3f4"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/int-sum-sort"
+        }
+    ]
+}

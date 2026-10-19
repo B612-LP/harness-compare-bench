@@ -1,0 +1,29 @@
+{
+    "job_name": "r1016-intsum-dsh",
+    "jobs_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs",
+    "timeout_multiplier": 3.0,
+    "environment": {
+        "type": "docker",
+        "extra_docker_compose": [
+            "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+        ]
+    },
+    "agents": [
+        {
+            "name": "dsh_agent:Dsh",
+            "model_name": "glm-5.3-flash",
+            "kwargs": {
+                "version": "0.2.0-rc.2",
+                "config": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/dsh-proto/cordis.patch.yml"
+            },
+            "env": {
+                "ZAI_API_KEY": "${ZAI_API_KEY}"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/int-sum-sort"
+        }
+    ]
+}
