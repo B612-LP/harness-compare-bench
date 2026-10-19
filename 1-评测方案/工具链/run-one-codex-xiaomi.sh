@@ -1,7 +1,7 @@
 #!/bin/bash
 # 单跑 Codex × mimo-v2.6-flash（重跑用）。用法：run-one-codex-xiaomi.sh <job-name> <case-dir>
 export PATH="$PATH:/root/.local/bin"
-BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench
+BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench-old
 source /root/.codex/xiaomi.env
 
 echo "=== $1 (codex x $2) ==="

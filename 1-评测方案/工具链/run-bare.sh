@@ -2,7 +2,7 @@
 # 2026-10-16 小米批次（r1016x-*）：C 组裸模型基线 × 两用例
 # 零脚手架：指令原样进 API、回答原文落盘、同一评分器判卷
 export PATH="$PATH:/root/.local/bin"
-BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench
+BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench-old
 export PYTHONPATH="$BENCH/infra"
 source /root/.codex/xiaomi.env
 

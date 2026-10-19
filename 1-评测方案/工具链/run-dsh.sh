@@ -2,7 +2,7 @@
 # 2026-10-16 批次：DSH 0.2.0-rc.2 × glm-5.3-flash 两份完整测试
 # 用法：run-dsh.sh <job-name> <case-dir>
 export PATH="$PATH:/root/.local/bin"
-BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench
+BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench-old
 export PYTHONPATH="$BENCH/infra"
 source /root/.codex/zai.env
 

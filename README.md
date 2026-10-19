@@ -20,4 +20,4 @@
 ## 参考
 
 - 公告原文存档：`0-公告原文.md`
-- 调研档案（旧仓库归档）：`../harness-compare-bench/`（不作为交付物）
+- 调研档案（旧仓库归档）：`../harness-compare-bench-old/`（不作为交付物）

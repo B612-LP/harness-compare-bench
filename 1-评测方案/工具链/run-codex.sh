@@ -2,7 +2,7 @@
 # 2026-10-16 批次：Codex 0.162.1 × glm-5.3-flash 两份完整测试
 # 修正后模板：v2 overlay（智谱走代理）+ disable_web_search + 版本锁定
 export PATH="$PATH:/root/.local/bin"
-BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench
+BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench-old
 source /root/.codex/zai.env
 
 run() {

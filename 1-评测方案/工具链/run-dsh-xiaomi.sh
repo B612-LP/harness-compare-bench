@@ -1,7 +1,7 @@
 #!/bin/bash
 # 2026-10-16 小米批次（r1016x-*）：DSH 0.2.0-rc.2 × mimo-v2.6-flash × 两用例
 export PATH="$PATH:/root/.local/bin"
-BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench
+BENCH=/mnt/c/Users/Administrator/Desktop/harness-compare-bench-old
 export PYTHONPATH="$BENCH/infra"
 source /root/.codex/xiaomi.env
 
