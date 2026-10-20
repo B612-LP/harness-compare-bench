@@ -1,7 +1,23 @@
 # 工具链（CLI 赛道评测执行件镜像）
 
 2026-10-16 两批（glm 批 `r1016-*` / 小米批 `r1016x-*`）实际执行所用工具链的镜像副本。
-运行主战场在调研档案仓 `../../harness-compare-bench-old/`（Harbor 作业目录 `jobs/` 在彼处落盘）；本目录保证交付仓自足可复核，脚本内路径按实际布局调整即可复跑。
+
+**本仓自足**：脚本默认以本仓为根运行——用例读 `2-用例/`，适配器与路由配置读本目录，作业目录写 `3-表现现场/`（与已归档现场同结构）。路径可用环境变量覆盖，此前硬编码的旧仓 Windows 路径已移除：
+
+| 变量 | 默认值 | 用途 |
+|---|---|---|
+| `BENCH` | 本仓根目录 | 仓库根，决定 `TOOLS` |
+| `CASES` | `$BENCH/2-用例` | 用例目录（Harbor `-p` 的父目录） |
+| `JOBS` | `$BENCH/3-表现现场` | 作业落盘目录（`--jobs-dir`） |
+
+改指旧调研档案仓（其结构为 `cases/` + `jobs/`）：
+
+```bash
+BENCH=/path/to/harness-compare-bench-old CASES=/path/to/harness-compare-bench-old/cases \
+  JOBS=/path/to/harness-compare-bench-old/jobs bash run-gates.sh
+```
+
+复跑前置：WSL/Linux + `harbor` CLI + Docker，凭据放 `/root/.codex/{zai,xiaomi}.env`（不入库）。
 
 | 文件 | 作用 |
 |---|---|

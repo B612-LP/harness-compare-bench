@@ -3,7 +3,7 @@
 # (lesson from jobs/codex-glm-demo: a verifier that downloads tools at
 # test time can fail before any test runs and silently score 0).
 #
-# Checks (see rubric/README.md for the scoring rubric):
+# Checks (see 4-打分细则/打分表.md for the scoring rubric):
 #   1. output_exists  — /app/output.txt was created
 #   2. sum_line       — line 1 is the sum of input integers
 #   3. count_line     — line 2 is the count of input integers
