@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-21",
+  "policy": "未知不补 0、不补满分、不折算；每项写影响 / 下一步 / 停止追查条件 / 复核日期。状态只允许 open / closed / accepted。",
+  "counts": {
+    "open": 8,
+    "closed": 0,
+    "accepted": 0
+  },
+  "unknowns": [
+    {
+      "id": "skill-ablation",
+      "item": "SKILL 层消融未做",
+      "impact": "SKILL 层对结果的贡献无法量化；Codex 默认注入 <skills_instructions>，归因时只能标记为 SKILL 层而非 Harness。",
+      "next_step": "构造一道可用可控 skill 的题，做「剥除 skill / 统一 skill」两次对照运行，比较产物与过程成本。",
+      "stop_condition": "若两周内无法构造可隔离 skill 的题目，保持 open 并在报告中固定标注「SKILL 层未消融」。",
+      "review_date": "2026-10-28",
+      "status": "open"
+    },
+    {
+      "id": "b-group-native",
+      "item": "B 组（各产品原生模型）未跑",
+      "impact": "模型层在本批只能靠 A/C 对照间接约束，无法量化「模型差异」与「Harness 差异」的占比。",
+      "next_step": "配额恢复后，用 Codex / DSH 各自原生模型跑同两用例，与 A 组同模型结果并列呈现。",
+      "stop_condition": "若产品强制固定路由或配额持续不可得，保持 open，报告中只声明「模型层未单独控制」。",
+      "review_date": "2026-10-28",
+      "status": "open"
+    },
+    {
+      "id": "desktop-three",
+      "item": "WorkBuddy / 元宝专家模式 / 豆包办公未采集",
+      "impact": "五款覆盖仅 2/5，报告不能出综合排名；桌面取证方案（录屏/截图/提示词留档）是否够支撑归因未验证。",
+      "next_step": "先做 WorkBuddy × int-sum-sort 最小闭环（产物 + 截图 ≥3 + 行为分 JSON 运行记录），验证取证规范后再扩到另外两款。",
+      "stop_condition": "若产品无法导出日志或录屏成本过高，改用「产物 + 截图 + 运行记录」并在报告中标注行为面证据不足。",
+      "review_date": "2026-10-23",
+      "status": "open"
+    },
+    {
+      "id": "token-cause",
+      "item": "token 量级差异的真实原因未坐实",
+      "impact": "过程成本差异不能进 Harness 归因；统一口径后的 1.18–2.09× 只能表述为「差异存在」，不能表述为「编排规模差异」。",
+      "next_step": "做单变量对照：固定缓存状态、或剥离 skills 前后重跑；同时统一模型（DeepSeek V4.1-Flash）与端点。",
+      "stop_condition": "若无法控制缓存命中与固定前缀（system / 工具 schema / skills 注入），保持 open，四值标注为「无法归因」。",
+      "review_date": "2026-10-24",
+      "status": "open"
+    },
+    {
+      "id": "cost-usd",
+      "item": "成本口径为 null",
+      "impact": "只有 token 数，没有可比的货币成本；跨模型/跨产品换算会引入费率日期误差。",
+      "next_step": "统一 DeepSeek V4.1-Flash 后按官方价目离线换算，并注明费率取数日期与是否含缓存折扣。",
+      "stop_condition": "若官方费率在评测周期内变动频繁，只报 token 数，不做美元换算，并注明原因。",
+      "review_date": "2026-10-24",
+      "status": "open"
+    },
+    {
+      "id": "env-netflake",
+      "item": "2 次安装步网络故障的失败尝试原始日志未入仓",
+      "impact": "环境层失败数不可复核；本报告只能写「2 次失败尝试不计入运行数」，不能作为可核对的失败计数。",
+      "next_step": "如需复核，从旧档案仓补取 exception / trial.log 的最小片段（脱敏后）入仓；否则保持过程备注地位。",
+      "stop_condition": "若旧档案仓不可得或补取成本高于收益，保持 open，仅作过程备注、不计入运行数、不参与结论。",
+      "review_date": "2026-10-28",
+      "status": "open"
+    },
+    {
+      "id": "env-v1-verifier-download",
+      "item": "2026-10-13 演示跑（v1 冤案）原始日志未入仓",
+      "impact": "「0 分先读 test-stdout」这一方法教训缺少仓内原始证据，只能作为教训叙述。",
+      "next_step": "同上，从旧档案仓补取 verifier/test-stdout.txt 的失败片段（脱敏后）入仓。",
+      "stop_condition": "若档案不可得，保持 open，不再把该案例当作产品结论证据，仅保留原则本身。",
+      "review_date": "2026-10-28",
+      "status": "open"
+    },
+    {
+      "id": "checker-general-correctness",
+      "item": "判卷器一般正确性未证（只覆盖已知攻击面）",
+      "impact": "headline 分数对「未见攻击面」的鲁棒性没有保证；两用例满分也可能有未被发现的宽松点。",
+      "next_step": "为每个新题强制写负例（≥6 组）；参考第 1 名 grader-audit 的做法，用合成样例做第三方复核；对历史现场只读复算、不静默改分。",
+      "stop_condition": "若拿不到独立样例集，保持 open，并在报告中标注「判卷器仅对已知攻击面自测」。",
+      "review_date": "2026-10-28",
+      "status": "open"
+    }
+  ]
+}

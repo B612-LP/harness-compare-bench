@@ -10,12 +10,7 @@
 | `CASES` | `$BENCH/2-用例` | 用例目录（Harbor `-p` 的父目录） |
 | `JOBS` | `$BENCH/3-表现现场` | 作业落盘目录（`--jobs-dir`） |
 
-改指旧调研档案仓（其结构为 `cases/` + `jobs/`）：
-
-```bash
-BENCH=/path/to/harness-compare-bench-old CASES=/path/to/harness-compare-bench-old/cases \
-  JOBS=/path/to/harness-compare-bench-old/jobs bash run-gates.sh
-```
+> 旧调研档案仓（早期按 `cases/` + `jobs/` 组织）不是本仓交付物、也不随本仓公开；复跑以上表默认路径为准，不依赖旧仓。
 
 复跑前置：WSL/Linux + `harbor` CLI + Docker，凭据放 `/root/.codex/{zai,xiaomi}.env`（不入库）。
 

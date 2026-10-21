@@ -43,11 +43,11 @@
 
 **归因读法**：C=0/2，A=4/4 → **A−C 增量 = 满分**，且 C 的失败形态极具说服力——裸模型两次都试图**调用不存在的工具**：intsum 的回答是一句"先读输入文件"的开场白加一个 Shell 工具调用块（命令 `cat /app/input.txt`）；wordfreq 的回答是一整段 Bash 工具调用块包着 Python 脚本，连标点集合都和规格一致，但没有任何执行者。两次都是 API 层 `status: completed` 的合法回答，却不是交付物。**工具循环的执行权在 Harness 手里，这就是 Harness 的价值本体**。
 
-**跨模型观察**（批次一 glm vs 批次二 mimo）：Codex 的 input token 量级（3.4~4.8 万）与 DSH 的量级（0.2~0.8 万）差异在两个模型上都稳定复现——Harness 层的提示词/编排规模差异不随模型翻转，可进报告。
+**跨模型观察（2026-10-21 已更正口径）**：表观差异（Codex input 3.4–4.8 万 vs DSH prompt 0.2–0.8 万）主要来自计价口径——Codex 的 input 含缓存读，DSH 的 prompt 不含（cached 单列）。按统一口径（input + cached）复算：Codex:DSH = 2.09× / 1.18×（glm 两用例）、1.66× / 1.64×（mimo 两用例）；未缓存口径 2.88× / 1.76× / 1.62× / 0.78×。比值方向在 3/4 切片一致，但量级远小于表观；且 Codex 首轮输入含 `<skills_instructions>`（属 SKILL 层注入，见 `r1016x-wordfreq-codex/*/agent/trajectory.json` 第 1 步）。**因此不能把表观量级差直接当作 Harness 编排规模证据**，详见 `5-评测报告/阶段报告-v1.0.md` §5.2 与复算脚本 `5-评测报告/复算/token-recompute.py`。
 
 ### 环境层留痕（批次二特有）
 
-今天的代理链路下载质量差（node tarball 撕裂 ×1、codex 平台二进制缺失 ×1），两份 codex 安装步阵亡后重跑。证据保留于调研档案仓 `jobs/superseded-r1016x-*-netflake*`——**归因三域里"环境层"的现成素材**：reward 缺失 ≠ 模型/Harness 失败。缓解方向（见方案文档）：预装 agent 的自定义基础镜像消除每 trial 现装。
+今天的代理链路下载质量差（node tarball 撕裂 ×1、codex 平台二进制缺失 ×1），两份 codex 安装步阵亡后重跑，重跑件已入库。两次失败尝试的原始日志未随本仓保留（不构成可复核证据），因此只作为过程备注：**不计入运行数、不参与任何结论**；"环境层"的判定以"重跑后 reward=1"的现场为准。该未复核项已登记在 `5-评测报告/未知登记.json` 的 `env-netflake` 条目（含下一步与停止条件）。缓解方向（见方案文档）：预装 agent 的自定义基础镜像消除每 trial 现装。
 
 ---
 
@@ -81,8 +81,8 @@ r1016*/                          # 作业级
 ## 备注与口径
 
 - **trap 判定**：word-freq 的期望值由评分器按与参考解同一规则现算；批次一两个 Harness 的输出与 gold 一致（92 / 35）。
-- **cached 口径差异**：Codex 的 cached 含于 input；DSH 的 cached（cacheReadTokens 累计）与 input 分列——表内按各自轨迹字段原样呈现，成本换算时统一口径后重算（见打分表三节）。
-- **superseded 留痕**（调研档案仓 `jobs/` 下，均保留备查、不入正式对比）：
-  - `superseded-r1016-intsum-dsh-no-traj/`——轨迹转换器早期缺陷（Step.message 校验）时期的 DSH 首跑，reward=1 有效但缺轨迹回填；正式件为 `r1016-intsum-dsh/`（重跑，双跑互为复现）。
-  - `superseded-r1016x-wordfreq-codex-netflake*/`——安装步网络故障（见批次二环境层留痕）。
+- **cached 口径差异**：Codex 的 cached 含于 input；DSH 的 cached（cacheReadTokens 累计）与 input 分列——表内按各自轨迹字段原样呈现，统一口径（input + cached）后重算见 `5-评测报告/阶段报告-v1.0.md` §5.2。
+- **superseded 留痕**（不入正式对比、不计入运行数；原始记录未入仓，不作为可复核证据）：
+  - `superseded-r1016-intsum-dsh-no-traj/`——轨迹转换器早期缺陷（Step.message 校验）时期的 DSH 首跑，reward=1 但轨迹未回填；正式件为 `r1016-intsum-dsh/`（重跑，双跑互为复现）。轨迹缺失属工具链缺陷，不作为产品行为证据。
+  - `superseded-r1016x-wordfreq-codex-netflake*/`——安装步网络故障后重跑；见上节「环境层留痕」。
 - 桌面赛道（五款产品对比）的录屏/现场规范另行设计，命名约定不变。

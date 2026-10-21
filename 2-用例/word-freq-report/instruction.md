@@ -4,7 +4,7 @@ Define a "word" as follows:
 
 - Split the text into tokens on whitespace.
 - Strip leading and trailing punctuation characters from each token. The
-  punctuation set is exactly these 12 characters: . , ; : ! ? " ' ( ) -
+  punctuation set is exactly these 11 characters: . , ; : ! ? " ' ( ) -
   Strip repeatedly until both ends are not punctuation. Internal punctuation
   is kept (e.g. `state-of-the-art` is one single word).
 - If the resulting token is empty, skip it.
