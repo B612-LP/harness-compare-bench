@@ -8,6 +8,28 @@
 
 两用例均已通过 oracle-gating 双向验证（nop 空跑 = 0，oracle 参考解 = 1），评分器离线自足（测试期零联网）。
 
+## hard 带用例（2026-10-22 新增，回应「满分区间无区分度」）
+
+三道 hard 题按「多源冲突重建 / 契约级输出精确 / 连续量验收」三条区分度轴布局，均为纯产物判分（五件套：instruction.md / environment|inputs / checker.py / spec.md / truth.json，附 solution/ 参考解）。lead 已实测：三题 `--selftest`（10/12/12 组）全绿、oracle reward=1；corpus-squeeze 另有朴素解负对照 reward=0。hard 带入库纪律：空跑预期 ≤0.3、oracle=1（对齐 WorkBuddy Bench 准入闸门），阈值题须在 spec.md 留实测校准记录。难度依据与下一批改造清单见 `5-学习笔记/题库收集-2026-10-22/01-网络题源/05-困难题源-GitHub清单.md`（本地档案）。
+
+### `jielong-fullchain/` —— 微信接龙解析与分单全链路（hard·两栖）
+
+- **任务**：读 13 人两段接龙 + 匿名别名表 + 4 张包场单，产出 `resolution.json`（逐人 seq/raw/sid/status/slots/note）与 `plan.json`（逐单 add/skip/reject/reason）
+- **陷阱**：日期笔误头、「9:00」是到达备注非场次、emoji 剥离 vs 原样双路径、全角归一、重名→conflict 不许猜、泛称/零命中→unmatched、先填满单 A 再溢出、skip_existing、散场单拒收带 reason；账本守恒 13 = 9 matched + 1 本人 + 2 unmatched + 1 conflict，6 add / 1 skip / 7 reject
+- **考察点**：多源冲突消解 + 契约级输出精确（规则数量 × 单数据流级联，无局部修复）
+
+### `ledger-replay/` —— 乱序事件日志的状态机重建与异常对账（hard·两栖偏 CLI）
+
+- **任务**：重放 305 行乱序事件日志，产出 `final_state.json`（100 订单终态+金额）与 `anomalies.json`（11 条异常分类清单）
+- **规则**：按 seq 升序重放（同 seq 按 msg_id 字典序）、重复 msg_id 幂等去重、cancel-after-complete 状态不变、unacked 生效但记异常、负金额拒生效、金额整数分禁浮点
+- **考察点**：冲突状态重建（物理序≠逻辑序×tie-break×幂等）+ 四类异常两两不同的处置 + 金额守恒双向夹逼
+
+### `corpus-squeeze/` —— 受限压缩达标（hard·迭代优化，RE-Bench 风格，CLI 为主）
+
+- **任务**：对 204,180B 确定性语料交付 `compressed.bin` + `decompress.py`（≤8KB、仅 stdlib、禁 zlib/lzma/bz2、只读 argv），压缩率 ≤0.35 且解压逐字节还原
+- **校准**：阈值 0.35 实测锁定——纯 order-0 Huffman 0.806（挂）→ 必须自实现 LZ；参考解 LZ77+Huffman 0.2303（余量 34.2%）；朴素 RLE 1.0006（负对照）
+- **考察点**：连续量验收 + 「写→自测→调优→再验证」迭代任务链（行为锚点记自测/报告/重试）
+
 ### `int-sum-sort/` —— 数据处理流水线（hello 级）
 
 - **任务**：读 `/app/input.txt`（6 个整数逐行），产出 `/app/output.txt`：第 1 行求和、第 2 行个数、其余为升序逐行整数，文件以换行结尾
