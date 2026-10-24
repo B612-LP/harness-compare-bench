@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "repository_base": ".",
+  "baseline": {
+    "branch": "main",
+    "commit": "cb3c15d"
+  },
+  "kind": "read-only analysis of archived evidence; no new product run or grading",
+  "references_are_repository_root_relative": true,
+  "cases": [
+    {
+      "id": "dab-q1871-sign-at-submission",
+      "task": "dabstep-payments-10",
+      "comparison": [
+        {
+          "product": "codex",
+          "group": "A",
+          "interface": "CLI",
+          "model_recorded": "deepseek-flash",
+          "reasoning_effort": "low",
+          "run": "3-表现现场/r1025-candidates/dabstep-payments-10__codex",
+          "config": {
+            "path": "3-表现现场/r1025-candidates/dabstep-payments-10__codex/meta.json",
+            "lines": [
+              1,
+              7
+            ]
+          },
+          "calculation": {
+            "path": "3-表现现场/r1025-candidates/dabstep-payments-10__codex/agent.jsonl",
+            "lines": [
+              49,
+              50
+            ],
+            "event_id": "item_27",
+            "observed_new_minus_old": -0.948103
+          },
+          "final_check": {
+            "path": "3-表现现场/r1025-candidates/dabstep-payments-10__codex/agent.jsonl",
+            "lines": [
+              85,
+              89
+            ]
+          },
+          "artifact": {
+            "path": "3-表现现场/r1025-candidates/dabstep-payments-10__codex/answers.jsonl",
+            "lines": [
+              9,
+              9
+            ],
+            "q1871": "-0.94810300000000"
+          },
+          "official_compat": {
+            "reward": 0,
+            "weighted": 70,
+            "correct": 7
+          },
+          "strict_contract": {
+            "reward": 0,
+            "weighted": 70,
+            "correct": 7,
+            "q1871_pass": true
+          },
+          "score_source": {
+            "path": "5-评测报告/复算/2026-10-24/results.json",
+            "record_lines": [
+              463,
+              480
+            ],
+            "strict_question_lines": [
+              664,
+              682
+            ]
+          }
+        },
+        {
+          "product": "dsh",
+          "group": "A",
+          "interface": "CLI",
+          "model_recorded": "deepseek-flash",
+          "reasoning_effort": "low",
+          "run": "3-表现现场/r1027-isolated/runs/dsh__dabstep-payments-10",
+          "config": {
+            "path": "3-表现现场/r1027-isolated/runs/dsh__dabstep-payments-10/meta.json",
+            "lines": [
+              1,
+              14
+            ]
+          },
+          "calculation": {
+            "path": "3-表现现场/r1027-isolated/runs/dsh__dabstep-payments-10/agent.jsonl",
+            "lines": [
+              70,
+              71
+            ],
+            "event_id": "call_00_LySXN7hvZAitAiHOxapS5731",
+            "observed_new_minus_old": -0.948103
+          },
+          "final_check": {
+            "path": "3-表现现场/r1027-isolated/runs/dsh__dabstep-payments-10/agent.jsonl",
+            "lines": [
+              220,
+              221
+            ]
+          },
+          "artifact": {
+            "path": "3-表现现场/r1027-isolated/runs/dsh__dabstep-payments-10/workspace/answers.jsonl",
+            "lines": [
+              9,
+              9
+            ],
+            "q1871": "0.94810300000000"
+          },
+          "official_compat": {
+            "reward": 0,
+            "weighted": 70,
+            "correct": 7
+          },
+          "strict_contract": {
+            "reward": 0,
+            "weighted": 60,
+            "correct": 6,
+            "q1871_pass": false
+          },
+          "score_source": {
+            "path": "5-评测报告/复算/2026-10-24/results.json",
+            "record_lines": [
+              1783,
+              1814
+            ],
+            "strict_question_lines": [
+              1984,
+              2009
+            ]
+          }
+        }
+      ],
+      "scorer": {
+        "checker_version": "0.2",
+        "strict_version": "signed-aci-v1",
+        "abs_tol": 0.0001,
+        "rel_tol": 0.0001,
+        "threshold": 0.8
+      },
+      "observation": "Both archived tool outputs calculate a negative new-old delta; final submitted signs differ.",
+      "cause_clue": "The observed failure is between calculation and semantic finalization/submission; structural checks did not reject the positive sign.",
+      "verified_scope": "Submitted signs, observed tool outputs, and frozen strict question verdicts agree; q1871 alone explains the 10-point strict difference.",
+      "limits": [
+        "One selected run per product",
+        "Different dates, workspace location, prompt hash and soft constraints",
+        "Same model alias does not control model snapshot, system prefix, tools, cache or all SKILL content",
+        "q49/q70/q2697 remain frozen-rule failures, not newly proven mechanisms",
+        "q2697 asks selected ACI but specifies {card_scheme}:{fee}; semantic conflict cannot establish a verified model or Harness failure cause"
+      ],
+      "ambiguity_source": {
+        "path": "2-用例/dabstep-payments-10/inputs/questions.jsonl",
+        "lines": [
+          10,
+          10
+        ]
+      }
+    },
+    {
+      "id": "cargo-fuel-strategy-tradeoff",
+      "task": "tb-cargo-plan",
+      "comparison": [
+        {
+          "product": "dsh",
+          "group": "A",
+          "interface": "CLI",
+          "model_recorded": "deepseek-flash",
+          "reasoning_effort": "low",
+          "run": "3-表现现场/r1025-candidates/tb-cargo-plan__dsh",
+          "trace_patch": {
+            "path": "3-表现现场/r1025-candidates/tb-cargo-plan__dsh/agent.jsonl",
+            "lines": [
+              62,
+              63
+            ]
+          },
+          "trace_final_check": {
+            "path": "3-表现现场/r1025-candidates/tb-cargo-plan__dsh/agent.jsonl",
+            "lines": [
+              67,
+              78
+            ]
+          },
+          "submitted_code": {
+            "path": "3-表现现场/r1025-candidates/tb-cargo-plan__dsh/inputs/app/dispatch.py",
+            "lines": [
+              153,
+              178
+            ]
+          },
+          "artifact": {
+            "path": "3-表现现场/r1025-candidates/tb-cargo-plan__dsh/flight_plan.json",
+            "leg2_lines": [
+              34,
+              53
+            ],
+            "summary_lines": [
+              119,
+              125
+            ],
+            "leg1_tow_lbs": 8464.3,
+            "leg2_fob_gal": 150.6,
+            "leg2_remaining_gal": 31.5,
+            "leg2_tow_lbs": 8629.6,
+            "route_feasible": false,
+            "total_time_min": 568.7
+          },
+          "strict": {
+            "checker_version": "0.2",
+            "reward": 0,
+            "weighted": 70.37,
+            "passed": 19,
+            "total": 27
+          },
+          "score_source": {
+            "path": "5-评测报告/复算/2026-10-24/results.json",
+            "record_lines": [
+              2527,
+              2552
+            ],
+            "check_lines": [
+              2634,
+              2693
+            ]
+          },
+          "integrity_note": {
+            "path": "3-表现现场/r1025-candidates/tb-cargo-plan__dsh/agent.jsonl",
+            "lines": [
+              47,
+              53
+            ],
+            "note": "Parent/cases filename enumeration observed; does not establish successful gold-content reading or prove absence of all leakage"
+          }
+        },
+        {
+          "product": "doubao",
+          "group": "B",
+          "interface": "GUI",
+          "model_recorded": null,
+          "app_version_final_meta": "2.33.7",
+          "app_version_initial_meta_seen_in_trace": "2.32.6",
+          "run": "3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan",
+          "initial_result": {
+            "path": "3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan/traces/conversation.jsonl",
+            "lines": [
+              24,
+              25
+            ]
+          },
+          "trace_patch": {
+            "path": "3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan/traces/conversation.jsonl",
+            "lines": [
+              32,
+              43
+            ]
+          },
+          "trace_final_check": {
+            "path": "3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan/traces/conversation.jsonl",
+            "lines": [
+              44,
+              53
+            ]
+          },
+          "submitted_code": {
+            "path": "3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan/inputs/app/dispatch.py",
+            "lines": [
+              152,
+              178
+            ]
+          },
+          "artifact": {
+            "path": "3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan/flight_plan.json",
+            "leg2_lines": [
+              34,
+              53
+            ],
+            "summary_lines": [
+              119,
+              125
+            ],
+            "leg1_tow_lbs": 8395.3,
+            "leg2_fob_gal": 139.1,
+            "leg2_remaining_gal": 20,
+            "leg2_tow_lbs": 8560.6,
+            "route_feasible": true,
+            "total_time_min": 568.7
+          },
+          "strict": {
+            "checker_version": "0.2",
+            "reward": 0,
+            "weighted": 81.48,
+            "passed": 22,
+            "total": 27
+          },
+          "score_source": {
+            "path": "5-评测报告/复算/2026-10-24/results.json",
+            "record_lines": [
+              5185,
+              5210
+            ],
+            "check_lines": [
+              5292,
+              5351
+            ]
+          },
+          "version_conflict_source": {
+            "path": "3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan/traces/conversation.jsonl",
+            "lines": [
+              30,
+              31
+            ]
+          }
+        }
+      ],
+      "rule_source": {
+        "path": "2-用例/tb-cargo-plan/spec.md",
+        "lines": [
+          12,
+          49
+        ]
+      },
+      "checker_source": {
+        "path": "2-用例/tb-cargo-plan/checker.py",
+        "lines": [
+          298,
+          341
+        ]
+      },
+      "expected": {
+        "leg2_fob_gal_approx": 145.7,
+        "leg1_tow_lbs_approx": 8464.3,
+        "leg2_landing_lbs_approx": 7885,
+        "total_time_min_approx": 668.7
+      },
+      "doubao_checks_gained_vs_dsh": [
+        "tow_within_limit",
+        "leg2_fuel_below_planned",
+        "leg2_remaining_below_reserve",
+        "route_feasible"
+      ],
+      "doubao_checks_lost_vs_dsh": [
+        "tow_leg1"
+      ],
+      "shared_failures": [
+        "leg2_weight_limits_fuel",
+        "landing_weight_leg2",
+        "total_time_includes_turnaround",
+        "total_time_value"
+      ],
+      "observation": "DSH retains reserve-based fueling and submits an overloaded infeasible plan; Doubao switches intermediate stops to minimum landing fuel and submits a feasible but contract-incomplete plan.",
+      "cause_clue": "Submitted code and transition outputs expose different fuel policies; neither implements the specified weight-limited leg-2 fuel cap. Both sum leg time without turnaround.",
+      "verified_scope": "Archived code/plan and existing v0.2 replay checks support four gains and one loss, net three checks; both rewards remain zero due critical time failure.",
+      "limits": [
+        "Cross-model A versus B is an end-to-end product observation, not Harness attribution",
+        "CLI/GUI tools, SKILL, permissions, prefixes and timing not controlled",
+        "One selected run each",
+        "Both original submissions retain code; this pair does not rely on later source supplements",
+        "Doubao final meta version and initial meta seen in trace differ; actual run-time version remains unproven",
+        "No complete no-leakage or OS sandbox claim"
+      ]
+    }
+  ]
+}

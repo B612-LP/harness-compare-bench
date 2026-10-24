@@ -41,7 +41,9 @@ def main():
         '4-打分细则/判卷审计-2026-10-24/execution/README.md',
         '5-评测报告/README.md', '5-评测报告/阶段报告-v2.0.md',
         '5-评测报告/运行总账-2026-10-24.md', '6-周报/2026-10-24-第2期.md')]
-    docs += [HERE / 'README.md', REPO / '反馈/2026-10-21-第一轮/验收条款-公开版.md']
+    docs += [HERE / 'README.md', REPO / '反馈/2026-10-21-第一轮/验收条款-公开版.md',
+             REPO / '2-用例/bird-ca-schools-15/spec.md', REPO / '5-评测报告/竞品案例-2026-10-24.md']
+    docs += list((HERE / 'bird-semantic-review').glob('*.md'))
     tracked = {REPO / p for p in subprocess.check_output(
         ['git', 'ls-files', '-z'], cwd=str(REPO)).decode().split('\0') if p}
     regrade = load(HERE / 'results.json')
@@ -100,7 +102,7 @@ def main():
                    'files_considered': len(candidates), 'compressed_sessions_checked': compressed_checked})
     errors += secret_hits
     # Parse current implementation/audit Python, not intentionally broken task submissions.
-    python_paths = list(HERE.glob('*.py'))
+    python_paths = list(HERE.glob('*.py')) + list((HERE / 'bird-semantic-review').glob('*.py'))
     for case in ('bird-ca-schools-15', 'dabstep-payments-10', 'exercism-py-6', 'tb-cargo-plan'):
         python_paths += list((REPO / '2-用例' / case).glob('*.py'))
     for path in python_paths:

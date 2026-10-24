@@ -3,8 +3,8 @@
   "updated": "2026-10-24",
   "policy": "未知不补0/满分/clean，不折算；status只允许open/closed/accepted，remediation_status另记待修复/复算。保留history。具体漏洞closed需修复、回归、原现场只读复算和独立验收；一般正确性仍open。",
   "counts": {
-    "open": 9,
-    "closed": 7,
+    "open": 10,
+    "closed": 8,
     "accepted": 5
   },
   "unknowns": [
@@ -160,13 +160,28 @@
     },
     {
       "id": "bird-q26-q27",
-      "item": "bird-ca-schools-15 的 q26/q27 双款同时失手",
-      "impact": "q26/q27 gold行数/去重语义尚未独立验证；影响可能因产品SQL不同而不同，不能保证全体同向或相对排名不变。BIRD schema修复和oracle自测不解决gold语义争议。",
-      "next_step": "只读独立复核两题gold SQL、中文题面与evidence；本期不补GUI、不改原gold。必要改题须另立版本再验证，不能静默改分。",
-      "stop_condition": "取得独立SQL/语义复核证据才可接受或纠正；当前保持open并披露绝对分/相对结论均有此局限。",
+      "item": "BIRD q26/q27未独立复核的证据缺口已结清（不是合同已修好）",
+      "impact": "q26确定题面FRPM与gold Free字段不一致，6所对5所；八场均按FRPM作答，不应当作能力错误。q27主要为LEFT/INNER人口与键格式差异，357重复投影来自不同学校，不是八场失分的去重原因。",
+      "next_step": "引用两套独立复核与八场敏感性；合同修订另登记bird-semantic-contract-revision，不改原gold/原分。",
+      "stop_condition": "独立Python基础表重构加SQL交叉验证11/11，另一套独立SQL执行逐题复现8/8及12项哈希不变；两种q26敏感性八headline均不翻，结清的是未复核证据缺口，不证明题库普遍正确。",
       "review_date": "2026-10-24",
-      "status": "open",
+      "status": "closed",
+      "resolution": "已证q26列含义合同冲突；q27保留NULL与前导零政策尚未明确，不宣称任一JOIN唯一业务正确。冻结结果只作参考，下一版本修订仍open。",
+      "sources": [
+        "5-评测报告/复算/2026-10-24/bird-semantic-review/README.md",
+        "5-评测报告/复算/2026-10-24/bird-semantic-review/results.json",
+        "5-评测报告/复算/2026-10-24/bird-semantic-review/independent-review.md",
+        "5-评测报告/复算/2026-10-24/bird-semantic-review/independent-results.json"
+      ],
       "history": [
+        {
+          "as_of": "2026-10-24-before-semantic-review",
+          "status": "open",
+          "item": "bird-ca-schools-15 的 q26/q27 双款同时失手",
+          "impact": "q26/q27 gold行数/去重语义尚未独立验证；影响可能因产品SQL不同而不同，不能保证全体同向或相对排名不变。BIRD schema修复和oracle自测不解决gold语义争议。",
+          "next_step": "只读独立复核两题gold SQL、中文题面与evidence；本期不补GUI、不改原gold。必要改题须另立版本再验证，不能静默改分。",
+          "stop_condition": "取得独立SQL/语义复核证据才可接受或纠正；保持open并披露绝对分/相对结论均有此局限。"
+        },
         {
           "as_of": "2026-10-22",
           "original": {
@@ -179,6 +194,34 @@
             "status": "open"
           }
         }
+      ]
+    },
+    {
+      "id": "bird-semantic-contract-revision",
+      "item": "BIRD q26字段/年龄与q27缺SAT、NULL、键格式合同仍需新版修订",
+      "impact": "q26冻结失分不能当作模型能力扣分；q27输出人口与前导零政策未显式确定，不能给唯一业务正确结论。两种q26敏感性只对本批八场二值不翻成立，不外推排名。",
+      "next_step": "下一版本先明确q26采用FRPM还是仅Free、5-17与原文15-17如何披露；明确q27缺SAT/NULL保留和前导零规范化，另立版本加独立正反例，再决定历史SQL是否可比。当前原分标冻结参考，停止用争议项支撑能力扣分。",
+      "stop_condition": "题面/evidence/gold与独立基础数据计算一致且边界例通过后才可closed；业务口径无法确定则排除争议项并接受范围限制，不静默补分、不为修订擅自新增模型/GUI。",
+      "review_date": "2026-10-28",
+      "status": "open",
+      "remediation_status": "已复核并定位；合同修订未完成",
+      "sources": [
+        "2-用例/bird-ca-schools-15/spec.md",
+        "5-评测报告/复算/2026-10-24/bird-semantic-review/results.json",
+        "5-评测报告/复算/2026-10-24/bird-semantic-review/independent-results.json"
+      ]
+    },
+    {
+      "id": "dab-q2697-contract-ambiguity",
+      "item": "DAB q2697 selected ACI与card_scheme占位的题面歧义",
+      "impact": "guidelines要求selected ACI，但格式给{card_scheme}:{fee}，与冻结gold采用ACI并非同一层字段。当前strict只修已知符号/ACI匹配，不能把该题冻结失分当作已验证模型/Harness能力缺陷。",
+      "next_step": "独立核对原题guidelines、业务含义及gold，下一版本先统一ACI或card_scheme格式；本期保留冻结分与该歧义，不以此追加因果结论，不新跑模型/GUI。",
+      "stop_condition": "题面格式、业务目标与gold相互一致并有正确/近正确对照才结清；无法确认则排除能力归因，不按产物多数投票修gold。",
+      "review_date": "2026-10-28",
+      "status": "open",
+      "sources": [
+        "2-用例/dabstep-payments-10/inputs/questions.jsonl#L10",
+        "5-评测报告/竞品案例-2026-10-24.md"
       ]
     },
     {
@@ -254,7 +297,7 @@
       "item": "BIRD schema红项仍可达标的具体漏洞待独立验收",
       "impact": "旧v1.0 oracle后追加非法行仍reward1，不能因逐题正确就忽略契约格式。q26/q27 gold语义争议是另一项，未被此修复解决。",
       "next_step": "本具体漏洞结清；以后新增攻击面另登记，不把有限验收外推为一般正确性或任意敌意代码安全。",
-      "stop_condition": "修复、红绿回归、适用原产物复算、独立正反例验收四项齐备才结清本漏洞；一般正确性和q26/q27保持open。",
+      "stop_condition": "修复、红绿回归、适用原产物复算、独立正反例验收四项齐备才结清本漏洞；一般正确性及另列的BIRD语义合同修订仍open，不能借schema修复宣称语义正确。",
       "review_date": "2026-10-24",
       "status": "closed",
       "remediation_status": "已修复/已回归/已现场只读复算/已独立验收",

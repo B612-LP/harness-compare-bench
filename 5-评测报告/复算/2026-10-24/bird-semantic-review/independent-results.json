@@ -1,0 +1,690 @@
+{
+  "method": "Independent sqlite3 execution; no checker/numeric code imported; ro+immutable+query_only+SELECT authorizer; outputs in dedicated derived-review directory; existing submissions only",
+  "root": "/Users/b612-lp/Documents/harness-compare-bench",
+  "questions": [
+    {
+      "question_id": 26,
+      "difficulty": "moderate",
+      "question_zh": "列出 Monterey 县中、5-17 岁免费或减价餐人数超过 800 的公立高中（School Type = 'High Schools (Public)'）的名称与完整通讯地址（按顺序输出 5 列：`School Name`、Street、City、State、Zip）。",
+      "evidence_zh": "完整通讯地址包含 Street、City、State、Zip（有值则给）。",
+      "answer_columns": [
+        "School Name",
+        "Street",
+        "City",
+        "State",
+        "Zip"
+      ],
+      "question_en_original": "State the names and full communication address of high schools in Monterey which has more than 800 free or reduced price meals for ages 15-17?",
+      "evidence_en_original": "Full communication address should include Street, City, State and zip code if any.",
+      "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+    },
+    {
+      "question_id": 27,
+      "difficulty": "moderate",
+      "question_zh": "对 1991 年之后开办、或 2000 年之前关闭的学校，列出学校名称、SAT 写作平均分与联系电话（有则给），按顺序输出 3 列：School、AvgScrWrite、Phone。",
+      "evidence_zh": "通讯号码指电话（Phone）。",
+      "answer_columns": [
+        "School",
+        "AvgScrWrite",
+        "Phone"
+      ],
+      "question_en_original": "What is the average score in writing for the schools that were opened after 1991 or closed before 2000? List the school names along with the score. Also, list the communication number of the schools if there is any.",
+      "evidence_en_original": "Communication number refers to phone number.",
+      "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+    }
+  ],
+  "q26": {
+    "gold_sql": "SELECT T1.`School Name`, T2.Street, T2.City, T2.State, T2.Zip FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.County = 'Monterey' AND T1.`Free Meal Count (Ages 5-17)` > 800 AND T1.`School Type` = 'High Schools (Public)'",
+    "counterfactual_frpm_sql": "SELECT T1.`School Name`, T2.Street, T2.City, T2.State, T2.Zip FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.County = 'Monterey' AND T1.`FRPM Count (Ages 5-17)` > 800 AND T1.`School Type` = 'High Schools (Public)'",
+    "free_rows": [
+      [
+        "Alisal High",
+        "777 Williams Road",
+        "Salinas",
+        "CA",
+        "93905-1907"
+      ],
+      [
+        "Everett Alvarez High",
+        "1900 Independence Boulevard",
+        "Salinas",
+        "CA",
+        "93906-5300"
+      ],
+      [
+        "North Salinas High",
+        "55 Kip Drive",
+        "Salinas",
+        "CA",
+        "93906-2908"
+      ],
+      [
+        "Salinas High",
+        "726 South Main Street",
+        "Salinas",
+        "CA",
+        "93901-3243"
+      ],
+      [
+        "Soledad High",
+        "425 Gabilan Drive",
+        "Soledad",
+        "CA",
+        "93960-3207"
+      ]
+    ],
+    "frpm_rows": [
+      [
+        "Alisal High",
+        "777 Williams Road",
+        "Salinas",
+        "CA",
+        "93905-1907"
+      ],
+      [
+        "Everett Alvarez High",
+        "1900 Independence Boulevard",
+        "Salinas",
+        "CA",
+        "93906-5300"
+      ],
+      [
+        "North Salinas High",
+        "55 Kip Drive",
+        "Salinas",
+        "CA",
+        "93906-2908"
+      ],
+      [
+        "Salinas High",
+        "726 South Main Street",
+        "Salinas",
+        "CA",
+        "93901-3243"
+      ],
+      [
+        "North Monterey County High",
+        "13990 Castroville Boulevard",
+        "Castroville",
+        "CA",
+        "95012-9749"
+      ],
+      [
+        "Soledad High",
+        "425 Gabilan Drive",
+        "Soledad",
+        "CA",
+        "93960-3207"
+      ]
+    ],
+    "frpm_only_rows": [
+      [
+        "North Monterey County High",
+        "13990 Castroville Boulevard",
+        "Castroville",
+        "CA",
+        "95012-9749"
+      ]
+    ],
+    "school_metric_rows": [
+      [
+        "27661592730109",
+        "Alisal High",
+        1465.0,
+        1730.0
+      ],
+      [
+        "27661592730166",
+        "Everett Alvarez High",
+        1166.0,
+        1414.0
+      ],
+      [
+        "27661592733178",
+        "North Salinas High",
+        985.0,
+        1177.0
+      ],
+      [
+        "27661592734556",
+        "Salinas High",
+        898.0,
+        1064.0
+      ],
+      [
+        "27738252730034",
+        "North Monterey County High",
+        611.0,
+        804.0
+      ],
+      [
+        "27754402730190",
+        "Soledad High",
+        1147.0,
+        1206.0
+      ]
+    ]
+  },
+  "q27": {
+    "gold_sql": "SELECT T2.School, T1.AvgScrWrite, T2.Phone FROM schools AS T2 LEFT JOIN satscores AS T1 ON T2.CDSCode = T1.cds WHERE strftime('%Y', T2.OpenDate) > '1991' OR strftime('%Y', T2.ClosedDate) < '2000'",
+    "gold_rows": 8574,
+    "gold_distinct_raw": 8217,
+    "gold_distinct_normalized": 8217,
+    "extra_duplicate_rows": 357,
+    "duplicate_groups": 238,
+    "duplicate_examples": [
+      {
+        "row": [
+          "Washington Elementary",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 15
+      },
+      {
+        "row": [
+          "Lincoln Elementary",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 13
+      },
+      {
+        "row": [
+          "Alternative/Opportunity",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 10
+      },
+      {
+        "row": [
+          "Independent Study",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 9
+      },
+      {
+        "row": [
+          "Franklin Elementary",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 8
+      },
+      {
+        "row": [
+          "Community Day",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 8
+      },
+      {
+        "row": [
+          "Juvenile Hall",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 7
+      },
+      {
+        "row": [
+          "Other County-Wide Programs",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 6
+      },
+      {
+        "row": [
+          "Madison Elementary",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 6
+      },
+      {
+        "row": [
+          "Jefferson Elementary",
+          "<NULL>",
+          "<NULL>"
+        ],
+        "count": 6
+      }
+    ],
+    "duplicate_groups_with_nonnull_score": 0,
+    "inner_rows": 749,
+    "inner_distinct": 749,
+    "left_date_predicate_matches": true,
+    "qualifying_school_count": 8574,
+    "unmatched_sat_rows": 7825,
+    "matched_sat_null_write": 295,
+    "null_write_gold_rows": 8120,
+    "qualifying_distinct_cdscode": 8574,
+    "duplicated_projection_school_ids": [
+      [
+        "10624141030824",
+        "Community Day",
+        null,
+        "(559) 524-6630"
+      ],
+      [
+        "15634046118228",
+        "Community Day",
+        null,
+        null
+      ],
+      [
+        "19643941996297",
+        "Community Day",
+        null,
+        "(909) 398-0316"
+      ],
+      [
+        "28102800115691",
+        "Community Day",
+        null,
+        null
+      ],
+      [
+        "33669936117261",
+        "Community Day",
+        null,
+        null
+      ],
+      [
+        "34674393430832",
+        "Community Day",
+        null,
+        null
+      ],
+      [
+        "36750510101436",
+        "Community Day",
+        null,
+        null
+      ],
+      [
+        "41690700127563",
+        "Community Day",
+        null,
+        "(650) 616-3882"
+      ],
+      [
+        "42692866118301",
+        "Community Day",
+        null,
+        null
+      ],
+      [
+        "43693930112136",
+        "Community Day",
+        null,
+        null
+      ]
+    ]
+  },
+  "runs": [
+    {
+      "product": "codex",
+      "replicate": "first",
+      "run_id": "3-表现现场/r1025-candidates/bird-ca-schools-15__codex",
+      "source": "3-表现现场/r1025-candidates/bird-ca-schools-15__codex/answers.jsonl",
+      "answers_sha256": "f686960103fff95acacfb4bc584f442dee9390f9197037e09c929ee1ff13c063",
+      "recomputed": {
+        "correct": 13,
+        "denominator": 15,
+        "weighted": 86.67,
+        "reward": 1
+      },
+      "receipt_weighted": 86.67,
+      "receipt_reward": 1,
+      "receipt_matches_independent": true,
+      "failed_questions": [
+        "26",
+        "27"
+      ],
+      "exclude_q26": {
+        "correct": 13,
+        "denominator": 14,
+        "weighted": 92.86,
+        "reward": 1
+      },
+      "replace_q26_frpm": {
+        "correct": 14,
+        "denominator": 15,
+        "weighted": 93.33,
+        "reward": 1
+      },
+      "q26_rows": 6,
+      "q26_matches_frpm": true,
+      "q27_sql": "SELECT sc.School, s.AvgScrWrite, sc.Phone FROM schools sc JOIN satscores s ON sc.CDSCode = s.cds WHERE sc.OpenDate > '1991-12-31' OR sc.ClosedDate < '2000-01-01'",
+      "q27_rows": 749,
+      "q27_distinct": 749,
+      "q27_pass_multiset": false,
+      "q27_pass_if_both_deduplicated": false,
+      "q27_missing_bag_rows": 7825,
+      "q27_extra_bag_rows": 0,
+      "q27_exact_inner_equivalent": true
+    },
+    {
+      "product": "dsh",
+      "replicate": "first",
+      "run_id": "3-表现现场/r1025-candidates/bird-ca-schools-15__dsh",
+      "source": "3-表现现场/r1025-candidates/bird-ca-schools-15__dsh/answers.jsonl",
+      "answers_sha256": "57e8389992dc341a1414a7a299dcc58f5bea36f486346d306fefcb1fe3d390f1",
+      "recomputed": {
+        "correct": 13,
+        "denominator": 15,
+        "weighted": 86.67,
+        "reward": 1
+      },
+      "receipt_weighted": 86.67,
+      "receipt_reward": 1,
+      "receipt_matches_independent": true,
+      "failed_questions": [
+        "26",
+        "27"
+      ],
+      "exclude_q26": {
+        "correct": 13,
+        "denominator": 14,
+        "weighted": 92.86,
+        "reward": 1
+      },
+      "replace_q26_frpm": {
+        "correct": 14,
+        "denominator": 15,
+        "weighted": 93.33,
+        "reward": 1
+      },
+      "q26_rows": 6,
+      "q26_matches_frpm": true,
+      "q27_sql": "SELECT T2.School, T1.AvgScrWrite, T2.Phone\nFROM satscores AS T1\nINNER JOIN schools AS T2 ON T1.cds = T2.CDSCode\nWHERE T2.OpenDate > '1991-12-31' OR T2.ClosedDate < '2000-01-01'",
+      "q27_rows": 749,
+      "q27_distinct": 749,
+      "q27_pass_multiset": false,
+      "q27_pass_if_both_deduplicated": false,
+      "q27_missing_bag_rows": 7825,
+      "q27_extra_bag_rows": 0,
+      "q27_exact_inner_equivalent": true
+    },
+    {
+      "product": "workbuddy",
+      "replicate": "first",
+      "run_id": "3-表现现场/r1026-desktop-15/runs/workbuddy/bird-ca-schools-15",
+      "source": "3-表现现场/r1026-desktop-15/runs/workbuddy/bird-ca-schools-15/answers.jsonl",
+      "answers_sha256": "94d07cc3880ca6696c74c136a75c17ef81d904e785e71083490ea6ad51e273d2",
+      "recomputed": {
+        "correct": 13,
+        "denominator": 15,
+        "weighted": 86.67,
+        "reward": 1
+      },
+      "receipt_weighted": 86.67,
+      "receipt_reward": 1,
+      "receipt_matches_independent": true,
+      "failed_questions": [
+        "26",
+        "27"
+      ],
+      "exclude_q26": {
+        "correct": 13,
+        "denominator": 14,
+        "weighted": 92.86,
+        "reward": 1
+      },
+      "replace_q26_frpm": {
+        "correct": 14,
+        "denominator": 15,
+        "weighted": 93.33,
+        "reward": 1
+      },
+      "q26_rows": 6,
+      "q26_matches_frpm": true,
+      "q27_sql": "SELECT s.School, sa.AvgScrWrite, s.Phone FROM schools s JOIN satscores sa ON sa.cds = s.CDSCode WHERE s.OpenDate > '1991-12-31' OR s.ClosedDate < '2000-01-01'",
+      "q27_rows": 749,
+      "q27_distinct": 749,
+      "q27_pass_multiset": false,
+      "q27_pass_if_both_deduplicated": false,
+      "q27_missing_bag_rows": 7825,
+      "q27_extra_bag_rows": 0,
+      "q27_exact_inner_equivalent": true
+    },
+    {
+      "product": "doubao",
+      "replicate": "first",
+      "run_id": "3-表现现场/r1026-desktop-15/runs/doubao/bird-ca-schools-15",
+      "source": "3-表现现场/r1026-desktop-15/runs/doubao/bird-ca-schools-15/answers.jsonl",
+      "answers_sha256": "0a40b5535520e0d988e5e8d85d111fa63c4b6d129198dbd1e440986cba01fbcf",
+      "recomputed": {
+        "correct": 9,
+        "denominator": 15,
+        "weighted": 60.0,
+        "reward": 0
+      },
+      "receipt_weighted": 60.0,
+      "receipt_reward": 0,
+      "receipt_matches_independent": true,
+      "failed_questions": [
+        "36",
+        "23",
+        "24",
+        "26",
+        "27",
+        "17"
+      ],
+      "exclude_q26": {
+        "correct": 9,
+        "denominator": 14,
+        "weighted": 64.29,
+        "reward": 0
+      },
+      "replace_q26_frpm": {
+        "correct": 10,
+        "denominator": 15,
+        "weighted": 66.67,
+        "reward": 0
+      },
+      "q26_rows": 6,
+      "q26_matches_frpm": true,
+      "q27_sql": "SELECT s.School, st.AvgScrWrite, s.Phone FROM schools s JOIN satscores st ON (s.CDSCode = st.cds OR s.CDSCode = '0' || st.cds) WHERE st.rtype = 'S' AND (s.OpenDate > '1991-12-31' OR s.ClosedDate < '2000-01-01')",
+      "q27_rows": 813,
+      "q27_distinct": 813,
+      "q27_pass_multiset": false,
+      "q27_pass_if_both_deduplicated": false,
+      "q27_missing_bag_rows": 7800,
+      "q27_extra_bag_rows": 39,
+      "q27_exact_inner_equivalent": false
+    },
+    {
+      "product": "codex",
+      "replicate": "repeat-2",
+      "run_id": "3-表现现场/r1028-repeats/runs/codex__bird-ca-schools-15__r2",
+      "source": "3-表现现场/r1028-repeats/runs/codex__bird-ca-schools-15__r2/workspace/answers.jsonl",
+      "answers_sha256": "324e24f3bfb4c2b6db89edf9094976d8ab6965574a307bcc22900538224492b8",
+      "recomputed": {
+        "correct": 13,
+        "denominator": 15,
+        "weighted": 86.67,
+        "reward": 1
+      },
+      "receipt_weighted": 86.67,
+      "receipt_reward": 1,
+      "receipt_matches_independent": true,
+      "failed_questions": [
+        "26",
+        "27"
+      ],
+      "exclude_q26": {
+        "correct": 13,
+        "denominator": 14,
+        "weighted": 92.86,
+        "reward": 1
+      },
+      "replace_q26_frpm": {
+        "correct": 14,
+        "denominator": 15,
+        "weighted": 93.33,
+        "reward": 1
+      },
+      "q26_rows": 6,
+      "q26_matches_frpm": true,
+      "q27_sql": "SELECT s.School, t.AvgScrWrite, s.Phone FROM schools AS s JOIN satscores AS t ON s.CDSCode = t.cds WHERE s.OpenDate > '1991-12-31' OR s.ClosedDate < '2000-01-01'",
+      "q27_rows": 749,
+      "q27_distinct": 749,
+      "q27_pass_multiset": false,
+      "q27_pass_if_both_deduplicated": false,
+      "q27_missing_bag_rows": 7825,
+      "q27_extra_bag_rows": 0,
+      "q27_exact_inner_equivalent": true
+    },
+    {
+      "product": "codex",
+      "replicate": "repeat-3",
+      "run_id": "3-表现现场/r1028-repeats/runs/codex__bird-ca-schools-15__r3",
+      "source": "3-表现现场/r1028-repeats/runs/codex__bird-ca-schools-15__r3/workspace/answers.jsonl",
+      "answers_sha256": "1eab0606acad9fa426e147ab76700da6cfca84c7eda6f07e798b01502648280c",
+      "recomputed": {
+        "correct": 12,
+        "denominator": 15,
+        "weighted": 80.0,
+        "reward": 1
+      },
+      "receipt_weighted": 80.0,
+      "receipt_reward": 1,
+      "receipt_matches_independent": true,
+      "failed_questions": [
+        "28",
+        "26",
+        "27"
+      ],
+      "exclude_q26": {
+        "correct": 12,
+        "denominator": 14,
+        "weighted": 85.71,
+        "reward": 1
+      },
+      "replace_q26_frpm": {
+        "correct": 13,
+        "denominator": 15,
+        "weighted": 86.67,
+        "reward": 1
+      },
+      "q26_rows": 6,
+      "q26_matches_frpm": true,
+      "q27_sql": "SELECT s.School, st.AvgScrWrite, s.Phone FROM schools s JOIN satscores st ON s.CDSCode = st.cds WHERE s.OpenDate > '1991-12-31' OR s.ClosedDate < '2000-01-01'",
+      "q27_rows": 749,
+      "q27_distinct": 749,
+      "q27_pass_multiset": false,
+      "q27_pass_if_both_deduplicated": false,
+      "q27_missing_bag_rows": 7825,
+      "q27_extra_bag_rows": 0,
+      "q27_exact_inner_equivalent": true
+    },
+    {
+      "product": "dsh",
+      "replicate": "repeat-2",
+      "run_id": "3-表现现场/r1028-repeats/runs/dsh__bird-ca-schools-15__r2",
+      "source": "3-表现现场/r1028-repeats/runs/dsh__bird-ca-schools-15__r2/workspace/answers.jsonl",
+      "answers_sha256": "eca72cc5dbe6bf1a141f9b87e8d44d24cab9743359256ff4fda3074ca22bc737",
+      "recomputed": {
+        "correct": 13,
+        "denominator": 15,
+        "weighted": 86.67,
+        "reward": 1
+      },
+      "receipt_weighted": 86.67,
+      "receipt_reward": 1,
+      "receipt_matches_independent": true,
+      "failed_questions": [
+        "26",
+        "27"
+      ],
+      "exclude_q26": {
+        "correct": 13,
+        "denominator": 14,
+        "weighted": 92.86,
+        "reward": 1
+      },
+      "replace_q26_frpm": {
+        "correct": 14,
+        "denominator": 15,
+        "weighted": 93.33,
+        "reward": 1
+      },
+      "q26_rows": 6,
+      "q26_matches_frpm": true,
+      "q27_sql": "SELECT T2.School, T1.AvgScrWrite, T2.Phone\nFROM satscores AS T1\nJOIN schools AS T2 ON T1.cds = T2.CDSCode\nWHERE T2.OpenDate > '1991-12-31'\n   OR T2.ClosedDate < '2000-01-01'",
+      "q27_rows": 749,
+      "q27_distinct": 749,
+      "q27_pass_multiset": false,
+      "q27_pass_if_both_deduplicated": false,
+      "q27_missing_bag_rows": 7825,
+      "q27_extra_bag_rows": 0,
+      "q27_exact_inner_equivalent": true
+    },
+    {
+      "product": "dsh",
+      "replicate": "repeat-3",
+      "run_id": "3-表现现场/r1028-repeats/runs/dsh__bird-ca-schools-15__r3",
+      "source": "3-表现现场/r1028-repeats/runs/dsh__bird-ca-schools-15__r3/workspace/answers.jsonl",
+      "answers_sha256": "2a45a83f9bf6c89741a546cd2578e187a4b74107923d5cd706bdcac92c3ef81e",
+      "recomputed": {
+        "correct": 13,
+        "denominator": 15,
+        "weighted": 86.67,
+        "reward": 1
+      },
+      "receipt_weighted": 86.67,
+      "receipt_reward": 1,
+      "receipt_matches_independent": true,
+      "failed_questions": [
+        "26",
+        "27"
+      ],
+      "exclude_q26": {
+        "correct": 13,
+        "denominator": 14,
+        "weighted": 92.86,
+        "reward": 1
+      },
+      "replace_q26_frpm": {
+        "correct": 14,
+        "denominator": 15,
+        "weighted": 93.33,
+        "reward": 1
+      },
+      "q26_rows": 6,
+      "q26_matches_frpm": true,
+      "q27_sql": "SELECT T2.School, T1.AvgScrWrite, T2.Phone\nFROM schools AS T2\nJOIN satscores AS T1 ON T1.cds = T2.CDSCode\nWHERE T2.OpenDate > '1991-12-31' OR T2.ClosedDate < '2000-01-01'",
+      "q27_rows": 749,
+      "q27_distinct": 749,
+      "q27_pass_multiset": false,
+      "q27_pass_if_both_deduplicated": false,
+      "q27_missing_bag_rows": 7825,
+      "q27_extra_bag_rows": 0,
+      "q27_exact_inner_equivalent": true
+    }
+  ],
+  "headline_changes": {
+    "exclude_q26": 0,
+    "replace_q26_frpm": 0
+  },
+  "read_only_hash_check": {
+    "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/truth.json": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/inputs/questions.json": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/inputs/db/california_schools.sqlite": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/5-评测报告/复算/2026-10-24/results.json": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__codex/answers.jsonl": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__dsh/answers.jsonl": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/bird-ca-schools-15/answers.jsonl": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/bird-ca-schools-15/answers.jsonl": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1028-repeats/runs/codex__bird-ca-schools-15__r2/workspace/answers.jsonl": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1028-repeats/runs/codex__bird-ca-schools-15__r3/workspace/answers.jsonl": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1028-repeats/runs/dsh__bird-ca-schools-15__r2/workspace/answers.jsonl": true,
+    "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1028-repeats/runs/dsh__bird-ca-schools-15__r3/workspace/answers.jsonl": true
+  }
+}
