@@ -1,0 +1,817 @@
+[
+  {
+    "case": "bird-ca-schools-15",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T21:00:27+08:00",
+    "prompt_sha256": "8b32cc7f046ba16b7d609287431d20fb701399fd904309486f38c338cb1de8c5",
+    "inputs": [
+      {
+        "path": "inputs/db/california_schools.sqlite",
+        "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+        "bytes": 11116544
+      },
+      {
+        "path": "inputs/questions.json",
+        "sha256": "0cbe99d6419d809f1d6030ec486c340fdf2a709c7854bfbfcd712b587cbe1aa8",
+        "bytes": 15547
+      },
+      {
+        "path": "inputs/sample_rows.json",
+        "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+        "bytes": 7739
+      },
+      {
+        "path": "inputs/schema.sql",
+        "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+        "bytes": 3993
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 176.6,
+    "reward": 1,
+    "weighted": 86.67,
+    "failed": [
+      "q26",
+      "q27"
+    ],
+    "checker": {
+      "case": "bird-ca-schools-15",
+      "checker_version": "1.0",
+      "binary": true,
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__codex",
+      "reward": 1,
+      "weighted": 86.67,
+      "accuracy": 0.8667,
+      "correct": 13,
+      "n_questions": 15,
+      "threshold": 0.8,
+      "input_integrity": "verified",
+      "failed_questions": [
+        "26",
+        "27"
+      ]
+    },
+    "usage": {
+      "input_tokens": 1366556,
+      "cached_input_tokens": 1338880,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 38871,
+      "reasoning_output_tokens": 16222
+    },
+    "tool_calls": 60,
+    "by_tool": {
+      "?": 60
+    },
+    "steps": 60
+  },
+  {
+    "case": "bird-ca-schools-15",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:53:52+08:00",
+    "prompt_sha256": "8bcae898adf5de10147f271069502ad2e248b0d8d1e926aaa04302eb6fbb8867",
+    "inputs": [
+      {
+        "path": "inputs/db/california_schools.sqlite",
+        "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+        "bytes": 11116544
+      },
+      {
+        "path": "inputs/questions.json",
+        "sha256": "0cbe99d6419d809f1d6030ec486c340fdf2a709c7854bfbfcd712b587cbe1aa8",
+        "bytes": 15547
+      },
+      {
+        "path": "inputs/sample_rows.json",
+        "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+        "bytes": 7739
+      },
+      {
+        "path": "inputs/schema.sql",
+        "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+        "bytes": 3993
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 128.5,
+    "reward": 1,
+    "weighted": 86.67,
+    "failed": [
+      "q26",
+      "q27"
+    ],
+    "checker": {
+      "case": "bird-ca-schools-15",
+      "checker_version": "1.0",
+      "binary": true,
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__dsh",
+      "reward": 1,
+      "weighted": 86.67,
+      "accuracy": 0.8667,
+      "correct": 13,
+      "n_questions": 15,
+      "threshold": 0.8,
+      "input_integrity": "verified",
+      "failed_questions": [
+        "26",
+        "27"
+      ]
+    },
+    "usage": {
+      "inputTokens": 381,
+      "outputTokens": 75,
+      "cacheReadTokens": 49280,
+      "cacheWriteTokens": 0,
+      "totalTokens": 49736
+    },
+    "tool_calls": 35,
+    "by_tool": {
+      "bash": 35
+    },
+    "steps": 35
+  },
+  {
+    "case": "dabstep-payments-10",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:49:05+08:00",
+    "prompt_sha256": "ea65a3d1868132734c78533ec248275ff285d36e27082b7c18853dd6d76628a2",
+    "inputs": [
+      {
+        "path": "inputs/acquirer_countries.csv",
+        "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+        "bytes": 194
+      },
+      {
+        "path": "inputs/fees.json",
+        "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+        "bytes": 531118
+      },
+      {
+        "path": "inputs/manual.md",
+        "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+        "bytes": 22127
+      },
+      {
+        "path": "inputs/merchant_category_codes.csv",
+        "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+        "bytes": 26611
+      },
+      {
+        "path": "inputs/merchant_data.json",
+        "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+        "bytes": 6857
+      },
+      {
+        "path": "inputs/payments.csv",
+        "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+        "bytes": 23581339
+      },
+      {
+        "path": "inputs/questions.jsonl",
+        "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+        "bytes": 3889
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 274.0,
+    "reward": 0,
+    "weighted": 70.0,
+    "failed": [
+      "q49",
+      "q70",
+      "q2697"
+    ],
+    "checker": {
+      "case": "dabstep-payments-10",
+      "case_id": "dabstep-payments-10",
+      "checker_version": "0.1",
+      "binary": true,
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__codex",
+      "artifact": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__codex/answers.jsonl",
+      "reward": 0,
+      "weighted": 70.0,
+      "score_rate": 0.7,
+      "threshold": 0.8,
+      "correct": 7,
+      "n_tasks": 10,
+      "gates": {
+        "answers_format": true,
+        "input_integrity": true
+      },
+      "input_integrity": "verified",
+      "failed": [
+        "q49",
+        "q70",
+        "q2697"
+      ]
+    },
+    "usage": {
+      "input_tokens": 1384237,
+      "cached_input_tokens": 1345792,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 56433,
+      "reasoning_output_tokens": 33680
+    },
+    "tool_calls": 40,
+    "by_tool": {
+      "?": 40
+    },
+    "steps": 40
+  },
+  {
+    "case": "dabstep-payments-10",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:49:10+08:00",
+    "prompt_sha256": "b4b482a16e7f508ad21f078639730cfb833b87de0265f02864fe448a60c2ff8d",
+    "inputs": [
+      {
+        "path": "inputs/acquirer_countries.csv",
+        "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+        "bytes": 194
+      },
+      {
+        "path": "inputs/fees.json",
+        "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+        "bytes": 531118
+      },
+      {
+        "path": "inputs/manual.md",
+        "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+        "bytes": 22127
+      },
+      {
+        "path": "inputs/merchant_category_codes.csv",
+        "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+        "bytes": 26611
+      },
+      {
+        "path": "inputs/merchant_data.json",
+        "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+        "bytes": 6857
+      },
+      {
+        "path": "inputs/payments.csv",
+        "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+        "bytes": 23581339
+      },
+      {
+        "path": "inputs/questions.jsonl",
+        "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+        "bytes": 3889
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 23.7,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "dabstep-payments-10",
+      "case_id": "dabstep-payments-10",
+      "checker_version": "0.1",
+      "binary": true,
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__dsh",
+      "artifact": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__dsh/answers.jsonl",
+      "reward": 1,
+      "weighted": 100.0,
+      "score_rate": 1.0,
+      "threshold": 0.8,
+      "correct": 10,
+      "n_tasks": 10,
+      "gates": {
+        "answers_format": true,
+        "input_integrity": true
+      },
+      "input_integrity": "verified",
+      "failed": []
+    },
+    "usage": {
+      "inputTokens": 1096,
+      "outputTokens": 70,
+      "cacheReadTokens": 29824,
+      "cacheWriteTokens": 0,
+      "totalTokens": 30990
+    },
+    "tool_calls": 14,
+    "by_tool": {
+      "bash": 14
+    },
+    "steps": 14
+  },
+  {
+    "case": "exercism-py-6",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:53:39+08:00",
+    "prompt_sha256": "7b1bbbf8356d55f58eb64e6e73b0e802f37eee8143af7322548e3078ea9386c7",
+    "inputs": [
+      {
+        "path": "inputs/README.md",
+        "sha256": "ce8cd74f03bf3517217591fc7289246069c4a6466f59960f115330ab0899956f",
+        "bytes": 674
+      },
+      {
+        "path": "inputs/exercises/bowling/README.md",
+        "sha256": "5ab7dcccef9be464f8e5f1d6a9c543d6c4c14e435c2ffe40d2e118ebfd299e32",
+        "bytes": 554
+      },
+      {
+        "path": "inputs/exercises/bowling/bowling.py",
+        "sha256": "a356c0682b6c0c04e9e30a7da603b2014c227426b43bbe37f34cd99913d368b6",
+        "bytes": 131
+      },
+      {
+        "path": "inputs/exercises/bowling/bowling_test.py",
+        "sha256": "6b9a80b6835828f575ce0aba66876850f75c59f764014ac509fe1df7e3a9ee20",
+        "bytes": 8558
+      },
+      {
+        "path": "inputs/exercises/dominoes/README.md",
+        "sha256": "77f6d2a86ba50b8ba2f0b53f1ab799eb2f30c1e4853ce1296ee1949578d6c50e",
+        "bytes": 430
+      },
+      {
+        "path": "inputs/exercises/dominoes/dominoes.py",
+        "sha256": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b",
+        "bytes": 34
+      },
+      {
+        "path": "inputs/exercises/dominoes/dominoes_test.py",
+        "sha256": "9645efc873738b9247ced09ccdce782fe2124646d24588d52c23df59e23ab140",
+        "bytes": 5099
+      },
+      {
+        "path": "inputs/exercises/forth/README.md",
+        "sha256": "0480b8a2eef97049ddff262b0bc21f5b31167561325c402918b5ceb0c37b466a",
+        "bytes": 559
+      },
+      {
+        "path": "inputs/exercises/forth/forth.py",
+        "sha256": "9acd281e02feff4fc5ae766063a1ce1290b625bb930cc8f54c15a0109610e562",
+        "bytes": 84
+      },
+      {
+        "path": "inputs/exercises/forth/forth_test.py",
+        "sha256": "05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c",
+        "bytes": 11264
+      },
+      {
+        "path": "inputs/exercises/poker/README.md",
+        "sha256": "9c24e6480e2ddbf3b72116c30cde1560657ca8ef283d1be26004ef2fa7908c97",
+        "bytes": 543
+      },
+      {
+        "path": "inputs/exercises/poker/poker.py",
+        "sha256": "6a4b5adab3ba9261fb4f9e2b09abc549b9ea37bf0774edc3c7759cec9a8b41fe",
+        "bytes": 32
+      },
+      {
+        "path": "inputs/exercises/poker/poker_test.py",
+        "sha256": "b39f023208318973e18a341449aa076f7595ff98f07174082a2a1b05c84ad8fd",
+        "bytes": 7690
+      },
+      {
+        "path": "inputs/exercises/pov/README.md",
+        "sha256": "12dafe5d49b0510037ea6ced53ae6ff08305b75f2d3be89efcad2635d54d75ec",
+        "bytes": 727
+      },
+      {
+        "path": "inputs/exercises/pov/pov.py",
+        "sha256": "ed7eba5f0b64b69a0a1904dc338ce39039b5de3ea2aa74019d8d494ca46b11ba",
+        "bytes": 622
+      },
+      {
+        "path": "inputs/exercises/pov/pov_test.py",
+        "sha256": "a5127ac17db6ad1563a08ba8ee2bbfc25ed8ab81ee56b92a355eb4a4dc2559fe",
+        "bytes": 6346
+      },
+      {
+        "path": "inputs/exercises/zipper/README.md",
+        "sha256": "8b932da02d3e213b5b1e03a8f585c89b72084d024074287d4b7427a351e4d619",
+        "bytes": 562
+      },
+      {
+        "path": "inputs/exercises/zipper/zipper.py",
+        "sha256": "66276107d448f53a12509da6f503280e0dca4a6bbd9d690a774fb0972a55f926",
+        "bytes": 359
+      },
+      {
+        "path": "inputs/exercises/zipper/zipper_test.py",
+        "sha256": "a3cf6e5ebcf6b2171bcc80fa0ce81b425af23b522f222e841fa2abd3119e95b2",
+        "bytes": 9641
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/exercism-py-6__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 95.4,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "exercism-py-6",
+      "reward": 1,
+      "weighted": 100.0
+    },
+    "usage": {
+      "input_tokens": 613849,
+      "cached_input_tokens": 575616,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 21471,
+      "reasoning_output_tokens": 10187
+    },
+    "tool_calls": 29,
+    "by_tool": {
+      "?": 29
+    },
+    "steps": 29
+  },
+  {
+    "case": "exercism-py-6",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:49:34+08:00",
+    "prompt_sha256": "50eab43149482fcaf1d0da144da0a9e0cda663de8d980aae5187a698bcc18c2f",
+    "inputs": [
+      {
+        "path": "inputs/README.md",
+        "sha256": "ce8cd74f03bf3517217591fc7289246069c4a6466f59960f115330ab0899956f",
+        "bytes": 674
+      },
+      {
+        "path": "inputs/exercises/bowling/README.md",
+        "sha256": "5ab7dcccef9be464f8e5f1d6a9c543d6c4c14e435c2ffe40d2e118ebfd299e32",
+        "bytes": 554
+      },
+      {
+        "path": "inputs/exercises/bowling/bowling.py",
+        "sha256": "a356c0682b6c0c04e9e30a7da603b2014c227426b43bbe37f34cd99913d368b6",
+        "bytes": 131
+      },
+      {
+        "path": "inputs/exercises/bowling/bowling_test.py",
+        "sha256": "6b9a80b6835828f575ce0aba66876850f75c59f764014ac509fe1df7e3a9ee20",
+        "bytes": 8558
+      },
+      {
+        "path": "inputs/exercises/dominoes/README.md",
+        "sha256": "77f6d2a86ba50b8ba2f0b53f1ab799eb2f30c1e4853ce1296ee1949578d6c50e",
+        "bytes": 430
+      },
+      {
+        "path": "inputs/exercises/dominoes/dominoes.py",
+        "sha256": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b",
+        "bytes": 34
+      },
+      {
+        "path": "inputs/exercises/dominoes/dominoes_test.py",
+        "sha256": "9645efc873738b9247ced09ccdce782fe2124646d24588d52c23df59e23ab140",
+        "bytes": 5099
+      },
+      {
+        "path": "inputs/exercises/forth/README.md",
+        "sha256": "0480b8a2eef97049ddff262b0bc21f5b31167561325c402918b5ceb0c37b466a",
+        "bytes": 559
+      },
+      {
+        "path": "inputs/exercises/forth/forth.py",
+        "sha256": "9acd281e02feff4fc5ae766063a1ce1290b625bb930cc8f54c15a0109610e562",
+        "bytes": 84
+      },
+      {
+        "path": "inputs/exercises/forth/forth_test.py",
+        "sha256": "05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c",
+        "bytes": 11264
+      },
+      {
+        "path": "inputs/exercises/poker/README.md",
+        "sha256": "9c24e6480e2ddbf3b72116c30cde1560657ca8ef283d1be26004ef2fa7908c97",
+        "bytes": 543
+      },
+      {
+        "path": "inputs/exercises/poker/poker.py",
+        "sha256": "6a4b5adab3ba9261fb4f9e2b09abc549b9ea37bf0774edc3c7759cec9a8b41fe",
+        "bytes": 32
+      },
+      {
+        "path": "inputs/exercises/poker/poker_test.py",
+        "sha256": "b39f023208318973e18a341449aa076f7595ff98f07174082a2a1b05c84ad8fd",
+        "bytes": 7690
+      },
+      {
+        "path": "inputs/exercises/pov/README.md",
+        "sha256": "12dafe5d49b0510037ea6ced53ae6ff08305b75f2d3be89efcad2635d54d75ec",
+        "bytes": 727
+      },
+      {
+        "path": "inputs/exercises/pov/pov.py",
+        "sha256": "ed7eba5f0b64b69a0a1904dc338ce39039b5de3ea2aa74019d8d494ca46b11ba",
+        "bytes": 622
+      },
+      {
+        "path": "inputs/exercises/pov/pov_test.py",
+        "sha256": "a5127ac17db6ad1563a08ba8ee2bbfc25ed8ab81ee56b92a355eb4a4dc2559fe",
+        "bytes": 6346
+      },
+      {
+        "path": "inputs/exercises/zipper/README.md",
+        "sha256": "8b932da02d3e213b5b1e03a8f585c89b72084d024074287d4b7427a351e4d619",
+        "bytes": 562
+      },
+      {
+        "path": "inputs/exercises/zipper/zipper.py",
+        "sha256": "66276107d448f53a12509da6f503280e0dca4a6bbd9d690a774fb0972a55f926",
+        "bytes": 359
+      },
+      {
+        "path": "inputs/exercises/zipper/zipper_test.py",
+        "sha256": "a3cf6e5ebcf6b2171bcc80fa0ce81b425af23b522f222e841fa2abd3119e95b2",
+        "bytes": 9641
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/exercism-py-6__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 78.8,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "exercism-py-6",
+      "reward": 1,
+      "weighted": 100.0
+    },
+    "usage": {
+      "inputTokens": 206,
+      "outputTokens": 83,
+      "cacheReadTokens": 48384,
+      "cacheWriteTokens": 0,
+      "totalTokens": 48673
+    },
+    "tool_calls": 37,
+    "by_tool": {
+      "bash": 4,
+      "read": 19,
+      "write": 12,
+      "edit": 2
+    },
+    "steps": 37
+  },
+  {
+    "case": "lcb-recent-hard-4",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T21:03:23+08:00",
+    "prompt_sha256": "15416b18c8c74a036ca5d7ebe66b69b07612913457368eb0e304ccf9090107ef",
+    "inputs": [
+      {
+        "path": "inputs/problems.json",
+        "sha256": "0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673",
+        "bytes": 7884
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/lcb-recent-hard-4__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 182.0,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "lcb-recent-hard-4",
+      "checker_version": "0.1",
+      "reward": 1,
+      "weighted": 100.0,
+      "passed_problems": 4,
+      "total_problems": 4,
+      "threshold": 2
+    },
+    "usage": {
+      "input_tokens": 826687,
+      "cached_input_tokens": 817152,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 33060,
+      "reasoning_output_tokens": 18615
+    },
+    "tool_calls": 23,
+    "by_tool": {
+      "?": 23
+    },
+    "steps": 23
+  },
+  {
+    "case": "lcb-recent-hard-4",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:56:01+08:00",
+    "prompt_sha256": "62b4e0be9193b3e4eb50cf356f74e17fe5d1d828b48dc04ddf63eef8221410d2",
+    "inputs": [
+      {
+        "path": "inputs/problems.json",
+        "sha256": "0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673",
+        "bytes": 7884
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/lcb-recent-hard-4__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 236.3,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "lcb-recent-hard-4",
+      "checker_version": "0.1",
+      "reward": 1,
+      "weighted": 100.0,
+      "passed_problems": 4,
+      "total_problems": 4,
+      "threshold": 2
+    },
+    "usage": {
+      "inputTokens": 1627,
+      "outputTokens": 699,
+      "cacheReadTokens": 56320,
+      "cacheWriteTokens": 0,
+      "totalTokens": 58646
+    },
+    "tool_calls": 18,
+    "by_tool": {
+      "bash": 16,
+      "read": 2
+    },
+    "steps": 18
+  },
+  {
+    "case": "tb-cargo-plan",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:55:14+08:00",
+    "prompt_sha256": "0a4193363a2caeb9126da6c28a06c9fbb0a91a4791ae19f1f5a5fd36debb657c",
+    "inputs": [
+      {
+        "path": "inputs/app/aircraft.py",
+        "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+        "bytes": 2376
+      },
+      {
+        "path": "inputs/app/data/aircraft.json",
+        "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+        "bytes": 496
+      },
+      {
+        "path": "inputs/app/data/airports.json",
+        "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+        "bytes": 1685
+      },
+      {
+        "path": "inputs/app/data/manifest.json",
+        "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+        "bytes": 1257
+      },
+      {
+        "path": "inputs/app/data/weather.json",
+        "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+        "bytes": 1611
+      },
+      {
+        "path": "inputs/app/dispatch.py",
+        "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+        "bytes": 8504
+      },
+      {
+        "path": "inputs/app/navigation.py",
+        "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+        "bytes": 2482
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/tb-cargo-plan__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 97.0,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "tb-cargo-plan",
+      "reward": 1,
+      "weighted": 100.0,
+      "passed": 27,
+      "total": 27,
+      "critical_ok": true
+    },
+    "usage": {
+      "input_tokens": 706064,
+      "cached_input_tokens": 661760,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 21086,
+      "reasoning_output_tokens": 9764
+    },
+    "tool_calls": 37,
+    "by_tool": {
+      "?": 37
+    },
+    "steps": 37
+  },
+  {
+    "case": "tb-cargo-plan",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:50:52+08:00",
+    "prompt_sha256": "925685f6e3b25e1ba8b8867e8ce335f7d792a2da74f6a2cdc782a015db726fb9",
+    "inputs": [
+      {
+        "path": "inputs/app/aircraft.py",
+        "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+        "bytes": 2376
+      },
+      {
+        "path": "inputs/app/data/aircraft.json",
+        "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+        "bytes": 496
+      },
+      {
+        "path": "inputs/app/data/airports.json",
+        "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+        "bytes": 1685
+      },
+      {
+        "path": "inputs/app/data/manifest.json",
+        "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+        "bytes": 1257
+      },
+      {
+        "path": "inputs/app/data/weather.json",
+        "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+        "bytes": 1611
+      },
+      {
+        "path": "inputs/app/dispatch.py",
+        "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+        "bytes": 8504
+      },
+      {
+        "path": "inputs/app/navigation.py",
+        "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+        "bytes": 2482
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/tb-cargo-plan__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 155.1,
+    "reward": 0,
+    "weighted": 70.37,
+    "failed": [
+      "tow_within_limit",
+      "leg2_weight_limits_fuel",
+      "leg2_fuel_below_planned",
+      "leg2_remaining_below_reserve",
+      "landing_weight_leg2",
+      "total_time_includes_turnaround",
+      "total_time_value",
+      "route_feasible"
+    ],
+    "checker": {
+      "case": "tb-cargo-plan",
+      "reward": 0,
+      "weighted": 70.37,
+      "passed": 19,
+      "total": 27,
+      "critical_ok": false
+    },
+    "usage": {
+      "inputTokens": 239,
+      "outputTokens": 68,
+      "cacheReadTokens": 55936,
+      "cacheWriteTokens": 0,
+      "totalTokens": 56243
+    },
+    "tool_calls": 16,
+    "by_tool": {
+      "bash": 16
+    },
+    "steps": 16
+  }
+]

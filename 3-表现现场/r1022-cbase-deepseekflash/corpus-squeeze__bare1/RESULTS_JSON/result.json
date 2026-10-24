@@ -1,0 +1,61 @@
+{
+  "case_id": "corpus-squeeze",
+  "checker_version": "0.1",
+  "binary": true,
+  "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/corpus-squeeze__bare1",
+  "compressed_bin": null,
+  "decompress_py": null,
+  "items": [
+    {
+      "id": "artifacts_exist",
+      "title": "产物存在（compressed.bin + decompress.py）",
+      "weight": 10,
+      "status": "fail",
+      "credit": 0,
+      "detail": "缺少产物：compressed.bin, decompress.py（run_dir=/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/corpus-squeeze__bare1）"
+    },
+    {
+      "id": "input_integrity",
+      "title": "输入完整性（守卫）",
+      "weight": 10,
+      "status": "pass",
+      "credit": 10,
+      "detail": "输入副本与 canonical 字节一致"
+    },
+    {
+      "id": "decompress_constraints",
+      "title": "解压器静态约束（≤8KB/stdlib/禁 zlib 系/只读 argv）",
+      "weight": 15,
+      "status": "fail",
+      "credit": 0,
+      "detail": "产物缺失，无法检查"
+    },
+    {
+      "id": "roundtrip",
+      "title": "roundtrip 字节级一致（subprocess，超时 60s）",
+      "weight": 40,
+      "status": "fail",
+      "credit": 0,
+      "detail": "产物缺失，无法检查"
+    },
+    {
+      "id": "ratio",
+      "title": "压缩率 len(bin)/len(corpus) ≤ 0.35",
+      "weight": 25,
+      "status": "fail",
+      "credit": 0,
+      "detail": "产物缺失，无法检查"
+    }
+  ],
+  "failed": [
+    "artifacts_exist",
+    "decompress_constraints",
+    "roundtrip",
+    "ratio"
+  ],
+  "reward": 0,
+  "weighted": 10,
+  "max_weight": 100,
+  "input_integrity": "verified",
+  "corpus_bytes": 204180
+}

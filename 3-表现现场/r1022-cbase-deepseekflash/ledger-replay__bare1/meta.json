@@ -1,0 +1,30 @@
+{
+  "run_id": "ledger-replay__bare1",
+  "case": "ledger-replay",
+  "group": "C-bare（裸模型基线，无系统提示/无工具/单轮）",
+  "model": "deepseek-flash",
+  "endpoint": "https://api.deepseek.com/responses",
+  "channel": "direct",
+  "protocol": {
+    "instruction_verbatim": true,
+    "model_sees_input_files": false,
+    "answer_to_artifacts": {
+      "final_state.json": "fenced#0（顺序兜底）",
+      "anomalies.json": "整段答案兜底（预期判 0）"
+    }
+  },
+  "thinking": "未显式控制（模型默认档）——记 unknown",
+  "usage": {
+    "input_tokens": 936,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 6963,
+    "output_tokens_details": {
+      "reasoning_tokens": 6302
+    },
+    "total_tokens": 7899
+  },
+  "started": "2026-10-22T13:42:24+08:00",
+  "finished": "2026-10-22T13:42:52+08:00"
+}

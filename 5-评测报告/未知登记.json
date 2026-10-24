@@ -1,11 +1,11 @@
 {
-  "schema_version": 1,
-  "updated": "2026-10-21",
-  "policy": "未知不补 0、不补满分、不折算；每项写影响 / 下一步 / 停止追查条件 / 复核日期。状态只允许 open / closed / accepted。",
+  "schema_version": 2,
+  "updated": "2026-10-24",
+  "policy": "未知不补0/满分/clean，不折算；status只允许open/closed/accepted，remediation_status另记待修复/复算。保留history。具体漏洞closed需修复、回归、原现场只读复算和独立验收；一般正确性仍open。",
   "counts": {
-    "open": 8,
-    "closed": 0,
-    "accepted": 0
+    "open": 9,
+    "closed": 7,
+    "accepted": 5
   },
   "unknowns": [
     {
@@ -19,21 +19,54 @@
     },
     {
       "id": "b-group-native",
-      "item": "B 组（各产品原生模型）未跑",
-      "impact": "模型层在本批只能靠 A/C 对照间接约束，无法量化「模型差异」与「Harness 差异」的占比。",
-      "next_step": "配额恢复后，用 Codex / DSH 各自原生模型跑同两用例，与 A 组同模型结果并列呈现。",
-      "stop_condition": "若产品强制固定路由或配额持续不可得，保持 open，报告中只声明「模型层未单独控制」。",
-      "review_date": "2026-10-28",
-      "status": "open"
+      "item": "原生/默认模型B组覆盖不等于模型层已被控制",
+      "impact": "豆包默认模型B组五场现已采集，元宝paused；Codex/DSH各自原生模型对照仍未做。不能由豆包与A组异质分差量化模型/Harness各自贡献。",
+      "next_step": "本期不补跑；报告固定披露闭源模型/桌面默认模型与CLI同模型A组不同，不给因果Harness排名。以后另立可控原生模型对照。",
+      "stop_condition": "当前接受范围收口但归因缺口仍open；没有单变量模型对照时不量化占比。",
+      "review_date": "2026-10-24",
+      "status": "open",
+      "history": [
+        {
+          "as_of": "2026-10-22",
+          "original": {
+            "id": "b-group-native",
+            "item": "B 组（各产品原生模型）未跑",
+            "impact": "模型层在本批只能靠 A/C 对照间接约束，无法量化「模型差异」与「Harness 差异」的占比。",
+            "next_step": "配额恢复后，用 Codex / DSH 各自原生模型跑同两用例，与 A 组同模型结果并列呈现。",
+            "stop_condition": "若产品强制固定路由或配额持续不可得，保持 open，报告中只声明「模型层未单独控制」。",
+            "review_date": "2026-10-28",
+            "status": "open"
+          }
+        }
+      ]
     },
     {
       "id": "desktop-three",
-      "item": "WorkBuddy / 元宝专家模式 / 豆包办公未采集",
-      "impact": "五款覆盖仅 2/5，报告不能出综合排名；桌面取证方案（录屏/截图/提示词留档）是否够支撑归因未验证。",
-      "next_step": "先做 WorkBuddy × int-sum-sort 最小闭环（产物 + 截图 ≥3 + 行为分 JSON 运行记录），验证取证规范后再扩到另外两款。",
-      "stop_condition": "若产品无法导出日志或录屏成本过高，改用「产物 + 截图 + 运行记录」并在报告中标注行为面证据不足。",
-      "review_date": "2026-10-23",
-      "status": "open"
+      "item": "WorkBuddy/豆包本批trace到位；元宝paused另列",
+      "impact": "原桌面三款未采集/仅2款覆盖已过期；当前4款已执行，元宝未完成。取证齐备不使污染格有效。",
+      "next_step": "沿总账用trace+产物+提示词取证；元宝保持paused，不新GUI、不等待G2R4。旧WB run1保留trace未归档局限。",
+      "stop_condition": "WB7+豆包5份trace逐行JSON通过；豆包assignment/board及末条assistant齐备。本批导出关键缺口结清，旧run1和元宝分别登记。",
+      "review_date": "2026-10-24",
+      "status": "closed",
+      "history": [
+        {
+          "as_of": "2026-10-22",
+          "original": {
+            "id": "desktop-three",
+            "item": "WorkBuddy / 元宝专家模式 / 豆包办公未采集",
+            "impact": "五款覆盖仅 2/5，报告不能出综合排名；桌面取证方案（录屏/截图/提示词留档）是否够支撑归因未验证。",
+            "next_step": "先做 WorkBuddy × int-sum-sort 最小闭环（产物 + 截图 ≥3 + 行为分 JSON 运行记录），验证取证规范后再扩到另外两款。",
+            "stop_condition": "若产品无法导出日志或录屏成本过高，改用「产物 + 截图 + 运行记录」并在报告中标注行为面证据不足。",
+            "review_date": "2026-10-23",
+            "status": "open"
+          }
+        }
+      ],
+      "resolution": "已核验12份归档桌面trace可解析；不需要为既定无截图方案补截图。",
+      "sources": [
+        "5-评测报告/运行总账-2026-10-24.json",
+        "3-表现现场/r1026-desktop-15/README.md#L17-L19"
+      ]
     },
     {
       "id": "token-cause",
@@ -74,11 +107,296 @@
     {
       "id": "checker-general-correctness",
       "item": "判卷器一般正确性未证（只覆盖已知攻击面）",
-      "impact": "headline 分数对「未见攻击面」的鲁棒性没有保证；两用例满分也可能有未被发现的宽松点。",
-      "next_step": "为每个新题强制写负例（≥6 组）；参考第 1 名 grader-audit 的做法，用合成样例做第三方复核；对历史现场只读复算、不静默改分。",
-      "stop_condition": "若拿不到独立样例集，保持 open，并在报告中标注「判卷器仅对已知攻击面自测」。",
-      "review_date": "2026-10-28",
-      "status": "open"
+      "impact": "已发现BIRD schema、DAB符号/ACI、Exercism早退与Cargo契约守卫漏洞；具体修复不证明一般正确性或任意敌意代码隔离。",
+      "next_step": "具体漏洞按独立验收与现场只读复算逐项结清；新增攻击面持续负例验证，保留版本/old-new分，不静默回写。",
+      "stop_condition": "本项继续open；仅对已知攻击面给有限通过结论，不以oracle/selftest或少数产品满分证明一般正确性。",
+      "review_date": "2026-10-24",
+      "status": "open",
+      "history": [
+        {
+          "as_of": "2026-10-22",
+          "original": {
+            "id": "checker-general-correctness",
+            "item": "判卷器一般正确性未证（只覆盖已知攻击面）",
+            "impact": "headline 分数对「未见攻击面」的鲁棒性没有保证；两用例满分也可能有未被发现的宽松点。",
+            "next_step": "为每个新题强制写负例（≥6 组）；参考第 1 名 grader-audit 的做法，用合成样例做第三方复核；对历史现场只读复算、不静默改分。",
+            "stop_condition": "若拿不到独立样例集，保持 open，并在报告中标注「判卷器仅对已知攻击面自测」。",
+            "review_date": "2026-10-28",
+            "status": "open"
+          }
+        }
+      ],
+      "remediation_status": "一般正确性仍open；具体已知漏洞独立分项",
+      "sources": [
+        "4-打分细则/判卷审计-2026-10-24/numeric/README.md",
+        "4-打分细则/判卷审计-2026-10-24/execution/README.md"
+      ]
+    },
+    {
+      "id": "v2-case-discrimination",
+      "item": "v2.0 题库的区分度只在 2/5 题上被验证",
+      "impact": "已有隔离替换4场、重复12场，但WB LCB suspect排除、元宝paused；新增严格复算DSH DAB半程分变化，旧逐题打平不能沿用。",
+      "next_step": "不补GUI；以新版本31场temp复算与可用共同题子集描述结果/局限，探针/旧题/C组不混排名。",
+      "stop_condition": "当前按用户快速收口，区分度/稳健性仍为小样本观察；不能据异质便利样本和n=1桌面宣称稳定排名。",
+      "review_date": "2026-10-24",
+      "status": "open",
+      "history": [
+        {
+          "as_of": "2026-10-22",
+          "original": {
+            "id": "v2-case-discrimination",
+            "item": "v2.0 题库的区分度只在 2/5 题上被验证",
+            "impact": "5 题双 CLI 各 1 场：dabstep 与 tb 各有一款胜出，exercism/lcb 双款满分、bird 双款同分。n=1 不足以判断稳定性，正式 25 场矩阵前不能宣称题库区分度达标。",
+            "next_step": "按 25 场协议跑正式批次（含桌面 15 场）；对 dabstep/tb 各补 2 次重复运行看结果是否翻转；exercism/lcb 若仍全满，考虑加题量或替换。",
+            "stop_condition": "若正式批次里 5 题仍 ≥3 题双款同分且加权分差 <2%，在报告中固定标注「v2 题库区分度不足，改用过程指标为主口径」。",
+            "review_date": "2026-10-25",
+            "status": "open"
+          }
+        }
+      ],
+      "sources": [
+        "5-评测报告/复算/2026-10-24/results.json"
+      ]
+    },
+    {
+      "id": "bird-q26-q27",
+      "item": "bird-ca-schools-15 的 q26/q27 双款同时失手",
+      "impact": "q26/q27 gold行数/去重语义尚未独立验证；影响可能因产品SQL不同而不同，不能保证全体同向或相对排名不变。BIRD schema修复和oracle自测不解决gold语义争议。",
+      "next_step": "只读独立复核两题gold SQL、中文题面与evidence；本期不补GUI、不改原gold。必要改题须另立版本再验证，不能静默改分。",
+      "stop_condition": "取得独立SQL/语义复核证据才可接受或纠正；当前保持open并披露绝对分/相对结论均有此局限。",
+      "review_date": "2026-10-24",
+      "status": "open",
+      "history": [
+        {
+          "as_of": "2026-10-22",
+          "original": {
+            "id": "bird-q26-q27",
+            "item": "bird-ca-schools-15 的 q26/q27 双款同时失手",
+            "impact": "两款同为 13/15（86.67%），两题的 gold 行数与去重口径存疑；若 gold 有误，会系统性压低全体得分（对所有产品同向，不影响相对排名，但影响绝对分与达标线）。",
+            "next_step": "人工复核 BIRD mini_dev 两题 gold SQL 与中文题面 evidence 是否一致；必要时换题或补 evidence 提示，并重跑该例。",
+            "stop_condition": "复核后确认 gold 正确（两题确实需要额外去重口径）则接受现状，在 spec 标注为已知尖角。",
+            "review_date": "2026-10-24",
+            "status": "open"
+          }
+        }
+      ]
+    },
+    {
+      "id": "workbuddy-trace-export",
+      "item": "WorkBuddy本批可导出/可读取trace的关键证据缺口已结清",
+      "impact": "r1026五场+r1027两场行为链可复核；越界读参考答案和联网助力不再只能靠截图猜测。取证齐不使污染成绩有效。",
+      "next_step": "引用归档trace与总账source/hash；旧run1未归档trace另外保留evidence-limited，不倒填。",
+      "stop_condition": "7份原trace逐行JSON可解析，导出能力与本批可读性已证实；仅关闭本缺口，不证明所有场全面clean。",
+      "review_date": "2026-10-24",
+      "status": "closed",
+      "sources": [
+        "3-表现现场/r1026-desktop-15/runs/workbuddy/bird-ca-schools-15/meta.json#L18-L27",
+        "3-表现现场/r1027-isolated/runs/workbuddy__tb-cargo-plan/meta.json#L16-L25",
+        "5-评测报告/运行总账-2026-10-24.json"
+      ]
+    },
+    {
+      "id": "doubao-trace-export",
+      "item": "豆包本地电脑五场trace/提示词/产物已齐，关键导出缺口结清",
+      "impact": "可复核工具调用和最终产物；shots空为既定方案而非缺陷。trace meta粗扫描命中不直接等同污染，也不作为新运行。",
+      "next_step": "按conversationId、assignment和canonical运行对齐取证；输入原文中的http/atcoder与实际联网调用区分。",
+      "stop_condition": "五场24/25/76/65/54条均可解析、末条assistant无tool_calls、assignment/board齐备，关闭该具体取证缺口。",
+      "review_date": "2026-10-24",
+      "status": "closed",
+      "sources": [
+        "3-表现现场/r1026-desktop-15/README.md#L17-L19",
+        "5-评测报告/运行总账-2026-10-24.json"
+      ]
+    },
+    {
+      "id": "yuanbao-paused",
+      "item": "元宝五格原pending，用户决定paused（非失败）",
+      "impact": "四款执行不等于五款全覆盖；元宝无已完成可评分场，不补0、也不计未知成绩。",
+      "next_step": "本期另列paused，不新GUI、不等G2R4。将来恢复先定义无本地trace时的证据方案。",
+      "stop_condition": "本期已接受范围限制；accepted不是接受失败结论或虚构成绩。",
+      "review_date": "2026-10-24",
+      "status": "accepted",
+      "product_state": "paused",
+      "sources": [
+        "3-表现现场/r1026-desktop-15/_中止记录/2026-10-23-元宝-bird-14时36分/README.md"
+      ]
+    },
+    {
+      "id": "workbuddy-run1-historical-trace",
+      "item": "WorkBuddy旧run1原trace未归档，接受有限产物证据局限",
+      "impact": "两截图+产物+checker可作达标观察，不能逐帧复核全链，不进trace过程主表、不称clean。",
+      "next_step": "不改历史记录；以后如有原同场trace与映射再另补证，不用新批trace冒充。",
+      "stop_condition": "当前收口接受artifact-only/evidence-limited等级，停止无必要追补但保留该局限。",
+      "review_date": "2026-10-24",
+      "status": "accepted",
+      "sources": [
+        "3-表现现场/r1021-intsum-workbuddy/run1/运行记录.md#L31-L35"
+      ]
+    },
+    {
+      "id": "isolated-artifact-supplement",
+      "item": "6场Cargo今天补取代码，接受非当场冻结的一致性证据局限",
+      "impact": "原r1027/r1028归档缺inputs/执行代码；不能因为今天补齐就称原档完整。缺当场代码hash，重放一致不能证明原时间字节同一性。",
+      "next_step": "沿source-supplement的source/SHA/provenance和只读temp复算收据使用，6场记V+supplemented-with-limitations；9场CLI BIRD/DAB输入逐meta.inputs hash匹配canonical可重建，WB DAB另按历史7/7输入回执有限V。",
+      "stop_condition": "独立核对6组18代码hash、8Cargo各30项ID/pass与原checker.stdout一致且plan语义相等，足以接受批次可复核性；当场代码字节同一性继续作为accepted风险，不伪称已证明。",
+      "review_date": "2026-10-24",
+      "status": "accepted",
+      "remediation_status": "已补证/已复算，保留当场一致性局限",
+      "sources": [
+        "5-评测报告/复算/2026-10-24/source-supplement/manifest.json",
+        "5-评测报告/复算/2026-10-24/results.json",
+        "5-评测报告/运行总账-2026-10-24.json",
+        "3-表现现场/r1027-isolated/runs/workbuddy__dabstep-payments-10/meta.json#L45-L59"
+      ]
+    },
+    {
+      "id": "bird-checker-schema-gate",
+      "item": "BIRD schema红项仍可达标的具体漏洞待独立验收",
+      "impact": "旧v1.0 oracle后追加非法行仍reward1，不能因逐题正确就忽略契约格式。q26/q27 gold语义争议是另一项，未被此修复解决。",
+      "next_step": "本具体漏洞结清；以后新增攻击面另登记，不把有限验收外推为一般正确性或任意敌意代码安全。",
+      "stop_condition": "修复、红绿回归、适用原产物复算、独立正反例验收四项齐备才结清本漏洞；一般正确性和q26/q27保持open。",
+      "review_date": "2026-10-24",
+      "status": "closed",
+      "remediation_status": "已修复/已回归/已现场只读复算/已独立验收",
+      "sources": [
+        "4-打分细则/判卷审计-2026-10-24/numeric/results.json",
+        "5-评测报告/复算/2026-10-24/results.json",
+        "5-评测报告/复算/2026-10-24/validation.json"
+      ],
+      "history": [
+        {
+          "as_of": "2026-10-24-before-independent-acceptance",
+          "status": "open",
+          "remediation_status": "已修复/已复算，独立验收待收据",
+          "next_step": "v1.1已把answers_schema纳硬门；40项numeric回归及31场temp复算已有收据，等待lead独立追加非法行/合法oracle验收后才能closed。"
+        }
+      ],
+      "resolution": "lead独立验收31/31通过；BIRD非法追加、DAB符号/ACI逐题双轨差异、Exercism六题早退/正确oracle、Cargo漂移exit2均实跑。31份产品产物仅temp复算，0新模型运行；全部32选择root历史hash保持不变。",
+      "independent_acceptance": {
+        "source": "5-评测报告/复算/2026-10-24/validation.json",
+        "author_role": "lead-independent-acceptance",
+        "passed": 31,
+        "total": 31
+      }
+    },
+    {
+      "id": "dabstep-checker-sign-aci",
+      "item": "DAB q1871正负号误过与q2697 ACI契约漏洞待独立验收",
+      "impact": "真实原现场正0.948103与负gold被判true；旧70分不等于严格7题对。原官方scorer保留兼容，新strict仅修已知符号/ACI，不是全部guidelines正确性证明。",
+      "next_step": "本具体漏洞结清；以后新增攻击面另登记，不把有限验收外推为一般正确性或任意敌意代码安全。",
+      "stop_condition": "真实q1871错号被strict拒绝、ACI错误被拒绝、合法值/容差边界不误杀，且回归/历史复算/独立验收齐备；一般正确性仍open。",
+      "review_date": "2026-10-24",
+      "status": "closed",
+      "remediation_status": "已修复/已回归/已现场只读复算/已独立验收",
+      "sources": [
+        "3-表现现场/r1027-isolated/runs/dsh__dabstep-payments-10/meta.json#L148-L150",
+        "4-打分细则/判卷审计-2026-10-24/numeric/results.json",
+        "5-评测报告/复算/2026-10-24/results.json",
+        "5-评测报告/复算/2026-10-24/validation.json"
+      ],
+      "history": [
+        {
+          "as_of": "2026-10-24-before-independent-acceptance",
+          "status": "open",
+          "remediation_status": "已修复/已复算，独立验收待收据",
+          "next_step": "v0.2 signed-aci-v1及numeric40/40已到位；原产物只读复算DSH DAB首跑70→60、r3 60→50，headline0均不变。等lead独立符号/ACI正反例验收后closed。"
+        }
+      ],
+      "resolution": "lead独立验收31/31通过；BIRD非法追加、DAB符号/ACI逐题双轨差异、Exercism六题早退/正确oracle、Cargo漂移exit2均实跑。31份产品产物仅temp复算，0新模型运行；全部32选择root历史hash保持不变。",
+      "independent_acceptance": {
+        "source": "5-评测报告/复算/2026-10-24/validation.json",
+        "author_role": "lead-independent-acceptance",
+        "passed": 31,
+        "total": 31
+      }
+    },
+    {
+      "id": "exercism-execution-completion",
+      "item": "Exercism早退/伪摘要/未执行套件误过待独立验收",
+      "impact": "旧checker只看exit0可把六题早退判1/100；执行完成不等于控制台OK。新runner不是任意敌意Python安全沙箱。",
+      "next_step": "本具体漏洞结清；以后新增攻击面另登记，不把有限验收外推为一般正确性或任意敌意代码安全。",
+      "stop_condition": "真实测试完成164项并有可信回调/完成回执；已列早退/空套件负例拒绝、合法oracle通过、历史复算及独立验收齐备。任意恶意代码隔离一般风险另保留open。",
+      "review_date": "2026-10-24",
+      "status": "closed",
+      "remediation_status": "已修复/已回归/已现场只读复算/已独立验收",
+      "sources": [
+        "4-打分细则/判卷审计-2026-10-24/execution/after.json",
+        "4-打分细则/判卷审计-2026-10-24/execution/README.md#L20-L34",
+        "5-评测报告/复算/2026-10-24/results.json",
+        "5-评测报告/复算/2026-10-24/validation.json"
+      ],
+      "history": [
+        {
+          "as_of": "2026-10-24-before-independent-acceptance",
+          "status": "open",
+          "remediation_status": "已修复/已复算，独立验收待收据",
+          "next_step": "v1.1 trusted runner与完整测试身份计数已修复，execution20/20和产品temp复算已有；等lead独立六题早退/合法oracle收据后closed。"
+        }
+      ],
+      "resolution": "lead独立验收31/31通过；BIRD非法追加、DAB符号/ACI逐题双轨差异、Exercism六题早退/正确oracle、Cargo漂移exit2均实跑。31份产品产物仅temp复算，0新模型运行；全部32选择root历史hash保持不变。",
+      "independent_acceptance": {
+        "source": "5-评测报告/复算/2026-10-24/validation.json",
+        "author_role": "lead-independent-acceptance",
+        "passed": 31,
+        "total": 31
+      }
+    },
+    {
+      "id": "cargo-contract-guards",
+      "item": "Cargo truth/canonical漂移与守卫空集合漏洞待独立验收",
+      "impact": "旧truth threshold999等漂移可能不作为用例错误，或关键项空集合真空通过；只留flight_plan不是执行代码复核。",
+      "next_step": "本具体漏洞结清；以后新增攻击面另登记，不把有限验收外推为一般正确性或任意敌意代码安全。",
+      "stop_condition": "所有列明漂移在执行候选前error JSON exit2，oracle27/27不变，原代码/补证来源与现场只读复算及独立验收齐备。补取代码当场同一性仅accepted风险，不随此漏洞closed消失。",
+      "review_date": "2026-10-24",
+      "status": "closed",
+      "remediation_status": "已修复/已回归/已现场只读复算/已独立验收",
+      "sources": [
+        "4-打分细则/判卷审计-2026-10-24/execution/after.json",
+        "4-打分细则/判卷审计-2026-10-24/execution/README.md#L26-L34",
+        "5-评测报告/复算/2026-10-24/results.json",
+        "5-评测报告/复算/2026-10-24/validation.json"
+      ],
+      "history": [
+        {
+          "as_of": "2026-10-24-before-independent-acceptance",
+          "status": "open",
+          "remediation_status": "已修复/已复算，独立验收待收据",
+          "next_step": "v0.2 pinned契约/summary/hash已修复，execution20/20与8Cargo逐项/plan一致收据到位；等lead独立漂移exit2及合法oracle验收后closed。"
+        }
+      ],
+      "resolution": "lead独立验收31/31通过；BIRD非法追加、DAB符号/ACI逐题双轨差异、Exercism六题早退/正确oracle、Cargo漂移exit2均实跑。31份产品产物仅temp复算，0新模型运行；全部32选择root历史hash保持不变。",
+      "independent_acceptance": {
+        "source": "5-评测报告/复算/2026-10-24/validation.json",
+        "author_role": "lead-independent-acceptance",
+        "passed": 31,
+        "total": 31
+      }
+    },
+    {
+      "id": "workbuddy-lcb-suspect",
+      "item": "WB×LCB联网命中editorial未替换，接受排除范围",
+      "impact": "不能纳入离线CLI同口径主表，不能沿旧文称WB五题3/5或三形态五题打平。",
+      "next_step": "排主表、不补0，保留原reward/weighted与联网助力source，不新GUI。",
+      "stop_condition": "本期已确定排除，accepted只接受不补跑的范围限制，不承认该格有效。",
+      "review_date": "2026-10-24",
+      "status": "accepted",
+      "sources": [
+        "3-表现现场/r1026-desktop-15/runs/workbuddy/lcb-recent-hard-4/meta.json#L118-L120"
+      ]
+    },
+    {
+      "id": "r1024-probe-answer-leakage",
+      "item": "r1024三探针成功读gold，排除原结果而不补跑",
+      "impact": "Codex×bird、DSH×bird、DSH×DAB原100不是独立解题证据；已执行N仍保留，原分不改、不补0。",
+      "next_step": "总账另给adjudication_override与直接行号，报告按X8披露，不用这三格证明产品/题库结果。",
+      "stop_condition": "成功读取gold的直接证据充分，当前排除范围已结清；accepted仅接受不补跑限制，不是运行有效。",
+      "review_date": "2026-10-24",
+      "status": "accepted",
+      "sources": [
+        "3-表现现场/r1024-probe-区分度/bird-schools15__codex/agent.jsonl#L63-L70",
+        "3-表现现场/r1024-probe-区分度/bird-schools15__dsh/agent.jsonl#L44-L50",
+        "3-表现现场/r1024-probe-区分度/dabstep-dev10__dsh/agent.jsonl#L80-L81"
+      ]
     }
   ]
 }

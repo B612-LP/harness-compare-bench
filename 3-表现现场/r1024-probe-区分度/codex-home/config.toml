@@ -1,0 +1,25 @@
+# 2026-10-22 A 组 CLI 批次 · Codex 0.163.0 · DeepSeek V4.1-Flash · thinking=low
+# 隔离的 CODEX_HOME：不改动用户日常 ~/.codex 配置
+model = "deepseek-flash"
+model_provider = "deepseek"
+model_reasoning_effort = "low"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+
+# A 组公平性：统一关闭联网工具（各款官方开关）
+web_search = "disabled"
+
+# SKILL 层隔离：关闭 Codex 默认注入的 <skills_instructions>
+[skills]
+include_instructions = false
+[skills.bundled]
+enabled = false
+
+[model_providers.deepseek]
+name = "DeepSeek"
+base_url = "https://api.deepseek.com"
+env_key = "DEEPSEEK_API_KEY"
+wire_api = "responses"
+
+[projects."/Users/b612-lp/Documents/harness-compare-bench"]
+trust_level = "trusted"

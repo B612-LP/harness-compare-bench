@@ -1,0 +1,63 @@
+{
+  "case_id": "int-sum-sort",
+  "checker_version": "0.3",
+  "binary": true,
+  "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/int-sum-sort__bare1",
+  "artifact": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/int-sum-sort__bare1/output.txt",
+  "items": [
+    {
+      "id": "artifact_exists",
+      "title": "产物存在",
+      "weight": 10,
+      "status": "pass",
+      "detail": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/int-sum-sort__bare1/output.txt"
+    },
+    {
+      "id": "input_integrity",
+      "title": "输入完整性（守卫）",
+      "weight": 10,
+      "status": "pass",
+      "detail": "输入副本与 canonical 字节一致"
+    },
+    {
+      "id": "format_strict",
+      "title": "严格格式（行数/LF/结尾换行/规范整数）",
+      "weight": 20,
+      "status": "fail",
+      "detail": "缺少结尾换行"
+    },
+    {
+      "id": "sum_line",
+      "title": "第 1 行 = 输入总和",
+      "weight": 20,
+      "status": "fail",
+      "detail": "第 1 行：期望 '245'，实际 '```python'"
+    },
+    {
+      "id": "count_line",
+      "title": "第 2 行 = 输入个数",
+      "weight": 20,
+      "status": "fail",
+      "detail": "第 2 行：期望 '6'，实际 'from pathlib import Path'"
+    },
+    {
+      "id": "sorted_block",
+      "title": "其余行 = 升序整数",
+      "weight": 20,
+      "status": "fail",
+      "detail": "其余行：期望 ['8', '17', '23', '42', '56', '99']，实际 ['', 'input_path = Path(\"/app/input.txt\")', 'output_path = Path(\"/app/output.txt\")', '', 'lines = input_path.read_text().splitlines()', 'numbers = [int(line.strip()) for line in lines if line.strip()]', '', 'total = sum(numbers)', 'count = len(numbers)', 'sorted_numbers = sorted(numbers)', '', 'with output_path.open(\"w\") as f:', '    f.write(f\"{total}\\\\n\")', '    f.write(f\"{count}\\\\n\")', '    for number in sorted_numbers:', '        f.write(f\"{number}\\\\n\")', '```']"
+    }
+  ],
+  "failed": [
+    "format_strict",
+    "sum_line",
+    "count_line",
+    "sorted_block"
+  ],
+  "reward": 0,
+  "weighted": 20,
+  "max_weight": 100,
+  "input_integrity": "verified",
+  "artifact_sha256": "ad2020b8a298f025b994095ecb462540d15e7edb249691aba180e973000d8e11",
+  "input_sha256": "3bcc65ec276d1e8a73acba143433b0f1d86202752ad378a58bf79f199846c47c"
+}

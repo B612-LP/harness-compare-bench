@@ -1,0 +1,35 @@
+```python
+from collections import Counter
+from pathlib import Path
+
+text = Path("/app/corpus.txt").read_text(encoding="ascii")
+punct = set(".,;:!?\"'()-")
+
+counts = Counter()
+
+for token in text.split():
+    word = token
+
+    while word and word[0] in punct:
+        word = word[1:]
+    while word and word[-1] in punct:
+        word = word[:-1]
+
+    if not word:
+        continue
+
+    if any("0" <= ch <= "9" for ch in word):
+        continue
+
+    counts[word.lower()] += 1
+
+total = sum(counts.values())
+distinct = len(counts)
+
+top_five = sorted(counts.items(), key=lambda item: (-item[1], item[0]))[:5]
+
+lines = [str(total), str(distinct)]
+lines.extend(f"{word} {count}" for word, count in top_five)
+
+Path("/app/report.txt").write_text("\n".join(lines) + "\n", encoding="ascii")
+```

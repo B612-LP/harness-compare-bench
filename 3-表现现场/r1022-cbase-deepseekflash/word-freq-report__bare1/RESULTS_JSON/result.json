@@ -1,0 +1,63 @@
+{
+  "case_id": "word-freq-report",
+  "checker_version": "0.3",
+  "binary": true,
+  "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/word-freq-report__bare1",
+  "artifact": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/word-freq-report__bare1/report.txt",
+  "items": [
+    {
+      "id": "artifact_exists",
+      "title": "产物存在",
+      "weight": 10,
+      "status": "pass",
+      "detail": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/word-freq-report__bare1/report.txt"
+    },
+    {
+      "id": "input_integrity",
+      "title": "输入完整性（守卫）",
+      "weight": 10,
+      "status": "pass",
+      "detail": "语料副本与 canonical 字节一致"
+    },
+    {
+      "id": "format_strict",
+      "title": "严格格式（7 行/LF/单空格/结尾换行）",
+      "weight": 20,
+      "status": "fail",
+      "detail": "缺少结尾换行"
+    },
+    {
+      "id": "total_line",
+      "title": "第 1 行 = 总 token 数",
+      "weight": 15,
+      "status": "fail",
+      "detail": "第 1 行：期望 92，实际 ```python"
+    },
+    {
+      "id": "distinct_line",
+      "title": "第 2 行 = 去重词数",
+      "weight": 15,
+      "status": "fail",
+      "detail": "第 2 行：期望 35，实际 from collections import Counter"
+    },
+    {
+      "id": "top5_block",
+      "title": "第 3-7 行 = Top-5（频次降序 + ASCII 决胜）",
+      "weight": 30,
+      "status": "fail",
+      "detail": "第 3-7 行：期望 [['the', 8], ['and', 7], ['fox', 6], ['a', 5], ['dog', 5]]，实际 [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]"
+    }
+  ],
+  "failed": [
+    "format_strict",
+    "total_line",
+    "distinct_line",
+    "top5_block"
+  ],
+  "reward": 0,
+  "weighted": 20,
+  "max_weight": 100,
+  "input_integrity": "verified",
+  "artifact_sha256": "ad5eed26e08315624f3e873561f789fc9996567b27d722364e00d55349fce5ad",
+  "input_sha256": "b5fc559b18b63445fcb1b3231ccd3c244668a613ad77c02eecb8612b170f5a80"
+}

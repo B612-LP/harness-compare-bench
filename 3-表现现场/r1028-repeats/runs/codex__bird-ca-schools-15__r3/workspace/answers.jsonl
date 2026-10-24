@@ -1,0 +1,15 @@
+{"question_id": 28, "sql": "SELECT s.School, s.DOC FROM frpm f JOIN schools s ON f.CDSCode = s.CDSCode WHERE (f.`Enrollment (K-12)` - f.`Enrollment (Ages 5-17)`) > (SELECT AVG(f2.`Enrollment (K-12)` - f2.`Enrollment (Ages 5-17)`) FROM frpm f2 JOIN schools s2 ON f2.CDSCode = s2.CDSCode WHERE s2.FundingType = 'Locally funded')"}
+{"question_id": 36, "sql": "SELECT s.AdmFName1, s.AdmLName1, s.AdmFName2, s.AdmLName2, s.AdmFName3, s.AdmLName3 FROM satscores st JOIN schools s ON st.cds = s.CDSCode ORDER BY st.NumGE1500 DESC LIMIT 1"}
+{"question_id": 62, "sql": "SELECT COUNT(*) AS count FROM schools s JOIN frpm f ON s.CDSCode = f.CDSCode WHERE s.County = 'Los Angeles' AND s.Charter = 0 AND (f.`Free Meal Count (K-12)` * 100.0 / f.`Enrollment (K-12)`) < 0.18"}
+{"question_id": 83, "sql": "SELECT s.City, COUNT(*) AS count FROM schools s JOIN frpm f ON s.CDSCode = f.CDSCode WHERE s.Magnet = 1 AND s.GSoffered = 'K-8' AND f.`NSLP Provision Status` = 'Multiple Provision Types' GROUP BY s.City"}
+{"question_id": 87, "sql": "SELECT AdmEmail1, AdmEmail2 FROM schools WHERE County = 'San Bernardino' AND City = 'San Bernardino' AND DOC = '54' AND SOC = '62' AND OpenDate BETWEEN '2009-01-01' AND '2010-12-31'"}
+{"question_id": 12, "sql": "SELECT MAX(f.`Free Meal Count (Ages 5-17)` * 1.0 / f.`Enrollment (Ages 5-17)`) AS max_ratio FROM satscores st JOIN frpm f ON st.cds = f.CDSCode WHERE st.NumGE1500 * 1.0 / st.NumTstTakr > 0.3"}
+{"question_id": 23, "sql": "SELECT s.School, s.Street FROM frpm f JOIN schools s ON f.CDSCode = s.CDSCode WHERE (f.`Enrollment (K-12)` - f.`Enrollment (Ages 5-17)`) > 30"}
+{"question_id": 24, "sql": "SELECT f.`School Name` FROM frpm f JOIN satscores st ON f.CDSCode = st.cds WHERE (f.`Free Meal Count (K-12)` / f.`Enrollment (K-12)`) > 0.1 AND st.NumGE1500 > 0"}
+{"question_id": 25, "sql": "SELECT st.sname, f.`Charter Funding Type` FROM satscores st JOIN frpm f ON st.cds = f.CDSCode WHERE st.dname LIKE 'Riverside%' AND st.AvgScrMath > 400"}
+{"question_id": 26, "sql": "SELECT f.`School Name`, s.Street, s.City, s.State, s.Zip FROM frpm f JOIN schools s ON f.CDSCode = s.CDSCode WHERE s.County = 'Monterey' AND f.`School Type` = 'High Schools (Public)' AND f.`FRPM Count (Ages 5-17)` > 800"}
+{"question_id": 27, "sql": "SELECT s.School, st.AvgScrWrite, s.Phone FROM schools s JOIN satscores st ON s.CDSCode = st.cds WHERE s.OpenDate > '1991-12-31' OR s.ClosedDate < '2000-01-01'"}
+{"question_id": 31, "sql": "SELECT f.`Free Meal Count (K-12)` * 1.0 / f.`Enrollment (K-12)` AS ratio FROM frpm f ORDER BY f.`Enrollment (K-12)` DESC LIMIT 2 OFFSET 9"}
+{"question_id": 5, "sql": "SELECT COUNT(*) AS count FROM satscores st JOIN schools s ON st.cds = s.CDSCode WHERE st.AvgScrMath > 400 AND s.Virtual = 'F'"}
+{"question_id": 11, "sql": "SELECT CDSCode FROM frpm WHERE `Enrollment (K-12)` + `Enrollment (Ages 5-17)` > 500"}
+{"question_id": 17, "sql": "SELECT s.CharterNum, st.AvgScrWrite, RANK() OVER (ORDER BY st.AvgScrWrite DESC) AS WritingScoreRank FROM satscores st JOIN schools s ON st.cds = s.CDSCode WHERE st.AvgScrWrite > 499 AND s.CharterNum IS NOT NULL"}

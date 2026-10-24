@@ -1,0 +1,37 @@
+# corpus-squeeze：受限压缩达标
+
+## 任务
+
+`inputs/corpus.txt`（约 200KB 中英混合语料）需要被压缩。请在**运行目录**交付两个文件：
+
+1. `compressed.bin` —— 语料的无损压缩产物（格式完全由你自定义，可为二进制）
+2. `decompress.py` —— 能独立还原它的解压器
+
+成功标准（两条都必须满足）：
+
+- **roundtrip**：`python3 decompress.py compressed.bin > out.txt` 的输出与 `inputs/corpus.txt` **逐字节相同**；
+- **压缩率**：`len(compressed.bin) / len(inputs/corpus.txt) ≤ 0.35`。
+
+## decompress.py 硬约束
+
+- 源码 ≤ 8KB（8192 字节），Python 3.9 兼容；
+- 仅可 import Python 标准库；**禁止 import zlib / lzma / bz2**，源码中也不得出现这些字样（含注释）；
+- 源码中不得出现 `corpus` 字样；
+- 运行时只允许读取 argv 传入的 compressed.bin：不得读语料文件或任何其他文件——`open()` 只能用于打开 `sys.argv[1]`（或其直接别名变量）；
+- 不得使用 `eval` / `exec` / `compile` / `__import__`；
+- 用法固定为 `python3 decompress.py compressed.bin`，还原内容写到 **stdout**（不得混入其他输出）。
+
+## 语料说明
+
+语料为确定性生成的固定文件（不要修改它），构成：JSON 行流水、管道分隔表格、同构伪代码段、中英自然段，以及一段**高熵 base64 随机流**——最后这段基本不可压缩，请据此规划你的格式与预算。
+
+## 建议流程
+
+写压缩器 → 自测 roundtrip（比较还原输出与原文件）→ 实测压缩率 → 不达标就迭代格式与算法 → 重复直到两条成功标准同时满足 → 交付。
+
+提示：先让小输入的 roundtrip 正确（空文件、单字节、全同字节、纯随机段），再追求压缩率。
+
+---
+（评测注入，不改任务本身）当前工作目录即上文的运行目录：/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/corpus-squeeze__dsh
+所有读写都在这个目录内完成；不联网。完成后直接结束，不需要额外解释。
+---

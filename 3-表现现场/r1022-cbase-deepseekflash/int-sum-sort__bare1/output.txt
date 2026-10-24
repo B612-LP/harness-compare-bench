@@ -1,0 +1,19 @@
+```python
+from pathlib import Path
+
+input_path = Path("/app/input.txt")
+output_path = Path("/app/output.txt")
+
+lines = input_path.read_text().splitlines()
+numbers = [int(line.strip()) for line in lines if line.strip()]
+
+total = sum(numbers)
+count = len(numbers)
+sorted_numbers = sorted(numbers)
+
+with output_path.open("w") as f:
+    f.write(f"{total}\n")
+    f.write(f"{count}\n")
+    for number in sorted_numbers:
+        f.write(f"{number}\n")
+```

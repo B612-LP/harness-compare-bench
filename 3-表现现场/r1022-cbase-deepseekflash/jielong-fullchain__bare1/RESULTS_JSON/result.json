@@ -1,0 +1,59 @@
+{
+  "case_id": "jielong-fullchain",
+  "checker_version": "0.1",
+  "binary": true,
+  "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/jielong-fullchain__bare1",
+  "items": [
+    {
+      "id": "artifacts_exist",
+      "title": "产物存在（resolution.json + plan.json）",
+      "weight": 8,
+      "status": "pass",
+      "detail": "resolution=/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/jielong-fullchain__bare1/resolution.json; plan=/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/jielong-fullchain__bare1/plan.json"
+    },
+    {
+      "id": "input_integrity",
+      "title": "输入完整性（守卫，三件输入副本）",
+      "weight": 12,
+      "status": "pass",
+      "detail": "三件输入副本与 canonical 字节一致"
+    },
+    {
+      "id": "resolution_schema",
+      "title": "resolution.json 结构与字段类型",
+      "weight": 10,
+      "status": "fail",
+      "detail": "resolution.json 解析失败: Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "id": "plan_schema",
+      "title": "plan.json 结构与单序",
+      "weight": 6,
+      "status": "fail",
+      "detail": "plan.json 解析失败: Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "id": "plan_assignment",
+      "title": "逐单 add/skip/reject（先A后B / 容量 / 幂等）",
+      "weight": 15,
+      "status": "fail",
+      "detail": "plan 结构不齐，无法逐单比对"
+    }
+  ],
+  "failed": [
+    "resolution_schema",
+    "plan_schema",
+    "plan_assignment"
+  ],
+  "reward": 0,
+  "weighted": 20,
+  "max_weight": 100,
+  "input_integrity": "verified",
+  "people_total": 13,
+  "matched_total": 9,
+  "unmatched_total": 2,
+  "conflict_total": 1,
+  "add_total": null,
+  "skip_total": null,
+  "reject_total": null
+}
