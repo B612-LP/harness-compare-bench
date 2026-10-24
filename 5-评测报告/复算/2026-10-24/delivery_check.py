@@ -44,6 +44,11 @@ def main():
     docs += [HERE / 'README.md', REPO / '反馈/2026-10-21-第一轮/验收条款-公开版.md']
     tracked = {REPO / p for p in subprocess.check_output(
         ['git', 'ls-files', '-z'], cwd=str(REPO)).decode().split('\0') if p}
+    regrade = load(HERE / 'results.json')
+    evidence_paths = {REPO / p for files in regrade['historical_evidence_sha256'].values() for p in files}
+    omitted_evidence = sorted(p.relative_to(REPO).as_posix() for p in evidence_paths - tracked)
+    checks.append({'test': 'fingerprinted_evidence_is_published', 'pass': not omitted_evidence,
+                   'checked_files': len(evidence_paths), 'missing': omitted_evidence})
     link_count = 0
     for path in docs:
         text = path.read_text(encoding='utf-8')
@@ -115,6 +120,7 @@ def main():
         '3-表现现场/r1024-probe-区分度/polyglot-py3__dsh/inputs/exercises/forth/.docs/instructions.append.md',
         '3-表现现场/r1025-candidates/cases/dabstep-payments-10/inputs/manual.md',
         '3-表现现场/r1027-isolated/README.md',
+        '3-表现现场/r1026-desktop-15/runs/doubao/dabstep-payments-10/inputs/manual.md',
     }
     unexpected_whitespace = sorted(warning_files - preserved_sources)
     checks.append({'test': 'edited_source_whitespace', 'pass': whitespace.returncode in (0, 2) and not unexpected_whitespace,
