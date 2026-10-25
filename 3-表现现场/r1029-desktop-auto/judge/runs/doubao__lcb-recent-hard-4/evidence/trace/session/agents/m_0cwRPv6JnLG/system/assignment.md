@@ -1,0 +1,58 @@
+# Assignment
+- Agent ID: m_0cwRPv6JnLG
+- Role: main
+- Assigned by: user
+- Created: 2026-10-25T08:00:27.883191888Z
+
+> append-only: 每个 turn 的需求按时间戳追加在下方，最新在末尾。
+
+## [2026-10-25T08:00:27.883191888Z] 需求
+# 本场任务：lcb-recent-hard-4（豆包工作（本地电脑 runtime））
+
+**你的工作目录（绝对路径）：`/Users/b612-lp/bench-workspaces/r1029/doubao/lcb-recent-hard-4`**
+
+请在这个目录里工作：输入都在该目录的 `inputs/` 下，产物按题目要求写到该目录里（题目里的相对路径都相对这个目录）。除题目明确要求修改的代码外，不要改动 `inputs/` 下的文件。
+
+---
+
+# lcb-recent-hard-4：四道近期竞赛难题（LiveCodeBench v6，含隐藏测试）
+
+## 任务
+
+`inputs/problems.json` 里有 4 道近期 AtCoder 竞赛难题。每道题给出：**中文改写题面**（题意、输入格式、输出格式、约束、全部样例与样例解释）、AtCoder 题号与比赛日期。
+
+| # | problem_id | 题名 | 出处 | 样例数 |
+|---:|---|---|---|---:|
+| 1 | `abc387_f` | Count Arrays | ABC387 F（2025-01-04） | 3 |
+| 2 | `abc388_f` | Dangerous Sugoroku | ABC388 F（2025-01-11） | 3 |
+| 3 | `abc388_g` | Simultaneous Kagamimochi 2 | ABC388 G（2025-01-11） | 2 |
+| 4 | `abc389_g` | Odd Even Graph | ABC389 G（2025-01-18） | 3 |
+
+对每道题，在**当前运行目录**下写一个 Python 程序：
+
+```
+solutions/<problem_id>.py
+```
+
+文件名必须与 `problem_id` 完全一致（四位分别是 `solutions/abc387_f.py`、`solutions/abc388_f.py`、`solutions/abc388_g.py`、`solutions/abc389_g.py`）。
+
+## 程序要求
+
+- 程序从**标准输入**读入、向**标准输出**写出，严格遵守该题给出的输入/输出格式；
+- 只允许使用 Python 3.9 **标准库**；不联网、不安装第三方包；
+- 每题一个独立文件，互不依赖；不得读写其它文件、不得依赖运行目录里的输入文件；
+- 允许在本地用样例（`inputs/problems.json` 里 `samples` 字段）自测；判分时会额外使用**隐藏测试**。
+
+## 判分
+
+- 对每道题，判分器把该题的全部测试逐组喂给你的程序（每组启动一次 `python3 solutions/<id>.py`，stdin 注入输入）；
+- 单组超时 **10 秒**；输出按行比较（忽略每行行尾空白与末尾空行）；
+- 一道题的测试**全部通过**才算该题通过；单题内部没有部分分；
+- 4 题中通过 **≥ 2 题**记 `reward=1`，否则 `reward=0`；加权分 = 通过题数 / 4 × 100。
+
+## 交付
+
+只需要 `solutions/` 下四个 `.py` 文件；不需要写解释文档，也不要修改 `inputs/`。
+总时限 3000 秒（含读题、编码、自测）。
+
+> 提示：四题都是竞赛 hard 难度，建议先逐题读清约束（尤其 `abc388_f` 的 `N ≤ 10^12`、`abc388_g` 的 `N,Q ≤ 2×10^5`、`abc389_g` 的模数 `P` 不一定等于 998244353），先用样例把格式跑通，再考虑复杂度。
