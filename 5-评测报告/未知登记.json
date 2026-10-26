@@ -3,8 +3,8 @@
   "updated": "2026-10-27",
   "policy": "未知不补 0、不补满分、不折算；每项写影响 / 下一步 / 停止追查条件 / 复核日期。状态只允许 open / closed / accepted。",
   "counts": {
-    "open": 6,
-    "closed": 7,
+    "open": 5,
+    "closed": 8,
     "accepted": 0
   },
   "unknowns": [
@@ -103,7 +103,7 @@
       "id": "v2-case-discrimination",
       "item": "v2.0 题库的区分度只在 2/5 题上被验证",
       "impact": "5 题双 CLI 各 1 场：dabstep 与 tb 各有一款胜出，exercism/lcb 双款满分、bird 双款同分。n=1 不足以判断稳定性，正式 25 场矩阵前不能宣称题库区分度达标。",
-      "next_step": "按 25 场协议跑正式批次（含桌面 15 场）；对 dabstep/tb 各补 2 次重复运行看结果是否翻转；exercism/lcb 若仍全满，考虑加题量或替换。",
+      "next_step": "按 25 场协议跑正式批次（含桌面 15 场）；对 dabstep/tb 各补 2 次重复运行看结果是否翻转；exercism/lcb 若仍全满，考虑加题量或替换。 2026-10-27 更新:25 格矩阵实质收满——元宝 5 格按 10-27 三件套 clean 入账(V),唯一非 V 格为 WB×lcb(excluded×3,协议变更前停抽);剩余验证=dabstep/tb 重复运行(n>1 稳定性)。",
       "stop_condition": "若正式批次里 5 题仍 ≥3 题双款同分且加权分差 <2%，在报告中固定标注「v2 题库区分度不足，改用过程指标为主口径」。",
       "review_date": "2026-10-25",
       "status": "open"
@@ -141,10 +141,15 @@
       "id": "b-group-websearch-policy",
       "item": "B 组联网检索题解的口径未定义(元宝专家模式默认开检索)",
       "impact": "integrity_scan-v1 坐实:元宝 r1030 abc388_g 得分题(42/42)解出自搜题解会话 → r1030 判 suspect/X(干净口径 50);389_g 两轮检索 ≥8 篇题解仍 0/43;r1029 WorkBuddy×lcb 同类命中 → suspect/X。与 r1026 WorkBuddy 判 X 口径一致,但「产品自带检索算不算污染」需要成文口径。",
-      "next_step": "2026-10-26 二次更新(实证补强):元宝客户端关闭联网技术性失败——App 启动按账号态重置为 auto,输入栏无该控件入口,localStorage 改写无效且会被长驻页写回;三档枚举(auto/open/close)与逐消息字段(speechesV2[].internetSearch)确认存在。当日 r20261026 批四案例以『任务书禁止联网+批后 integrity_scan 实证』执行,四会话 0 检索步骤、0 题解 URL(题面自带豁免),实证 clean。口径推荐相应修订:元宝的『统一禁止』在无 UI 入口现状下只能以『提示词禁止+逐会话字段披露+实证扫描』执行,豆包维持默认(轨迹已证无检索)。待用户按此修订版拍板后落打分表。",
+      "next_step": "2026-10-27 结清(用户拍板授权落表):元宝「手动关联网」实测不可技术执行(App 启动按账号态重置 auto/输入栏无控件入口/localStorage 改写被长驻页写回),统一禁止改由「任务书禁止联网+逐会话 speechesV2[].internetSearch 披露+批后 integrity_scan 实证」执行,实证 clean 记 V、实证命中记 X;豆包维持默认联网态(轨迹实证无检索)+同扫描兜底;历史裁定不变(r1030 自动档 75 判 X 维持、r1029 WorkBuddy×LCB suspect/excluded 维持),取代阶段报告 v3.0 §5「手动关联网」推荐;总账 16 条 B 组行已加只读检索口径标注,不改任何分数/四元组。见落表文件与打分表 v0.4。",
       "stop_condition": "拍板并落实口径后关闭;若两周未拍板,保持 open 并在报告固定标注「B 组检索口径未定,涉检索行已单列」。",
       "review_date": "2026-10-28",
-      "status": "open"
+      "status": "closed",
+      "closed_at": "2026-10-27",
+      "evidence": [
+        "4-打分细则/检索口径-2026-10-27-落表.md",
+        "4-打分细则/打分表.md"
+      ]
     },
     {
       "id": "dab-q2697-adjudicated",
