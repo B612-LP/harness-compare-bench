@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 497, in run
+    await self._prepare()
+  File "/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 543, in _prepare
+    await self._setup_agent()
+  File "/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 1720, in _setup_agent
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py", line 1087, in setup
+    await self.install(environment)
+  File "/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/codex.py", line 427, in install
+    await self.exec_as_agent(
+  File "/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py", line 1032, in exec_as_agent
+    return await self._exec(
+           ^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py", line 999, in _exec
+    raise self._classify_exec_error(command, result)
+harbor.agents.installed.base.NetworkConnectionError: Command failed (exit 127): set -euo pipefail; if ldd --version 2>&1 | grep -qi musl || [ -f /etc/alpine-release ]; then  npm install -g @openai/codex@0.162.1; else  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash &&  export NVM_DIR="$HOME/.nvm" &&  \. "$NVM_DIR/nvm.sh" || true &&  command -v nvm &>/dev/null || { echo 'Error: NVM failed to load' >&2; exit 1; } &&  nvm install 22 && nvm alias default 22 && npm -v &&  npm install -g @openai/codex@0.162.1; fi && codex --version
+stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 16631  1 ... [3131 chars truncated] ...              85.1%#############################################################             85.2%#############################################################             85.4%##################################################################        92.7%######################################################################    97.3%curl: (56) OpenSSL SSL_read: OpenSSL/3.0.13: error:0A000119:SSL routines::decryption failed or bad record mac, errno 0
+
+download from https://nodejs.org/dist/v22.23.3/node-v22.23.3-linux-x64.tar.xz failed
+grep: /root/.nvm/.cache/bin/node-v22.23.3-linux-x64/node-v22.23.3-linux-x64.tar.xz: No such file or directory
+Provided file to checksum does not exist.
+/root/.nvm/nvm.sh: line 2308: TMPDIR: unbound variable
+
+stderr: None
