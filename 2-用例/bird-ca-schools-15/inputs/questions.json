@@ -121,7 +121,7 @@
     "question_id": 26,
     "difficulty": "moderate",
     "question_zh": "列出 Monterey 县中、5-17 岁免费或减价餐人数超过 800 的公立高中（School Type = 'High Schools (Public)'）的名称与完整通讯地址（按顺序输出 5 列：`School Name`、Street、City、State、Zip）。",
-    "evidence_zh": "完整通讯地址包含 Street、City、State、Zip（有值则给）。",
+    "evidence_zh": "免费或减价餐人数使用 frpm.`FRPM Count (Ages 5-17)`，不是 Free Meal Count；严格 >800（800不满足）。本地合同年龄为5-17岁，原英文15-17仅为历史题源原文。完整通讯地址按Street、City、State、Zip输出。",
     "answer_columns": [
       "School Name",
       "Street",
@@ -131,7 +131,7 @@
     ],
     "question_en_original": "State the names and full communication address of high schools in Monterey which has more than 800 free or reduced price meals for ages 15-17?",
     "evidence_en_original": "Full communication address should include Street, City, State and zip code if any.",
-    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。 候选1.2-q26-frpm明确本地5-17/FRPM口径，并据此改写q26 gold；原英文15-17不作为本地年龄要求。"
   },
   {
     "question_id": 27,

@@ -1,0 +1,29 @@
+[bird-ca-schools-15] checker v1.2-q26-frpm 自测（15 题：challenging 5 / moderate 7 / simple 3；threshold=0.80）
+  用例自身校验通过：输入 SHA-256 全一致，gold 全部可执行且非空
+  PASS nop（空运行目录，无产物）                                 reward=0（期望 0，accuracy=0.000）
+  PASS oracle（solution/answers.jsonl 原样）              reward=1（期望 1，accuracy=1.000）
+  PASS 漏 1 题（删掉 q36 一行）                               reward=0（期望 0，accuracy=0.933）
+  PASS 多 1 题（追加 question_id=9999）                     reward=0（期望 0，accuracy=1.000）
+  PASS 重复 question_id（q28 写两遍，共 16 行）                 reward=0（期望 0，accuracy=1.000）
+  PASS 无效 SQL（6 题查不存在的表）                              reward=0（期望 0，accuracy=0.600）
+  PASS 空结果集（6 题改成 SELECT 1 WHERE 0）                   reward=0（期望 0，accuracy=0.600）
+  PASS 少 JOIN 条件（5 题 ON 1=1 笛卡尔积）                     reward=0（期望 0，accuracy=0.667）
+  PASS 少 DISTINCT/未去重（5 题多行结果翻倍）                      reward=0（期望 0，accuracy=0.667）
+  PASS 近正确负例（4 题口径差一处：删 *100 / 偏移 / 阈值）               reward=0（期望 0，accuracy=0.733）
+  PASS 追加非法行（15 题全对但 schema 必须否决）                     reward=0（期望 0，accuracy=1.000）
+  PASS 追加非对象 JSON（15 题全对但 schema 必须否决）                reward=0（期望 0，accuracy=1.000）
+  PASS 格式错（首行不是 JSON）                                 reward=0（期望 0，accuracy=0.933）
+  PASS 改输入库（run_dir 内 db 副本翻 1 字节）                    reward=0（期望 0，accuracy=1.000）
+  PASS 改输入文件（run_dir 内 schema.sql 被追加内容）              reward=0（期望 0，accuracy=1.000）
+  PASS 阈值边界正例（3 题错 → 12/15=0.8，应判过）                   reward=1（期望 1，accuracy=0.800）
+  PASS 等价答案正例（q5 去掉 DISTINCT，结果不变）                    reward=1（期望 1，accuracy=1.000）
+  PASS q26旧Free5行（逐题拒绝，14/15仍过）                       reward=1（期望 1，accuracy=0.933）
+  PASS q26漏North一校（逐题拒绝，14/15仍过）                      reward=1（期望 1，accuracy=0.933）
+  PASS q26附加一校（逐题拒绝，14/15仍过）                          reward=1（期望 1，accuracy=0.933）
+  PASS q26重复一校（多重集拒绝，14/15仍过）                         reward=1（期望 1，accuracy=0.933）
+  守卫自测（期望 ERROR exit 2）：
+  PASS gold SQL 执行失败（truth 注入坏 gold）                  exit=2（期望 2）  ERROR: 用例缺陷：gold SQL 执行失败 q28: no such table: __broken_gold_table__
+  PASS truth 的输入 SHA-256 与实际 inputs 不符                exit=2（期望 2）    actual=33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d
+  PASS threshold 与 checker 常量不一致                      exit=2（期望 2）  ERROR: checker 常量与 truth 不一致：threshold=0.5（期望 0.8）
+  PASS canonical 输入在自测前后未被改动
+自测通过：25/25 项符合预期

@@ -172,3 +172,4 @@ python3 cases/dabstep-payments-10/checker.py "$TMP/run" --json
 - **2026-10-24 v0.2**：保留官方兼容，新增 `signed-aci-v1` 符号/ACI 契约轨与 CLI 选项，固定数值容差 abs/rel=1e-4；checker/truth/spec 同步版本，旧代码冻结，不改历史分数或 gold/source。新增 3 组内置回归和仓库外临时运行目录的独立红绿回归。
 
 - **2026-10-22 v0.1**：首版入 staging（`3-表现现场/r1025-candidates/cases/dabstep-payments-10/`）。7 个输入文件、`solution/answers.jsonl`（官方 dev gold）、`checker.py`（官方 scorer 移植 + 结构/输入/truth 三重守卫）、`truth.json`、`instruction.md`、`task.toml`、`case.json`；`--selftest` 20 组（5 正 + 11 负 + 4 守卫 ERROR）全绿；oracle reward=1（weighted=100.0）；nop reward=0；11 组负例全部 0；4 组守卫 ERROR 全部触发。
+- **2026-10-26 口径裁定**：q2697 维持官方兼容判分、不用于产品能力归因；判分合同、金标与分数均不变。详见[裁定-2026-10-26-dab-q2697](<../../4-打分细则/裁定-2026-10-26-dab-q2697.md>)。

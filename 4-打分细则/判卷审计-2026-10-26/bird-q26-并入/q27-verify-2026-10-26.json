@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-26",
+  "question": "q27",
+  "gold_sql": "SELECT T2.CDSCode, T2.School, T1.AvgScrWrite, T2.Phone FROM schools AS T2 LEFT JOIN satscores AS T1 ON T2.CDSCode = T1.cds WHERE strftime('%Y', T2.OpenDate) > '1991' OR strftime('%Y', T2.ClosedDate) < '2000'",
+  "population_schools": 8574,
+  "gold_rows": 8574,
+  "distinct_projected_tuples": 8217,
+  "population_missing_sat_record": 7825,
+  "population_null_score_total": 8120,
+  "population_with_score": 454,
+  "inner_join_rows_for_contrast": 749,
+  "leading_zero_extra_matches": 64,
+  "leading_zero_also_raw_matched": 0,
+  "duplicate_projection_groups": 238,
+  "duplicate_extra_rows": 357,
+  "checks": {
+    "population_sql_equals_python": true,
+    "gold_rows_equal_population": true,
+    "every_school_exactly_one_row": true,
+    "join_key_unique_both_sides": true
+  },
+  "verdict": "gold 口径自洽（人群=日期命中的全部学校，LEFT 保留缺 SAT 学校，NULL 分数；键两侧唯一、无扇出）。INNER/前导零/去重均属更强解释跳跃，金标不动，登记已知尖角。"
+}

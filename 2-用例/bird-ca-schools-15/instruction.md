@@ -1,4 +1,6 @@
-# bird-ca-schools-15：加州学校库 Text-to-SQL 15 题
+# bird-ca-schools-15 · v1.2-q26-frpm（2026-10-26 起为正式合同）
+
+仅q26合同修订：免费或减价餐使用FRPM Count (Ages 5-17)，严格>800；不是Free Meal，800不满足。本地年龄5-17，英文15-17仅保留溯源。q27及其他14题不改；q27为已知尖角，口径见 spec.md §13（raw-key LEFT，保留缺 SAT 学校与 NULL 分数，不去重同名异校）。
 
 ## 任务
 
@@ -35,7 +37,7 @@
 
 ## 判分口径
 
-逐题执行你写的 SQL 与官方 gold SQL，把两个**结果集**做归一后比较：
+逐题执行你写的 SQL 与当前版本合同 gold SQL，把两个**结果集**做归一后比较：
 
 - 单元格：`NULL` 记作 `<NULL>`；浮点数四舍五入保留 **6 位小数**；字符串去首尾空白；
 - 行内按列序成组，**行排序后**再比（行顺序不敏感，重复行敏感）；
@@ -56,7 +58,7 @@
 Evaluation）的 `mini_dev` 集（`db_id=california_schools`），
 官网 <https://bird-bench.github.io/>，论文 <https://arxiv.org/abs/2305.03111>，
 数据许可 **CC BY-SA 4.0**，读取日期 **2026-10-22**。
-本用例：题面按中文重写（英文原文保留在 `questions.json` 供溯源），15 题 gold SQL 保持官方原样，
+本用例：题面按中文重写（英文原文保留在 `questions.json` 供溯源），仅q26 gold改写Free Meal→FRPM；其余14题gold保持官方原样，
 数据库为官方库的等价重导出。详见 `spec.md`。
 
 ## 建议流程

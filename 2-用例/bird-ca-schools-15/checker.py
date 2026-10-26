@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""bird-ca-schools-15 判分器 v1.1（2026-10-24，BIRD exec-accuracy + schema 硬门）
+"""bird-ca-schools-15 判分器 v1.2-q26-frpm（2026-10-26 并入正式合同：仅q26 FRPM口径修订）
 
 用法：
     python3 checker.py <run_dir> [--json]     # 正式判分：最后一行输出一行 JSON
@@ -21,7 +21,7 @@
 
 数据来源：BIRD mini_dev（db_id=california_schools），CC BY-SA 4.0，
           官网 https://bird-bench.github.io/ ，读取日期 2026-10-22；题面为中文重写，
-          gold SQL 保持官方原样。本判分器为自建实现（非官方脚本移植）。
+          仅q26 gold改写为FRPM；其余14题gold保留官方原样。本判分器为自建实现（非官方脚本移植）。
 """
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ import tempfile
 from pathlib import Path
 
 CASE_ID = "bird-ca-schools-15"
-CHECKER_VERSION = "1.1"
+CHECKER_VERSION = "1.2-q26-frpm"
 BINARY = True
 THRESHOLD = 0.8
 N_QUESTIONS = 15
@@ -326,6 +326,8 @@ def judge(run_dir):
     return {
         "case": CASE_ID,
         "checker_version": CHECKER_VERSION,
+        "contract_status": "adopted-2026-10-26",
+        "parent_checker_version": "1.1",
         "binary": BINARY,
         "run_dir": str(run_dir),
         "reward": reward,
@@ -521,6 +523,19 @@ def selftest() -> int:
                          "5": gold_sql["5"].replace("COUNT(DISTINCT T2.School)",
                                                     "COUNT(T2.School)")})),
                      "link", (), ("q5",)))
+
+    fixtures.append(("q26旧Free5行（逐题拒绝，14/15仍过）", 1,
+                     _answers_text(variant(oracle_pairs, {"26": gold_sql["26"].replace("FRPM Count (Ages 5-17)", "Free Meal Count (Ages 5-17)")})),
+                     "link", ("q26",), ("answers_schema", "answers_coverage")))
+    fixtures.append(("q26漏North一校（逐题拒绝，14/15仍过）", 1,
+                     _answers_text(variant(oracle_pairs, {"26": gold_sql["26"] + " AND T1.CDSCode != '27738252730034'"})),
+                     "link", ("q26",), ("answers_coverage",)))
+    fixtures.append(("q26附加一校（逐题拒绝，14/15仍过）", 1,
+                     _answers_text(variant(oracle_pairs, {"26": gold_sql["26"] + " UNION ALL SELECT 'extra', 'street', 'city', 'CA', 'zip'"})),
+                     "link", ("q26",), ("answers_coverage",)))
+    fixtures.append(("q26重复一校（多重集拒绝，14/15仍过）", 1,
+                     _answers_text(variant(oracle_pairs, {"26": gold_sql["26"] + " UNION ALL SELECT * FROM (" + gold_sql["26"] + " LIMIT 1)"})),
+                     "link", ("q26",), ("answers_coverage",)))
 
     print("[%s] checker v%s 自测（%d 题：challenging 5 / moderate 7 / simple 3；"
           "threshold=%.2f）" % (CASE_ID, CHECKER_VERSION, N_QUESTIONS, THRESHOLD))
