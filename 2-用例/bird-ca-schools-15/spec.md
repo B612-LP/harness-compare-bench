@@ -187,6 +187,7 @@ empty=$(mktemp -d); python3 checker.py "$empty" --json   # {"reward": 0, ...}
 | 选取 | 该库 30 题中取 15 题：5 challenging（28/36/62/83/87）+ 7 moderate（12/23/24/25/26/27/31）+ 3 simple（5/11/17） |
 | 是否改写 | **题面改写**：中文重写（`question_zh` / `evidence_zh`），英文原文保留在 `questions.json` 供溯源；**SQL 仅 q26 改写**（v1.2-q26-frpm：`Free Meal Count (Ages 5-17)` → `FRPM Count (Ages 5-17)`，官方原句全文留档于 §13，其余 14 条 gold 与官方一致）；**数据未改写**（sqlite3 `backup` 等价重导出，去掉 WAL/SHM 附属文件，内容与官方 db 一致；v1.2 仅改 `questions.json` 中 q26 的 `evidence_zh` 与 `source_note` 口径说明，题干 `question_zh` 与英文原文未动） |
 | 判分器来源 | 自建实现（BIRD exec-accuracy 口径，非官方脚本移植）；`checker.py` 文件头已注明 |
+| **上游快照口径（2026-10-27 裁决）** | 本用例构建快照 = 官方 archive **2025-07-04** 的 mini_dev；本地 `california_schools.sqlite` 与官方**主发布 dev.zip（dev_20240627）逐行一致**。官方 `minidev.zip`（V1 旧包）同名库的 `satscores.cds` 有 211 行带前导零（逻辑行数一致、值不同），同一 gold SQL 下 q17/q24/q27 结果集分叉——**属上游两包自身不一致，非本地漂移**。本地口径**维持主发布 dev.zip**，gold 与候选用同一本地库、判分自洽；与官方 mini_dev 评分口径的逐题可比性以本声明为准。证据：[判卷审计-2026-10-27/upstream-third-party-samples](<../../4-打分细则/判卷审计-2026-10-27/upstream-third-party-samples/README.md>) §4-①（三库交叉比对明细）。另：HF `birdsql/bird_mini_dev` 现行主数据已是「Mini-Dev 1024」新编号（cs 0–48），与本地编号空间不同，未来升级快照需整体迁移重钉 |
 | 再分发 | 本用例以 CC BY-SA 4.0 同源共享（含 `inputs/` 数据库与 `truth.json` 的 gold SQL） |
 
 ## 11. 难度论证（为什么是 medium）
