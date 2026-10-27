@@ -1,6 +1,6 @@
 # lcb-recent-hard-4 判分规格（spec）
 
-版本：**v0.1（2026-10-22，首版 staging）** ｜ 判分入口：`checker.py`
+版本：**v0.1（2026-10-22，首版 staging）；v0.1·B8 披露式修订（2026-10-27：stderr 口径显式化，判分行为不变）** ｜ 判分入口：`checker.py`
 定位：**hard · 近期竞赛算法题（4 题达标线制，含隐藏私有测试）**，CLI 为主、产物判分；与既有 hard 三题（迭代优化 / 多源冲突 / 账本重放）互补，考「多文件算法交付 + 自带隐藏测试的抗过拟合」。
 
 ## 1. 用例定位
@@ -43,7 +43,7 @@
 ```bash
 python3 checker.py <run_dir>           # 人读报告 + 末行 RESULTS_JSON
 python3 checker.py <run_dir> --json    # 只输出一行 JSON（供脚本聚合）
-python3 checker.py --selftest          # 自测：nop/oracle/边界/7 组负例/真值漂移守卫
+python3 checker.py --selftest          # 自测：nop/oracle/边界/8 组负例（含 B8 披露项）/真值漂移守卫
 ```
 
 退出码：`0` = reward 1；`1` = reward 0；`2` = 用法错误 / run_dir 不存在 / 用例自身不一致（truth 漂移）。
@@ -53,13 +53,14 @@ python3 checker.py --selftest          # 自测：nop/oracle/边界/7 组负例/
 1. **逐组实跑外部产物**：不采信产品自述，只读 run_dir 文件 + `subprocess(sys.executable, solutions/<id>.py, stdin=测试输入)`；不联网、不装包、不读 `/tmp` 或仓库其它路径。
 2. **超时**：单组 10s（`TEST_TIMEOUT_S=10`）；另有单题累计预算 240s（`PROBLEM_BUDGET_S=240`）防病态解拖死判分（超预算该题 fail，记 `fail_kind=budget`）。oracle 最慢单组实测 1.37s（abc389_g 最大用例），距 10s 有 7.3× 余量；oracle 全部 171 组总耗时约 7.3s。
 3. **比较口径**：`norm()` = 统一 CRLF/LF → 逐行 `rstrip()` → 丢弃末尾空行；不做字段级解析（Yes/No、多行数字、空格分隔均按原文比较）。行首多余空格/词间多空格/多余行都会判错。
+   **stderr 口径（B8，2026-10-27 显式披露）**：**stderr 完全不参与输出比较**——只比对 stdout（按行 rstrip）、退出码（非 0 判 fail）与超时；程序向 stderr 打印「OK passed all tests」等伪造成功标记**不影响分值**。取「披露式」而非加严的理由：与上游 AtCoder 官方判定一致（官方同样只比对 stdout，stderr 输出不参与判定），伪造标记不改变答案正确性；本口径与 v0.1 判分行为完全一致，仅把隐式行为显式化并由自测 #12 断言防回归（证据组：mutation-negatives `lcb-n05`；收据：[判卷审计 2026-10-27](<../../4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/README.md>)）。
 4. **三重守卫**：
    - ① **truth 漂移**：`truth.json` 记录的 `inputs/problems.json` SHA-256 与字节数须与磁盘一致，否则 ERROR exit 2；
    - ② **运行目录输入副本**：run_dir 若带 `inputs/problems.json`（或根目录同名）且 SHA-256 与 canonical 不符 → `input_integrity` fail、reward 强制 0；
    - ③ **truth 与 checker 常量一致**：题数=4、达标线=2、单组超时=10、各题测试数（43/43/42/43）、每题测试集 SHA-256（`tests_sha256`）任一不符 → ERROR exit 2。
 5. **仅标准库**：`argparse/hashlib/json/shutil/subprocess/sys/tempfile/time/pathlib`；Python 3.9 兼容。
 
-## 6. 负例与自测（`--selftest` 11 项，2026-10-22 实测全绿）
+## 6. 负例与自测（`--selftest` 12 项，2026-10-27 实测全绿；v0.1 为 11 项）
 
 | # | 项 | 期望 | 实测 | 说明 |
 |---:|---|---:|---:|---|
@@ -74,6 +75,7 @@ python3 checker.py --selftest          # 自测：nop/oracle/边界/7 组负例/
 | 9 | 负例：输出格式多空格 | 0 | 0 | 答案全对但行首 +2 空格、词间双空格 → 四题均 `fail_kind=wrong`（证明格式真的参与判分） |
 | 10 | 负例：run_dir 输入副本被篡改 | 0 | 0 | 四题全过但 `input_integrity` fail → reward 压制为 0 |
 | 11 | 守卫：truth SHA-256 漂移 | exit 2 | exit 2 | 拷走 checker+truth 改 SHA 后运行 → ERROR exit 2 |
+| 12 | **B8 披露项（2026-10-27）**：abc389_g stdout 与 oracle 一致、仅向 stderr 打 `OK passed all tests` | 1（4/4） | 1 | 显式断言「stderr 不参与比较」防回归（v0.1 行为本就如此，见 §5 口径 3） |
 
 自测用 `tempfile.TemporaryDirectory()`，不污染仓库；自测原始输出见 `selftest.stdout.txt` 与 `3-表现现场/r1025-candidates/selftest/lcb-recent-hard-4.log`。
 
@@ -126,3 +128,4 @@ python3 checker.py --selftest          # 自测：nop/oracle/边界/7 组负例/
 ## 12. 变更记录
 
 - 2026-10-22 v0.1：首版 staging 入库。`inputs/problems.json`（4 题中文改写题面 + 样例，7,884 B，SHA-256 `0ce2f9c1…`）、`truth.json`（171 组测试 + 每题 `tests_sha256` + MIT 来源）、`checker.py` v0.1（逐组 subprocess、10s/组、按行 rstrip、≥2/4 达标、三重守卫、`--selftest` 11 项）、`solution/`（r1024 dsh 批 4 题，本 checker 复验 4/4）、`case.json`（timeout_s=3000）、`task.toml`。`--selftest` 11/11 全绿（oracle=1、nop=0、7 负例全 0、truth 漂移 exit 2）。
+- 2026-10-27 v0.1·B8 披露式修订：**判分行为不变**（stderr 本就不参与比较）。spec §5 增补 stderr 口径声明（披露式不加严的理由：与上游 AtCoder 官方判定一致，伪造标记不影响答案正确性）；`checker.py` 文件头同步口径声明、`--selftest` 增至 12 项（+#12 stderr 伪造标记显式断言）。`truth.json`/`inputs`/`solution/` 逐字节未动；历史回放 24 场（三受影响 case）before/after 0 翻转。收据：[判卷审计 2026-10-27](<../../4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/README.md>)。

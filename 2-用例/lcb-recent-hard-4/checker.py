@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""lcb-recent-hard-4 判分器 v0.1（2026-10-22）
+"""lcb-recent-hard-4 判分器 v0.1（2026-10-22；2026-10-27 B8 披露式修订）
 
 用法：
     python3 checker.py <run_dir> [--json]
@@ -12,6 +12,10 @@
     逐题依次运行该题的全部测试（公开样例 + 隐藏私有测试，均为 AtCoder stdin 型）：
     subprocess 以 <python> solutions/<id>.py 运行、stdin 注入测试输入、单组超时 10 秒、
     stdout 按行 rstrip 比较（忽略行尾空白与末尾空行）。
+    **stderr 不参与输出比较**（B8，2026-10-27 显式披露：与上游 AtCoder 官方判定一致——
+    官方只比对 stdout，程序向 stderr 打印伪造成功标记不影响分值；本口径与 v0.1 行为
+    完全一致，仅由自测显式断言防回归，见 spec §5/§6 与
+    4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/）。
     单题「全部测试通过」才算该题通过（单题内部无部分分）；
     4 题中通过 ≥2 题 headline reward=1，weighted = 通过题数 / 4 × 100。
 
@@ -275,6 +279,24 @@ def _format_mangle_text(pid: str) -> str:
     ) % oracle
 
 
+def _stderr_marker_text(pid: str) -> str:
+    """B8 披露项（2026-10-27）：stdout 与 oracle 逐字节一致，仅向 stderr 打印伪造成功标记。
+    判分行为：不参与比较 → 该题照常全过（显式断言，防未来误改比较口径）。"""
+    oracle = str(HERE / "solution" / ("%s.py" % pid))
+    return (
+        "import io, runpy, sys\n"
+        "_buf = io.StringIO()\n"
+        "_old = sys.stdout\n"
+        "sys.stdout = _buf\n"
+        "try:\n"
+        "    runpy.run_path(%r, run_name='__main__')\n"
+        "finally:\n"
+        "    sys.stdout = _old\n"
+        "sys.stderr.write('OK passed all tests\\n')\n"
+        "sys.stdout.write(_buf.getvalue())\n"
+    ) % oracle
+
+
 def selftest() -> int:
     truth = verify_case()
     results = []
@@ -399,6 +421,21 @@ def selftest() -> int:
                "四题全过但守卫拦截? %s（integrity=%s, passed=%d）"
                % (tamper_prec, by_id["input_integrity"]["pass"], r["passed_problems"]))
         results[-1]["ok"] = results[-1]["ok"] and tamper_prec
+
+        # ---- B8 披露项（2026-10-27）：stderr 伪造标记不影响分值（行为不变，显式化防回归）
+        d = builder("stderr_marker")
+        put_oracle(d, PROBLEM_ORDER)
+        _write(d / "solutions" / "abc389_g.py", _stderr_marker_text("abc389_g"))
+        r = judge(d)
+        by_id = {c["id"]: c for c in r["checks"]}
+        stderr_prec = (r["passed_problems"] == N_PROBLEMS and r["reward"] == 1
+                       and by_id["abc389_g"]["pass"]
+                       and by_id["abc389_g"]["fail_kind"] == "")
+        record("披露项：stderr 伪造标记不影响分值", 1, r["reward"],
+               "四题全过? %s（abc389_g stdout 与 oracle 一致、stderr 带 'OK passed all tests'"
+               " 仍判全过——stderr 不参与输出比较，与上游 AtCoder 官方判定一致）"
+               % stderr_prec)
+        results[-1]["ok"] = results[-1]["ok"] and stderr_prec
 
         # ---- 守卫 ①：truth 漂移（拷走 checker+truth，改 SHA 后应 exit 2）
         d = Path(tmp) / "drifted_case"

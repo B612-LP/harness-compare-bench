@@ -1,6 +1,6 @@
 # bird-ca-schools-15 判分规格（spec）
 
-版本：**v1.2-q26-frpm（2026-10-26，q26 合同修订并入：题面「免费或减价餐」按 FRPM Count 判分；v1.1 / v1.0 冻结保留，见 §13）** ｜ 判分入口：`checker.py`
+版本：**v1.2-q26-frpm（2026-10-26，q26 合同修订并入：题面「免费或减价餐」按 FRPM Count 判分；v1.1 / v1.0 冻结保留，见 §13）**；判卷层收紧批 **B2（2026-10-27：答案行精确键集 + SQL 禁 `--` 注释）**——truth 未动、`CHECKER_VERSION` 不变（`CONTRACT_REVISION=b2-tighten-2026-10-27`），历史回放 24 场 0 翻转，收据见[判卷审计 2026-10-27](<../../4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/README.md>) ｜ 判分入口：`checker.py`
 定位：**medium · 多题 Text-to-SQL（BIRD exec-accuracy 口径）**，与 `corpus-squeeze`（工程迭代闭环）、`jielong-fullchain`（对话链路重放）互补，考「读 schema + 题面口径 → 写对 SQL」的稳定正确率。
 
 ## 1. 用例定位
@@ -20,7 +20,7 @@
 ## 2. 判分模式
 
 - **headline 二值 0/1**（`BINARY=True`）：reward = 1 当且仅当
-  ① 交付契约通过（`answers_schema` 与 `answers_coverage` 均为硬门：15 个非空行均为合法 JSON 对象，15 个 `question_id` 与题集一一对应，无缺失/多余/重复；任意追加非法行即使逐题全对也否决）；
+  ① 交付契约通过（`answers_schema` 与 `answers_coverage` 均为硬门：15 个非空行均为合法 JSON 对象，**每行恰为 `question_id`/`sql` 两键（B2，2026-10-27：多余键如 status/verified → schema 否决）**，`sql` 不含字符串字面量之外的 `--` 注释（B2，题面要求提交可执行 SQL）），15 个 `question_id` 与题集一一对应，无缺失/多余/重复；任意追加非法行即使逐题全对也否决）；
   ② 输入完整性未被破坏（run_dir 里若带 `inputs/` 副本，逐件 SHA-256 与 canonical 一致）；
   ③ 逐题 exec-accuracy **≥ 0.8**（15 题至少 12 题结果集一致）。
 - `weighted = 准确率 × 100`（即主观察项「exec_accuracy」的得分率；`0.8` 达标线就落在这个口径上）。
@@ -38,7 +38,7 @@
 | id | 观察项 | 权重 | 通过条件 | 0 分条件 |
 |---|---|---:|---|---|
 | answers_file | 产物存在 | 5 | 运行目录有 `answers.jsonl` | 缺失（其余逐题项连带全红） |
-| answers_schema | 行格式 | 10 | 15 行均为可解析 JSON 对象，含 `question_id` 与字符串 `sql` | 任一非空行 JSON/结构错 → 直接否决（即使 coverage 通过） |
+| answers_schema | 行格式 | 10 | 15 行均为可解析 JSON 对象，恰含 `question_id`/`sql` 两键（B2），`sql` 无字面量外 `--` 注释（B2） | 任一行 JSON/结构错、多余键或含 `--` 注释 → 直接否决（即使 coverage 通过） |
 | answers_coverage | 交付契约（硬门） | 15 | 恰好 15 行，`question_id` 集合与题集**完全一致**，无缺失/多余/重复 | 缺题、多题、重复 id → 直接不通过 |
 | input_integrity | 输入完整性（守卫，硬门） | 10 | run_dir 附带的 `inputs/` 副本逐件与 canonical SHA-256 一致 | 任一件被修改 → 直接不通过；未附副本 → 未核验（不扣分） |
 | exec_accuracy | 逐题结果集一致率（主观察项） | 60 | 15 题逐题 = gold 结果集（0/1 计分，每题 4 分） | 准确率 < 0.8 不通过 |
@@ -88,11 +88,11 @@ python3 checker.py --selftest         # 负控制/守卫自测，必须全 PASS 
 
 退出码：`0` = reward 1；`1` = reward 0；`2` = 用法错误 / 自测失败 / 用例自身不一致（truth 漂移、gold 失败）。
 
-## 6. 判分器自测（`--selftest`，v1.2-q26-frpm 共 25 项）
+## 6. 判分器自测（`--selftest`，v1.2-q26-frpm+B2 共 27 项）
 
 `--selftest` 在 `tempfile.TemporaryDirectory()` 内逐项造产物并断言，**不污染仓库**；
-共 25 项 = v1.1 的 21 项（原 15 组「正/负例」+ 2 组追加非法行回归 + 3 组守卫 ERROR 用例 + 1 项输入不被改动复核）
-+ v1.2 新增 4 组 q26 合同负例。v1.1 新增两组为 oracle 后追加 `not-json` / `[]`：逐题仍 15/15、coverage 通过，但 schema 失败且 reward=0。
+共 27 项 = v1.1 的 21 项（原 15 组「正/负例」+ 2 组追加非法行回归 + 3 组守卫 ERROR 用例 + 1 项输入不被改动复核）
++ v1.2 新增 4 组 q26 合同负例 + 2026-10-27 收紧批新增 2 组 B2 负例（#24/#25）。v1.1 新增两组为 oracle 后追加 `not-json` / `[]`：逐题仍 15/15、coverage 通过，但 schema 失败且 reward=0。
 v1.0 的 19 项记录如下保留为历史；独立修前/修后执行收据见[数值判卷审计](../../4-打分细则/判卷审计-2026-10-24/numeric/README.md)。
 
 | # | 样例 | 期望 | 实测 |
@@ -125,6 +125,13 @@ v1.2-q26-frpm 新增 4 项（2026-10-26；期望均为 **q26 逐题判错**、�
 | 21 | **q26 漏一校**：排除 North Monterey County High（`CDSCode != '27738252730034'`，5 行） | 1（q26 红，14/15） |
 | 22 | **q26 附加一校**：`UNION ALL` 追加一行假学校（7 行） | 1（q26 红，14/15） |
 | 23 | **q26 重复一校**：结果重复输出一行（7 行，多重集敏感） | 1（q26 红，14/15） |
+
+B2 收紧批新增 2 项（2026-10-27；对应 mutation-negatives `bird-n06` 的两个变异维度，各拆一条）：
+
+| # | 样例 | 期望 |
+|---|---|---|
+| 24 | **每行多余键**：15 行各加 `status: "OK passed"`、`verified: true` → schema+coverage 红 | 0 |
+| 25 | **SQL 注释**：15 条 SQL 末尾加 `-- OK passed` → schema+coverage 红（字面量内的 `--` 不受影响，如 `LIKE '%--%'`） | 0 |
 
 负例覆盖（BUILD-GUIDE §2 要求）：漏题、多题、无效 SQL、少 DISTINCT、少 JOIN 条件、
 改输入库、空结果集、格式错、近正确口径错 —— 全 0；另有 2 个正例（阈值边界、等价答案）；
@@ -257,6 +264,13 @@ v1.2 只对**今后**的运行生效。历史有效运行的旧分保持冻结�
 4. 前导零容错（`CDSCode = '0'||cds`）可额外恢复 64 所匹配（与 raw-key 零重叠），但其中 3 所与 SAT 端名称不一致，不能唯一确认同实体；同名异校投影重合（`(School, NULL, NULL)` 重复 357 行）来自不同 CDSCode，DISTINCT 会合并不同实体。两者均属合同口径选择，题面未授权，维持 gold 冻结口径。
 
 停止追查条件（满足其一再重开）：① BIRD 官方对 q27 发布口径说明或修正题源；② 后续运行中出现按 INNER/前导零/去重口径作答且其余 14 题全对的实际现场；③ 上游数据库或题面更新导致 8,574/749 等基线数字失效。
+
+### 13.5 判卷层收紧批 B2（2026-10-27，不改 truth/金标）
+
+- **内容**：answers.jsonl 每行收紧为**精确键集**（恰 `question_id`/`sql`，多余键走 schema 否决通道）；`sql` 禁止字符串字面量之外的 `--` 注释（题面要求提交可执行 SQL；`LIKE '%--%'` 等字面量用法不受影响）。对应边界清单 B2（[mutation-negatives §7](<../../4-打分细则/判卷审计-2026-10-26/mutation-negatives/README.md>)，证据组 bird-n06）。
+- **版本标注**：`CHECKER_VERSION` 因 truth.json 冻结保持 `1.2-q26-frpm`；判分输出新增 `contract_revision=b2-tighten-2026-10-27`。
+- **硬闸门预检**：总账 3 个受影响 case 全部 main_table_eligible=true 且 run_dir 在本机存在的 24 场历史有效运行，before/after 逐场回放（只读临时副本协议）**0 场翻转**（reward/weighted 均不变）；预检同时确认 10 场 bird 历史答案全部本就满足两键精确集、无 `--` 注释。收据：[判卷审计 2026-10-27](<../../4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/README.md>)。
+- **自测**：25 项 → 27 项（+2 组 B2 负例，见 §6 #24/#25）。
 
 ### 13.5 已知边界
 

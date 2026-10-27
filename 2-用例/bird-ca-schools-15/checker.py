@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""bird-ca-schools-15 判分器 v1.2-q26-frpm（2026-10-26 并入正式合同：仅q26 FRPM口径修订）
+"""bird-ca-schools-15 判分器 v1.2-q26-frpm（2026-10-26 并入正式合同：仅q26 FRPM口径修订；
+2026-10-27 收紧批 B2：答案行精确键集 + SQL 禁 `--` 注释，判分合同修订见
+4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/；CHECKER_VERSION 因
+truth.json 冻结保持 1.2-q26-frpm 不变，合同修订以 CONTRACT_REVISION 标记）
 
 用法：
     python3 checker.py <run_dir> [--json]     # 正式判分：最后一行输出一行 JSON
@@ -10,8 +13,9 @@
     <run_dir>/answers.jsonl   15 行，每行 {"question_id": <int>, "sql": "<单条 SQLite 查询>"}
 
 口径：
-    binary：reward = 1 当且仅当「交付契约（15 题齐全、无缺失/多余/重复）+ 输入完整性未被破坏
-            + 逐题结果集准确率 ≥ 0.8」；weighted = 准确率 × 100。
+    binary：reward = 1 当且仅当「交付契约（15 题齐全、无缺失/多余/重复；每行恰为
+            question_id/sql 两键（B2：多余键 → schema 否决）；sql 不含 `--` 注释（B2））
+            + 输入完整性未被破坏 + 逐题结果集准确率 ≥ 0.8」；weighted = 准确率 × 100。
     逐题判分 = 执行 gold SQL 与 pred SQL，结果集归一后比对（exec-accuracy）：
             单元格 None→"<NULL>"、float 四舍五入保留 6 位、字符串去首尾空白、按列序成组，
             行排序后逐行比对（行顺序不敏感，重复行敏感）。
@@ -37,7 +41,8 @@ import tempfile
 from pathlib import Path
 
 CASE_ID = "bird-ca-schools-15"
-CHECKER_VERSION = "1.2-q26-frpm"
+CHECKER_VERSION = "1.2-q26-frpm"      # truth.json 冻结所钉；合同修订见 CONTRACT_REVISION
+CONTRACT_REVISION = "b2-tighten-2026-10-27"   # 2026-10-27 收紧批 B2（精确键集 + 禁 -- 注释）
 BINARY = True
 THRESHOLD = 0.8
 N_QUESTIONS = 15
@@ -50,6 +55,11 @@ INPUT_FILES = (DB_REL, "inputs/schema.sql", "inputs/sample_rows.json", "inputs/q
 NULL = "<NULL>"
 WRITE_SQL_RE = re.compile(r"^\s*(insert|update|delete|drop|alter|create|replace|attach|detach|"
                           r"pragma|vacuum|reindex)\b", re.IGNORECASE)
+# B2（2026-10-27 收紧批）：答案行恰为这两键；多余键（status/verified 等伪造标记）→ schema 否决
+ANSWER_KEYS = frozenset({"question_id", "sql"})
+# B2：SQL 字符串字面量掩码（含 '' 转义，须有闭合引号），用于检测字面量之外的 `--` 注释
+# （题面要求提交可执行 SQL；字面量内的 `--`（如电话/日期文本）不受影响）
+_SQL_LITERAL_RE = re.compile(r"'(?:[^']|'')*'")
 HERE = Path(__file__).resolve().parent
 
 _CACHE = {}
@@ -222,8 +232,14 @@ def parse_answers(path):
         if not isinstance(obj, dict):
             parse_errors += 1
             continue
+        if set(obj) != ANSWER_KEYS:   # B2：精确键集，多余/缺失键走 schema 否决通道
+            parse_errors += 1
+            continue
         qid, sql = obj.get("question_id"), obj.get("sql")
         if qid is None or not isinstance(sql, str):
+            parse_errors += 1
+            continue
+        if "--" in _SQL_LITERAL_RE.sub("''", sql):   # B2：禁 `--` 注释（字面量之外）
             parse_errors += 1
             continue
         entries.append((str(qid).strip(), sql))
@@ -326,6 +342,7 @@ def judge(run_dir):
     return {
         "case": CASE_ID,
         "checker_version": CHECKER_VERSION,
+        "contract_revision": CONTRACT_REVISION,
         "contract_status": "adopted-2026-10-26",
         "parent_checker_version": "1.1",
         "binary": BINARY,
@@ -536,6 +553,25 @@ def selftest() -> int:
     fixtures.append(("q26重复一校（多重集拒绝，14/15仍过）", 1,
                      _answers_text(variant(oracle_pairs, {"26": gold_sql["26"] + " UNION ALL SELECT * FROM (" + gold_sql["26"] + " LIMIT 1)"})),
                      "link", ("q26",), ("answers_coverage",)))
+
+    # B2 收紧批负例（2026-10-27；对应 mutation-negatives bird-n06 两个变异维度，各拆一条）
+    def _with_extra_keys(pairs):
+        out = []
+        for qid, sql in pairs:
+            out.append(json.dumps({"question_id": int(qid), "sql": sql,
+                                   "status": "OK passed", "verified": True},
+                                  ensure_ascii=False) + "\n")
+        return "".join(out)
+
+    def _with_sql_comment(pairs):
+        return _answers_text([(qid, sql + " -- OK passed") for qid, sql in pairs])
+
+    fixtures.append(("B2负例：每行多余键 status/verified（schema 否决）", 0,
+                     _with_extra_keys(oracle_pairs), "link",
+                     ("answers_schema", "answers_coverage"), ()))
+    fixtures.append(("B2负例：15 条 SQL 末尾加 -- 注释（schema 否决）", 0,
+                     _with_sql_comment(oracle_pairs), "link",
+                     ("answers_schema", "answers_coverage"), ()))
 
     print("[%s] checker v%s 自测（%d 题：challenging 5 / moderate 7 / simple 3；"
           "threshold=%.2f）" % (CASE_ID, CHECKER_VERSION, N_QUESTIONS, THRESHOLD))
