@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-27（r20261027-ablation 追加 10 行：三臂×两用例，全部 V/clean/未达标）",
+  "updated": "2026-10-27（r20261027-work01 验证格追加：work-01 远程基建 1 场 V/clean/达标）",
   "scope": "仅10-17已发周报之后的独立执行；原件只读。批次名不是日期，以原始时间为准，本期已核验10-22/10-23。",
   "definitions": {
     "N": "已执行的独立运行，含后来污染作废/可疑与替换运行；一场仅一个canonical身份。",
@@ -15253,6 +15253,66 @@
           "sha256": "5cdbeb38121420eb7973645013e610e2bc3ea6a749c657a31231b7a6275dcd1f"
         }
       ]
+    },
+    {
+      "run_id": "r20261027-work01/dabstep-payments-10__dsh-base",
+      "batch": "r20261027-work01",
+      "role": "cli",
+      "product": "dsh",
+      "case": "dabstep-payments-10",
+      "period": "after-2026-10-17-report",
+      "execution_state": "executed",
+      "adjudication": "V",
+      "validity_reason": "work-01(宿舍机 WSL Ubuntu-24.04)远程基建验证格：dsh 0.2.0-rc.2 Linux 原生运行,key 仅经 ssh 环境注入零落盘,判卷资产不出 Mac,工作区仓库外;完整性人工终审 clean(trace 信号 truth/checker/judge/solution 均为模型推理文本零文件访问,curl/web_search/repo 路径 0;远端机器无判卷资产);1/80.0(8/10,未过 q70/q2697)vs Mac 同格基线 0/70.0——逐题非确定性如实记录,判分链路一致即验证通过;首跑 tar strip 前缀 bug 判假 0 已修复(--repull 重判,远端格未重跑)",
+      "integrity_verdict": "clean",
+      "evidence_grade": "archived-events-and-artifacts",
+      "raw_reward": 1,
+      "raw_weighted": 80.0,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "trace_validation": "session.v4.jsonl.zstd 全量解压+信号词人工终审",
+      "main_table_eligible": true,
+      "original_fields": {
+        "run_dir": "~/bench-workspaces/work01-validation/r20261027-work01/dabstep-payments-10__dsh-base",
+        "runner": "bench-automation/work01/run_remote.py(远端 /root/bench,ssh work-01)",
+        "model": "deepseek-flash",
+        "reasoning_effort": "low",
+        "judge": {
+          "reward": 1,
+          "weighted": 80.0
+        },
+        "duration_s": 559,
+        "note": "基建验证格:证明 work-01 可作 CLI 批标准远程跑批机"
+      },
+      "sources": [
+        {
+          "path": "bench-automation/runs/r20261027-work01/dabstep-payments-10__dsh-base/agent-session/session.v4.jsonl.zstd",
+          "sha256": "68859472b902a8c2943f3320231ae7c06c8f038f6f5924fcbd14adc2310b99c3"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-work01/dabstep-payments-10__dsh-base/checker.stdout.txt",
+          "sha256": "0dedf5f0324535a3d2cba2c7f3d4cdb5dd1e08f01aabaaf454f231161c6d9fdd"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-work01/dabstep-payments-10__dsh-base/cli.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-work01/dabstep-payments-10__dsh-base/cli.stdout.log",
+          "sha256": "7a8092942af6accc9ea835c5defba78636fd6b5b00cd0d0bc7b85ce736d21572"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-work01/dabstep-payments-10__dsh-base/meta.json",
+          "sha256": "b669d6c22198fb8a8dc03830b9d9bd33231e5aea089c305a2546b18c1e8fc09c"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-work01/dabstep-payments-10__dsh-base/remote_meta.txt",
+          "sha256": "0d110573894a83e56cc10d4d433eca727aa1638f05309cb57ff52ac29623a4e1"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-work01/dabstep-payments-10__dsh-base/result.json",
+          "sha256": "e3da7436b45afd2109947d3510f4fab195786b791c90b7886077605cceb7531a"
+        }
+      ]
     }
   ],
   "paused_not_runs": [
@@ -15452,18 +15512,26 @@
       "F_raw": 10,
       "U": 0,
       "X": 0
+    },
+    {
+      "batch": "r20261027-work01",
+      "N": 1,
+      "V": 1,
+      "F_raw": 0,
+      "U": 0,
+      "X": 0
     }
   ],
   "summary": {
-    "N": 94,
-    "V": 83,
+    "N": 95,
+    "V": 84,
     "F_raw": 42,
     "U": 0,
     "X": 11,
     "invalid": 6,
     "suspect": 5,
     "paused_slots": 5,
-    "raw_pass_within_V": 41,
+    "raw_pass_within_V": 42,
     "regrade_coverage": 31,
     "new_agent_runs_from_regrade": 0
   },
