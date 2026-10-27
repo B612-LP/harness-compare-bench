@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-27 复核pass",
+  "updated": "2026-10-27（r20261027-ablation 批后收口 3 项：skill-ablation / b-group-native / token-cause）",
   "policy": "未知不补 0、不补满分、不折算；每项写影响 / 下一步 / 停止追查条件 / 复核日期。状态只允许 open / closed / accepted。",
   "counts": {
-    "open": 4,
-    "closed": 9,
+    "open": 1,
+    "closed": 12,
     "accepted": 0
   },
   "unknowns": [
@@ -12,19 +12,29 @@
       "id": "skill-ablation",
       "item": "SKILL 层消融未做",
       "impact": "SKILL 层对结果的贡献无法量化；Codex 默认注入 <skills_instructions>，归因时只能标记为 SKILL 层而非 Harness。",
-      "next_step": "构造一道可用可控 skill 的题，做「剥除 skill / 统一 skill」两次对照运行，比较产物与过程成本。 2026-10-27 复核:方案定稿并入 r20261027-ablation 批——统一 skill 同文注入双 CLI(codex=隔离 CODEX_HOME skills 目录+include_instructions=true;dsh=bench-cli 派生 profile 开 skill 工具+同一 skill 内容),dabstep/tb 两案例×剥除/统一两臂,同批重跑剥除臂消除时间混杂;历史基线 n=3(r1025/r1027/r1028)作先验。剥除态自 r1025 起即双 CLI 出厂关 SKILL(codex include_instructions=false+bundled disabled;dsh tool-skill disabled),基线无需重跑。",
-      "stop_condition": "若两周内无法构造可隔离 skill 的题目，保持 open 并在报告中固定标注「SKILL 层未消融」。",
-      "review_date": "2026-11-03",
-      "status": "open"
+      "next_step": "构造一道可用可控 skill 的题，做「剥除 skill / 统一 skill」两次对照运行，比较产物与过程成本。 2026-10-27 复核:方案定稿并入 r20261027-ablation 批——统一 skill 同文注入双 CLI(codex=隔离 CODEX_HOME skills 目录+include_instructions=true;dsh=bench-cli 派生 profile 开 skill 工具+同一 skill 内容),dabstep/tb 两案例×剥除/统一两臂,同批重跑剥除臂消除时间混杂;历史基线 n=3(r1025/r1027/r1028)作先验。剥除态自 r1025 起即双 CLI 出厂关 SKILL(codex include_instructions=false+bundled disabled;dsh tool-skill disabled),基线无需重跑。 2026-10-27 结清:r20261027-ablation 批完成——统一技能(通用任务契约工作法,零金标泄漏,双 CLI 同文)注入 dabstep/tb×codex/dsh 两臂对照,处理真实性 trace 实证(技能臂提及 4-10 次/base 臂 0,注入体积 +193 tok 前缀);五臂 reward/weighted/失败项一致(dabstep 五臂 0/70.0 同失败项 q49/q70/q2697)→ 技能层在这两题零结果改变;结论边界=2/5 题、n=1/格,其余三题沿用「SKILL 层已消融(两题)无效应」标注,不外推",
+      "stop_condition": "已按可隔离方案执行并出对照结论；若未来题集扩到易受技能影响的题型（如文档产出类），可重开同协议补测",
+      "review_date": "2026-11-02",
+      "status": "closed",
+      "closed_at": "2026-10-27",
+      "evidence": [
+        "bench-automation/runs/r20261027-ablation/",
+        "5-评测报告/复算/2026-10-27/token-cause/"
+      ]
     },
     {
       "id": "b-group-native",
       "item": "B 组（各产品原生模型）未跑",
       "impact": "模型层在本批只能靠 A/C 对照间接约束，无法量化「模型差异」与「Harness 差异」的占比。",
-      "next_step": "配额恢复后，用 Codex / DSH 各自原生模型跑同两用例，与 A 组同模型结果并列呈现。 2026-10-27 复核:①配额实测恢复(api.deepseek.com 200 正常计费);②DSH 原生默认 provider 即 deepseek-official/bench-cli 同款,native 臂与 A 组重合=no-op,已成文;③Codex 原生臂(gpt,reasoning=low 对齐 A 组思考档,单变量=模型层)× dabstep/tb 并入 r20261027-ablation 批,与 A 组同模型行并列呈现。",
+      "next_step": "配额恢复后，用 Codex / DSH 各自原生模型跑同两用例，与 A 组同模型结果并列呈现。 2026-10-27 复核:①配额实测恢复(api.deepseek.com 200 正常计费);②DSH 原生默认 provider 即 deepseek-official/bench-cli 同款,native 臂与 A 组重合=no-op,已成文;③Codex 原生臂(gpt,reasoning=low 对齐 A 组思考档,单变量=模型层)× dabstep/tb 并入 r20261027-ablation 批,与 A 组同模型行并列呈现。 2026-10-27 结清:①DSH 原生默认 provider=deepseek-official 与 A 组同模型,native 臂=no-op(已成文);②Codex 原生臂 gpt-6.1-sol(思考档 low 单变量)×dabstep/tb 完成,前缀 +3,216/+3,250 tok,调用数 7-8 vs deepseek 臂 18-39,结果与 A 组逐项同构(dabstep q49/q70/q2697、tb 八红项逐值一致)→ 模型层在这两题零结果改变;模型层 vs Harness 层占比在 CLI 对上已有第一组对照数字",
       "stop_condition": "若产品强制固定路由或配额持续不可得，保持 open，报告中只声明「模型层未单独控制」。",
-      "review_date": "2026-11-03",
-      "status": "open"
+      "review_date": "2026-11-02",
+      "status": "closed",
+      "closed_at": "2026-10-27",
+      "evidence": [
+        "bench-automation/runs/r20261027-ablation/",
+        "5-评测报告/复算/2026-10-27/token-cause/"
+      ]
     },
     {
       "id": "desktop-three",
@@ -46,10 +56,14 @@
       "id": "token-cause",
       "item": "token 量级差异的真实原因未坐实",
       "impact": "过程成本差异不能进 Harness 归因；统一口径后的 1.18–2.09× 只能表述为「差异存在」，不能表述为「编排规模差异」。",
-      "next_step": "做单变量对照：固定缓存状态、或剥离 skills 前后重跑；同时统一模型（DeepSeek V4.1-Flash）与端点。 2026-10-27 复核:收敛为「既有日志分解+消融批增量」——模型与端点 A 组本就统一;skills 变量自 r1025 起双 CLI 出厂即关(非未控变量);缓存命中可逐调用提取(cost-usd 复算已建 agent.jsonl 逐调用求和管线,codex 侧同法);新增测量=call-1 prompt_tokens 作结构前缀代理(system+工具 schema+首条消息),把总量差分解为「前缀结构×调用数×补全」三因子。消融批的 skills-on 臂提供剥离前后对照点。",
-      "stop_condition": "若无法控制缓存命中与固定前缀（system / 工具 schema / skills 注入），保持 open，四值标注为「无法归因」。",
-      "review_date": "2026-11-03",
-      "status": "open"
+      "next_step": "做单变量对照：固定缓存状态、或剥离 skills 前后重跑；同时统一模型（DeepSeek V4.1-Flash）与端点。 2026-10-27 复核:收敛为「既有日志分解+消融批增量」——模型与端点 A 组本就统一;skills 变量自 r1025 起双 CLI 出厂即关(非未控变量);缓存命中可逐调用提取(cost-usd 复算已建 agent.jsonl 逐调用求和管线,codex 侧同法);新增测量=call-1 prompt_tokens 作结构前缀代理(system+工具 schema+首条消息),把总量差分解为「前缀结构×调用数×补全」三因子。消融批的 skills-on 臂提供剥离前后对照点。 2026-10-27 结清(分解级):复算/2026-10-27/token-cause/ 恒等式三因子分解(21 同题配对)——总量差 96% 来自「对话增长斜率」(codex 单调用平均输入 47,335 vs dsh 40,771 tok,调用数 19.0 vs 19.3 同量级),前缀结构差仅 1%(call-1 前缀 9,089 vs 6,742),输出差 3%;口径发现:codex 逐调用真值在 rollout token_count(顶层 agent.jsonl 只有末次累计),22/22 场交叉校验一致。剩余假设(不阻塞结论):codex 增长斜率更高或因 reasoning 回放进上下文(codex reasoning_output 合计 351,501,dsh 无拆分字段),列为后续可验证线索",
+      "stop_condition": "已产出可复核分解（脚本+per_run.json+验证恒等式）；若需机制级因果（为何斜率不同），以新未知立项",
+      "review_date": "2026-11-02",
+      "status": "closed",
+      "closed_at": "2026-10-27",
+      "evidence": [
+        "5-评测报告/复算/2026-10-27/token-cause/"
+      ]
     },
     {
       "id": "cost-usd",
