@@ -1,12 +1,12 @@
 {
   "tool": "4-打分细则/判卷回归/run_regression.py",
   "schema_version": 1,
-  "generated_at": "2026-10-27T00:08:06+08:00",
+  "generated_at": "2026-10-27T19:29:00+08:00",
   "repo_root": "/Users/b612-lp/Documents/harness-compare-bench",
   "python": "/Library/Developer/CommandLineTools/usr/bin/python3",
   "python_version": "3.9.6",
-  "sha_snapshot_date": "2026-10-26",
-  "sha_snapshot_note": "SHA 快照日期 2026-10-26，判卷资产变更时需刷新（重算并更新 SHA_MANIFEST）",
+  "sha_snapshot_date": "2026-10-27",
+  "sha_snapshot_note": "SHA 快照日期 2026-10-27（收紧批 B2/B8/B12/B14 后刷新），判卷资产变更时需刷新（重算并更新 SHA_MANIFEST）",
   "overall": "pass",
   "exit_code": 0,
   "summary": {
@@ -21,8 +21,8 @@
       "command": "python3 2-用例/bird-ca-schools-15/checker.py --selftest",
       "exit_code": 0,
       "ok": true,
-      "duration_ms": 1283,
-      "stdout_tail": "望 0，accuracy=0.933）\n  PASS 多 1 题（追加 question_id=9999）                     reward=0（期望 0，accuracy=1.000）\n  PASS 重复 question_id（q28 写两遍，共 16 行）                 reward=0（期望 0，accuracy=1.000）\n  PASS 无效 SQL（6 题查不存在的表）                              reward=0（期望 0，accuracy=0.600）\n  PASS 空结果集（6 题改成 SELECT 1 WHERE 0）                   reward=0（期望 0，accuracy=0.600）\n  PASS 少 JOIN 条件（5 题 ON 1=1 笛卡尔积）                     reward=0（期望 0，accuracy=0.667）\n  PASS 少 DISTINCT/未去重（5 题多行结果翻倍）                      reward=0（期望 0，accuracy=0.667）\n  PASS 近正确负例（4 题口径差一处：删 *100 / 偏移 / 阈值）               reward=0（期望 0，accuracy=0.733）\n  PASS 追加非法行（15 题全对但 schema 必须否决）                     reward=0（期望 0，accuracy=1.000）\n  PASS 追加非对象 JSON（15 题全对但 schema 必须否决）                reward=0（期望 0，accuracy=1.000）\n  PASS 格式错（首行不是 JSON）                                 reward=0（期望 0，accuracy=0.933）\n  PASS 改输入库（run_dir 内 db 副本翻 1 字节）                    reward=0（期望 0，accuracy=1.000）\n  PASS 改输入文件（run_dir 内 schema.sql 被追加内容）              reward=0（期望 0，accuracy=1.000）\n  PASS 阈值边界正例（3 题错 → 12/15=0.8，应判过）                   reward=1（期望 1，accuracy=0.800）\n  PASS 等价答案正例（q5 去掉 DISTINCT，结果不变）                    reward=1（期望 1，accuracy=1.000）\n  PASS q26旧Free5行（逐题拒绝，14/15仍过）                       reward=1（期望 1，accuracy=0.933）\n  PASS q26漏North一校（逐题拒绝，14/15仍过）                      reward=1（期望 1，accuracy=0.933）\n  PASS q26附加一校（逐题拒绝，14/15仍过）                          reward=1（期望 1，accuracy=0.933）\n  PASS q26重复一校（多重集拒绝，14/15仍过）                         reward=1（期望 1，accuracy=0.933）\n  守卫自测（期望 ERROR exit 2）：\n  PASS gold SQL 执行失败（truth 注入坏 gold）                  exit=2（期望 2）  ERROR: 用例缺陷：gold SQL 执行失败 q28: no such table: __broken_gold_table__\n  PASS truth 的输入 SHA-256 与实际 inputs 不符                exit=2（期望 2）    actual=33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d\n  PASS threshold 与 checker 常量不一致                      exit=2（期望 2）  ERROR: checker 常量与 truth 不一致：threshold=0.5（期望 0.8）\n  PASS canonical 输入在自测前后未被改动\n自测通过：25/25 项符合预期\n",
+      "duration_ms": 1335,
+      "stdout_tail": "望 0，accuracy=1.000）\n  PASS 无效 SQL（6 题查不存在的表）                              reward=0（期望 0，accuracy=0.600）\n  PASS 空结果集（6 题改成 SELECT 1 WHERE 0）                   reward=0（期望 0，accuracy=0.600）\n  PASS 少 JOIN 条件（5 题 ON 1=1 笛卡尔积）                     reward=0（期望 0，accuracy=0.667）\n  PASS 少 DISTINCT/未去重（5 题多行结果翻倍）                      reward=0（期望 0，accuracy=0.667）\n  PASS 近正确负例（4 题口径差一处：删 *100 / 偏移 / 阈值）               reward=0（期望 0，accuracy=0.733）\n  PASS 追加非法行（15 题全对但 schema 必须否决）                     reward=0（期望 0，accuracy=1.000）\n  PASS 追加非对象 JSON（15 题全对但 schema 必须否决）                reward=0（期望 0，accuracy=1.000）\n  PASS 格式错（首行不是 JSON）                                 reward=0（期望 0，accuracy=0.933）\n  PASS 改输入库（run_dir 内 db 副本翻 1 字节）                    reward=0（期望 0，accuracy=1.000）\n  PASS 改输入文件（run_dir 内 schema.sql 被追加内容）              reward=0（期望 0，accuracy=1.000）\n  PASS 阈值边界正例（3 题错 → 12/15=0.8，应判过）                   reward=1（期望 1，accuracy=0.800）\n  PASS 等价答案正例（q5 去掉 DISTINCT，结果不变）                    reward=1（期望 1，accuracy=1.000）\n  PASS q26旧Free5行（逐题拒绝，14/15仍过）                       reward=1（期望 1，accuracy=0.933）\n  PASS q26漏North一校（逐题拒绝，14/15仍过）                      reward=1（期望 1，accuracy=0.933）\n  PASS q26附加一校（逐题拒绝，14/15仍过）                          reward=1（期望 1，accuracy=0.933）\n  PASS q26重复一校（多重集拒绝，14/15仍过）                         reward=1（期望 1，accuracy=0.933）\n  PASS B2负例：每行多余键 status/verified（schema 否决）          reward=0（期望 0，accuracy=0.000）\n  PASS B2负例：15 条 SQL 末尾加 -- 注释（schema 否决）             reward=0（期望 0，accuracy=0.000）\n  守卫自测（期望 ERROR exit 2）：\n  PASS gold SQL 执行失败（truth 注入坏 gold）                  exit=2（期望 2）  ERROR: 用例缺陷：gold SQL 执行失败 q28: no such table: __broken_gold_table__\n  PASS truth 的输入 SHA-256 与实际 inputs 不符                exit=2（期望 2）    actual=33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d\n  PASS threshold 与 checker 常量不一致                      exit=2（期望 2）  ERROR: checker 常量与 truth 不一致：threshold=0.5（期望 0.8）\n  PASS canonical 输入在自测前后未被改动\n自测通过：27/27 项符合预期\n",
       "stderr_tail": ""
     },
     {
@@ -39,7 +39,7 @@
       "command": "python3 2-用例/exercism-py-6/checker.py --selftest",
       "exit_code": 0,
       "ok": true,
-      "duration_ms": 7586,
+      "duration_ms": 7145,
       "stdout_tail": "PASS  nop                      expected=0 reward=0 weighted=0.0\nPASS  oracle                   expected=1 reward=1 weighted=100.0\nPASS  neg-skeleton             expected=0 reward=0 weighted=0.0\nPASS  neg-half                 expected=0 reward=0 weighted=50.0\nPASS  neg-modified-tests       expected=0 reward=0 weighted=0.0\nPASS  neg-deleted-tests        expected=0 reward=0 weighted=100.0\nPASS  neg-syntax-error         expected=0 reward=0 weighted=0.0\nPASS  neg-only-five            expected=0 reward=0 weighted=66.67\nPASS  boundary-five-pass       expected=1 reward=1 weighted=83.33\nPASS  neg-os-exit-zero         expected=0 reward=0 weighted=0.0\nPASS  neg-sys-exit-zero        expected=0 reward=0 weighted=0.0\nPASS  neg-fake-summary         expected=0 reward=0 weighted=0.0\nPASS  neg-empty-suite          expected=0 reward=0 weighted=0.0\nPASS  neg-no-callbacks         expected=0 reward=0 weighted=0.0\nPASS  neg-skip-all             expected=0 reward=0 weighted=0.0\nPASS  guard-truth-mismatch     expected=2 reward=ERROR weighted=None\nSELFTEST PASS: 16/16 全部 PASS (nop=0, oracle=1, 原有及完成计数负例全 0, 边界 5/6→1, 守卫 exit=2)\n",
       "stderr_tail": ""
     },
@@ -48,8 +48,8 @@
       "command": "python3 2-用例/lcb-recent-hard-4/checker.py --selftest",
       "exit_code": 0,
       "ok": true,
-      "duration_ms": 28822,
-      "stdout_tail": "[PASS] nop（空 run_dir）                     expect=0 got=0  passed=0\n[PASS] oracle（solution/ 四题）               expect=1 got=1  passed=4 weighted=100.0\n[PASS] 边界：恰好 2/4 通过                       expect=1 got=1  passed=2 weighted=50.0\n[PASS] 负例：只交 1 题正确解                       expect=0 got=0  passed=1 weighted=25.0\n[PASS] 负例：四题空文件                           expect=0 got=0  abc387_f:0/43 首个失败 #0 输出不符（期望 '6'，实际 ''） | abc388_f:0/43 首个失败 #0 输出不符（期望 'Yes'，实际 ''） | abc388_g:0/42 首个失败 #0 输出不符（期望 '2\\n3\\n1\\n0\\n5'，实际 ''） | abc389_g:0/43 首个失败 #0 输出不符（期望 '12 9 3 0'，实际 ''）\n[PASS] 负例：四题 print(0)                     expect=0 got=0  abc387_f:0/43 首个失败 #0 输出不符（期望 '6'，实际 '0'） | abc388_f:0/43 首个失败 #0 输出不符（期望 'Yes'，实际 '0'） | abc388_g:0/42 首个失败 #0 输出不符（期望 '2\\n3\\n1\\n0\\n5'，实际 '0'） | abc389_g:0/43 首个失败 #0 输出不符（期望 '12 9 3 0'，实际 '0'）\n[PASS] 负例：只过公开样例不过私有                      expect=0 got=0  reward=0 每题首个失败点=公开测试数? True（abc387_f:3/3 | abc388_f:3/3 | abc388_g:2/2 | abc389_g:3/3）\n[PASS] 负例：超时死循环                           expect=0 got=0  abc387_f fail_kind=timeout（timeout? True）\n[PASS] 负例：输出格式多空格                         expect=0 got=0  四题均为输出不符? True（abc387_f:wrong | abc388_f:wrong | abc388_g:wrong | abc389_g:wrong）\n[PASS] 负例：run_dir 输入副本被篡改                 expect=0 got=0  四题全过但守卫拦截? True（integrity=False, passed=4）\n[PASS] 守卫：truth SHA-256 漂移 → ERROR exit 2 expect=2 got=2  stderr=['  actual=0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673']\n----------------------------------------------------------------------------------------------------\n自测：11/11 项通过（正例 2、负例 8、守卫/ERROR 项 1）；输入 SHA-256=0ce2f9c1eee0039f\nSELFTEST OK\n",
+      "duration_ms": 36499,
+      "stdout_tail": "[PASS] nop（空 run_dir）                     expect=0 got=0  passed=0\n[PASS] oracle（solution/ 四题）               expect=1 got=1  passed=4 weighted=100.0\n[PASS] 边界：恰好 2/4 通过                       expect=1 got=1  passed=2 weighted=50.0\n[PASS] 负例：只交 1 题正确解                       expect=0 got=0  passed=1 weighted=25.0\n[PASS] 负例：四题空文件                           expect=0 got=0  abc387_f:0/43 首个失败 #0 输出不符（期望 '6'，实际 ''） | abc388_f:0/43 首个失败 #0 输出不符（期望 'Yes'，实际 ''） | abc388_g:0/42 首个失败 #0 输出不符（期望 '2\\n3\\n1\\n0\\n5'，实际 ''） | abc389_g:0/43 首个失败 #0 输出不符（期望 '12 9 3 0'，实际 ''）\n[PASS] 负例：四题 print(0)                     expect=0 got=0  abc387_f:0/43 首个失败 #0 输出不符（期望 '6'，实际 '0'） | abc388_f:0/43 首个失败 #0 输出不符（期望 'Yes'，实际 '0'） | abc388_g:0/42 首个失败 #0 输出不符（期望 '2\\n3\\n1\\n0\\n5'，实际 '0'） | abc389_g:0/43 首个失败 #0 输出不符（期望 '12 9 3 0'，实际 '0'）\n[PASS] 负例：只过公开样例不过私有                      expect=0 got=0  reward=0 每题首个失败点=公开测试数? True（abc387_f:3/3 | abc388_f:3/3 | abc388_g:2/2 | abc389_g:3/3）\n[PASS] 负例：超时死循环                           expect=0 got=0  abc387_f fail_kind=timeout（timeout? True）\n[PASS] 负例：输出格式多空格                         expect=0 got=0  四题均为输出不符? True（abc387_f:wrong | abc388_f:wrong | abc388_g:wrong | abc389_g:wrong）\n[PASS] 负例：run_dir 输入副本被篡改                 expect=0 got=0  四题全过但守卫拦截? True（integrity=False, passed=4）\n[PASS] 披露项：stderr 伪造标记不影响分值               expect=1 got=1  四题全过? True（abc389_g stdout 与 oracle 一致、stderr 带 'OK passed all tests' 仍判全过——stderr 不参与输出比较，与上游 AtCoder 官方判定一致）\n[PASS] 守卫：truth SHA-256 漂移 → ERROR exit 2 expect=2 got=2  stderr=['  actual=0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673']\n----------------------------------------------------------------------------------------------------\n自测：12/12 项通过（正例 3、负例 8、守卫/ERROR 项 1）；输入 SHA-256=0ce2f9c1eee0039f\nSELFTEST OK\n",
       "stderr_tail": ""
     },
     {
@@ -57,8 +57,8 @@
       "command": "python3 2-用例/tb-cargo-plan/checker.py --selftest",
       "exit_code": 0,
       "ok": true,
-      "duration_ms": 208,
-      "stdout_tail": "[selftest] nop: reward=0 weighted=33.33 passed=9/27\n[selftest] oracle: reward=1 weighted=100.0 passed=27/27\n[selftest] neg:partial_fix: reward=0 weighted=51.85 passed=14/27\n[selftest] neg:syntax_error: reward=0 weighted=0.0 passed=0/0\n[selftest] neg:handwritten_plan: reward=0 weighted=33.33 passed=9/27\n[selftest] neg:data_modified: reward=0 weighted=0.0 passed=0/0\n[selftest] neg:no_code: reward=0 weighted=0.0 passed=0/0\n[selftest] neg:extra_leg: reward=0 weighted=0.0 passed=0/0\n\nselftest: ALL PASS (nop=0 / oracle=1 / 6 负例=0)\n",
+      "duration_ms": 300,
+      "stdout_tail": "[selftest] nop: reward=0 weighted=33.33 passed=9/27\n[selftest] oracle: reward=1 weighted=100.0 passed=27/27\n[selftest] neg:partial_fix: reward=0 weighted=51.85 passed=14/27\n[selftest] neg:syntax_error: reward=0 weighted=0.0 passed=0/0\n[selftest] neg:handwritten_plan: reward=0 weighted=33.33 passed=9/27\n[selftest] neg:data_modified: reward=0 weighted=0.0 passed=0/0\n[selftest] neg:no_code: reward=0 weighted=0.0 passed=0/0\n[selftest] neg:extra_leg: reward=0 weighted=0.0 passed=0/0\n[selftest] neg:b14_leg_missing_cargo: reward=0 weighted=0.0 passed=0/0\n[selftest] neg:b13a_top_extra_keys: reward=0 weighted=0.0 passed=0/0\n[selftest] neg:b12_distance_round0: reward=1 weighted=96.3 passed=26/27\n\nselftest: ALL PASS (nop=0 / oracle=1 / 9 负例=0 或逐项拦截)\n",
       "stderr_tail": ""
     }
   ],
@@ -346,9 +346,9 @@
     {
       "family": "现行判卷资产（审计 README 声明的 2-用例 现行文件）",
       "path": "2-用例/tb-cargo-plan/checker.py",
-      "expected_sha256": "bac8cc61cfd44520b09bbe4ecbbe660cbe5174ad68243127db6f8718429782a6",
+      "expected_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
       "status": "ok",
-      "actual_sha256": "bac8cc61cfd44520b09bbe4ecbbe660cbe5174ad68243127db6f8718429782a6"
+      "actual_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677"
     },
     {
       "family": "现行判卷资产（审计 README 声明的 2-用例 现行文件）",
@@ -360,9 +360,9 @@
     {
       "family": "现行判卷资产（审计 README 声明的 2-用例 现行文件）",
       "path": "2-用例/bird-ca-schools-15/checker.py",
-      "expected_sha256": "01447ab6112af9ee317de448aec39133b048971e8777052c81920da6696b049a",
+      "expected_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
       "status": "ok",
-      "actual_sha256": "01447ab6112af9ee317de448aec39133b048971e8777052c81920da6696b049a"
+      "actual_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54"
     },
     {
       "family": "现行判卷资产（审计 README 声明的 2-用例 现行文件）",

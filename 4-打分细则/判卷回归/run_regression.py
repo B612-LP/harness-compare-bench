@@ -114,7 +114,7 @@ SHA_MANIFEST: dict[str, dict[str, str]] = {
         # 2026-10-27 收紧批后刷新（bird: B2 精确键集+禁 -- 注释；cargo: B12 距离精确相等
         # + B14 契约补 cargo_on_board_lbs；B13 预检翻转 3 场未并入。lcb 为披露式修订，
         # 不在本清单；收据：判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/）
-        "2-用例/tb-cargo-plan/checker.py": "70acdbb792d5c6f74fc0bd4ed7c92da8816ccceaf4e8f697b3f72517a024583d",
+        "2-用例/tb-cargo-plan/checker.py": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
         "2-用例/tb-cargo-plan/truth.json": "982754f17eea923b0abfcfee08c991d7c502b771c5c0c598c5c097fe3460c163",
         # 声明于 bird-q26-并入/sha256-manifest.json §3（v1.2 现行版，README 摘录 5 行）
         "2-用例/bird-ca-schools-15/checker.py": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
