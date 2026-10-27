@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-27（r20261027-work01 验证格追加：work-01 远程基建 1 场 V/clean/达标）",
+  "updated": "2026-10-27（r20261027-wb-lcb-sandbox 追加：网络级隔离干净重跑，WB×lcb 首个有效样本，25 格矩阵收满）",
   "scope": "仅10-17已发周报之后的独立执行；原件只读。批次名不是日期，以原始时间为准，本期已核验10-22/10-23。",
   "definitions": {
     "N": "已执行的独立运行，含后来污染作废/可疑与替换运行；一场仅一个canonical身份。",
@@ -15313,6 +15313,153 @@
           "sha256": "e3da7436b45afd2109947d3510f4fab195786b791c90b7886077605cceb7531a"
         }
       ]
+    },
+    {
+      "run_id": "r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4",
+      "batch": "r20261027-wb-lcb-sandbox",
+      "role": "desktop",
+      "product": "workbuddy",
+      "case": "lcb-recent-hard-4",
+      "period": "after-2026-10-17-report",
+      "execution_state": "executed",
+      "adjudication": "V",
+      "validity_reason": "网络级隔离干净重跑(第四次,前三连 excluded 全因抓题解):双层隔离=sandbox-exec deny network-outbound(内核拦直连,窗口内 226 次 deny 实证) + 应用内代理指向自建域名白名单 CONNECT 代理(白名单外 RST);启动器剔除 daemon env 的 Clash 代理变量(堵 7897 隐蔽通道);工具层沿用 nested sessionSettings 禁 WebSearch/WebFetch/ToolSearch/DeferExecuteTool/PowerShell(toolsCount 43→38),Bash 故意保留以证明封锁在网络层;Go/No-Go 三证齐后才发射(probe: 对话+工具通/atcoder+luogu 双层拒/workbuddy.cn 200);judge=1/100.0(43+43+42+43 全过,Mac 侧只读 checker,Lead 独立复判一致);完整性 Lead 终审:trace 92 调用 0 网络 0 题解词,atcoder/http 命中均为任务书出处元数据,editorial×2 为 thinking 回忆(已登记判据:回忆≠live 检索,与 r1025 clean 判定同标准,如实披露);首发 abe115cb 因自建代理 60s 空闲超时 bug 无效(零产物,基础设施故障非判分性重试,trace 归档留档),修复后重发一次;无系统级网络改动,WorkBuddy 按能量政策退场",
+      "integrity_verdict": "clean",
+      "evidence_grade": "archived-events-and-artifacts",
+      "raw_reward": 1,
+      "raw_weighted": 100.0,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "trace_validation": "session jsonl 全量+92 工具调用逐条人工终审+代理日志窗口核对+seatbelt deny 窗口核对+integrity_scan(19 命中全为本仓脚本自引)",
+      "main_table_eligible": true,
+      "websearch_policy_annotation": {
+        "policy": "4-打分细则/检索口径-2026-10-27-落表.md",
+        "review_row": "B24",
+        "gear": "网络级隔离(sandbox-exec+白名单代理双层)+工具层禁用+Bash 保留作隔离证明通道",
+        "search_behavior": "0 出网成功;0 DENIED(白名单代理窗口);226 次内核 deny 直连全为 Electron 后台进程",
+        "verdict": "实证 clean 记 V(网络级隔离路线收官)",
+        "note": "同格前三连 excluded(r1029/r20261026/r20261027-clean2)维持不动;本场为隔离成立后的首个有效样本"
+      },
+      "original_fields": {
+        "run_dir": "~/bench-workspaces/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4",
+        "session": "772908cc-13cd-4a7e-aa23-a9a27f4fefc6",
+        "isolation": "sandbox-exec v8 profile + whitelist proxy 127.0.0.1:17897 + env 剔除 Clash 变量",
+        "judge": {
+          "reward": 1,
+          "weighted": 100.0
+        },
+        "duration_s": 469.3,
+        "invalid_first_attempt": "abe115cb(代理 60s 超时 bug,零产物,已归档 trace-invalid-attempt1)"
+      },
+      "sources": [
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/README.md",
+          "sha256": "efce4450b210b3102539c93ee4c545c0e6a03e244f6ace0d092b4593c158670a"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/TASK.md",
+          "sha256": "84a061981f519e9a34283266ee567ccb13942ce21407e2ed1da71dc4d4c839f7"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/launch-console.log",
+          "sha256": "b775304dae1d642435646589a1a940b93d437b15cb0ae274bca9ac50b146b297"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/launch-console2.log",
+          "sha256": "10bc8c8e06a8c96b2fd21c82c3648e9184ce0664c52973d214418dcc18e2c63f"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/launch.log",
+          "sha256": "bf03d93bee4552d54e63b11daa4870c91bf1a7814b2c76574411a658acbe728f"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/launch_formal_sandbox.py",
+          "sha256": "a4c7a268ba7819e9af649359cf8366b6e66d9e8b1cd21df8c2018b3d2eadd4f3"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/net_sample_app.log",
+          "sha256": "bd4b8a64c233d21e500d0ff9ea2953f998a8636e150fe849374cd42f3e9bc579"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/preflight_receipt.json",
+          "sha256": "48bfcae429b8bd0678b8d385e5c822d65dd62fb3fcd969b6e0b1608f88be6872"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/sandbox-launch.log",
+          "sha256": "b242bc28ab2b793419767c8c6c26cb65add4f17d5bf280407d80618254c3c1a7"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/state.json",
+          "sha256": "5eb8cf9115b30a9f1950461c425d44aaaa664320a1902e775d9b57e845ef7155"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/tools/launch_sandboxed.sh",
+          "sha256": "807796764a7329d2388f99f0151514846f6f51d02f71cc1074fbf76d8fcf6998"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/tools/net_sample.sh",
+          "sha256": "7727012dc1722bb40506c928ceebcca3245c8d8930db55df186f1d54d70de150"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/tools/wb-sandbox.sb",
+          "sha256": "4915683f69e173179f362f19bd09c3dae8cd717776dea5c89671f02c679b16b4"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/tools/wb_whitelist_proxy.py",
+          "sha256": "4f5141b8d216d9a92c53d732226ec648375b1c76d9f419c96dd2d4fdbb249406"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/whitelist-proxy.log",
+          "sha256": "0601762e227ec9e61d141bbb432164eaacecfd3b265410c1f48d236cf71a8fdb"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/TASK.md",
+          "sha256": "84a061981f519e9a34283266ee567ccb13942ce21407e2ed1da71dc4d4c839f7"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/judge_result.json",
+          "sha256": "3b3be8ff43800bdf91389361afb3ac70cf0a96e0e8a4727e6405daa8e39b935f"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/preparation_receipt.json",
+          "sha256": "fbfa04c1944a8891fcb1c03f5c5f6643d099bc06fb8521c3a4559d482d6cf717"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/row-verify-invalid-attempt1.json",
+          "sha256": "8cef7bfb3467d154dcf19500cef965c4c3e2aee80a825ce534e99916a47a29ac"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/row-verify.json",
+          "sha256": "38e0c7c1a8aa666c75cb73f3552a8aa5f74b80c5b3b64976ef512afc3233c6c5"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/run_meta-invalid-attempt1.json",
+          "sha256": "75be0654c38a224b49bb0b19e2227edebf9ed17443195bbb22d37abd32b4af8e"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/run_meta.json",
+          "sha256": "27ba6d41dc89295a9006a3a9cf398c4b2f3b2b698a34cb5fd6540a60be3936e8"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/runtime-config-evidence.jsonl",
+          "sha256": "e21ef54e2b6897f1554770d070058170d8704898f4bbd153c07c8053b2b6a395"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/trace/772908cc-13cd-4a7e-aa23-a9a27f4fefc6.jsonl",
+          "sha256": "1bd33898b65f5dff86e36cc293d4a864acdca3d59a194819558324be30d0c9a4"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/trace/collect-meta.json",
+          "sha256": "c7cf9dc81b730c2395a70e7943eb59c7ee3ef472636c93aaa73bc2e27f4a06f6"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/trace/session-row.json",
+          "sha256": "22e81e1a92308a95d770fede0d556bbd43a7ca66e886b1e1d2f3cb9018dc22f4"
+        },
+        {
+          "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4/trace-invalid-attempt1-abe115cb.jsonl",
+          "sha256": "f6b1d4d828710579c72ee57204a52a6b35f235b1a85a098661474932000623b0"
+        }
+      ]
     }
   ],
   "paused_not_runs": [
@@ -15520,18 +15667,26 @@
       "F_raw": 0,
       "U": 0,
       "X": 0
+    },
+    {
+      "batch": "r20261027-wb-lcb-sandbox",
+      "N": 1,
+      "V": 1,
+      "F_raw": 0,
+      "U": 0,
+      "X": 0
     }
   ],
   "summary": {
-    "N": 95,
-    "V": 84,
+    "N": 96,
+    "V": 85,
     "F_raw": 42,
     "U": 0,
     "X": 11,
     "invalid": 6,
     "suspect": 5,
     "paused_slots": 5,
-    "raw_pass_within_V": 42,
+    "raw_pass_within_V": 43,
     "regrade_coverage": 31,
     "new_agent_runs_from_regrade": 0
   },
