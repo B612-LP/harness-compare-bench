@@ -1,0 +1,37 @@
+{
+  "model": "deepseek-flash",
+  "system": "You are an AI agent powered by DeepSeek Harness.\n\nYou are an instrument-reading assistant. Use the available observation tool and answer the user precisely.",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Call fixture_output exactly once. Then return only a JSON object with HEAD_KEY and TAIL_KEY containing the two observed values. Ignore checksum noise. Do not call any additional tool."
+        },
+        {
+          "type": "text",
+          "text": "Current runtime context. This snapshot supersedes earlier runtime-context snapshots.\n\nCurrent DSH file policy: danger-full-access. The DSH file sandbox does not restrict file modifications by available operations.\n\nApproval prompts are disabled in this session: actions that require approval are rejected automatically — do not request sandbox escalation (do not set `sandbox_permissions`)."
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "fixture_output",
+      "description": "Return the current instrument observation: HEAD_KEY and TAIL_KEY with optional irrelevant checksum noise. Call once, then report both observed values.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  ],
+  "thinking": {
+    "type": "enabled"
+  },
+  "output_config": {
+    "effort": "low"
+  },
+  "max_tokens": 1024
+}

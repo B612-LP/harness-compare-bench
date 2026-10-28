@@ -1,0 +1,53 @@
+{
+  "rule_version": "freeze-20261029-v2",
+  "collected_at": "2026-10-29T02:12:00+08:00",
+  "historical_rows": 96,
+  "historical_original_sources": 326,
+  "source_counts": {
+    "verified": 242,
+    "external_not_packaged": 84
+  },
+  "registered_counts_not_all_time_totals": {
+    "product_run": 110,
+    "self_test": 8,
+    "offline_recompute": 7,
+    "grading_regression": 3,
+    "bare_model_probe": 5,
+    "interface_preflight": 11
+  },
+  "official_counts": {
+    "A_same_model": 10,
+    "B_native": 0
+  },
+  "historical_cells": 25,
+  "coverage": {
+    "scope": "selected individually locatable invocation/batch receipts, not exhaustive historical totals",
+    "cutoff": "2026-10-28T17:25:58.460451+00:00",
+    "self_test": "3 historical standalone logs +1 supplemented failed engine invocation +3 raw-captured passing invocations(32/35/38 assertions); additional imported selftests counted by their own event IDs",
+    "offline_recompute": "5 separately identified result batches including archived10-27 replay; not each result row",
+    "grading_regression": "2 archived and 1 fresh lead invocation, nested selftests not additional events",
+    "interface_preflight": "one external WB sandbox preflight reference, not public verified evidence",
+    "bare_model_probe": "5 canonical bare-model records from 96-row ledger",
+    "product_run": "91 canonical tool/product executions in ledger, including invalid/research; exploratory-probe uses product tools and is not bare model",
+    "excluded": "source scans, syntax checks, future reviewer validation and subsequent unregistered invocations not silently counted",
+    "original_times": "retain explicit receipt timestamps/verbatim time lines; generated_at/date not automatically runtime; unknown if no explicit field",
+    "imported_events": "build-recipe pins exact imported envelopes; their source collection times are preserved per event, not inferred from batch names"
+  },
+  "import_pins": [
+    {
+      "path": "3-表现现场/r20261029-mechanism/experiment-events.json",
+      "sha256": "425f223a1b38774a371831596264e962a38b83c02949f4e5104c2d4a736db13c"
+    },
+    {
+      "path": "3-表现现场/r1030-formal-a1/formal-a1-events.json",
+      "sha256": "c8eb316078fe55f14923cc6936b24d964d2dce413d6f56912e846e6dc42383f6"
+    },
+    {
+      "path": "1-评测方案/机制复制-2026-10-29/replication-events.json",
+      "sha256": "63303c608fe0e06872e4f239227a00351beff2dd13de6f1ff8a1865a12ce2d18"
+    }
+  ],
+  "source_map": {},
+  "no_cross_group_ranking": true,
+  "current_config_hash_is_not_historical_version": true
+}

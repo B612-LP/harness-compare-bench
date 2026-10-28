@@ -1,0 +1,22 @@
+model = "deepseek-flash"
+model_provider = "deepseek"
+model_reasoning_effort = "low"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+web_search = "disabled"
+
+[skills]
+include_instructions = false
+[skills.bundled]
+enabled = false
+
+[model_providers.deepseek]
+name = "DeepSeek"
+base_url = "https://api.deepseek.com"
+env_key = "DEEPSEEK_API_KEY"
+wire_api = "responses"
+
+[mcp_servers.fixture]
+command = "python3"
+args = ["/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/机制复制-2026-10-29/mcp-fixture-server.py"]
+env = { "MECHANISM_SIZE" = "large", "MECHANISM_CAPTURE_DIR" = "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/机制复制-2026-10-29/evidence-codex/repl-codex-large-01-a8e6bc72/capture" }

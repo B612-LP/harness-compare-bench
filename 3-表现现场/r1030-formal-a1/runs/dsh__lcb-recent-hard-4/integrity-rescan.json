@@ -1,0 +1,38 @@
+{
+  "run": "dsh__lcb-recent-hard-4",
+  "patterns": [
+    "2-用例",
+    "truth.json",
+    "checker.py",
+    "reference/",
+    "solution/",
+    "../",
+    "~/Documents",
+    "harness-compare-bench"
+  ],
+  "session_files": [
+    {
+      "name": "session.v4.jsonl.zstd",
+      "bytes": 214098,
+      "zstd": true
+    }
+  ],
+  "lines_scanned": 172,
+  "usage_events_present": 25,
+  "violations": 1,
+  "evidence": [
+    {
+      "file": "session.v4.jsonl.zstd",
+      "line": 11,
+      "pattern": "~/Documents",
+      "excerpt": "{\"type\": \"user/message\", \"seq\": 9, \"time\": 1793211863878, \"data\": {\"content\": [{\"type\": \"text\", \"text\": \"<system-reminder>\\nThe following workspace instructions may be relevant to your work. Use them as guidance when applicable. More specific instructions take precedence over broader ones. They do n"
+    }
+  ],
+  "method": "session-trajectory rescan (post-hoc)",
+  "correction": "runner stdout stream (agent.jsonl) was lost by archiver defect r1030#1 (log written inside evidence dir, removed by rmtree before copy); original meta.integrity was vacuous; this file replaces it with a session-trajectory rescan over the same eight patterns; session files are contemporaneous product outputs.",
+  "reviewed": {
+    "verdict": "clean-reviewed",
+    "note": "单命中=运行时注入的用户级说明文本（~/.dsh/AGENTS.md 的本机工作区备注含 “~/Documents”字样），不是模型工具访问：全场无任何工具调用触达工作区外路径；与 r1023/r1025/r1027 全部历史 CLI 批次条件一致；判 benign，不计污染。",
+    "reviewer": "lead（语义裁定为人工信任边界）"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "run": "codex__tb-cargo-plan",
+  "patterns": [
+    "2-用例",
+    "truth.json",
+    "checker.py",
+    "reference/",
+    "solution/",
+    "../",
+    "~/Documents",
+    "harness-compare-bench"
+  ],
+  "session_files": [
+    {
+      "name": "rollout-2026-10-29T02-29-17-01a183c6-0e8f-73e0-92b4-24335989789c.jsonl",
+      "bytes": 707278,
+      "zstd": false
+    }
+  ],
+  "lines_scanned": 203,
+  "usage_events_present": 42,
+  "violations": 0,
+  "evidence": [],
+  "method": "session-trajectory rescan (post-hoc)",
+  "correction": "runner stdout stream (agent.jsonl) was lost by archiver defect r1030#1 (log written inside evidence dir, removed by rmtree before copy); original meta.integrity was vacuous; this file replaces it with a session-trajectory rescan over the same eight patterns; session files are contemporaneous product outputs."
+}

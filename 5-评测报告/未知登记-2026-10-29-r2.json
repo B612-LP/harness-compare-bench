@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "unknown/limitations register (increment)",
+  "created_at": "2026-10-29T02:20:00+08:00",
+  "relation_to_existing_registers": {
+    "note": "本文件是 5-评测报告/未知登记.json（已封印，不再修改）的增量登记册；原 13 条闭项与 DAB2697 裁定继续有效。机制实验未知的完整机器档案见 5-评测报告/可信冻结-2026-10-29-v2 构建产物的 unknown-limitations 与 1-评测方案/机制实验-2026-10-29/。",
+    "existing": "5-评测报告/未知登记.json"
+  },
+  "unknowns": [
+    {
+      "id": "wb-upstream-route-host-undisclosed",
+      "registered_in": "1-评测方案/准入预检-2026-10-29/wb-preflight.json",
+      "knowledge_status": "unknown",
+      "investigation_status": "stopped",
+      "confound_status": "not_excluded",
+      "summary": "WorkBuddy 模型请求的上游主机无请求级公开证据，首批正式 A 组不可纳入；影响/下一步/停止/reopen 见预检文件。"
+    },
+    {
+      "id": "wb-model-alias-equivalence",
+      "registered_in": "1-评测方案/准入预检-2026-10-29/wb-preflight.json",
+      "knowledge_status": "unknown",
+      "investigation_status": "stopped",
+      "confound_status": "not_excluded",
+      "summary": "deepseek-v4.1-flash（WB 标签）与统一 alias deepseek-flash 的等价性无请求级佐证。"
+    },
+    {
+      "id": "mechanism-thinking-token-confound",
+      "knowledge_status": "unknown",
+      "investigation_status": "stopped",
+      "confound_status": "not_excluded",
+      "impact": "机制实验两配对之间除工具结果外还存在思考 token 差异（pair1 第二输入 19697→1509、pair2 19697→1492），且小输出对照 504→524 亦非零差；无法把第二次调用输入差异唯一归因于工具结果外溢。",
+      "next_step": "如需更强因果：设计思考长度受控的对照臂（如禁思考档或固定 thinking 预算）再跑配对。",
+      "stop_condition": "现有证据已支持『与工具结果外溢强相关』而非『唯一原因』；不再用现有六场做额外归因声明。",
+      "reopen_condition": "新的受控对照臂或产品方披露思考 token 计费/缓存语义。",
+      "refs": [
+        {
+          "source": 0,
+          "pointer": "/runs/1"
+        },
+        {
+          "source": 0,
+          "pointer": "/runs/3"
+        }
+      ]
+    },
+    {
+      "id": "provider-cache-semantics-undisclosed",
+      "knowledge_status": "unknown",
+      "investigation_status": "stopped",
+      "confound_status": "not_excluded",
+      "impact": "总输入口径= input_tokens + cache_read_input_tokens + cache_creation_input_tokens（不相交字段之和），但服务端缓存命中/写入的产品侧语义未披露；缓存行为不可控也不可归因。",
+      "next_step": "仅以不相交字段之和报告总输入；不做缓存收益的金钱或性能推算。",
+      "stop_condition": "无产品方披露即停；不推算成本。",
+      "reopen_condition": "官方披露缓存语义或提供可控缓存对照。",
+      "refs": [
+        {
+          "source": 1,
+          "pointer": "/runs/0/archived_recompute"
+        }
+      ]
+    },
+    {
+      "id": "cli-stdout-display-truncation",
+      "knowledge_status": "accepted_limitation",
+      "investigation_status": "closed",
+      "confound_status": "not_applicable",
+      "impact": "大型产物经 CLI 的 stdout 仅显示约 8192 字符前缀；stdout 不完整不等于模型看不到完整工具结果——完整 35767 字节产物由工具进程文件哈希与实际请求体证明。",
+      "next_step": "继续以工具文件/请求体哈希而非 stdout 判定产物完整性。",
+      "stop_condition": "显示层与证据层的区分已固化为准入与报告口径。",
+      "reopen_condition": "产品变更使 stdout 不再截断或证据链形式改变。",
+      "refs": [
+        {
+          "source": 0,
+          "pointer": "/runs/1"
+        }
+      ]
+    },
+    {
+      "id": "server-weight-build-unproven",
+      "knowledge_status": "accepted_limitation",
+      "investigation_status": "stopped",
+      "confound_status": "not_excluded",
+      "impact": "官方 host + 模型 alias 不能证明服务端权重 build 一致（跨产品/跨时间）；这是冻结合同明确的未排除服务端边界。",
+      "next_step": "维持披露；等待官方版本化模型 id 或权重指纹机制。",
+      "stop_condition": "无官方机制即长期披露，不阻断其余结论。",
+      "reopen_condition": "官方提供模型 build 指纹或版本化 id。",
+      "refs": [
+        {
+          "source": 2,
+          "pointer": "/events"
+        }
+      ]
+    }
+  ],
+  "pointers": {
+    "note": "refs 指向以下打包来源；指针存在只证明可定位，语义裁定是人工信任边界。",
+    "sources": [
+      {
+        "path": "3-表现现场/r20261029-mechanism/experiment-events.json",
+        "sha256": "425f223a1b38774a371831596264e962a38b83c02949f4e5104c2d4a736db13c"
+      },
+      {
+        "path": "5-评测报告/可信冻结-2026-10-29/historical-25-cells.json",
+        "sha256": "2e632d91ac51961cb7f5ebba2dd53d00c20937aeedc410b74dc2c31fa4ffec41"
+      },
+      {
+        "path": "4-打分细则/可信冻结-2026-10-29/README.md",
+        "sha256": "abb7ca8c90f93c45e2433208469457e9c8ea42ab720a4b90a33f020bcbc08e9c"
+      }
+    ]
+  }
+}

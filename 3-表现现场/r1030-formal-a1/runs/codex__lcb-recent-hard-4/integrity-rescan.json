@@ -1,0 +1,31 @@
+{
+  "run": "codex__lcb-recent-hard-4",
+  "patterns": [
+    "2-用例",
+    "truth.json",
+    "checker.py",
+    "reference/",
+    "solution/",
+    "../",
+    "~/Documents",
+    "harness-compare-bench"
+  ],
+  "session_files": [
+    {
+      "name": "rollout-2026-10-29T02-22-56-01a183c0-3e9a-7e31-bdfe-61eded8a8884.jsonl",
+      "bytes": 459843,
+      "zstd": false
+    },
+    {
+      "name": "rollout-2026-10-29T02-24-23-01a183c1-918e-7472-b2b1-70d27c448dcf.jsonl",
+      "bytes": 470091,
+      "zstd": false
+    }
+  ],
+  "lines_scanned": 315,
+  "usage_events_present": 74,
+  "violations": 0,
+  "evidence": [],
+  "method": "session-trajectory rescan (post-hoc)",
+  "correction": "runner stdout stream (agent.jsonl) was lost by archiver defect r1030#1 (log written inside evidence dir, removed by rmtree before copy); original meta.integrity was vacuous; this file replaces it with a session-trajectory rescan over the same eight patterns; session files are contemporaneous product outputs."
+}

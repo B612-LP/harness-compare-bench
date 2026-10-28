@@ -314,10 +314,17 @@ def archive(product: str, case: str, log: Path, err: Path, started: str, finishe
             shutil.copytree(p, ev / "workspace" / p.name)
         else:
             shutil.copy2(p, ev / "workspace" / p.name)
+    # 日志先移入 staging 再拷贝，避免 rmtree(ev) 连带删除运行日志
+    staging = BATCH / "staging"
+    staging.mkdir(exist_ok=True)
+    log_snap = staging / ("%s__%s.agent.jsonl" % (product, case))
+    err_snap = staging / ("%s__%s.agent.stderr.txt" % (product, case))
     if log.exists():
-        shutil.copy2(log, ev / "agent.jsonl")
+        shutil.move(str(log), str(log_snap))
+        shutil.copy2(log_snap, ev / "agent.jsonl")
     if err.exists():
-        shutil.copy2(err, ev / "agent.stderr.txt")
+        shutil.move(str(err), str(err_snap))
+        shutil.copy2(err_snap, ev / "agent.stderr.txt")
     # 配置快照（路由/权限佐证）
     cfg = ev / "config-snapshot"
     cfg.mkdir(exist_ok=True)
