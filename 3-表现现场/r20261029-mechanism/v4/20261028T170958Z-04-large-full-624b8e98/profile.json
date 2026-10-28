@@ -1,0 +1,200 @@
+[
+  {
+    "id": "agent-default-model",
+    "config": {
+      "provider": "deepseek-official",
+      "model": "deepseek-flash",
+      "reasoningEffort": "low"
+    }
+  },
+  {
+    "id": "llm-deepseek",
+    "config": {
+      "reasoningEffort": "low",
+      "maxTokens": 1024,
+      "retryPolicy": {
+        "mode": "normal",
+        "maxRetries": 0
+      }
+    }
+  },
+  {
+    "id": "credentials",
+    "config": {
+      "path": "<HOME>/.dsh/.credentials.yaml",
+      "watch": false
+    }
+  },
+  {
+    "id": "spill-policy",
+    "config": {
+      "maxInlineTokens": 12500
+    }
+  },
+  {
+    "id": "system-prompt",
+    "config": {
+      "personaPrefix": "You are an instrument-reading assistant. Use the available observation tool and answer the user precisely.",
+      "personaSuffix": ""
+    }
+  },
+  {
+    "id": "headless-runner",
+    "inject": [
+      "headlessStartup",
+      "mechanismFixture"
+    ]
+  },
+  {
+    "insert": [
+      {
+        "id": "mechanism-fixture",
+        "name": "<HOME>/Documents/harness-compare-bench/1-评测方案/机制实验-2026-10-29/fixture-plugin-v2.mjs"
+      }
+    ]
+  },
+  {
+    "id": "plan-mode",
+    "disabled": true
+  },
+  {
+    "id": "command-compact",
+    "disabled": true
+  },
+  {
+    "id": "tool-bash",
+    "disabled": true
+  },
+  {
+    "id": "tool-pwsh",
+    "disabled": true
+  },
+  {
+    "id": "tool-jobs",
+    "disabled": true
+  },
+  {
+    "id": "tool-fs",
+    "disabled": true
+  },
+  {
+    "id": "tool-fs-search",
+    "disabled": true
+  },
+  {
+    "id": "tool-subagent-control",
+    "disabled": true
+  },
+  {
+    "id": "tool-subagent-list-agents",
+    "disabled": true
+  },
+  {
+    "id": "tool-subagent",
+    "disabled": true
+  },
+  {
+    "id": "tool-subagent-fork",
+    "disabled": true
+  },
+  {
+    "id": "tool-workflow",
+    "disabled": true
+  },
+  {
+    "id": "tool-todo",
+    "disabled": true
+  },
+  {
+    "id": "tool-goal",
+    "disabled": true
+  },
+  {
+    "id": "tool-ralph",
+    "disabled": true
+  },
+  {
+    "id": "tool-plugin-manager",
+    "disabled": true
+  },
+  {
+    "id": "mcp-resources",
+    "disabled": true
+  },
+  {
+    "id": "settings",
+    "disabled": true
+  },
+  {
+    "id": "config-editor",
+    "disabled": true
+  },
+  {
+    "id": "agent-instructions",
+    "disabled": true
+  },
+  {
+    "id": "skill-filesystem",
+    "disabled": true
+  },
+  {
+    "id": "tool-skill",
+    "disabled": true
+  },
+  {
+    "id": "session-title-llm",
+    "disabled": true
+  },
+  {
+    "id": "session-title",
+    "disabled": true
+  },
+  {
+    "id": "session-log-deepseek",
+    "disabled": true
+  },
+  {
+    "id": "plugin-package-inventory-deepseek",
+    "disabled": true
+  },
+  {
+    "id": "llm-deepseek-account",
+    "disabled": true
+  },
+  {
+    "id": "llm-pi-ai",
+    "disabled": true
+  },
+  {
+    "id": "llm-retry",
+    "disabled": true
+  },
+  {
+    "id": "session-telemetry-otel",
+    "disabled": true
+  },
+  {
+    "id": "tool-result-pruner",
+    "disabled": true
+  },
+  {
+    "id": "compaction-basic",
+    "disabled": true
+  },
+  {
+    "id": "goal-round-driver",
+    "disabled": true
+  },
+  {
+    "id": "tool-web",
+    "disabled": true
+  },
+  {
+    "id": "web-search-deepseek",
+    "disabled": true
+  },
+  {
+    "id": "web-fetch-http",
+    "disabled": true
+  }
+]

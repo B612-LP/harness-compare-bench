@@ -1,0 +1,161 @@
+{
+  "schema": "independent-review-final/1",
+  "status": "PASS",
+  "generated_at": "2026-10-28T17:31:38.758063+00:00",
+  "scope": "Public-package OFFLINE reproduction only; zero new model API calls; not an online rerun.",
+  "full_receipt": "final-03.json",
+  "full_receipt_sha256": "67bee3dd6a7f353b3b18edaf7ef4c91cded722d148037896faeb4d5ffe873deb",
+  "independent_checks_passed": 125,
+  "independent_checks_total": 125,
+  "author_unit_tests": {
+    "count": 38,
+    "category": "one self_test subprocess; not 38 product runs"
+  },
+  "public_inputs": {
+    "files": 2366,
+    "bytes": 381197872,
+    "full_manifest": "final-03.json#/inputs",
+    "reviewed_four_scope_manifest_sha256": "09476ddc52a04913bdd22c4ade99e313de15727caf00a2686b18cb85708d74f9",
+    "reviewed_four_scope_files": 221,
+    "canonical_hash_encoding": "UTF-8 json.dumps(filtered final-03 inputs, ensure_ascii=False, sort_keys=True, separators=(comma,colon)); original sorted input order"
+  },
+  "sources": {
+    "freeze.py": "f1f8e8e988ea0c22587a96ff606d588cbab6636bd09cf3f77a2521848a4f7681",
+    "freeze.lock.json": "c784614e891390682c1fd28fa3d2f5b190fdb833943faedf3b1857ef43ba1bad",
+    "experiment-events.json": "425f223a1b38774a371831596264e962a38b83c02949f4e5104c2d4a736db13c",
+    "evidence-manifest.json": "998a9f6a17e3517aa012dcd6e2e57dafe8f0a1cf4156a429ada4121de394d25e"
+  },
+  "reviewer_code": {
+    "clean_room.py": "24e058f9522f5fc6f0d3e380bd53684a951b07dc73492302a1e7baadf81acba0",
+    "independent_checks.py": "f540031c7f0ff2942b728be2d13d5e66ac8cd5ed2afaf6bd18ff91d6518a1a8b"
+  },
+  "sandbox": {
+    "repo_read": {
+      "errno": 1,
+      "error": "[Errno 1] Operation not permitted: '/Users/b612-lp/Documents/harness-compare-bench/AGENTS.md'"
+    },
+    "private_read": {
+      "errno": 1,
+      "error": "[Errno 1] Operation not permitted: '/Users/b612-lp/bench-automation'"
+    },
+    "old_tmp_read": {
+      "errno": 1,
+      "error": "[Errno 1] Operation not permitted: '/private/tmp'"
+    },
+    "old_native_spill_tree_read": {
+      "errno": 1,
+      "error": "[Errno 1] Operation not permitted: '/private/var/folders'"
+    },
+    "network_connect": {
+      "errno": 1,
+      "error": "[Errno 1] Operation not permitted"
+    },
+    "HOME_entries": [],
+    "public_copy_read": true
+  },
+  "summary": {
+    "rule_version": "freeze-20261029-v1",
+    "collected_at": "2026-10-29T01:00:22+08:00",
+    "historical_rows": 96,
+    "historical_original_sources": 326,
+    "source_counts": {
+      "verified": 242,
+      "external_not_packaged": 84
+    },
+    "registered_counts_not_all_time_totals": {
+      "product_run": 97,
+      "self_test": 8,
+      "offline_recompute": 7,
+      "grading_regression": 3,
+      "bare_model_probe": 5,
+      "interface_preflight": 9
+    },
+    "official_counts": {
+      "A_same_model": 0,
+      "B_native": 0
+    },
+    "historical_cells": 25,
+    "coverage": {
+      "scope": "selected individually locatable invocation/batch receipts, not exhaustive historical totals",
+      "cutoff": "2026-10-28T17:25:58.460451+00:00",
+      "self_test": "3 historical standalone logs +1 supplemented failed engine invocation +3 raw-captured passing invocations(32/35/38 assertions); additional imported selftests counted by their own event IDs",
+      "offline_recompute": "5 separately identified result batches including archived10-27 replay; not each result row",
+      "grading_regression": "2 archived and 1 fresh lead invocation, nested selftests not additional events",
+      "interface_preflight": "one external WB sandbox preflight reference, not public verified evidence",
+      "bare_model_probe": "5 canonical bare-model records from 96-row ledger",
+      "product_run": "91 canonical tool/product executions in ledger, including invalid/research; exploratory-probe uses product tools and is not bare model",
+      "excluded": "source scans, syntax checks, future reviewer validation and subsequent unregistered invocations not silently counted",
+      "original_times": "retain explicit receipt timestamps/verbatim time lines; generated_at/date not automatically runtime; unknown if no explicit field",
+      "imported_events": "build-recipe pins exact imported envelopes; their source collection times are preserved per event, not inferred from batch names"
+    },
+    "import_pins": [
+      {
+        "path": "3-表现现场/r20261029-mechanism/experiment-events.json",
+        "sha256": "425f223a1b38774a371831596264e962a38b83c02949f4e5104c2d4a736db13c"
+      }
+    ],
+    "source_map": {},
+    "no_cross_group_ranking": true,
+    "current_config_hash_is_not_historical_version": true
+  },
+  "mechanism_pairs": [
+    {
+      "full_run": "20261028T170651Z-01-large-full-e0b04d78",
+      "bounded_run": "20261028T170952Z-02-large-bounded-0fe26b85",
+      "full_second_input": 19697,
+      "bounded_second_input": 1509,
+      "difference": 18188,
+      "all_remaining_difference_paths": [
+        "/messages/1/content/0/thinking",
+        "/messages/2/content/0/content/0/text"
+      ]
+    },
+    {
+      "full_run": "20261028T170958Z-04-large-full-624b8e98",
+      "bounded_run": "20261028T170955Z-03-large-bounded-8f5358a9",
+      "full_second_input": 19697,
+      "bounded_second_input": 1492,
+      "difference": 18205,
+      "all_remaining_difference_paths": [
+        "/messages/2/content/0/content/0/text"
+      ]
+    },
+    {
+      "full_run": "20261028T171001Z-05-small-full-0799bc72",
+      "bounded_run": "20261028T171003Z-06-small-bounded-e5d016bc",
+      "full_second_input": 504,
+      "bounded_second_input": 524,
+      "difference": -20,
+      "all_remaining_difference_paths": [
+        "/messages/1/content/0/thinking"
+      ]
+    }
+  ],
+  "failure_history": [
+    {
+      "file": "sandbox-preflight.json",
+      "cause": "First probe incorrectly expected socket construction itself to fail; corrected to network connect."
+    },
+    {
+      "file": "final-01.json",
+      "sha256": "5ccedd251d8c63da11b44d29438f7ab1c99744e637b0ae25708241223f246e0c",
+      "exit_code": 1,
+      "cause": "Reviewer positive file-read probe used root AGENTS.md, which is not git-tracked/copied; corrected to explicitly copied checks script. No implementation executed."
+    },
+    {
+      "file": "final-02.json",
+      "sha256": "cc6bd56a15910ca0060ed4f9ad40e90b359ead767abf0193b876c20fbfbe2956",
+      "exit_code": 1,
+      "passed": 121,
+      "checks": 125,
+      "cause": "Reviewer synthetic bird denominator was 10 instead of 15 (2 failures); reviewer incorrectly assumed large/full stdout tool_result was complete instead of an exact 8192-character CLI prefix (2 failures). Implementation and frozen sources were unchanged."
+    }
+  ],
+  "boundaries": [
+    "v3 first full run lacks raw SSE; provider-parsed durable session is lower-grade evidence, not raw response.",
+    "CLI stdout displays only first 8192 characters for two large/full tool results; full request and deterministic source/tool-output/process SHA are independently checked.",
+    "Native spill existence/readability checked posthoc; model did not perform recovery.",
+    "Pair1 and small control have thinking variation; small control input is 504 vs524, not equal.",
+    "No universal quality ranking, fixed savings rate, money-cost or natural-agent recovery claim."
+  ]
+}

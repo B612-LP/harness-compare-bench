@@ -1,0 +1,65 @@
+{
+  "kind": "independent_read_only_v1_failure",
+  "freeze_sha256": "717cb0632d659867f557067c087382abad60cbad98cf05867156514cc7cea275",
+  "frozen_source_checks": {
+    "PREREGISTRATION.md": {
+      "expected": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+      "actual": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052"
+    },
+    "run_experiment.py": {
+      "expected": "03d6eea5cf05cf92088433d212486d749c60e063e37f628498baa045bbc51a6e",
+      "actual": "03d6eea5cf05cf92088433d212486d749c60e063e37f628498baa045bbc51a6e"
+    },
+    "fixture-plugin.mjs": {
+      "expected": "5877791b0594525ad2cc34c1d0bab4e2dd3131fbff8e0f3182cd350ffebbd48e",
+      "actual": "5877791b0594525ad2cc34c1d0bab4e2dd3131fbff8e0f3182cd350ffebbd48e"
+    },
+    "capture-preload.mjs": {
+      "expected": "9767195dabdc4a5919b952e42df913650dae5181c002b73c6c6bd7f2911661cf",
+      "actual": "9767195dabdc4a5919b952e42df913650dae5181c002b73c6c6bd7f2911661cf"
+    }
+  },
+  "completion": {
+    "at": "2026-10-28T17:02:35.351511+00:00",
+    "completed_runs": 1,
+    "planned_runs": 6,
+    "stopped_on_failure": true,
+    "analysis_required": true
+  },
+  "run_meta": {
+    "run_id": "20261028T170234Z-01-large-full-d392bb53",
+    "start": "2026-10-28T17:02:34.247044+00:00",
+    "case_version": "fixture-v1",
+    "size": "large",
+    "arm": "full",
+    "maxInlineTokens": 12500,
+    "model": {
+      "provider": "deepseek-official",
+      "model": "deepseek-flash",
+      "reasoningEffort": "low"
+    },
+    "product": "DSH CLI",
+    "group": "research",
+    "experiment": true,
+    "category": "product_run",
+    "permissions": "danger-full-access / approval never",
+    "skills": false,
+    "tool_names": [
+      "fixture_output"
+    ],
+    "workspace": "<WORKSPACE>/agent-workspace",
+    "profile_isolated": true,
+    "recovery_read_tool_available": false,
+    "freeze_sha256": "717cb0632d659867f557067c087382abad60cbad98cf05867156514cc7cea275",
+    "end": "2026-10-28T17:02:35.350376+00:00",
+    "duration_seconds": 1.1031640829999998,
+    "exit_code": 1,
+    "timeout": false,
+    "spill_files_after_run": [],
+    "reported_input_tokens": 0,
+    "cumulative_reported_input_tokens": 0,
+    "actual_response_models": [],
+    "actual_api_gate": false
+  },
+  "note": "Startup error: tools.restrict requires agent scoped context; zero model evidence. Preserve v1 and amend separately."
+}

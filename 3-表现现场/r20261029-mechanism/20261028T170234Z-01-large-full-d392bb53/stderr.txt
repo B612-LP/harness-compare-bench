@@ -1,0 +1,20 @@
+dsh: startup failed: 1 required plugin did not activate
+
+Failed plugins (1):
+  mechanism-fixture
+    Package: file://<HOME>/Documents/harness-compare-bench/1-%E8%AF%84%E6%B5%8B%E6%96%B9%E6%A1%88/%E6%9C%BA%E5%88%B6%E5%AE%9E%E9%AA%8C-2026-10-29/fixture-plugin.mjs
+    Error: tools.restrict() requires a scoped context (agent.ctx): a context-global restriction would mask every agent — deny the tool for the intended agent instead
+        at Proxy.restrict (file:///opt/homebrew/lib/node_modules/@deepseek-ai/dsh/node_modules/@deepseek-ai/dsh-tools/lib/index.js:2897:31)
+        at Object.apply (file:///opt/homebrew/lib/node_modules/@deepseek-ai/dsh/node_modules/@deepseek-ai/cordis/lib/index.js:120:36)
+        at new apply (file://<HOME>/Documents/harness-compare-bench/1-%E8%AF%84%E6%B5%8B%E6%96%B9%E6%A1%88/%E6%9C%BA%E5%88%B6%E5%AE%9E%E9%AA%8C-2026-10-29/fixture-plugin.mjs:24:13)
+        at Fiber.execute (file:///opt/homebrew/lib/node_modules/@deepseek-ai/dsh/node_modules/@deepseek-ai/cordis/lib/index.js:1068:24)
+        at file:///opt/homebrew/lib/node_modules/@deepseek-ai/dsh/node_modules/@deepseek-ai/cordis/lib/index.js:1142:34
+        at file://<WORKSPACE>/dsh-home/profiles/mechanism/#mechanism-fixture
+        at file://<WORKSPACE>/dsh-home/profiles/mechanism/#include
+
+Plugins waiting for services (2):
+  Plugin                      Missing services
+  headless-runner (required)  mechanismFixture
+  command-compact             compaction
+
+Full diagnostics: <WORKSPACE>/dsh-home/logs/startup-2026-10-28T17-02-35.337Z-521eef4e-6c01-4f2c-b620-be7e2e42ec26.log
