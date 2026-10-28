@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-29",
+  "sandbox_binary": "/usr/bin/sandbox-exec",
+  "python": "/usr/bin/python3",
+  "first_failure": {
+    "exit_code": 1,
+    "assertion": "Mistakenly expected socket construction itself to be denied by deny network*",
+    "observed": {"original_repo_read_errno": 1, "socket_construction": "allowed"},
+    "meaning": "Probe assertion was wrong; this does not prove network access is permitted. No experiment or implementation was changed."
+  },
+  "corrected_probe": {
+    "exit_code": 0,
+    "original_repo_read": {"errno": 1, "error": "Operation not permitted"},
+    "network_connect": {"target": "127.0.0.1:49169", "errno": 1, "error": "Operation not permitted"},
+    "profile": "(version 1) (allow default) (deny network*) (deny file-read* (subpath \"/Users/b612-lp/Documents/harness-compare-bench\") (subpath \"/Users/b612-lp/bench-automation\") (subpath \"/Users/b612-lp/bench-workspaces\"))"
+  },
+  "note": "Preflight only. Final run must create new public copy, empty HOME, clean environment, deny original HOME/private paths, and repeat actual access probes. This is not online model reproduction."
+}

@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-28T17:17:39.734796+00:00",
+  "category": "self_test",
+  "actual_api_calls": 0,
+  "analyzer_sha256": "5a14fee7befc18f8a5198f6ba4d03410637cbce3626354de4689d84117a89899",
+  "all_passed": true,
+  "tests": [
+    {
+      "test": "published_complete_six_runs",
+      "expected_exit_success": true,
+      "actual_exit_code": 0,
+      "passed": true,
+      "stdout": "{\"runs\": 6, \"pairs\": [[1, 18188], [2, 18205], [3, -20]], \"total_input\": 46081, \"correct\": 6, \"checks\": {\"six_runs_fixed_order\": true, \"twelve_requests\": true, \"all_http200\": true, \"official_low_route\": true, \"frozen_sources_match\": true, \"three_prespecified_pairs\": true, \"first_requests_identical\": true, \"all_process_exit0\": true, \"within_input_budget\": true, \"raw_sse_all_remaining_calls\": true, \"matches_published_analysis_ignoring_generated_at\": true}, \"validation_passed\": true}\n",
+      "stderr": ""
+    },
+    {
+      "test": "missing_second_request",
+      "expected_exit_success": false,
+      "actual_exit_code": 1,
+      "passed": true,
+      "stdout": "",
+      "stderr": "Incomplete actual run: <HOME>/bench-workspaces/r20261029-mechanism/offline-validation-4a25d6cb/missing_second_request/v4/20261028T170952Z-02-large-bounded-0fe26b85\n"
+    },
+    {
+      "test": "wrong_model_response",
+      "expected_exit_success": false,
+      "actual_exit_code": 1,
+      "passed": true,
+      "stdout": "{\"checks\": {\"six_runs_fixed_order\": true, \"twelve_requests\": true, \"all_http200\": true, \"official_low_route\": false, \"frozen_sources_match\": true, \"three_prespecified_pairs\": true, \"first_requests_identical\": true, \"all_process_exit0\": true, \"within_input_budget\": true, \"raw_sse_all_remaining_calls\": true}, \"validation_passed\": false}\n",
+      "stderr": ""
+    },
+    {
+      "test": "wrong_http_status",
+      "expected_exit_success": false,
+      "actual_exit_code": 1,
+      "passed": true,
+      "stdout": "{\"checks\": {\"six_runs_fixed_order\": true, \"twelve_requests\": true, \"all_http200\": false, \"official_low_route\": true, \"frozen_sources_match\": true, \"three_prespecified_pairs\": true, \"first_requests_identical\": true, \"all_process_exit0\": true, \"within_input_budget\": true, \"raw_sse_all_remaining_calls\": true}, \"validation_passed\": false}\n",
+      "stderr": ""
+    }
+  ]
+}

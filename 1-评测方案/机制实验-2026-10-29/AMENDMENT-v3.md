@@ -1,0 +1,9 @@
+# v3 初始化修复与零网络完整验收
+
+2026-10-29 Asia/Shanghai，在任何真实模型API之前。v2原生runtime已挂载，但发送前的唯一工具硬门发现plan-mode自带exit_plan_mode，因此在fetch前拦截；所有v2源码、freeze与失败证据保持原字节。v1和v2总实际外发API数均为0。
+
+Lead明确授权继续初始化修复（替代此前最多一次技术修复限制），不因模型结果挑样，不修改6场/最多18请求/150000输入预算。v3额外禁用plan-mode及无后端的command-compact插件。原创零网络runtime preflight将native fetch替换为明确抛错sentinel，再装载同一冻结capture；完整挂载与真实序列化请求经唯一fixture工具、official/low/max_tokens硬门验证通过，native网络未调用。此预检是interface_preflight，不是模型运行、不是mock模型比较。
+
+正式v3使用未替换的native fetch，仍只有capture observer；禁止把runtime-preflight-preload用于实际实验。冻结后固定运行6场交叉顺序和小输出负对照，其他v1/v2实验目标、因素和控制不变。输入预算执行保守含cache字段（input_tokens+cache_read_input_tokens+cache_creation_input_tokens），原始字段仍独立保留；正式分析需说明协议字段及不确定性，不能把token减少直接解释为金钱成本减少。
+
+v1/v2预API失败不消耗模型实验样本，但必须列入接口预检失败账。若v3发生真实API失败，不修改路由或重跑结果，原样留证并按原停止条件处理。

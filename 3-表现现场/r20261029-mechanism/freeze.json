@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "frozen_at": "2026-10-28T17:02:33.959933+00:00",
+  "files": {
+    "PREREGISTRATION.md": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+    "run_experiment.py": "03d6eea5cf05cf92088433d212486d749c60e063e37f628498baa045bbc51a6e",
+    "fixture-plugin.mjs": "5877791b0594525ad2cc34c1d0bab4e2dd3131fbff8e0f3182cd350ffebbd48e",
+    "capture-preload.mjs": "9767195dabdc4a5919b952e42df913650dae5181c002b73c6c6bd7f2911661cf"
+  },
+  "plan": [
+    [
+      "large",
+      "full",
+      12500
+    ],
+    [
+      "large",
+      "bounded",
+      512
+    ],
+    [
+      "large",
+      "bounded",
+      512
+    ],
+    [
+      "large",
+      "full",
+      12500
+    ],
+    [
+      "small",
+      "full",
+      12500
+    ],
+    [
+      "small",
+      "bounded",
+      512
+    ]
+  ],
+  "prompt": "Call fixture_output exactly once. Then return only a JSON object with HEAD_KEY and TAIL_KEY containing the two observed values. Ignore checksum noise. Do not call any additional tool.",
+  "prompt_sha256": "82f49e6223aad78640e412663d7f96dae4c14c3619d1af8ce292298e7ef75042",
+  "environment": {
+    "os": "macOS-26.6-arm64-arm-64bit",
+    "python": "3.9.6",
+    "node": "v24.22.0",
+    "dsh": "0.2.0-rc.2",
+    "permission": "danger-full-access",
+    "skills": false,
+    "browser": false,
+    "auth": "DSH internal existing credential reference; runner never opens it"
+  }
+}

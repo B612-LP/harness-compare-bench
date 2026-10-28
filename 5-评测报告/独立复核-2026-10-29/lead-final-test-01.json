@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "category": "self_test",
+  "scope": "lead post-freeze acceptance, excluded from earlier registry cutoff",
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "4-打分细则/可信冻结-2026-10-29/freeze.py",
+        "verify"
+      ],
+      "started_at": "2026-10-28T17:27:01.607882+00:00",
+      "finished_at": "2026-10-28T17:27:04.102912+00:00",
+      "exit_code": 0,
+      "stdout": "5-评测报告/独立复核-2026-10-29/lead-final-test-01-1.stdout.txt",
+      "stderr": "5-评测报告/独立复核-2026-10-29/lead-final-test-01-1.stderr.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "4-打分细则/可信冻结-2026-10-29/test_freeze.py"
+      ],
+      "started_at": "2026-10-28T17:27:04.102978+00:00",
+      "finished_at": "2026-10-28T17:27:05.065097+00:00",
+      "exit_code": 0,
+      "stdout": "5-评测报告/独立复核-2026-10-29/lead-final-test-01-2.stdout.txt",
+      "stderr": "5-评测报告/独立复核-2026-10-29/lead-final-test-01-2.stderr.txt"
+    }
+  ],
+  "passed": true,
+  "code_sha256": "f1f8e8e988ea0c22587a96ff606d588cbab6636bd09cf3f77a2521848a4f7681",
+  "lock_sha256": "c784614e891390682c1fd28fa3d2f5b190fdb833943faedf3b1857ef43ba1bad"
+}
