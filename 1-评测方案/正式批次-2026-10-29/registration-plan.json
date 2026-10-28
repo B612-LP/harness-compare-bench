@@ -1,0 +1,28 @@
+{
+  "plan_id": "formal-a1-20261029",
+  "rule_version": "freeze-20261029-v2",
+  "created_at": "2026-10-29T02:10:00+08:00",
+  "note": "首批正式 A 组准入的prospective抽样注册。本文件在 any 运行开始之前定稿并由 freeze-20261029-v2 封印（plan_sha256 绑定 config.official_slots）；先注册、后运行、全量导入，不按结果增删。替代/重试按 SAFE_POLICY：注册队列外不补跑、不选最高分；如发生 infrastructure_invalid，仅以 selection=null 诊断事件如实登记，不进入 primary。",
+  "batch": "r1030-formal-a1",
+  "design": {
+    "group": "A_same_model",
+    "products": ["codex", "dsh"],
+    "cases": ["bird-ca-schools-15", "dabstep-payments-10", "exercism-py-6", "lcb-recent-hard-4", "tb-cargo-plan"],
+    "samples_per_slot": 1,
+    "policy": {"first": "first_registered", "repeat": "all_registered_no_best", "retry": "infrastructure_only_max_1", "replacement": "invalid_only_next_registered_max_1"},
+    "excluded_products": {"workbuddy": "route host 与模型 id 证据不可得，见 1-评测方案/准入预检-2026-10-29/wb-preflight.json"},
+    "variables": {"model": "deepseek-flash", "reasoning_effort": "low", "web_search": "disabled", "skills": "off", "workspace": "~/bench-workspaces/r1030/<product>/<case>/（仓库外）"}
+  },
+  "registrations": [
+    {"event_id": "formal-a1-codex-bird-ca-schools-15-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-codex-bird-ca-schools-15", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"},
+    {"event_id": "formal-a1-codex-dabstep-payments-10-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-codex-dabstep-payments-10", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"},
+    {"event_id": "formal-a1-codex-exercism-py-6-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-codex-exercism-py-6", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"},
+    {"event_id": "formal-a1-codex-lcb-recent-hard-4-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-codex-lcb-recent-hard-4", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"},
+    {"event_id": "formal-a1-codex-tb-cargo-plan-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-codex-tb-cargo-plan", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"},
+    {"event_id": "formal-a1-dsh-bird-ca-schools-15-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-dsh-bird-ca-schools-15", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"},
+    {"event_id": "formal-a1-dsh-dabstep-payments-10-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-dsh-dabstep-payments-10", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"},
+    {"event_id": "formal-a1-dsh-exercism-py-6-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-dsh-exercism-py-6", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"},
+    {"event_id": "formal-a1-dsh-lcb-recent-hard-4-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-dsh-lcb-recent-hard-4", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"},
+    {"event_id": "formal-a1-dsh-tb-cargo-plan-01", "plan_id": "formal-a1-20261029", "slot_id": "a1-dsh-tb-cargo-plan", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-29T02:10:00+08:00"}
+  ]
+}

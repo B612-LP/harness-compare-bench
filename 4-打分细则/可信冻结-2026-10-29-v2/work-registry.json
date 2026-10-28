@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "coverage": {
+    "scope": "selected individually locatable invocation/batch receipts, not exhaustive historical totals",
+    "cutoff": "2026-10-29T02:12:00+08:00",
+    "self_test": "3 historical standalone logs +1 supplemented failed engine invocation +3 raw-captured passing invocations(32/35/38 assertions); additional imported selftests counted by their own event IDs",
+    "offline_recompute": "5 separately identified result batches including archived10-27 replay; not each result row",
+    "grading_regression": "2 archived and 1 fresh lead invocation, nested selftests not additional events",
+    "interface_preflight": "one external WB sandbox preflight reference, not public verified evidence",
+    "bare_model_probe": "5 canonical bare-model records from 96-row ledger",
+    "product_run": "91 canonical tool/product executions in ledger, including invalid/research; exploratory-probe uses product tools and is not bare model",
+    "excluded": "source scans, syntax checks, future reviewer validation and subsequent unregistered invocations not silently counted",
+    "original_times": "retain explicit receipt timestamps/verbatim time lines; generated_at/date not automatically runtime; unknown if no explicit field",
+    "imported_events": "build-recipe pins exact imported envelopes; their source collection times are preserved per event, not inferred from batch names",
+    "formal_a1_addendum": "r1030-formal-a1 首批正式批次：5 个判分器自测收据 + CLI 接口预检（零模型调用） + WorkBuddy 准入预检；产品运行事件由导入登记，不入 registry。"
+  },
+  "events": [
+    {
+      "event_id": "work:numeric-bird-20261024",
+      "category": "self_test",
+      "source": {
+        "path": "4-打分细则/判卷审计-2026-10-24/numeric/bird-ca-schools-15.selftest.stdout.txt",
+        "sha256": "de9ae8c3ce350d0d4c76f03ced570d5384a4faf3bb71c6d285cbfd99e84a1814"
+      },
+      "locator": "lines 1-25",
+      "description": "single checker selftest invocation; assertions not runs"
+    },
+    {
+      "event_id": "work:numeric-dab-20261024",
+      "category": "self_test",
+      "source": {
+        "path": "4-打分细则/判卷审计-2026-10-24/numeric/dabstep-payments-10.selftest.stdout.txt",
+        "sha256": "95e5507d723139fc26807b39fec721467996b294abdd3941a61d099211641a1a"
+      },
+      "locator": "lines 1-25",
+      "description": "single checker selftest invocation"
+    },
+    {
+      "event_id": "work:lcb-20261026",
+      "category": "self_test",
+      "source": {
+        "path": "4-打分细则/判卷审计-2026-10-24/lcb/selftest-2026-10-26.stdout.txt",
+        "sha256": "b9be0d6c868ea529d3f6ce8370eebbe63d8463df6cec98f7b401240bcceb00e0"
+      },
+      "locator": "lines 1-19",
+      "description": "single checker selftest invocation"
+    },
+    {
+      "event_id": "work:regression-20261026",
+      "category": "grading_regression",
+      "source": {
+        "path": "4-打分细则/判卷回归/run-2026-10-26.stdout.txt",
+        "sha256": "f8a7bf8bc5d6db5cbfc42fb167962d4f78b393ab57f92fbce8374609e8027953"
+      },
+      "locator": "lines 1-194",
+      "description": "single five-case regression invocation, not five product runs"
+    },
+    {
+      "event_id": "work:regression-20261027",
+      "category": "grading_regression",
+      "source": {
+        "path": "4-打分细则/判卷回归/results.json",
+        "sha256": "7480cda85d0c029a0c29b7a4f0a10cbd469d793b4430b682faddb7324bdffe45"
+      },
+      "locator": "/generated_at",
+      "description": "single consolidated regression receipt"
+    },
+    {
+      "event_id": "work:regression-20261029-lead",
+      "category": "grading_regression",
+      "source": {
+        "path": "5-评测报告/独立复核-2026-10-29/checker-regression-receipt.json",
+        "sha256": "5f406b8483b374a5a22f84eb1d1794b55857cd5de9825ea6928a364d36cfc31d"
+      },
+      "locator": "/started_at",
+      "description": "fresh exit0; old source category checker_regression mapped to grading_regression"
+    },
+    {
+      "event_id": "work:score-20261024",
+      "category": "offline_recompute",
+      "source": {
+        "path": "5-评测报告/复算/2026-10-24/results.json",
+        "sha256": "80569ad888b71bfe28ac664a53c825282f97d11a2f2f77037932d8d4a41914b9"
+      },
+      "locator": "/runs",
+      "description": "one offline regrade batch, not 31 new agent runs"
+    },
+    {
+      "event_id": "work:cost-20261026",
+      "category": "offline_recompute",
+      "source": {
+        "path": "5-评测报告/复算/2026-10-26/cost-usd/cost_details.json",
+        "sha256": "67056e1c6e134fddd0b2fe9d47680e116e680d7b8a938b66eae7d3b001cc518b"
+      },
+      "locator": "/grand_all",
+      "description": "one cost recomputation result batch"
+    },
+    {
+      "event_id": "work:token-20261027",
+      "category": "offline_recompute",
+      "source": {
+        "path": "5-评测报告/复算/2026-10-27/token-cause/per_run.json",
+        "sha256": "bd2fd193d8131d234c2e08d8a90feb76d229916def8d6a53a6710493959311e9"
+      },
+      "locator": "/a_group_runs",
+      "description": "one archived token decomposition result batch"
+    },
+    {
+      "event_id": "work:source-audit-20261029-lead",
+      "category": "offline_recompute",
+      "source": {
+        "path": "5-评测报告/独立复核-2026-10-29/history-source-audit.json",
+        "sha256": "d874472827e62525766de05b97042a8f23a364d914da174fd704490ba417e811"
+      },
+      "locator": "/source_references",
+      "description": "one independent public source digest audit batch"
+    },
+    {
+      "event_id": "work:wb-sandbox-preflight-20261027",
+      "category": "interface_preflight",
+      "source": {
+        "path": "bench-automation/runs/r20261027-wb-lcb-sandbox/preflight_receipt.json",
+        "sha256": "48bfcae429b8bd0678b8d385e5c822d65dd62fb3fcd969b6e0b1608f88be6872"
+      },
+      "locator": "ledger /runs/95/sources; external receipt path+SHA only",
+      "description": "locatable historical preflight receipt, private reference not read/not independently validated; does not imply no other historical preflights"
+    },
+    {
+      "event_id": "work:freeze-engine-selftest-initial-failure",
+      "category": "self_test",
+      "source": {
+        "path": "5-评测报告/可信冻结-2026-10-29/selftest-initial-failure-supplement.json",
+        "sha256": "2ed877d94f118e659792c24e83148a8cd7c1841b1612d5f1dbc0053954864293"
+      },
+      "locator": "/observed_exit_code",
+      "description": "supplemented observed failed invocation, original raw process log unavailable"
+    },
+    {
+      "event_id": "work:freeze-engine-selftest-final",
+      "category": "self_test",
+      "source": {
+        "path": "5-评测报告/可信冻结-2026-10-29/selftest-receipt.json",
+        "sha256": "c570b7b4279e8d8e54229db5c8a124bac4d7b6215a40dfda10ea801465bab7ae"
+      },
+      "locator": "/started_at",
+      "description": "complete raw receipt for one 32-test unittest invocation; assertions not product runs"
+    },
+    {
+      "event_id": "work:replay-all-20261027",
+      "category": "offline_recompute",
+      "source": {
+        "path": "4-打分细则/判卷回归/replay-all-results.json",
+        "sha256": "ef98a161d2d200d73e0824d6da9ef1588f2e3d967d76d189449a23dc3f493132"
+      },
+      "locator": "/rows",
+      "description": "one archived 57-row replay batch; underlying script had private fallback, not fresh public replay"
+    },
+    {
+      "event_id": "work:freeze-engine-selftest-expanded",
+      "category": "self_test",
+      "source": {
+        "path": "5-评测报告/可信冻结-2026-10-29/selftest-expanded-receipt.json",
+        "sha256": "5cc58c32a334b1b6226b6d7660523849118d212a1f85511d8657b2493d77096e"
+      },
+      "locator": "/started_at",
+      "description": "one complete 35-test schema/negative-test invocation, not 35 product executions"
+    },
+    {
+      "event_id": "work:freeze-engine-selftest-route",
+      "category": "self_test",
+      "source": {
+        "path": "5-评测报告/可信冻结-2026-10-29/selftest-route-receipt.json",
+        "sha256": "3dea1dbf1ae3a0ba421af71ed099275b329f16ad73f30a788dc8bdebbd8575b5"
+      },
+      "locator": "/started_at",
+      "description": "one complete38-test invocation including official-upstream route rejection and invalid final-adjudication conflict"
+    },
+    {
+      "event_id": "work:r1030-selftest-bird-ca-schools-15",
+      "category": "self_test",
+      "source": {
+        "path": "3-表现现场/r1030-formal-a1/selftest/bird-ca-schools-15.selftest.stdout.txt",
+        "sha256": "f98094b1c1c4c43412dc6b51cc3f2be53d0249ac99a327b8cfa090f9597ed76a"
+      },
+      "locator": "full file",
+      "description": "checker --selftest 原始输出（nop/oracle/负例），判分器代码与 case 版本未变"
+    },
+    {
+      "event_id": "work:r1030-selftest-dabstep-payments-10",
+      "category": "self_test",
+      "source": {
+        "path": "3-表现现场/r1030-formal-a1/selftest/dabstep-payments-10.selftest.stdout.txt",
+        "sha256": "95e5507d723139fc26807b39fec721467996b294abdd3941a61d099211641a1a"
+      },
+      "locator": "full file",
+      "description": "checker --selftest 原始输出"
+    },
+    {
+      "event_id": "work:r1030-selftest-exercism-py-6",
+      "category": "self_test",
+      "source": {
+        "path": "3-表现现场/r1030-formal-a1/selftest/exercism-py-6.selftest.stdout.txt",
+        "sha256": "742f984ab56564940edf95a4fcb2ec4320af6367a51c8871b22851dce084e99e"
+      },
+      "locator": "full file",
+      "description": "checker --selftest 原始输出"
+    },
+    {
+      "event_id": "work:r1030-selftest-lcb-recent-hard-4",
+      "category": "self_test",
+      "source": {
+        "path": "3-表现现场/r1030-formal-a1/selftest/lcb-recent-hard-4.selftest.stdout.txt",
+        "sha256": "60d4fe6e73afc7ed746109eba5260e992143642d3adf866716316a289aeaa480"
+      },
+      "locator": "full file",
+      "description": "checker --selftest 原始输出"
+    },
+    {
+      "event_id": "work:r1030-selftest-tb-cargo-plan",
+      "category": "self_test",
+      "source": {
+        "path": "3-表现现场/r1030-formal-a1/selftest/tb-cargo-plan.selftest.stdout.txt",
+        "sha256": "a049b21187960cb1a6781613b0723e98a5c7dce50957866c1a072f7782657bc1"
+      },
+      "locator": "full file",
+      "description": "checker --selftest 原始输出"
+    },
+    {
+      "event_id": "work:r1030-cli-preflight",
+      "category": "interface_preflight",
+      "source": {
+        "path": "3-表现现场/r1030-formal-a1/preflight/cli-preflight.json",
+        "sha256": "23d78ee326998e4940c3edf36c09beed9b005c383effcf3d3d0ac19b58167095"
+      },
+      "locator": "full file",
+      "description": "零模型接口预检：CLI 版本、隔离 CODEX_HOME 配置落盘、bench-cli profile 哈希、工作区隔离断言、判分器冒烟"
+    },
+    {
+      "event_id": "work:wb-admission-preflight-20261029",
+      "category": "interface_preflight",
+      "source": {
+        "path": "1-评测方案/准入预检-2026-10-29/wb-preflight.json",
+        "sha256": "30f548c3550696ac5b1a1406e7d9d0ec2e2a8590101d2cf9f9db84133482a909"
+      },
+      "locator": "full file",
+      "description": "WorkBuddy 正式准入预检：路由主机与模型 id 证据缺口，两项受管未知，首批不纳入"
+    }
+  ]
+}
