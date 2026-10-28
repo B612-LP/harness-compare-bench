@@ -1,0 +1,86 @@
+{
+  "kind": "interface_preflight",
+  "scope": "WorkBuddy 桌面端能否进入 freeze-20261029-v2 正式 A 组准入（15 事实槽 + 5 闸门）",
+  "at": "2026-10-29T02:05:00+08:00",
+  "model_calls": 0,
+  "checked_products": {
+    "workbuddy": {
+      "product_version_disclosed": "5.8.3",
+      "model_label_disclosed": "deepseek-v4.1-flash",
+      "thought_level_disclosed": "low",
+      "permission_mode_disclosed": "fullAccess（wb:conversations:create 参数，jsonl providerData 可核）",
+      "tools_disclosed": "jsonl 记录每次 function_call/result 与 rawUsage（含缓存 token 明细）",
+      "timestamps_disclosed": "run_meta.json new_task.started_at / wait.ended_at（ISO 带时区）",
+      "upstream_route_host_evidence": "NONE",
+      "upstream_route_note": "仓库内 WorkBuddy 现场证据（r1029 trace/run_meta/session-row）中不存在任何模型请求端点主机（无 api.deepseek.com 字样，无请求级 URL）；本机私有日志仅出现 NO_PROXY 环境名单（提及 api.deepseek.com），那是代理豁免名单，不是模型路由证据，且私有目录不可打包为公开源。"
+    }
+  },
+  "admission_impact": {
+    "blocked_gates": [
+      "evidence_valid（路由事实无出处）",
+      "同模型事实（模型 id 字符串 deepseek-v4.1-flash ≠ 统一 alias deepseek-flash，且无请求级模型 id 佐证）"
+    ],
+    "verdict": "not_admitted_to_formal_a1",
+    "formal_a1_composition": [
+      "codex",
+      "dsh"
+    ],
+    "consequence": "首批正式 A 组 = Codex CLI + DSH CLI × 5 题；WorkBuddy 保留历史/观察轨道，不进正式表。"
+  },
+  "unknowns": [
+    {
+      "id": "wb-upstream-route-host-undisclosed",
+      "knowledge_status": "unknown",
+      "investigation_status": "stopped",
+      "confound_status": "not_excluded",
+      "impact": "无法证明 WorkBuddy 模型请求的上游主机为 api.deepseek.com，正式 A 组准入被阻断（这是证据缺口，不是产品失败判定）；A 组正式比较暂为两 CLI。",
+      "next_step": "向产品方索要请求级端点披露，或取得可打包的请求级路由证据；不得以代理豁免名单冒认路由。",
+      "stop_condition": "公开仓内无可打包的请求级主机证据即停；不以私有日志补证。",
+      "reopen_condition": "出现可打包、带请求级的端点主机证据（新产品版本或官方披露）。",
+      "refs": [
+        {
+          "source": 0,
+          "pointer": "/checked_products/workbuddy/upstream_route_host_evidence"
+        },
+        {
+          "source": 1,
+          "pointer": "/new_task/model"
+        },
+        {
+          "source": 2,
+          "pointer": "/wait/evidence/db/model"
+        }
+      ]
+    },
+    {
+      "id": "wb-model-alias-equivalence",
+      "knowledge_status": "unknown",
+      "investigation_status": "stopped",
+      "confound_status": "not_excluded",
+      "impact": "WorkBuddy 披露 deepseek-v4.1-flash（产品侧标签），与统一 alias deepseek-flash 的字符串不等价且无请求级模型 id 佐证；即使路由证据补齐，仍需证明两者指向同一上游模型 id。",
+      "next_step": "取得请求级 requestModelId 与统一 alias 的对应证据后再评估准入。",
+      "stop_condition": "无请求级模型 id 证据即停；不做别名等价的假定改写。",
+      "reopen_condition": "请求级证据表明产品标签映射到统一 alias。",
+      "refs": [
+        {
+          "source": 1,
+          "pointer": "/new_task/model"
+        },
+        {
+          "source": 2,
+          "pointer": "/wait/evidence/db/model"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "3-表现现场/r1029-desktop-auto/runs/workbuddy/bird-ca-schools-15/run_meta.json",
+      "sha256": "4fc30501bc56bab62ca2dc21c04ee7f702d19e6d2e10992fe8293304f488be43"
+    },
+    {
+      "path": "3-表现现场/r1029-desktop-auto/runs/workbuddy/bird-ca-schools-15/trace/session-row.json",
+      "sha256": "11f2aae17e276d08f90b656843105609ffe7b24ce40561d62740f66e784ae3be"
+    }
+  ]
+}

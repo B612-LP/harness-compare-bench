@@ -1,0 +1,231 @@
+{
+  "batch": "r1030-formal-a1",
+  "rule_version": "freeze-20261029-v2",
+  "product": "dsh",
+  "case": "bird-ca-schools-15",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1030/dsh/bird-ca-schools-15",
+  "created_at": "2026-10-29T02:12:00+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "dc63632ad541ad481e17ca941b0f362100b11bac9083df96ccfacc5e73a29685",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/db/california_schools.sqlite",
+      "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+      "bytes": 11116544
+    },
+    {
+      "path": "inputs/questions.json",
+      "sha256": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+      "bytes": 15842
+    },
+    {
+      "path": "inputs/sample_rows.json",
+      "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+      "bytes": 7739
+    },
+    {
+      "path": "inputs/schema.sql",
+      "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+      "bytes": 3993
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T02:12:00+08:00",
+  "finished_at": "2026-10-29T02:15:17+08:00",
+  "duration_s": 196.9,
+  "usage": {
+    "requests": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "note": "runner-side extraction of product-reported usage when present; absent fields stay 0/absent"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "bird-ca-schools-15",
+    "checker_version": "1.2-q26-frpm",
+    "contract_revision": "b2-tighten-2026-10-27",
+    "contract_status": "adopted-2026-10-26",
+    "parent_checker_version": "1.1",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/bench-workspaces/r1030/dsh/bird-ca-schools-15",
+    "reward": 1,
+    "weighted": 100.0,
+    "accuracy": 1.0,
+    "correct": 15,
+    "n_questions": 15,
+    "threshold": 0.8,
+    "input_integrity": "verified",
+    "failed_questions": [],
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "已附输入副本 4 件，均与 canonical 一致"
+      },
+      {
+        "id": "answers_file",
+        "pass": true,
+        "note": "/Users/b612-lp/bench-workspaces/r1030/dsh/bird-ca-schools-15/answers.jsonl"
+      },
+      {
+        "id": "answers_schema",
+        "pass": true,
+        "note": "15 行可解析，0 行 JSON/结构异常"
+      },
+      {
+        "id": "answers_coverage",
+        "pass": true,
+        "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+      },
+      {
+        "id": "q28",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（57 行）"
+      },
+      {
+        "id": "q36",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q62",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q83",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q87",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q12",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q23",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1239 行）"
+      },
+      {
+        "id": "q24",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1068 行）"
+      },
+      {
+        "id": "q25",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q26",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q27",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（8574 行）"
+      },
+      {
+        "id": "q31",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（2 行）"
+      },
+      {
+        "id": "q5",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q11",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（7806 行）"
+      },
+      {
+        "id": "q17",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（50 行）"
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 1,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "post-hoc session rescan; single hit adjudicated benign (runtime-injected instruction text); see integrity-rescan.json reviewed",
+    "evidence": [
+      {
+        "file": "session.v4.jsonl.zstd",
+        "line": 11,
+        "pattern": "~/Documents",
+        "excerpt": "{\"type\": \"user/message\", \"seq\": 9, \"time\": 1793211121483, \"data\": {\"content\": [{\"type\": \"text\", \"text\": \"<system-reminder>\\nThe following workspace instructions may be relevant to your work. Use them as guidance when applicable. More specific instructions take precedence over broader ones. They do n"
+      }
+    ],
+    "reviewed_benign": 1
+  },
+  "integrity_verdict": "clean-reviewed",
+  "run_id": "r1030-dsh-bird-ca-schools-15",
+  "corrections": [
+    {
+      "id": "r1030-archiver-log-loss",
+      "note": "runner stdout stream (agent.jsonl) was lost by archiver defect r1030#1 (log written inside evidence dir, removed by rmtree before copy); original meta.integrity was vacuous; this file replaces it with a session-trajectory rescan over the same eight patterns; session files are contemporaneous product outputs.",
+      "fixed_in": "tools/lab.py archive() staging move; meta.integrity superseded by session rescan"
+    }
+  ]
+}

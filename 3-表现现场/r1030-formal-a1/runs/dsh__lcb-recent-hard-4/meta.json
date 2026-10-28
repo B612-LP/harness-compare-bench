@@ -1,0 +1,150 @@
+{
+  "batch": "r1030-formal-a1",
+  "rule_version": "freeze-20261029-v2",
+  "product": "dsh",
+  "case": "lcb-recent-hard-4",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1030/dsh/lcb-recent-hard-4",
+  "created_at": "2026-10-29T02:24:23+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "320b6ca39004d9996e67ef699da0a2c91efb48cda3ff12b4c3073065f1c1e2a4",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/problems.json",
+      "sha256": "0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673",
+      "bytes": 7884
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T02:24:23+08:00",
+  "finished_at": "2026-10-29T02:29:01+08:00",
+  "duration_s": 278.2,
+  "usage": {
+    "requests": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "note": "runner-side extraction of product-reported usage when present; absent fields stay 0/absent"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "lcb-recent-hard-4",
+    "checker_version": "0.1",
+    "reward": 1,
+    "weighted": 100.0,
+    "passed_problems": 4,
+    "total_problems": 4,
+    "threshold": 2,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "item": "输入完整性（守卫）",
+        "weight": 0.0,
+        "pass": true,
+        "note": "附带输入副本与 canonical 一致（inputs/problems.json）",
+        "guard": true
+      },
+      {
+        "id": "abc387_f",
+        "item": "abc387_f Count Arrays",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_f",
+        "item": "abc388_f Dangerous Sugoroku",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_g",
+        "item": "abc388_g Simultaneous Kagamimochi 2",
+        "weight": 25.0,
+        "pass": true,
+        "note": "42/42 全过",
+        "passed_tests": 42,
+        "total_tests": 42,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc389_g",
+        "item": "abc389_g Odd Even Graph",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 1,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "post-hoc session rescan; single hit adjudicated benign (runtime-injected instruction text); see integrity-rescan.json reviewed",
+    "evidence": [
+      {
+        "file": "session.v4.jsonl.zstd",
+        "line": 11,
+        "pattern": "~/Documents",
+        "excerpt": "{\"type\": \"user/message\", \"seq\": 9, \"time\": 1793211863878, \"data\": {\"content\": [{\"type\": \"text\", \"text\": \"<system-reminder>\\nThe following workspace instructions may be relevant to your work. Use them as guidance when applicable. More specific instructions take precedence over broader ones. They do n"
+      }
+    ],
+    "reviewed_benign": 1
+  },
+  "integrity_verdict": "clean-reviewed",
+  "run_id": "r1030-dsh-lcb-recent-hard-4",
+  "corrections": [
+    {
+      "id": "r1030-archiver-log-loss",
+      "note": "runner stdout stream (agent.jsonl) was lost by archiver defect r1030#1 (log written inside evidence dir, removed by rmtree before copy); original meta.integrity was vacuous; this file replaces it with a session-trajectory rescan over the same eight patterns; session files are contemporaneous product outputs.",
+      "fixed_in": "tools/lab.py archive() staging move; meta.integrity superseded by session rescan"
+    }
+  ]
+}
