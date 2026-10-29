@@ -4,5 +4,76 @@
     "note": "L2 起活动台账：append-only，由执行者本人登记；不入本代封印 build，事件进六账走未来代显式注册",
     "created_at": "2026-10-29T16:31:12+08:00"
   },
-  "events": []
+  "events": [
+    {
+      "event_id": "work:l2-r1030-readme-erratum-20261029",
+      "kind": "correction",
+      "executor": "builder-a（builder-dsh）",
+      "timestamp": "2026-10-29T15:59:56+08:00",
+      "source": {
+        "path": "3-表现现场/r1030-formal-a1/README.md",
+        "sha256": "93444a74bc626a09fab2af0d766b649d35e398ef1f61787503b2f7014de6c85a"
+      },
+      "locator": "归档缺陷披露节 dated 勘误框",
+      "description": "target_claim=\"tools/lab.py 已修（日志经 staging 移动）\"；finding=\"声明不成立：rmtree(:308) 先于 staging(:317)，修复未生效\"；effective_fix_pointer=\"../r1031-variance-n3/tools-dsh/README.md + r1031 dsh/runs/dsh__bird-ca-schools-15__r2/meta.json#corrections\"",
+      "pin_class": "live_doc",
+      "registered_at": "2026-10-29T16:41:14+08:00"
+    },
+    {
+      "event_id": "work:l2-b13a-replay-20261029",
+      "kind": "grading_regression",
+      "executor": "builder-a（builder-dsh）",
+      "timestamp": "2026-10-29T16:05:22+08:00",
+      "source": {
+        "path": "4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/replay-b13a-results.json",
+        "sha256": "13d2ef97388101257555d949d6791985e66fcf1aff2798de94e3b769e7782933"
+      },
+      "locator": "同目录 replay_b13a_2026_10_29.py 与 README.md（L121/L196 两处 dated 勘误）；receipt_sha256_8=13d2ef97",
+      "description": "n_replayed=24；n_skip=17；n_flipped=0；n_ledger_match=15；rowset=\"frozen-41-lead-ruling-B\"；after_track_sha256_prefix={bird:994be0b3, lcb:63845361, cargo:d84b1111}；corrections=[\"b13a-replay-rowset-freeze\"]",
+      "pin_class": "live_doc",
+      "registered_at": "2026-10-29T16:41:14+08:00"
+    },
+    {
+      "event_id": "work:pkgc-runner-schema-v2-spec-selftest",
+      "kind": "self_test",
+      "executor": "builder-c（builder-codex）",
+      "timestamp": "2026-10-29T16:41:14+08:00",
+      "source": {
+        "path": "1-评测方案/工具链/runner-schema-v2/spec-selftest-receipt.json",
+        "sha256": "5c6177fd68a74ab93ef872b48394b185b0f25b884e8b0da6659f718fdbb39492"
+      },
+      "locator": "modes.spec.results（6/6 match, exit 0）",
+      "description": "校验器 fixtures 自检 6 合成样本全过。哈希口径披露：lead 指令给出的 620cd322a3a96b09dbf9010edb71242d3eb757a300d0f14ddc6b72b2074f59f4 为该收据内部 canonical 自哈希（receipt_sha256 字段值）；本条按登记实算记文件字节哈希（收据认证值≠文件字节哈希，pkgC correction 已披露该区分）。",
+      "pin_class": "live_doc",
+      "registered_at": "2026-10-29T16:41:14+08:00"
+    },
+    {
+      "event_id": "work:pkgc-runner-schema-v2-retro-matrix",
+      "kind": "self_test",
+      "executor": "builder-c（builder-codex）",
+      "timestamp": "2026-10-29T16:41:14+08:00",
+      "source": {
+        "path": "1-评测方案/工具链/runner-schema-v2/retro-r1031-matrix.json",
+        "sha256": "12cd335411ef88c9c184c00aa269b738d23279b8d5727bea91e03ea199bb511f"
+      },
+      "locator": "summary（20 场兼容矩阵，披露性 delta 报告）",
+      "description": "r1031 只读扫描：registered_at 缺 20/20；dsh 缺 selection/attempts/stdout_*/stderr_* 各 10/10；transport_retries dsh 列表型 10/10；codex 2dp 收据 2 场；额外发现 dsh rep 字符串型 10/10 与 meta.weighted 8dp delta 4 场",
+      "pin_class": "live_doc",
+      "registered_at": "2026-10-29T16:41:14+08:00"
+    },
+    {
+      "event_id": "work:pkgb-freeze-v3-selftest",
+      "kind": "self_test",
+      "executor": "builder-c（builder-codex，代位 builder-b；lead 2026-10-29 指派）",
+      "timestamp": "2026-10-29T16:41:14+08:00",
+      "source": {
+        "path": "5-评测报告/可信冻结-2026-10-29-v3/output-manifest.json",
+        "sha256": "84003413ec01d85a9d28e6137bc20c03e9594bcab68c195368ff04df999052b0"
+      },
+      "locator": "summary.json: live_doc_drift=[]，self_test=13，interface_preflight=13；test_freeze.py 44/44 OK",
+      "description": "freeze-20261029-v3 build/verify ok=true；引擎自测 44/44（含 pin_class 两级漂移语义与 7 收据入账断言）",
+      "pin_class": "live_doc",
+      "registered_at": "2026-10-29T16:41:14+08:00"
+    }
+  ]
 }
