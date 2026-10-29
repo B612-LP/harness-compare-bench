@@ -4,7 +4,11 @@
 
 judge 验收工具（`verify_var_n3.py`, sha256 `381ea797…588ac`）对 r1030 十场自检时发现：r1030 README 结果矩阵总行 DSH weighted = **414.07 无法从产物复现**；checker.stdout / score-receipt / meta 与 README 自身逐场行（100+70+100+100+74.07）一致给出 **444.07**；README 判读句（bird −6.67、cargo +7.41，净差 0.74）亦仅与 444.07 自洽。判定为 444.07→414.07 十位笔误（恰差 30.00），并已传导至 `5-评测报告/阶段报告-v4.1.md` 与本预注册包A（gap₀=30.74）。
 
-复核证据：`5-评测报告/可重复性-n3-2026-10-29/verify-matrix-selftest-r1030.json`（sha256 `8d4c592b…cca40`）；Codex 444.81 复现无误；judge 全程未读 builder 叙述、未改口径。
+复核证据（**权威哈希**，2026-10-29 14:05 更新：judge 按本修正案裁决将判定参数参数化后重发自检，以下取代本文件初稿引用的参数化前哈希 381ea797…/8d4c592b…）：
+- 工具 `5-评测报告/可重复性-n3-2026-10-29/verify_var_n3.py` sha256 = `e6e9a6e50f8cf0a6f043e6f242bada54842d852ee011885e2b5542a0ec98aab5`
+- 自检矩阵 `verify-matrix-selftest-r1030.json` sha256 = `31534cec32ffdda781f2ea2127acd1b015eb6f8e06eabfde7aab5bdf89f7d09c`
+
+Codex 444.81 复现无误；judge 全程未读 builder 叙述、未改评分口径（a/b/c/d 零改动，仅判定参数层按本修正案更新：主 gap₀=0.74、30.74 对照、矩阵头 judgment_criteria 块写明动机与时点）。
 
 ## 修正内容
 
