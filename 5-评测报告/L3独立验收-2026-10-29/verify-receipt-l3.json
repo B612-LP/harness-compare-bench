@@ -1,0 +1,179 @@
+{
+  "role": "judge（L3 双验独立验收方；验收基准=1-评测方案/自动循环L3-2026-10-29/PREREGISTRATION.md §三条款 A1–A6/B1–B8/C1–C4 + §四/§五）",
+  "generated_at": "2026-10-29T18:42:08+08:00",
+  "branch": "loop3-2026-10-29",
+  "commits_checked": {
+    "seal": "72edb51",
+    "charter": "6820329",
+    "pkg_a": "0e276a2",
+    "pkg_b": "af703db",
+    "pkg_c": "23a63fc",
+    "baseline_main": "22cc6ac"
+  },
+  "discipline": "禁改既有文件（仅本目录新建）；未写 work-registry-live.json；git 仅 log/show/diff 只读；--spec 类一律 --out 或 /tmp；未读 2-用例 truth/solution",
+  "live_doc_drift": [],
+  "clauses": {
+    "A1": {
+      "verdict": "pass",
+      "evidence": "config-schema $defs.live_registry_entry：registered_at 列入 required（type=string, format=date-time, pattern=(Z|[+-][0-9]{2}:[0-9]{2})$）；kind.enum=6 值含 correction。judge 独立编写校验器（stdlib 复刻该 entry 全部约束）对现行 11 事件全量验证：0 fails（kind 分布 correction1/grading_regression1/self_test9）"
+    },
+    "A2": {
+      "verdict": "pass",
+      "evidence": "test_freeze 新增 validate_against_schema（stdlib 子集：$ref/required/additionalProperties/properties/enum/const/pattern/format:date-time），test_live_ledger_structural_invariants 中每事件逐一过 live_registry_entry schema；registered_at 与 kind 三方（schema/实例/测试）立场唯一"
+    },
+    "A3": {
+      "verdict": "pass",
+      "evidence": "v3 README「L3 变更框」dated 2026-10-29T18:01:09+08:00（实钟脚本生成）；原语义保留；lock_before=544a7f96cb6206cbc326c1f23900cf7de967c390ab3088bf564af33de37d2527 入框；lock_after=bf7f9aa3473ec12be0a95f466ce0a278457250def5dff5fca6e2db3ba2627c1f 外置于活台账 pkga 事件（无自引不动点，理由成立），judge 实测两哈希与文件一致"
+    },
+    "A4": {
+      "verdict": "pass",
+      "evidence": "freeze.py 新增 read_surface_paths/check_pin_classification 并入 verify_seal（错标=硬失败；external_not_packaged 豁免）；judge 直接调用该函数复跑：违规=[]，本地读取面 29/29 全 contract；新增 3 测试（misclassified-red/correct-green/registry-source-must-be-pinned）+ test_real_v3_read_surface_all_contract 全绿"
+    },
+    "A5": {
+      "verdict": "pass",
+      "evidence": "tripwire 断言保留（test_freeze :334 live-ledger 非 contract pin NotEqual）；README 明示「报告制≠免检——还原+旁挂仍是唯一合规操作规范」+ 预注册触发器兜底声明"
+    },
+    "A6": {
+      "verdict": "pass",
+      "evidence": "test_freeze exit=0（Ran 48, OK；44 继承+4 新增，0 删除）；v3 verify exit=0 ok=true live_doc_drift=[]；v2 verify exit=0 ok=true；git diff 22cc6ac..HEAD 对 v2 双目录为空（零字节）；lock 17→38 pin（contract 31/live_doc 7），bf7f9aa3 入台账"
+    },
+    "B1": {
+      "verdict": "pass",
+      "evidence": "SCHEMA §一 status 值域封闭 {ok,timeout,error,transport-error}（「…」移除）；validator STATUS_ENUM 同值域；fixture-status-bad-enum → fail:enum（spec 收据 10/10 内含）"
+    },
+    "B2": {
+      "verdict": "pass",
+      "evidence": "INTEGRITY_VERDICT_ENUM={clean,benign-reviewed,violation}；fixture-verdict-benign-without-corrections → fail:companion、with-corrections → pass"
+    },
+    "B3": {
+      "verdict": "pass",
+      "evidence": "fixture-selection-null-without-diagnostic → fail:companion"
+    },
+    "B4": {
+      "verdict": "pass",
+      "evidence": "无 --seal-at 时 --spec：classify=fail:unsealed、exit=1（cli-regression T2 实测，非裸 pass）；--allow-unsealed 仅 --retro：矩阵 seal.unsealed=true + policy 标记（judge 实测同输入两跑唯一差异=seal.policy：fail-closed-unsealed vs allow-unsealed-disclosure）；--spec --allow-unsealed → exit=2（judge 实测）"
+    },
+    "B5": {
+      "verdict": "pass",
+      "evidence": "fixtures 6→10（新增 4：status-bad-enum/verdict-benign-with/without-corrections/selection-null-without-diagnostic）；新收据落新路径 spec-selftest-receipt-l3-20261029.json（6048ad41）；原收据 judge 实哈希 5c6177fd/22332412/12cd3354 三者字节未动"
+    },
+    "B6": {
+      "verdict": "pass",
+      "evidence": "judge 亲测：--spec --out 新路径 exit=0 写入；同 --out 二跑 exit=2 拒绝且首文件字节不变（e7ea81a7 前后一致）；裸 --spec（无 --out）exit=0 且不落盘任何文件；T1 机械复现 16:11:16 覆盖模式（first_run_exit=0/second_run_exit=2/bytes_unchanged=true）"
+    },
+    "B7": {
+      "verdict": "pass",
+      "evidence": "SCHEMA §三.4 显式披露「顺序检查必要非充分」；§三.5 --reconcile 离线对账；judge 独立复跑合成对账：正例 verdict=ok exit=0、负例（early）verdict=violation exit=1，与收据 a4dbe315/bfdcfcf6 主张一致；真实批次对账=§五 U1 留 L4（如实）。⚠️ 新发现见 findings D-L3-1（--git 模式缺陷，不入本条款裁定）"
+    },
+    "B8": {
+      "verdict": "pass",
+      "evidence": "收据字段脚本生成（validator_sha256/at/counts 逐项在案，judge 实测哈希与主张一致）；--spec 仅 /tmp 或 --out 运行（judge 遵守；builder 侧由收据路径与新哈希佐证）"
+    },
+    "C1": {
+      "verdict": "pass",
+      "evidence": "evidence_line.py --selftest exit=0 PASS（11/11）；本验收收据即首次真实 dogfood（README 证据行由该工具生成，receipt_check 复算通过，见 dogfood 节）"
+    },
+    "C2": {
+      "verdict": "pass",
+      "evidence": "receipt_check.py --selftest exit=0 PASS（10/10）；证据行机械复算（EVIDENCE_LINE_RE 命中行逐一 sha256+bytes 重算）；--out 目标已存在即拒绝（C-1 同款纪律，代码 :247 与 kit_selftest 拒写实测一致）"
+    },
+    "C3": {
+      "verdict": "pass",
+      "evidence": "evidence-kit README 铁律在（哈希/时刻禁止手打，脚本输出引用）；本轮 judge 实际试用并留痕（本收据+README 的全部哈希/时刻均脚本生成，dogfood 结果写入本节）"
+    },
+    "C4": {
+      "verdict": "pass",
+      "evidence": "kit_selftest exit=0（tools 2/2：evidence_line 11/11 + receipt_check 10/10，script_sha256_8=9b00febf/97b3be0b 入收据）；judge 以 --out 重跑同结果"
+    }
+  },
+  "disputes": {
+    "q1_live_doc_drift_semantics": {
+      "resolution": "同一语义、不同渲染（读法差异），非真不一致",
+      "fact": "verify 输出顶层无 live_doc_drift 键，实际在 summary.live_doc_drift==[]（judge 实测）；包A 报「[]」走对路径；包B 打印「None」系顶层 get 的渲染错误",
+      "implication": "无需修工具；建议文档示例统一引用 summary 路径"
+    },
+    "q2_08b_scope": {
+      "resolution": "⑧b 适用对象=本轮 judge/auditor 产出的验收/审计收据（机器可核文档）；builder 叙述/规格文档（如 v3 README）不适用——其 drift 语义由 verify 的 pin 分类与 live_doc_drift 输出管理",
+      "fact": "receipt_check 对 v3 README 默认口径 all_ok=false 复现：①无 live_doc_drift 状态行（README 提及该词但同行无 none/[]/N项 状态记号）②dab2697 命中 hex 记号规则（大写、7 位）——该规则对「含字母 hex 形似记号」须小写且长度∈{7,8,40,64}，dab2697 是真实规则命中但语义上是案件名；工具自带 --no-drift-require 正是两类文档的区分开关",
+      "implication": "包C 对 v3 README 的 all_ok=false 属范围外运行（披露性），非 builder 缺陷；judge 收据按全口径合规"
+    },
+    "q3_38pin_no_omission": {
+      "resolution": "无遗漏",
+      "fact": "judge 直调 check_pin_classification：违规=[]；本地读取面 29/29 全 contract（config 本体+historical_ledger+work_registry+固定读取4+registry sources）；live ledger 按 design 非 contract 且有 tripwire；2-用例 case 字节经 pinned config 的 case_snapshots 哈希传递锚定（verify_seal 逐 case 校验）"
+    },
+    "q4_allow_unsealed": {
+      "resolution": "实证成立",
+      "fact": "--spec 与 --allow-unsealed 同给 → exit=2；--allow-unsealed 仅 --retro 生效且输出带 seal.unsealed=true/policy 标记"
+    },
+    "q5_reconcile_git": {
+      "resolution": "披露充分、U1 如实留 L4；但 judge 亲测发现 --git 模式存在代码缺陷（D-L3-1，见 findings）——代码路径实质不可用（源步骤恒假+verdict/ok 矛盾），虽退出码非零保持 fail-closed",
+      "fact": "SCHEMA §三.5 明示「L3 未行使 --git（builder 禁 git 纪律）」；judge 以只读 git 身份行使：--reconcile --commit 72edb51 --git → commit-time-source 步骤假（git mode error: %c requires int or char，:460 行 \"--format=%cI %s\" % commit 的 Python %-format 冲突；subprocess 本身成功、cdt 已正确解析 2026-10-29T17:52:27+08:00）、verdict=ok 与 ok=false 矛盾、exit=2"
+    },
+    "q6_correction_chains": {
+      "resolution": "包C 链完整（r1→r4 四文件同 commit 落盘、之后零改动，两活台账事件披露工具修正与保留声明）；包A「4 起」在仓库内无可考修正链/披露记录——包A 仅单 commit（0e276a2）、无 corrections 条目、无链文件；若所指为 builder 过程内修正，其修复前字节在仓库内不存在（无法核「真保留」）",
+      "implication": "需 lead 澄清「包A 4 起」所指；按现有仓库证据，包A 披露完整性记 observation N-1"
+    }
+  },
+  "findings": [
+    {
+      "id": "D-L3-1",
+      "grade": "defect（新发现，入 L4 池；循环内非 blocking）",
+      "package": "B",
+      "statement": "validate_runner_meta.py --reconcile --git 模式：:460 行 src=\"git log -1 --format=%cI %s\" % commit 的 Python %-format 与 git 占位符 %cI 冲突 → TypeError 被 :464 捕获 → commit-time-source 步骤恒假（尽管 subprocess 成功且 cdt 已正确解析）；verdict 仅由比较步骤计算 → 出现 verdict=ok 而 ok=false 的自相矛盾收据；exit=2（fail-closed 未破）",
+      "impact": "L4 真实批次若选 --git 模式，收据将自带「源失败+verdict ok」矛盾记录；以 verdict 为键的机读消费会被误导",
+      "next_step": "一行修复（%%cI 转义或改 f-string/字符串拼接）+ verdict 语义与 ok 对齐（或更名 comparison-verdict）；修后以 L4 封印提交做一次 --git 对账自测",
+      "stop_condition": "U1（真实批次对账）执行前必须修复；未修复前 --git 模式输出不得作为闭项证据",
+      "status": "closed（修复 15d9d62a；auditor FIX-D1 残留补修后终验通过，见 fix-verification-20261029.md FIX-D1 节）"
+    },
+    {
+      "id": "N-1",
+      "grade": "observation",
+      "package": "A",
+      "statement": "「包A 4 起修正」在仓库内无可考修正链：单 commit 交付、无 corrections 条目、无 r 链文件；无法实证「修复前字节保留」",
+      "impact": "披露完整性存疑（若 4 起均发生在 builder 工作区、终态才入库，则仓库证据只含终态）",
+      "next_step": "lead 澄清「4 起」所指；如需过程留痕，L4 起要求 builder 修正链以链文件入库（包C r1→r4 为正例）",
+      "stop_condition": "无（事实登记）"
+    },
+    {
+      "id": "N-2",
+      "grade": "note",
+      "package": "B",
+      "statement": "retro 矩阵行无 per-run classify 字段，unsealed 语义在矩阵级 seal 块（policy/unsealed）+ 字段级 not_evaluable；SCHEMA §三.3 文档与实现一致",
+      "impact": "无（语义可核）",
+      "next_step": "无",
+      "stop_condition": "无"
+    }
+  ],
+  "self_test_counts_measured": {
+    "pkg_a": "test_freeze Ran 48 OK（44 继承+4 新增：misclassified-red/correct-green/registry-source-must-be-pinned/real-v3-read-surface-all-contract）",
+    "pkg_b": "cli-selftest 6/6（T1 覆盖模式/T2 fail-closed/T3 opt-in 范围/T4-T5 对账正负/T6 原收据未动）+ spec-selftest 10/10 + 合成对账 2（正 ok/负 violation）",
+    "pkg_c": "evidence_line 11/11 + receipt_check 10/10 + kit 联合 2/2（r4=a95631d5）",
+    "judge_reruns": "v3 test 48/48、v3/v2 verify exit0、独立 schema 校验 11/11、A4 函数直调 0 违规、对账 3 模式亲测、B4/B6 行为亲测、evidence-kit 三自测亲测"
+  },
+  "dogfood": {
+    "evidence_line": {
+      "tool": "evidence_line.py（9b00febf）",
+      "usage": "对本验收两产物生成标准证据行，粘贴进 README.md；receipt_check 机械复算通过"
+    },
+    "receipt_check_on_own_artifacts": {
+      "planned": "receipt_check.py README.md verify-receipt-l3.json（默认 require_drift）→ 预期 all_ok=true",
+      "note": "本 JSON 含顶层 live_doc_drift 键（JSON 分支递归查键）；README 含状态行（文本分支）；全部哈希行小写且长度∈{7,8,40,64}"
+    },
+    "results": "见 README.md 的 dogfood 结果行（README 后写、故最终结果落在其中与 judge 回执）"
+  },
+  "verdicts": {
+    "包A": "pass",
+    "包B": "pass（附新发现 D-L3-1 → L4 池；B7 条款以非 git 对账路径满足）",
+    "包C": "pass",
+    "unknowns": {
+      "U1": "真实批次 registered_at 对账留 L4（如实，机制已就绪；--git 修复为前置）",
+      "U2": "包A 重锁后 live_doc_drift=[] 非空分支未触发（如实报告空）",
+      "U3": "本轮 judge 新发现=D-L3-1（defect）+ N-1/N-2，按 §五 入 L4 池"
+    }
+  },
+  "live_doc_drift_note": {
+    "status": "none",
+    "evidence": "python3 -B 4-打分细则/可信冻结-2026-10-29-v3/freeze.py verify（仓库根）→ exit=0, ok=true, summary.live_doc_drift==[]（judge 实测 2026-10-29 三轮：初验/修复轮/FIX-D1 复验均为空）",
+    "migration": "DF-C2 生效后值类型收紧为 null|list，原 dict 表述迁移至本旁挂字段"
+  }
+}

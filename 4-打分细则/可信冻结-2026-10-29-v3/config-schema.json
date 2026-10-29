@@ -5,55 +5,234 @@
   "v3_notes": {
     "succession": "v3 是 v2 的治理继任者；v2 仍是 r1030 正式批次（官方表 10 行）的合同记录，v3 不重新准入任何历史行（official_slots 判定随 effective_at 推进而自然为空）。",
     "pin_class": "freeze.lock.json 的每个 pin 新增 pin_class ∈ {contract, live_doc}：contract=判分/准入输入与冻结引擎机制组件（漂移=verify 硬失败 exit≠0）；live_doc=人类叙述文档与示例（漂移=输出 live_doc_drift 列表且 exit=0；操作规范仍为还原+旁挂）。逐 pin 分类理由见本目录 README.md。",
-    "work_registry_live": "work-registry-live.json 为 L2 起活动台账：append-only，由执行者本人登记，不入本代封印 build；条目 schema 见 $defs.live_registry_entry，进六账须走未来代的显式注册。"
+    "work_registry_live": "work-registry-live.json 为 L2 起活动台账：append-only，由执行者本人登记，不入本代封印 build；条目 schema 见 $defs.live_registry_entry，进六账须走未来代的显式注册。",
+    "l3_a1_alignment": "L3-A1（DF-1 方案a）：live_registry_entry 增加 registered_at（date-time，须带时区偏移），kind.enum 扩列 correction；对齐后现行 5 事件全部合 schema；dated 变更框见 README。"
   },
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "rule_version", "effective_at", "collected_at", "a_model", "a_route_host", "policy", "case_snapshots", "official_slots", "historical_ledger", "work_registry"],
+  "required": [
+    "schema_version",
+    "rule_version",
+    "effective_at",
+    "collected_at",
+    "a_model",
+    "a_route_host",
+    "policy",
+    "case_snapshots",
+    "official_slots",
+    "historical_ledger",
+    "work_registry"
+  ],
   "properties": {
-    "schema_version": {"const": 1},
-    "rule_version": {"const": "freeze-20261029-v3"},
-    "effective_at": {"type": "string", "format": "date-time"},
-    "collected_at": {"type": "string", "format": "date-time"},
-    "a_model": {"const": "deepseek-flash"},
-    "a_route_host": {"const": "api.deepseek.com"},
-    "policy": {"const": {"first": "first_registered", "replacement": "invalid_only_next_registered_max_1", "repeat": "all_registered_no_best", "retry": "infrastructure_only_max_1", "unknown": "no_zero_no_rescale", "dab2697": "not_capability_attribution", "mixed_group_ranking": false}},
-    "case_snapshots": {
-      "type": "object", "minProperties": 5, "maxProperties": 5,
-      "required": ["bird-ca-schools-15", "dabstep-payments-10", "exercism-py-6", "lcb-recent-hard-4", "tb-cargo-plan"],
-      "additionalProperties": {"$ref": "#/$defs/snapshot"}
+    "schema_version": {
+      "const": 1
     },
-    "official_slots": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": false, "required": ["plan_id", "slot_id", "plan_sha256"], "properties": {"plan_id": {"type": "string"}, "slot_id": {"type": "string"}, "plan_sha256": {"$ref": "#/$defs/hash"}}}},
-    "historical_ledger": {"$ref": "#/$defs/source"},
-    "work_registry": {"$ref": "#/$defs/source"}
+    "rule_version": {
+      "const": "freeze-20261029-v3"
+    },
+    "effective_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "collected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "a_model": {
+      "const": "deepseek-flash"
+    },
+    "a_route_host": {
+      "const": "api.deepseek.com"
+    },
+    "policy": {
+      "const": {
+        "first": "first_registered",
+        "replacement": "invalid_only_next_registered_max_1",
+        "repeat": "all_registered_no_best",
+        "retry": "infrastructure_only_max_1",
+        "unknown": "no_zero_no_rescale",
+        "dab2697": "not_capability_attribution",
+        "mixed_group_ranking": false
+      }
+    },
+    "case_snapshots": {
+      "type": "object",
+      "minProperties": 5,
+      "maxProperties": 5,
+      "required": [
+        "bird-ca-schools-15",
+        "dabstep-payments-10",
+        "exercism-py-6",
+        "lcb-recent-hard-4",
+        "tb-cargo-plan"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/snapshot"
+      }
+    },
+    "official_slots": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "plan_id",
+          "slot_id",
+          "plan_sha256"
+        ],
+        "properties": {
+          "plan_id": {
+            "type": "string"
+          },
+          "slot_id": {
+            "type": "string"
+          },
+          "plan_sha256": {
+            "$ref": "#/$defs/hash"
+          }
+        }
+      }
+    },
+    "historical_ledger": {
+      "$ref": "#/$defs/source"
+    },
+    "work_registry": {
+      "$ref": "#/$defs/source"
+    }
   },
   "$defs": {
-    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-    "source": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"$ref": "#/$defs/hash"}}},
-    "snapshot": {"type": "object", "additionalProperties": false, "required": ["checker.py", "truth.json", "instruction.md", "manifest_sha256", "case_version", "files"], "properties": {"checker.py": {"$ref": "#/$defs/hash"}, "truth.json": {"$ref": "#/$defs/hash"}, "instruction.md": {"$ref": "#/$defs/hash"}, "manifest_sha256": {"$ref": "#/$defs/hash"}, "case_version": {"type": "string"}, "files": {"type": "object", "additionalProperties": {"$ref": "#/$defs/hash"}}}},
+    "hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checker.py",
+        "truth.json",
+        "instruction.md",
+        "manifest_sha256",
+        "case_version",
+        "files"
+      ],
+      "properties": {
+        "checker.py": {
+          "$ref": "#/$defs/hash"
+        },
+        "truth.json": {
+          "$ref": "#/$defs/hash"
+        },
+        "instruction.md": {
+          "$ref": "#/$defs/hash"
+        },
+        "manifest_sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "case_version": {
+          "type": "string"
+        },
+        "files": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/hash"
+          }
+        }
+      }
+    },
     "lock_pin": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["path", "sha256", "pin_class"],
+      "required": [
+        "path",
+        "sha256",
+        "pin_class"
+      ],
       "properties": {
-        "path": {"type": "string"},
-        "sha256": {"$ref": "#/$defs/hash"},
-        "pin_class": {"enum": ["contract", "live_doc"]}
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "pin_class": {
+          "enum": [
+            "contract",
+            "live_doc"
+          ]
+        }
       }
     },
     "live_registry_entry": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["event_id", "kind", "executor", "timestamp", "source", "locator", "description", "pin_class"],
+      "required": [
+        "description",
+        "event_id",
+        "executor",
+        "kind",
+        "locator",
+        "pin_class",
+        "registered_at",
+        "source",
+        "timestamp"
+      ],
       "properties": {
-        "event_id": {"type": "string", "pattern": "^work:"},
-        "kind": {"enum": ["self_test", "interface_preflight", "offline_recompute", "grading_regression", "bare_model_probe"]},
-        "executor": {"type": "string"},
-        "timestamp": {"type": "string", "format": "date-time"},
-        "source": {"$ref": "#/$defs/source"},
-        "locator": {"type": "string"},
-        "description": {"type": "string"},
-        "pin_class": {"const": "live_doc"}
+        "event_id": {
+          "type": "string",
+          "pattern": "^work:"
+        },
+        "kind": {
+          "enum": [
+            "bare_model_probe",
+            "correction",
+            "grading_regression",
+            "interface_preflight",
+            "offline_recompute",
+            "self_test"
+          ]
+        },
+        "executor": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "locator": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "pin_class": {
+          "const": "live_doc"
+        },
+        "registered_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$",
+          "description": "登记动作时刻（ISO8601，须带时区偏移）；L3-A1 对齐 DF-1"
+        }
       }
     }
   }

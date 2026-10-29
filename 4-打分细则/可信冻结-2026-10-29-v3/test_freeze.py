@@ -3,6 +3,7 @@
 import copy
 import datetime as _dt
 import importlib.util
+import re
 import json
 from pathlib import Path
 import tempfile
@@ -12,6 +13,40 @@ SPEC = importlib.util.spec_from_file_location("freeze", Path(__file__).with_name
 f = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(f)
 REAL = Path(__file__).resolve().parents[2]
+
+
+def validate_against_schema(inst, schema, defs, path="$"):
+    """L3-A2：对 $defs 子集的 JSON Schema 校验（stdlib 实现该 schema 实际使用的关键字）。
+
+    支持：$ref(#/$defs/名)、type(object/string)、required、additionalProperties:false、
+    properties、enum、const、pattern、format:date-time（须带时区）。
+    """
+    if "$ref" in schema:
+        name = schema["$ref"].rsplit("/", 1)[-1]
+        return validate_against_schema(inst, defs[name], defs, path)
+    if "enum" in schema:
+        assert inst in schema["enum"], f"{path}: {inst!r} not in enum"
+    if "const" in schema:
+        assert inst == schema["const"], f"{path}: {inst!r} != const"
+    t = schema.get("type")
+    if t == "object":
+        assert isinstance(inst, dict), f"{path}: not object"
+        for k in schema.get("required", []):
+            assert k in inst, f"{path}: missing required {k}"
+        props = schema.get("properties", {})
+        if schema.get("additionalProperties") is False:
+            extra = set(inst) - set(props)
+            assert not extra, f"{path}: unexpected properties {sorted(extra)}"
+        for k, sub in props.items():
+            if k in inst:
+                validate_against_schema(inst[k], sub, defs, f"{path}/{k}")
+    elif t == "string":
+        assert isinstance(inst, str), f"{path}: not string"
+        if "pattern" in schema:
+            assert re.search(schema["pattern"], inst), f"{path}: pattern miss: {inst!r}"
+        if schema.get("format") == "date-time":
+            d = _dt.datetime.fromisoformat(inst.replace("Z", "+00:00"))
+            assert d.tzinfo is not None, f"{path}: date-time without timezone: {inst!r}"
 
 
 class FreezeTests(unittest.TestCase):
@@ -273,6 +308,9 @@ class FreezeTests(unittest.TestCase):
 
     def test_live_ledger_structural_invariants(self):
         # B-1 修复（judge, lead 裁定）：活台账 append-only，不做数值断言；只断言结构不变量。
+        # L3-A2：实例必须通过 config-schema $defs.live_registry_entry（消除「测试绿≠实例合 schema」）。
+        schema = f.load(REAL / f.BASE / "config-schema.json")
+        entry_schema = schema["$defs"]["live_registry_entry"]
         live = f.load(REAL / f.BASE / "work-registry-live.json")            # (a) 存在且可解析
         self.assertIn("schema_version", live)                              # (b)
         self.assertEqual(live["schema_version"], 1)
@@ -289,10 +327,57 @@ class FreezeTests(unittest.TestCase):
             ts.append(e["timestamp"])
         self.assertEqual(len(ids), len(set(ids)))                          # (d) 无重复
         self.assertEqual(ts, sorted(ts))                                   # (d) 时间升序（非严格，同秒登记合法）
+        for e in live["events"]:                                           # (c') L3-A2 schema 实例校验
+            validate_against_schema(e, entry_schema, schema["$defs"], f"/events/{e.get('event_id')}")
         lock = f.load(REAL / f.BASE / "freeze.lock.json")                  # (e) 非 contract pin
         pinned = {x["path"]: x.get("pin_class", "contract") for x in lock["pins"]}
         self.assertNotEqual(pinned.get(f.BASE + "/work-registry-live.json"), "contract")
-        print("[live-ledger] events=%d（仅报告，不断言）" % len(live["events"]))  # (f)
+        print("[live-ledger] events=%d（仅报告，不断言；schema=live_registry_entry 全过）" % len(live["events"]))  # (f)
+
+    # ---- L3-A4：pin_class 机械归类（读取面引用路径必为 contract；错标样本必红） ----
+
+    def _classification_fixture(self, config_pin_class, pin_registry_source):
+        c = {"historical_ledger": {"path": "in/hist.json", "sha256": "0" * 64},
+             "work_registry": {"path": "in/registry.json", "sha256": "0" * 64}}
+        (self.root / f.BASE).mkdir(parents=True, exist_ok=True)
+        (self.root / f.BASE / "config.json").write_text("{}\n")
+        (self.root / "in").mkdir(parents=True, exist_ok=True)
+        (self.root / "in" / "hist.json").write_text("{}\n")
+        reg = {"schema_version": 1, "coverage": {"cutoff": "2026-10-29T00:00:00+08:00"},
+               "events": [{"event_id": "work:syn", "category": "self_test",
+                           "source": {"path": "in/receipt.txt", "sha256": "0" * 64},
+                           "locator": "l", "description": "d"}]}
+        (self.root / "in" / "registry.json").write_text(f.dump(reg))
+        (self.root / "in" / "receipt.txt").write_text("receipt\n")
+        lock_pins = [{"path": f.BASE + "/config.json", "sha256": "0" * 64, "pin_class": config_pin_class},
+                     {"path": "in/hist.json", "sha256": "0" * 64, "pin_class": "contract"},
+                     {"path": "in/registry.json", "sha256": "0" * 64, "pin_class": "contract"}]
+        if pin_registry_source:
+            lock_pins.append({"path": "in/receipt.txt", "sha256": "0" * 64, "pin_class": "contract"})
+        lock = dict(rule_version=f.RULE, pins=lock_pins, trust_boundary="synthetic")
+        return c, lock
+
+    def test_read_surface_misclassified_pin_is_red(self):
+        # 错标样本：config.json 被 lock 标为 live_doc → 机械归类必抓（verify_seal 会硬失败）
+        c, lock = self._classification_fixture("live_doc", True)
+        viol = f.check_pin_classification(self.root, lock, c)
+        self.assertTrue(any(v["path"] == f.BASE + "/config.json" and v["pin_class"] == "live_doc" for v in viol))
+
+    def test_read_surface_correct_labels_green(self):
+        c, lock = self._classification_fixture("contract", True)
+        self.assertEqual(f.check_pin_classification(self.root, lock, c), [])
+
+    def test_read_surface_registry_source_must_be_pinned(self):
+        # registry 事件 source 是读取面一部分：漏 pin（not-pinned）= 违规
+        c, lock = self._classification_fixture("contract", False)
+        viol = f.check_pin_classification(self.root, lock, c)
+        self.assertTrue(any(v["path"] == "in/receipt.txt" and v["pin_class"] == "not-pinned" for v in viol))
+
+    def test_real_v3_read_surface_all_contract(self):
+        # 真实 v3：读取面全部本地路径均为 contract pin（verify_seal 硬自检的静态等价断言）
+        lock = f.load(REAL / f.BASE / "freeze.lock.json")
+        c = f.load(REAL / f.BASE / "config.json")
+        self.assertEqual(f.check_pin_classification(REAL, lock, c), [])
 
 
 if __name__ == '__main__':
