@@ -1,0 +1,12 @@
+{
+  "spec": "runner-schema-v2",
+  "seal_at": "2026-10-29T13:22:39+08:00",
+  "fixtures": {
+    "fixture-valid.json": "pass",
+    "fixture-missing-fields.json": "fail:missing",
+    "fixture-wrong-type.json": "fail:type",
+    "fixture-wrong-precision.json": "fail:precision",
+    "fixture-registered-at-after-start.json": "fail:temporal-order",
+    "fixture-registered-at-before-seal.json": "fail:temporal-seal"
+  }
+}
