@@ -1,0 +1,159 @@
+{
+  "kind": "receipt_check_report",
+  "tool": "receipt_check.py",
+  "at": "2026-10-29T23:13:05+08:00",
+  "root": "/Users/b612-lp/Documents/harness-compare-bench",
+  "require_drift": true,
+  "docs": [
+    {
+      "file": "5-评测报告/L4首请求前评审-2026-10-29/body-preflight-v7.md",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "text-line",
+            "line": 5,
+            "has_state_token": true,
+            "excerpt": "live_doc_drift: []（固定字节范围；文末脚本另列原树状态）。本轮仅做源码小delta核验及纯展示helper的孤立合成执行，没有重跑已关闭suite，没有启动runtime、CLI、checker、模型或真实子进程，没有读取答案/私人规则正文。"
+          },
+          {
+            "kind": "text-line",
+            "line": 57,
+            "has_state_token": true,
+            "excerpt": "  \"live_doc_drift\": []"
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 2,
+        "tokens": 2,
+        "violations": []
+      },
+      "evidence_lines": {
+        "total": 6,
+        "verified_ok": 6,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": [
+          {
+            "line": 45,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/dsh-display-source-snapshot-v7.json",
+              "sha256_8": "b050f8f1",
+              "bytes": 471
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "b050f8f1",
+              "bytes": 471
+            }
+          },
+          {
+            "line": 46,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/dsh_display_delta_check_v7.py",
+              "sha256_8": "597d3876",
+              "bytes": 4419
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "597d3876",
+              "bytes": 4419
+            }
+          },
+          {
+            "line": 47,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/dsh-display-delta-check-v7.json",
+              "sha256_8": "4c008198",
+              "bytes": 1385
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "4c008198",
+              "bytes": 1385
+            }
+          },
+          {
+            "line": 48,
+            "claimed": {
+              "path": "/private/tmp/l4-dsh-runtime-reviewed-v6-6zos578v/3-表现现场/l4-20261029-cli/dsh/tools/lab.py",
+              "sha256_8": "671630d5",
+              "bytes": 105009
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "671630d5",
+              "bytes": 105009
+            }
+          },
+          {
+            "line": 49,
+            "claimed": {
+              "path": "/private/tmp/l4-dsh-display-reviewed-v7-cidi9yty/3-表现现场/l4-20261029-cli/dsh/tools/lab.py",
+              "sha256_8": "f246d011",
+              "bytes": 105770
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "f246d011",
+              "bytes": 105770
+            }
+          },
+          {
+            "line": 50,
+            "claimed": {
+              "path": "1-评测方案/工具链/evidence-kit/receipt_check.py",
+              "sha256_8": "effda0ed",
+              "bytes": 14041
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "effda0ed",
+              "bytes": 14041
+            }
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "file": "5-评测报告/L4首请求前评审-2026-10-29/dsh-display-delta-check-v7.json",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 3,
+        "tokens": 3,
+        "violations": []
+      },
+      "evidence_lines": {
+        "total": 0,
+        "verified_ok": 0,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": []
+      },
+      "ok": true
+    }
+  ],
+  "all_ok": true
+}

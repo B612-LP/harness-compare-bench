@@ -1,0 +1,131 @@
+{
+  "kind": "receipt_check_report",
+  "tool": "receipt_check.py",
+  "at": "2026-10-29T23:23:11+08:00",
+  "root": "/Users/b612-lp/Documents/harness-compare-bench",
+  "require_drift": true,
+  "docs": [
+    {
+      "file": "5-评测报告/L4首请求前评审-2026-10-29/actual-E-review.md",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "text-line",
+            "line": 5,
+            "has_state_token": true,
+            "excerpt": "live_doc_drift: []（本次实际E核验时点；后续每次派发仍须生产端即时重核）。本次只用只读git、标准库路径解析与原字节SHA；外部配置/包体只流式hash、不解码、不打印正文，不执行CLI、版本命令、SDK、模型、判卷或答案读取。"
+          },
+          {
+            "kind": "text-line",
+            "line": 76,
+            "has_state_token": true,
+            "excerpt": "  \"live_doc_drift\": []"
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 4,
+        "tokens": 4,
+        "violations": []
+      },
+      "evidence_lines": {
+        "total": 4,
+        "verified_ok": 4,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": [
+          {
+            "line": 81,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/actual_E_readonly_check.py",
+              "sha256_8": "cb40e8d9",
+              "bytes": 13652
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "cb40e8d9",
+              "bytes": 13652
+            }
+          },
+          {
+            "line": 82,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/actual-E-readonly-check.json",
+              "sha256_8": "6c1f2d46",
+              "bytes": 49870
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "6c1f2d46",
+              "bytes": 49870
+            }
+          },
+          {
+            "line": 83,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/actual-E-manifest-reviewed.json",
+              "sha256_8": "da1a4fa0",
+              "bytes": 8524
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "da1a4fa0",
+              "bytes": 8524
+            }
+          },
+          {
+            "line": 84,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/actual-E-runtime-binding-reviewed.json",
+              "sha256_8": "bf73ed80",
+              "bytes": 660
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "bf73ed80",
+              "bytes": 660
+            }
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "file": "5-评测报告/L4首请求前评审-2026-10-29/actual-E-readonly-check.json",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 255,
+        "tokens": 269,
+        "violations": []
+      },
+      "evidence_lines": {
+        "total": 0,
+        "verified_ok": 0,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": []
+      },
+      "ok": true
+    }
+  ],
+  "all_ok": true
+}
