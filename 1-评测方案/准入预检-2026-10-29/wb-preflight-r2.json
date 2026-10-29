@@ -19,6 +19,17 @@
   "checked_products": {
     "workbuddy": {
       "product_version_observed": ["5.8.3（M1）", "5.9.3（M2/M3，探针期内自动更新，行为跨版本一致）"],
+      "version_evidence_mapping": {
+        "note": "探针期内 WB 自动更新器于 13:53:52 将 5.8.3 升至 5.9.3（last-launch.json / update-20261029.log，私有日志仅叙述披露）；以下为逐机制版本归属，模型面行为（绕过全部代理向量直连 EdgeOne 网关 POP）在两版本上一致",
+        "5.8.3": ["M1 tap（任务 797c56b6，13:45）：模型窗口直连 119.147.114.214:443 ×4，时序对齐"],
+        "5.9.3": [
+          "M2 --proxy-server（任务 b62e6a25，13:59）：直连 119.147.114.214:443 ×4（Chromium 栈排除）",
+          "M3 钩子（任务 ea90ae73 14:02 / fdc374c1 14:08）：直连 119.147.114.214:443 各 ×4",
+          "M3d 钩子（任务 b6663bce，14:25）：直连 113.108.215.157:443 ×3-4（www.workbuddy.cn 第二 POP，交替命中）",
+          "M3 静态分析对象 app.asar=5.9.3（sha256 12a2be53…）；provider 目录为静态工件，不受版本漂移影响"
+        ],
+        "dns_attribution_epoch": "A 记录集合匹配用 14:27 系统 resolver 现场解析（www.workbuddy.cn→{119.147.114.214, 113.108.215.157}），覆盖 14:02–14:25 观测窗口；5.8.3 的 13:45 观测（119.147.114.214）与之属同日不同解析时刻，作为独立佐证列入"
+      },
       "model_label_disclosed": "deepseek-v4.1-flash",
       "upstream_route_request_level": "DIRECT https://www.workbuddy.cn（腾讯 EdgeOne）——模型面直连，不经任何代理",
       "upstream_route_evidence": {

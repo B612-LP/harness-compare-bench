@@ -25,7 +25,7 @@
 
 | 包 | 内容 | 执行者 | 状态 |
 |---|---|---|---|
-| A | r1031 n=3 可重复性（20 场，rep1=r1030） | builder-dsh / builder-codex → judge | 进行中 |
+| A | r1031 n=3 可重复性（20 场，rep1=r1030） | builder-dsh / builder-codex → judge | **运行完成 20/20（全 valid）**，judge 验收中（commit `d57125a`） |
 | B | v2 全交付对抗盲审 | auditor | **完成**(0 blocking;D1/D4 循环内修正,D2/D3 问题池;[AUDIT.md](<../../5-评测报告/对抗性盲审-2026-10-29/AUDIT.md>)) |
 | C | WB 请求级补证 | wb-probe | **完成**(收场a 证据补齐:未知① answered_r2=直连 www.workbuddy.cn 网关,非 api.deepseek.com;未知② answered_route_level_r2 路由级不等价;维持不纳入;[wb-preflight-r2](<../../1-评测方案/准入预检-2026-10-29/wb-preflight-r2.json>)) |
 
