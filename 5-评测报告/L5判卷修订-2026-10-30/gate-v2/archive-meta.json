@@ -7,7 +7,7 @@
   },
   "after_code": {
     "path": "1-评测方案/工具链/l5-execution/gate.py",
-    "sha256": "69fd3ef8c1edfa3664b540373983aed85370a7bc42cfd00b44107c8e9bf12e96"
+    "sha256": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9"
   },
   "patch": "diff-l4-to-l5.patch",
   "positive_and_nearwrong": {
@@ -25,5 +25,6 @@
     "result": "17/17 槽;唯一差异=bird 白名单 fail 消失+record_valid True;bird formal 仍 false;L4 formal 0/17 不变"
   },
   "independent_acceptance_slot": "预留:independent-reviewer 干净环境复跑上两项脚本并比对收据(lead 不代做)",
-  "live_doc_drift": []
+  "live_doc_drift": [],
+  "amendment_20261030": "E 前修正(无任何真实调用前):默认计划目录指向 L5 批 + load_execution_seal 随 plan_dir 取各批 seal 脚本(使同一 gate 可复判历史批次);准入语义零变化,history/acceptance 收据在修正后重跑仍全过"
 }

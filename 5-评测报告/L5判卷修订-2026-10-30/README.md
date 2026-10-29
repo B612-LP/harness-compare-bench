@@ -6,7 +6,7 @@
 ## gate v2（R4，池 L5-8）
 
 - 修前：[1-评测方案/工具链/l4-execution/gate.py](../../工具链/l4-execution/gate.py)（冻结，SHA 见 [gate-v2/archive-meta.json](gate-v2/archive-meta.json)）
-- 修后：[1-评测方案/工具链/l5-execution/gate.py](../../工具链/l5-execution/gate.py)（sha256_16 69fd3ef8c1edfa36）
+- 修后：[1-评测方案/工具链/l5-execution/gate.py](../../工具链/l5-execution/gate.py)（sha256_16 38b42a87c30c87d2）
 - diff：[gate-v2/diff-l4-to-l5.patch](gate-v2/diff-l4-to-l5.patch)（唯一语义改动=not_executed 白名单放行恰名 `registrations` + 收据字段 whitelisted_entries）
 - 正例/近似错误例：[gate-v2-notexec-acceptance.py](gate-v2-notexec-acceptance.py) → [gate-v2-acceptance-receipt.json](gate-v2-acceptance-receipt.json)（8/8：正例无 fail+record_valid True+清单 2 项 SHA；拼写变体/并存/虚造均仍 fail；冻结 v4 对照行为保持）
 - 回归：v2 内置 selftest 全过（GATE_SELFTEST: PASS）

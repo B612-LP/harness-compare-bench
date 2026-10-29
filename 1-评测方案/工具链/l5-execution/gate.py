@@ -65,7 +65,8 @@ from pathlib import Path, PurePosixPath
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[2]
-L4_DIR = REPO / "1-评测方案" / "自动循环L4-2026-10-29"
+# L5 v2：默认计划目录指向本批（L4 复判等场景经参数 plan_dir 显式传入，见 R4 收据）
+DEFAULT_PLAN_DIR = REPO / "1-评测方案" / "自动循环L5-2026-10-30"
 SPEC = "l4-execution-gate"
 ISO_TZ_TOKEN = (r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?"
                 r"(?:Z|[+-]\d{2}:?\d{2})")
@@ -199,7 +200,7 @@ def load_binding(binding_path: Path) -> dict:
     return b
 
 
-def verify_execution(binding_path, repo: Path = REPO, plan_dir: Path = L4_DIR,
+def verify_execution(binding_path, repo: Path = REPO, plan_dir: Path = DEFAULT_PLAN_DIR,
                      git_reader=None, git_time=None, git_ancestor=None, now=None,
                      require_release=True, required_set=None) -> dict:
     """核验 runtime binding 与 E 封印一致；require_release=True（默认）时未放行即 raise。
@@ -294,7 +295,7 @@ def verify_execution(binding_path, repo: Path = REPO, plan_dir: Path = L4_DIR,
         raise GateError("execution-manifest.external_files 须为 dict")
     # 必需成员集合（防漏封关键代码）：真实路径复用 lead validate_manifest；合成注入集合
     if required_set is None:
-        es = load_execution_seal()
+        es = load_execution_seal(plan_dir)
         try:
             es.validate_manifest(manifest)
             step("manifest-required-members", True,
@@ -361,9 +362,13 @@ def load_runner_validator():
     return mod
 
 
-def load_execution_seal():
-    """只读导入 lead 的 execution_seal（required_files/validate_manifest；无模型调用）。"""
-    p = L4_DIR / "execution_seal.py"
+def load_execution_seal(plan_dir: Path = None):
+    """只读导入 lead 的 execution_seal（required_files/validate_manifest；无模型调用）。
+
+    L5 v2：随 plan_dir 取各批自己的 seal 脚本（required_files 与该批 runtime roots
+    对应），使同一 gate 可复判历史批次（L4 复判传 plan_dir=L4 目录，用 L4 seal 检查
+    L4 manifest，成员集才可比）。"""
+    p = (plan_dir or DEFAULT_PLAN_DIR) / "execution_seal.py"
     spec = importlib.util.spec_from_file_location("l4_execution_seal", p)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -379,7 +384,7 @@ def _read_json(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-def gate_admission(binding_path: Path, product: str, repo: Path = REPO, plan_dir: Path = L4_DIR,
+def gate_admission(binding_path: Path, product: str, repo: Path = REPO, plan_dir: Path = DEFAULT_PLAN_DIR,
                    git_reader=None, git_time=None, git_ancestor=None, required_set=None) -> dict:
     """真实批次逐场准入。先 verify_execution（release 必须）再逐场；fail-closed。"""
     vm = load_runner_validator()
@@ -1940,9 +1945,9 @@ def main(argv) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--verify-execution", action="store_true")
     ap.add_argument("--admission", action="store_true")
-    ap.add_argument("--binding", default=str(L4_DIR / "runtime-binding.json"))
+    ap.add_argument("--binding", default=str(DEFAULT_PLAN_DIR / "runtime-binding.json"))
     ap.add_argument("--product", default="dsh", choices=["dsh", "codex", "workbuddy"])
-    ap.add_argument("--plan-dir", default=str(L4_DIR))
+    ap.add_argument("--plan-dir", default=str(DEFAULT_PLAN_DIR))
     ap.add_argument("--no-require-release", dest="require_release", action="store_false", default=True)
     ap.add_argument("--out", default=None)
     ap.add_argument("--selftest", action="store_true")
