@@ -1,0 +1,55 @@
+{
+  "artifact_class": "governance_sidecar",
+  "schema_version": 1,
+  "recorded_at": "2026-10-29T23:56:03+08:00",
+  "historical_dispatch_at": null,
+  "time_scope": "recorded_at is this durable transcription time, not a reconstructed release timestamp; original producer intents retain their own actual times",
+  "design_commit": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+  "execution_seal_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+  "registered_at": "2026-10-29T23:13:56+08:00",
+  "execution_manifest_sha256": "da1a4fa09a2f64fefdf2a5339c83b8c9a992ad5c95cb79d810c46f671f7cd017",
+  "planned_product_slots": 17,
+  "planned_probe_slots": 18,
+  "not_an_additional_product_or_probe": true,
+  "rulings": [
+    {
+      "id": "release-order",
+      "decision": "After independent actual-E verification, release fixed cache18 first; after all18 HTTP200 and no401/403 release the original CLI12 and WB5. No added slots, replacements, outcome retries, source/config changes or E2 in this loop.",
+      "evidence": [
+        "5-评测报告/L4首请求前评审-2026-10-29/actual-E-readonly-check.json",
+        "3-表现现场/l4-20261029-cache/probe-receipt.json"
+      ]
+    },
+    {
+      "id": "wb-bird-no-resume",
+      "decision": "The bird claim remains consumed by pre-send startup-render-not-ready. Record not_executed, no manufactured started/session/trace/usage/score. Do not bypass/remove claim or resend this slot; continue only the remaining four unclaimed slots in original order using the safely reusable instance.",
+      "evidence": [
+        "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-bird-ca-schools-15-r1/notexecuted.json"
+      ]
+    },
+    {
+      "id": "dsh-late-archive-only",
+      "decision": "Continue the original six fixed slots without capture-source repair or E2. Permit append-only readonly recovery copies of only completed original sessions, with UUID/cwd/prompt/time/hash provenance and actual late collection time. Preserve empty original capture, null usage, original metadata and original gate result. Recovery is not a restart, fabricated contemporary evidence or automatic formal re-admission. Independent identity/completeness review is required.",
+      "evidence": [
+        "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/recovery-record.json"
+      ]
+    },
+    {
+      "id": "metadata-exposure-no-rewrite",
+      "decision": "Retain original cargo-r1 violation and raw score. Distinguish repository-path echo from actual out-of-workspace/oracle access. Record the auxiliary workspace metadata exposure against the complete sealed design, including PREREGISTRATION paragraph on permitted inputs. No silent benign rewrite, post-result source change, automatic admission or replacement.",
+      "evidence": [
+        "5-评测报告/L4独立验收-2026-10-29/realdata-product/pollution-adjudication-cargo-r1.json"
+      ]
+    },
+    {
+      "id": "cache-interpretation-erratum",
+      "decision": "Preserve all18 original raw and derived files. Raw inventory contains Responses nested cached_tokens. Keep raw inventory, preset normalization coverage and erroneous report interpretation distinct; 6 fresh-repeat pairs, no double-counting chat aliases, no inference about physical cache writes or money. Apply explicit dated report errata and independently recomputed sidecars, not fresh HTTP calls.",
+      "evidence": [
+        "5-评测报告/L4独立验收-2026-10-29/realdata-cache/offline-recompute-erratum.json"
+      ]
+    }
+  ],
+  "admission_boundary": "Measured scores, accounting completeness, independently recovered evidence, and frozen-machine formal admission are separate outputs; missing metadata/evidence is never ability zero or permission to rescale an incomplete five-case total.",
+  "live_doc_drift": [],
+  "live_doc_drift_source": "readonly v3 freeze.py verify invoked while generating this record"
+}
