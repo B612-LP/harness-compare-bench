@@ -27,8 +27,12 @@ class SealTests(unittest.TestCase):
         self.mod.BINDING = self.here/'runtime-binding.json'
         self.mod.__file__ = str(self.here/'execution_seal.py')
         (self.here/'execution_seal.py').write_bytes(SOURCE.read_bytes())
-        for name in ('PREREGISTRATION.md','plan.json','contract.json'):
+        for name in ('PREREGISTRATION.md','plan.json','contract.json','CLARIFICATION-L4-1.md','test_execution_seal.py'):
             (self.here/name).write_text('{}\n',encoding='utf-8')
+        for name in self.mod.REQUIRED_RUNTIME:
+            path=self.root/name
+            path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text('# synthetic fixture; never executed\n',encoding='utf-8')
         self.run_git('init','-q')
         self.run_git('config','user.name','Synthetic L4 Test')
         self.run_git('config','user.email','synthetic@example.invalid')
@@ -42,7 +46,7 @@ class SealTests(unittest.TestCase):
 
     def commit(self,msg):
         # This is an isolated synthetic repository, never the user's repository.
-        self.run_git('add','1-plan/loop4')
+        self.run_git('add','1-plan/loop4','1-评测方案','3-表现现场')
         self.run_git('commit','-qm',msg)
         return self.run_git('rev-parse','HEAD')
 
@@ -92,6 +96,73 @@ class SealTests(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             self.bind(seal)
         self.assertEqual(self.mod.BINDING.read_bytes(),binding)
+
+    def test_empty_sealed_manifest_is_rejected(self):
+        self.manifest()
+        doc=json.loads(self.mod.MANIFEST.read_text())
+        doc['files']={}
+        self.mod.MANIFEST.write_text(json.dumps(doc))
+        seal=self.commit('malformed empty manifest')
+        with self.assertRaisesRegex(ValueError,'nonempty'):
+            self.bind(seal)
+
+    def test_omitted_clarification_is_rejected(self):
+        self.manifest()
+        doc=json.loads(self.mod.MANIFEST.read_text())
+        del doc['files']['1-plan/loop4/CLARIFICATION-L4-1.md']
+        self.mod.MANIFEST.write_text(json.dumps(doc))
+        seal=self.commit('malformed omitted clarification')
+        with self.assertRaisesRegex(ValueError,'missing required'):
+            self.bind(seal)
+
+    def test_same_byte_external_symlink_is_rejected(self):
+        self.manifest()
+        seal=self.commit('synthetic execution seal')
+        path=self.here/'contract.json'
+        outside=self.root/'same-byte-external-copy'
+        outside.write_bytes(path.read_bytes())
+        # Synthetic isolated path, resolved and asserted before replacement.
+        self.assertEqual(path.resolve(),self.here/'contract.json')
+        path.unlink()
+        path.symlink_to(outside)
+        with self.assertRaisesRegex(ValueError,'symlink'):
+            self.bind(seal)
+
+    def test_new_runtime_module_requires_new_manifest(self):
+        self.manifest()
+        seal=self.commit('synthetic execution seal')
+        new=self.root/self.mod.RUNTIME_ROOTS[0]/'unsealed-helper.py'
+        new.write_text('# unsealed')
+        with self.assertRaisesRegex(ValueError,'missing required'):
+            self.bind(seal)
+
+    def test_runtime_symlink_directory_is_rejected(self):
+        self.manifest()
+        seal=self.commit('synthetic execution seal')
+        outside=self.root/'external-import-directory'
+        outside.mkdir()
+        (outside/'payload.py').write_text('# never executed')
+        link=self.root/self.mod.RUNTIME_ROOTS[0]/'helpers'
+        link.symlink_to(outside,target_is_directory=True)
+        with self.assertRaisesRegex(ValueError,'symlink'):
+            self.bind(seal)
+
+    def test_extensionless_runtime_file_requires_manifest(self):
+        self.manifest()
+        seal=self.commit('synthetic execution seal')
+        path=self.root/self.mod.RUNTIME_ROOTS[0]/'extensionless-loader-input'
+        path.write_text('# never executed')
+        with self.assertRaisesRegex(ValueError,'missing required'):
+            self.bind(seal)
+
+    def test_generated_solution_artifacts_are_not_runtime_sources(self):
+        self.manifest()
+        seal=self.commit('synthetic execution seal')
+        artifact=self.root/'3-表现现场/l4-20261029-cli/codex/runs/slot/workspace/program.py'
+        artifact.parent.mkdir(parents=True)
+        artifact.write_text('# generated artifact, not execution infrastructure\n')
+        self.bind(seal)
+        self.assertTrue(self.mod.BINDING.is_file())
 
     def test_dangling_symlink_refuses_create(self):
         target=self.here/'missing-target'

@@ -4,7 +4,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import subprocess
+from pathlib import PurePosixPath
 from datetime import datetime
 from pathlib import Path
 
@@ -12,6 +14,90 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 MANIFEST = HERE / 'execution-manifest.json'
 BINDING = HERE / 'runtime-binding.json'
+RUNTIME_ROOTS = (
+    '1-评测方案/工具链/l4-execution',
+    '3-表现现场/l4-20261029-cli/codex/tools',
+    '3-表现现场/l4-20261029-cli/dsh/tools',
+    '3-表现现场/l4-20261029-cache/tools',
+    '3-表现现场/l4-20261029-wb-gateway/runner',
+    '3-表现现场/l4-20261029-wb-gateway/driver-snapshot',
+)
+REQUIRED_RUNTIME = (
+    '1-评测方案/工具链/l4-execution/gate.py',
+    '1-评测方案/工具链/runner-schema-v2/validate_runner_meta.py',
+    '1-评测方案/工具链/evidence-kit/evidence_line.py',
+    '1-评测方案/工具链/evidence-kit/receipt_check.py',
+    '3-表现现场/l4-20261029-cli/codex/tools/lab.py',
+    '3-表现现场/l4-20261029-cli/dsh/tools/lab.py',
+    '3-表现现场/l4-20261029-cache/tools/cache_probe.py',
+    '3-表现现场/l4-20261029-wb-gateway/runner/l4_wb_runner.py',
+    '3-表现现场/l4-20261029-wb-gateway/driver-snapshot/workbuddy_driver.py',
+    '3-表现现场/r1030-formal-a1/tools/lab.py',
+    '3-表现现场/r1031-variance-n3/tools-codex/lab.py',
+    '3-表现现场/r1031-variance-n3/tools-dsh/lab.py',
+)
+
+def required_files():
+    loop = str(HERE.relative_to(ROOT))
+    required = {loop+'/'+p for p in (
+        'PREREGISTRATION.md','plan.json','contract.json','CLARIFICATION-L4-1.md',
+        'execution_seal.py','test_execution_seal.py')}
+    required.update(REQUIRED_RUNTIME)
+    # Discover actual implementation modules/configuration, not a self-reported empty list.
+    for base in (HERE,) + tuple(ROOT / r for r in RUNTIME_ROOTS):
+        if not base.is_dir() or base.is_symlink() or base.resolve()!=base.absolute():
+            raise ValueError('Missing/nonregular runtime source directory: '+str(base))
+        for path in base.rglob('*'):
+            if path.is_symlink():
+                raise ValueError('Runtime tree symlink refused: '+str(path))
+            # Imported bytecode is a generated cache, never a declared source;
+            # execution uses PYTHONDONTWRITEBYTECODE. Reject symlinks before skipping caches.
+            if '__pycache__' in path.relative_to(base).parts or path.suffix=='.pyc':
+                continue
+            is_runtime = base != HERE and path.is_file()
+            is_plan_source = path.suffix in ('.py','.toml','.yaml','.yml') or (
+                path.suffix=='.json' and 'config' in path.name.lower())
+            if is_runtime or is_plan_source:
+                required.add(str(path.relative_to(ROOT)))
+    return required
+
+def regular_source(name):
+    if not isinstance(name,str) or str(PurePosixPath(name)) != name:
+        raise ValueError('Noncanonical source path: '+str(name))
+    p = PurePosixPath(name)
+    if p.is_absolute() or '..' in p.parts:
+        raise ValueError('Unsafe source path: '+name)
+    path=ROOT/name
+    if not path.is_file() or path.is_symlink() or path.resolve()!=path.absolute():
+        raise ValueError('Expected regular non-symlink source: '+name)
+    path.resolve().relative_to(ROOT.resolve())
+    return path
+
+def validate_manifest(doc):
+    if not isinstance(doc,dict) or doc.get('schema_version')!=1:
+        raise ValueError('Invalid manifest schema')
+    if not re.fullmatch(r'[0-9a-f]{40}',str(doc.get('design_commit',''))):
+        raise ValueError('Manifest needs full design commit')
+    files=doc.get('files')
+    if not isinstance(files,dict) or not files:
+        raise ValueError('Manifest files must be nonempty')
+    missing=required_files()-set(files)
+    if missing:
+        raise ValueError('Manifest missing required sources: '+str(sorted(missing)))
+    for name,value in files.items():
+        regular_source(name)
+        if not isinstance(value,str) or not re.fullmatch(r'[0-9a-f]{64}',value):
+            raise ValueError('Invalid source SHA: '+name)
+    ext=doc.get('external_files')
+    if not isinstance(ext,dict):
+        raise ValueError('Invalid external_files schema')
+    for name,value in ext.items():
+        path=Path(name)
+        if not path.is_absolute() or path.resolve()!=path or not path.is_file() or path.is_symlink():
+            raise ValueError('Expected regular canonical external source: '+name)
+        if not isinstance(value,str) or not re.fullmatch(r'[0-9a-f]{64}',value):
+            raise ValueError('Invalid external source SHA: '+name)
+    return doc
 
 def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -35,11 +121,9 @@ def resolve_commit(value):
 def manifest(args):
     design = resolve_commit(args.design)
     files = {}
-    required = [HERE/'PREREGISTRATION.md', HERE/'plan.json', HERE/'contract.json', Path(__file__)]
-    for path in required + [ROOT / p for p in args.file]:
-        if not path.is_file() or path.is_symlink():
-            raise ValueError('Expected regular non-symlink source: ' + str(path))
-        files[rel(path)] = sha(path)
+    for name in sorted(required_files() | set(args.file)):
+        path=regular_source(name)
+        files[name] = sha(path)
     for name in ('PREREGISTRATION.md', 'plan.json', 'contract.json'):
         path = HERE/name
         committed = git('show', design + ':' + rel(path))
@@ -47,15 +131,17 @@ def manifest(args):
             raise ValueError('Design drift: ' + name)
     external = {}
     for name in args.external_file:
-        path = Path(name).expanduser().absolute()
-        if not path.is_file() or path.is_symlink():
-            raise ValueError('Expected regular external source: ' + str(path))
+        original = Path(name).expanduser().absolute()
+        if not original.is_file() or original.is_symlink():
+            raise ValueError('Expected regular external source: ' + str(original))
+        path=original.resolve()
         external[str(path)] = sha(path)
     doc = {'schema_version':1, 'design_commit':design,
            'generated_at':datetime.now().astimezone().isoformat(timespec='seconds'),
            'files':dict(sorted(files.items())), 'external_files':dict(sorted(external.items())),
            'policy':'All sources/configs pinned before first live request; outputs are append-only new paths.',
            'live_doc_drift':[]}
+    validate_manifest(doc)
     create(MANIFEST, doc)
     print(json.dumps({'manifest':rel(MANIFEST),'sha256':sha(MANIFEST),'files':len(files),'external_files':len(external)},ensure_ascii=False))
 
@@ -64,7 +150,7 @@ def bind(args):
     manifest_bytes = git('show', seal + ':' + rel(MANIFEST))
     if manifest_bytes != MANIFEST.read_bytes():
         raise ValueError('Manifest differs from sealed blob')
-    doc = json.loads(manifest_bytes)
+    doc = validate_manifest(json.loads(manifest_bytes))
     design = doc['design_commit']
     git('merge-base', '--is-ancestor', design, seal)
     git('merge-base', '--is-ancestor', seal, 'HEAD')
