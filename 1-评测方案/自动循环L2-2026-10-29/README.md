@@ -11,3 +11,5 @@
 |---|---|---|
 | 15:49 | 预注册落盘（实钟） | 本文件同提交 |
 | 15:53:32 | **预注册封印** | commit `ae36f67` |
+| 15:56 | 三 builder 并行派发（A+D→builder-dsh / B→freeze-engineer / C→builder-codex） | 首次 send 失败于 freeze-engineer，16:00 前重发拉起 |
+| 16:00 | lead 裁决（包A 协议分歧）：行集冻结=旧收据 41 行口径（24+17），排除 10-27 19:28 后入账行（唯一实例 `r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4`）；锚点=AUDIT.md D3 下一步原文「同一 24 场」；不做第 25 场补充运行 | builder-dsh 收据 corrections 留痕 |
