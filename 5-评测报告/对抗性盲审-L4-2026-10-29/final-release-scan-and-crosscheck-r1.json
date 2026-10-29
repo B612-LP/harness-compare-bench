@@ -1,0 +1,38 @@
+{
+ "kind": "final_release_scan_and_crosscheck",
+ "id": "AUD-L4-FINALRELEASE-r1",
+ "at": "2026-10-30T00:40:00+08:00",
+ "by": "auditor(task-9)",
+ "security_scan": {
+  "receipts": ["scan-report-final-release-r7.json", "pii-min-check-report-final-release-r6.json"],
+  "scope": ["5-评测报告/L4综合结论-2026-10-29/**（含 observations/six-ledger/source-snapshots/build 脚本）",
+            "3-表现现场/l4-20261029-wb-gateway/**（含新 slot-accounting-frame 恢复/sidecar、bird provenance）",
+            "5-评测报告/L4首请求前评审-2026-10-29/**（含 late-archive-verification）"],
+  "files_scanned": 323,
+  "zstd": "本批三目录未新增 .zst/.zstd（此前 DSH recoveries 8 份已在 r5 扫描覆盖，内存解压）；如后续出现新 zstd 需再扫",
+  "real_key_exact_hits": 0,
+  "generic": [{"file": "wb-gateway/runs/…dabstep…/workspace/inputs/payments.csv:79769",
+               "class": "unclassified→人工归类 benign",
+               "reason": "dabstep 任务输入数据值（sk- 形似串），真实 key 精确比对 0 为权威口径"}],
+  "pii_hits": 0,
+  "blocking": 0
+ },
+ "crosscheck_sixledger_vs_observations": {
+  "refs": ["six-ledger.json", "observations-final.json"],
+  "slot_set": "17/17 双向一致（无掉行/无跨产品混排/无 extra）",
+  "counts": "executed 16 + not_executed 1 + probe 18 + pairs 6 + canonical_formal_true 0——两文件与六账完全一致",
+  "scores": "逐槽 weighted 比对 0 mismatch（双方均有数值的槽全部吻合）",
+  "bird": "两文件一致记 not_executed；但 judge final gate canonical_fails 标注「not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations']」",
+  "bird_registrations_finding": {
+   "fact": "registrations/ 恰含 1 份合法 R3 要求的首跑前登记（l4-20261029-wb-gateway-bird-ca-schools-15-r1.registration.json，registered_at=2026-10-29T23:28:32+08:00，kind=first，先于启动失败）",
+   "rule": "CLARIFICATION R3：『运行开始前每个独立slot的调用登记必须先持久保存，避免进程故障后因无结果文件而补发』",
+   "assessment": "该文件是 R3 强制的预持久化登记，非虚造证据/空流——judge canonical_fail 措辞与 R3 自身要求相抵触，建议 judge 复核该 fail 项措辞（裁定权归 judge）"
+  }
+ },
+ "six_ledger_stable_hash_for_registry": {
+  "file": "six-ledger.json",
+  "sha256_16": "7c5460d83b13cca8",
+  "note": "交叉核未发现需改账项；lead 可按此哈希串行登记 live registry 元事件"
+ },
+ "live_doc_drift": []
+}

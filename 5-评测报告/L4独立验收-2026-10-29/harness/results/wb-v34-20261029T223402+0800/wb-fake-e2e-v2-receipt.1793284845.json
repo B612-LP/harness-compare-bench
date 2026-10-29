@@ -1,0 +1,58 @@
+{
+  "kind": "judge_fake_e2e_receipt_v2",
+  "harness": "wb_fake_e2e.py",
+  "harness_sha256": "93baaf7deb5222e100354c2677b0ee3bd7240dfbfe2b53324ef2b95af14450b3",
+  "snapshot": "/private/tmp/judge-l4/wb-v34-20261029T223402+0800",
+  "snapshot_head_shas": {
+    "src-wb/runner/l4_wb_runner.py": "4daa66521750809f9e6406444c0792f8edfe28e782f2cf0ab4b2ac6a71ff6511",
+    "src-wb/runner/safe_driver.py": "8c90165f7896adff4379435bc8721e5f63434cdb2f48e84940b046524fdb54c6",
+    "src-wb/runner/verify_execution.py": "a2d5b24281a556fa78cca69a566760e7df93fb27d8c52f62eeb9a192772bf2c4",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+    "execution_seal.py": "f1ef03402358d33b70f1d54be529f1bfaece7d1113b0588c5308f19383fef240"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-wb2-v34-20261029T223402+0800/repo",
+  "binding_E": "d9de6240647e7d40c75c8b7023768065f54f3d43",
+  "registered_at": "2026-10-29T22:30:43+08:00",
+  "generated_at": "2026-10-29T22:40:45+08:00",
+  "cases": {
+    "W13_normal_completed_admission": {
+      "verdict": "evidence",
+      "detail": {
+        "formal_admission": false,
+        "fails": [
+          "无 meta.json 且无 notexecuted.json（缺记账，非 skip）"
+        ],
+        "status": "ok",
+        "reward": 1,
+        "weighted": 1.0,
+        "judge_keys": [
+          "checker_sha256",
+          "checks",
+          "exit_code",
+          "raw_stdout_head",
+          "reward",
+          "weighted"
+        ],
+        "score_receipt_exists": false,
+        "meta_order": 13,
+        "meta_exit_code": null,
+        "evidence_dir": ".",
+        "stderr_tail": "",
+        "criterion": "桌面正常场真实 run_impl 全链（含 checker/judge/score-receipt）→ 真 gate formal=True/fails=[]（作者 T19 同构独立复算）"
+      }
+    }
+  },
+  "sentinel": {
+    "sentinel-adm.log": {
+      "attempts": 0,
+      "non_local": 0
+    },
+    "sentinel.log": {
+      "attempts": 0,
+      "non_local": 0
+    }
+  },
+  "live_doc_drift": null
+}

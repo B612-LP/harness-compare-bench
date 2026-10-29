@@ -1,0 +1,23 @@
+{
+ "kind": "judge_dated_sidecar_gate_falsepositive_bird_registration",
+ "slot": "l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+ "generated_at": "2026-10-30T00:35:24+08:00",
+ "canonical_untouched": "原 canonical 收据/gate 判定不改；formal=false、accounting=not_executed 维持",
+ "facts": {
+  "gate_fail_text": "not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations']",
+  "gate_source": "冻结 gate 77d8e8b4（wb-v35 快照）L405-424 not_executed 分支：extra=除 notexecuted.json 外任意条目即 fail；白名单不含 registrations/",
+  "clarification_R3": "CLARIFICATION-L4-1.md L32：『运行开始前每个独立slot的调用登记必须先持久保存，避免进程故障后因无结果文件而补发。』",
+  "bird_artifacts": {
+   "notexecuted.json": "身份/封印/非空 reason+stop_source 全过（该分支内其他检查零 fail）",
+   "registrations/": "恰 1 件首跑前登记（registered_at=2026-10-29T23:28:32 < 失败时刻 23:35:14；slot/run/event/case/order/stratum 齐全）——R3 强制先持久产物"
+  },
+  "sequence": "claim → R3 登记先持久(23:28:32) → driver ensure_app 冷启动失败(23:35:14) → notexecuted.json——登记在失败前，属 R3 设计场景『进程故障后无结果文件可对账』的标准样态"
+ },
+ "adjudication": {
+  "classification": "gate 过严/误报（false positive）：not_executed 白名单与 R3 强制先持久登记直接冲突；check 无法区分『虚造』与『R3 合规登记』",
+  "bird_not_executed_evidence": "成立且完整——notexecuted.json 合法 + registration 为 R3 要求件，二者共存恰是规范失败样态",
+  "accounting_complete_impact": "不影响：R1 意义上的 not_executed 记账完备（身份/封印引用/reason/stop_source 全部在位且通过）；该 fail 仅为白名单伪命中，不构成记账缺失",
+  "formal_effect": "无——formal=false 的事实基础（未执行+基础设施失败）不变"
+ },
+ "l5_item": "gate not_executed 白名单加入 registrations/（或按 R3 语义放行登记目录）；冻结版不改，下版 gate 修复"
+}

@@ -1,0 +1,109 @@
+{
+  "rule_version": "l4-20261029-batch-v1",
+  "design_commit_D": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+  "model": "deepseek-flash",
+  "effort": "low",
+  "max_output_tokens": 256,
+  "timeout_s_per_slot": 120,
+  "repeat_gap_s": 5,
+  "endpoints": {
+    "responses": "https://api.deepseek.com/responses",
+    "anthropic-messages": "https://api.deepseek.com/anthropic/v1/messages",
+    "chat-completions": "https://api.deepseek.com/chat/completions"
+  },
+  "endpoint_sources": {
+    "responses": "3-表现现场/r1022-cbase-deepseekflash/tools/bare_run.py",
+    "anthropic-messages": "3-表现现场/r20261029-mechanism/runtime-preflight-b0b1de8d/01-transport.json",
+    "chat-completions": "https://api-docs.deepseek.com/api/create-chat-completion"
+  },
+  "request_shapes": {
+    "responses": {
+      "model": "deepseek-flash",
+      "input": "<nonce 行 + synthetic prefix + ack 指令>",
+      "max_output_tokens": 256,
+      "reasoning": {
+        "effort": "low"
+      },
+      "effort_field_note": "OpenAI-responses 规范形；本地无历史证据，若 4xx 首败即按 R4.3 停协议不适配"
+    },
+    "anthropic-messages": {
+      "model": "deepseek-flash",
+      "max_tokens": 256,
+      "thinking": {
+        "type": "enabled"
+      },
+      "output_config": {
+        "effort": "low"
+      },
+      "messages": [
+        {
+          "role": "user",
+          "content": "<同上>"
+        }
+      ],
+      "shape_source": "3-表现现场/r20261029-mechanism/first-request-canonical.json"
+    },
+    "chat-completions": {
+      "model": "deepseek-flash",
+      "messages": [
+        {
+          "role": "user",
+          "content": "<同上>"
+        }
+      ],
+      "max_tokens": 256,
+      "reasoning_effort": "low",
+      "shape_source": "https://api-docs.deepseek.com/api/create-chat-completion"
+    }
+  },
+  "prefix_spec": {
+    "charset": "ASCII",
+    "target_chars": 8192,
+    "max_bytes": 16384,
+    "generator": "cache_probe.synthetic_prefix（确定性，E 后不改）"
+  },
+  "nonce_derivation": {
+    "fresh_repeat": "sha256(D_full_hash:protocol:block)[:16]",
+    "control": "sha256(D_full_hash:protocol:block:control)[:16]",
+    "D_full_hash": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0"
+  },
+  "failure_rules": "CLARIFICATION-L4-1 R4（401/403 全停并通知；其他4xx含429与3xx/格式错停协议；5xx/网络连续2停协议；fresh 败则 repeat 不发；每槽 1 次外发；不跟随 redirect）",
+  "usage_discipline": "raw usage 原样保存；缺失/null/0/正值分开（presence map）；不推计费；不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；探针与历史 rollout 非同请求，禁止逐调用对应",
+  "auth": "Authorization: Bearer <DEEPSEEK_API_KEY from ~/.dsh/.credentials.yaml refs 段>，仅进程内；headers 只记录名字不记录值；任何收据不含密钥",
+  "entry_points": {
+    "cache_main": "3-表现现场/l4-20261029-cache/tools/cache_probe.py",
+    "subcommands": [
+      "selftest",
+      "dry-run [slot]",
+      "run [slot]"
+    ]
+  },
+  "runtime_sources": [
+    "tools/cache_probe.py"
+  ],
+  "effort_mapping_source": {
+    "url": "https://api-docs.deepseek.com/guides/thinking_mode/",
+    "fetched_by": "lead (web_fetch, 2026-10-29)",
+    "mapping": {
+      "responses": "reasoning.effort=low",
+      "chat-completions": "reasoning_effort=low",
+      "anthropic-messages": "output_config.effort=low"
+    },
+    "note": "与当前 SHAPES 一致；不改形状，不另做 API 验证"
+  },
+  "anthropic_compat_source": {
+    "url": "https://api-docs.deepseek.com/zh-cn/guides/anthropic_api",
+    "fetched_by": "lead (web_fetch, 2026-10-29)",
+    "points": [
+      "base /anthropic",
+      "anthropic-version 忽略",
+      "thinking.budget_tokens 忽略",
+      "output_config 仅 effort",
+      "tools/messages 的 cache_control 忽略",
+      "max_tokens 完全支持",
+      "content string 支持"
+    ],
+    "auth_note": "当前 Bearer 与官方 coding_agents 的 ANTHROPIC_AUTH_TOKEN 路径一致；无据不做适配重跑",
+    "boundary": "cache_control 被忽略 ≠ 无缓存/无成本结论——creation 是否回传仍以固定 18 探针 raw usage 为准"
+  }
+}

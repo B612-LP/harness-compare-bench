@@ -1,0 +1,64 @@
+{
+  "kind": "judge_fake_e2e_receipt",
+  "harness": "codex_fake_e2e.py",
+  "harness_sha256": "c4c31775508ce0c0c53cfc7ecbe26acf3310a7334c236669502dbdbb2deb0cd9",
+  "fake_codex_sha256": "72e7e7db5948872706b62f1e713941c303f7d14b639beb7d9919367b2c635b30",
+  "snapshot": "/private/tmp/judge-l4/codex-20261029T214132+0800",
+  "snapshot_head_shas": {
+    "src-codex/tools/lab.py": "b3d1e7d012ec299846af9ae922c161ad741d8f8d69610a617f627f488d849913",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "eaf4b57cc1a346c5ba0b96cc25042761518032af644a31bcf04c2e08b8f6fdd8",
+    "execution_seal.py": "a756938d490634f19daa93454450d67fba4221c446bddad554f6c1b71992217c"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo",
+  "binding_E": "2f1552f25a55b22fc705425c86769e4ce22b3485",
+  "registered_at": "2026-10-29T21:33:10+08:00",
+  "generated_at": "2026-10-29T21:43:11+08:00",
+  "cases": {
+    "CX1_e_seal_block": {
+      "verdict": "fail",
+      "detail": {
+        "rc": 0,
+        "audit_invocations": 0,
+        "stderr_tail": ""
+      }
+    },
+    "CX2_happy_full_chain": {
+      "verdict": "fail",
+      "detail": {
+        "prepare_rc": 0,
+        "run_rc": null,
+        "status": null,
+        "registered_at_ok": false,
+        "missing_evidence": [
+          "claim.json",
+          "prompt.txt",
+          "stdout.raw",
+          "stderr.raw",
+          "session-capture.json",
+          "score-receipt.json",
+          "checker.stdout",
+          "meta.json",
+          "dual-archive.status.json"
+        ],
+        "usage_calls": 0,
+        "presence_states": [],
+        "capture_matched": 0,
+        "reward": null,
+        "reward_is_int": false,
+        "all_invocations_fake": true,
+        "audit_n": 0,
+        "formal_eligible": null,
+        "stderr_tail": "ate/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo/1-评测方案/工具链/l4-execution/gate.py\", line 283, in verify_execution\n    raise GateError(\"manifest 违反必需成员/结构（防漏封）：%s\" % exc)\nl4_gate.GateError: manifest 违反必需成员/结构（防漏封）：Manifest missing mandatory external configuration: ['/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/home/bench-workspaces/l4-20261029-cli/codex/_codex-home/config.toml']\n"
+      }
+    }
+  },
+  "zero_real_cli_evidence": {
+    "audit_entries": 0,
+    "all_argv_fake": true,
+    "sentinel_non_local_attempts": 0,
+    "method": "lab.CODEX_BIN 绝对路径注入；preflight 类仅受限 PATH（无 /opt/homebrew/bin）；真实 codex 在 /opt/homebrew/bin/codex 存在（事故向量）——全程未触"
+  },
+  "live_doc_drift": null
+}

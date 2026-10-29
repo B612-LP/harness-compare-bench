@@ -1,0 +1,1212 @@
+{
+  "batch": "l4-20261029-wb-gateway",
+  "rule_version": "l4-20261029-batch-v1",
+  "preregistration_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+  "registered_at": "2026-10-29T23:13:56+08:00",
+  "rep": 1,
+  "product": "workbuddy",
+  "case": "tb-cargo-plan",
+  "form": "desktop-auto-cdp-rpc",
+  "slot_id": "l4-20261029-wb-gateway-tb-cargo-plan-r1",
+  "order": 17,
+  "run_id": "l4-20261029-wb-gateway-tb-cargo-plan-r1",
+  "event_id": "event:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+  "selection": {
+    "plan_id": "l4-20261029",
+    "slot_id": "l4-20261029-wb-gateway-tb-cargo-plan-r1",
+    "order": 17,
+    "kind": "first"
+  },
+  "workspace": "/Users/b612-lp/bench-workspaces/l4-20261029-wb-gateway/tb-cargo-plan",
+  "model": "deepseek-v4.1-flash",
+  "declared_alias": "deepseek-v4.1-flash",
+  "actual_request_model": null,
+  "actual_request_model_status": "not_observable_in_this_batch（不可观测≠已证）",
+  "alias_evidence": {
+    "driver_create_model_param": "DeepSeek V4.1-Flash",
+    "session_db_model_field": "deepseek-v4.1-flash",
+    "note": "collect 后以 session-row/jsonl requestModelId 复核；不可观察或非 deepseek-v4.1-flash → 停槽诊断",
+    "session_db_thought_level": "low",
+    "source_records": {
+      "session_row": "trace/session-row.json",
+      "jsonl": [
+        "70ed7a91-1e51-452e-832f-c1177b2fdc68.jsonl"
+      ]
+    }
+  },
+  "reasoning_effort": "low（会话级声明设置；上游解释不可观测→managed unknown）",
+  "product_version": "5.9.3",
+  "app_asar_sha256": "12a2be53ec7db2943a9958f6986d7807adcf083bd79b307d26706d83750effa7",
+  "route": {
+    "host": null,
+    "provider_id": "workbuddy-gateway（产品交付态）",
+    "wire_protocol": "unobservable（TLS 端到端）",
+    "endpoint": null,
+    "actual_gateway": "unknown",
+    "declared_alias": "deepseek-v4.1-flash",
+    "alias_evidence": "agent-session/session-row.json",
+    "route_verification": "current_not_observed",
+    "validation": "current_not_observed",
+    "r2_history_ref": "1-评测方案/准入预检-2026-10-29/wb-preflight-r2.json"
+  },
+  "tools": [],
+  "soft_constraints": [
+    "离线题解约束（workspace 仅 inputs+TASK）"
+  ],
+  "permissions": "fullAccess（wb:conversations:create 参数，DB 可核）",
+  "skills": "record actual from trace；不可观测项 managed unknown",
+  "web_search": "off（未启用；以 trace 审计为准）",
+  "prompt_sha256": "e0060857e840ddbad80ac919c595ba476e919a32d0593c0d41940ecd335db1e1",
+  "isolation": {
+    "ok": true,
+    "workspace_outside_repo": true
+  },
+  "inputs": [
+    {
+      "path": "inputs/app/aircraft.py",
+      "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+      "bytes": 2376
+    },
+    {
+      "path": "inputs/app/data/aircraft.json",
+      "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+      "bytes": 496
+    },
+    {
+      "path": "inputs/app/data/airports.json",
+      "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+      "bytes": 1685
+    },
+    {
+      "path": "inputs/app/data/manifest.json",
+      "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+      "bytes": 1257
+    },
+    {
+      "path": "inputs/app/data/weather.json",
+      "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+      "bytes": 1611
+    },
+    {
+      "path": "inputs/app/dispatch.py",
+      "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+      "bytes": 8504
+    },
+    {
+      "path": "inputs/app/navigation.py",
+      "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+      "bytes": 2482
+    }
+  ],
+  "created_at": "2026-10-30T00:00:44+08:00",
+  "started_at": "2026-10-30T00:00:44+08:00",
+  "finished_at": "2026-10-30T00:04:52+08:00",
+  "duration_s": 248.0,
+  "status": "ok",
+  "exit_code": null,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-30T00:00:44+08:00",
+      "exit_code": null,
+      "outcome": "sent"
+    }
+  ],
+  "transport_retries": 0,
+  "transport_retry_events": [],
+  "stdout_bytes": 433141,
+  "stderr_bytes": 0,
+  "stdout_sha256": "fbd1d09cee9bf781061540f3ed6202ecca123d393c45ccae96d0ed8078c9624f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_source": "product-native-trace（WB 无 CLI stdout 流；canonical=会话 jsonl）",
+  "usage": {
+    "per_call": [
+      {
+        "prompt_tokens": 30315,
+        "completion_tokens": 142,
+        "total_tokens": 30457,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 27904
+        },
+        "prompt_cache_hit_tokens": 27904,
+        "prompt_cache_miss_tokens": 2411,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.05,
+        "cached_tokens": 0,
+        "ts": 1793289651329,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 31441,
+        "completion_tokens": 70,
+        "total_tokens": 31511,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 30208
+        },
+        "prompt_cache_hit_tokens": 30208,
+        "prompt_cache_miss_tokens": 1233,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.03,
+        "cached_tokens": 0,
+        "ts": 1793289653309,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 34749,
+        "completion_tokens": 70,
+        "total_tokens": 34819,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 31360
+        },
+        "prompt_cache_hit_tokens": 31360,
+        "prompt_cache_miss_tokens": 3389,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.06,
+        "cached_tokens": 0,
+        "ts": 1793289655383,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 35888,
+        "completion_tokens": 604,
+        "total_tokens": 36492,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 533,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 34688
+        },
+        "prompt_cache_hit_tokens": 34688,
+        "prompt_cache_miss_tokens": 1200,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 533,
+        "credit": 0.06,
+        "cached_tokens": 0,
+        "ts": 1793289660192,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 37435,
+        "completion_tokens": 100,
+        "total_tokens": 37535,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 28,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 36480
+        },
+        "prompt_cache_hit_tokens": 36480,
+        "prompt_cache_miss_tokens": 955,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 28,
+        "credit": 0.03,
+        "cached_tokens": 0,
+        "ts": 1793289662488,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 37811,
+        "completion_tokens": 72,
+        "total_tokens": 37883,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 37504
+        },
+        "prompt_cache_hit_tokens": 37504,
+        "prompt_cache_miss_tokens": 307,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.02,
+        "cached_tokens": 0,
+        "ts": 1793289664437,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 38724,
+        "completion_tokens": 71,
+        "total_tokens": 38795,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 37760
+        },
+        "prompt_cache_hit_tokens": 37760,
+        "prompt_cache_miss_tokens": 964,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.03,
+        "cached_tokens": 0,
+        "ts": 1793289666616,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 39390,
+        "completion_tokens": 71,
+        "total_tokens": 39461,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 38656
+        },
+        "prompt_cache_hit_tokens": 38656,
+        "prompt_cache_miss_tokens": 734,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.03,
+        "cached_tokens": 0,
+        "ts": 1793289668572,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 40295,
+        "completion_tokens": 2303,
+        "total_tokens": 42598,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 2181,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 39296
+        },
+        "prompt_cache_hit_tokens": 39296,
+        "prompt_cache_miss_tokens": 999,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 2181,
+        "credit": 0.16,
+        "cached_tokens": 0,
+        "ts": 1793289683527,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 43065,
+        "completion_tokens": 702,
+        "total_tokens": 43767,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 388,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 42496
+        },
+        "prompt_cache_hit_tokens": 42496,
+        "prompt_cache_miss_tokens": 569,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 388,
+        "credit": 0.06,
+        "cached_tokens": 0,
+        "ts": 1793289689570,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 44142,
+        "completion_tokens": 964,
+        "total_tokens": 45106,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 727,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 43648
+        },
+        "prompt_cache_hit_tokens": 43648,
+        "prompt_cache_miss_tokens": 494,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 727,
+        "credit": 0.07,
+        "cached_tokens": 0,
+        "ts": 1793289696515,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 45642,
+        "completion_tokens": 2451,
+        "total_tokens": 48093,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1289,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 45056
+        },
+        "prompt_cache_hit_tokens": 45056,
+        "prompt_cache_miss_tokens": 586,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1289,
+        "credit": 0.16,
+        "cached_tokens": 0,
+        "ts": 1793289710522,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 49241,
+        "completion_tokens": 4486,
+        "total_tokens": 53727,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 3282,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 48000
+        },
+        "prompt_cache_hit_tokens": 48000,
+        "prompt_cache_miss_tokens": 1241,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 3282,
+        "credit": 0.29,
+        "cached_tokens": 0,
+        "ts": 1793289737167,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 53778,
+        "completion_tokens": 908,
+        "total_tokens": 54686,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 14,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 53632
+        },
+        "prompt_cache_hit_tokens": 53632,
+        "prompt_cache_miss_tokens": 146,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 14,
+        "credit": 0.07,
+        "cached_tokens": 0,
+        "ts": 1793289742795,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 54738,
+        "completion_tokens": 3624,
+        "total_tokens": 58362,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 584,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 54528
+        },
+        "prompt_cache_hit_tokens": 54528,
+        "prompt_cache_miss_tokens": 210,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 584,
+        "credit": 0.23,
+        "cached_tokens": 0,
+        "ts": 1793289758404,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 58413,
+        "completion_tokens": 116,
+        "total_tokens": 58529,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 58240
+        },
+        "prompt_cache_hit_tokens": 58240,
+        "prompt_cache_miss_tokens": 173,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.03,
+        "cached_tokens": 0,
+        "ts": 1793289760766,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 59978,
+        "completion_tokens": 2076,
+        "total_tokens": 62054,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1819,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 58368
+        },
+        "prompt_cache_hit_tokens": 58368,
+        "prompt_cache_miss_tokens": 1610,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1819,
+        "credit": 0.16,
+        "cached_tokens": 0,
+        "ts": 1793289776288,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 62499,
+        "completion_tokens": 2298,
+        "total_tokens": 64797,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1682,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 61952
+        },
+        "prompt_cache_hit_tokens": 61952,
+        "prompt_cache_miss_tokens": 547,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1682,
+        "credit": 0.16,
+        "cached_tokens": 0,
+        "ts": 1793289791505,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 65508,
+        "completion_tokens": 2284,
+        "total_tokens": 67792,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 2108,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 64768
+        },
+        "prompt_cache_hit_tokens": 64768,
+        "prompt_cache_miss_tokens": 740,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 2108,
+        "credit": 0.16,
+        "cached_tokens": 0,
+        "ts": 1793289807948,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 68111,
+        "completion_tokens": 2324,
+        "total_tokens": 70435,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1329,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 67712
+        },
+        "prompt_cache_hit_tokens": 67712,
+        "prompt_cache_miss_tokens": 399,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1329,
+        "credit": 0.16,
+        "cached_tokens": 0,
+        "ts": 1793289821585,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 71811,
+        "completion_tokens": 1792,
+        "total_tokens": 73603,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1419,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 70400
+        },
+        "prompt_cache_hit_tokens": 70400,
+        "prompt_cache_miss_tokens": 1411,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1419,
+        "credit": 0.14,
+        "cached_tokens": 0,
+        "ts": 1793289835508,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 74872,
+        "completion_tokens": 1370,
+        "total_tokens": 76242,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 881,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 73600
+        },
+        "prompt_cache_hit_tokens": 73600,
+        "prompt_cache_miss_tokens": 1272,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 881,
+        "credit": 0.12,
+        "cached_tokens": 0,
+        "ts": 1793289845717,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 76292,
+        "completion_tokens": 164,
+        "total_tokens": 76456,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 76032
+        },
+        "prompt_cache_hit_tokens": 76032,
+        "prompt_cache_miss_tokens": 260,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.03,
+        "cached_tokens": 0,
+        "ts": 1793289848893,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 76507,
+        "completion_tokens": 207,
+        "total_tokens": 76714,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 76288
+        },
+        "prompt_cache_hit_tokens": 76288,
+        "prompt_cache_miss_tokens": 219,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.04,
+        "cached_tokens": 0,
+        "ts": 1793289852034,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 77078,
+        "completion_tokens": 1206,
+        "total_tokens": 78284,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 967,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 76416
+        },
+        "prompt_cache_hit_tokens": 76416,
+        "prompt_cache_miss_tokens": 662,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 967,
+        "credit": 0.1,
+        "cached_tokens": 0,
+        "ts": 1793289860527,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 78517,
+        "completion_tokens": 508,
+        "total_tokens": 79025,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 384,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 78208
+        },
+        "prompt_cache_hit_tokens": 78208,
+        "prompt_cache_miss_tokens": 309,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 384,
+        "credit": 0.06,
+        "cached_tokens": 0,
+        "ts": 1793289864901,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 79480,
+        "completion_tokens": 265,
+        "total_tokens": 79745,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 180,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 78976
+        },
+        "prompt_cache_hit_tokens": 78976,
+        "prompt_cache_miss_tokens": 504,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 180,
+        "credit": 0.04,
+        "cached_tokens": 0,
+        "ts": 1793289868106,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 80235,
+        "completion_tokens": 139,
+        "total_tokens": 80374,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 79744
+        },
+        "prompt_cache_hit_tokens": 79744,
+        "prompt_cache_miss_tokens": 491,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.04,
+        "cached_tokens": 0,
+        "ts": 1793289870418,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 80461,
+        "completion_tokens": 712,
+        "total_tokens": 81173,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 80128
+        },
+        "prompt_cache_hit_tokens": 80128,
+        "prompt_cache_miss_tokens": 333,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.07,
+        "cached_tokens": 0,
+        "ts": 1793289875897,
+        "model_in_record": "deepseek-v4.1-flash"
+      }
+    ],
+    "note": "WB 原生 rawUsage 逐调用落盘；缺失保留 null 不填 0"
+  },
+  "reward": 0,
+  "weighted": 70.37,
+  "failed": [
+    "tow_within_limit",
+    "leg2_weight_limits_fuel",
+    "leg2_fuel_below_planned",
+    "leg2_remaining_below_reserve",
+    "landing_weight_leg2",
+    "total_time_includes_turnaround",
+    "total_time_value",
+    "route_feasible"
+  ],
+  "judge": {
+    "case": "tb-cargo-plan",
+    "checker_version": "0.2",
+    "contract_revision": "b12-b14-b13a-tighten-2026-10-27",
+    "reward": 0,
+    "weighted": 70.37,
+    "passed": 19,
+    "total": 27,
+    "critical_ok": false,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "ok"
+      },
+      {
+        "id": "code_rerun",
+        "pass": true,
+        "note": "ok"
+      },
+      {
+        "id": "plan_structure",
+        "pass": true,
+        "note": "route=6 legs=5"
+      },
+      {
+        "id": "route_hub",
+        "pass": true,
+        "note": "NAN..NAN"
+      },
+      {
+        "id": "route_order",
+        "pass": true,
+        "note": "['SUV', 'TBU', 'APW', 'FUN'] vs ['SUV', 'TBU', 'APW', 'FUN']"
+      },
+      {
+        "id": "leg_suv_tbu_distance",
+        "pass": true,
+        "note": "404.2 vs 404.2"
+      },
+      {
+        "id": "tas_varies",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "heading_wind_corrected",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "ground_speed",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "crosswind_dest",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "crosswind_apw_near_limit",
+        "pass": true,
+        "note": "19.1"
+      },
+      {
+        "id": "crosswind_ok_field",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_carries_no_fuel_stop",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_no_refuel_carry",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_capacity",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "reserve_holding",
+        "pass": true,
+        "note": "31.5 vs 31.5"
+      },
+      {
+        "id": "tow_within_limit",
+        "pass": false,
+        "note": ""
+      },
+      {
+        "id": "leg2_weight_limits_fuel",
+        "pass": false,
+        "note": "150.6 vs 145.7"
+      },
+      {
+        "id": "leg2_fuel_below_planned",
+        "pass": false,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_formula",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_above_min",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_ok_field",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "leg2_remaining_below_reserve",
+        "pass": false,
+        "note": "31.5"
+      },
+      {
+        "id": "tow_leg1",
+        "pass": true,
+        "note": "8464.3"
+      },
+      {
+        "id": "landing_weight_leg2",
+        "pass": false,
+        "note": "7915.0"
+      },
+      {
+        "id": "total_time_includes_turnaround",
+        "pass": false,
+        "note": "568.7 vs 568.7"
+      },
+      {
+        "id": "total_time_value",
+        "pass": false,
+        "note": "568.7"
+      },
+      {
+        "id": "route_feasible",
+        "pass": false,
+        "note": "False"
+      },
+      {
+        "id": "feasibility_includes_crosswind",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "feasibility_includes_fuel",
+        "pass": true,
+        "note": ""
+      }
+    ],
+    "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+    "exit_code": 0,
+    "raw_stdout_head": "{\"case\": \"tb-cargo-plan\", \"checker_version\": \"0.2\", \"contract_revision\": \"b12-b14-b13a-tighten-2026-10-27\", \"reward\": 0, \"weighted\": 70.37, \"passed\": 19, \"total\": 27, \"critical_ok\": false, \"checks\": [{\"id\": \"input_integrity\", \"pass\": true, \"note\": \"ok\"}, {\"id\": \"code_rerun\", \"pass\": true, \"note\": \"ok\"}, {\"id\": \"plan_structure\", \"pass\": true, \"note\": \"route=6 legs=5\"}, {\"id\": \"route_hub\", \"pass\": true, \"note\": \"NAN..NAN\"}, {\"id\": \"route_order\", \"pass\": true, \"note\": \"['SUV', 'TBU', 'APW', 'FUN'] "
+  },
+  "integrity": {
+    "contamination_hits": [],
+    "scan_patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "missing_trace": false
+  },
+  "integrity_verdict": "clean",
+  "stratum": "wb_gateway_delivery",
+  "stratum_display": "WB 产品交付态（历史证据指向网关；本批路由状态单列）",
+  "timeout_s": 2400,
+  "managed_unknowns": [
+    {
+      "item": "gateway_upstream_model",
+      "impact": "网关服务端上游模型权重/供应商不可观测；不能参与同模型/同路由因果比较",
+      "next_step": "如需闭环向产品方索取披露",
+      "stop_condition": "披露或本批结束即停"
+    },
+    {
+      "item": "gateway_host_current",
+      "impact": "本批无被动网络取证时 actual_gateway 不可观察",
+      "next_step": "route_validation=current_not_observed + r2 历史依据",
+      "stop_condition": "本批不主动做网络取证（无干扰纪律）"
+    },
+    {
+      "item": "effort_upstream_interpretation",
+      "impact": "declared thought_level=low 的上游解释不可观测",
+      "next_step": "逐场登记 DB 会话行值",
+      "stop_condition": "本批结束即停"
+    },
+    {
+      "item": "internal_tools_skills",
+      "impact": "产品内部工具/skills 开关不可见",
+      "next_step": "以 trace 可见行为审计为准",
+      "stop_condition": "本批结束即停"
+    }
+  ],
+  "timed_out": false,
+  "stop_info": null,
+  "driver": {
+    "snapshot_sha256": "f9d4b076811bebad80ff952dd719060214f8ade83033227ab7d029bf6a0bec23",
+    "sigterm_branch": "structurally disabled (runner/safe_driver.py)"
+  },
+  "inputs_verification": {
+    "ok": true,
+    "method": "sha256 vs contract.case_snapshots.files（机械比对）"
+  },
+  "evidence_paths": {
+    "prompt": "prompt.txt",
+    "stdout": "trace/70ed7a91-1e51-452e-832f-c1177b2fdc68.jsonl",
+    "stderr": "agent.stderr.txt",
+    "session": "agent-session",
+    "workspace": "workspace"
+  },
+  "native_terminal": {
+    "file": "native-terminal.json",
+    "sha256": "87a1d6866d205fd3a436e58aef774ba3fab91632e429bfb88b216b28bbb30618"
+  },
+  "app_asar_sha256_after": "12a2be53ec7db2943a9958f6986d7807adcf083bd79b307d26706d83750effa7",
+  "app_version_after": "5.9.3"
+}

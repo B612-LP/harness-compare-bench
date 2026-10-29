@@ -1,0 +1,65 @@
+{
+  "kind": "termination_self_test",
+  "tool": "lab.py(l4-dsh)",
+  "spec": "l4-20261029-dsh",
+  "at": "2026-10-29T22:25:45+08:00",
+  "zero_model": true,
+  "counts": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "cases": [
+    {
+      "case": "child-writing-before-stop",
+      "pass": true,
+      "detail": "probe bytes=8"
+    },
+    {
+      "case": "term-only-parent-exited-group-alive",
+      "pass": true,
+      "detail": "parent returncode=-15 group_alive=True（旧实现此处误 verified=True）"
+    },
+    {
+      "case": "term-only-verified-false",
+      "pass": true,
+      "detail": "{\"signal\": \"SIGTERM\", \"verified_stop\": false, \"group_confirmed_gone\": false}"
+    },
+    {
+      "case": "child-lived-through-term-only-window",
+      "pass": true,
+      "detail": "bytes 8→111 during TERM-only window（子进程跨 TERM 持续写）"
+    },
+    {
+      "case": "kill-group-confirmed-gone",
+      "pass": true,
+      "detail": "{\"signal\": \"SIGKILL\", \"escalated\": true, \"verified_stop\": true, \"group_confirmed_gone\": true}"
+    },
+    {
+      "case": "child-actually-stopped",
+      "pass": true,
+      "detail": "bytes stable at 211"
+    },
+    {
+      "case": "normal-parentexit-childalive-cleaned",
+      "pass": true,
+      "detail": "{\"phase\": \"normal_exit\", \"signal\": null, \"verified_stop\": true, \"group_confirmed_gone\": true}"
+    },
+    {
+      "case": "normal-exit-probe-only-no-signal",
+      "pass": true,
+      "detail": "{\"phase\": \"normal_exit\", \"probe\": \"verified_gone\", \"signal\": null, \"verified_stop\": true, \"group_confirmed_gone\": true}"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py",
+      "sha256_8": "55694282",
+      "sha256": "556942828bc737578c10be40bb3d2b55824b6641d89ef6a3370edff35e76ec88",
+      "bytes": 94035,
+      "at": "2026-10-29T22:25:45+08:00",
+      "line": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py · 55694282 · 94035B · 2026-10-29T22:25:45+08:00"
+    }
+  ],
+  "live_doc_drift": []
+}

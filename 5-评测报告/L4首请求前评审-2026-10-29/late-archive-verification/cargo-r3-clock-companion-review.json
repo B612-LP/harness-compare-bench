@@ -1,0 +1,28 @@
+{
+  "category": "offline_recompute/late_archive_clock_semantics",
+  "observed_at": "2026-10-30T00:18:41.613596+08:00",
+  "run_id": "l4-20261029-cli-dsh-tb-cargo-plan-r3",
+  "author_companion_sha256": "c257e9e3184d57b210692994fcba6de75418b5de0eea51dbf4d7662d480b048d",
+  "original_record_sha256": "51159bfb16be2f2c859c80fa6d75a4ee7e25e1c62611d716ac3c3098c331dd2e",
+  "author_record_SHA_claim_matches_our_hash": true,
+  "collected_at_field_present": false,
+  "original_record_at": "2026-10-30T00:02:29+08:00",
+  "author_semantic_declaration": {
+    "at_in_this_record_is": "author-side wall-clock captured at record-dict construction, which executed AFTER the copy loop completed — i.e. record authoring/completion time, NOT a separately measured collection-start",
+    "collection_start_time": "UNKNOWN — not captured as a field by this collector run; not guessed, not hand-filled, not backfilled",
+    "why_field_missing": "cargo-r3 collector variant emitted only 'at'; the other five records carry 'at'=='collected_at' (single pre-copy now() shared by both keys) — field-schema drift between collector invocations, disclosed as-is"
+  },
+  "reviewer_current_copy_birthtime_UTC": "2026-10-29T16:01:36.208847+00:00",
+  "reviewer_current_copy_mtime_UTC": "2026-10-29T16:01:36.208847+00:00",
+  "mtime_equals_birthtime_now": true,
+  "collection_start_time": null,
+  "collection_start_status": "unknown, not inferred from at/birthtime",
+  "limits": [
+    "Author inline-collector construction order is a declaration; no preserved collector source exists for independent reconstruction.",
+    "Current APFS copy creation metadata is independently observed, not an independently witnessed historical collection-start or completion clock.",
+    "Copy birthtime can constrain copy creation, but does not alone prove copying completed before the declared at value.",
+    "Copy mtime equals birthtime here; no source-mtime preservation or global-source read is claimed."
+  ],
+  "source_and_companion_unchanged": true,
+  "live_doc_drift": []
+}

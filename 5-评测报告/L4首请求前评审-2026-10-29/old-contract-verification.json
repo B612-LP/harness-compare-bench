@@ -1,0 +1,38 @@
+{
+  "category": "offline_recompute",
+  "generated_at": "2026-10-29T12:13:43.139071+00:00",
+  "note": "Read-only verify; file hashes mechanically checked, no semantic reading of answer assets or checker execution, zero APIs",
+  "live_doc_drift": [],
+  "checks": [
+    {
+      "version": "v2",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/可信冻结-2026-10-29-v2/freeze.py",
+        "verify",
+        "--root",
+        "/Users/b612-lp/Documents/harness-compare-bench"
+      ],
+      "source_sha256": "d24baaf24dd18064346f838165e1062125191bad6abedae3d5c7ab07ef6abe1e",
+      "exit_code": 0,
+      "stdout": "{\n  \"ok\": true,\n  \"action\": \"verify\",\n  \"summary\": {\n    \"rule_version\": \"freeze-20261029-v2\",\n    \"collected_at\": \"2026-10-29T02:12:00+08:00\",\n    \"historical_rows\": 96,\n    \"historical_original_sources\": 326,\n    \"source_counts\": {\n      \"verified\": 242,\n      \"external_not_packaged\": 84\n    },\n    \"registered_counts_not_all_time_totals\": {\n      \"product_run\": 110,\n      \"self_test\": 8,\n      \"offline_recompute\": 7,\n      \"grading_regression\": 3,\n      \"bare_model_probe\": 5,\n      \"interface_preflight\": 11\n    },\n    \"official_counts\": {\n      \"A_same_model\": 10,\n      \"B_native\": 0\n    },\n    \"historical_cells\": 25,\n    \"coverage\": {\n      \"scope\": \"selected individually locatable invocation/batch receipts, not exhaustive historical totals\",\n      \"cutoff\": \"2026-10-28T17:25:58.460451+00:00\",\n      \"self_test\": \"3 historical standalone logs +1 supplemented failed engine invocation +3 raw-captured passing invocations(32/35/38 assertions); additional imported selftests counted by their own event IDs\",\n      \"offline_recompute\": \"5 separately identified result batches including archived10-27 replay; not each result row\",\n      \"grading_regression\": \"2 archived and 1 fresh lead invocation, nested selftests not additional events\",\n      \"interface_preflight\": \"one external WB sandbox preflight reference, not public verified evidence\",\n      \"bare_model_probe\": \"5 canonical bare-model records from 96-row ledger\",\n      \"product_run\": \"91 canonical tool/product executions in ledger, including invalid/research; exploratory-probe uses product tools and is not bare model\",\n      \"excluded\": \"source scans, syntax checks, future reviewer validation and subsequent unregistered invocations not silently counted\",\n      \"original_times\": \"retain explicit receipt timestamps/verbatim time lines; generated_at/date not automatically runtime; unknown if no explicit field\",\n      \"imported_events\": \"build-recipe pins exact imported envelopes; their source collection times are preserved per event, not inferred from batch names\"\n    },\n    \"import_pins\": [\n      {\n        \"path\": \"3-表现现场/r20261029-mechanism/experiment-events.json\",\n        \"sha256\": \"425f223a1b38774a371831596264e962a38b83c02949f4e5104c2d4a736db13c\"\n      },\n      {\n        \"path\": \"3-表现现场/r1030-formal-a1/formal-a1-events.json\",\n        \"sha256\": \"c8eb316078fe55f14923cc6936b24d964d2dce413d6f56912e846e6dc42383f6\"\n      },\n      {\n        \"path\": \"1-评测方案/机制复制-2026-10-29/replication-events.json\",\n        \"sha256\": \"63303c608fe0e06872e4f239227a00351beff2dd13de6f1ff8a1865a12ce2d18\"\n      }\n    ],\n    \"source_map\": {},\n    \"no_cross_group_ranking\": true,\n    \"current_config_hash_is_not_historical_version\": true\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "version": "v3",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/可信冻结-2026-10-29-v3/freeze.py",
+        "verify",
+        "--root",
+        "/Users/b612-lp/Documents/harness-compare-bench"
+      ],
+      "source_sha256": "3896e6aa23f70a844dadd5deecfdecfb0af512ed1a57bdeb252cc54d41f86275",
+      "exit_code": 0,
+      "stdout": "{\n  \"ok\": true,\n  \"action\": \"verify\",\n  \"summary\": {\n    \"rule_version\": \"freeze-20261029-v3\",\n    \"collected_at\": \"2026-10-29T16:31:12+08:00\",\n    \"live_doc_drift\": [],\n    \"historical_rows\": 96,\n    \"historical_original_sources\": 326,\n    \"source_counts\": {\n      \"verified\": 242,\n      \"external_not_packaged\": 84\n    },\n    \"registered_counts_not_all_time_totals\": {\n      \"product_run\": 110,\n      \"self_test\": 13,\n      \"offline_recompute\": 7,\n      \"grading_regression\": 3,\n      \"bare_model_probe\": 5,\n      \"interface_preflight\": 13\n    },\n    \"official_counts\": {\n      \"A_same_model\": 0,\n      \"B_native\": 0\n    },\n    \"historical_cells\": 25,\n    \"coverage\": {\n      \"scope\": \"selected individually locatable invocation/batch receipts, not exhaustive historical totals\",\n      \"cutoff\": \"2026-10-29T02:12:00+08:00\",\n      \"self_test\": \"3 historical standalone logs +1 supplemented failed engine invocation +3 raw-captured passing invocations(32/35/38 assertions); additional imported selftests counted by their own event IDs\",\n      \"offline_recompute\": \"5 separately identified result batches including archived10-27 replay; not each result row\",\n      \"grading_regression\": \"2 archived and 1 fresh lead invocation, nested selftests not additional events\",\n      \"interface_preflight\": \"one external WB sandbox preflight reference, not public verified evidence\",\n      \"bare_model_probe\": \"5 canonical bare-model records from 96-row ledger\",\n      \"product_run\": \"91 canonical tool/product executions in ledger, including invalid/research; exploratory-probe uses product tools and is not bare model\",\n      \"excluded\": \"source scans, syntax checks, future reviewer validation and subsequent unregistered invocations not silently counted\",\n      \"original_times\": \"retain explicit receipt timestamps/verbatim time lines; generated_at/date not automatically runtime; unknown if no explicit field\",\n      \"imported_events\": \"build-recipe pins exact imported envelopes; their source collection times are preserved per event, not inferred from batch names\",\n      \"formal_a1_addendum\": \"r1030-formal-a1 首批正式批次：5 个判分器自测收据 + CLI 接口预检（零模型调用） + WorkBuddy 准入预检；产品运行事件由导入登记，不入 registry。\"\n    },\n    \"import_pins\": [\n      {\n        \"path\": \"3-表现现场/r20261029-mechanism/experiment-events.json\",\n        \"sha256\": \"425f223a1b38774a371831596264e962a38b83c02949f4e5104c2d4a736db13c\"\n      },\n      {\n        \"path\": \"3-表现现场/r1030-formal-a1/formal-a1-events.json\",\n        \"sha256\": \"c8eb316078fe55f14923cc6936b24d964d2dce413d6f56912e846e6dc42383f6\"\n      },\n      {\n        \"path\": \"1-评测方案/机制复制-2026-10-29/replication-events.json\",\n        \"sha256\": \"63303c608fe0e06872e4f239227a00351beff2dd13de6f1ff8a1865a12ce2d18\"\n      }\n    ],\n    \"source_map\": {},\n    \"no_cross_group_ranking\": true,\n    \"current_config_hash_is_not_historical_version\": true\n  }\n}\n",
+      "stderr": ""
+    }
+  ]
+}

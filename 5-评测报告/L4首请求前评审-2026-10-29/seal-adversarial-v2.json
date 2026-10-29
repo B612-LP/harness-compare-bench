@@ -1,0 +1,105 @@
+{
+  "category": "self_test",
+  "scope": "Independent synthetic git only; no APIs, no payload execution, no real repo changes",
+  "generated_at": "2026-10-29T12:17:52.168513+00:00",
+  "source_sha256": "be7f0e5ab889c2331407df8857fd5e13abc5772c0fb36f94d516d3a1d5d46564",
+  "reviewer_script_sha256": "a50aa613b15de1fb8c937f925296a7bba711cde79f9e277dcd0718951a3084c9",
+  "live_doc_drift": [],
+  "checks": [
+    {
+      "id": "positive",
+      "expected_rejected": false,
+      "pass": true,
+      "observed": {
+        "rejected": false,
+        "binding": {
+          "schema_version": 1,
+          "design_commit": "856a527f3d12fc3ba4aadefff1d0d7e2217fbea7",
+          "preregistration_commit": "9869dd7f027ee3c2084b1bbb37f669db2955fe40",
+          "execution_seal_commit": "9869dd7f027ee3c2084b1bbb37f669db2955fe40",
+          "registered_at": "2026-10-29T20:17:51+08:00",
+          "execution_manifest_sha256": "428d5402b6dfff38bee89777a2bff9d9c3e2bf7cec6397c4603bc762377a70b5",
+          "plan_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "contract_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "released_for_model_calls": true,
+          "generated_at": "2026-10-29T20:17:51+08:00",
+          "live_doc_drift": []
+        }
+      },
+      "manifest_file_count": 18,
+      "payload_executed": false
+    },
+    {
+      "id": "empty_files",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Manifest files must be nonempty"
+      },
+      "manifest_file_count": 0,
+      "payload_executed": false
+    },
+    {
+      "id": "omitted_clarification",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Manifest missing required sources: ['1-plan/loop4/CLARIFICATION-L4-1.md']"
+      },
+      "manifest_file_count": 17,
+      "payload_executed": false
+    },
+    {
+      "id": "same_bytes_source_symlink",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Expected regular non-symlink source: 1-评测方案/工具链/l4-execution/gate.py"
+      },
+      "manifest_file_count": 18,
+      "payload_executed": false
+    },
+    {
+      "id": "new_unsealed_py",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Manifest missing required sources: ['1-评测方案/工具链/l4-execution/new-unsealed.py']"
+      },
+      "manifest_file_count": 18,
+      "payload_executed": false
+    },
+    {
+      "id": "runtime_symlink_directory",
+      "expected_rejected": true,
+      "pass": false,
+      "observed": {
+        "rejected": false,
+        "binding": {
+          "schema_version": 1,
+          "design_commit": "856a527f3d12fc3ba4aadefff1d0d7e2217fbea7",
+          "preregistration_commit": "b5fc0c662868364cf524969d92e9536e9af7c466",
+          "execution_seal_commit": "b5fc0c662868364cf524969d92e9536e9af7c466",
+          "registered_at": "2026-10-29T20:17:52+08:00",
+          "execution_manifest_sha256": "e0157595c3d3c652e79ab730a730ee662d3ae000d2e93e750114705ea4c4b850",
+          "plan_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "contract_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "released_for_model_calls": true,
+          "generated_at": "2026-10-29T20:17:52+08:00",
+          "live_doc_drift": []
+        }
+      },
+      "manifest_file_count": 18,
+      "payload_executed": false
+    }
+  ],
+  "passed": false
+}

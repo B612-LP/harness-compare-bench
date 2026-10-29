@@ -1,0 +1,50 @@
+{
+ "kind": "final_audit_stage_report",
+ "tool": "final_audit.py",
+ "at": "2026-10-30T00:03:38+08:00",
+ "stage": "codex",
+ "counts": {
+  "PASS": 7,
+  "FAIL": 0,
+  "PENDING-E": 0
+ },
+ "results": [
+  {
+   "check": "X1_codex_identity_exact_6",
+   "status": "PASS",
+   "detail": "dirs=6 plan=6"
+  },
+  {
+   "check": "X2_meta_scores_and_judge_case",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "X3_scores_3x70_3x70_37037037",
+   "status": "PASS",
+   "detail": "{\"l4-20261029-cli-codex-dabstep-payments-10-r1\": 70.0, \"l4-20261029-cli-codex-dabstep-payments-10-r2\": 70.0, \"l4-20261029-cli-codex-dabstep-payments-10-r3\": 70.0, \"l4-20261029-cli-codex-tb-cargo-plan-r1\": 70.37037037, \"l4-20261029-cli-codex-tb-cargo-plan-r2\": 70.37037037, \"l4-20261029-cli-codex-tb-c"
+  },
+  {
+   "check": "X4_hash_chain_prompt_agent_stderr",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "X5_no_restarts_no_retries",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "X6_mechanical_hit_trace_scan",
+   "status": "PASS",
+   "detail": "{\"per_slot\": {\"l4-20261029-cli-codex-dabstep-payments-10-r1\": {\"harness-compare-bench\": 0, \"reference/\": 0, \"/../\": 0, \"truth\": 0, \"solution\": 3, \"outside_ws_paths\": []}, \"l4-20261029-cli-codex-dabstep-payments-10-r2\": {\"harness-compare-bench\": 0, \"reference/\": 0, \"/../\": 0, \"truth\": 0, \"solution\": 2, \"outside_ws_paths\": []}, \"l4-20261029-cli-codex-dabstep-payments-10-r3\": {\"harness-compare-bench\": 0, \"reference/\": 0, \"/../\": 0, \"truth\": 0, \"solution\": 3, \"outside_ws_paths\": []}, \"l4-20261029-cli-codex-tb-cargo-plan-r1\": {\"harness-compare-bench\": 1, \"reference/\": 0, \"/../\": 0, \"truth\": 0, \"solution\": 0, \"outside_ws_paths\": [\"/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/\"]}, \"l4-20261029-cli-codex-tb-cargo-plan-r2\": {\"harness-compare-bench\": 0, \"reference/\": 0, \"/../\": 0, \"truth\": 0, \"solution\": 0, \"outside_ws_paths\": []}, \"l4-20261029-cli-codex-tb-cargo-plan-r3\": {\"harness-compare-bench\": 1, \"reference/\": 0, \"/../\": 0, \"truth\": 0, \"solution\": 0, \"outside_ws_paths\": [\"/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/\"]}}, \"note\": \"计数供 judge 逐槽路径-vs-引用裁定；本审计不动 formal 判定\"}"
+  },
+  {
+   "check": "X7_formal_eligible_recorded_not_admission",
+   "status": "PASS",
+   "detail": "runner_formal_eligible={\"l4-20261029-cli-codex-dabstep-payments-10-r1\": true, \"l4-20261029-cli-codex-dabstep-payments-10-r2\": true, \"l4-20261029-cli-codex-dabstep-payments-10-r3\": true, \"l4-20261029-cli-codex-tb-cargo-plan-r1\": true, \"l4-20261029-cli-codex-tb-cargo-plan-r2\": true, \"l4-20261029-cli-codex-tb-cargo-plan-r3\": true}（仅记录；独立 gate 首批真实 rows=false（发射缺口），formal 裁定归 judge，不以该字段为完整准入）"
+  }
+ ],
+ "live_doc_drift": [],
+ "note": "PENDING-E=输入未到，非通过也非失败；FAIL=终审发现"
+}

@@ -1,0 +1,162 @@
+{
+ "kind": "final_audit_stage_report",
+ "tool": "final_audit.py",
+ "at": "2026-10-29T21:44:47+08:00",
+ "stage": "all",
+ "counts": {
+  "PASS": 17,
+  "FAIL": 0,
+  "PENDING-E": 9
+ },
+ "results": [
+  {
+   "check": "F1_product_total_17",
+   "status": "PASS",
+   "detail": "actual=17"
+  },
+  {
+   "check": "F1_product_counts",
+   "status": "PASS",
+   "detail": "{\"codex\": 6, \"dsh\": 6, \"workbuddy\": 5}"
+  },
+  {
+   "check": "F1_probe_total_18",
+   "status": "PASS",
+   "detail": "actual=18"
+  },
+  {
+   "check": "F1_identity_unique",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "F1_product_order_dense",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "F1_cli_rep_structure",
+   "status": "PASS",
+   "detail": "[]"
+  },
+  {
+   "check": "F1_timeouts_frozen",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "F1_probe_grid_3x2x3",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "F1_probe_order_dense",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "F1_probe_once_per_slot",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "F1_no_replacements_no_extra",
+   "status": "PASS",
+   "detail": "replacements=0 extra=0"
+  },
+  {
+   "check": "F1_whole_restarts_zero",
+   "status": "PASS",
+   "detail": "0"
+  },
+  {
+   "check": "F2_contract_plan_sha_matches_bytes",
+   "status": "PASS",
+   "detail": "contract=e8dfb73f actual=e8dfb73f"
+  },
+  {
+   "check": "F2_denominators_present",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "F2_strata_present",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "F2_case_snapshots_5",
+   "status": "PASS",
+   "detail": "actual=5"
+  },
+  {
+   "check": "F2_old_contracts_untouched_flag",
+   "status": "PASS",
+   "detail": "False"
+  },
+  {
+   "check": "F3_slot_accounting",
+   "status": "PENDING-E",
+   "missing_inputs": []
+  },
+  {
+   "check": "F4_u1_e_registration",
+   "status": "PENDING-E",
+   "missing_inputs": [
+    "E 提交 ID + execution-manifest.json + runtime-binding.json（lead 封印后）",
+    "真实 meta.registered_at 与 started_at"
+   ]
+  },
+  {
+   "check": "F5_file_hashes",
+   "status": "PENDING-E",
+   "missing_inputs": [
+    "各槽原始证据文件（母本+副本）与收据内嵌 SHA 清单"
+   ]
+  },
+  {
+   "check": "F6_cache_raw_fields",
+   "status": "PENDING-E",
+   "missing_inputs": [
+    "18 槽原始 body/SSE + usage 原字段（missing/null/0/正值四态）"
+   ]
+  },
+  {
+   "check": "F7_dual_archive",
+   "status": "PENDING-E",
+   "missing_inputs": [
+    "两个 sandbox 副本的重放收据 + equivalent_simulation 标注 + 适配 diff"
+   ]
+  },
+  {
+   "check": "F8_wb_route_discipline",
+   "status": "PENDING-E",
+   "missing_inputs": [
+    "WB 五槽原生 trace + declared_alias 选择证据 + app/asar 哈希"
+   ]
+  },
+  {
+   "check": "F9_pollution",
+   "status": "PENDING-E",
+   "missing_inputs": [
+    "逐场 isolation.ok + 独立无污染裁定 + prompt 哈希清单"
+   ]
+  },
+  {
+   "check": "F10_stop_semantics",
+   "status": "PENDING-E",
+   "missing_inputs": [
+    "逐槽停止事件记录（401/4xx/5xx 分类与余槽 not_executed 清单）"
+   ]
+  },
+  {
+   "check": "F11_credential_scan_post_e",
+   "status": "PENDING-E",
+   "missing_inputs": [
+    "E 后对真实证据重跑 credential_scan.py（含 zstd 会话）"
+   ]
+  }
+ ],
+ "live_doc_drift": [],
+ "note": "PENDING-E=输入未到，非通过也非失败；FAIL=终审发现"
+}

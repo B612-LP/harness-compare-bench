@@ -1,0 +1,66 @@
+{
+  "kind": "judge_fake_e2e_receipt_v2",
+  "harness": "wb_fake_e2e.py",
+  "harness_sha256": "ba2e531726bdf70818e035b164417550ee064b340d5f83f115f7b2edd1ce92ee",
+  "snapshot": "/private/tmp/judge-l4/all-20261029T220156+0800",
+  "snapshot_head_shas": {
+    "src-wb/runner/l4_wb_runner.py": "d4cba08d9a5c892794c5a413cca9d4198c408de841a93c094e1c2c78fc1a4594",
+    "src-wb/runner/safe_driver.py": "8c90165f7896adff4379435bc8721e5f63434cdb2f48e84940b046524fdb54c6",
+    "src-wb/runner/verify_execution.py": "a2d5b24281a556fa78cca69a566760e7df93fb27d8c52f62eeb9a192772bf2c4",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "3987b1728fc342db93e2509ac49f6c43f23c62b8735053c12876708079e7b7cb",
+    "execution_seal.py": "744ea116420076384365a691750b97830b4ecb0d8e70a30933d8e8c607e2fd48"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-wb2-20261029T220156+0800/repo",
+  "binding_E": "26a09039df575ac1b8272d9c9356de1e94d86bfa",
+  "registered_at": "2026-10-29T22:10:40+08:00",
+  "generated_at": "2026-10-29T22:20:41+08:00",
+  "cases": {
+    "W3_alias_gate": {
+      "verdict": "evidence",
+      "detail": {
+        "runner_verdict": "alias 不可观察或非声明值（deepseek-v3.2-exp）→ 停该槽，仅诊断",
+        "accounting_state": "executed",
+        "gate": {
+          "slot": "l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "formal_admission": false,
+          "fails": [
+            "order 与 plan 不一致：None",
+            "status=ok 但 exit_code=None≠0",
+            "required_original_evidence 缺：['checker']",
+            "judge.checker_sha256 缺失或与 contract 不一致",
+            "score-receipt.checker_sha256 缺失或与 contract 不一致",
+            "原始 checker.stdout 缺失",
+            "raw checker checks 缺失（无法计数重算）",
+            "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+          ],
+          "fails_n": 8
+        }
+      }
+    },
+    "W12_native_stop_gate_pair": {
+      "verdict": "evidence",
+      "detail": {
+        "skipped": "dry-evidence 缺失（前置用例失败），无 base 证据"
+      }
+    },
+    "W13_normal_completed_admission": {
+      "verdict": "evidence",
+      "detail": {
+        "skipped": "dry-evidence 缺失（前置用例失败）"
+      }
+    }
+  },
+  "sentinel": {
+    "sentinel-adm.log": {
+      "attempts": 0,
+      "non_local": 0
+    },
+    "sentinel.log": {
+      "attempts": 0,
+      "non_local": 0
+    }
+  },
+  "live_doc_drift": null
+}

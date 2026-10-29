@@ -1,0 +1,102 @@
+{
+  "category": "self_test",
+  "scope": "Independent synthetic replay semantic disclosure and projection coverage; no historical data or execution",
+  "generated_at": "2026-10-29T13:33:33.032654+00:00",
+  "live_doc_drift": [],
+  "source_sha256": "61fcd9f013559cf611da22e80673f59b8e5d00a190469b7eb59847ed0085863f",
+  "dsh_source_sha256": "c6366d9496bbc99738dfa76de1e25758c7a058e38150b4faa0eb32d480870c63",
+  "reviewer_script_sha256": "a033bdde9f7a3f9267ff36aca1144e1204fc1dc0384e21f58fe18326a9a3f80b",
+  "checks": [
+    {
+      "id": "master-immutable",
+      "pass": true
+    },
+    {
+      "id": "legacy-usage-unknown-no-session-rescue",
+      "pass": true
+    },
+    {
+      "id": "legacy-integrity-vacuous",
+      "pass": true
+    },
+    {
+      "id": "score-both-explicitly-not-evaluated",
+      "pass": true
+    },
+    {
+      "id": "rebuilt-in-memory-bytes-and-hash-real",
+      "pass": true
+    },
+    {
+      "id": "full-projection-retains-reasoning",
+      "pass": false
+    },
+    {
+      "id": "full-projection-retains-tool-call",
+      "pass": false
+    },
+    {
+      "id": "full-projection-retains-full-tool-result",
+      "pass": false
+    },
+    {
+      "id": "dsh-reference-retains-these-markers",
+      "pass": true
+    }
+  ],
+  "observation": {
+    "replay_events": [
+      {
+        "type": "session",
+        "sessionId": "synthetic-session"
+      },
+      {
+        "type": "text",
+        "text": "ASSISTANT_TEXT_SYNTHETIC"
+      },
+      {
+        "type": "status",
+        "phase": "step_end",
+        "usage": {
+          "input_tokens": 100,
+          "output_tokens": 10
+        }
+      },
+      {
+        "type": "final",
+        "text": "ASSISTANT_TEXT_SYNTHETIC"
+      }
+    ],
+    "replay_event_types": [
+      "session",
+      "text",
+      "status",
+      "final"
+    ],
+    "dsh_event_types": [
+      "session",
+      "status",
+      "status",
+      "thinking",
+      "text",
+      "tool_call",
+      "tool_result",
+      "status",
+      "status",
+      "final"
+    ],
+    "replay_bytes": 254,
+    "dsh_bytes": 27768,
+    "replay_sha256": "d2aef335a51960c9a2113a431e5a9c9d6fb7f28fc0779519c9489156643f1fcb",
+    "dsh_sha256": "f75aef751d9b4ef53459ad632e9512ff4c4ba4f16ca49536906ed71e2b73cbc8",
+    "replay_disclosure": "两副本均为等价模拟：legacy 以相同 rmtree 顺序复现 r1030#1，其后处理按'读已丢失日志'的旧语义推演（usage/integrity unknown，不从会话补造）；current 侧为 staging 保留+实际重建+实测扫描。未原样调用历史 pipeline，推断边界=归档语义级而非进程级；分数维度双侧 not_evaluated。",
+    "current_full_stream_claim": {
+      "status": "rebuilt",
+      "events": 4,
+      "bytes": 254,
+      "sha256": "d2aef335a51960c9a2113a431e5a9c9d6fb7f28fc0779519c9489156643f1fcb",
+      "method": "actual re-projection of session lines (caps removed; commit-point semantics)"
+    }
+  },
+  "passed": false
+}

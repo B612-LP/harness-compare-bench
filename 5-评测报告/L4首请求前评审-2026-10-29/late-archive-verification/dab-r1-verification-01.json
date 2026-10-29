@@ -1,0 +1,655 @@
+{
+  "category": "offline_recompute/late_archive_verification",
+  "run_id": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+  "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+  "verified_at": "2026-10-30T00:04:45.438750+08:00",
+  "collected_at": "2026-10-29T23:50:35+08:00",
+  "collected_after_finished_seconds": 854.0,
+  "status": "identity_and_structural_completeness_supported",
+  "passed": true,
+  "counts": {
+    "checks": 36,
+    "passed": 36,
+    "unknown_or_failed": 0
+  },
+  "reviewer_script_sha256": "0cd90f5553de823dd67bebe96c7a04b2456f5468581dc87ddda785dda08757b9",
+  "recovery_record_sha256": "8c63da316f280e9fed20b63ec22db994bfeecca67908f0b9ce944b743f242b82",
+  "original_prompt_sha256": "e507efee260b46095a09a1191cfa11c570e51e8f074f4cc7d448445dd1af6b2f",
+  "original_stdout_sha256": "f2d20b5feebabbbdea06f9d13d95a9c4abc84ad3ff350c66bb8b1d74790340f0",
+  "original_meta_sha256": "572f394aa3977d3a8228922f192de7580ce1194115a3cc462a7ba271f886cc7c",
+  "per_file": [
+    {
+      "copy": "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "declared_source_path_not_read": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r1--/23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "compressed_sha256": "02e3f18d6745fb22b3c098b1643af1b3460d86082535d658a7e1ce6fa2b9fed3",
+      "compressed_bytes": 213022,
+      "copy_mtime": "2026-10-29T15:34:54.922623+00:00",
+      "source_stable_after_copy_claim_from_record": true,
+      "decompress_exit_code": 0,
+      "decompress_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decompressed_bytes": 848069,
+      "decompressed_sha256": "c461f0bcf3667a581beff481ad1d544b32b7dd910c0049de80b551add408f948",
+      "jsonl_object_rows": 159,
+      "bad_jsonl_rows": [],
+      "ends_in_newline": true,
+      "session_id": "23afbcc7-dde2-46ad-aa8d-f1680ede9573",
+      "delegation_depth": 1,
+      "cwd_exact_original_meta": true,
+      "event_time_min": "2026-10-29T15:31:35.911000+00:00",
+      "event_time_max": "2026-10-29T15:34:54.919000+00:00",
+      "malformed_time_fields": 0,
+      "event_type_counts": {
+        "session": 1,
+        "subagent/descriptor": 1,
+        "sandbox/mode": 1,
+        "approval/policy": 1,
+        "permission/preset": 1,
+        "agent/inbox/spliced": 4,
+        "turn/start": 1,
+        "step/start": 22,
+        "system/message": 1,
+        "user/message": 4,
+        "request/header": 1,
+        "request/context": 1,
+        "session/title": 1,
+        "session-log-deepseek/delivery-accepted": 22,
+        "assistant/message": 22,
+        "tool/call": 26,
+        "tool/result": 26,
+        "step/end": 22,
+        "turn/end": 1
+      },
+      "last_event_type": "turn/end",
+      "tool_call_records": 26,
+      "tool_result_append_records": 26,
+      "unmatched_call_ID_count": 0,
+      "unmatched_result_ID_count": 0,
+      "initial_user_text_sha256": "27e9fc27a3e9ec6282648851432ef984c2110253517acf2da8935147c0723ec9",
+      "initial_user_text_bytes": 1765,
+      "root_prompt_exact_if_treated_as_root": false,
+      "late_usage_commitpoint_summary": {
+        "assistant_message_records": 22,
+        "usage_dict_records": 22,
+        "fields": {
+          "inputTokens": {
+            "present_numeric": 22,
+            "explicit_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 28713
+          },
+          "outputTokens": {
+            "present_numeric": 22,
+            "explicit_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 35207
+          },
+          "cacheReadTokens": {
+            "present_numeric": 22,
+            "explicit_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 862720
+          },
+          "cacheWriteTokens": {
+            "present_numeric": 22,
+            "explicit_zero": 22,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 0
+          },
+          "reasoningTokens": {
+            "present_numeric": 0,
+            "explicit_zero": 0,
+            "missing": 22,
+            "null": 0,
+            "sum_if_all_messages_numeric": null
+          }
+        },
+        "interpretation": "late committed assistant-message usage records, not original meta backfill or raw HTTP attempt denominator"
+      },
+      "identity_role": "child-not-root-prompt",
+      "parent_session_IDs": [
+        "session-e4f07e0c-375c-4618-84f2-3bfdae54bf32"
+      ],
+      "delegated_prompt_exact_links": [
+        {
+          "parent_call_id": "call_00_d5z9CGAr51TeO5MejLw16290",
+          "argument_path": ".prompt",
+          "child_initial_block_index": 0,
+          "byte_exact": true,
+          "prompt_bytes": 1288,
+          "prompt_sha256": "55e760c4b87a875c8afcc0ccd127303d23c5b0d2927fe49c5cc4afe5583db718"
+        }
+      ]
+    },
+    {
+      "copy": "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "declared_source_path_not_read": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r1--/session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "compressed_sha256": "17ddfd0172a9cd05f6ea9a6c97e705828967fbff6c66b34230f4ec96e02aaddc",
+      "compressed_bytes": 375048,
+      "copy_mtime": "2026-10-29T15:36:21.533113+00:00",
+      "source_stable_after_copy_claim_from_record": true,
+      "decompress_exit_code": 0,
+      "decompress_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decompressed_bytes": 1365529,
+      "decompressed_sha256": "ca2d29eb156cc3255e8ccd41d79f6ec2cdd72a7e040c3db6c5cc47356894b50a",
+      "jsonl_object_rows": 351,
+      "bad_jsonl_rows": [],
+      "ends_in_newline": true,
+      "session_id": "session-e4f07e0c-375c-4618-84f2-3bfdae54bf32",
+      "delegation_depth": 0,
+      "cwd_exact_original_meta": true,
+      "event_time_min": "2026-10-29T15:28:05.096000+00:00",
+      "event_time_max": "2026-10-29T15:36:21.531000+00:00",
+      "malformed_time_fields": 0,
+      "event_type_counts": {
+        "session": 1,
+        "permission/preset": 1,
+        "sandbox/mode": 1,
+        "approval/policy": 1,
+        "agent/inbox/spliced": 5,
+        "turn/start": 1,
+        "step/start": 54,
+        "system/message": 1,
+        "user/message": 5,
+        "request/header": 1,
+        "request/context": 1,
+        "session/title": 1,
+        "session-log-deepseek/delivery-accepted": 54,
+        "assistant/message": 54,
+        "tool/call": 57,
+        "tool/result": 57,
+        "step/end": 54,
+        "subagent/catalog": 1,
+        "turn/end": 1
+      },
+      "last_event_type": "turn/end",
+      "tool_call_records": 57,
+      "tool_result_append_records": 57,
+      "unmatched_call_ID_count": 0,
+      "unmatched_result_ID_count": 0,
+      "initial_user_text_sha256": "e507efee260b46095a09a1191cfa11c570e51e8f074f4cc7d448445dd1af6b2f",
+      "initial_user_text_bytes": 4589,
+      "root_prompt_exact_if_treated_as_root": true,
+      "late_usage_commitpoint_summary": {
+        "assistant_message_records": 54,
+        "usage_dict_records": 54,
+        "fields": {
+          "inputTokens": {
+            "present_numeric": 54,
+            "explicit_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 46964
+          },
+          "outputTokens": {
+            "present_numeric": 54,
+            "explicit_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 59636
+          },
+          "cacheReadTokens": {
+            "present_numeric": 54,
+            "explicit_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 3386624
+          },
+          "cacheWriteTokens": {
+            "present_numeric": 54,
+            "explicit_zero": 54,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 0
+          },
+          "reasoningTokens": {
+            "present_numeric": 0,
+            "explicit_zero": 0,
+            "missing": 54,
+            "null": 0,
+            "sum_if_all_messages_numeric": null
+          }
+        },
+        "interpretation": "late committed assistant-message usage records, not original meta backfill or raw HTTP attempt denominator"
+      },
+      "identity_role": "root"
+    }
+  ],
+  "checks": [
+    {
+      "id": "recovery-record-identities-match-explicit-slot",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "original-meta-identities-match-frozen-slot",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "original-E-binding-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "collected-at-is-truly-later-than-finished",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "original-prompt-sha-matches-original-meta",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "original-stdout-sha-matches-original-meta",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "copy-hash-chain:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "copy-mtime-in-original-window:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "zstd-decompress-clean:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "every-jsonl-record-parseable:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "one-session-header:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "header-ID-matches-copy-subdir:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "header-cwd-exact-original-workspace:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "session-UUID-present-in-original-stdout:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "event-times-within-original-window:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "trace-has-terminal-turn-end:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "tool-call-result-ID-multisets-close:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "copy-hash-chain:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "copy-mtime-in-original-window:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "zstd-decompress-clean:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "every-jsonl-record-parseable:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "one-session-header:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "header-ID-matches-copy-subdir:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "header-cwd-exact-original-workspace:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "session-UUID-present-in-original-stdout:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "event-times-within-original-window:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "trace-has-terminal-turn-end:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "tool-call-result-ID-multisets-close:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "exactly-one-root-session",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "root-first-user-prompt-byte-exact-original-prompt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "child-parent-ID-resolves-in-these-copies:23afbcc7-dde2-46ad-aa8d-f1680ede9573",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "parent-trace-mentions-child-UUID:23afbcc7-dde2-46ad-aa8d-f1680ede9573",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "child-initial-task-block-byte-exact-parent-launch-prompt:23afbcc7-dde2-46ad-aa8d-f1680ede9573",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "record-source-stability-claims-present-not-independently-reread",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "protected_before": {
+    "1-评测方案/工具链/l4-execution/gate.py": {
+      "kind": "regular",
+      "sha256": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+      "bytes": 118010
+    },
+    "1-评测方案/自动循环L4-2026-10-29/PREREGISTRATION.md": {
+      "kind": "regular",
+      "sha256": "5977c6e140f568f1b7385f63be9f200bf9cdecac0e95567fc384e454fdb93082",
+      "bytes": 9732
+    },
+    "1-评测方案/自动循环L4-2026-10-29/contract.json": {
+      "kind": "regular",
+      "sha256": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+      "bytes": 11960
+    },
+    "1-评测方案/自动循环L4-2026-10-29/execution-manifest.json": {
+      "kind": "regular",
+      "sha256": "da1a4fa09a2f64fefdf2a5339c83b8c9a992ad5c95cb79d810c46f671f7cd017",
+      "bytes": 8524
+    },
+    "1-评测方案/自动循环L4-2026-10-29/plan.json": {
+      "kind": "regular",
+      "sha256": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+      "bytes": 17003
+    },
+    "1-评测方案/自动循环L4-2026-10-29/runtime-binding.json": {
+      "kind": "regular",
+      "sha256": "bf73ed8071d5dbd36dadc723ae7764e4b60d0fa14a0183c93649c56b4b98ff18",
+      "bytes": 660
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/recovery-record.json": {
+      "kind": "regular",
+      "sha256": "8c63da316f280e9fed20b63ec22db994bfeecca67908f0b9ce944b743f242b82",
+      "bytes": 3002
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd": {
+      "kind": "regular",
+      "sha256": "02e3f18d6745fb22b3c098b1643af1b3460d86082535d658a7e1ce6fa2b9fed3",
+      "bytes": 213022
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd": {
+      "kind": "regular",
+      "sha256": "17ddfd0172a9cd05f6ea9a6c97e705828967fbff6c66b34230f4ec96e02aaddc",
+      "bytes": 375048
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/agent.jsonl": {
+      "kind": "regular",
+      "sha256": "f2d20b5feebabbbdea06f9d13d95a9c4abc84ad3ff350c66bb8b1d74790340f0",
+      "bytes": 292367
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/agent.stderr.txt": {
+      "kind": "regular",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/checker.stdout": {
+      "kind": "regular",
+      "sha256": "50cfae5bd8b720aa3b56b54a914587bb380069b5596b86abc51e93f9f45802e2",
+      "bytes": 8339
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/config-snapshot/AGENTS.md": {
+      "kind": "regular",
+      "sha256": "5786a0efda172afbf11c54720f5f4aef26e0bda91d76e766f05bdc2eeb59d3d7",
+      "bytes": 1477
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/config-snapshot/bench-cli-cordis.patch.yml": {
+      "kind": "regular",
+      "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238",
+      "bytes": 1148
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/config-snapshot/bench-cli-package.json": {
+      "kind": "regular",
+      "sha256": "69d10eb1ffc3ba0676fefca4df77e195b78fcc23877ba34d16e62bca58f4ea60",
+      "bytes": 214
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/integrity-rescan.json": {
+      "kind": "regular",
+      "sha256": "0b9b2bddabe8e7f06066c1cdd54c7bcb83cd1bf7ffc10a044f4c7f1bc6f1a0ab",
+      "bytes": 461
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/meta.json": {
+      "kind": "regular",
+      "sha256": "572f394aa3977d3a8228922f192de7580ce1194115a3cc462a7ba271f886cc7c",
+      "bytes": 7907
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/prompt.txt": {
+      "kind": "regular",
+      "sha256": "e507efee260b46095a09a1191cfa11c570e51e8f074f4cc7d448445dd1af6b2f",
+      "bytes": 4589
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/score-receipt.json": {
+      "kind": "regular",
+      "sha256": "aaaa02ac1a6b88c4090108e9e28b1e92d46355a6680239dfa8d831edac8f692e",
+      "bytes": 9363
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/termination-receipt.json": {
+      "kind": "regular",
+      "sha256": "cf94448568365677c2ba7ca376bff03de8c7ba64efd1e27066e3ab5c2bb5dbb5",
+      "bytes": 565
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/workspace/answers.jsonl": {
+      "kind": "regular",
+      "sha256": "e25bfb80e977467e6be8d4d299ddb4bc5182baf28783a2871f868c9fc7433937",
+      "bytes": 2623
+    },
+    "3-表现现场/l4-20261029-cli/dsh/tools/lab.py": {
+      "kind": "regular",
+      "sha256": "f246d0113219b325341ac35f75ad5e194a68da4a15a73a2761639133f6f4e19d",
+      "bytes": 105770
+    }
+  },
+  "protected_after": {
+    "1-评测方案/工具链/l4-execution/gate.py": {
+      "kind": "regular",
+      "sha256": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+      "bytes": 118010
+    },
+    "1-评测方案/自动循环L4-2026-10-29/PREREGISTRATION.md": {
+      "kind": "regular",
+      "sha256": "5977c6e140f568f1b7385f63be9f200bf9cdecac0e95567fc384e454fdb93082",
+      "bytes": 9732
+    },
+    "1-评测方案/自动循环L4-2026-10-29/contract.json": {
+      "kind": "regular",
+      "sha256": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+      "bytes": 11960
+    },
+    "1-评测方案/自动循环L4-2026-10-29/execution-manifest.json": {
+      "kind": "regular",
+      "sha256": "da1a4fa09a2f64fefdf2a5339c83b8c9a992ad5c95cb79d810c46f671f7cd017",
+      "bytes": 8524
+    },
+    "1-评测方案/自动循环L4-2026-10-29/plan.json": {
+      "kind": "regular",
+      "sha256": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+      "bytes": 17003
+    },
+    "1-评测方案/自动循环L4-2026-10-29/runtime-binding.json": {
+      "kind": "regular",
+      "sha256": "bf73ed8071d5dbd36dadc723ae7764e4b60d0fa14a0183c93649c56b4b98ff18",
+      "bytes": 660
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/recovery-record.json": {
+      "kind": "regular",
+      "sha256": "8c63da316f280e9fed20b63ec22db994bfeecca67908f0b9ce944b743f242b82",
+      "bytes": 3002
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd": {
+      "kind": "regular",
+      "sha256": "02e3f18d6745fb22b3c098b1643af1b3460d86082535d658a7e1ce6fa2b9fed3",
+      "bytes": 213022
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd": {
+      "kind": "regular",
+      "sha256": "17ddfd0172a9cd05f6ea9a6c97e705828967fbff6c66b34230f4ec96e02aaddc",
+      "bytes": 375048
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/agent.jsonl": {
+      "kind": "regular",
+      "sha256": "f2d20b5feebabbbdea06f9d13d95a9c4abc84ad3ff350c66bb8b1d74790340f0",
+      "bytes": 292367
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/agent.stderr.txt": {
+      "kind": "regular",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/checker.stdout": {
+      "kind": "regular",
+      "sha256": "50cfae5bd8b720aa3b56b54a914587bb380069b5596b86abc51e93f9f45802e2",
+      "bytes": 8339
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/config-snapshot/AGENTS.md": {
+      "kind": "regular",
+      "sha256": "5786a0efda172afbf11c54720f5f4aef26e0bda91d76e766f05bdc2eeb59d3d7",
+      "bytes": 1477
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/config-snapshot/bench-cli-cordis.patch.yml": {
+      "kind": "regular",
+      "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238",
+      "bytes": 1148
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/config-snapshot/bench-cli-package.json": {
+      "kind": "regular",
+      "sha256": "69d10eb1ffc3ba0676fefca4df77e195b78fcc23877ba34d16e62bca58f4ea60",
+      "bytes": 214
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/integrity-rescan.json": {
+      "kind": "regular",
+      "sha256": "0b9b2bddabe8e7f06066c1cdd54c7bcb83cd1bf7ffc10a044f4c7f1bc6f1a0ab",
+      "bytes": 461
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/meta.json": {
+      "kind": "regular",
+      "sha256": "572f394aa3977d3a8228922f192de7580ce1194115a3cc462a7ba271f886cc7c",
+      "bytes": 7907
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/prompt.txt": {
+      "kind": "regular",
+      "sha256": "e507efee260b46095a09a1191cfa11c570e51e8f074f4cc7d448445dd1af6b2f",
+      "bytes": 4589
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/score-receipt.json": {
+      "kind": "regular",
+      "sha256": "aaaa02ac1a6b88c4090108e9e28b1e92d46355a6680239dfa8d831edac8f692e",
+      "bytes": 9363
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/termination-receipt.json": {
+      "kind": "regular",
+      "sha256": "cf94448568365677c2ba7ca376bff03de8c7ba64efd1e27066e3ab5c2bb5dbb5",
+      "bytes": 565
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/workspace/answers.jsonl": {
+      "kind": "regular",
+      "sha256": "e25bfb80e977467e6be8d4d299ddb4bc5182baf28783a2871f868c9fc7433937",
+      "bytes": 2623
+    },
+    "3-表现现场/l4-20261029-cli/dsh/tools/lab.py": {
+      "kind": "regular",
+      "sha256": "f246d0113219b325341ac35f75ad5e194a68da4a15a73a2761639133f6f4e19d",
+      "bytes": 105770
+    }
+  },
+  "live_doc_drift": [],
+  "original_observation_not_reclassified": {
+    "status": "ok",
+    "integrity_verdict": "violation",
+    "score_status": "scored",
+    "weighted": 70.0,
+    "registered_at": "2026-10-29T23:13:56+08:00",
+    "started_at": "2026-10-29T23:28:04+08:00",
+    "finished_at": "2026-10-29T23:36:21+08:00",
+    "judge_counts": {
+      "correct": 7,
+      "n_tasks": 10
+    },
+    "usage_requests": null,
+    "session_scan_lines": 0
+  },
+  "formal_effect": "none: original meta/gate/score/times/usage/integrity verdict remain untouched; late recovery is not automatic formal admission",
+  "not_a_new_original_master": true,
+  "read_original_global_session_sources": false,
+  "no_raw_prompt_trace_or_credentials_in_receipt": true,
+  "limits": [
+    "Original global-session source before/after stability is the collector receipt claim; this reviewer hashes only explicitly authorized copies and never rereads/scans global sessions.",
+    "Copy mtime is copy metadata; embedded session event times, original stdout UUIDs and prompt hashes supply independent linkage, not a trusted timestamp/signature.",
+    "Child initial user message includes its delegated task/context, not the root prompt; its task block must match the actual parent launch argument exactly.",
+    "Clean zstd/JSONL, terminal records and paired tool IDs support structural completeness, not proof of no omitted internal requests or semantic absence of contamination.",
+    "Usage sums are late committed-message observations only; missing/null/explicit zero remain separate and original usage is never backfilled.",
+    "No semantic contamination adjudication, scoring, formal reclassification or product rerun is performed."
+  ]
+}

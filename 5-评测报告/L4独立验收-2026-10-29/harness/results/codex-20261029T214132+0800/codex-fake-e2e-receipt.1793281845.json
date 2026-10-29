@@ -1,0 +1,177 @@
+{
+  "kind": "judge_fake_e2e_receipt",
+  "harness": "codex_fake_e2e.py",
+  "harness_sha256": "b7db1110e8e374bc34bbb91d62c66e492114d24fe3dceffd4a619fa4fd2e4a9c",
+  "fake_codex_sha256": "72e7e7db5948872706b62f1e713941c303f7d14b639beb7d9919367b2c635b30",
+  "snapshot": "/private/tmp/judge-l4/codex-20261029T214132+0800",
+  "snapshot_head_shas": {
+    "src-codex/tools/lab.py": "b3d1e7d012ec299846af9ae922c161ad741d8f8d69610a617f627f488d849913",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "eaf4b57cc1a346c5ba0b96cc25042761518032af644a31bcf04c2e08b8f6fdd8",
+    "execution_seal.py": "a756938d490634f19daa93454450d67fba4221c446bddad554f6c1b71992217c"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo",
+  "binding_E": "d370781aea0e059ccaa1ce1577c89171efb2306d",
+  "registered_at": "2026-10-29T21:40:30+08:00",
+  "generated_at": "2026-10-29T21:50:45+08:00",
+  "cases": {
+    "CX1_e_seal_block": {
+      "verdict": "fail",
+      "detail": {
+        "rc": 0,
+        "audit_invocations": 0,
+        "stderr_tail": ""
+      }
+    },
+    "CX2_happy_full_chain": {
+      "verdict": "fail",
+      "detail": {
+        "prepare_rc": 0,
+        "run_rc": 0,
+        "status": "ok",
+        "registered_at_ok": true,
+        "missing_evidence": [
+          "stdout.raw",
+          "stderr.raw"
+        ],
+        "usage_calls": 3,
+        "presence_states": [
+          "missing",
+          "null",
+          "positive",
+          "zero"
+        ],
+        "capture_matched": 1,
+        "reward": 1,
+        "reward_is_int": true,
+        "all_invocations_fake": false,
+        "audit_n": 1,
+        "formal_eligible": true,
+        "stderr_tail": ""
+      }
+    },
+    "CX3_repeat_zero_dispatch": {
+      "verdict": "pass",
+      "detail": {
+        "rc": 1,
+        "audit_before": 1,
+        "audit_after": 1,
+        "stderr_tail": "ools/lab.py\", line 114, in claim_slot\n    fd = os.open(str(claim), os.O_WRONLY | os.O_CREAT | os.O_EXCL)\nFileExistsError: [Errno 17] File exists: '/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r1/claim.json'\n"
+      }
+    },
+    "CX4_crash_claim_refuse": {
+      "verdict": "pass",
+      "detail": {
+        "rc": 1,
+        "audit_after": 1,
+        "stderr_tail": "ools/lab.py\", line 114, in claim_slot\n    fd = os.open(str(claim), os.O_WRONLY | os.O_CREAT | os.O_EXCL)\nFileExistsError: [Errno 17] File exists: '/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r2/claim.json'\n"
+      }
+    },
+    "CX5_config_drift": {
+      "verdict": "fail",
+      "detail": {
+        "rc": 1,
+        "audit_after": 1,
+        "no_claim": false,
+        "stderr_tail": "s\" % (name, detail))\nl4_gate.GateError: verify_execution 失败于 manifest-external-files-consistent：[{\"path\": \"/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/home/bench-workspaces/l4-20261029-cli/codex/_codex-home/config.toml\", \"reason\": \"sha-mismatch\", \"want\": \"bc70bc91\", \"got\": \"34477da0\"}]\n"
+      }
+    },
+    "CX6_timeout_verified": {
+      "verdict": "fail",
+      "detail": {
+        "status": "timeout",
+        "term_phase": "timeout",
+        "term_delivery": "delivered",
+        "probe": "probe_denied",
+        "verified": false,
+        "formal": false,
+        "judge_role": "diagnostic_only",
+        "rc": 0,
+        "res": {
+          "rc": 4,
+          "audit_invocations": 1,
+          "halt_exists": true
+        },
+        "stdout_tail": "029-cli-codex-dabstep-payments-10-r3\", \"status\": \"timeout\", \"exit_code\": null, \"reward\": 0, \"weighted\": 0.0, \"duration_s\": 4.2, \"violations\": 0, \"runner_formal_eligible\": false, \"evidence\": \"/private/tmp/judge-l4/fixture-codexF-20261029T214132+0800/repo/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r3\"}\n@@RESULT@@{\"rc\": 4, \"audit_invocations\": 1, \"halt_exists\": true}\n",
+        "stderr_tail": "",
+        "stdout_raw_bytes": 0
+      }
+    },
+    "CX7_term_ignore_sigkill_chain": {
+      "verdict": "fail",
+      "detail": {
+        "status": null,
+        "term_delivery": null,
+        "probe": null,
+        "verified": null,
+        "formal": null,
+        "rc": 0,
+        "res": {
+          "rc": 3,
+          "audit_invocations": 0,
+          "halt_exists": true
+        },
+        "stdout_tail": "{\"fail_closed\": true, \"reason\": \"批次已因未验证终止停批（halt.json）；待 lead 处置，不得续槽\"}\n@@RESULT@@{\"rc\": 3, \"audit_invocations\": 0, \"halt_exists\": true}\n",
+        "stderr_tail": "",
+        "note": "TERM→grace→SIGKILL→探活确认=verified；lead 已证本机可探活停止"
+      }
+    },
+    "CX8_halt_gate_blocks_next": {
+      "verdict": "fail",
+      "detail": {
+        "rc": 0,
+        "audit_after": 1,
+        "stdout_tail": "{\"fail_closed\": true, \"reason\": \"批次已因未验证终止停批（halt.json）；待 lead 处置，不得续槽\"}\n@@RESULT@@{\"rc\": 3, \"audit_invocations\": 0, \"halt_exists\": true}\n",
+        "stderr_tail": ""
+      }
+    },
+    "CX9_resume_after_halt_cleared": {
+      "verdict": "pass",
+      "detail": {
+        "rc": 0,
+        "status": "ok",
+        "stdout_tail": "weighted\": 1.0, \"duration_s\": 0.1, \"violations\": 0, \"runner_formal_eligible\": true, \"evidence\": \"/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r2\"}\n@@RESULT@@{\"rc\": 0, \"audit_invocations\": 1, \"halt_exists\": false}\n",
+        "stderr_tail": ""
+      }
+    },
+    "CX10_admission_diagnostic": {
+      "verdict": "evidence",
+      "detail": {
+        "gate_admission": null,
+        "note": "诊断性：fake 会话/桩证据下逐项 fails 全量留档，不判 pass/fail"
+      }
+    },
+    "CX11_orphan_samegroup_counter": {
+      "verdict": "evidence",
+      "detail": {
+        "status": "ok",
+        "termination_phase": "normal_exit",
+        "termination_verified": false,
+        "probe": "still_alive_after_grace",
+        "term_delivery": "skipped",
+        "saved_pgid": 87890,
+        "spawn_pgid": 87890,
+        "same_group": true,
+        "formal_eligible": true,
+        "child_meta": {
+          "pid": 87903,
+          "pgid": 87890,
+          "ppid": 87890
+        },
+        "counter_lines_now": 20,
+        "counter_lines_late": 28,
+        "child_still_writing_after_run": true,
+        "halt_written": false,
+        "criterion": "组仍存活（counter 增长）时 verified 不得为 true；saved_pgid 须与 spawn 同组；是否 formal/停批按 lead 纪律"
+      }
+    }
+  },
+  "zero_real_cli_evidence": {
+    "audit_entries": 3,
+    "all_argv_fake": false,
+    "sentinel_non_local_attempts": 0,
+    "method": "lab.CODEX_BIN 绝对路径注入；preflight 类仅受限 PATH（无 /opt/homebrew/bin）；真实 codex 在 /opt/homebrew/bin/codex 存在（事故向量）——全程未触"
+  },
+  "live_doc_drift": null
+}

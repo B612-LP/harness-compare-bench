@@ -1,0 +1,153 @@
+{
+  "kind": "judge_fake_e2e_receipt_v2",
+  "harness": "wb_fake_e2e.py",
+  "harness_sha256": "004c5cd92d338b3af571160ee857b995fc0dcd30a57ecd6137e2a958b2b54bf6",
+  "snapshot": "/private/tmp/judge-l4/wb-20261029T211346+0800",
+  "snapshot_head_shas": {
+    "src-wb/runner/l4_wb_runner.py": "9eae069969c64c1501e9f7f536a20218db87f1e60fd4e3b3ff65d007b09d8c74",
+    "src-wb/runner/safe_driver.py": "8c90165f7896adff4379435bc8721e5f63434cdb2f48e84940b046524fdb54c6",
+    "src-wb/runner/verify_execution.py": "a2d5b24281a556fa78cca69a566760e7df93fb27d8c52f62eeb9a192772bf2c4",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "79dfad03c9fc02ccaa3110790526b8671abee96296cf976e1f36ea9b9575a207",
+    "execution_seal.py": "a756938d490634f19daa93454450d67fba4221c446bddad554f6c1b71992217c"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-wb2-20261029T211346+0800/repo",
+  "binding_E": "f549fb283f96fef6d8123f565e805ec96dd2dbaf",
+  "registered_at": "2026-10-29T21:16:21+08:00",
+  "generated_at": "2026-10-29T21:26:36+08:00",
+  "cases": {
+    "W1_e_seal_block": {
+      "verdict": "pass",
+      "detail": {
+        "rc": 2,
+        "refused_receipt": true,
+        "stderr_tail": ""
+      }
+    },
+    "W11_binding_values_defined": {
+      "verdict": "pass",
+      "detail": {
+        "returns_keys": [
+          "contract_sha256",
+          "design_commit",
+          "execution_manifest_sha256",
+          "execution_seal_commit",
+          "generated_at",
+          "live_doc_drift"
+        ],
+        "error": null
+      }
+    },
+    "W2_dry_baseline": {
+      "verdict": "fail",
+      "detail": {
+        "rc": 0,
+        "status": "registration-exists-refused",
+        "accounting_state": null,
+        "usage_per_call_n": 0,
+        "slot_id_top_level": null,
+        "managed_unknowns_type": "NoneType",
+        "stderr_tail": ""
+      }
+    },
+    "W5_strict_wait_suite": {
+      "verdict": "fail",
+      "detail": {
+        "checks": {
+          "a_active_never_completed": true,
+          "a_on_deadline_once": true,
+          "a_stop_verified": false,
+          "b_flap_rejected": false,
+          "c_trace_growth_rejected": true,
+          "d_lsof_error_rejected": true,
+          "d_post_cancel_processes": [
+            "probe-error"
+          ]
+        },
+        "stderr_tail": ""
+      }
+    },
+    "W3_alias_gate": {
+      "verdict": "evidence",
+      "detail": {
+        "runner_verdict": null,
+        "accounting_state": null,
+        "gate": {
+          "error": "GateError(\"manifest 违反必需成员/结构（防漏封）：Manifest missing mandatory external configuration: ['/Users/b612-lp/.dsh/AGENTS.md', '/Users/b612-lp/.dsh/profiles/bench-cli/cordis.patch.yml', '/Users/b612-lp/.dsh/profiles/bench-cli/package.json', '/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/_codex-home/config.toml']\")"
+        }
+      }
+    },
+    "W4_no_trace": {
+      "verdict": "pass",
+      "detail": {
+        "stdout_sha256_is_empty": false,
+        "integrity_verdict": null,
+        "status": "claim-refused",
+        "evidence_missing_marker": null
+      }
+    },
+    "W6_timeout_writing_conservative": {
+      "verdict": "evidence",
+      "detail": {
+        "status": "claim-refused",
+        "timed_out": null,
+        "stop_capability_failed": null,
+        "stop_verified_in_meta": null,
+        "deadline_evidence_written": false,
+        "cancel_attempts_by_driver": 0,
+        "checker_ran_despite_timeout": false,
+        "accounting_diag": "",
+        "note": "wrapper 原生 cancel/验证链已在 W5 单测；此处验证 runner 对未验证 stop 的保守记账（stop_capability_failed + deadline 证据冻结）"
+      }
+    },
+    "W7_claim_repeat_crash": {
+      "verdict": "fail",
+      "detail": {
+        "7a_repeat": {
+          "status": "claim-refused",
+          "sends": 0
+        },
+        "7b_crash_window": {
+          "status": "claim-refused",
+          "sends": 0
+        },
+        "claim_immutable": true,
+        "claim_bytes": 320
+      }
+    },
+    "W8_upgrade_drift": {
+      "verdict": "pass",
+      "detail": {
+        "unit_detects_change": true,
+        "unit_same_is_clean": false,
+        "run_impl_stop_remaining_key": true,
+        "note": "真实模式前后 app_state 比对属 E 后路径；此处验证检测单元与停余标记"
+      }
+    },
+    "W9_dry_path_separation": {
+      "verdict": "pass",
+      "detail": {
+        "dry_wrote_real_evidence_dir": false,
+        "evidence_dir": "/tmp/judge-l4/fixture-wb2-20261029T211346+0800/repo/3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-bird-ca-schools-15-r1"
+      }
+    },
+    "W12_native_stop_gate_pair": {
+      "verdict": "evidence",
+      "detail": {
+        "skipped": "W2 产物缺失（前置用例失败），无 base 证据可构造准入对"
+      }
+    }
+  },
+  "sentinel": {
+    "sentinel-w1.log": {
+      "attempts": 0,
+      "non_local": 0
+    },
+    "sentinel.log": {
+      "attempts": 0,
+      "non_local": 0
+    }
+  },
+  "live_doc_drift": null
+}

@@ -1,0 +1,28 @@
+{
+ "kind": "task9_closing_verification",
+ "id": "AUD-L4-CLOSING-r1",
+ "at": "2026-10-30T00:52:00+08:00",
+ "by": "auditor(task-9 收尾)",
+ "registry_appended_event_verification": {
+  "event_id": "work:l4-six-ledger-index-20261030",
+  "kind": "offline_recompute",
+  "total_events_now": 16,
+  "prior_15_source_sha_recheck": "ALL OK（逐条重算 source 文件 sha256 与登记一致，append-only 保持）",
+  "event_source_sha_matches_six_ledger": true,
+  "six_ledger_sha256": "7c5460d83b13cca87cde7e93ea724d57e6a78e334ea4ca2cd3a6edf9c81d140e",
+  "locator_scope_correct": "仅登记六类索引；locator 明示不视为 18 次合成实验、事故独立、provider 请求未知、不向旧冻结正式表插行",
+  "accounting_counts_in_event": "product 17 槽（16 执行 1 未执行）+ bare-model 18 槽——与 six-ledger 一致",
+  "v3_test_freeze": "实跑 OK：events=16（仅报告），schema=live_registry_entry 全过"
+ },
+ "final_scan_coverage_statement": {
+  "last_full_scan": "scan-report-final-release-r7.json（00:33:43，323 文件：综合目录+wb-gateway+reviewer 目录）",
+  "observations_final_v2": "mtime 00:32:54，早于 r7 扫描时刻，已被 r7 覆盖；另按 lead 要求做** targeted 精确补扫**（r8）：0 key 命中、0 PII",
+  "files_newer_than_r7": 0,
+  "cumulative_l4_scan_receipts": ["r1/r2-release(preE+release)", "actualE-cache-r3", "codex6-r4", "dsh6-recoveries-r5(zstd 8 内存解压)", "wb-final-r6", "final-release-r7", "obsfinal-v2-targeted-r8"],
+  "real_key_exact_hits_total": 0,
+  "pii_hits_total": 0,
+  "skips": ["~/.dsh/sessions 历史会话（非本批产物）；secret-context 及其他 ref 从未读取"]
+ },
+ "crosscheck_note": "six-ledger↔observations-final 17/17 槽集合、counts、scores 交叉核一致（final-release-scan-and-crosscheck-r1.json）；bird registrations=R3 合规预持久化（judge canonical_fail 措辞建议复核，裁定权归 judge）",
+ "live_doc_drift": []
+}

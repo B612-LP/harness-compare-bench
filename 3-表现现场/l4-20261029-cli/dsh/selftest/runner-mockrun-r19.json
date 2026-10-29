@@ -1,0 +1,75 @@
+{
+  "kind": "mock_run_self_test",
+  "tool": "lab.py(l4-dsh)",
+  "spec": "l4-20261029-dsh",
+  "at": "2026-10-29T22:49:03+08:00",
+  "zero_model": true,
+  "counts": {
+    "total": 10,
+    "passed": 9,
+    "failed": 1
+  },
+  "cases": [
+    {
+      "case": "mock-ok-formal-admitted",
+      "pass": true,
+      "detail": "{\"planned\": 1, \"accounted\": 1, \"executed\": 1, \"partial\": 0, \"not_executed\": 0, \"formal_admitted\": 1, \"all_formal_admitted\": true, \"accounting_complete\": true}[]"
+    },
+    {
+      "case": "mock-ok-full-usage",
+      "pass": true,
+      "detail": "{\"compared\": 1, \"equal\": 1, \"mismatch\": []}"
+    },
+    {
+      "case": "mock-low-exit1-admitted",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "case": "mock-timeout-genuine-admitted",
+      "pass": true,
+      "detail": "[{\"n\": 1, \"kind\": \"single-dispatch\", \"policy\": \"whole_execution_restarts=0\", \"pid\": 16531, \"pgid\": 16531, \"started_at\": \"2026-10-29T22:48:40+08:00\", \"finished_at\": \"2026-10-29T22:48:41+08:00\", \"durati[]"
+    },
+    {
+      "case": "mock-unverified-earlyexit-halt",
+      "pass": true,
+      "detail": "code1=3 checker=0 popen=1 halt=True next=3 popen_total=1"
+    },
+    {
+      "case": "mock-unverified-gate-not-formal",
+      "pass": true,
+      "detail": "{\"planned\": 2, \"accounted\": 1, \"executed\": 0, \"partial\": 1, \"not_executed\": 0, \"formal_admitted\": 0, \"all_formal_admitted\": false, \"accounting_complete\": false}[\"classify=fail:missing issues=[{'field': 'usage', 'class': 'missing', 'detail':"
+    },
+    {
+      "case": "mock-normal-unverified-error-partial",
+      "pass": true,
+      "detail": "code6=3 meta={\"class\": \"post-exit stop unverified\", \"stop_unverified\": true, \"phase\": \"post_exit_cleanup\", \"stop_source\": null, \"termination\": {\"policy\": \"mock-unconfirmed\", rc={\"policy\": \"mock-unconfirmed\", \"pgid\": 16688, \"signal\": \"SIGKIL"
+    },
+    {
+      "case": "mock-spawn-oserror-notexec-halt",
+      "pass": true,
+      "detail": "code7=1 nex={\"slot_id\": \"mock-spawn1\", \"run_id\": \"mock-spawn1\", \"event_id\": \"event:mock-spawn1\", \"accounting\": \"not_executed\", \"preregistration_commit\": \"eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\", \"registered_at\" meta_exists=False halt=True"
+    },
+    {
+      "case": "mock-runtime-oserror-partial",
+      "pass": false,
+      "detail": "code8=3 meta={\"class\": \"runtime-oserror-post-launch\", \"stderr_tail\": \"OSError(5, 'Simulated I/O error (post-launch)')\", \"stop_unverified\": true, \"post_launch_stop\": {\"policy notexec=False halt=True checker=0"
+    },
+    {
+      "case": "mock-unscored-null-partial",
+      "pass": true,
+      "detail": "{\"planned\": 1, \"accounted\": 1, \"executed\": 0, \"partial\": 1, \"not_executed\": 0, \"formal_admitted\": 0, \"all_formal_admitted\": false, \"accounting_complete\": true}[\"classify=fail:type issues=[{'field': 'weighted', 'class': 'type', 'detail': 'ex"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py",
+      "sha256_8": "f45c029f",
+      "sha256": "f45c029f4e99966c31d67fb70983616d28c88b920247d857f8d377dadfe11710",
+      "bytes": 104559,
+      "at": "2026-10-29T22:49:03+08:00",
+      "line": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py · f45c029f · 104559B · 2026-10-29T22:49:03+08:00"
+    }
+  ],
+  "live_doc_drift": []
+}

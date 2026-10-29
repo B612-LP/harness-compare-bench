@@ -1,0 +1,40 @@
+{
+  "kind": "late_archive_recovery",
+  "accounting": "offline_recompute/late_archive",
+  "run_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+  "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+  "at": "2026-10-30T00:01:23+08:00",
+  "binding": {
+    "run_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+    "expected_dir_name": "--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r3--",
+    "dir_exists": true,
+    "files_found": 1,
+    "files_out_of_time_window": [],
+    "uuid_subdirs_in_raw_stream": {
+      "session-10d932dc-de2f-44aa-9712-152a5876e996": true
+    },
+    "prompt_check": "not performed on compressed content (zstd) — disclosed"
+  },
+  "source_dir": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r3--",
+  "collected_at": "2026-10-30T00:01:23+08:00",
+  "files": [
+    {
+      "path": "session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "source": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r3--/session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "sha256": "4c27924bea70f344398b2b63470dd2f1ed1d28ae4e960aa549cef1e873f07456",
+      "bytes": 363818,
+      "source_stable_after_copy": true,
+      "copy_sha256": "4c27924bea70f344398b2b63470dd2f1ed1d28ae4e960aa549cef1e873f07456",
+      "copy_bytes": 363818
+    }
+  ],
+  "all_sources_stable": true,
+  "scope_discipline": "read-only collection of THIS batch's finished slot; original capture/meta/verdicts untouched; no backfill; nothing under tools/",
+  "limitations": {
+    "impact": "recovery usability for integrity review decided by judge/auditor under frozen contract",
+    "next_step": "judge verifies binding + compressed integrity",
+    "stop_condition": "no decompression/semantic reading; no other sessions touched"
+  },
+  "zero_model": true,
+  "live_doc_drift": []
+}

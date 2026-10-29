@@ -1,0 +1,100 @@
+{
+  "kind": "judge_fake_e2e_receipt_v2",
+  "harness": "wb_fake_e2e.py",
+  "harness_sha256": "89a5972970ed7bcca0d47fecdb4c601f3311543d914887eddc1682e4acc56a5f",
+  "snapshot": "/private/tmp/judge-l4/wb-v35-20261029T224949+0800",
+  "snapshot_head_shas": {
+    "src-wb/runner/l4_wb_runner.py": "8634390fbb7831dd10e164c06c606301da7c35ebe858ce15afe394061c1ad1bf",
+    "src-wb/runner/safe_driver.py": "8c90165f7896adff4379435bc8721e5f63434cdb2f48e84940b046524fdb54c6",
+    "src-wb/runner/verify_execution.py": "a2d5b24281a556fa78cca69a566760e7df93fb27d8c52f62eeb9a192772bf2c4",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+    "execution_seal.py": "f1ef03402358d33b70f1d54be529f1bfaece7d1113b0588c5308f19383fef240"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-wb2-v35-20261029T224949+0800/repo",
+  "binding_E": "9c123e4f0ee9e46181f236d996432d775cec23d7",
+  "registered_at": "2026-10-29T22:40:42+08:00",
+  "generated_at": "2026-10-29T22:50:44+08:00",
+  "cases": {
+    "W14_timeout_verified_positive": {
+      "verdict": "evidence",
+      "detail": {
+        "formal_admission": false,
+        "fails": [
+          "classify=fail:type issues=[{'field': 'weighted', 'class': 'type', 'detail': 'expect score8 got NoneType'}]",
+          "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+          "required_original_evidence 缺：['checker']",
+          "score-receipt.json 缺失（全分母收据是准入必要证据）",
+          "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+        ],
+        "status": "ok",
+        "envelope_verified_stop": null,
+        "envelope_checks": null,
+        "runner_native_stop_key": false,
+        "criterion": "真实 verified 超时（DB 终态+trace 稳定+无 scoped 进程）→gate timeout 真值表应 formal=true（R1）"
+      }
+    },
+    "W6_timeout_writing_conservative": {
+      "verdict": "evidence",
+      "detail": {
+        "status_timeout": true,
+        "checker_ran_false": false,
+        "partial_stop_unverified": false,
+        "reward_null": true,
+        "weighted_null": true,
+        "judge_null": true,
+        "envelope_present_verified_false": false,
+        "envelope_slot": null,
+        "deadline_evidence": false,
+        "no_checker_stdout": true,
+        "no_score_receipt": true,
+        "halt_persisted": true,
+        "next_slot_refused": false,
+        "next_slot_zero_send": true,
+        "accounting": null,
+        "diag": "",
+        "next_calls": [],
+        "next_accounting": null,
+        "stderr_tail": "",
+        "criterion": "W6 纪律：stop 未验证 → 不 collect 不跑 checker 不冻结动态 workspace；judge/score null；native-stop false 原物+deadline 快照；持久 HALT；后槽零 send"
+      }
+    },
+    "W12_native_stop_gate_pair": {
+      "verdict": "evidence",
+      "detail": {
+        "skipped": "dry-evidence 缺失（前置用例失败），无 base 证据"
+      }
+    },
+    "W13_normal_completed_admission": {
+      "verdict": "evidence",
+      "detail": {
+        "formal_admission": false,
+        "fails": [
+          "notexecuted.json 缺正确封印引用"
+        ],
+        "status": null,
+        "reward": null,
+        "weighted": null,
+        "judge_keys": [],
+        "score_receipt_exists": false,
+        "meta_order": null,
+        "meta_exit_code": null,
+        "evidence_dir": ".",
+        "stderr_tail": "",
+        "criterion": "桌面正常场真实 run_impl 全链（含 checker/judge/score-receipt）→ 真 gate formal=True/fails=[]（作者 T19 同构独立复算）"
+      }
+    }
+  },
+  "sentinel": {
+    "sentinel-adm.log": {
+      "attempts": 0,
+      "non_local": 0
+    },
+    "sentinel.log": {
+      "attempts": 0,
+      "non_local": 0
+    }
+  },
+  "live_doc_drift": null
+}

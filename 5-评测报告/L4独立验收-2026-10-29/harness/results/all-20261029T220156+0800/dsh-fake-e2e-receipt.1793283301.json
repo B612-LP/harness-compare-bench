@@ -1,0 +1,114 @@
+{
+  "kind": "judge_fake_e2e_receipt",
+  "harness": "dsh_fake_e2e.py",
+  "harness_sha256": "d94793be2d5a1fb95596e4abcc960796dcfcc38b69e6ff066f39bf5fd9579305",
+  "fake_dsh_sha256": "617c5f329113b40db4bb657a838f443fe744e7d72af7c49d151b60063bb3b38e",
+  "snapshot": "/private/tmp/judge-l4/all-20261029T220156+0800",
+  "snapshot_head_shas": {
+    "src-dsh/tools/lab.py": "2a378846035526ee22d02120757ca56520463c27c9d1dd0b1e167343dcd032a2",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "3987b1728fc342db93e2509ac49f6c43f23c62b8735053c12876708079e7b7cb",
+    "execution_seal.py": "744ea116420076384365a691750b97830b4ecb0d8e70a30933d8e8c607e2fd48"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-dsh-20261029T220156+0800/repo",
+  "binding_E": "79779e96c97aff5783f5113b8cb295d5cc152167",
+  "registered_at": "2026-10-29T22:04:50+08:00",
+  "generated_at": "2026-10-29T22:15:01+08:00",
+  "cases": {
+    "S1_e_seal_block": {
+      "verdict": "pass",
+      "detail": {
+        "rc": 1,
+        "err": null,
+        "audit_delta": 0,
+        "dispatch_files": 0,
+        "stdout_tail": "{\"ok\": false, \"gate\": \"released_for_model_calls=false：E 未放行，拒绝真实消费（检查类调用请显式 require_release=False）\"}\n@@RESULT@@{\"rc\": 1, \"err\": null, \"audit_delta\": 0, \"halt\": false}\n"
+      }
+    },
+    "S2_happy_full_chain": {
+      "verdict": "pass",
+      "detail": {
+        "rc0": true,
+        "status_ok": true,
+        "attempts_identity": true,
+        "inputs_ver_ok": true,
+        "usage_calls": true,
+        "session_captured": true,
+        "dispatch_exists": true,
+        "reward_int": true,
+        "meta_status": "ok",
+        "reward": 1,
+        "weighted": 100.0,
+        "registered_at_ok": true,
+        "stderr_tail": ""
+      }
+    },
+    "S8_gate_admission_positive": {
+      "verdict": "evidence",
+      "detail": {
+        "slot": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+        "formal": true,
+        "fails": [],
+        "criterion": "正常 CLI completed（exit0 全证据）应 formal=true；fails 即剩余缺口清单"
+      }
+    },
+    "S3_low_score_admitted": {
+      "verdict": "pass",
+      "detail": {
+        "rc": 0,
+        "status": "ok",
+        "reward": 0,
+        "accounting": null,
+        "stderr_tail": ""
+      }
+    },
+    "S4_repeat_zero_dispatch": {
+      "verdict": "pass",
+      "detail": {
+        "rc": 2,
+        "err": null,
+        "audit_delta": 0,
+        "stdout_tail": "证据目录已存在（永不覆盖/不重建，拒绝重复执行）：/private/tmp/judge-l4/fixture-dsh-20261029T220156+0800/repo/3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1\n@@RESULT@@{\"rc\": 2, \"err\": null, \"audit_delta\": 0, \"halt\": false}\n"
+      }
+    },
+    "S5_timeout_verified_evidence": {
+      "verdict": "evidence",
+      "detail": {
+        "status": "timeout",
+        "timed_out": true,
+        "term_verified_stop": true,
+        "term_signal": "SIGTERM",
+        "term_has_pgid": true,
+        "scored_despite_timeout": true,
+        "accounting": null,
+        "halt": false,
+        "criterion": "verified 停止→完整 timeout 判卷可准入；unverified→partial+checker0+halt"
+      }
+    },
+    "S6_orphan_detached_writer": {
+      "verdict": "evidence",
+      "detail": {
+        "status": "ok",
+        "formal_hint": null,
+        "accounting": null,
+        "child_still_writing": true,
+        "residual_disclosed": false,
+        "criterion": "setsid 孙进程在组外持续写：runner 组闭包验证通过≠全停；应有 residual 披露，否则组级 confirmed≠产物冻结成立性存疑"
+      }
+    },
+    "S7_input_drift_not_executed": {
+      "verdict": "pass",
+      "detail": {
+        "dispatch_exists": false,
+        "audit_delta": 0,
+        "rc": 1,
+        "stderr_tail": ""
+      }
+    }
+  },
+  "sentinel": {
+    "non_local_attempts": 0
+  },
+  "live_doc_drift": null
+}

@@ -1,0 +1,468 @@
+{
+  "category": "offline_recompute/late_archive_verification",
+  "run_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+  "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+  "verified_at": "2026-10-30T00:09:18.247858+08:00",
+  "collected_at": "2026-10-30T00:01:23+08:00",
+  "collected_after_finished_seconds": 122.0,
+  "status": "identity_and_structural_completeness_supported",
+  "passed": true,
+  "counts": {
+    "checks": 22,
+    "passed": 22,
+    "unknown_or_failed": 0
+  },
+  "reviewer_script_sha256": "0cd90f5553de823dd67bebe96c7a04b2456f5468581dc87ddda785dda08757b9",
+  "recovery_record_sha256": "4445aefe52aab2a9bdb07c0ab53f1a99e84dd529ec442849627ae512aaa8842d",
+  "original_prompt_sha256": "ffd1bb0aa02d4ce563aab1aae845bf87e8ce1ebdeb1a81a9007a3af9d5db0e58",
+  "original_stdout_sha256": "c31f4aefb31bca4c6c06fc9f3ba26ccb24863fc71b3ac25e6c87f350c898a522",
+  "original_meta_sha256": "d4af8baf5e3402a7c61f5b2f3ff0770e6bc5873bcab95495b3917d72b7f4f31a",
+  "per_file": [
+    {
+      "copy": "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r3/session/session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "declared_source_path_not_read": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r3--/session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "compressed_sha256": "4c27924bea70f344398b2b63470dd2f1ed1d28ae4e960aa549cef1e873f07456",
+      "compressed_bytes": 363818,
+      "copy_mtime": "2026-10-29T15:59:21.789776+00:00",
+      "source_stable_after_copy_claim_from_record": true,
+      "decompress_exit_code": 0,
+      "decompress_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decompressed_bytes": 1349960,
+      "decompressed_sha256": "1d70552a97131841c9c8872f1a95f2525ccc63cc4935c9160b075df3487d9a9c",
+      "jsonl_object_rows": 333,
+      "bad_jsonl_rows": [],
+      "ends_in_newline": true,
+      "session_id": "session-10d932dc-de2f-44aa-9712-152a5876e996",
+      "delegation_depth": 0,
+      "cwd_exact_original_meta": true,
+      "event_time_min": "2026-10-29T15:53:15.701000+00:00",
+      "event_time_max": "2026-10-29T15:59:21.787000+00:00",
+      "malformed_time_fields": 0,
+      "event_type_counts": {
+        "session": 1,
+        "permission/preset": 1,
+        "sandbox/mode": 1,
+        "approval/policy": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 50,
+        "system/message": 1,
+        "user/message": 3,
+        "request/header": 1,
+        "request/context": 1,
+        "session/title": 1,
+        "session-log-deepseek/delivery-accepted": 50,
+        "assistant/message": 50,
+        "tool/call": 59,
+        "tool/result": 59,
+        "step/end": 50,
+        "turn/end": 1
+      },
+      "last_event_type": "turn/end",
+      "tool_call_records": 59,
+      "tool_result_append_records": 59,
+      "unmatched_call_ID_count": 0,
+      "unmatched_result_ID_count": 0,
+      "initial_user_text_sha256": "ffd1bb0aa02d4ce563aab1aae845bf87e8ce1ebdeb1a81a9007a3af9d5db0e58",
+      "initial_user_text_bytes": 4589,
+      "root_prompt_exact_if_treated_as_root": true,
+      "late_usage_commitpoint_summary": {
+        "assistant_message_records": 50,
+        "usage_dict_records": 50,
+        "fields": {
+          "inputTokens": {
+            "present_numeric": 50,
+            "explicit_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 59998
+          },
+          "outputTokens": {
+            "present_numeric": 50,
+            "explicit_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 58579
+          },
+          "cacheReadTokens": {
+            "present_numeric": 50,
+            "explicit_zero": 0,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 3679616
+          },
+          "cacheWriteTokens": {
+            "present_numeric": 50,
+            "explicit_zero": 50,
+            "missing": 0,
+            "null": 0,
+            "sum_if_all_messages_numeric": 0
+          },
+          "reasoningTokens": {
+            "present_numeric": 0,
+            "explicit_zero": 0,
+            "missing": 50,
+            "null": 0,
+            "sum_if_all_messages_numeric": null
+          }
+        },
+        "interpretation": "late committed assistant-message usage records, not original meta backfill or raw HTTP attempt denominator"
+      },
+      "identity_role": "root"
+    }
+  ],
+  "checks": [
+    {
+      "id": "recovery-record-identities-match-explicit-slot",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "original-meta-identities-match-frozen-slot",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "original-E-binding-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "collected-at-is-truly-later-than-finished",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "original-prompt-sha-matches-original-meta",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "original-stdout-sha-matches-original-meta",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "copy-hash-chain:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "copy-mtime-in-original-window:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "zstd-decompress-clean:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "every-jsonl-record-parseable:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "one-session-header:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "header-ID-matches-copy-subdir:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "header-cwd-exact-original-workspace:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "session-UUID-present-in-original-stdout:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "event-times-within-original-window:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "trace-has-terminal-turn-end:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "tool-call-result-ID-multisets-close:session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "exactly-one-root-session",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "root-first-user-prompt-byte-exact-original-prompt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "record-source-stability-claims-present-not-independently-reread",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "protected_before": {
+    "1-评测方案/工具链/l4-execution/gate.py": {
+      "kind": "regular",
+      "sha256": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+      "bytes": 118010
+    },
+    "1-评测方案/自动循环L4-2026-10-29/PREREGISTRATION.md": {
+      "kind": "regular",
+      "sha256": "5977c6e140f568f1b7385f63be9f200bf9cdecac0e95567fc384e454fdb93082",
+      "bytes": 9732
+    },
+    "1-评测方案/自动循环L4-2026-10-29/contract.json": {
+      "kind": "regular",
+      "sha256": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+      "bytes": 11960
+    },
+    "1-评测方案/自动循环L4-2026-10-29/execution-manifest.json": {
+      "kind": "regular",
+      "sha256": "da1a4fa09a2f64fefdf2a5339c83b8c9a992ad5c95cb79d810c46f671f7cd017",
+      "bytes": 8524
+    },
+    "1-评测方案/自动循环L4-2026-10-29/plan.json": {
+      "kind": "regular",
+      "sha256": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+      "bytes": 17003
+    },
+    "1-评测方案/自动循环L4-2026-10-29/runtime-binding.json": {
+      "kind": "regular",
+      "sha256": "bf73ed8071d5dbd36dadc723ae7764e4b60d0fa14a0183c93649c56b4b98ff18",
+      "bytes": 660
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r3/recovery-record.json": {
+      "kind": "regular",
+      "sha256": "4445aefe52aab2a9bdb07c0ab53f1a99e84dd529ec442849627ae512aaa8842d",
+      "bytes": 1990
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r3/session/session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd": {
+      "kind": "regular",
+      "sha256": "4c27924bea70f344398b2b63470dd2f1ed1d28ae4e960aa549cef1e873f07456",
+      "bytes": 363818
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/agent.jsonl": {
+      "kind": "regular",
+      "sha256": "c31f4aefb31bca4c6c06fc9f3ba26ccb24863fc71b3ac25e6c87f350c898a522",
+      "bytes": 311683
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/agent.stderr.txt": {
+      "kind": "regular",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/checker.stdout": {
+      "kind": "regular",
+      "sha256": "138f1c2a8648f2602dc76b7bcb1cdc8bc502e4c0400c765a50d3f858a5b7f4c8",
+      "bytes": 8351
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/config-snapshot/AGENTS.md": {
+      "kind": "regular",
+      "sha256": "5786a0efda172afbf11c54720f5f4aef26e0bda91d76e766f05bdc2eeb59d3d7",
+      "bytes": 1477
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/config-snapshot/bench-cli-cordis.patch.yml": {
+      "kind": "regular",
+      "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238",
+      "bytes": 1148
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/config-snapshot/bench-cli-package.json": {
+      "kind": "regular",
+      "sha256": "69d10eb1ffc3ba0676fefca4df77e195b78fcc23877ba34d16e62bca58f4ea60",
+      "bytes": 214
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/integrity-rescan.json": {
+      "kind": "regular",
+      "sha256": "15705a29eb46dafdccd89225bda082a4e25bfecd89f24d0975ebfbedf3976106",
+      "bytes": 461
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/meta.json": {
+      "kind": "regular",
+      "sha256": "d4af8baf5e3402a7c61f5b2f3ff0770e6bc5873bcab95495b3917d72b7f4f31a",
+      "bytes": 7469
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/prompt.txt": {
+      "kind": "regular",
+      "sha256": "ffd1bb0aa02d4ce563aab1aae845bf87e8ce1ebdeb1a81a9007a3af9d5db0e58",
+      "bytes": 4589
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/score-receipt.json": {
+      "kind": "regular",
+      "sha256": "500e541a9c6463444fc759dac32b50c6250406aba2b0f2d6d32952a847a80095",
+      "bytes": 9375
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/termination-receipt.json": {
+      "kind": "regular",
+      "sha256": "735508f5d185b8772e4447dff61cd06952bc79aef6578405fd47a772fdd75096",
+      "bytes": 565
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/workspace/answers.jsonl": {
+      "kind": "regular",
+      "sha256": "28cdbde2315a900b3ee8e5f5064c2d2527baaaf278e5f6ecf6bf7951e86cebc1",
+      "bytes": 2627
+    },
+    "3-表现现场/l4-20261029-cli/dsh/tools/lab.py": {
+      "kind": "regular",
+      "sha256": "f246d0113219b325341ac35f75ad5e194a68da4a15a73a2761639133f6f4e19d",
+      "bytes": 105770
+    }
+  },
+  "protected_after": {
+    "1-评测方案/工具链/l4-execution/gate.py": {
+      "kind": "regular",
+      "sha256": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+      "bytes": 118010
+    },
+    "1-评测方案/自动循环L4-2026-10-29/PREREGISTRATION.md": {
+      "kind": "regular",
+      "sha256": "5977c6e140f568f1b7385f63be9f200bf9cdecac0e95567fc384e454fdb93082",
+      "bytes": 9732
+    },
+    "1-评测方案/自动循环L4-2026-10-29/contract.json": {
+      "kind": "regular",
+      "sha256": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+      "bytes": 11960
+    },
+    "1-评测方案/自动循环L4-2026-10-29/execution-manifest.json": {
+      "kind": "regular",
+      "sha256": "da1a4fa09a2f64fefdf2a5339c83b8c9a992ad5c95cb79d810c46f671f7cd017",
+      "bytes": 8524
+    },
+    "1-评测方案/自动循环L4-2026-10-29/plan.json": {
+      "kind": "regular",
+      "sha256": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+      "bytes": 17003
+    },
+    "1-评测方案/自动循环L4-2026-10-29/runtime-binding.json": {
+      "kind": "regular",
+      "sha256": "bf73ed8071d5dbd36dadc723ae7764e4b60d0fa14a0183c93649c56b4b98ff18",
+      "bytes": 660
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r3/recovery-record.json": {
+      "kind": "regular",
+      "sha256": "4445aefe52aab2a9bdb07c0ab53f1a99e84dd529ec442849627ae512aaa8842d",
+      "bytes": 1990
+    },
+    "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r3/session/session-10d932dc-de2f-44aa-9712-152a5876e996/session.v4.jsonl.zstd": {
+      "kind": "regular",
+      "sha256": "4c27924bea70f344398b2b63470dd2f1ed1d28ae4e960aa549cef1e873f07456",
+      "bytes": 363818
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/agent.jsonl": {
+      "kind": "regular",
+      "sha256": "c31f4aefb31bca4c6c06fc9f3ba26ccb24863fc71b3ac25e6c87f350c898a522",
+      "bytes": 311683
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/agent.stderr.txt": {
+      "kind": "regular",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/checker.stdout": {
+      "kind": "regular",
+      "sha256": "138f1c2a8648f2602dc76b7bcb1cdc8bc502e4c0400c765a50d3f858a5b7f4c8",
+      "bytes": 8351
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/config-snapshot/AGENTS.md": {
+      "kind": "regular",
+      "sha256": "5786a0efda172afbf11c54720f5f4aef26e0bda91d76e766f05bdc2eeb59d3d7",
+      "bytes": 1477
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/config-snapshot/bench-cli-cordis.patch.yml": {
+      "kind": "regular",
+      "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238",
+      "bytes": 1148
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/config-snapshot/bench-cli-package.json": {
+      "kind": "regular",
+      "sha256": "69d10eb1ffc3ba0676fefca4df77e195b78fcc23877ba34d16e62bca58f4ea60",
+      "bytes": 214
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/integrity-rescan.json": {
+      "kind": "regular",
+      "sha256": "15705a29eb46dafdccd89225bda082a4e25bfecd89f24d0975ebfbedf3976106",
+      "bytes": 461
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/meta.json": {
+      "kind": "regular",
+      "sha256": "d4af8baf5e3402a7c61f5b2f3ff0770e6bc5873bcab95495b3917d72b7f4f31a",
+      "bytes": 7469
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/prompt.txt": {
+      "kind": "regular",
+      "sha256": "ffd1bb0aa02d4ce563aab1aae845bf87e8ce1ebdeb1a81a9007a3af9d5db0e58",
+      "bytes": 4589
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/score-receipt.json": {
+      "kind": "regular",
+      "sha256": "500e541a9c6463444fc759dac32b50c6250406aba2b0f2d6d32952a847a80095",
+      "bytes": 9375
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/termination-receipt.json": {
+      "kind": "regular",
+      "sha256": "735508f5d185b8772e4447dff61cd06952bc79aef6578405fd47a772fdd75096",
+      "bytes": 565
+    },
+    "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/workspace/answers.jsonl": {
+      "kind": "regular",
+      "sha256": "28cdbde2315a900b3ee8e5f5064c2d2527baaaf278e5f6ecf6bf7951e86cebc1",
+      "bytes": 2627
+    },
+    "3-表现现场/l4-20261029-cli/dsh/tools/lab.py": {
+      "kind": "regular",
+      "sha256": "f246d0113219b325341ac35f75ad5e194a68da4a15a73a2761639133f6f4e19d",
+      "bytes": 105770
+    }
+  },
+  "live_doc_drift": [],
+  "original_observation_not_reclassified": {
+    "status": "ok",
+    "integrity_verdict": "clean",
+    "score_status": "scored",
+    "weighted": 70.0,
+    "registered_at": "2026-10-29T23:13:56+08:00",
+    "started_at": "2026-10-29T23:53:14+08:00",
+    "finished_at": "2026-10-29T23:59:21+08:00",
+    "judge_counts": {
+      "correct": 7,
+      "n_tasks": 10
+    },
+    "usage_requests": null,
+    "session_scan_lines": 0
+  },
+  "formal_effect": "none: original meta/gate/score/times/usage/integrity verdict remain untouched; late recovery is not automatic formal admission",
+  "not_a_new_original_master": true,
+  "read_original_global_session_sources": false,
+  "no_raw_prompt_trace_or_credentials_in_receipt": true,
+  "limits": [
+    "Original global-session source before/after stability is the collector receipt claim; this reviewer hashes only explicitly authorized copies and never rereads/scans global sessions.",
+    "Copy mtime is copy metadata; embedded session event times, original stdout UUIDs and prompt hashes supply independent linkage, not a trusted timestamp/signature.",
+    "Child initial user message includes its delegated task/context, not the root prompt; its task block must match the actual parent launch argument exactly.",
+    "Clean zstd/JSONL, terminal records and paired tool IDs support structural completeness, not proof of no omitted internal requests or semantic absence of contamination.",
+    "Usage sums are late committed-message observations only; missing/null/explicit zero remain separate and original usage is never backfilled.",
+    "No semantic contamination adjudication, scoring, formal reclassification or product rerun is performed."
+  ]
+}

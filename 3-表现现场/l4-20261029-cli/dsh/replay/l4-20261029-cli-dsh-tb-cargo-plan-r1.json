@@ -1,0 +1,180 @@
+{
+  "kind": "dual_archive_replay",
+  "spec": "l4-dual-archive-replay",
+  "case": "tb-cargo-plan",
+  "at": "2026-10-30T00:02:46+08:00",
+  "equivalent_simulation": true,
+  "adaptation_disclosure": "两副本均为等价模拟：legacy 以相同 rmtree 顺序复现 r1030#1，其后处理按'读已丢失日志'的旧语义推演（usage/integrity unknown，不从会话补造）；current 侧为 staging 保留+text/usage 局部投影（非完整流）+实测扫描。未原样调用历史 pipeline，推断边界=归档语义级而非进程级；分数维度双侧 not_evaluated。",
+  "master": {
+    "path": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-tb-cargo-plan-r1",
+    "state_before": {
+      "agent.jsonl": "f840fcbe783623853968df47dce7a0daf830e6467beec26f3b19871313cc04dc",
+      "agent.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checker.stdout": "dc09cd323c00023be0b67ef037e85a2797ac9339c5d0a8e6ca6157f0abc52a54",
+      "config-snapshot/AGENTS.md": "5786a0efda172afbf11c54720f5f4aef26e0bda91d76e766f05bdc2eeb59d3d7",
+      "config-snapshot/bench-cli-cordis.patch.yml": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238",
+      "config-snapshot/bench-cli-package.json": "69d10eb1ffc3ba0676fefca4df77e195b78fcc23877ba34d16e62bca58f4ea60",
+      "integrity-rescan.json": "01e84e08685a84f10e2a172fb7b93138feb2f8b1c886f1881349eb32b189bdad",
+      "meta.json": "5799fa2894754c1233ea77bec98af852dc8da327a7447a2943153621931bb5bf",
+      "prompt.txt": "7cde1c2b35aabb20cb9de8122f893a92c50766c592667d1834cc0d9ab3d08309",
+      "score-receipt.json": "17b72e6b5564e730918b050af01b8c4836b756dc90fd311d6ed2bd3154594a16",
+      "termination-receipt.json": "2576878d3796aa6a6ce7460ca21837e0dfad9047d622afcf7a98619aea96f852",
+      "workspace/flight_plan.json": "3b5703251bcaebb2f1900e2798c88a0ca31dd7ba5478261b37a680e54b748131"
+    },
+    "state_after": {
+      "agent.jsonl": "f840fcbe783623853968df47dce7a0daf830e6467beec26f3b19871313cc04dc",
+      "agent.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checker.stdout": "dc09cd323c00023be0b67ef037e85a2797ac9339c5d0a8e6ca6157f0abc52a54",
+      "config-snapshot/AGENTS.md": "5786a0efda172afbf11c54720f5f4aef26e0bda91d76e766f05bdc2eeb59d3d7",
+      "config-snapshot/bench-cli-cordis.patch.yml": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238",
+      "config-snapshot/bench-cli-package.json": "69d10eb1ffc3ba0676fefca4df77e195b78fcc23877ba34d16e62bca58f4ea60",
+      "integrity-rescan.json": "01e84e08685a84f10e2a172fb7b93138feb2f8b1c886f1881349eb32b189bdad",
+      "meta.json": "5799fa2894754c1233ea77bec98af852dc8da327a7447a2943153621931bb5bf",
+      "prompt.txt": "7cde1c2b35aabb20cb9de8122f893a92c50766c592667d1834cc0d9ab3d08309",
+      "score-receipt.json": "17b72e6b5564e730918b050af01b8c4836b756dc90fd311d6ed2bd3154594a16",
+      "termination-receipt.json": "2576878d3796aa6a6ce7460ca21837e0dfad9047d622afcf7a98619aea96f852",
+      "workspace/flight_plan.json": "3b5703251bcaebb2f1900e2798c88a0ca31dd7ba5478261b37a680e54b748131"
+    },
+    "untouched": true
+  },
+  "sandbox": {
+    "legacy": {
+      "root": "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4dual-run-com3vgin/legacy",
+      "raw_stdout_lost": true,
+      "postprocess": {
+        "raw_stdout": {
+          "status": "lost",
+          "bytes": null,
+          "sha256": null
+        },
+        "integrity": {
+          "lines": 0,
+          "violations": 0,
+          "vacuous": true,
+          "basis": "数据源(raw log)已丢失——空流扫描无判定力，不代表无违规",
+          "evidence": []
+        },
+        "usage": {
+          "status": "unknown",
+          "reason": "legacy pipeline 只读 raw log；log 已随输出目录 rmtree 丢失（r1030#1 在副本内复现）",
+          "requests": null,
+          "input_tokens": null,
+          "output_tokens": null,
+          "cache_read_tokens": null,
+          "cache_creation_tokens": null,
+          "per_call": null,
+          "unknown": {
+            "impact": "旧管线下该场 usage 不可判定，任何非空数字都是补造",
+            "next_step": "以 current 侧会话轨迹投影作参照披露",
+            "stop_condition": "不补造数据；差异仅在投影语义层解释"
+          }
+        },
+        "score": {
+          "status": "not_evaluated",
+          "reason": "replay harness 不运行 checker；旧管线分数声称不可复现验证",
+          "unknown": {
+            "impact": "无法证实/证伪历史分数等值",
+            "next_step": "如需分数反事实须在副本内真实重跑冻结 checker（另行设计）",
+            "stop_condition": "不宣称分数不变"
+          }
+        }
+      }
+    },
+    "current": {
+      "root": "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4dual-run-com3vgin/current",
+      "postprocess": {
+        "raw_stdout": {
+          "status": "preserved",
+          "bytes": 114499,
+          "sha256": "f840fcbe783623853968df47dce7a0daf830e6467beec26f3b19871313cc04dc"
+        },
+        "partial_text_usage_projection": {
+          "status": "not_attempted",
+          "kind": "partial_text_usage_projection",
+          "events": 0,
+          "bytes": 0,
+          "sha256": null,
+          "reason": "session unavailable"
+        },
+        "integrity": {
+          "lines": 0,
+          "violations": 0,
+          "vacuous": true,
+          "basis": "no sources",
+          "evidence": []
+        },
+        "usage": {
+          "status": "unknown",
+          "reason": "session log unavailable",
+          "requests": null,
+          "input_tokens": null,
+          "output_tokens": null,
+          "cache_read_tokens": null,
+          "cache_creation_tokens": null,
+          "per_call": null,
+          "unknown": {
+            "impact": "旧管线下该场 usage 不可判定，任何非空数字都是补造",
+            "next_step": "以 current 侧会话轨迹投影作参照披露",
+            "stop_condition": "不补造数据；差异仅在投影语义层解释"
+          }
+        },
+        "score": {
+          "status": "not_evaluated",
+          "reason": "replay harness 不运行 checker；不声称分数等值/不变",
+          "unknown": {
+            "impact": "分数反事实不在本 harness 范围",
+            "next_step": "同 legacy 条目",
+            "stop_condition": "不宣称分数不变"
+          }
+        }
+      }
+    }
+  },
+  "differences": [
+    {
+      "dimension": "raw_stdout_preserved",
+      "legacy": false,
+      "current": true,
+      "interpretation": "r1030#1 在 legacy 副本内复现"
+    },
+    {
+      "dimension": "partial_text_usage_projection",
+      "legacy": "not_attempted",
+      "current": "not_attempted",
+      "interpretation": "current 侧为部分投影（text/usage），非完整流；legacy 无任何重建；截断字段不可恢复"
+    },
+    {
+      "dimension": "integrity_basis",
+      "legacy": "vacuous(lost source)",
+      "current": "0 lines scanned",
+      "interpretation": "vacuous 无判定力 ≠ 无违规（unknown 保留）"
+    },
+    {
+      "dimension": "usage_projection",
+      "legacy": "unknown",
+      "current": "unknown",
+      "interpretation": "legacy usage 不可判定（源已丢）；current 实测。差异=测量语义差，非服务端事实差"
+    },
+    {
+      "dimension": "score",
+      "legacy": "not_evaluated",
+      "current": "not_evaluated",
+      "interpretation": "harness 未运行 checker——不作任何分数等值/不变声称（S6-3）"
+    }
+  ],
+  "unknowns": [
+    {
+      "item": "legacy usage（源丢失）",
+      "impact": "不可判定",
+      "next_step": "以 current 投影为参照披露",
+      "stop_condition": "不补造"
+    },
+    {
+      "item": "双侧 score 反事实",
+      "impact": "分数等值性不可判",
+      "next_step": "须真实重跑 checker 的另行设计",
+      "stop_condition": "不宣称分数不变"
+    }
+  ],
+  "live_doc_drift": []
+}

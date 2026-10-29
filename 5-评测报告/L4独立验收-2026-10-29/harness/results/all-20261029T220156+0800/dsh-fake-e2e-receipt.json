@@ -1,0 +1,114 @@
+{
+  "kind": "judge_fake_e2e_receipt",
+  "harness": "dsh_fake_e2e.py",
+  "harness_sha256": "022e37a92b88df6aeeaf1cb73efc84214cdc9e3e5b4c9d18afd7e35ab727a652",
+  "fake_dsh_sha256": "617c5f329113b40db4bb657a838f443fe744e7d72af7c49d151b60063bb3b38e",
+  "snapshot": "/private/tmp/judge-l4/all-20261029T220156+0800",
+  "snapshot_head_shas": {
+    "src-dsh/tools/lab.py": "2a378846035526ee22d02120757ca56520463c27c9d1dd0b1e167343dcd032a2",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "3987b1728fc342db93e2509ac49f6c43f23c62b8735053c12876708079e7b7cb",
+    "execution_seal.py": "744ea116420076384365a691750b97830b4ecb0d8e70a30933d8e8c607e2fd48"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-dsh-20261029T220156+0800/repo",
+  "binding_E": "97d82fe270b7ed09d60ba53a137eecf602f6855b",
+  "registered_at": "2026-10-29T21:57:19+08:00",
+  "generated_at": "2026-10-29T22:07:24+08:00",
+  "cases": {
+    "S1_e_seal_block": {
+      "verdict": "fail",
+      "detail": {
+        "rc": 1,
+        "err": null,
+        "audit_delta": 0,
+        "dispatch_files": 0,
+        "stderr_tail": ""
+      }
+    },
+    "S2_happy_full_chain": {
+      "verdict": "fail",
+      "detail": {
+        "rc0": false,
+        "status_ok": false,
+        "attempts_identity": false,
+        "inputs_ver_ok": false,
+        "usage_calls": false,
+        "session_captured": false,
+        "dispatch_exists": false,
+        "reward_int": false,
+        "meta_status": null,
+        "reward": null,
+        "weighted": null,
+        "registered_at_ok": false,
+        "stderr_tail": ""
+      }
+    },
+    "S8_gate_admission_positive": {
+      "verdict": "evidence",
+      "detail": {
+        "slot": null,
+        "formal": null,
+        "fails": [],
+        "criterion": "正常 CLI completed（exit0 全证据）应 formal=true；fails 即剩余缺口清单"
+      }
+    },
+    "S3_low_score_admitted": {
+      "verdict": "fail",
+      "detail": {
+        "rc": 1,
+        "status": null,
+        "reward": null,
+        "accounting": null,
+        "stderr_tail": ""
+      }
+    },
+    "S4_repeat_zero_dispatch": {
+      "verdict": "pass",
+      "detail": {
+        "rc": 1,
+        "err": null,
+        "audit_delta": 0,
+        "stdout_tail": "/Applications/WorkBuddy.app/Contents/Info.plist', '/Applications/WorkBuddy.app/Contents/Resources/app.asar', '/opt/homebrew/lib/node_modules/@deepseek-ai/dsh/lib/bin.js', '/opt/homebrew/lib/node_modules/@openai/codex/bin/codex.js']\"}\n@@RESULT@@{\"rc\": 1, \"err\": null, \"audit_delta\": 0, \"halt\": false}\n"
+      }
+    },
+    "S5_timeout_verified_evidence": {
+      "verdict": "evidence",
+      "detail": {
+        "status": null,
+        "timed_out": null,
+        "term_verified_stop": null,
+        "term_signal": null,
+        "term_has_pgid": false,
+        "scored_despite_timeout": false,
+        "accounting": null,
+        "halt": false,
+        "criterion": "verified 停止→完整 timeout 判卷可准入；unverified→partial+checker0+halt"
+      }
+    },
+    "S6_orphan_detached_writer": {
+      "verdict": "evidence",
+      "detail": {
+        "status": null,
+        "formal_hint": null,
+        "accounting": null,
+        "child_still_writing": false,
+        "residual_disclosed": false,
+        "criterion": "setsid 孙进程在组外持续写：runner 组闭包验证通过≠全停；应有 residual 披露，否则组级 confirmed≠产物冻结成立性存疑"
+      }
+    },
+    "S7_input_drift_not_executed": {
+      "verdict": "pass",
+      "detail": {
+        "dispatch_exists": false,
+        "audit_delta": 0,
+        "rc": 1,
+        "stderr_tail": ""
+      }
+    }
+  },
+  "sentinel": {
+    "non_local_attempts": 0
+  },
+  "live_doc_drift": null
+}

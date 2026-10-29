@@ -1,0 +1,196 @@
+{
+ "kind": "activity_index_proposal",
+ "id": "AUD-L4-ACTIDX-r2-finalstates",
+ "at": "2026-10-30T00:30:00+08:00",
+ "author": "auditor(task-9)",
+ "status": "candidate proposal（全 17 槽终态后更新 r2）；非最终主账",
+ "metric_definitions": {
+  "activity_group": "一个可引用的 receipt/报告单位（文件级或批次级），非用例数",
+  "test_case_n": "该 group 收据内声明的用例数（仅机械收据可证时填数，否则 null）",
+  "planned_slots": "plan.json 固定 35 = 17 product + 18 probe（不变量，final_audit F1 已核）",
+  "executed_slots": "实际已执行槽（cache 18 HTTP 200；product 见逐产品状态），与 activity_group 数严格分列"
+ },
+ "six_categories": {
+  "product_run": {
+   "planned_slots": 17,
+   "executed_final": {
+    "codex": "6/6（dab 70.0×3，cargo 70.37037037×3；X 系 7/7 PASS）",
+    "dsh": "6/6（dab 70/80/70，cargo 70.37037037/74.07407407/74.07407407；gate formal=0；dab-r1 integrity=violation(vacuous) 与 usage null 原样保留；recoveries 6 槽 8 zstd 晚补档 sidecar，reviewer task10 首槽 36/36 身份核过、余 5 在审）",
+    "wb": "4/6 执行（dab 50.0、exercism 100.0、lcb 100.0、cargo 70.37；bird=not_executed 基础设施 startup-render-not-ready score=null）"
+   },
+   "groups": [
+    {
+     "group_id": "prod:codex-batch",
+     "receipt_unit": "3-表现现场/l4-20261029-cli/codex/REPORT.md + runs/<slot>/{meta.json,meta.partial.json,claim.json,score-receipt.json,termination.json,checker.stdout,agent-session/}",
+     "slots": 6,
+     "source": "mechanically_verified"
+    },
+    {
+     "group_id": "prod:dsh-batch",
+     "receipt_unit": "3-表现现场/l4-20261029-cli/dsh/REPORT.md + runs/<slot>/（在途）",
+     "slots": "0 final / 3 在途",
+     "source": "lead 通报+目录核"
+    },
+    {
+     "group_id": "prod:wb-batch",
+     "receipt_unit": "3-表现现场/l4-20261029-wb-gateway/REPORT.md（bird 裁决见 EXECUTION-RULINGS.json）",
+     "slots": "0 executed / 1 not_executed / 4 在途",
+     "source": "lead 裁决转写"
+    }
+   ],
+   "caveats": [
+    "runner_formal_eligible=true 不作完整准入（独立 gate 首批真实 rows=false，发射缺口）；formal 裁定归 judge",
+    "产品 17 槽记账在数据齐前不判 final，空目录不记失败",
+    "WB cargo 两位 70.37 与 8 位 norm 差别、earned=0 语义、guards 顶层缺漏交 judge 核，不改原物"
+   ],
+   "executed_slots_note": "product executed=16/17（bird not_executed）；与 activity_group 数分列"
+  },
+  "bare_model_probe": {
+   "planned_slots": 18,
+   "executed": "18/18 HTTP 200（每槽恰 1 次外发；6 fresh/repeat pair=3 wire×2 block；无 401/403/重试）",
+   "groups": [
+    {
+     "group_id": "probe:cache-batch",
+     "receipt_unit": "3-表现现场/l4-20261029-cache/probe-receipt.json + probes/<slot>×18（intent/transport/request/response/usage.raw/usage.layers/accounting）",
+     "slots": 18,
+     "source": "mechanically_verified（C1–C10，15 PASS）"
+    }
+   ],
+   "caveats": [
+    "REPORT.md:64 缺失断言已经 dated erratum 2 更正（C10 PASS）；layer_mapping 归一化为 coverage limitation（C5c）；raw/usage.raw/layers 原物未改"
+   ]
+  },
+  "interface_preflight": {
+   "groups": [
+    {
+     "group_id": "preflight:incident-accidental-cli",
+     "receipt_unit": "3-表现现场/l4-20261029-cli/codex/incidents/incident-receipt.json + INCIDENT-*.md + first-failure/",
+     "count": 1,
+     "note": "accidental CLI start；chatgpt.com plugin-warm 401 证实 1 次；DeepSeek provider requests unknown；证据等级 incomplete；不并 35 槽/不评分/不计合成 pass/不称零调用"
+    },
+    {
+     "group_id": "preflight:cache-dryrun",
+     "receipt_unit": "3-表现现场/l4-20261029-cache/dryrun/probe-receipt-dryrun.json",
+     "count": 1,
+     "source": "landed"
+    },
+    {
+     "group_id": "preflight:wb-gateway",
+     "receipt_unit": "3-表现现场/l4-20261029-wb-gateway 零模型预检（版本/驱动/路径；不建题会话）",
+     "count": null,
+     "source": "REPORT 引用，细粒度次数未持久=null"
+    }
+   ]
+  },
+  "self_test": {
+   "groups": [
+    {
+     "group_id": "selftest:lead-seal",
+     "receipt_unit": "1-评测方案/自动循环L4-2026-10-29/selftest/{lead-seal-selftest-v3,v4,v6}.json+txt, execution-seal-binding-check.json, receipt-byte-guard-check.json, checker-interface-negative.json, process-group-interface.json",
+     "test_case_n": null,
+     "note": "v1→v6 修正链保留；独立评审实证软链/成员集缺陷后硬化（13/13→15/15，作者+独立 8/8），失败收据存 reviewer 目录"
+    },
+    {
+     "group_id": "selftest:l4-execution-gate",
+     "receipt_unit": "1-评测方案/工具链/l4-execution/receipts/gate-selftest{,-r1}.json",
+     "test_case_n": null
+    },
+    {
+     "group_id": "selftest:l4-execution-replay-dual",
+     "receipt_unit": "1-评测方案/工具链/l4-execution/selftest-replay-dual{,-r2..r9}.json",
+     "count": 10,
+     "note": "修正链留痕组"
+    },
+    {
+     "group_id": "selftest:cache-probe",
+     "receipt_unit": "3-表现现场/l4-20261029-cache/selftest/selftest-receipt.json",
+     "test_case_n": 32,
+     "note": "REPORT 声称 32/32 PASS（fake-HTTP 端到端）"
+    },
+    {
+     "group_id": "selftest:codex-runner",
+     "receipt_unit": "3-表现现场/l4-20261029-cli/codex/selftest/selftest-receipt.json",
+     "test_case_n": 60,
+     "note": "含 mock_never_real_codex 守卫"
+    },
+    {
+     "group_id": "selftest:wb-gateway",
+     "receipt_unit": "3-表现现场/l4-20261029-wb-gateway/selftest/selftest-receipt-l4-wb{,-v2}.json + receipts/v1-skeleton-archive/",
+     "test_case_n": null
+    },
+    {
+     "group_id": "selftest:judge-fake-e2e",
+     "receipt_unit": "5-评测报告/L4独立验收-2026-10-29/harness/results/*/（codex/dsh/wb fake-e2e 收据多轮）",
+     "count": null,
+     "note": "fake subprocess/HTTP/desktop driver，零外发"
+    },
+    {
+     "group_id": "selftest:auditor-tools",
+     "receipt_unit": "5-评测报告/对抗性盲审-L4-2026-10-29/{selftest-receipt-credential-scan-r1.json(11/11), pii 自检 6/6}",
+     "test_case_n": 17
+    }
+   ]
+  },
+  "offline_recompute": {
+   "groups": [
+    {
+     "group_id": "recompute:dual-archive-codex",
+     "receipt_unit": "runs/<codex slot>/projections/{legacy,current}/ + ADAPTATION.json + dual-archive.status.json（6 槽）",
+     "slots": 6,
+     "note": "母本先持久后双副本重放；等价模拟须标 equivalent_simulation——逐槽标注完备性留 F7 终审"
+    },
+    {
+     "group_id": "recompute:cache-erratum-sidecar",
+     "receipt_unit": "3-表现现场/l4-20261029-cache/execution-accounting-sidecar.json（judge 独立核）",
+     "count": 1
+    },
+    {
+     "group_id": "recompute:auditor-independence",
+     "receipt_unit": "5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-{u1,cache,codex}-r*.json（E 注册/blob 等值/manifest 42+17/cache 递归重提/codex 6 机械核）",
+     "count": 5
+    }
+   ]
+  },
+  "grading_regression": {
+   "value": "0（不适用）",
+   "note": "本环无 checker 修订/回归：contract 继承冻结 checker 字节（grading_contract_inheritance），PREREG §5 明示 grading_regression=0；不为凑六账新跑"
+  }
+ },
+ "counts_summary": {
+  "planned_slots_total": 35,
+  "executed_probe_http": 18,
+  "product_executed_final": {
+   "codex": 6,
+   "dsh": 6,
+   "wb": 4
+  },
+  "product_not_executed": {
+   "wb_bird": 1
+  },
+  "activity_group_count_candidate": 23,
+  "incident_separate": 1,
+  "note": "activity_group 数/test_case 数/executed 槽数三口径严格分列；23 为候选 group 合计（含 auditor 自身组），最终口径以 lead 主账为准"
+ },
+ "coverage_and_caveats": [
+  "全 17 槽终态：codex 6+DSH 6+WB 4 执行、bird 1 not_executed（coverage 双向集合核 F0 PASS）",
+  "dsh marker 缺陷（capture 空/usage null/dab-r1 vacuous violation）按裁决仅 recoveries 晚补档（6 槽 8 zstd），原档不改；补档≠自动 formal（gate formal=0）",
+  "未知/未持久细时刻一律 null（如 wb 预检次数、historical_dispatch_at），不捏造精确活动次数",
+  "事故单独 interface_preflight 1 accidentalCLI，provider requests unknown/incomplete",
+  "本 proposal 全部基于落盘 source/收据；lead 串行登记后由 auditor 复核主账",
+  "EXECUTION-RULINGS.json（governance_sidecar）已读：recorded_at 为转写时刻非重构 release_at，不属新 product/probe"
+ ],
+ "live_doc_drift": [],
+ "erratum": {
+  "at": "2026-10-30T00:19:20+08:00",
+  "by": "auditor（lead 程序核对指出）",
+  "errors": [
+   "at 手写为未来时刻（00:30:00，实际机钟 00:16:19）——违反脚本生成纪律",
+   "counts_summary.activity_group_count_candidate 手写 23，程序实算 18（3+1+3+8+3+0）",
+   "product_run.executed_final WB 写 4/6，应 4/5（计划 5 槽）",
+   "product_run.groups 仍写 DSH 0 final/3 在途、WB 0 executed/4 在途，与同文件终态矛盾",
+   "codex selftest test_case_n 手写 60，落盘收据现版本 73"
+  ],
+  "handling": "r2 原值保留不覆盖作缺陷记录；程序化 r3（activity_index_gen.py）取代为现行候选",
+  "classification": "实证审计文档缺陷（AUD-D5），不影响产品原记录"
+ }
+}

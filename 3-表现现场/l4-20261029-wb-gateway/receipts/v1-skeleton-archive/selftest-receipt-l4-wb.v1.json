@@ -1,0 +1,105 @@
+{
+  "kind": "self_test",
+  "batch": "l4-20261029-wb-gateway",
+  "at": "2026-10-29T20:13:25+08:00",
+  "model_calls": 0,
+  "all_pass": true,
+  "results": [
+    {
+      "test": "T1.quit_app_structurally_forbidden",
+      "pass": true,
+      "detail": "_quit_app replaced by raiser"
+    },
+    {
+      "test": "T1a.reuse_when_cdp_up",
+      "pass": true,
+      "detail": "[{'branch': 'reuse', 'port': 9332}]"
+    },
+    {
+      "test": "T1b.clean_launch_when_not_running",
+      "pass": true,
+      "detail": "[{'branch': 'clean-launch', 'port': 9332}]"
+    },
+    {
+      "test": "T1c.unsafe_state_raises",
+      "pass": true,
+      "detail": "WBUnsafeState raised; no SIGTERM path"
+    },
+    {
+      "test": "T2a.released_and_consistent_ok",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "T2b.not_released_fail_closed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "T2c.hash_mismatch_fail_closed",
+      "pass": true,
+      "detail": "mismatch reason count=2"
+    },
+    {
+      "test": "T2d.missing_file_fail_closed",
+      "pass": true,
+      "detail": "missing"
+    },
+    {
+      "test": "T2e.commit_format_enforced",
+      "pass": true,
+      "detail": "40hex required"
+    },
+    {
+      "test": "T3a.not_executed_null_fields",
+      "pass": true,
+      "detail": "null not zero"
+    },
+    {
+      "test": "T3b.not_executed_has_identity",
+      "pass": true,
+      "detail": "identity+seal refs present"
+    },
+    {
+      "test": "T3c.timeout_frame_timed_out_flag",
+      "pass": true,
+      "detail": "R1 timeout row"
+    },
+    {
+      "test": "T3d.accounting_not_admission",
+      "pass": true,
+      "detail": "two-layer semantics"
+    },
+    {
+      "test": "T4.meta_required_fields_covered",
+      "pass": true,
+      "detail": "missing=[]"
+    },
+    {
+      "test": "T4b.declared_alias_not_actual",
+      "pass": true,
+      "detail": "R2: 不得把 declared_alias 写成 actual_request_model"
+    },
+    {
+      "test": "T4c.route_verification_current_not_observed",
+      "pass": true,
+      "detail": "R2"
+    },
+    {
+      "test": "T4d.stratum_display_full_name",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "T5.five_frames_identity_unique",
+      "pass": true,
+      "detail": "identity per plan"
+    },
+    {
+      "test": "T5b.whitelist_unknowns_registered",
+      "pass": true,
+      "detail": "R2 whitelist with impact/next/stop"
+    }
+  ],
+  "live_doc_drift": []
+}

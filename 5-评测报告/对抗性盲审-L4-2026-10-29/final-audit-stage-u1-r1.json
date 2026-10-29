@@ -1,0 +1,55 @@
+{
+ "kind": "final_audit_stage_report",
+ "tool": "final_audit.py",
+ "at": "2026-10-29T23:40:34+08:00",
+ "stage": "u1",
+ "counts": {
+  "PASS": 8,
+  "FAIL": 0,
+  "PENDING-E": 0
+ },
+ "results": [
+  {
+   "check": "F4_registered_at_equals_E_git_time",
+   "status": "PASS",
+   "detail": "git=2026-10-29T23:13:56+08:00 binding=2026-10-29T23:13:56+08:00"
+  },
+  {
+   "check": "F4_plan_blob_D_E_current_equal",
+   "status": "PASS",
+   "detail": "cur=e8dfb73f D=e8dfb73f E=e8dfb73f"
+  },
+  {
+   "check": "F4_contract_blob_D_E_current_equal",
+   "status": "PASS",
+   "detail": "cur=3a8a45ac D=3a8a45ac E=3a8a45ac"
+  },
+  {
+   "check": "F4_manifest_sha_matches_binding",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "F4_manifest_counts_42_17",
+   "status": "PASS",
+   "detail": "files=42 ext=17"
+  },
+  {
+   "check": "F4_manifest_42_repo_files_hash_match",
+   "status": "PASS",
+   "detail": "bad=[]"
+  },
+  {
+   "check": "F4_manifest_17_external_hash_match",
+   "status": "PASS",
+   "detail": "bad=[]"
+  },
+  {
+   "check": "F4_judge_actual_E_review_on_record",
+   "status": "PASS",
+   "detail": "reviewer actual-E 收据在案（不重复其实现）"
+  }
+ ],
+ "live_doc_drift": [],
+ "note": "PENDING-E=输入未到，非通过也非失败；FAIL=终审发现"
+}

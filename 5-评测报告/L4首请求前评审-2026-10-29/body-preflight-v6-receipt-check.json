@@ -1,0 +1,175 @@
+{
+  "kind": "receipt_check_report",
+  "tool": "receipt_check.py",
+  "at": "2026-10-29T23:08:49+08:00",
+  "root": "/Users/b612-lp/Documents/harness-compare-bench",
+  "require_drift": true,
+  "docs": [
+    {
+      "file": "5-评测报告/L4首请求前评审-2026-10-29/body-preflight-v6.md",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "text-line",
+            "line": 5,
+            "has_state_token": true,
+            "excerpt": "live_doc_drift: []（固定受审字节范围；当前原树与快照对照见下方脚本状态）。本轮无模型、产品CLI、真实checker或真实子进程执行；Popen强制为Python对象桩，EIO只注入一次已创建proc之后的communicate，真实调用生产run_slot/cmd_run异常处理。不读取答案、真实v"
+          },
+          {
+            "kind": "text-line",
+            "line": 67,
+            "has_state_token": false,
+            "excerpt": "  \"live_doc_drift\": ["
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 8,
+        "tokens": 9,
+        "violations": []
+      },
+      "evidence_lines": {
+        "total": 5,
+        "verified_ok": 5,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": [
+          {
+            "line": 55,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/dsh-runtime-source-snapshot-v6.json",
+              "sha256_8": "c72096b0",
+              "bytes": 471
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "c72096b0",
+              "bytes": 471
+            }
+          },
+          {
+            "line": 56,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/dsh_runtime_adversarial_v6.py",
+              "sha256_8": "eb5920e4",
+              "bytes": 9166
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "eb5920e4",
+              "bytes": 9166
+            }
+          },
+          {
+            "line": 57,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/dsh-runtime-adversarial-v6.json",
+              "sha256_8": "19eb481e",
+              "bytes": 26211
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "19eb481e",
+              "bytes": 26211
+            }
+          },
+          {
+            "line": 58,
+            "claimed": {
+              "path": "/private/tmp/l4-dsh-runtime-reviewed-v6-6zos578v/3-表现现场/l4-20261029-cli/dsh/tools/lab.py",
+              "sha256_8": "671630d5",
+              "bytes": 105009
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "671630d5",
+              "bytes": 105009
+            }
+          },
+          {
+            "line": 59,
+            "claimed": {
+              "path": "1-评测方案/工具链/evidence-kit/receipt_check.py",
+              "sha256_8": "effda0ed",
+              "bytes": 14041
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "effda0ed",
+              "bytes": 14041
+            }
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "file": "5-评测报告/L4首请求前评审-2026-10-29/dsh-runtime-adversarial-v6.json",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          },
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          },
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          },
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          },
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          },
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 25,
+        "tokens": 25,
+        "violations": []
+      },
+      "evidence_lines": {
+        "total": 0,
+        "verified_ok": 0,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": []
+      },
+      "ok": true
+    }
+  ],
+  "all_ok": true
+}

@@ -1,0 +1,104 @@
+{
+  "category": "self_test",
+  "scope": "Independent synthetic git source-binding attacks; zero APIs, no real repo mutation",
+  "generated_at": "2026-10-29T12:12:44.641576+00:00",
+  "source": "/private/tmp/l4-seal-reviewed-v1-lsjnzwu2/execution_seal.py",
+  "source_sha256": "9b03047d5483f4c17de7fc42e9b5aafab9b1f0464c5319f52c79447ea596eac6",
+  "reviewer_script_sha256": "8f90f6e62e3f4a58fc51919dfff297bf3b7af97b10084f170b284468ab640f99",
+  "live_doc_drift": [],
+  "checks": [
+    {
+      "id": "positive",
+      "expected_rejected": false,
+      "pass": true,
+      "synthetic_git_only": true,
+      "observed": {
+        "rejected": false,
+        "stdout": "{\n  \"schema_version\": 1,\n  \"design_commit\": \"4222d65a5e7bfd069ba89f548b2af5f26ec6f394\",\n  \"preregistration_commit\": \"b725a22539716c0907f3605221945e759389c1ae\",\n  \"execution_seal_commit\": \"b725a22539716c0907f3605221945e759389c1ae\",\n  \"registered_at\": \"2026-10-29T20:12:44+08:00\",\n  \"execution_manifest_sha256\": \"ab83f70e1a836783e3b5f16532fb1cc11e4e26b981bd69abd0a248a32fdba7d0\",\n  \"plan_sha256\": \"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356\",\n  \"contract_sha256\": \"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356\",\n  \"released_for_model_calls\": true,\n  \"generated_at\": \"2026-10-29T20:12:44+08:00\",\n  \"live_doc_drift\": []\n}\n",
+        "binding": {
+          "schema_version": 1,
+          "design_commit": "4222d65a5e7bfd069ba89f548b2af5f26ec6f394",
+          "preregistration_commit": "b725a22539716c0907f3605221945e759389c1ae",
+          "execution_seal_commit": "b725a22539716c0907f3605221945e759389c1ae",
+          "registered_at": "2026-10-29T20:12:44+08:00",
+          "execution_manifest_sha256": "ab83f70e1a836783e3b5f16532fb1cc11e4e26b981bd69abd0a248a32fdba7d0",
+          "plan_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "contract_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "released_for_model_calls": true,
+          "generated_at": "2026-10-29T20:12:44+08:00",
+          "live_doc_drift": []
+        }
+      }
+    },
+    {
+      "id": "empty_files_manifest",
+      "expected_rejected": true,
+      "pass": false,
+      "synthetic_git_only": true,
+      "observed": {
+        "rejected": false,
+        "stdout": "{\n  \"schema_version\": 1,\n  \"design_commit\": \"4222d65a5e7bfd069ba89f548b2af5f26ec6f394\",\n  \"preregistration_commit\": \"f12054caa910354eb63e58f261bb041c54b6c0b5\",\n  \"execution_seal_commit\": \"f12054caa910354eb63e58f261bb041c54b6c0b5\",\n  \"registered_at\": \"2026-10-29T20:12:44+08:00\",\n  \"execution_manifest_sha256\": \"6ca7bddd08da81ed7db3c1348373e8b05868e57252d786e9279dd11d0bb0f67a\",\n  \"plan_sha256\": \"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356\",\n  \"contract_sha256\": \"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356\",\n  \"released_for_model_calls\": true,\n  \"generated_at\": \"2026-10-29T20:12:44+08:00\",\n  \"live_doc_drift\": []\n}\n",
+        "binding": {
+          "schema_version": 1,
+          "design_commit": "4222d65a5e7bfd069ba89f548b2af5f26ec6f394",
+          "preregistration_commit": "f12054caa910354eb63e58f261bb041c54b6c0b5",
+          "execution_seal_commit": "f12054caa910354eb63e58f261bb041c54b6c0b5",
+          "registered_at": "2026-10-29T20:12:44+08:00",
+          "execution_manifest_sha256": "6ca7bddd08da81ed7db3c1348373e8b05868e57252d786e9279dd11d0bb0f67a",
+          "plan_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "contract_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "released_for_model_calls": true,
+          "generated_at": "2026-10-29T20:12:44+08:00",
+          "live_doc_drift": []
+        }
+      }
+    },
+    {
+      "id": "source_symlink_after_seal",
+      "expected_rejected": true,
+      "pass": false,
+      "synthetic_git_only": true,
+      "observed": {
+        "rejected": false,
+        "stdout": "{\n  \"schema_version\": 1,\n  \"design_commit\": \"4222d65a5e7bfd069ba89f548b2af5f26ec6f394\",\n  \"preregistration_commit\": \"b725a22539716c0907f3605221945e759389c1ae\",\n  \"execution_seal_commit\": \"b725a22539716c0907f3605221945e759389c1ae\",\n  \"registered_at\": \"2026-10-29T20:12:44+08:00\",\n  \"execution_manifest_sha256\": \"ab83f70e1a836783e3b5f16532fb1cc11e4e26b981bd69abd0a248a32fdba7d0\",\n  \"plan_sha256\": \"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356\",\n  \"contract_sha256\": \"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356\",\n  \"released_for_model_calls\": true,\n  \"generated_at\": \"2026-10-29T20:12:44+08:00\",\n  \"live_doc_drift\": []\n}\n",
+        "binding": {
+          "schema_version": 1,
+          "design_commit": "4222d65a5e7bfd069ba89f548b2af5f26ec6f394",
+          "preregistration_commit": "b725a22539716c0907f3605221945e759389c1ae",
+          "execution_seal_commit": "b725a22539716c0907f3605221945e759389c1ae",
+          "registered_at": "2026-10-29T20:12:44+08:00",
+          "execution_manifest_sha256": "ab83f70e1a836783e3b5f16532fb1cc11e4e26b981bd69abd0a248a32fdba7d0",
+          "plan_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "contract_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "released_for_model_calls": true,
+          "generated_at": "2026-10-29T20:12:44+08:00",
+          "live_doc_drift": []
+        }
+      }
+    },
+    {
+      "id": "missing_clarification",
+      "expected_rejected": true,
+      "pass": false,
+      "synthetic_git_only": true,
+      "observed": {
+        "rejected": false,
+        "stdout": "{\n  \"schema_version\": 1,\n  \"design_commit\": \"4222d65a5e7bfd069ba89f548b2af5f26ec6f394\",\n  \"preregistration_commit\": \"b725a22539716c0907f3605221945e759389c1ae\",\n  \"execution_seal_commit\": \"b725a22539716c0907f3605221945e759389c1ae\",\n  \"registered_at\": \"2026-10-29T20:12:44+08:00\",\n  \"execution_manifest_sha256\": \"ab83f70e1a836783e3b5f16532fb1cc11e4e26b981bd69abd0a248a32fdba7d0\",\n  \"plan_sha256\": \"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356\",\n  \"contract_sha256\": \"ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356\",\n  \"released_for_model_calls\": true,\n  \"generated_at\": \"2026-10-29T20:12:44+08:00\",\n  \"live_doc_drift\": []\n}\n",
+        "binding": {
+          "schema_version": 1,
+          "design_commit": "4222d65a5e7bfd069ba89f548b2af5f26ec6f394",
+          "preregistration_commit": "b725a22539716c0907f3605221945e759389c1ae",
+          "execution_seal_commit": "b725a22539716c0907f3605221945e759389c1ae",
+          "registered_at": "2026-10-29T20:12:44+08:00",
+          "execution_manifest_sha256": "ab83f70e1a836783e3b5f16532fb1cc11e4e26b981bd69abd0a248a32fdba7d0",
+          "plan_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "contract_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "released_for_model_calls": true,
+          "generated_at": "2026-10-29T20:12:44+08:00",
+          "live_doc_drift": []
+        }
+      }
+    }
+  ],
+  "passed": false
+}

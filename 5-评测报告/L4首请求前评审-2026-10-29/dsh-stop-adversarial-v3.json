@@ -1,0 +1,443 @@
+{
+  "category": "self_test",
+  "scope": "Original two stop predicates + EPERM/KILL branches; owned synthetic Python group only; no CLI/model/checker/network",
+  "generated_at": "2026-10-29T13:31:56.311850+00:00",
+  "live_doc_drift": [],
+  "source_sha256": "c6366d9496bbc99738dfa76de1e25758c7a058e38150b4faa0eb32d480870c63",
+  "reviewer_script_sha256": "08cf0ec7b3b321064fd3a35e25b40bf79638118873e07f8ae5e4aa45744821db",
+  "original_harness_sha256": "f418668f87bfcfbf2236d29e735f59c38cdc4382cd9bed1f385205deab148e1a",
+  "checks": [
+    {
+      "id": "permission-denied-not-already-gone",
+      "original_v2_predicate": true,
+      "pass": true,
+      "observed": {
+        "receipt": {
+          "policy": "process-group bounded termination (group-confirmed)",
+          "pgid": 424242,
+          "signal": "SIGKILL",
+          "at": "2026-10-29T21:31:45+08:00",
+          "escalated": true,
+          "verified_stop": false,
+          "group_confirmed_gone": false,
+          "term_error": "TERM not delivered: [Errno 1] synthetic EPERM; not evidence of disappearance",
+          "parent_reaped": true,
+          "escalated_at": "2026-10-29T21:31:45+08:00",
+          "kill_error": "KILL not delivered: [Errno 1] synthetic EPERM; not evidence of disappearance"
+        },
+        "calls": [
+          {
+            "pgid": 424242,
+            "signal": 15
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          }
+        ],
+        "note": "all OS signals and time injected; no actual process with synthetic pid exists"
+      }
+    },
+    {
+      "id": "probe-eperm-kill-delivered",
+      "original_v2_predicate": false,
+      "pass": true,
+      "observed": {
+        "receipt": {
+          "policy": "process-group bounded termination (group-confirmed)",
+          "pgid": 424242,
+          "signal": "SIGKILL",
+          "at": "2026-10-29T21:31:45+08:00",
+          "escalated": true,
+          "verified_stop": false,
+          "group_confirmed_gone": false,
+          "term_error": "TERM not delivered: [Errno 1] synthetic EPERM; not evidence of disappearance",
+          "parent_reaped": true,
+          "escalated_at": "2026-10-29T21:31:45+08:00"
+        },
+        "calls": [
+          {
+            "pgid": 424242,
+            "signal": 15
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          }
+        ],
+        "note": "all OS signals and time injected; no actual process with synthetic pid exists"
+      }
+    },
+    {
+      "id": "probe-eperm-kill-esrch",
+      "original_v2_predicate": false,
+      "pass": true,
+      "observed": {
+        "receipt": {
+          "policy": "process-group bounded termination (group-confirmed)",
+          "pgid": 424242,
+          "signal": "SIGKILL",
+          "at": "2026-10-29T21:31:45+08:00",
+          "escalated": true,
+          "verified_stop": true,
+          "group_confirmed_gone": true,
+          "term_error": "TERM not delivered: [Errno 1] synthetic EPERM; not evidence of disappearance",
+          "parent_reaped": true,
+          "escalated_at": "2026-10-29T21:31:45+08:00",
+          "ack_at": "2026-10-29T21:31:45+08:00"
+        },
+        "calls": [
+          {
+            "pgid": 424242,
+            "signal": 15
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          },
+          {
+            "pgid": 424242,
+            "signal": 0
+          },
+          {
+            "pgid": 424242,
+            "signal": 9
+          }
+        ],
+        "note": "all OS signals and time injected; no actual process with synthetic pid exists"
+      }
+    },
+    {
+      "id": "parent-exited-but-term-ignoring-child-must-stop",
+      "pass": true,
+      "observed": {
+        "command": [
+          "/Library/Developer/CommandLineTools/usr/bin/python3",
+          "-B",
+          "-c",
+          "<synthetic parent>",
+          "<synthetic child>",
+          "/private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4-independent-stop-mf66t365/ticks.txt"
+        ],
+        "parent_code": "import subprocess,sys,time,json\nfrom pathlib import Path\np=subprocess.Popen([sys.executable,'-B','-c',sys.argv[1],sys.argv[2]],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)\nlimit=time.monotonic()+5\nwhile not Path(sys.argv[2]).exists() and time.monotonic()<limit: time.sleep(.01)\nprint(json.dumps({'child_pid':p.pid,'ready':Path(sys.argv[2]).exists()}),flush=True)\nwhile True: time.sleep(1)\n",
+        "child_code": "import signal,time,sys\nfrom pathlib import Path\nsignal.signal(signal.SIGTERM,signal.SIG_IGN)\np=Path(sys.argv[1]);p.write_text('0')\ni=0\nwhile True:\n i+=1;p.write_text(str(i));time.sleep(.03)\n",
+        "pgid": 13243,
+        "child_pid": 13244,
+        "ready": true,
+        "receipt": {
+          "policy": "process-group bounded termination (group-confirmed)",
+          "pgid": 13243,
+          "signal": "SIGKILL",
+          "at": "2026-10-29T21:31:45+08:00",
+          "escalated": true,
+          "verified_stop": true,
+          "group_confirmed_gone": true,
+          "parent_reaped": true,
+          "escalated_at": "2026-10-29T21:31:55+08:00",
+          "ack_at": "2026-10-29T21:31:55+08:00"
+        },
+        "elapsed_s": 10.375329042,
+        "parent_exit_code": -15,
+        "child_alive_after_return": false,
+        "counter_before": "273",
+        "counter_after": "273",
+        "wrote_after_stop_return": false,
+        "cleanup": {
+          "group": 13243,
+          "already_gone": true,
+          "counter_stable_after_cleanup": true
+        }
+      },
+      "original_v2_predicate": true
+    }
+  ],
+  "passed": true
+}

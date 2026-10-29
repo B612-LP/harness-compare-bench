@@ -1,0 +1,35 @@
+{
+ "kind": "final_audit_stage_report",
+ "tool": "final_audit.py",
+ "at": "2026-10-30T00:09:12+08:00",
+ "stage": "dsh",
+ "counts": {
+  "PASS": 4,
+  "FAIL": 0,
+  "PENDING-E": 0
+ },
+ "results": [
+  {
+   "check": "D1_dsh_identity_exact_6",
+   "status": "PASS",
+   "detail": "dirs=6 plan=6"
+  },
+  {
+   "check": "D2_dsh_rawscores_match",
+   "status": "PASS",
+   "detail": "{\"l4-20261029-cli-dsh-dabstep-payments-10-r1\": 70.0, \"l4-20261029-cli-dsh-dabstep-payments-10-r2\": 80.0, \"l4-20261029-cli-dsh-dabstep-payments-10-r3\": 70.0, \"l4-20261029-cli-dsh-tb-cargo-plan-r1\": 70.37037037, \"l4-20261029-cli-dsh-tb-cargo-plan-r2\": 74.07407407, \"l4-20261029-cli-dsh-tb-cargo-plan-r3"
+  },
+  {
+   "check": "D3_capture_gap_preserved_unfilled",
+   "status": "PASS",
+   "detail": "{\"l4-20261029-cli-dsh-dabstep-payments-10-r1\": {\"usage_requests\": null, \"integrity\": \"violation\"}, \"l4-20261029-cli-dsh-dabstep-payments-10-r2\": {\"usage_requests\": null, \"integrity\": \"clean\"}, \"l4-20261029-cli-dsh-dabstep-payments-10-r3\": {\"usage_requests\": null, \"integrity\": \"clean\"}, \"l4-20261029-cli-dsh-tb-cargo-plan-r1\": {\"usage_requests\": null, \"integrity\": \"clean\"}, \"l4-20261029-cli-dsh-tb-cargo-plan-r2\": {\"usage_requests\": null, \"integrity\": \"clean\"}, \"l4-20261029-cli-dsh-tb-cargo-plan-r3\": {\"usage_requests\": null, \"integrity\": \"clean\"}}（usage.requests=None=marker 缺陷原样保留，不填 0 不虚构；vacuous integrity=violation 的 formal 判定归 judge/reviewer）"
+  },
+  {
+   "check": "D4_recoveries_sidecar_separate",
+   "status": "PASS",
+   "detail": "slots=6 zstd=8 writeback=[]"
+  }
+ ],
+ "live_doc_drift": [],
+ "note": "PENDING-E=输入未到，非通过也非失败；FAIL=终审发现"
+}

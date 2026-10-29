@@ -1,0 +1,85 @@
+{
+ "kind": "final_audit_stage_report",
+ "tool": "final_audit.py",
+ "at": "2026-10-29T23:40:35+08:00",
+ "stage": "cache",
+ "counts": {
+  "PASS": 13,
+  "FAIL": 1,
+  "PENDING-E": 0
+ },
+ "results": [
+  {
+   "check": "C1_identity_exact_18",
+   "status": "PASS",
+   "detail": "dirs=18 plan=18"
+  },
+  {
+   "check": "C2_transport_once_200_sha_match",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "C3_pairs_fresh_repeat_identical_control_nonce_only",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "C3b_nonce_deterministic_12_unique",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "C4_usage_raw_reextract_match",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "C4b_cache_leaf_four_state_table",
+   "status": "PASS",
+   "detail": "{\"responses:input_tokens_details.cached_tokens\": {\"fresh\": \"int0\", \"repeat\": \"int+\", \"nonce-control\": \"int0\"}, \"anthropic-messages:cache_creation_input_tokens\": {\"fresh\": \"int0\", \"repeat\": \"int0\", \"nonce-control\": \"int0\"}, \"anthropic-messages:cache_read_input_tokens\": {\"fresh\": \"int0\", \"repeat\": \"int+\", \"nonce-control\": \"int0\"}, \"chat-completions:prompt_cache_hit_tokens\": {\"fresh\": \"int0\", \"repeat\": \"int+\", \"nonce-control\": \"int0\"}, \"chat-completions:prompt_cache_miss_tokens\": {\"fresh\": \"int+\", \"repeat\": \"int+\", \"nonce-control\": \"int+\"}, \"chat-completions:prompt_tokens_details.cached_tokens\": {\"fresh\": \"int0\", \"repeat\": \"int+\", \"nonce-control\": \"int0\"}}"
+  },
+  {
+   "check": "C5_layers_trace_to_raw",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "C5b_layers_inventory_covers_raw",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "C6_no_auth_material_saved",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "C7_order_timestamps_nondecreasing",
+   "status": "PASS",
+   "detail": "[[1, \"2026-10-29T23:22:48+08:00\"], [2, \"2026-10-29T23:22:55+08:00\"], [3, \"2026-10-29T23:22:56+08:00\"]]"
+  },
+  {
+   "check": "C7b_fresh_repeat_wait_ge_5s",
+   "status": "PASS",
+   "detail": "waits=[7.0, 6.0, 6.0, 6.0, 6.0, 6.0]"
+  },
+  {
+   "check": "C8_receipt_18_executed",
+   "status": "PASS",
+   "detail": "slots=18"
+  },
+  {
+   "check": "C9_repeat_hit_evidence_vs_report_claims",
+   "status": "PASS",
+   "detail": "{\"repeat_positive_paths\": {\"responses b1\": [\"input_tokens_details.cached_tokens\"], \"responses b2\": [\"input_tokens_details.cached_tokens\"], \"anthropic-messages b1\": [\"cache_read_input_tokens\"], \"anthropic-messages b2\": [\"cache_read_input_tokens\"], \"chat-completions b1\": [\"prompt_tokens_details.cached_tokens\", \"prompt_cache_hit_tokens\", \"prompt_cache_miss_tokens\"], \"chat-completions b2\": [\"prompt_tokens_details.cached_tokens\", \"prompt_cache_hit_tokens\", \"prompt_cache_miss_tokens\"]}, \"report_mentions_missing_and_cached\": true}"
+  },
+  {
+   "check": "C10_responses_erratum_landed",
+   "status": "FAIL",
+   "detail": "raw_positive=True report_still_claims_missing=True"
+  }
+ ],
+ "live_doc_drift": [],
+ "note": "PENDING-E=输入未到，非通过也非失败；FAIL=终审发现"
+}

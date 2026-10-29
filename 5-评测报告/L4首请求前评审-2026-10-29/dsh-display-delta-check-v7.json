@@ -1,0 +1,51 @@
+{
+  "category": "self_test",
+  "scope": "Exact frozen source AST equivalence modulo pure display adapter; no runtime/model/CLI/checker/full-suite execution",
+  "generated_at": "2026-10-29T15:11:43.573026+00:00",
+  "live_doc_drift": [],
+  "before_sha256": "671630d5766cfe8b18bfcd821882239a4a1c0f974159f88b702dc4f68a620d0f",
+  "after_sha256": "f246d0113219b325341ac35f75ad5e194a68da4a15a73a2761639133f6f4e19d",
+  "reviewer_script_sha256": "597d3876eaac7f646bdfae32b64c809220bae77b0ccbf3e0702117b6a47f7dea",
+  "added_functions": [
+    "ek_json"
+  ],
+  "changed_functions": [
+    "cmd_mockrun",
+    "cmd_report",
+    "cmd_selftest",
+    "cmd_termination_selftest"
+  ],
+  "display_wrapper_count": 4,
+  "full_normalized_module_ast_equal": true,
+  "checks": [
+    {
+      "id": "only-ek-json-function-added",
+      "pass": true
+    },
+    {
+      "id": "only-four-receipt-formatting-functions-changed",
+      "pass": true
+    },
+    {
+      "id": "complete-module-ast-identical-after-four-display-unwrappings",
+      "pass": true
+    },
+    {
+      "id": "input-evidence-not-mutated",
+      "pass": true
+    },
+    {
+      "id": "structured-bytes-integer-and-all-sha-fields-preserved",
+      "pass": true
+    },
+    {
+      "id": "only-line-byte-unit-display-changed",
+      "pass": true
+    },
+    {
+      "id": "display-adapter-idempotent",
+      "pass": true
+    }
+  ],
+  "passed": true
+}

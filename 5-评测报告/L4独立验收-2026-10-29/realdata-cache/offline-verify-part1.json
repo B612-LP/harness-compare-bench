@@ -1,0 +1,539 @@
+{
+ "generated_at": "2026-10-29T23:30:42+08:00",
+ "kind": "judge_offline_cache_verify",
+ "basis": "probe-receipt.json e8b3c3cb9f896930 + probes/* raw files",
+ "binding": {
+  "design_commit": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+  "execution_seal_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+  "registered_at": "2026-10-29T23:13:56+08:00"
+ },
+ "checks": {
+  "A_unique_18": {
+   "n": 18,
+   "unique": true,
+   "matches_plan_membership": false
+  },
+  "A_single_http_200": {
+   "all_200": true,
+   "all_transport_200": false,
+   "no_stop_action": true,
+   "one_response_file_each": true,
+   "attempts_fields": [
+    "absent"
+   ]
+  },
+  "B_pairs_6": {
+   "pair_count": 6,
+   "pairs": {
+    "responses-b1": {
+     "fresh_sha": "23ef42e2ee34fd10",
+     "repeat_sha": "23ef42e2ee34fd10",
+     "body_byte_identical": true,
+     "request_sha_field_equal": true,
+     "gap_s": 7.0,
+     "gap_ge_5s": true,
+     "control_diff_line_indices": [
+      0
+     ],
+     "control_only_first_nonce_line": true,
+     "fresh_nonce": null,
+     "repeat_nonce": null,
+     "control_nonce": null,
+     "control_nonce_differs_from_fresh": true,
+     "nonce_matches_sha_D_proto_block": false
+    },
+    "responses-b2": {
+     "fresh_sha": "0d74f1ef97eee880",
+     "repeat_sha": "0d74f1ef97eee880",
+     "body_byte_identical": true,
+     "request_sha_field_equal": true,
+     "gap_s": 6.0,
+     "gap_ge_5s": true,
+     "control_diff_line_indices": [
+      0
+     ],
+     "control_only_first_nonce_line": true,
+     "fresh_nonce": null,
+     "repeat_nonce": null,
+     "control_nonce": null,
+     "control_nonce_differs_from_fresh": true,
+     "nonce_matches_sha_D_proto_block": false
+    },
+    "anthropic-messages-b1": {
+     "fresh_sha": "8df82e454e2e14ce",
+     "repeat_sha": "8df82e454e2e14ce",
+     "body_byte_identical": true,
+     "request_sha_field_equal": true,
+     "gap_s": 6.0,
+     "gap_ge_5s": true,
+     "control_diff_line_indices": [
+      0
+     ],
+     "control_only_first_nonce_line": true,
+     "fresh_nonce": null,
+     "repeat_nonce": null,
+     "control_nonce": null,
+     "control_nonce_differs_from_fresh": true,
+     "nonce_matches_sha_D_proto_block": false
+    },
+    "anthropic-messages-b2": {
+     "fresh_sha": "7b18300f42bd54d4",
+     "repeat_sha": "7b18300f42bd54d4",
+     "body_byte_identical": true,
+     "request_sha_field_equal": true,
+     "gap_s": 6.0,
+     "gap_ge_5s": true,
+     "control_diff_line_indices": [
+      0
+     ],
+     "control_only_first_nonce_line": true,
+     "fresh_nonce": null,
+     "repeat_nonce": null,
+     "control_nonce": null,
+     "control_nonce_differs_from_fresh": true,
+     "nonce_matches_sha_D_proto_block": false
+    },
+    "chat-completions-b1": {
+     "fresh_sha": "f7454fb78181f6ce",
+     "repeat_sha": "f7454fb78181f6ce",
+     "body_byte_identical": true,
+     "request_sha_field_equal": true,
+     "gap_s": 6.0,
+     "gap_ge_5s": true,
+     "control_diff_line_indices": [
+      0
+     ],
+     "control_only_first_nonce_line": true,
+     "fresh_nonce": null,
+     "repeat_nonce": null,
+     "control_nonce": null,
+     "control_nonce_differs_from_fresh": true,
+     "nonce_matches_sha_D_proto_block": false
+    },
+    "chat-completions-b2": {
+     "fresh_sha": "ea194d4e829ffc25",
+     "repeat_sha": "ea194d4e829ffc25",
+     "body_byte_identical": true,
+     "request_sha_field_equal": true,
+     "gap_s": 6.0,
+     "gap_ge_5s": true,
+     "control_diff_line_indices": [
+      0
+     ],
+     "control_only_first_nonce_line": true,
+     "fresh_nonce": null,
+     "repeat_nonce": null,
+     "control_nonce": null,
+     "control_nonce_differs_from_fresh": true,
+     "nonce_matches_sha_D_proto_block": false
+    }
+   }
+  },
+  "B_all_ok": true,
+  "C_usage_raw_recomputed_equal": true,
+  "C_inventory_covers_all_raw_usage_paths": [
+   true,
+   []
+  ]
+ },
+ "per_slot_transport": {
+  "l4-20261029-cache-responses-b1-fresh": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-responses-b1-repeat": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-responses-b1-nonce-control": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-anthropic-messages-b1-fresh": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-anthropic-messages-b1-repeat": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-anthropic-messages-b1-nonce-control": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-chat-completions-b1-fresh": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-chat-completions-b1-repeat": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-chat-completions-b1-nonce-control": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-chat-completions-b2-fresh": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-chat-completions-b2-repeat": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-chat-completions-b2-nonce-control": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-anthropic-messages-b2-fresh": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-anthropic-messages-b2-repeat": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-anthropic-messages-b2-nonce-control": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-responses-b2-fresh": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-responses-b2-repeat": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  },
+  "l4-20261029-cache-responses-b2-nonce-control": {
+   "http_status": 200,
+   "transport_status": "executed",
+   "attempts_field": "absent",
+   "response_files": 1,
+   "class": "ok",
+   "action": "ok",
+   "protocol_state_after": "alive",
+   "intent_executed": null
+  }
+ },
+ "per_wire_cache_field_table": {
+  "responses": [
+   {
+    "slot": "l4-20261029-cache-responses-b1-fresh",
+    "block": 1,
+    "cond": "fresh",
+    "cache_fields_raw": {
+     "prompt_cache_key": null,
+     "prompt_cache_retention": null,
+     "usage.input_tokens_details.cached_tokens": 0
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-responses-b1-repeat",
+    "block": 1,
+    "cond": "repeat",
+    "cache_fields_raw": {
+     "prompt_cache_key": null,
+     "prompt_cache_retention": null,
+     "usage.input_tokens_details.cached_tokens": 2048
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-responses-b1-nonce-control",
+    "block": 1,
+    "cond": "nonce-control",
+    "cache_fields_raw": {
+     "prompt_cache_key": null,
+     "prompt_cache_retention": null,
+     "usage.input_tokens_details.cached_tokens": 0
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-responses-b2-fresh",
+    "block": 2,
+    "cond": "fresh",
+    "cache_fields_raw": {
+     "prompt_cache_key": null,
+     "prompt_cache_retention": null,
+     "usage.input_tokens_details.cached_tokens": 0
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-responses-b2-repeat",
+    "block": 2,
+    "cond": "repeat",
+    "cache_fields_raw": {
+     "prompt_cache_key": null,
+     "prompt_cache_retention": null,
+     "usage.input_tokens_details.cached_tokens": 2048
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-responses-b2-nonce-control",
+    "block": 2,
+    "cond": "nonce-control",
+    "cache_fields_raw": {
+     "prompt_cache_key": null,
+     "prompt_cache_retention": null,
+     "usage.input_tokens_details.cached_tokens": 0
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   }
+  ],
+  "anthropic-messages": [
+   {
+    "slot": "l4-20261029-cache-anthropic-messages-b1-fresh",
+    "block": 1,
+    "cond": "fresh",
+    "cache_fields_raw": {
+     "usage.cache_creation_input_tokens": 0,
+     "usage.cache_read_input_tokens": 0
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-anthropic-messages-b1-repeat",
+    "block": 1,
+    "cond": "repeat",
+    "cache_fields_raw": {
+     "usage.cache_creation_input_tokens": 0,
+     "usage.cache_read_input_tokens": 2048
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-anthropic-messages-b1-nonce-control",
+    "block": 1,
+    "cond": "nonce-control",
+    "cache_fields_raw": {
+     "usage.cache_creation_input_tokens": 0,
+     "usage.cache_read_input_tokens": 0
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-anthropic-messages-b2-fresh",
+    "block": 2,
+    "cond": "fresh",
+    "cache_fields_raw": {
+     "usage.cache_creation_input_tokens": 0,
+     "usage.cache_read_input_tokens": 0
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-anthropic-messages-b2-repeat",
+    "block": 2,
+    "cond": "repeat",
+    "cache_fields_raw": {
+     "usage.cache_creation_input_tokens": 0,
+     "usage.cache_read_input_tokens": 2048
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-anthropic-messages-b2-nonce-control",
+    "block": 2,
+    "cond": "nonce-control",
+    "cache_fields_raw": {
+     "usage.cache_creation_input_tokens": 0,
+     "usage.cache_read_input_tokens": 0
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   }
+  ],
+  "chat-completions": [
+   {
+    "slot": "l4-20261029-cache-chat-completions-b1-fresh",
+    "block": 1,
+    "cond": "fresh",
+    "cache_fields_raw": {
+     "usage.prompt_tokens_details.cached_tokens": 0,
+     "usage.prompt_cache_hit_tokens": 0,
+     "usage.prompt_cache_miss_tokens": 2283
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-chat-completions-b1-repeat",
+    "block": 1,
+    "cond": "repeat",
+    "cache_fields_raw": {
+     "usage.prompt_tokens_details.cached_tokens": 2048,
+     "usage.prompt_cache_hit_tokens": 2048,
+     "usage.prompt_cache_miss_tokens": 235
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-chat-completions-b1-nonce-control",
+    "block": 1,
+    "cond": "nonce-control",
+    "cache_fields_raw": {
+     "usage.prompt_tokens_details.cached_tokens": 0,
+     "usage.prompt_cache_hit_tokens": 0,
+     "usage.prompt_cache_miss_tokens": 2282
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-chat-completions-b2-fresh",
+    "block": 2,
+    "cond": "fresh",
+    "cache_fields_raw": {
+     "usage.prompt_tokens_details.cached_tokens": 0,
+     "usage.prompt_cache_hit_tokens": 0,
+     "usage.prompt_cache_miss_tokens": 2286
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-chat-completions-b2-repeat",
+    "block": 2,
+    "cond": "repeat",
+    "cache_fields_raw": {
+     "usage.prompt_tokens_details.cached_tokens": 2048,
+     "usage.prompt_cache_hit_tokens": 2048,
+     "usage.prompt_cache_miss_tokens": 238
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   },
+   {
+    "slot": "l4-20261029-cache-chat-completions-b2-nonce-control",
+    "block": 2,
+    "cond": "nonce-control",
+    "cache_fields_raw": {
+     "usage.prompt_tokens_details.cached_tokens": 0,
+     "usage.prompt_cache_hit_tokens": 0,
+     "usage.prompt_cache_miss_tokens": 2285
+    },
+    "usage_raw_equal_recomputed": true,
+    "raw_usage_paths_covered_by_inventory": true
+   }
+  ]
+ }
+}
