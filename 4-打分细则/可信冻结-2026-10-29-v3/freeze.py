@@ -481,6 +481,35 @@ def lock_drifts(root, lock):
     return contract_errors, live_drifts
 
 
+READ_SURFACE_FIXED = ("5-评测报告/运行总账-2026-10-24.json",
+                      "5-评测报告/复算/2026-10-24/results.json",
+                      "4-打分细则/判卷回归/replay-all-results.json",
+                      "5-评测报告/未知登记.json")
+
+
+def read_surface_paths(config, registry):
+    """build/verify 读取面（L3-A4）：config 本体 + 两个输入源 + 固定读取文件 + registry 事件 sources。"""
+    paths = [BASE + "/config.json", config["historical_ledger"]["path"], config["work_registry"]["path"]]
+    paths += list(READ_SURFACE_FIXED)
+    paths += [x["source"]["path"] for x in registry["events"]]
+    return paths
+
+
+def check_pin_classification(root, lock, config):
+    """⑧a 机械归类：读取面存在的本地路径必须为 contract pin；错标=verify 硬失败。"""
+    pinned = {s["path"]: s.get("pin_class", "contract") for s in lock["pins"]}
+    registry = load(root / config["work_registry"]["path"])
+    violations = []
+    for p in read_surface_paths(config, registry):
+        if not (root / p).is_file():
+            continue  # external_not_packaged（如 bench-automation/*），无字节可封，不适用
+        if pinned.get(p) != "contract":
+            viol = {"path": p, "pin_class": pinned.get(p, "not-pinned")}
+            if viol not in violations:
+                violations.append(viol)
+    return violations
+
+
 def verify_seal(root):
     lock = load(root / BASE / "freeze.lock.json")
     if set(lock) != {"rule_version", "pins", "trust_boundary"} or lock["rule_version"] != RULE:
@@ -504,6 +533,8 @@ def verify_seal(root):
     for case, files in c["case_snapshots"].items():
         if snapshot_case(root, case) != files:
             raise Invalid("full case manifest drift (not historical version proof): " + case)
+    for v in check_pin_classification(root, lock, c):   # L3-A4：读取面引用路径必为 contract
+        raise Invalid("read-surface path not pinned contract: " + json.dumps(v, ensure_ascii=False))
     return c, live_drifts
 
 

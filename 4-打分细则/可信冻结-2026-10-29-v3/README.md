@@ -56,3 +56,16 @@ SHA 封条不是数字签名；语义审查、可信证据作者与人工裁定�
 ## 勘误（2026-10-29T17:00:17+08:00，实钟；judge 验收 B-1，lead 裁定）
 
 corrections id=pkgb-test-live-ledger-fix-20261029：test_freeze.py 原 `test_live_ledger_exists_and_empty` 断言活台账 `events==[]`，与活台账 append-only 生命周期矛盾（commit ae6b37d 时点断言为真、44/44 成立；登记 5 事件后 HEAD 必失败，judge 实测）。已按 lead 裁定（采 judge 建议一）重写为 `test_live_ledger_structural_invariants` 结构不变量断言：(a) 存在且可解析；(b) 顶层 schema_version；(c) 逐条必备字段（event_id/kind/executor/timestamp/registered_at/source.path/source.sha256，ISO8601 带时区）；(d) event_id 无重复且时间非严格升序；(e) 该文件不是任何 contract pin；(f) 事件数仅写入测试输出不作数值断言。测试总数不变（44）。test_freeze.py 为 contract pin，已重建重锁（17 pin 重算）并刷新输出目录。原句（旧断言）以上述引述保留，未静默删改。
+
+## L3 变更框（2026-10-29T18:01:09+08:00，实钟脚本生成；L3 预注册 §三包A，封印 72edb519）
+
+原语义保留，以下为纯增量变更（dated 勘误，无静默改写）：
+
+1. **A1（DF-1 方案a）**：`config-schema.json` `$defs.live_registry_entry` 增加 `registered_at`（date-time，须带时区偏移，pattern 强制 `Z|±HH:MM` 后缀）并列入 required；`kind.enum` 扩列 `correction`（6 值）。对齐后现行 5 事件全部合 schema（2026-10-29 机械校验 5/5 PASS，脚本输出留痕于包A 自检）。
+2. **A2**：`test_freeze.py` 新增 `validate_against_schema`（stdlib 实现本 schema 使用的 $ref/required/additionalProperties/properties/enum/const/pattern/format:date-time 关键字子集），live-ledger 结构不变量测试中每条实例必须通过 `live_registry_entry` schema——「测试全绿 ≠ 实例合 schema」缺口闭合；schema/实例/测试三方对 `registered_at`（required+时区）与 `kind`（6 值 enum）立场唯一。
+3. **A4（unknown-2 条件a）**：`freeze.py` 新增 `read_surface_paths`/`check_pin_classification`——build/verify 读取面（config 本体、historical_ledger、work_registry、固定读取四文件、registry 事件 sources）中**存在的本地路径**必须为 contract pin，否则 verify 硬失败；`external_not_packaged`（如 bench-automation/*）无字节可封不适用；`--imports` 运行期 sources 由 build-recipe pins + validate_event 哈希校验覆盖（README 注明，不并入本静态读取面）。错标样本测试必红（test_read_surface_misclassified_pin_is_red 等 3 项新增）。
+4. **A4 连带新增 contract pins（21 项，机械自检产出）**：固定读取面 3 项（`5-评测报告/运行总账-2026-10-24.json`、`5-评测报告/复算/2026-10-24/results.json`、`4-打分细则/判卷回归/replay-all-results.json`）+ work_registry 23 事件 sources 中 18 个此前未 pin 的本地收据（v1 时代 selftest/复算/独立复核收据与 r1030 五题 selftest stdout；清单由 `check_pin_classification` 首跑机械产出，非人工枚举）。lock 总 pin 17→38（contract 31 / live_doc 7）。上表为 L2 时代 17 pin 分类，增量以本变更框为准。
+5. **A5（unknown-2 条件c）**：tripwire 保留（live-ledger 非 contract pin 断言不删）。**明示：报告制≠免检——live_doc 漂移虽只报告不阻断 verify 退出码，还原+旁挂仍是唯一合规操作规范；叙述文档承载语义时的静默改写风险由预注册触发器（一次证据链断裂→收紧为硬失败）兜底。**
+6. **A6**：重建+重锁，全测试绿（计数实报），verify exit 0 且 live_doc_drift 如实报告；v2 双目录字节未动、v2 verify exit 0。
+
+**lock 前后哈希（脚本生成）**：lock_before（变更框写入时点）= `544a7f96cb6206cbc326c1f23900cf7de967c390ab3088bf564af33de37d2527`；lock_after 于重锁完成后由脚本生成，记录于包A 登记事件（work-registry-live.json，append-only）与执行者回执——lock 文件包含 README 哈希、README 若含 lock 后哈希则自引用无不动点，故后哈希外置记录。
