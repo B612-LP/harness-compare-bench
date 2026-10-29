@@ -186,6 +186,34 @@
       "description": "L3 修复轮 FIX-D1（auditor §9.3，D-L3-1 同类残留）：--reconcile comparison_ran 分支 verdict 判定并入 non_comparison_ok——非比较步骤假 ⇒ verdict=error（不再出现 verdict=ok 与 ok=false 同页矛盾）；validator 现 8e423de5。SCHEMA §三.5/docstring 修复前已与自订不变量一致（未改动）。T8 --git 用例仍 pending-external（judge 只读 git）。",
       "pin_class": "live_doc",
       "registered_at": "2026-10-29T19:25:23+08:00"
+    },
+    {
+      "event_id": "work:l3-judge-acceptance-20261029",
+      "kind": "self_test",
+      "executor": "lead（代登：执行者只读约束，2026-10-29 18:52 裁定）",
+      "timestamp": "2026-10-29T19:31:27+08:00",
+      "source": {
+        "path": "5-评测报告/L3独立验收-2026-10-29/fix-verification-20261029.md",
+        "sha256": "5dd7fedf463c1b8ad0a9e669fd98d1ce45f58af9dddc29817fbf78e59b92cf95"
+      },
+      "locator": "见文件本体；哈希为本脚本实算",
+      "description": "L3 独立验收全链收口：三包 pass+六疑点钉死+修复轮复验（D-L3-1/DF-B1/DF-C1/DF-C2 闭项）+FIX-D1 闭项（19:28:57 dated）；配套 verify-receipt-l3.json=7aa54b1c、验收 README=98cbb2d6；judge 收据过 receipt_check all_ok=true",
+      "pin_class": "live_doc",
+      "registered_at": "2026-10-29T19:31:27+08:00"
+    },
+    {
+      "event_id": "work:l3-auditor-audit-20261029",
+      "kind": "self_test",
+      "executor": "lead（代登：执行者只读约束，2026-10-29 18:52 裁定）",
+      "timestamp": "2026-10-29T19:31:27+08:00",
+      "source": {
+        "path": "5-评测报告/对抗性盲审-L3-2026-10-29/AUDIT.md",
+        "sha256": "639880ed43448585bb8a648034b86c600b8ac358ffd48c89081f5de6939aa51c"
+      },
+      "locator": "见文件本体；哈希为本脚本实算",
+      "description": "L3 敌意盲审：0 blocking/defect 3(DL31归属judge,DF-B1/C1/C2)+obs 2/note 4；§9 修复轮复核 FIX-D1 残留+FIX-O1/N1-N4（处置见循环台账）；终版过修复版 receipt_check（证据行 19/19）",
+      "pin_class": "live_doc",
+      "registered_at": "2026-10-29T19:31:27+08:00"
     }
   ]
 }
