@@ -1,0 +1,60 @@
+--- 1-评测方案/工具链/l4-execution/gate.py	2026-10-30 00:46:32
++++ 1-评测方案/工具链/l5-execution/gate.py	2026-10-30 01:29:39
+@@ -1,7 +1,13 @@
+ #!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
+-"""L4 共同执行闸门（joint gate）：binding/E 封印核验 + 逐场严格准入。
++"""L5 共同执行闸门（joint gate v2）：binding/E 封印核验 + 逐场严格准入。
+ 
++v2 变更（R4，池 L5-8，唯一语义 diff）：not_executed 目录白名单除 notexecuted.json 外
++放行且仅放行名字恰为 registrations 的条目（R3 强制的 pre-run 登记目录，见
++5-评测报告/L4独立验收-2026-10-29/realdata-product/gate-falsepositive-bird-registration-sidecar.json），
++并把其文件清单（相对路径+sha256+bytes）记入 per_slot 收据 whitelisted_entries；
++其余任何 extra 名仍按原样 fail。冻结版 L4 gate 不改，历史行为以 L4 版为准。
++
+ 一、verify_execution(binding_path, ...)（可 import；返回证据 dict 或 raise GateError）
+   - binding 必备键、commit 全哈希、released_for_model_calls 为 bool；
+   - **require_release（默认 True）**：released_for_model_calls 为 False 即 raise——
+@@ -97,6 +103,20 @@
+ 
+ def sha256_file(p: Path) -> str:
+     return sha256_bytes(p.read_bytes())
++
++
++def whitelisted_entry_inventory(root: Path) -> list:
++    """L5 gate v2 (R4): deterministic file inventory for a whitelisted not_executed entry.
++
++    Sorted relative path + sha256 + bytes for every regular non-symlink file; an empty
++    directory yields a single zero-byte entry so the receipt always shows what was there.
++    """
++    files = sorted(p for p in root.rglob("*") if p.is_file() and not p.is_symlink())
++    out = [{"path": str(p.relative_to(root.parent)), "sha256": sha256_file(p),
++            "bytes": p.stat().st_size} for p in files]
++    if not out:
++        out = [{"path": root.name, "sha256": hashlib.sha256(b"").hexdigest(), "bytes": 0}]
++    return out
+ 
+ 
+ def parse_iso(v: str) -> dt.datetime:
+@@ -420,12 +440,18 @@
+                 except Exception as exc:
+                     fails.append("notexecuted.json 不可解析：%s" % exc)
+                 extra = [p.name for p in ev.iterdir() if p.name not in ("notexecuted.json",)]
+-                if extra:
+-                    fails.append("not_executed 目录含其他文件（疑似虚造证据/空流）：%s" % extra[:5])
++                # L5 gate v2 (R4, pool L5-8): R3-style pre-run registrations/ is required
++                # evidence, not fabrication; whitelist exactly this name and record its
++                # inventory in the per-slot receipt. Any other extra name still fails.
++                bad_extra = [n for n in extra if n != "registrations"]
++                if bad_extra:
++                    fails.append("not_executed 目录含其他文件（疑似虚造证据/空流）：%s" % bad_extra[:5])
++                if "registrations" in extra:
++                    rec["whitelisted_entries"] = whitelisted_entry_inventory(ev / "registrations")
+                 rec["record_valid"] = bool(
+                     ok_id and ne.get("preregistration_commit") == binding["preregistration_commit"]
+                     and vm.nonempty(ne.get("reason")) and vm.nonempty(ne.get("stop_source"))
+-                    and not extra)
++                    and not bad_extra)
+                 rec["accounting"] = "not_executed"
+                 rec["execution_status"] = "not_executed"
+                 rec["score"] = None

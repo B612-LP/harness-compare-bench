@@ -1,0 +1,367 @@
+{
+  "kind": "self_test",
+  "batch": "l5-20261030-wb-gateway",
+  "at": "2026-10-30T01:44:55+08:00",
+  "model_calls": 0,
+  "all_pass": true,
+  "results": [
+    {
+      "test": "T1.quit_app_structurally_forbidden",
+      "pass": true,
+      "detail": "replaced by raiser"
+    },
+    {
+      "test": "T1a.reuse_when_cdp_up",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "T1b.clean_launch_when_not_running",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "test": "T1c.unsafe_state_raises_no_kill",
+      "pass": true,
+      "detail": "WBUnsafeState; no SIGTERM path"
+    },
+    {
+      "test": "T2a.missing_binding_fail_closed",
+      "pass": true,
+      "detail": "['GateError: binding 不存在或为软链：/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l5-20261030-wb-gateway/selftest/no-such-binding.json']"
+    },
+    {
+      "test": "T2c.common_gate_selftest_executed",
+      "pass": true,
+      "detail": "rc=0 parse-error Expecting value: line 269 column 1 (char 11829)"
+    },
+    {
+      "test": "T10a.active_idle_never_completes_and_stop_verified",
+      "pass": true,
+      "detail": "status=timeout stop=True"
+    },
+    {
+      "test": "T10b.terminal_plus_stable_completes",
+      "pass": true,
+      "detail": "completed"
+    },
+    {
+      "test": "T10c.unverified_stop_flagged",
+      "pass": true,
+      "detail": "False"
+    },
+    {
+      "test": "T10d.visible_process_refuses_verified",
+      "pass": true,
+      "detail": "[4321]"
+    },
+    {
+      "test": "T16a.default_probe_subdir_cwd_refuses",
+      "pass": true,
+      "detail": "['1234']"
+    },
+    {
+      "test": "T16b.probe_error_refuses",
+      "pass": true,
+      "detail": "['probe-error']"
+    },
+    {
+      "test": "T16c.default_probe_clean_verifies",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "test": "T16d.db_flap_refuses_verified",
+      "pass": true,
+      "detail": "['active', 'cancelled', 'active']"
+    },
+    {
+      "test": "T16e.trace_growth_refuses_verified",
+      "pass": true,
+      "detail": "False"
+    },
+    {
+      "test": "T7a.dry_run_status_ok",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "test": "T7b.attempts_exactly_1",
+      "pass": true,
+      "detail": "whole_execution_restarts=0"
+    },
+    {
+      "test": "T7c.weighted_8dp",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "test": "T7d.usage_parsed_from_trace",
+      "pass": true,
+      "detail": "n=2"
+    },
+    {
+      "test": "T7e.registration_persisted",
+      "pass": true,
+      "detail": "R3"
+    },
+    {
+      "test": "T7f.integrity_clean",
+      "pass": true,
+      "detail": "fake trace"
+    },
+    {
+      "test": "T7k.timed_out_false_on_ok",
+      "pass": true,
+      "detail": "§E timeout 语义分离"
+    },
+    {
+      "test": "T7l.checker_exit1_still_scored",
+      "pass": true,
+      "detail": "checker exit1=合法低分，非基础设施错误"
+    },
+    {
+      "test": "T7i1.evidence_layout_defaults",
+      "pass": true,
+      "detail": "{'prompt': 'prompt.txt', 'stdout': 'trace/mock-session-0001.jsonl', 'stderr': 'agent.stderr.txt', 'session': 'agent-session', 'workspace': 'workspace'}"
+    },
+    {
+      "test": "T7i2.route_gate_fields",
+      "pass": true,
+      "detail": "§C"
+    },
+    {
+      "test": "T7i3.managed_unknowns_list_items",
+      "pass": true,
+      "detail": "§C"
+    },
+    {
+      "test": "T7j.score_receipt_D_shape",
+      "pass": true,
+      "detail": "§D"
+    },
+    {
+      "test": "T7g.validator_wired_unsealed_fail",
+      "pass": true,
+      "detail": "fail:unsealed"
+    },
+    {
+      "test": "T7h.validator_meta_pass_with_seal",
+      "pass": true,
+      "detail": "class=pass issue_classes=[]"
+    },
+    {
+      "test": "T11.claim_refuses_reentry",
+      "pass": true,
+      "detail": "status=claim-refused dir_unchanged=True"
+    },
+    {
+      "test": "T12.setup_failure_accounting_persisted",
+      "pass": true,
+      "detail": "status=not_executed"
+    },
+    {
+      "test": "T13.missing_trace_violation_not_ok",
+      "pass": true,
+      "detail": "status=error verdict=violation"
+    },
+    {
+      "test": "T14.real_runs_untouched_by_selftest",
+      "pass": true,
+      "detail": "dry 全部落在 selftest/dry-*（首跑前 runs/ 可尚未创建）"
+    },
+    {
+      "test": "T15.upgrade_drift_detected",
+      "pass": true,
+      "detail": "版本或 asar 任一变化即漂移"
+    },
+    {
+      "test": "T17a.native_verified_timeout_full_admission",
+      "pass": true,
+      "detail": "formal=True genuine=True fails=[]"
+    },
+    {
+      "test": "T17b.native_unverified_rejected",
+      "pass": true,
+      "detail": "[\"WB native stop verified_stop\\u2260true\\uff08\\u672a\\u9a8c\\u8bc1\\u505c\\u6b62\\u4e0d\\u5f97 formal\\uff09\", \"WB native stop verified_stop\\u2260true\\uff08\\u672a\\u9a8c\\u8bc1\\u505c\\u6b62\\u4e0d\\u5f97 formal\\u"
+    },
+    {
+      "test": "T17d.checks_partial_true_rejected",
+      "pass": true,
+      "detail": "[\"WB native stop verified=true \\u4f46 checks \\u4e09\\u9879\\uff08db_terminal/trace_stable/no_scoped_processes\\uff09\\u672a\\u5168\\u4e3a true\", \"WB native stop verified=true \\u4f46 checks \\u4e09\\u9879\\uff0"
+    },
+    {
+      "test": "T17c.missing_envelope_rejected",
+      "pass": true,
+      "detail": "[\"WB timeout \\u987b native_stop \\u539f\\u7269\\u4fe1\\u5c01\\uff08CLI receipt \\u4e0d\\u63a5\\u53d7\\uff09\", \"WB timeout \\u987b native_stop \\u539f\\u7269\\u4fe1\\u5c01\\uff08CLI receipt \\u4e0d\\u63a5\\u53d7\\uff09\","
+    },
+    {
+      "test": "T18.foreign_binding_producer_refuses",
+      "pass": true,
+      "detail": "native_stop 绑定不符 slot_id: 'l5-20261030-wb-gateway-dabstep-payments-10-r1'"
+    },
+    {
+      "test": "T18b.foreign_conversation_producer_refuses",
+      "pass": true,
+      "detail": "native_stop 绑定不符 conversation_id: 'conv-OTHER'"
+    },
+    {
+      "test": "T19a.ok_run_impl_complete",
+      "pass": true,
+      "detail": "status=ok weighted=100.0"
+    },
+    {
+      "test": "T19b.checker_stdout_file_bound",
+      "pass": true,
+      "detail": "raw 全文落盘且与 receipt.raw_checker_output 逐字一致"
+    },
+    {
+      "test": "T19c.gate_all_other_fails_clear",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "test": "T19d.gate_full_formal_admission",
+      "pass": true,
+      "detail": "formal=True fails=[]"
+    },
+    {
+      "test": "T20a.stop_unverified_partial_no_checker",
+      "pass": true,
+      "detail": "status=timeout checker_ran=False"
+    },
+    {
+      "test": "T20b.partial_score_null_native_false",
+      "pass": true,
+      "detail": "state=partial vs=False"
+    },
+    {
+      "test": "T20c.deadline_evidence_present",
+      "pass": true,
+      "detail": "冻结文件存在"
+    },
+    {
+      "test": "T20d.halt_persisted",
+      "pass": true,
+      "detail": "批级 halt"
+    },
+    {
+      "test": "T20e.successor_halted_zero_send",
+      "pass": true,
+      "detail": "status=halted driver_calls=0"
+    },
+    {
+      "test": "T20f.verified_timeout_scored_executed",
+      "pass": true,
+      "detail": "status=timeout weighted=0.0 state=executed"
+    },
+    {
+      "test": "T21a.delayed_ready_captured",
+      "pass": true,
+      "detail": "{'ready': True, 'waited_s': 0.118, 'polls': 3, 'page_count': 1}"
+    },
+    {
+      "test": "T21b.timeout_returns_not_ready",
+      "pass": true,
+      "detail": "{'ready': False, 'waited_s': 0.326, 'polls': 7, 'timeout_s': 0.3, 'transport_alive': True}"
+    },
+    {
+      "test": "T21c.ready_timeout_lands_not_executed",
+      "pass": true,
+      "detail": "status=not_executed reason=R6 renderer-ready 超时（120s 内无可 attach page target）；发送前失败，不重试不兜跑"
+    },
+    {
+      "test": "T22a.write_once_refuses_and_sidecopies",
+      "pass": true,
+      "detail": "p2=dry-frame-probe-20261030T0144550800.json"
+    },
+    {
+      "test": "T22b.frame_parses_notexecuted",
+      "pass": true,
+      "detail": "not_executed"
+    },
+    {
+      "test": "T22c.frame_parses_meta",
+      "pass": true,
+      "detail": "executed"
+    },
+    {
+      "test": "T22d.frame_identity_fields",
+      "pass": true,
+      "detail": "身份与封印引用"
+    },
+    {
+      "test": "T23a.guards_first_reconciling",
+      "pass": true,
+      "detail": "{'guards_used': ['t1', 't2'], 'method': 'first_reconciling_in_order', 'candidates': 1, 'conflict': None}"
+    },
+    {
+      "test": "T23b.guards_conflict_marked",
+      "pass": true,
+      "detail": "{'guards_used': None, 'method': 'conflict', 'candidates': 0, 'conflict': 'k=-1 guard_passes=0'}"
+    },
+    {
+      "test": "T23c.guards_k0_no_guards",
+      "pass": true,
+      "detail": "{'guards_used': [], 'method': 'no_guards', 'candidates': 1, 'conflict': None}"
+    },
+    {
+      "test": "T23d.inputs_checked_emitted",
+      "pass": true,
+      "detail": "{'ok': True, 'checked': 1, 'method': 'fixture（干跑）'}"
+    },
+    {
+      "test": "T24.ws_contains_no_meta",
+      "pass": true,
+      "detail": "ws 仅 inputs+TASK"
+    },
+    {
+      "test": "T8a.not_executed_nulls_and_false",
+      "pass": true,
+      "detail": "null 非 0"
+    },
+    {
+      "test": "T8b.infrastructure_admission_false",
+      "pass": true,
+      "detail": "不按能力失败记零"
+    },
+    {
+      "test": "T8c.timeout_timed_out_pending_admission",
+      "pass": true,
+      "detail": "限时真实分；准入由共同 gate 判定"
+    },
+    {
+      "test": "T8d.ok_pending_admission",
+      "pass": true,
+      "detail": "能力低分不是拒收理由；准入由 gate 判定"
+    },
+    {
+      "test": "T9a.tools_is_list",
+      "pass": true,
+      "detail": "<class 'list'>"
+    },
+    {
+      "test": "T9b.alias_not_actual",
+      "pass": true,
+      "detail": "R2"
+    },
+    {
+      "test": "T9c.route_current_not_observed",
+      "pass": true,
+      "detail": "R2/§C"
+    },
+    {
+      "test": "T9d.managed_unknowns_whitelist",
+      "pass": true,
+      "detail": "R2 白名单"
+    },
+    {
+      "test": "T6.receipt_check_pass",
+      "pass": true,
+      "detail": "receipt_check rc=0（细节不入收据）"
+    }
+  ],
+  "skipped": [],
+  "skipped_note": "gate v2 未就位期间的诚实跳过（E 后补跑归零）",
+  "live_doc_drift": []
+}
