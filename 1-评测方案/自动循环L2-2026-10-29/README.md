@@ -20,3 +20,8 @@
 | 16:2x | **包B 改派**：freeze-engineer 两次启动静默失败零产出（无 v3 目录、工作区干净），成员池已满（8）无法新建；包B 移交 mechanism-engineer，任务书原样（绑定预注册 §四） | 本行 |
 | 16:23 | **包B 二次改派**：mechanism-engineer 同模式静默失败零产出；成员池满，包B 移交 builder-codex（包C 已收口、验证可用），independent-reviewer 留后备。连累成员失败模式已记录，进验收报告披露 | 本行 |
 | 16:4x | **包B 交付 + lead 复核全过**：build/verify exit0（live_doc_drift=[]）、test_freeze 44/44、六账 110/13/7/3/5/13 含 7 收据（wb-sandbox 去重恰1）、official v3 恒空（A=0/B=0，不重准入）、v2 双目录字节零改动 + v2 verify 绿。builder 发现预注册哈希转写错误（27974b75=v1 台账；v2=04944e28），已出 AMENDMENT-L2-1。遗留 judge 核对：v2 基线测试数 lead 实测 38 vs builder 报 37+7=44 | AMENDMENT-L2-1.md |
+| 16:52 | **judge 独立验收**：包A/C/D **pass**、包B **partial**。defect B-1=活台账空断言 vs append-only 矛盾（ae6b37d 时 44/44 为真，aeec36f 登记后 HEAD 必红；时序责任在 lead）；B-2=测试拆分实为 38 继承+6 新增（总数 44 对，无断言削弱）；B-3=kind enum 扩列留 L3；C-1 确认（--spec 破坏性复验，已存证闭环）。横切：无越界、活台账 5 事件 sha 复算吻合。receipt `3de0dfa2` | commit `6c9c010` |
+| 16:5x | **B-1 修复裁定**（lead）：采 judge 建议一——测试改为结构不变量（存在/可解析/必备字段/id 唯一升序/非 contract pin），不再断言空；重建重锁 + corrections 留痕。builder-codex scope 重开一次 | judge README B-1 下一步 |
+| 17:01 | B-1 修复提交（`ab4be14`，lock `544a7f96`，44/44 全绿）→ judge 复验 B-1 closed、包B pass（`50e84de`）→ **四包全 pass** | addendum `0dd54e00` |
+| 17:31 | auditor 敌意盲审收束：**0 blocking**（DF-1/DF-2 潜伏项入 L3 池；unknown 2 裁决=live_doc 报告制保留+3条件）| AUDIT.md，commit `a75509e` |
+| 17:3x | **验收报告落盘，循环收口停止** | [ACCEPTANCE.md](<ACCEPTANCE.md>) |
