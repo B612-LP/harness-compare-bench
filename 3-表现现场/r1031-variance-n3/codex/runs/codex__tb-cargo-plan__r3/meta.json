@@ -1,0 +1,598 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "preregistration_commit": "be39fc2",
+  "rep": 3,
+  "product": "codex",
+  "case": "tb-cargo-plan",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/codex/3/tb-cargo-plan",
+  "created_at": "2026-10-29T14:21:36+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+  "skills": "off（[skills] include_instructions=false，bundled disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "90a00ecb1ac1b3232af034dc26bb7d4cedf5d8d7afdff4f3168fe7af884ec051",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/app/aircraft.py",
+      "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+      "bytes": 2376
+    },
+    {
+      "path": "inputs/app/data/aircraft.json",
+      "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+      "bytes": 496
+    },
+    {
+      "path": "inputs/app/data/airports.json",
+      "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+      "bytes": 1685
+    },
+    {
+      "path": "inputs/app/data/manifest.json",
+      "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+      "bytes": 1257
+    },
+    {
+      "path": "inputs/app/data/weather.json",
+      "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+      "bytes": 1611
+    },
+    {
+      "path": "inputs/app/dispatch.py",
+      "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+      "bytes": 8504
+    },
+    {
+      "path": "inputs/app/navigation.py",
+      "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+      "bytes": 2482
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T14:21:36+08:00",
+  "finished_at": "2026-10-29T14:26:49+08:00",
+  "duration_s": 312.7,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T14:21:36+08:00",
+      "duration_s": 312.7,
+      "exit_code": 0,
+      "outcome": "ok"
+    }
+  ],
+  "transport_retries": 0,
+  "stdout_bytes": 160294,
+  "stderr_bytes": 2089,
+  "stdout_sha256": "eee1773fb290952e33da9491bb9c682798efacd1f412b6577920540a9a8f3850",
+  "stderr_sha256": "6d8bd5aff4758bd2018744e1afcb60eeedc5f1532661b6ca43943ef6aaecadb2",
+  "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+  "usage": {
+    "requests": 24,
+    "input_tokens": 1252600,
+    "output_tokens": 52621,
+    "cache_read_tokens": 1221120,
+    "cache_creation_tokens": 0,
+    "reasoning_output_tokens": 30219,
+    "total_tokens": 1305221,
+    "cumulative_thread_final": {
+      "input_tokens": 1252600,
+      "cached_input_tokens": 1221120,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 52621,
+      "reasoning_output_tokens": 30219,
+      "total_tokens": 1305221
+    },
+    "per_call": [
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:21:41.161Z",
+        "response_id": "2fc7ec35-1027-45f1-af38-2a6fbf47b499",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 8815,
+        "cache_read_tokens": 7808,
+        "cache_creation_tokens": 0,
+        "output_tokens": 764,
+        "reasoning_output_tokens": 43,
+        "total_tokens": 9579
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:21:44.770Z",
+        "response_id": "9c5e93f3-58fa-4b38-9013-5c03e63af008",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 9798,
+        "cache_read_tokens": 9472,
+        "cache_creation_tokens": 0,
+        "output_tokens": 928,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 10726
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:21:47.906Z",
+        "response_id": "df4b2c32-22a8-4244-ac0e-9a4cfe497468",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 16871,
+        "cache_read_tokens": 10624,
+        "cache_creation_tokens": 0,
+        "output_tokens": 722,
+        "reasoning_output_tokens": 22,
+        "total_tokens": 17593
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:21:55.013Z",
+        "response_id": "4441ff86-a4ad-4c78-ab75-79cce23f1932",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 20647,
+        "cache_read_tokens": 17536,
+        "cache_creation_tokens": 0,
+        "output_tokens": 802,
+        "reasoning_output_tokens": 528,
+        "total_tokens": 21449
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:22:18.519Z",
+        "response_id": "b9c4bdf9-fba3-4b37-9f8c-5976c867091b",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 22403,
+        "cache_read_tokens": 21376,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3532,
+        "reasoning_output_tokens": 2673,
+        "total_tokens": 25935
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:22:28.101Z",
+        "response_id": "16c50ce2-fe1f-42aa-874b-c00dde8b9f37",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 28123,
+        "cache_read_tokens": 25856,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1393,
+        "reasoning_output_tokens": 1160,
+        "total_tokens": 29516
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:22:50.338Z",
+        "response_id": "9b4d7c4e-7167-48b2-8db2-c297e529b11c",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 29564,
+        "cache_read_tokens": 29312,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3666,
+        "reasoning_output_tokens": 2372,
+        "total_tokens": 33230
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:22:55.653Z",
+        "response_id": "7f9dbe07-0eed-4a4f-933d-9928df1d7e00",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 33345,
+        "cache_read_tokens": 33152,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1267,
+        "reasoning_output_tokens": 11,
+        "total_tokens": 34612
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:24:13.787Z",
+        "response_id": "25dd80ed-c3f9-4a1b-9144-54976303bb21",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 36079,
+        "cache_read_tokens": 34560,
+        "cache_creation_tokens": 0,
+        "output_tokens": 13292,
+        "reasoning_output_tokens": 9750,
+        "total_tokens": 49371
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:24:17.246Z",
+        "response_id": "f348c865-1d72-4f3f-9912-bb79d5900755",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 49439,
+        "cache_read_tokens": 49280,
+        "cache_creation_tokens": 0,
+        "output_tokens": 719,
+        "reasoning_output_tokens": 21,
+        "total_tokens": 50158
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:24:29.256Z",
+        "response_id": "ce920631-52f0-4ddb-ba87-d14de0b70d05",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 51763,
+        "cache_read_tokens": 50048,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1743,
+        "reasoning_output_tokens": 1468,
+        "total_tokens": 53506
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:24:32.822Z",
+        "response_id": "f698ed5a-3135-44e4-830c-eb237d787eed",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 56609,
+        "cache_read_tokens": 53504,
+        "cache_creation_tokens": 0,
+        "output_tokens": 519,
+        "reasoning_output_tokens": 154,
+        "total_tokens": 57128
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:25:06.252Z",
+        "response_id": "a9b3dd59-5608-4ac2-a2d2-f6981ebe9861",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 58468,
+        "cache_read_tokens": 57088,
+        "cache_creation_tokens": 0,
+        "output_tokens": 5476,
+        "reasoning_output_tokens": 3814,
+        "total_tokens": 63944
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:25:13.605Z",
+        "response_id": "c2cacfbb-f61d-402d-a1eb-251f09fa48cb",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 64261,
+        "cache_read_tokens": 63872,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1753,
+        "reasoning_output_tokens": 250,
+        "total_tokens": 66014
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:25:18.791Z",
+        "response_id": "b40db7df-0dd1-4efa-a954-c019998d0776",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 66131,
+        "cache_read_tokens": 65920,
+        "cache_creation_tokens": 0,
+        "output_tokens": 936,
+        "reasoning_output_tokens": 150,
+        "total_tokens": 67067
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:25:21.281Z",
+        "response_id": "eada181f-ec19-42d0-a437-5d162e0c38b9",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 67469,
+        "cache_read_tokens": 66944,
+        "cache_creation_tokens": 0,
+        "output_tokens": 348,
+        "reasoning_output_tokens": 116,
+        "total_tokens": 67817
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:25:33.927Z",
+        "response_id": "2aa5ac8c-a26a-4213-9023-1bbc8cee26c1",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 67920,
+        "cache_read_tokens": 67712,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2508,
+        "reasoning_output_tokens": 1013,
+        "total_tokens": 70428
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:25:50.623Z",
+        "response_id": "9b8e666f-97d8-4e31-be0a-f95460a961b1",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 72049,
+        "cache_read_tokens": 70400,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2687,
+        "reasoning_output_tokens": 1360,
+        "total_tokens": 74736
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:26:00.352Z",
+        "response_id": "f176522c-1a43-48d6-b3fc-e3c1a141d1c2",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 75195,
+        "cache_read_tokens": 74624,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1708,
+        "reasoning_output_tokens": 828,
+        "total_tokens": 76903
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:26:09.510Z",
+        "response_id": "5d1176d8-1e2c-45e7-aae9-8ed60ed82b0e",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 77325,
+        "cache_read_tokens": 76800,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1668,
+        "reasoning_output_tokens": 820,
+        "total_tokens": 78993
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:26:22.187Z",
+        "response_id": "dfc84170-d311-4c9b-b003-cdde7faf5497",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 80338,
+        "cache_read_tokens": 78976,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2416,
+        "reasoning_output_tokens": 922,
+        "total_tokens": 82754
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:26:31.793Z",
+        "response_id": "7661add7-d732-4a77-b542-09e1f15ae6dd",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 83103,
+        "cache_read_tokens": 82688,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1370,
+        "reasoning_output_tokens": 1136,
+        "total_tokens": 84473
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:26:45.617Z",
+        "response_id": "479e4b03-6f44-4c72-a601-eadb73bbd2e3",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 87164,
+        "cache_read_tokens": 84352,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2154,
+        "reasoning_output_tokens": 1446,
+        "total_tokens": 89318
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-21-36-01a18652-33c0-7791-87f0-65b9514b17c0.jsonl",
+        "ts": "2026-10-29T06:26:48.166Z",
+        "response_id": "a00d9975-5bec-4af3-a8d3-58eca16233ec",
+        "turn_id": "01a18652-33df-7170-80d5-3c5470f546aa",
+        "input_tokens": 89721,
+        "cache_read_tokens": 89216,
+        "cache_creation_tokens": 0,
+        "output_tokens": 250,
+        "reasoning_output_tokens": 152,
+        "total_tokens": 89971
+      }
+    ],
+    "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+  },
+  "reward": 0,
+  "weighted": 81.48,
+  "failed": [
+    "leg2_weight_limits_fuel",
+    "tow_leg1",
+    "landing_weight_leg2",
+    "total_time_includes_turnaround",
+    "total_time_value"
+  ],
+  "judge": {
+    "case": "tb-cargo-plan",
+    "checker_version": "0.2",
+    "contract_revision": "b12-b14-b13a-tighten-2026-10-27",
+    "reward": 0,
+    "weighted": 81.48,
+    "passed": 22,
+    "total": 27,
+    "critical_ok": false,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "ok"
+      },
+      {
+        "id": "code_rerun",
+        "pass": true,
+        "note": "ok"
+      },
+      {
+        "id": "plan_structure",
+        "pass": true,
+        "note": "route=6 legs=5"
+      },
+      {
+        "id": "route_hub",
+        "pass": true,
+        "note": "NAN..NAN"
+      },
+      {
+        "id": "route_order",
+        "pass": true,
+        "note": "['SUV', 'TBU', 'APW', 'FUN'] vs ['SUV', 'TBU', 'APW', 'FUN']"
+      },
+      {
+        "id": "leg_suv_tbu_distance",
+        "pass": true,
+        "note": "404.2 vs 404.2"
+      },
+      {
+        "id": "tas_varies",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "heading_wind_corrected",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "ground_speed",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "crosswind_dest",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "crosswind_apw_near_limit",
+        "pass": true,
+        "note": "19.1"
+      },
+      {
+        "id": "crosswind_ok_field",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_carries_no_fuel_stop",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_no_refuel_carry",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_capacity",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "reserve_holding",
+        "pass": true,
+        "note": "31.5 vs 31.5"
+      },
+      {
+        "id": "tow_within_limit",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "leg2_weight_limits_fuel",
+        "pass": false,
+        "note": "139.1 vs 145.7"
+      },
+      {
+        "id": "leg2_fuel_below_planned",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_formula",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_above_min",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_ok_field",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "leg2_remaining_below_reserve",
+        "pass": true,
+        "note": "20.0"
+      },
+      {
+        "id": "tow_leg1",
+        "pass": false,
+        "note": "8395.3"
+      },
+      {
+        "id": "landing_weight_leg2",
+        "pass": false,
+        "note": "7846.0"
+      },
+      {
+        "id": "total_time_includes_turnaround",
+        "pass": false,
+        "note": "568.7 vs 568.7"
+      },
+      {
+        "id": "total_time_value",
+        "pass": false,
+        "note": "568.7"
+      },
+      {
+        "id": "route_feasible",
+        "pass": true,
+        "note": "True"
+      },
+      {
+        "id": "feasibility_includes_crosswind",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "feasibility_includes_fuel",
+        "pass": true,
+        "note": ""
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-codex-tb-cargo-plan-r3",
+  "event_id": "var-n3-codex-tb-cargo-plan-r3",
+  "selection": {
+    "plan_id": "var-n3-20261029",
+    "slot_id": "var-n3-codex-tb-cargo-plan-r3",
+    "order": 3,
+    "kind": "rep"
+  }
+}

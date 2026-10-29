@@ -1,0 +1,419 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "preregistration_commit": "be39fc2",
+  "rep": 3,
+  "product": "codex",
+  "case": "exercism-py-6",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/codex/3/exercism-py-6",
+  "created_at": "2026-10-29T14:13:54+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+  "skills": "off（[skills] include_instructions=false，bundled disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "02c39f8ae8f24527bc9d78ef926bb73a13f0cdbb983ef0018842e75d80f05738",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/README.md",
+      "sha256": "ce8cd74f03bf3517217591fc7289246069c4a6466f59960f115330ab0899956f",
+      "bytes": 674
+    },
+    {
+      "path": "inputs/exercises/bowling/README.md",
+      "sha256": "5ab7dcccef9be464f8e5f1d6a9c543d6c4c14e435c2ffe40d2e118ebfd299e32",
+      "bytes": 554
+    },
+    {
+      "path": "inputs/exercises/bowling/bowling.py",
+      "sha256": "a356c0682b6c0c04e9e30a7da603b2014c227426b43bbe37f34cd99913d368b6",
+      "bytes": 131
+    },
+    {
+      "path": "inputs/exercises/bowling/bowling_test.py",
+      "sha256": "6b9a80b6835828f575ce0aba66876850f75c59f764014ac509fe1df7e3a9ee20",
+      "bytes": 8558
+    },
+    {
+      "path": "inputs/exercises/dominoes/README.md",
+      "sha256": "77f6d2a86ba50b8ba2f0b53f1ab799eb2f30c1e4853ce1296ee1949578d6c50e",
+      "bytes": 430
+    },
+    {
+      "path": "inputs/exercises/dominoes/dominoes.py",
+      "sha256": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b",
+      "bytes": 34
+    },
+    {
+      "path": "inputs/exercises/dominoes/dominoes_test.py",
+      "sha256": "9645efc873738b9247ced09ccdce782fe2124646d24588d52c23df59e23ab140",
+      "bytes": 5099
+    },
+    {
+      "path": "inputs/exercises/forth/README.md",
+      "sha256": "0480b8a2eef97049ddff262b0bc21f5b31167561325c402918b5ceb0c37b466a",
+      "bytes": 559
+    },
+    {
+      "path": "inputs/exercises/forth/forth.py",
+      "sha256": "9acd281e02feff4fc5ae766063a1ce1290b625bb930cc8f54c15a0109610e562",
+      "bytes": 84
+    },
+    {
+      "path": "inputs/exercises/forth/forth_test.py",
+      "sha256": "05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c",
+      "bytes": 11264
+    },
+    {
+      "path": "inputs/exercises/poker/README.md",
+      "sha256": "9c24e6480e2ddbf3b72116c30cde1560657ca8ef283d1be26004ef2fa7908c97",
+      "bytes": 543
+    },
+    {
+      "path": "inputs/exercises/poker/poker.py",
+      "sha256": "6a4b5adab3ba9261fb4f9e2b09abc549b9ea37bf0774edc3c7759cec9a8b41fe",
+      "bytes": 32
+    },
+    {
+      "path": "inputs/exercises/poker/poker_test.py",
+      "sha256": "b39f023208318973e18a341449aa076f7595ff98f07174082a2a1b05c84ad8fd",
+      "bytes": 7690
+    },
+    {
+      "path": "inputs/exercises/pov/README.md",
+      "sha256": "12dafe5d49b0510037ea6ced53ae6ff08305b75f2d3be89efcad2635d54d75ec",
+      "bytes": 727
+    },
+    {
+      "path": "inputs/exercises/pov/pov.py",
+      "sha256": "ed7eba5f0b64b69a0a1904dc338ce39039b5de3ea2aa74019d8d494ca46b11ba",
+      "bytes": 622
+    },
+    {
+      "path": "inputs/exercises/pov/pov_test.py",
+      "sha256": "a5127ac17db6ad1563a08ba8ee2bbfc25ed8ab81ee56b92a355eb4a4dc2559fe",
+      "bytes": 6346
+    },
+    {
+      "path": "inputs/exercises/zipper/README.md",
+      "sha256": "8b932da02d3e213b5b1e03a8f585c89b72084d024074287d4b7427a351e4d619",
+      "bytes": 562
+    },
+    {
+      "path": "inputs/exercises/zipper/zipper.py",
+      "sha256": "66276107d448f53a12509da6f503280e0dca4a6bbd9d690a774fb0972a55f926",
+      "bytes": 359
+    },
+    {
+      "path": "inputs/exercises/zipper/zipper_test.py",
+      "sha256": "a3cf6e5ebcf6b2171bcc80fa0ce81b425af23b522f222e841fa2abd3119e95b2",
+      "bytes": 9641
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T14:13:54+08:00",
+  "finished_at": "2026-10-29T14:15:18+08:00",
+  "duration_s": 83.8,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T14:13:54+08:00",
+      "duration_s": 83.8,
+      "exit_code": 0,
+      "outcome": "ok"
+    }
+  ],
+  "transport_retries": 0,
+  "stdout_bytes": 162355,
+  "stderr_bytes": 1095,
+  "stdout_sha256": "904c9f3bbc7ce1ec2b794c4ffbf243c421b76504a6c6b4f08926e41bd219c726",
+  "stderr_sha256": "18520380328ce33a57f7cbbde3d3683b9abb9bb5de1b735e97c521e2ddffb134",
+  "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+  "usage": {
+    "requests": 8,
+    "input_tokens": 229541,
+    "output_tokens": 15126,
+    "cache_read_tokens": 203520,
+    "cache_creation_tokens": 0,
+    "reasoning_output_tokens": 6655,
+    "total_tokens": 244667,
+    "cumulative_thread_final": {
+      "input_tokens": 229541,
+      "cached_input_tokens": 203520,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 15126,
+      "reasoning_output_tokens": 6655,
+      "total_tokens": 244667
+    },
+    "per_call": [
+      {
+        "session_file": "rollout-2026-10-29T14-13-54-01a1864b-2707-74c2-8d38-eaf084df5cbb.jsonl",
+        "ts": "2026-10-29T06:13:57.083Z",
+        "response_id": "dfd5d84a-40d4-4157-9192-25ff2511fb0e",
+        "turn_id": "01a1864b-2725-75d2-b4d8-9bdedce6f8c3",
+        "input_tokens": 8929,
+        "cache_read_tokens": 7808,
+        "cache_creation_tokens": 0,
+        "output_tokens": 487,
+        "reasoning_output_tokens": 28,
+        "total_tokens": 9416
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-13-54-01a1864b-2707-74c2-8d38-eaf084df5cbb.jsonl",
+        "ts": "2026-10-29T06:14:00.463Z",
+        "response_id": "cd2674e5-1394-4a2b-9a29-f81ae8cee486",
+        "turn_id": "01a1864b-2725-75d2-b4d8-9bdedce6f8c3",
+        "input_tokens": 9739,
+        "cache_read_tokens": 9344,
+        "cache_creation_tokens": 0,
+        "output_tokens": 646,
+        "reasoning_output_tokens": 26,
+        "total_tokens": 10385
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-13-54-01a1864b-2707-74c2-8d38-eaf084df5cbb.jsonl",
+        "ts": "2026-10-29T06:14:03.747Z",
+        "response_id": "66d27169-c375-4aed-bc6b-9f170e2066c6",
+        "turn_id": "01a1864b-2725-75d2-b4d8-9bdedce6f8c3",
+        "input_tokens": 16096,
+        "cache_read_tokens": 10368,
+        "cache_creation_tokens": 0,
+        "output_tokens": 743,
+        "reasoning_output_tokens": 34,
+        "total_tokens": 16839
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-13-54-01a1864b-2707-74c2-8d38-eaf084df5cbb.jsonl",
+        "ts": "2026-10-29T06:14:07.523Z",
+        "response_id": "49dc4d78-0e29-4201-aa14-7d86c1ba090f",
+        "turn_id": "01a1864b-2725-75d2-b4d8-9bdedce6f8c3",
+        "input_tokens": 22630,
+        "cache_read_tokens": 16768,
+        "cache_creation_tokens": 0,
+        "output_tokens": 935,
+        "reasoning_output_tokens": 25,
+        "total_tokens": 23565
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-13-54-01a1864b-2707-74c2-8d38-eaf084df5cbb.jsonl",
+        "ts": "2026-10-29T06:15:05.708Z",
+        "response_id": "0d167c89-b3f0-4af6-b51f-912da31d3f66",
+        "turn_id": "01a1864b-2725-75d2-b4d8-9bdedce6f8c3",
+        "input_tokens": 32970,
+        "cache_read_tokens": 23552,
+        "cache_creation_tokens": 0,
+        "output_tokens": 10072,
+        "reasoning_output_tokens": 6126,
+        "total_tokens": 43042
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-13-54-01a1864b-2707-74c2-8d38-eaf084df5cbb.jsonl",
+        "ts": "2026-10-29T06:15:10.947Z",
+        "response_id": "aed42960-0f7a-474e-9022-64a85d005ae3",
+        "turn_id": "01a1864b-2725-75d2-b4d8-9bdedce6f8c3",
+        "input_tokens": 43162,
+        "cache_read_tokens": 43008,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1411,
+        "reasoning_output_tokens": 5,
+        "total_tokens": 44573
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-13-54-01a1864b-2707-74c2-8d38-eaf084df5cbb.jsonl",
+        "ts": "2026-10-29T06:15:14.961Z",
+        "response_id": "ec50164a-4e7d-48cd-9f6c-7e5375c3d5aa",
+        "turn_id": "01a1864b-2725-75d2-b4d8-9bdedce6f8c3",
+        "input_tokens": 47620,
+        "cache_read_tokens": 44544,
+        "cache_creation_tokens": 0,
+        "output_tokens": 594,
+        "reasoning_output_tokens": 191,
+        "total_tokens": 48214
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-13-54-01a1864b-2707-74c2-8d38-eaf084df5cbb.jsonl",
+        "ts": "2026-10-29T06:15:17.819Z",
+        "response_id": "081818d8-e07c-4485-8bf6-ef70e9b0b149",
+        "turn_id": "01a1864b-2725-75d2-b4d8-9bdedce6f8c3",
+        "input_tokens": 48395,
+        "cache_read_tokens": 48128,
+        "cache_creation_tokens": 0,
+        "output_tokens": 238,
+        "reasoning_output_tokens": 220,
+        "total_tokens": 48633
+      }
+    ],
+    "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "exercism-py-6",
+    "checker_version": "1.1",
+    "reward": 1,
+    "weighted": 100.0,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "运行目录内官方测试文件与 canonical 一致"
+      },
+      {
+        "id": "forth",
+        "pass": true,
+        "note": "完成回执 tests=54/54 exit=0",
+        "completion": {
+          "complete": true,
+          "expected": 54,
+          "tests_run": 54,
+          "discovered": 54,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "started": 54,
+          "stopped": 54,
+          "succeeded": 54,
+          "identities_match": true
+        }
+      },
+      {
+        "id": "poker",
+        "pass": true,
+        "note": "完成回执 tests=37/37 exit=0",
+        "completion": {
+          "complete": true,
+          "expected": 37,
+          "tests_run": 37,
+          "discovered": 37,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "started": 37,
+          "stopped": 37,
+          "succeeded": 37,
+          "identities_match": true
+        }
+      },
+      {
+        "id": "dominoes",
+        "pass": true,
+        "note": "完成回执 tests=13/13 exit=0",
+        "completion": {
+          "complete": true,
+          "expected": 13,
+          "tests_run": 13,
+          "discovered": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "started": 13,
+          "stopped": 13,
+          "succeeded": 13,
+          "identities_match": true
+        }
+      },
+      {
+        "id": "bowling",
+        "pass": true,
+        "note": "完成回执 tests=31/31 exit=0",
+        "completion": {
+          "complete": true,
+          "expected": 31,
+          "tests_run": 31,
+          "discovered": 31,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "started": 31,
+          "stopped": 31,
+          "succeeded": 31,
+          "identities_match": true
+        }
+      },
+      {
+        "id": "zipper",
+        "pass": true,
+        "note": "完成回执 tests=14/14 exit=0",
+        "completion": {
+          "complete": true,
+          "expected": 14,
+          "tests_run": 14,
+          "discovered": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "started": 14,
+          "stopped": 14,
+          "succeeded": 14,
+          "identities_match": true
+        }
+      },
+      {
+        "id": "pov",
+        "pass": true,
+        "note": "完成回执 tests=15/15 exit=0",
+        "completion": {
+          "complete": true,
+          "expected": 15,
+          "tests_run": 15,
+          "discovered": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "started": 15,
+          "stopped": 15,
+          "succeeded": 15,
+          "identities_match": true
+        }
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-codex-exercism-py-6-r3",
+  "event_id": "var-n3-codex-exercism-py-6-r3",
+  "selection": {
+    "plan_id": "var-n3-20261029",
+    "slot_id": "var-n3-codex-exercism-py-6-r3",
+    "order": 3,
+    "kind": "rep"
+  }
+}

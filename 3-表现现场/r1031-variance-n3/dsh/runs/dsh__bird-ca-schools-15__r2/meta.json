@@ -70,7 +70,9 @@
     "full_bytes": 170512,
     "full_lines": 99,
     "full_file": "agent.jsonl.full",
-    "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+    "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection",
+    "raw_lost": true,
+    "raw_lost_reason": "r1031#1 archiver defect: run 1 wrote agent.jsonl/agent.stderr.txt inside the evidence dir and archive() rmtree'd the dir before moving logs to staging — the r1030 'staging move' fix ordered rmtree first and was ineffective; raw CLI stdout/stderr are unrecoverable for this run. Fixed in tools-dsh/lab.py: logs are written to staging (outside the evidence dir) from the start, so runs 2..10 keep both streams; full stream for this run is the session-log re-projection (agent.jsonl.full)."
   },
   "usage": {
     "requests": 18,
@@ -393,10 +395,11 @@
       "~/Documents",
       "harness-compare-bench"
     ],
-    "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+    "basis": "session-trajectory scan only: runner stdout stream lost by archiver defect r1031#1 (disclosed in archived_stdout.raw_lost_reason); 8-pattern scan over complete durable session log, 0 hits",
     "stdout_scan": {
       "lines": 0,
-      "violations": 0
+      "violations": 0,
+      "note": "stream lost (r1031#1); scan vacuous for this run"
     },
     "session_scan": {
       "lines": 127,
@@ -405,5 +408,13 @@
     "evidence": []
   },
   "integrity_verdict": "clean",
-  "run_id": "r1031-dsh-bird-ca-schools-15-r2"
+  "run_id": "r1031-dsh-bird-ca-schools-15-r2",
+  "corrections": [
+    {
+      "id": "r1031-archiver-log-loss",
+      "at": "2026-10-29T13:48:47+08:00",
+      "note": "run 1 (bird r2) runner stdout/stderr streams were lost by the inherited r1030#1 archiver ordering flaw (rmtree before staging move); the run itself (workspace, products, session trajectory, judging, meta) is complete; the complete event stream is archived as agent.jsonl.full re-projected losslessly from the durable session log; tools-dsh/lab.py fixed to write logs to staging from the start for runs 2..10.",
+      "fixed_in": "tools-dsh/lab.py cmd_run (staging-first log writing; per-attempt streams on transport backoff)"
+    }
+  ]
 }

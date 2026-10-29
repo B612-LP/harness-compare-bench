@@ -407,7 +407,7 @@ def adjudicate(case: str, rep: int) -> dict:
     meta = json.loads((ev / "meta.json").read_text(encoding="utf-8"))
     ok_run = meta.get("status") == "ok" and meta.get("exit_code") == 0
     verd = meta.get("integrity_verdict")
-    clean = verd in ("clean", "clean-reviewed")
+    clean = verd in ("clean", "clean-reviewed", "benign-reviewed")
     scored = isinstance(meta.get("judge"), dict) and "checks" in meta["judge"]
     out = {"event_id": event_id(case, rep), "run_id": meta["run_id"], "batch": BATCH_NAME,
            "rep": rep, "preregistration_commit": PREREG_COMMIT, "draft": True,
@@ -619,7 +619,9 @@ def cmd_integrity(case: str, rep: int) -> int:
     meta["integrity"] = {"violations": integ["violations"], "patterns": integ["patterns"],
                          "basis": "session-trajectory + runner-stdout rescan; see integrity-rescan.json",
                          "evidence": integ["evidence"]}
-    meta["integrity_verdict"] = "clean" if integ["violations"] == 0 else "violation"
+    if meta.get("integrity_verdict") not in ("benign-reviewed", "clean-reviewed"):
+        # lead 语义裁定的 verdict 不被机械重扫降级（L1 先例）
+        meta["integrity_verdict"] = "clean" if integ["violations"] == 0 else "violation"
     meta_p.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"run": "%s__%s__r%d" % (PRODUCT, case, rep),
                       "violations": integ["violations"], "lines_scanned": integ["lines_scanned"]},

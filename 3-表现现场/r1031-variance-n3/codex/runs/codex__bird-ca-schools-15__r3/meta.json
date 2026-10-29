@@ -1,0 +1,436 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "preregistration_commit": "be39fc2",
+  "rep": 3,
+  "product": "codex",
+  "case": "bird-ca-schools-15",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/codex/3/bird-ca-schools-15",
+  "created_at": "2026-10-29T14:01:04+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+  "skills": "off（[skills] include_instructions=false，bundled disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "f13fd5b05e42c44e3b3ba2d5fdc7e69dd35d00ec10757c2ea723a9714bf07a59",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/db/california_schools.sqlite",
+      "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+      "bytes": 11116544
+    },
+    {
+      "path": "inputs/questions.json",
+      "sha256": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+      "bytes": 15842
+    },
+    {
+      "path": "inputs/sample_rows.json",
+      "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+      "bytes": 7739
+    },
+    {
+      "path": "inputs/schema.sql",
+      "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+      "bytes": 3993
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T14:01:04+08:00",
+  "finished_at": "2026-10-29T14:03:45+08:00",
+  "duration_s": 160.9,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T14:01:04+08:00",
+      "duration_s": 160.9,
+      "exit_code": 0,
+      "outcome": "ok"
+    }
+  ],
+  "transport_retries": 0,
+  "stdout_bytes": 117695,
+  "stderr_bytes": 1095,
+  "stdout_sha256": "5c7bc7303a88cd38c12f11ff0ce5c0eb701c3897710c5589c6c32ed48de774d8",
+  "stderr_sha256": "bee863ee37ec1b6c10c051e36cb72026df5d4fe533685b595a17569b1561694e",
+  "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+  "usage": {
+    "requests": 15,
+    "input_tokens": 534266,
+    "output_tokens": 29194,
+    "cache_read_tokens": 506112,
+    "cache_creation_tokens": 0,
+    "reasoning_output_tokens": 16684,
+    "total_tokens": 563460,
+    "cumulative_thread_final": {
+      "input_tokens": 534266,
+      "cached_input_tokens": 506112,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 29194,
+      "reasoning_output_tokens": 16684,
+      "total_tokens": 563460
+    },
+    "per_call": [
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:01:08.188Z",
+        "response_id": "51c45871-69e4-4f2c-b352-77e713f109d6",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 9573,
+        "cache_read_tokens": 7808,
+        "cache_creation_tokens": 0,
+        "output_tokens": 922,
+        "reasoning_output_tokens": 37,
+        "total_tokens": 10495
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:01:12.156Z",
+        "response_id": "7f986189-61c8-4053-9456-a805435032fa",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 16931,
+        "cache_read_tokens": 10368,
+        "cache_creation_tokens": 0,
+        "output_tokens": 877,
+        "reasoning_output_tokens": 26,
+        "total_tokens": 17808
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:01:16.109Z",
+        "response_id": "516ad3a6-a611-43a6-b8d7-25272d1aa2f5",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 20893,
+        "cache_read_tokens": 17792,
+        "cache_creation_tokens": 0,
+        "output_tokens": 871,
+        "reasoning_output_tokens": 20,
+        "total_tokens": 21764
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:01:32.300Z",
+        "response_id": "d9ce4763-782e-4226-a468-2b03f56d74d9",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 22770,
+        "cache_read_tokens": 21760,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2975,
+        "reasoning_output_tokens": 2307,
+        "total_tokens": 25745
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:01:40.954Z",
+        "response_id": "a719d8bb-cc3f-4d6b-a7bf-be37c51b0767",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 28100,
+        "cache_read_tokens": 25728,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1955,
+        "reasoning_output_tokens": 345,
+        "total_tokens": 30055
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:01:49.089Z",
+        "response_id": "9a4e627e-6bce-45b1-82eb-c80c56cde39f",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 30588,
+        "cache_read_tokens": 29952,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1506,
+        "reasoning_output_tokens": 638,
+        "total_tokens": 32094
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:01:56.680Z",
+        "response_id": "faaa3545-2b2e-45db-be60-a0660c6a6d39",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 34128,
+        "cache_read_tokens": 32000,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1429,
+        "reasoning_output_tokens": 764,
+        "total_tokens": 35557
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:02:07.024Z",
+        "response_id": "94b9dd74-5f7e-4491-98ae-b8bdc9ecde37",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 36223,
+        "cache_read_tokens": 35456,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2033,
+        "reasoning_output_tokens": 734,
+        "total_tokens": 38256
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:02:11.280Z",
+        "response_id": "3b89d5bd-6257-45de-b91c-775babbaba13",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 39879,
+        "cache_read_tokens": 38144,
+        "cache_creation_tokens": 0,
+        "output_tokens": 803,
+        "reasoning_output_tokens": 215,
+        "total_tokens": 40682
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:02:27.211Z",
+        "response_id": "56d6e709-0586-4873-bdf9-603a7c942069",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 41118,
+        "cache_read_tokens": 40576,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2735,
+        "reasoning_output_tokens": 1566,
+        "total_tokens": 43853
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:02:33.926Z",
+        "response_id": "12c85cfb-c739-4908-bd8b-9792c38789cf",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 45051,
+        "cache_read_tokens": 43776,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1033,
+        "reasoning_output_tokens": 667,
+        "total_tokens": 46084
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:02:58.310Z",
+        "response_id": "3404b676-0c12-49c2-aa5b-60cc6c0fd556",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 46707,
+        "cache_read_tokens": 46080,
+        "cache_creation_tokens": 0,
+        "output_tokens": 4863,
+        "reasoning_output_tokens": 3339,
+        "total_tokens": 51570
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:03:02.391Z",
+        "response_id": "e57b74fd-b807-4a30-a94a-aa83bc972f47",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 51621,
+        "cache_read_tokens": 47104,
+        "cache_creation_tokens": 0,
+        "output_tokens": 816,
+        "reasoning_output_tokens": 36,
+        "total_tokens": 52437
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:03:29.119Z",
+        "response_id": "743e548b-abdd-48ab-a4c5-9b3dcefedd52",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 52971,
+        "cache_read_tokens": 52352,
+        "cache_creation_tokens": 0,
+        "output_tokens": 4285,
+        "reasoning_output_tokens": 3941,
+        "total_tokens": 57256
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-01-04-01a1863f-66db-7cb2-bbb4-3854d94cf8c6.jsonl",
+        "ts": "2026-10-29T06:03:44.673Z",
+        "response_id": "91b4c347-d689-45bb-aee1-673b20f7a16c",
+        "turn_id": "01a1863f-66f8-79e0-98af-2ad0e2e90a09",
+        "input_tokens": 57713,
+        "cache_read_tokens": 57216,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2091,
+        "reasoning_output_tokens": 2049,
+        "total_tokens": 59804
+      }
+    ],
+    "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "bird-ca-schools-15",
+    "checker_version": "1.2-q26-frpm",
+    "contract_revision": "b2-tighten-2026-10-27",
+    "contract_status": "adopted-2026-10-26",
+    "parent_checker_version": "1.1",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/bench-workspaces/r1031/codex/3/bird-ca-schools-15",
+    "reward": 1,
+    "weighted": 100.0,
+    "accuracy": 1.0,
+    "correct": 15,
+    "n_questions": 15,
+    "threshold": 0.8,
+    "input_integrity": "verified",
+    "failed_questions": [],
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "已附输入副本 4 件，均与 canonical 一致"
+      },
+      {
+        "id": "answers_file",
+        "pass": true,
+        "note": "/Users/b612-lp/bench-workspaces/r1031/codex/3/bird-ca-schools-15/answers.jsonl"
+      },
+      {
+        "id": "answers_schema",
+        "pass": true,
+        "note": "15 行可解析，0 行 JSON/结构异常"
+      },
+      {
+        "id": "answers_coverage",
+        "pass": true,
+        "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+      },
+      {
+        "id": "q28",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（57 行）"
+      },
+      {
+        "id": "q36",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q62",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q83",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q87",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q12",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q23",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1239 行）"
+      },
+      {
+        "id": "q24",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1068 行）"
+      },
+      {
+        "id": "q25",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q26",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q27",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（8574 行）"
+      },
+      {
+        "id": "q31",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（2 行）"
+      },
+      {
+        "id": "q5",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q11",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（7806 行）"
+      },
+      {
+        "id": "q17",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（50 行）"
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-codex-bird-ca-schools-15-r3",
+  "event_id": "var-n3-codex-bird-ca-schools-15-r3",
+  "selection": {
+    "plan_id": "var-n3-20261029",
+    "slot_id": "var-n3-codex-bird-ca-schools-15-r3",
+    "order": 3,
+    "kind": "rep"
+  }
+}

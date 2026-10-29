@@ -1,0 +1,328 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "product": "dsh",
+  "case": "lcb-recent-hard-4",
+  "rep": "2",
+  "event_id": "var-n3-dsh-lcb-recent-hard-4-r2",
+  "form": "cli",
+  "preregistration_commit": "be39fc2",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/dsh/2/lcb-recent-hard-4",
+  "created_at": "2026-10-29T13:58:39+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "47f19b76b8971562aa7900331ce8cc8a9c3350c6a6396f70bcae8a4d7c7d01ba",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/problems.json",
+      "sha256": "0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673",
+      "bytes": 7884
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T13:58:39+08:00",
+  "finished_at": "2026-10-29T14:05:01+08:00",
+  "duration_s": 381.0,
+  "transport_retries": [],
+  "archived_stdout": {
+    "raw_bytes": 71397,
+    "raw_lines": 93,
+    "raw_file": "agent.jsonl",
+    "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+    "full_bytes": 186581,
+    "full_lines": 93,
+    "full_file": "agent.jsonl.full",
+    "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+  },
+  "usage": {
+    "requests": 18,
+    "input_tokens": 12869,
+    "output_tokens": 46906,
+    "cache_read_tokens": 767104,
+    "cache_creation_tokens": 0,
+    "per_call": [
+      {
+        "turn": 1,
+        "step": 1,
+        "input_tokens": 6382,
+        "output_tokens": 78,
+        "total_tokens": 6716,
+        "cache_read_tokens": 256,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 2,
+        "input_tokens": 216,
+        "output_tokens": 66,
+        "total_tokens": 6938,
+        "cache_read_tokens": 6656,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 3,
+        "input_tokens": 3128,
+        "output_tokens": 32046,
+        "total_tokens": 42086,
+        "cache_read_tokens": 6912,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 4,
+        "input_tokens": 250,
+        "output_tokens": 2156,
+        "total_tokens": 44262,
+        "cache_read_tokens": 41856,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 5,
+        "input_tokens": 248,
+        "output_tokens": 509,
+        "total_tokens": 44789,
+        "cache_read_tokens": 44032,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 6,
+        "input_tokens": 322,
+        "output_tokens": 240,
+        "total_tokens": 45234,
+        "cache_read_tokens": 44672,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 7,
+        "input_tokens": 254,
+        "output_tokens": 178,
+        "total_tokens": 45616,
+        "cache_read_tokens": 45184,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 8,
+        "input_tokens": 191,
+        "output_tokens": 1084,
+        "total_tokens": 46715,
+        "cache_read_tokens": 45440,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 9,
+        "input_tokens": 175,
+        "output_tokens": 403,
+        "total_tokens": 47170,
+        "cache_read_tokens": 46592,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 10,
+        "input_tokens": 209,
+        "output_tokens": 5633,
+        "total_tokens": 52818,
+        "cache_read_tokens": 46976,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 11,
+        "input_tokens": 295,
+        "output_tokens": 145,
+        "total_tokens": 53176,
+        "cache_read_tokens": 52736,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 12,
+        "input_tokens": 178,
+        "output_tokens": 174,
+        "total_tokens": 53472,
+        "cache_read_tokens": 53120,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 13,
+        "input_tokens": 170,
+        "output_tokens": 1661,
+        "total_tokens": 55207,
+        "cache_read_tokens": 53376,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 14,
+        "input_tokens": 182,
+        "output_tokens": 192,
+        "total_tokens": 55414,
+        "cache_read_tokens": 55040,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 15,
+        "input_tokens": 143,
+        "output_tokens": 240,
+        "total_tokens": 55679,
+        "cache_read_tokens": 55296,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 16,
+        "input_tokens": 159,
+        "output_tokens": 261,
+        "total_tokens": 55972,
+        "cache_read_tokens": 55552,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 17,
+        "input_tokens": 187,
+        "output_tokens": 1649,
+        "total_tokens": 57644,
+        "cache_read_tokens": 55808,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 18,
+        "input_tokens": 180,
+        "output_tokens": 191,
+        "total_tokens": 57971,
+        "cache_read_tokens": 57600,
+        "cache_creation_tokens": 0
+      }
+    ],
+    "cross_check": {
+      "compared": 18,
+      "equal": 18,
+      "mismatch": []
+    },
+    "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "lcb-recent-hard-4",
+    "checker_version": "0.1",
+    "reward": 1,
+    "weighted": 100.0,
+    "passed_problems": 4,
+    "total_problems": 4,
+    "threshold": 2,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "item": "输入完整性（守卫）",
+        "weight": 0.0,
+        "pass": true,
+        "note": "附带输入副本与 canonical 一致（inputs/problems.json）",
+        "guard": true
+      },
+      {
+        "id": "abc387_f",
+        "item": "abc387_f Count Arrays",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_f",
+        "item": "abc388_f Dangerous Sugoroku",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_g",
+        "item": "abc388_g Simultaneous Kagamimochi 2",
+        "weight": 25.0,
+        "pass": true,
+        "note": "42/42 全过",
+        "passed_tests": 42,
+        "total_tests": 42,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc389_g",
+        "item": "abc389_g Odd Even Graph",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+    "stdout_scan": {
+      "lines": 93,
+      "violations": 0
+    },
+    "session_scan": {
+      "lines": 124,
+      "violations": 0
+    },
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-dsh-lcb-recent-hard-4-r2"
+}

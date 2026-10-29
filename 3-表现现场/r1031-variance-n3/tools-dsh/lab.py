@@ -585,18 +585,20 @@ def archive(case: str, rep: str, log: Path, err: Path, started: str, finished: s
             shutil.copytree(p, ev / "workspace" / p.name)
         else:
             shutil.copy2(p, ev / "workspace" / p.name)
-    # 日志先移入 staging 再拷贝（沿用 r1030#1 修复：避免 rmtree 连带删除运行日志）
-    staging = OUT_ROOT / "staging"
-    staging.mkdir(exist_ok=True)
-    tag = "dsh__%s__r%s" % (case, rep)
-    log_snap = staging / ("%s.agent.jsonl" % tag)
-    err_snap = staging / ("%s.agent.stderr.txt" % tag)
+    # 日志源即 staging 快照（写入阶段就避开 ev 目录，根除 r1030#1）；末次 attempt
+    # 落为 agent.jsonl / agent.stderr.txt，被传输退避替换的此前 attempt 流一并列档。
     if log.exists():
-        shutil.move(str(log), str(log_snap))
-        shutil.copy2(log_snap, ev / "agent.jsonl")
+        shutil.copy2(log, ev / "agent.jsonl")
     if err.exists():
-        shutil.move(str(err), str(err_snap))
-        shutil.copy2(err_snap, ev / "agent.stderr.txt")
+        shutil.copy2(err, ev / "agent.stderr.txt")
+    for r in retries:
+        n = r.get("attempt")
+        src_l = OUT_ROOT / "staging" / ("dsh__%s__r%s.a%d.agent.jsonl" % (case, rep, n))
+        src_e = OUT_ROOT / "staging" / ("dsh__%s__r%s.a%d.agent.stderr.txt" % (case, rep, n))
+        if src_l.exists():
+            shutil.copy2(src_l, ev / ("agent.attempt%d.jsonl" % n))
+        if src_e.exists():
+            shutil.copy2(src_e, ev / ("agent.attempt%d.stderr.txt" % n))
     # 会话轨迹归档（先于重建使用）
     st = dt.datetime.fromisoformat(started).timestamp()
     capture_session_dsh(ev, ws, st)
@@ -668,6 +670,7 @@ def archive(case: str, rep: str, log: Path, err: Path, started: str, finished: s
              "note": "composite transcription; raw checker output packaged alongside"},
             ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     # 逐场独立会话轨迹重扫收据（对 runner 扫描的二次核验）
+    tag = "dsh__%s__r%s" % (case, rep)
     rescan = {"run": tag, "patterns": INTEGRITY_PATTERNS,
               "session_files": [{"name": p.name, "bytes": p.stat().st_size, "zstd": p.suffix == ".zstd"}
                                 for p in sorted(sess_dir.iterdir()) if p.is_file()] if full_lines else [],
@@ -694,8 +697,6 @@ def cmd_run(case: str, rep: str) -> int:
     cj = CASE_ROOT / case / "case.json"
     timeout = json.loads(cj.read_text()).get("timeout_s", 1800) if cj.exists() else 1800
     ev_dir = run_ev(case, rep)
-    log = ev_dir / "agent.jsonl"
-    err = ev_dir / "agent.stderr.txt"
     ev_dir.mkdir(parents=True, exist_ok=True)
     env = dict(os.environ, DEEPSEEK_API_KEY=key)
     cmd = ["dsh", DSH_PROFILE, "--json", "-"]
@@ -703,9 +704,17 @@ def cmd_run(case: str, rep: str) -> int:
     st_ts = time.time()
     status, exit_code = "ok", None
     retries: list = []
+    # 日志一律先写 staging（证据目录外）：r1030#1 缺陷（archive 顶部 rmtree 连带删除
+    # 写在 ev 目录内的日志）在 r1030 侧"staging 修复"中依然存在（rmtree 先于移动），
+    # 本运行器从写入位置上根除；传输层退避时按 attempt 分档保留每次的完整流。
+    staging = OUT_ROOT / "staging"
+    staging.mkdir(exist_ok=True)
+    tag = "dsh__%s__r%s" % (case, rep)
     # 传输层错误（429/断连）指数退避 ≤3 次；属同一逻辑运行。运行级其它失败不重试。
     for attempt in range(1, 5):  # 1 次首发 + 最多 3 次传输退避
-        with log.open("w", encoding="utf-8") as out, err.open("w", encoding="utf-8") as er:
+        a_log = staging / ("%s.a%d.agent.jsonl" % (tag, attempt))
+        a_err = staging / ("%s.a%d.agent.stderr.txt" % (tag, attempt))
+        with a_log.open("w", encoding="utf-8") as out, a_err.open("w", encoding="utf-8") as er:
             try:
                 p = subprocess.run(cmd, cwd=str(ws), env=env, input=prompt, text=True,
                                    stdout=out, stderr=er, timeout=timeout)
@@ -715,16 +724,23 @@ def cmd_run(case: str, rep: str) -> int:
                 status, exit_code = "timeout", None
         if status == "timeout":
             break  # 超时是运行级结果，按合同截停判分，不重试
-        stderr_text = err.read_text(encoding="utf-8", errors="replace") if err.exists() else ""
+        stderr_text = a_err.read_text(encoding="utf-8", errors="replace") if a_err.exists() else ""
         transport = classify_transport_error(stderr_text, exit_code) if exit_code not in (0, None) else None
         if transport is None or attempt > 3:
             break
         backoff = 5 * (3 ** (attempt - 1))  # 5s / 15s / 45s
         retries.append({"attempt": attempt, "error_class": transport,
-                        "stderr_tail": stderr_text[-800:], "backoff_ms": backoff * 1000})
+                        "stderr_tail": stderr_text[-800:], "backoff_ms": backoff * 1000,
+                        "attempt_stdout": "agent.attempt%d.jsonl" % attempt,
+                        "attempt_stderr": "agent.attempt%d.stderr.txt" % attempt})
         print(json.dumps({"note": "transport retry", "attempt": attempt, "error_class": transport,
                           "backoff_ms": backoff * 1000}, ensure_ascii=False))
         time.sleep(backoff)
+    # 末次 attempt 即本场正式流（archive 以 staging 快照为源，ev 目录可安全重建）
+    log = staging / ("%s.agent.jsonl" % tag)
+    err = staging / ("%s.agent.stderr.txt" % tag)
+    shutil.copy2(staging / ("%s.a%d.agent.jsonl" % (tag, attempt)), log)
+    shutil.copy2(staging / ("%s.a%d.agent.stderr.txt" % (tag, attempt)), err)
     finished = now_iso()
     duration = round(time.time() - st_ts, 1)
     res = judge(case, ws)
