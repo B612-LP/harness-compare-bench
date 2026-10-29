@@ -1,0 +1,123 @@
+{
+  "category": "self_test",
+  "scope": "Independent synthetic git only, zero APIs, no payload execution",
+  "generated_at": "2026-10-29T12:20:42.997101+00:00",
+  "source_sha256": "ec52737dce77cc184372c2b716c1ea4d35e9ed189d378b7f9b4579b7c94dbed0",
+  "reviewer_script_sha256": "c8db836c4296a40175d6e584593aa8aa4c05652129753df4ec7a07090a19e610",
+  "harness_sha256": "a50aa613b15de1fb8c937f925296a7bba711cde79f9e277dcd0718951a3084c9",
+  "live_doc_drift": [],
+  "checks": [
+    {
+      "id": "positive",
+      "expected_rejected": false,
+      "pass": true,
+      "observed": {
+        "rejected": false,
+        "binding": {
+          "schema_version": 1,
+          "design_commit": "7b8b223bccf540fc5b3d9f3e403271214d511c22",
+          "preregistration_commit": "5dae4543cb9862d5659828b23b933058a07ace50",
+          "execution_seal_commit": "5dae4543cb9862d5659828b23b933058a07ace50",
+          "registered_at": "2026-10-29T20:20:42+08:00",
+          "execution_manifest_sha256": "98ef78e6c53dd8db741d4955545e8c8d279401f813d5043eac6b73bd796abb85",
+          "plan_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "contract_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "released_for_model_calls": true,
+          "generated_at": "2026-10-29T20:20:42+08:00",
+          "live_doc_drift": []
+        }
+      },
+      "payload_executed": false
+    },
+    {
+      "id": "empty_files",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Manifest files must be nonempty"
+      },
+      "payload_executed": false
+    },
+    {
+      "id": "omitted_clarification",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Manifest missing required sources: ['1-plan/loop4/CLARIFICATION-L4-1.md']"
+      },
+      "payload_executed": false
+    },
+    {
+      "id": "same_bytes_source_symlink",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Runtime tree symlink refused: /private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4-independent-seal-v2-2urj86z2/repo/1-评测方案/工具链/l4-execution/gate.py"
+      },
+      "payload_executed": false
+    },
+    {
+      "id": "new_unsealed_py",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Manifest missing required sources: ['1-评测方案/工具链/l4-execution/new-unsealed.py']"
+      },
+      "payload_executed": false
+    },
+    {
+      "id": "runtime_symlink_directory",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Runtime tree symlink refused: /private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4-independent-seal-v2-our1svhb/repo/1-评测方案/工具链/l4-execution/helpers",
+        "stage": "manifest_or_setup"
+      },
+      "payload_executed": false
+    },
+    {
+      "id": "extensionless_helper",
+      "expected_rejected": true,
+      "pass": true,
+      "observed": {
+        "rejected": true,
+        "exception": "ValueError",
+        "error": "Manifest missing required sources: ['1-评测方案/工具链/l4-execution/unsealed-helper']"
+      },
+      "payload_executed": false
+    },
+    {
+      "id": "generated_workspace_not_source",
+      "expected_rejected": false,
+      "pass": true,
+      "observed": {
+        "rejected": false,
+        "binding": {
+          "schema_version": 1,
+          "design_commit": "7b8b223bccf540fc5b3d9f3e403271214d511c22",
+          "preregistration_commit": "5dae4543cb9862d5659828b23b933058a07ace50",
+          "execution_seal_commit": "5dae4543cb9862d5659828b23b933058a07ace50",
+          "registered_at": "2026-10-29T20:20:42+08:00",
+          "execution_manifest_sha256": "98ef78e6c53dd8db741d4955545e8c8d279401f813d5043eac6b73bd796abb85",
+          "plan_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "contract_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "released_for_model_calls": true,
+          "generated_at": "2026-10-29T20:20:42+08:00",
+          "live_doc_drift": []
+        }
+      },
+      "payload_executed": false
+    }
+  ],
+  "passed": true
+}

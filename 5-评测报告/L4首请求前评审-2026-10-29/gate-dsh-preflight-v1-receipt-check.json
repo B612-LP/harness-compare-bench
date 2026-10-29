@@ -1,0 +1,82 @@
+{
+  "kind": "receipt_check_report",
+  "tool": "receipt_check.py",
+  "at": "2026-10-29T20:41:52+08:00",
+  "root": "/Users/b612-lp/Documents/harness-compare-bench",
+  "require_drift": true,
+  "docs": [
+    {
+      "file": "5-评测报告/L4首请求前评审-2026-10-29/gate-dsh-preflight-v1.md",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "text-line",
+            "line": 5,
+            "has_state_token": true,
+            "excerpt": "live_doc_drift: []（仅固定源码快照与本报告收据，不宣称尚未完成的E无漂移）。task-7保持in_progress。模型/API/checker实际执行均0；仅对源码只读审阅、在tmp构造合成文件并注入只读git视图。没有读取题库truth/solution或历史答案，没有修改builder代码。"
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 3,
+        "tokens": 3,
+        "violations": []
+      },
+      "evidence_lines": {
+        "total": 3,
+        "verified_ok": 3,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": [
+          {
+            "line": 67,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/gate-dsh-source-snapshot-v1.json",
+              "sha256_8": "a80412c2",
+              "bytes": 1664
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "a80412c2",
+              "bytes": 1664
+            }
+          },
+          {
+            "line": 68,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/gate_adversarial.py",
+              "sha256_8": "1ec4d64e",
+              "bytes": 9786
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "1ec4d64e",
+              "bytes": 9786
+            }
+          },
+          {
+            "line": 69,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/gate-adversarial-v1.json",
+              "sha256_8": "e3d58b5a",
+              "bytes": 12074
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "e3d58b5a",
+              "bytes": 12074
+            }
+          }
+        ]
+      },
+      "ok": true
+    }
+  ],
+  "all_ok": true
+}

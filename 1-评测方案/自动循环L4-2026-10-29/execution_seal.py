@@ -14,6 +14,11 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 MANIFEST = HERE / 'execution-manifest.json'
 BINDING = HERE / 'runtime-binding.json'
+REQUIRED_EXTERNAL_FILES = (
+    Path.home()/'.dsh/profiles/bench-cli/cordis.patch.yml',
+    Path.home()/'.dsh/profiles/bench-cli/package.json',
+    Path.home()/'.dsh/AGENTS.md',
+)
 RUNTIME_ROOTS = (
     '1-评测方案/工具链/l4-execution',
     '3-表现现场/l4-20261029-cli/codex/tools',
@@ -91,6 +96,9 @@ def validate_manifest(doc):
     ext=doc.get('external_files')
     if not isinstance(ext,dict):
         raise ValueError('Invalid external_files schema')
+    mandatory_external={str(Path(p).resolve()) for p in REQUIRED_EXTERNAL_FILES}
+    if mandatory_external-set(ext):
+        raise ValueError('Manifest missing mandatory external configuration: '+str(sorted(mandatory_external-set(ext))))
     for name,value in ext.items():
         path=Path(name)
         if not path.is_absolute() or path.resolve()!=path or not path.is_file() or path.is_symlink():
@@ -130,7 +138,7 @@ def manifest(args):
         if hashlib.sha256(committed).hexdigest() != sha(path):
             raise ValueError('Design drift: ' + name)
     external = {}
-    for name in args.external_file:
+    for name in list(REQUIRED_EXTERNAL_FILES)+args.external_file:
         original = Path(name).expanduser().absolute()
         if not original.is_file() or original.is_symlink():
             raise ValueError('Expected regular external source: ' + str(original))

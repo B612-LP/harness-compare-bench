@@ -26,6 +26,10 @@ class SealTests(unittest.TestCase):
         self.mod.MANIFEST = self.here/'execution-manifest.json'
         self.mod.BINDING = self.here/'runtime-binding.json'
         self.mod.__file__ = str(self.here/'execution_seal.py')
+        self.mod.REQUIRED_EXTERNAL_FILES=tuple(self.root/'external-profile-fixtures'/name for name in ('profile.yml','package.json','AGENTS.md'))
+        for path in self.mod.REQUIRED_EXTERNAL_FILES:
+            path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text('# external synthetic configuration\n')
         (self.here/'execution_seal.py').write_bytes(SOURCE.read_bytes())
         for name in ('PREREGISTRATION.md','plan.json','contract.json','CLARIFICATION-L4-1.md','test_execution_seal.py'):
             (self.here/name).write_text('{}\n',encoding='utf-8')
@@ -134,6 +138,22 @@ class SealTests(unittest.TestCase):
         new=self.root/self.mod.RUNTIME_ROOTS[0]/'unsealed-helper.py'
         new.write_text('# unsealed')
         with self.assertRaisesRegex(ValueError,'missing required'):
+            self.bind(seal)
+
+    def test_empty_external_configuration_manifest_is_rejected(self):
+        self.manifest()
+        doc=json.loads(self.mod.MANIFEST.read_text())
+        doc['external_files']={}
+        self.mod.MANIFEST.write_text(json.dumps(doc))
+        seal=self.commit('malformed missing external configuration')
+        with self.assertRaisesRegex(ValueError,'mandatory external'):
+            self.bind(seal)
+
+    def test_external_configuration_drift_is_rejected(self):
+        self.manifest()
+        seal=self.commit('synthetic execution seal')
+        self.mod.REQUIRED_EXTERNAL_FILES[0].write_text('# changed external config')
+        with self.assertRaisesRegex(ValueError,'External source drift'):
             self.bind(seal)
 
     def test_runtime_symlink_directory_is_rejected(self):
