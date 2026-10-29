@@ -9,10 +9,14 @@
   --retro     对一个或多个 runs 目录只读扫描，产出兼容矩阵 JSON：
               每场 × 每必备字段的 有/缺/类型/精度 状态 + 批级汇总。
               矩阵是披露性 delta 报告，不是对历史批次的追溯判定。
+              B4/DF-B1：无 --seal-at 且无 --allow-unsealed ⇒ exit 3，不落盘矩阵；
+              --allow-unsealed 为唯一披露出口（矩阵带 seal.unsealed/seal.policy 标记）。
   --reconcile registered_at ↔ 封印提交时刻的离线对账（⑦/O-1）：输入=预注册台账路径+字段位置
               （JSON pointer 或行正则）+封印提交哈希+提交时刻来源。commit_time 来源三模式：
               --commit-time（显式值）/ --commit-time-file（文件内首个 ISO8601+tz 记号）/ --git
-              （直接读取 git log；L3 未行使——builder 禁 git，真实批次对账留 L4，见 U1）。
+              （直接读取 git log；L3 未行使——builder 禁 git，judge 以只读 git 回归，真实批次
+              对账留 L4，见 U1）。verdict 语义（D-L3-1 对齐）：任何步骤假 ⇒ verdict 不得为 ok
+              （error=非比较步骤假；violation=仅比较步骤假；ok=全部真且比较通过）。
 
 L3 语义（封印 72edb519；详见 SCHEMA.md L3 变更框）：
   - status enum = {ok, timeout, error, transport-error}（B1）；
@@ -457,7 +461,7 @@ def cmd_reconcile(ledger: Path, pointer: str | None, line_regex: str | None, com
                 cdt = parse_iso(token)
             except ValueError:
                 cdt = None
-            src = "git log -1 --format=%cI %s" % commit
+            src = "git log -1 --format=%cI " + commit  # D-L3-1 修复：禁止 %-format（%cI 是 git 占位符，% 冲突曾致 TypeError 被吞）
             ok &= step("commit-time-source", proc.returncode == 0 and cdt is not None
                        and cdt.tzinfo is not None, token or proc.stderr.strip()[-120:])
         except Exception as exc:
@@ -481,13 +485,24 @@ def cmd_reconcile(ledger: Path, pointer: str | None, line_regex: str | None, com
         ok &= step("commit-time-source", cdt is not None and cdt.tzinfo is not None, commit_time)
     else:
         ok &= step("commit-time-source", False, "<no commit time source given>")
+    # D-L3-1 修复（verdict/ok 语义对齐）：任何步骤为假 ⇒ verdict 不得为 ok。
+    # verdict ∈ {ok, violation, error, inconclusive}：
+    #   ok         = 全部步骤真 且 registered_at ≥ commit_time
+    #   violation  = 全部步骤真 但 registered_at < commit_time（比较步骤假）
+    #   error      = 任一非比较步骤假（来源/格式/提取失败等）
+    #   inconclusive = 比较无法进行且无其它步骤失败（理论上不可达，防御保留）
+    comparison_ran = vdt is not None and cdt is not None
+    non_comparison_ok = all(s["ok"] for s in steps
+                            if s["step"] != "registered-at-ge-commit-time")
     verdict = "inconclusive"
-    if vdt is not None and cdt is not None:
+    if comparison_ran:
         delta = round((vdt - cdt).total_seconds(), 3)
         verdict = "ok" if vdt >= cdt else "violation"
         ok &= step("registered-at-ge-commit-time", vdt >= cdt,
                    "registered_at %s vs commit_time %s" % (value, cdt.isoformat()),
                    delta_seconds=delta)
+    elif not non_comparison_ok:
+        verdict = "error"
     receipt = {"kind": "self_test", "tool": "validate_runner_meta.py --reconcile", "spec": SPEC,
                "at": now_local(),
                "binding_disclosure": ("顺序检查（registered_at<started_at）必要非充分（O-1/⑦披露，SCHEMA.md §三.4）；"
@@ -566,6 +581,14 @@ def main(argv) -> int:
         if not a.out:
             print("--retro 需要 --out", file=sys.stderr)
             return 2
+        # DF-B1 修复（修代码就预注册字面）：无 --seal-at 且无 --allow-unsealed ⇒
+        # 非零退出（3）+ 响亮说明，不落盘任何矩阵；--allow-unsealed 为唯一披露出口，
+        # 矩阵带 seal.unsealed/seal.policy 标记（与 --spec 同一 fail-closed 纪律）。
+        if a.seal_at is None and not a.allow_unsealed:
+            print("B4 fail-closed（DF-B1）：--retro 未提供 --seal-at 且未显式 --allow-unsealed，"
+                  "不产出矩阵（exit 3）。封印时刻请传 --seal-at；披露口径请显式 --allow-unsealed"
+                  "（矩阵将带 seal.unsealed=true / seal.policy 标记）。", file=sys.stderr)
+            return 3
         return cmd_retro([Path(p) for p in a.retro], Path(a.out), a.seal_at, a.allow_unsealed)
     ap.print_help()
     return 2

@@ -1,0 +1,171 @@
+{
+  "kind": "self_test",
+  "tool": "validate_runner_meta.py --spec",
+  "spec": "runner-schema-v2",
+  "at": "2026-10-29T18:59:19+08:00",
+  "seal_at_used": "2026-10-29T13:22:39+08:00",
+  "seal_policy": "fail-closed（--spec 固定；未提供 seal 时 classify 不得返回裸 pass，B4；--allow-unsealed 仅限 --retro 披露模式）",
+  "fixtures_dir": "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures",
+  "l3_disclosure": {
+    "b4_semantics": "classify 在 unsealed 时返回 fail:unsealed（非零退出路径）；裸 pass 仅在 seal 已评且无其它 issue 时可达",
+    "fixtures_behavior_change": "manifest 自带 seal_at=2026-10-29T13:22:39+08:00，六个 L2 既有 fixture 期望在新语义下不变（enum/companion 检查对它们不触发，已由本收据逐项 match 证实）；无 seal 调用的默认非零行为由 cli-regression-receipt 机械复现",
+    "b5_new_fixtures": [
+      "fixture-status-bad-enum.json",
+      "fixture-verdict-benign-without-corrections.json",
+      "fixture-selection-null-without-diagnostic.json",
+      "fixture-verdict-benign-with-corrections.json"
+    ],
+    "receipt_path_policy": "C-1 非破坏化：本收据仅经显式 --out 落盘；原 spec-selftest-receipt.json（5c6177fd…）字节不动"
+  },
+  "results": {
+    "fixture-missing-fields.json": {
+      "expect": "fail:missing",
+      "got": "fail:missing",
+      "match": true,
+      "issues": [
+        {
+          "field": "registered_at",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "selection",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "attempts",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "stdout_bytes",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "stdout_sha256",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "stderr_bytes",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "stderr_sha256",
+          "class": "missing",
+          "detail": "required field absent"
+        }
+      ]
+    },
+    "fixture-registered-at-after-start.json": {
+      "expect": "fail:temporal-order",
+      "got": "fail:temporal-order",
+      "match": true,
+      "issues": [
+        {
+          "field": "registered_at",
+          "class": "temporal-order",
+          "detail": "registered_at 2026-10-29T16:30:00+08:00 >= started_at 2026-10-29T16:06:00+08:00"
+        }
+      ]
+    },
+    "fixture-registered-at-before-seal.json": {
+      "expect": "fail:temporal-seal",
+      "got": "fail:temporal-seal",
+      "match": true,
+      "issues": [
+        {
+          "field": "registered_at",
+          "class": "temporal-seal",
+          "detail": "registered_at 2026-10-29T13:00:00+08:00 < seal_at 2026-10-29T13:22:39+08:00"
+        }
+      ]
+    },
+    "fixture-selection-null-without-diagnostic.json": {
+      "expect": "fail:companion",
+      "got": "fail:companion",
+      "match": true,
+      "issues": [
+        {
+          "field": "diagnostic",
+          "class": "companion",
+          "detail": "selection=null requires non-empty diagnostic"
+        }
+      ]
+    },
+    "fixture-status-bad-enum.json": {
+      "expect": "fail:enum",
+      "got": "fail:enum",
+      "match": true,
+      "issues": [
+        {
+          "field": "status",
+          "class": "enum",
+          "detail": "value 'failed' not in ['ok', 'timeout', 'error', 'transport-error']"
+        }
+      ]
+    },
+    "fixture-valid.json": {
+      "expect": "pass",
+      "got": "pass",
+      "match": true,
+      "issues": []
+    },
+    "fixture-verdict-benign-with-corrections.json": {
+      "expect": "pass",
+      "got": "pass",
+      "match": true,
+      "issues": []
+    },
+    "fixture-verdict-benign-without-corrections.json": {
+      "expect": "fail:companion",
+      "got": "fail:companion",
+      "match": true,
+      "issues": [
+        {
+          "field": "corrections",
+          "class": "companion",
+          "detail": "integrity_verdict=benign-reviewed requires non-empty corrections"
+        }
+      ]
+    },
+    "fixture-wrong-precision.json": {
+      "expect": "fail:precision",
+      "got": "fail:precision",
+      "match": true,
+      "issues": [
+        {
+          "field": "weighted",
+          "class": "precision",
+          "detail": "value=81.48 expected 8dp=81.48148148"
+        }
+      ]
+    },
+    "fixture-wrong-type.json": {
+      "expect": "fail:type",
+      "got": "fail:type",
+      "match": true,
+      "issues": [
+        {
+          "field": "attempts",
+          "class": "type",
+          "detail": "expect list got int"
+        },
+        {
+          "field": "transport_retries",
+          "class": "type",
+          "detail": "expect int got list"
+        },
+        {
+          "field": "stdout_bytes",
+          "class": "type",
+          "detail": "expect int_nonneg got str"
+        }
+      ]
+    }
+  },
+  "all_match": true
+}

@@ -13,6 +13,7 @@
 > 2. **B2** `integrity_verdict` 值域 `{clean, benign-reviewed, violation}`；`benign-reviewed` 必须伴随**非空 `corrections`**，否则 → `fail:companion`。
 > 3. **B3** `selection` 为 null 必须伴随**非空 `diagnostic`**，否则 → `fail:companion`。
 > 4. **B4** seal 校验响亮化：未提供 `--seal-at` 时 `classify` **永不返回裸 `pass`**——返回 `fail:unsealed`（`--spec` 由此非零退出，fail-closed）；显式 opt-in `--allow-unsealed` **仅限 `--retro` 披露模式**（`--spec` 传它即 exit 2），矩阵带 `seal.unsealed=true` 与 `seal.policy` 标记；判定值 `pass:unsealed` 本身带 unsealed 标记、不可被消费为裸 pass。
+> 4b. **修复轮（2026-10-29，DF-B1/D-L3-1，裁定=修代码就预注册字面）**：`--retro` 无 `--seal-at` 且无 `--allow-unsealed` ⇒ **exit 3 不落盘任何矩阵**（非零退出落实预注册 B4 字面）；`--allow-unsealed` ⇒ exit 0 出矩阵并带 `seal.unsealed=true`/`seal.policy` 标记。`--reconcile`：`--git` 模式 src 字符串改字符串拼接（`%cI` 为 git 占位符，曾与 Python %-format 冲突致 TypeError 被吞）；verdict 语义对齐——任何步骤假 ⇒ verdict 不得为 ok（`error`=非比较步骤假 / `violation`=仅比较步骤假 / `ok`=全部真且比较通过），回归 T7–T9（`--git` 用例由 judge 以只读 git 执行，`L3_ALLOW_GIT=1`）。
 > 5. **B5** fixtures 6 → **10**（新增 B1/B2/B3 反例 ×3 + benign-reviewed 带 corrections 正例 ×1）；spec-selftest 收据改出新路径 `spec-selftest-receipt-l3-20261029.json`，原收据（`5c6177fd…`）与 `receipt-overwrite-evidence-20261029.json` 字节不动。
 > 6. **B6** C-1 非破坏化：`--spec` 收据只写显式 `--out`；目标已存在即拒绝（exit 2、原字节不动）；缺 `--out` 不落盘（结果仍打印）。回归 `cli-selftest-l3.py` T1 机械复现 16:11:16 覆盖模式（二写失败且首文件字节不变）。
 > 7. **B7** ⑦溯源：§三.4 显式披露「顺序检查必要非充分」；新增 §三.5 `--reconcile` 离线对账；L3 仅合成对账（fixtures/reconcile/，L3 封印提交 `72edb519` 口径），**真实批次对账留 L4（§五 U1）**。
@@ -87,7 +88,7 @@
 1. **格式**：ISO8601 且必须带时区（naive 时间戳判类型错误）。
 2. **先注册后运行**：`registered_at < started_at`，违反记 `temporal-error(order)`。
 3. **不早于封印**：`registered_at ≥ 预注册封印提交时刻`（校验器经 `--seal-at` 提供封印时刻，如 r1031 为 `2026-10-29T13:22:39+08:00`），违反记 `temporal-error(seal)`。
-   **B4（v2.1）**：未提供 `--seal-at` 时本条**不可静默跳过**——`classify` 返回 `fail:unsealed`（非裸 pass，`--spec` 非零退出）；`--allow-unsealed` 仅限 `--retro` 披露模式且矩阵带 `seal.unsealed=true`/`seal.policy` 标记。
+   **B4（v2.1，修复轮按预注册字面收紧）**：未提供 `--seal-at` 时本条**不可静默跳过**——`--spec` 面 `classify` 返回 `fail:unsealed`（非裸 pass，非零退出）；`--retro` 面无 `--seal-at` 且无 `--allow-unsealed` ⇒ **exit 3、不落盘矩阵**；`--allow-unsealed` 为唯一披露出口（矩阵带 `seal.unsealed=true`/`seal.policy` 标记）。
 4. 值语义：预注册封印提交时间戳的**引用**——runner 启动时从批次预注册登记读取，不得事手写未来时刻（L2 总则5）。
    **⑦/O-1 披露（v2.1 显式化）**：第 2/3 条的顺序检查是**必要非充分**——它们只能验证格式与时序自洽，不能验证 `registered_at` 确实来自封印提交时刻；「可查真」依赖 §三.5 的离线对账。
 
@@ -102,6 +103,7 @@ python3 validate_runner_meta.py --reconcile \
 ```
 
 - 机械步骤：台账可读 → 字段位置提取 → ISO8601+tz 格式 → 提交哈希格式 → 提交时刻来源解析 → `registered_at ≥ commit_time`（记 delta_seconds）；每步落盘、任何一步失败即 `ok=false` 非零退出。
+- **verdict 语义（D-L3-1 对齐）**：任何步骤假 ⇒ verdict 不得为 ok——`error`=非比较步骤假（来源/格式/提取失败）、`violation`=仅比较步骤假（registered_at < commit_time）、`ok`=全部步骤真且比较通过、`inconclusive`=防御保留。
 - **commit_time 来源三模式**：`--commit-time`（显式值）/ `--commit-time-file`（文件内首个 ISO8601+tz 记号；审计侧可粘贴 `git log -1 --format=%cI <hash>` 输出）/ `--git`（脚本直接读取 git）。**L3 未行使 `--git`**（builder 禁 git 纪律），该模式代码路径在 L3 无行使记录，如实披露；**真实批次对账为正式闭项条件（§五 U1，留 L4）**。
 - L3 自检证据（合成对账，self_test）：[reconciliation-synthetic-l3-20261029.json](reconciliation-synthetic-l3-20261029.json)（正例 verdict=ok，delta=0）与 [reconciliation-synthetic-early-l3-20261029.json](reconciliation-synthetic-early-l3-20261029.json)（负例 verdict=violation，exit 1），样本在 [fixtures/reconcile/](fixtures/reconcile/)。
 

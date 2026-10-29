@@ -6,9 +6,11 @@
 
 1. `live_doc_drift` 状态行：文档须含至少一行 live_doc_drift 状态
    （文本行含 `live_doc_drift` 且带状态记号 none/空/非空/N 项/[]；JSON 则递归查键，
-   值须为 null 或 list）。缺状态行 → fail（`--no-drift-require` 可只查哈希行）。
+   值须为 null 或 list——**字符串等其它值记 violation 并判 fail**，DF-C2）。
+   缺状态行 → fail（`--no-drift-require` 可只查哈希行）。
 2. 哈希行合规：任何含 hex 记号的行，其 hex 记号须为**小写**且长度 ∈ {7,8,40,64}；
-   大写/混写/怪长 hex 记号逐条记 violation（手打哈希的典型形态）。
+   hex 形似串（含字母）长度越界（含 >64 超长）一律记 violation（DF-C1：显式环视匹配，
+   CJK 前贴/后贴均命中；纯数字串视作日期/计数不查）。
 3. 证据行复算（claimed vs recomputed）：凡匹配 evidence_line.py 标准格式
    `<路径> · <sha8> · <N>B · <时刻>` 的行，按 `--root` 解析文件并**重算** sha8/字节数
    比对；不一致 → fail。对账不到的文件（不存在/仓库外）如实记 unverified，不计 pass。
@@ -38,7 +40,10 @@ ISO_TZ_TOKEN = (r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?"
                 r"(?:Z|[+-]\d{2}:?\d{2})")
 EVIDENCE_LINE_RE = (r"^(?P<path>.+?) · (?P<sha8>[0-9a-f]{8}) · (?P<bytes>\d+)B · "
                     r"(?P<at>" + ISO_TZ_TOKEN + r")$")
-HEX_TOKEN_RE = re.compile(r"\b([0-9a-fA-F]{7,64})\b")
+# DF-C1 修复：显式环视替代 \b（\b 为 Unicode 词边界，CJK 与 hex 同为词字符 →
+# 中文前贴哈希 0 命中）；下界 {7,} 捕获任意长串，长度 ∉ {7,8,40,64}（含 >64 超长）
+# 一律记违规。
+HEX_TOKEN_RE = re.compile(r"(?<![0-9A-Za-z])([0-9a-fA-F]{7,})(?![0-9A-Za-z])")
 VALID_HEX_LEN = {7, 8, 40, 64}
 DRIFT_STATUS_RE = re.compile(r"live_doc_drift", re.I)
 DRIFT_STATE_RE = re.compile(r"(none|非空|空|\[\]|\d+\s*项)", re.I)
@@ -92,6 +97,11 @@ def check_doc(path: Path, root: Path, require_drift: bool) -> dict:
                 rep["live_doc_drift"]["lines"].append(
                     {"kind": "json-key", "wellformed": wellformed, "value_kind": type(v).__name__,
                      "length": len(v) if isinstance(v, list) else None})
+                # DF-C2 修复：wellformed 必须参与判定——字符串等糊弄值记 violation
+                if not wellformed:
+                    rep["hash_lines"]["violations"].append(
+                        {"line": None, "reason": "JSON live_doc_drift 值须为 null 或 list，实测 %s"
+                                                 % type(v).__name__})
     else:
         for i, line in enumerate(text.splitlines(), 1):
             if DRIFT_STATUS_RE.search(line):
@@ -200,6 +210,35 @@ def selftest() -> int:
         missing = tmp / "nope.md"
         r6 = check_doc(missing, tmp, require_drift=True)
         check("missing_file_not_ok", r6["ok"] is False and r6["exists"] is False)
+
+        # ---- DF-C1 修复用例：CJK 前贴 / 超长串（修复前 0 命中）----
+        full64 = "5c6177fd68a74ab9" + "0123456789abcdef" * 3  # 64 位小写（16+48）
+        assert len(full64) == 64
+        cjk_ok = tmp / "cjk-ok.md"
+        cjk_ok.write_text("哈希%s（前贴中文无空格，合规 64 位小写）\n" % full64, encoding="utf-8")
+        r7 = check_doc(cjk_ok, tmp, require_drift=False)
+        check("cjk_prefixed_64hex_captured",
+              r7["hash_lines"]["tokens"] >= 1 and not r7["hash_lines"]["violations"],
+              json.dumps(r7["hash_lines"], ensure_ascii=False)[:200])
+        cjk_bad = tmp / "cjk-bad.md"
+        cjk_bad.write_text("假哈希deadbeefdead（12 位，前贴中文）\n"
+                           "超长%s（70 位）\n" % ("deadbeef" * 8 + "cafe",),
+                           encoding="utf-8")
+        r8 = check_doc(cjk_bad, tmp, require_drift=False)
+        bad_lens = sorted(i["token"] for v in r8["hash_lines"]["violations"]
+                          for i in v.get("issues", []))
+        check("cjk_prefixed_short_flagged", any("deadbeefdead" in t for t in bad_lens),
+              str(bad_lens))
+        check("overlong_hex_flagged", any(len(t) > 64 for t in bad_lens), str(bad_lens))
+
+        # ---- DF-C2 修复用例：JSON 字符串值糊弄必须 fail ----
+        js = tmp / "drift-string.json"
+        js.write_text(json.dumps({"live_doc_drift": "none", "note": "糊弄值"}, ensure_ascii=False),
+                      encoding="utf-8")
+        r9 = check_doc(js, tmp, require_drift=True)
+        check("json_drift_string_value_fails",
+              r9["ok"] is False and r9["live_doc_drift"]["found"] is True,
+              json.dumps(r9["hash_lines"]["violations"], ensure_ascii=False)[:200])
 
     counts = {"total": len(results), "passed": sum(1 for r in results if r["pass"]),
               "failed": sum(1 for r in results if not r["pass"])}

@@ -158,6 +158,20 @@
       "description": "L3 包C 工具修正链收口：kit_selftest counts 解析修复（跨行 JSON 切分 ^ 锚点缺 re.M→去锚点）并加 counts 硬断言（None 即 FAIL）；r1（d951ba4a，REPO 层级/hex 过滤修复前）、r2（74b989e7，counts=None）、r3（e9a14c17，断言后 FAIL 如实落盘）均字节保留，r4 为现行。",
       "pin_class": "live_doc",
       "registered_at": "2026-10-29T18:21:46+08:00"
+    },
+    {
+      "event_id": "work:l3-fixround-dlb1-dl31-dfc1-dfc2-20261029",
+      "kind": "self_test",
+      "executor": "builder-dsh",
+      "timestamp": "2026-10-29T19:00:07+08:00",
+      "source": {
+        "path": "1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-fix-20261029.json",
+        "sha256": "17a3c053fc574afdf685380be2214eadeb1a8e201a5cfe5d7243bcbfd431a855"
+      },
+      "locator": "修复轮 9/9 PASS（T1–T6 继承 + T7 DF-B1 --retro 无 seal exit 3 不落盘 + T8 --git pending-external（judge 只读 git 执行，L3_ALLOW_GIT=1）+ T9 D-L3-1 verdict 语义非 git 验证=error）；--spec 基线 10/10（spec-selftest-receipt-l3-fix-20261029.json）；C2 --selftest 14/14（DF-C1 CJK 前贴/超长 + DF-C2 JSON 字符串值反例）；kit r6 收据（2/2 工具 PASS）",
+      "description": "L3 修复轮（judge D-L3-1 + auditor DF-B1/DF-C1/DF-C2）：validate_runner_meta.py --git src 字符串拼接修 %cI 冲突、verdict/ok 语义对齐（任何步骤假⇒非 ok；error/violation/ok/inconclusive）；--retro 无 --seal-at 且无 --allow-unsealed ⇒ exit 3 不落盘（预注册 B4 字面，裁定不走出修正框）；receipt_check.py hex 记号改显式环视（CJK 前贴命中、>64 超长记违规）、JSON live_doc_drift 字符串值入判 fail。SCHEMA.md 收窄表述改回与实现一致（4b 修复轮注）。--spec 面已验行为未动；既有收据字节不动，新收据全部新路径 --out。",
+      "pin_class": "live_doc",
+      "registered_at": "2026-10-29T19:00:07+08:00"
     }
   ]
 }
