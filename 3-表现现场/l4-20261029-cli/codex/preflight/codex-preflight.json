@@ -1,0 +1,46 @@
+{
+  "kind": "interface_preflight",
+  "batch": "l4-20261029-cli-codex",
+  "model_calls": 0,
+  "at": "2026-10-29T21:04:05+08:00",
+  "rule": "l4-20261029-batch-v1",
+  "live_doc_drift": [],
+  "design_commit_D": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+  "codex": {
+    "version": "codex-cli 0.163.0",
+    "config": {
+      "path": "/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/_codex-home/config.toml",
+      "sha256": "bc70bc913a6bd4fdd87548d4db77bbea077d75caf8114b3982ac4dece98a28ae",
+      "repo_snapshot": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/config/codex-config.toml",
+      "note": "E 封印快照同件：BATCH/config/codex-config.toml；E 后不许改；零模型阶段已生成可 hash（受控配置不含 key）"
+    },
+    "codex_home_inventory": [
+      {
+        "path": "config.toml",
+        "sha256": "bc70bc913a6bd4fdd87548d4db77bbea077d75caf8114b3982ac4dece98a28ae"
+      }
+    ],
+    "global_context_note": "隔离 CODEX_HOME 仅含 config.toml，无 AGENTS.md/全局指令文件（全局上下文引用=空）；工作区为非 git 目录（--skip-git-repo-check），repo 内 AGENTS.md 不会被发现；工作区 prompt 因绝对路径不同的混杂已在 meta.prompt_path_confound 显式诊断"
+  },
+  "e_external_files_suggestion": [
+    {
+      "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/config/codex-config.toml",
+      "sha256": "bc70bc913a6bd4fdd87548d4db77bbea077d75caf8114b3982ac4dece98a28ae",
+      "use": "真实调用时逐字节比较（lab.py run 时 CODEX_HOME/config.toml == 本快照）"
+    }
+  ],
+  "isolation_probe": {
+    "ok": true,
+    "problems": []
+  },
+  "checker_smoke": {
+    "dabstep-payments-10": {
+      "exit": 0
+    },
+    "tb-cargo-plan": {
+      "exit": 0
+    }
+  },
+  "binding_state": "absent",
+  "ok": true
+}

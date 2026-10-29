@@ -1,0 +1,71 @@
+{
+  "kind": "judge_fake_e2e_receipt_v2",
+  "harness": "wb_fake_e2e.py",
+  "harness_sha256": "0e07ad5703e0fe2d622f7c00b3d547f59d156b485c2518740702978dcc65c291",
+  "snapshot": "/private/tmp/judge-l4/wb-v35-20261029T224949+0800",
+  "snapshot_head_shas": {
+    "src-wb/runner/l4_wb_runner.py": "8634390fbb7831dd10e164c06c606301da7c35ebe858ce15afe394061c1ad1bf",
+    "src-wb/runner/safe_driver.py": "8c90165f7896adff4379435bc8721e5f63434cdb2f48e84940b046524fdb54c6",
+    "src-wb/runner/verify_execution.py": "a2d5b24281a556fa78cca69a566760e7df93fb27d8c52f62eeb9a192772bf2c4",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+    "execution_seal.py": "f1ef03402358d33b70f1d54be529f1bfaece7d1113b0588c5308f19383fef240"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-wb2-v35-20261029T224949+0800/repo",
+  "binding_E": "081eeeb39541965196ec5ef5f03aab32283b4e6c",
+  "registered_at": "2026-10-29T22:48:31+08:00",
+  "generated_at": "2026-10-29T22:58:33+08:00",
+  "cases": {
+    "W14_timeout_verified_positive": {
+      "verdict": "evidence",
+      "detail": {
+        "formal_admission": true,
+        "fails": [],
+        "status": "ok",
+        "envelope_verified_stop": null,
+        "envelope_checks": null,
+        "runner_native_stop_key": false,
+        "criterion": "真实 verified 超时（DB 终态+trace 稳定+无 scoped 进程）→gate timeout 真值表应 formal=true（R1）"
+      }
+    },
+    "W13_normal_completed_admission": {
+      "verdict": "evidence",
+      "detail": {
+        "formal_admission": true,
+        "fails": [],
+        "status": "ok",
+        "reward": 1,
+        "weighted": 100.0,
+        "judge_keys": [
+          "checker_sha256",
+          "checks",
+          "correct",
+          "exit_code",
+          "guards_used",
+          "n_tasks",
+          "raw_stdout_head",
+          "reward",
+          "weighted"
+        ],
+        "score_receipt_exists": true,
+        "meta_order": 13,
+        "meta_exit_code": null,
+        "evidence_dir": "/private/tmp/judge-l4/fixture-wb2-v35-20261029T224949+0800/repo/3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+        "stderr_tail": "",
+        "criterion": "桌面正常场真实 run_impl 全链（含 checker/judge/score-receipt）→ 真 gate formal=True/fails=[]（作者 T19 同构独立复算）"
+      }
+    }
+  },
+  "sentinel": {
+    "sentinel-adm.log": {
+      "attempts": 0,
+      "non_local": 0
+    },
+    "sentinel.log": {
+      "attempts": 0,
+      "non_local": 0
+    }
+  },
+  "live_doc_drift": null
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "v3_2_byte_evidence",
+  "note": "judge 固定 v3.2 快照期间的字节保全；冻结期本员不改任何 runner/文档代码",
+  "at": "2026-10-29T21:30:00+08:00",
+  "gate_version_checked": "1-评测方案/工具链/l4-execution/gate.py sha256_8=9ffd3f1a",
+  "files": [
+    {
+      "path": "runner/l4_wb_runner.py",
+      "sha256": "9eae069969c64c1501e9f7f536a20218db87f1e60fd4e3b3ff65d007b09d8c74",
+      "bytes": 64062
+    },
+    {
+      "path": "runner/runner-config.json",
+      "sha256": "4c0bbc0dcb6584d83d4c9b49270d969529f658e14f5ef6d8faaa037d19d9bc13",
+      "bytes": 724
+    },
+    {
+      "path": "runner/safe_driver.py",
+      "sha256": "8c90165f7896adff4379435bc8721e5f63434cdb2f48e84940b046524fdb54c6",
+      "bytes": 12403
+    },
+    {
+      "path": "runner/verify_execution.py",
+      "sha256": "a2d5b24281a556fa78cca69a566760e7df93fb27d8c52f62eeb9a192772bf2c4",
+      "bytes": 2774
+    },
+    {
+      "path": "REPORT.md",
+      "sha256": "ee4f6341913241952743d185f484ef7b6634645e254eb6922db5e207f760feef",
+      "bytes": 13878
+    },
+    {
+      "path": "README.md",
+      "sha256": "611a2e885d2449e27aee72265ed7da41febeb4a3874d00d9fe6d2092966805a7",
+      "bytes": 4559
+    }
+  ],
+  "pending_after_unfreeze": [
+    "meta.native_stop={file,sha256} 原物信封 + native-stop.json 落盘（verified_stop 三重验证结果）",
+    "attempts[0].outcome=timeout（超时槽）与 duration_s>=timeout_s 对齐",
+    "自测补：端到端真 gate native verified timeout 准入/未 verified 拒绝 正反例"
+  ],
+  "model_calls": 0,
+  "live_doc_drift": []
+}

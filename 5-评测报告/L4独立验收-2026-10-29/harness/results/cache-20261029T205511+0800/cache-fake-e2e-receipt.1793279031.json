@@ -1,0 +1,34 @@
+{
+  "kind": "judge_fake_e2e_receipt",
+  "harness": "cache_fake_e2e.py",
+  "harness_sha256": "f55efdada69acd138a0903db986d67c5b5398bab0566dd40072426cdc2205569",
+  "fixture_sha": "3c48d0b084646dfecf755fab6d7e5cb6137e5a65688fdbe3a2779cc3dca1ee62",
+  "snapshot": "/private/tmp/judge-l4/cache-20261029T205511+0800",
+  "snapshot_head_shas": {
+    "src-cache/tools/cache_probe.py": "194a9cec74c1a481e13dc023172666cb632d2f901d3d85fc5f19bb80de73ef47",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "293fba3e35b09043c02eec7c6dacc475cca0b1c39a73e56663c81113a933cab0",
+    "execution_seal.py": "96c434b1d845529bda857ae88606acb31f90057b9c0cff8fadf44ec51238a3db"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-cache-20261029T205511+0800/repo",
+  "binding_E": "7d0ea1f97d6ed1b754c3efe3fac86f7e1e9f9f6a",
+  "registered_at": "2026-10-29T20:53:50+08:00",
+  "generated_at": "2026-10-29T21:03:51+08:00",
+  "cases": {
+    "K6_net5xx_two_strike": {
+      "verdict": "fail",
+      "detail": {
+        "anthropic_executed_ok": [],
+        "anthropic_failed": [
+          "l4-20261029-cache-anthropic-messages-b1-fresh",
+          "l4-20261029-cache-anthropic-messages-b1-nonce-control"
+        ],
+        "http_calls": 13,
+        "note": "5xx 消费 2 槽后该协议停；其余协议不受影响（12+2=14 次外发）",
+        "stderr_tail": ""
+      }
+    }
+  },
+  "live_doc_drift": null
+}

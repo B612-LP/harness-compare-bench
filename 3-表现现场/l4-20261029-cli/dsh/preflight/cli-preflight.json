@@ -1,0 +1,106 @@
+{
+  "kind": "preflight",
+  "tool": "lab.py(l4-dsh)",
+  "spec": "l4-20261029-dsh",
+  "at": "2026-10-29T20:27:59+08:00",
+  "ok": true,
+  "findings": {
+    "plan_slots": [
+      {
+        "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+        "case": "dabstep-payments-10",
+        "rep": 1,
+        "order": 7,
+        "timeout_s": 1800
+      },
+      {
+        "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r1",
+        "case": "tb-cargo-plan",
+        "rep": 1,
+        "order": 8,
+        "timeout_s": 2400
+      },
+      {
+        "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r2",
+        "case": "tb-cargo-plan",
+        "rep": 2,
+        "order": 9,
+        "timeout_s": 2400
+      },
+      {
+        "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r2",
+        "case": "dabstep-payments-10",
+        "rep": 2,
+        "order": 10,
+        "timeout_s": 1800
+      },
+      {
+        "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+        "case": "dabstep-payments-10",
+        "rep": 3,
+        "order": 11,
+        "timeout_s": 1800
+      },
+      {
+        "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r3",
+        "case": "tb-cargo-plan",
+        "rep": 3,
+        "order": 12,
+        "timeout_s": 2400
+      }
+    ],
+    "slots_unique": true,
+    "checker_hashes": {
+      "dabstep-payments-10": "ok",
+      "tb-cargo-plan": "ok"
+    },
+    "binding": "absent（E 前预期）",
+    "external_baseline": {
+      "/Users/b612-lp/.dsh/profiles/bench-cli/cordis.patch.yml": {
+        "status": "ok",
+        "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238",
+        "bytes": 1148
+      },
+      "/Users/b612-lp/.dsh/profiles/bench-cli/package.json": {
+        "status": "ok",
+        "sha256": "69d10eb1ffc3ba0676fefca4df77e195b78fcc23877ba34d16e62bca58f4ea60",
+        "bytes": 214
+      },
+      "/Users/b612-lp/.dsh/AGENTS.md": {
+        "status": "ok",
+        "sha256": "d343bcc367bce1b4c4a7dff7d91a033421cfd5ef2b8fa3b17b5e30ba3b3bf05c",
+        "bytes": 1900
+      }
+    },
+    "config_snapshot": {
+      "bench-cli-cordis.patch.yml": {
+        "status": "ok",
+        "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238",
+        "bytes": 1148,
+        "snapshot": "bench-cli-cordis.patch.yml",
+        "desensitized": false
+      },
+      "bench-cli-package.json": {
+        "status": "ok",
+        "sha256": "69d10eb1ffc3ba0676fefca4df77e195b78fcc23877ba34d16e62bca58f4ea60",
+        "bytes": 214,
+        "snapshot": "bench-cli-package.json",
+        "desensitized": false
+      },
+      "AGENTS.md": {
+        "status": "ok",
+        "sha256": "d343bcc367bce1b4c4a7dff7d91a033421cfd5ef2b8fa3b17b5e30ba3b3bf05c",
+        "bytes": 1900,
+        "snapshot": "AGENTS.md",
+        "desensitized": true
+      }
+    },
+    "cli_version": "0.2.0-rc.2",
+    "credentials_ref_present": true,
+    "ws_root_parent": "/Users/b612-lp/bench-workspaces/l4-20261029",
+    "ws_root_writable": true,
+    "model_call_performed": false
+  },
+  "zero_model": true,
+  "live_doc_drift": []
+}

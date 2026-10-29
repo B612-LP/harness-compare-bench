@@ -1,0 +1,139 @@
+{
+  "kind": "self_test",
+  "tool": "gate.py",
+  "spec": "l4-execution-gate",
+  "at": "2026-10-29T20:30:17+08:00",
+  "counts": {
+    "total": 25,
+    "passed": 25,
+    "failed": 0
+  },
+  "cases": [
+    {
+      "case": "verify-positive-full",
+      "pass": true,
+      "detail": "[{\"step\": \"binding-load\", \"ok\": true, \"detail\": \"/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4gate-v-3rk4xcpa/runtime-binding.json\"}, {\"step\": \"release-gate\", \"ok\": true, \"detail\": \"released=Fal"
+    },
+    {
+      "case": "verify-release-gate-raises",
+      "pass": true,
+      "detail": "released_for_model_calls=false：E 未放行，拒绝真实消费（检查类调用请显式 require_release=False）"
+    },
+    {
+      "case": "binding-missing-keys-raises",
+      "pass": true,
+      "detail": "binding 缺键：['preregistration_commit', 'execution_seal_commit', 'registered_at', 'execution_manifest_sha256', 'plan_sha256', 'contract_sha256"
+    },
+    {
+      "case": "registered-at-mismatch-raises",
+      "pass": true,
+      "detail": "verify_execution 失败于 registered-at-equals-E-commit-time：binding=2026-10-29T10:00:00+08:00 git=2026-10-29T20:00:00+08:00"
+    },
+    {
+      "case": "d-e-blob-drift-raises",
+      "pass": true,
+      "detail": "verify_execution 失败于 plan-blob-d-e-identical：D:d5166d174831 E:52eaa34ed867"
+    },
+    {
+      "case": "ancestor-false-raises",
+      "pass": true,
+      "detail": "verify_execution 失败于 ancestor-D-of-E：merge-base --is-ancestor D E"
+    },
+    {
+      "case": "external-file-drift-raises",
+      "pass": true,
+      "detail": "verify_execution 失败于 manifest-external-files-consistent：[{\"path\": \"/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4gate-v-3rk4xcpa/driver.sh\", \"reason\": \"sha-mismatch\", \"want\": "
+    },
+    {
+      "case": "manifest-file-missing-raises",
+      "pass": true,
+      "detail": "plan/contract 磁盘文件缺失（missing-on-disk）：[Errno 2] No such file or directory: '/private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4gate-v-3rk4xcpa/plans/l4/contract.json'"
+    },
+    {
+      "case": "unsafe-manifest-path-raises",
+      "pass": true,
+      "detail": "verify_execution 失败于 manifest-files-safe-and-consistent：[{\"path\": \"../evil.txt\", \"reason\": \"unsafe-path\"}]"
+    },
+    {
+      "case": "manifest-missing-required-member-raises",
+      "pass": true,
+      "detail": "verify_execution 失败于 manifest-required-members：missing=['plans/l4/runner-helper.py']"
+    },
+    {
+      "case": "admit-mix-formal=2",
+      "pass": true,
+      "detail": "{\"planned\": 4, \"accounted\": 3, \"executed\": 2, \"partial\": 1, \"not_executed\": 1, \"formal_admitted\": 2, \"all_formal_admitted\": false, \"accounting_complete\": true} fails1=[] fails2=[]"
+    },
+    {
+      "case": "admit-mix-timeout-genuine",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "case": "admit-mix-infra-partial-not-admitted",
+      "pass": true,
+      "detail": "[\"infrastructure \\u5931\\u8d25\\uff1a\\u5b8c\\u6574\\u8bb0\\u8d26\\uff0cformal_admission=false\\uff0c\\u4e0d\\u6309\\u80fd\\u529b\\u5931\\u8d25\\u8bb0\\u96f6\"]"
+    },
+    {
+      "case": "admit-mix-notexec-accounted-not-admitted",
+      "pass": true,
+      "detail": "{\"slot_id\": \"l4-cli-dsh-cne-r4\", \"order\": 4, \"case\": \"dabstep-payments-10\", \"evidence_dir\": \"runs/l4-cli-dsh-cne-r4\", \"accounting\": \"not_executed\", \"field_compliance\": false, \"execution_status\": \"not_"
+    },
+    {
+      "case": "accounting-complete-distinct-from-formal",
+      "pass": true,
+      "detail": "{\"planned\": 4, \"accounted\": 3, \"executed\": 2, \"partial\": 1, \"not_executed\": 1, \"formal_admitted\": 2, \"all_formal_admitted\": false, \"accounting_complete\": true}"
+    },
+    {
+      "case": "notexec-fabricated-stream-flagged",
+      "pass": true,
+      "detail": "[\"not_executed \\u76ee\\u5f55\\u542b\\u5176\\u4ed6\\u6587\\u4ef6\\uff08\\u7591\\u4f3c\\u865a\\u9020\\u8bc1\\u636e/\\u7a7a\\u6d41\\uff09\\uff1a['agent.jsonl']\"]"
+    },
+    {
+      "case": "missing-accounting-flagged",
+      "pass": true,
+      "detail": "[\"\\u65e0 meta.json \\u4e14\\u65e0 notexecuted.json\\uff08\\u7f3a\\u8bb0\\u8d26\\uff0c\\u975e skip\\uff09\"]"
+    },
+    {
+      "case": "plan-runid-partial-dupe-raises",
+      "pass": true,
+      "detail": "plan run_id 重复：['l4-cli-dsh-cok-r1']"
+    },
+    {
+      "case": "admission-requires-verify-first",
+      "pass": true,
+      "detail": "verify_execution 失败于 manifest-sha-matches-binding：E=2010c803ea25 binding=000000000000"
+    },
+    {
+      "case": "zero-formal-while-accounted",
+      "pass": true,
+      "detail": "{\"planned\": 4, \"accounted\": 3, \"executed\": 2, \"partial\": 1, \"not_executed\": 1, \"formal_admitted\": 0, \"all_formal_admitted\": false, \"accounting_complete\": true}"
+    },
+    {
+      "case": "accounting-complete-distinct-from-formal",
+      "pass": true,
+      "detail": "{\"planned\": 4, \"accounted\": 3, \"executed\": 2, \"partial\": 1, \"not_executed\": 1, \"formal_admitted\": 0, \"all_formal_admitted\": false, \"accounting_complete\": true}"
+    },
+    {
+      "case": "notexec-fabricated-stream-flagged",
+      "pass": true,
+      "detail": "[\"not_executed \\u76ee\\u5f55\\u542b\\u5176\\u4ed6\\u6587\\u4ef6\\uff08\\u7591\\u4f3c\\u865a\\u9020\\u8bc1\\u636e/\\u7a7a\\u6d41\\uff09\\uff1a['agent.jsonl']\"]"
+    },
+    {
+      "case": "missing-accounting-flagged",
+      "pass": true,
+      "detail": "[\"\\u65e0 meta.json \\u4e14\\u65e0 notexecuted.json\\uff08\\u7f3a\\u8bb0\\u8d26\\uff0c\\u975e skip\\uff09\"]"
+    },
+    {
+      "case": "plan-runid-partial-dupe-raises",
+      "pass": true,
+      "detail": "plan run_id 重复：['l4-cli-dsh-cok-r1']"
+    },
+    {
+      "case": "admission-requires-verify-first",
+      "pass": true,
+      "detail": "verify_execution 失败于 manifest-sha-matches-binding：E=4636062560c9 binding=000000000000"
+    }
+  ],
+  "live_doc_drift": []
+}

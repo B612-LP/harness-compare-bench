@@ -1,0 +1,53 @@
+{
+  "kind": "judge_fake_e2e_receipt",
+  "harness": "dsh_fake_e2e.py",
+  "harness_sha256": "70c2dd03c37301092d21a256a1957e6cf102f0f6b60caa7c7fea36dc963394e2",
+  "fake_dsh_sha256": "617c5f329113b40db4bb657a838f443fe744e7d72af7c49d151b60063bb3b38e",
+  "snapshot": "/private/tmp/judge-l4/dsh-s6-20261029T230427+0800",
+  "snapshot_head_shas": {
+    "src-dsh/tools/lab.py": "671630d5766cfe8b18bfcd821882239a4a1c0f974159f88b702dc4f68a620d0f",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+    "execution_seal.py": "f1ef03402358d33b70f1d54be529f1bfaece7d1113b0588c5308f19383fef240"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-dsh-s6-20261029T230427+0800/repo",
+  "binding_E": "935e72580ac452c06d81b559f9e23b096448bbe4",
+  "registered_at": "2026-10-29T22:56:27+08:00",
+  "generated_at": "2026-10-29T23:06:31+08:00",
+  "cases": {
+    "S6_orphan_detached_writer": {
+      "verdict": "pass",
+      "detail": {
+        "writer_really_escaped": true,
+        "detected_by_two_sample": true,
+        "flipped_verified_stop_false": true,
+        "unconfirmed_reason": true,
+        "pgid_scope_disclosed": true,
+        "host_guarantee_none": true,
+        "partial_not_formal": true,
+        "no_score_receipt": true,
+        "halt": true,
+        "status": "error",
+        "real_status_note": "post-exit stop unverified",
+        "residual_probe": {
+          "still_growing": true,
+          "method": "workspace-growth-two-sample"
+        },
+        "disclosure": {
+          "group_coverage": "confirmation covers launched pgid only; setsid-escaped descendants not covered by group confirmation",
+          "host_guarantee": "none at whole-host level",
+          "probe": "workspace-growth-two-sample (post-stop)",
+          "policy": "detected ongoing writer => conservative partial (unverified stop)"
+        },
+        "accounting": null,
+        "stderr_tail": "",
+        "criterion": "setsid 脱组写者（judge 反例）须被停后双采样检出→翻转为 partial（非 formal），且 metadata 披露 PGID 覆盖边界/host 全机无保证"
+      }
+    }
+  },
+  "sentinel": {
+    "non_local_attempts": -1
+  },
+  "live_doc_drift": null
+}

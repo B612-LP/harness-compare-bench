@@ -1,0 +1,147 @@
+{
+  "batch": "l4-20261029-wb-gateway",
+  "rule_version": "l4-20261029-batch-v1",
+  "preregistration_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "registered_at": "2026-10-29T20:00:00+08:00",
+  "rep": 1,
+  "product": "workbuddy",
+  "case": "lcb-recent-hard-4",
+  "form": "desktop-auto-cdp-rpc",
+  "slot_id": "l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+  "order": 16,
+  "run_id": "l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+  "event_id": "event:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+  "selection": null,
+  "workspace": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-wb-gateway/selftest/dry-ws/lcb-recent-hard-4",
+  "model": "deepseek-v4.1-flash",
+  "declared_alias": "deepseek-v4.1-flash",
+  "actual_request_model": null,
+  "actual_request_model_status": "not_observable_in_this_batch（不可观测≠已证）",
+  "alias_evidence": {
+    "driver_create_model_param": "DeepSeek V4.1-Flash",
+    "session_db_model_field": "deepseek-v4.1-flash",
+    "note": "collect 后以 session-row/jsonl requestModelId 复核；不可观察或非 deepseek-v4.1-flash → 停槽诊断"
+  },
+  "reasoning_effort": "low（会话级声明设置；上游解释不可观测→managed unknown）",
+  "product_version": "9.9.9-dry",
+  "app_asar_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "route": {
+    "host": null,
+    "provider_id": "workbuddy-gateway（产品交付态）",
+    "wire_protocol": "unobservable（TLS 端到端）",
+    "endpoint": null,
+    "actual_gateway": "unknown",
+    "declared_alias": "deepseek-v4.1-flash",
+    "alias_evidence": null,
+    "route_verification": "current_not_observed",
+    "validation": "current_not_observed",
+    "r2_history_ref": "1-评测方案/准入预检-2026-10-29/wb-preflight-r2.json"
+  },
+  "tools": [],
+  "soft_constraints": [
+    "离线题解约束（workspace 仅 inputs+TASK）"
+  ],
+  "permissions": "fullAccess（wb:conversations:create 参数，DB 可核）",
+  "skills": "record actual from trace；不可观测项 managed unknown",
+  "web_search": "off（未启用；以 trace 审计为准）",
+  "prompt_sha256": "3935e4e7bd3124f9fc4ebb55219f9113e829b3e7c4e23875565b1c273891ebd2",
+  "isolation": {
+    "ok": false,
+    "workspace_outside_repo": false
+  },
+  "inputs": [
+    {
+      "path": "inputs/answer.txt",
+      "sha256": "9e9e4a5de400a360bbda90cb05b4f93103902397b7ed7fb7a432749fdfca9fce",
+      "bytes": 38
+    }
+  ],
+  "created_at": "2026-10-29T22:47:08+08:00",
+  "started_at": "2026-10-29T22:47:08+08:00",
+  "finished_at": "2026-10-29T22:47:08+08:00",
+  "duration_s": 0.0,
+  "status": "timeout",
+  "exit_code": null,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T22:47:08+08:00",
+      "exit_code": null,
+      "outcome": "timeout"
+    }
+  ],
+  "transport_retries": 0,
+  "transport_retry_events": [],
+  "stdout_bytes": null,
+  "stderr_bytes": null,
+  "stdout_sha256": null,
+  "stderr_sha256": null,
+  "stdout_source": "product-native-trace（WB 无 CLI stdout 流；canonical=会话 jsonl）",
+  "usage": {
+    "per_call": [],
+    "note": "WB 原生 rawUsage 逐调用落盘；缺失保留 null 不填 0"
+  },
+  "reward": null,
+  "weighted": null,
+  "failed": null,
+  "judge": null,
+  "integrity": null,
+  "integrity_verdict": null,
+  "stratum": "wb_gateway_delivery",
+  "stratum_display": "WB 产品交付态（历史证据指向网关；本批路由状态单列）",
+  "timeout_s": 3000,
+  "managed_unknowns": [
+    {
+      "item": "gateway_upstream_model",
+      "impact": "网关服务端上游模型权重/供应商不可观测；不能参与同模型/同路由因果比较",
+      "next_step": "如需闭环向产品方索取披露",
+      "stop_condition": "披露或本批结束即停"
+    },
+    {
+      "item": "gateway_host_current",
+      "impact": "本批无被动网络取证时 actual_gateway 不可观察",
+      "next_step": "route_validation=current_not_observed + r2 历史依据",
+      "stop_condition": "本批不主动做网络取证（无干扰纪律）"
+    },
+    {
+      "item": "effort_upstream_interpretation",
+      "impact": "declared thought_level=low 的上游解释不可观测",
+      "next_step": "逐场登记 DB 会话行值",
+      "stop_condition": "本批结束即停"
+    },
+    {
+      "item": "internal_tools_skills",
+      "impact": "产品内部工具/skills 开关不可见",
+      "next_step": "以 trace 可见行为审计为准",
+      "stop_condition": "本批结束即停"
+    }
+  ],
+  "timed_out": true,
+  "stop_info": {
+    "stop_verified": false,
+    "cancel_at": null,
+    "cancel_invoked": false,
+    "deadline_reached_at": "2026-10-29T22:47:08+08:00"
+  },
+  "driver": {
+    "snapshot_sha256": "f9d4b076811bebad80ff952dd719060214f8ade83033227ab7d029bf6a0bec23",
+    "sigterm_branch": "structurally disabled (runner/safe_driver.py)"
+  },
+  "inputs_verification": {
+    "ok": true,
+    "method": "fixture（干跑）"
+  },
+  "native_stop": {
+    "file": "native-stop.json",
+    "sha256": "d247088adef1fd11a963e4ee63948ac0fe2ed7dd2115907513bd1878a1cb20c4"
+  },
+  "diagnostic": {
+    "class": "stop_unverified",
+    "detail": "cancel 未获三重验证证实——不得视为已安全停止；W6：不跑 checker 不评分；动态 workspace 不冻结归档",
+    "checks": {
+      "db_terminal": false,
+      "trace_stable": false,
+      "no_scoped_processes": false
+    }
+  }
+}

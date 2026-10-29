@@ -1,0 +1,50 @@
+{
+  "kind": "mock_run_self_test",
+  "tool": "lab.py(l4-dsh)",
+  "spec": "l4-20261029-dsh",
+  "at": "2026-10-29T20:59:13+08:00",
+  "zero_model": true,
+  "counts": {
+    "total": 5,
+    "passed": 1,
+    "failed": 4
+  },
+  "cases": [
+    {
+      "case": "mock-ok-formal-admitted",
+      "pass": false,
+      "detail": "{\"planned\": 1, \"accounted\": 1, \"executed\": 1, \"partial\": 0, \"not_executed\": 0, \"formal_admitted\": 0, \"all_formal_admitted\": false, \"accounting_complete\": true}[\"classify=fail:type issues=[{'field': 'weighted', 'class': 'type', 'detail': 'ex"
+    },
+    {
+      "case": "mock-ok-full-usage",
+      "pass": true,
+      "detail": "{\"compared\": 1, \"equal\": 1, \"mismatch\": []}"
+    },
+    {
+      "case": "mock-low-exit1-admitted",
+      "pass": false,
+      "detail": "[\"classify=fail:type issues=[{'field': 'weighted', 'class': 'type', 'detail': 'expect score8 got NoneType'}]\", \"workspace \\u5f52\\u6863\\u7f3a\\u5931\", \"required_original_evidence \\u7f3a\\uff1a['workspace"
+    },
+    {
+      "case": "mock-timeout-genuine-admitted",
+      "pass": false,
+      "detail": "[{\"n\": 1, \"kind\": \"single-dispatch\", \"policy\": \"whole_execution_restarts=0\", \"started_at\": \"2026-10-29T20:59:12+08:00\", \"finished_at\": \"2026-10-29T20:59:13+08:00\", \"duration_s\": 1.0, \"exit_code\": null[\"classify=fail:type issues=[{'field': '"
+    },
+    {
+      "case": "mock-unscored-null-partial",
+      "pass": false,
+      "detail": "{\"planned\": 1, \"accounted\": 1, \"executed\": 1, \"partial\": 0, \"not_executed\": 0, \"formal_admitted\": 0, \"all_formal_admitted\": false, \"accounting_complete\": true}[\"classify=fail:type issues=[{'field': 'weighted', 'class': 'type', 'detail': 'ex"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py",
+      "sha256_8": "e93a55cd",
+      "sha256": "e93a55cd288e326aef00cc8a72959af5c5e373edb7b33549611b971888701647",
+      "bytes": 64503,
+      "at": "2026-10-29T20:59:13+08:00",
+      "line": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py · e93a55cd · 64503B · 2026-10-29T20:59:13+08:00"
+    }
+  ],
+  "live_doc_drift": []
+}

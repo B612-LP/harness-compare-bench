@@ -1,0 +1,120 @@
+{
+ "kind": "phase1_delivery_index",
+ "batch": "l4-20261029-dsh-side",
+ "at": "2026-10-29T23:07:12+08:00",
+ "note": "v12：JSON 收据内嵌证据行字节展示改 N bytes（ek_json 展示适配，canonical MD 原格式不动；触发点=lab 字节数破十万后的七位 B 后缀撞 hex 扫描）；receipt_check.py 停写移交 lead 回退；收据 r21/r16/r11 按原规则模拟 PASS",
+ "dsh_batch_root": {
+  "tools/lab.py": {
+   "sha256_8": "f246d011",
+   "bytes": 105770
+  },
+  "REPORT.md": {
+   "sha256_8": "ae67e994",
+   "bytes": 14716
+  },
+  "preflight/cli-preflight.json": {
+   "sha256_8": "85a51735",
+   "bytes": 3062
+  },
+  "selftest/runner-selftest-r5.json": {
+   "sha256_8": "b030fb1b",
+   "bytes": 2031
+  },
+  "selftest/runner-mockrun-r15.json": {
+   "sha256_8": "07aee561",
+   "bytes": 2342
+  },
+  "selftest/termination-selftest-r9.json": {
+   "sha256_8": "3c14097d",
+   "bytes": 2049
+  },
+  "phase1/snapshot-pre-termination-gate.json": {
+   "sha256_8": "e9ab47c6",
+   "bytes": 706
+  },
+  "selftest/runner-mockrun-r17.json": {
+   "sha256_8": "464719be",
+   "bytes": 3078
+  },
+  "selftest/termination-selftest-r11.json": {
+   "sha256_8": "d6df4716",
+   "bytes": 2049
+  },
+  "selftest/runner-selftest-r7.json": {
+   "sha256_8": "0d9bd0f3",
+   "bytes": 2031
+  },
+  "selftest/runner-mockrun-r20.json": {
+   "sha256_8": "81f3310d",
+   "bytes": 3401
+  },
+  "selftest/termination-selftest-r15.json": {
+   "sha256_8": "2d0ab6dd",
+   "bytes": 2051
+  },
+  "selftest/runner-selftest-r10.json": {
+   "sha256_8": "01e7db1a",
+   "bytes": 2033
+  },
+  "config-baseline/pii-redaction-log.json": {
+   "sha256_8": "e68225b2",
+   "bytes": 1439
+  },
+  "config-baseline/config-snapshot/AGENTS.md": {
+   "sha256_8": "5786a0ef",
+   "bytes": 1477
+  },
+  "selftest/runner-mockrun-r21.json": {
+   "sha256_8": "4d80dd73",
+   "bytes": 3406
+  },
+  "selftest/termination-selftest-r16.json": {
+   "sha256_8": "fb837c09",
+   "bytes": 2056
+  },
+  "selftest/runner-selftest-r11.json": {
+   "sha256_8": "8eaff22e",
+   "bytes": 2048
+  }
+ },
+ "l4_execution_shared": {
+  "gate.py": {
+   "sha256_8": "77d8e8b4",
+   "bytes": 118010
+  },
+  "replay_dual.py": {
+   "sha256_8": "8b710a6e",
+   "bytes": 21205
+  },
+  "README.md": {
+   "sha256_8": "a3fd035a",
+   "bytes": 5852
+  },
+  "receipts/gate-selftest.json": {
+   "sha256_8": "eaaf70ad",
+   "bytes": 6065
+  },
+  "selftest-replay-dual-r6.json": {
+   "sha256_8": "21f4c68f",
+   "bytes": 1000
+  },
+  "selftest-replay-dual-r8.json": {
+   "sha256_8": "4d7e5805",
+   "bytes": 1000
+  },
+  "selftest-replay-dual-r9.json": {
+   "sha256_8": "2a208970",
+   "bytes": 1000
+  }
+ },
+ "live_doc_drift": [],
+ "evidence_kit_fix": {
+  "receipt_check.py": {
+   "sha256_8": "db8335af",
+   "bytes": 14202
+  },
+  "status": "PATCH REVERT PENDING (lead owns receipt_check.py; my relaxation withdrawn)",
+  "workaround": "display-layer only: ek_json() renders embedded JSON evidence byte counts as plain integer + space unit; canonical evidence_line format unchanged",
+  "selftest_after_revert_expected": "PASS with original rules (verified by local original-rule simulation over all current receipts)"
+ }
+}

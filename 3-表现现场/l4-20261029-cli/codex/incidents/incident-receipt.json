@@ -1,0 +1,84 @@
+{
+  "kind": "incident",
+  "id": "INCIDENT-20261029-mock-real-codex-launch",
+  "batch": "l4-20261029-cli-codex",
+  "at": "2026-10-29T21:10:52+08:00",
+  "live_doc_drift": [],
+  "classification": "incident（不计合成 pass；保留不删）",
+  "facts": {
+    "command_shape": "codex exec --json --skip-git-repo-check -C <temp ws> -m deepseek-flash -c model_reasoning_effort=low -",
+    "started_at": "2026-10-29T21:00:28+08:00",
+    "finished_at": "2026-10-29T21:00:36+08:00",
+    "duration_s": 8.4,
+    "exit_code": 1,
+    "stdout_bytes": 1921,
+    "stderr_bytes": 2548,
+    "stderr_sha256": "21e40237758edfb8ad623c76144a759f7eee78e6544b6629f83859278ec3ebe7",
+    "original_files": "灭失（tempfile 清理）；哈希为当时 meta 实算",
+    "stderr_tail_quoted_redacted": "WARN codex_core_plugins::manager: failed to warm featured plugin ids cache error=remote featured plugin request to https://chatgpt.com/backend-api/plugins/featured?platform=codex failed with status 401 Unauthorized（片段无凭据）",
+    "exit_stage": "plugin-warm 启动阶段（留存转录片段）",
+    "fixture_codex_home": "synthetic 隔离目录，仅含我方 config 快照（api.deepseek.com，无 auth.json）",
+    "fixture_key": "synthetic（mock 注入 stub-key，非真实凭据）",
+    "usage_evidence": "requests=0（无 token_usage_record）；无 provider response 证据",
+    "outbound_request_confirmed": "chatgpt.com plugin-warm 401（一次，留存转录片段证实）",
+    "provider_request_status": "unknown_leaning_not_occurred（哨兵不覆盖 Rust 子进程，无法排除）",
+    "network_sentinel_coverage": "Python socket 哨兵不覆盖原生子进程——如实声明",
+    "reported_stdout_digest_fragment": "74991652ab9d5fb83982e06a3fdf8c94e6edbd5c1e1b8f53ed62",
+    "stdout_sha256_note": {
+      "status": "voided_dated",
+      "voided_at": "2026-10-29T21:18:44+08:00",
+      "reason": "lead 机检：52 位非 SHA256；系手转错误（违反脚本生成纪律的实例，如实记录）",
+      "full_sha256": "unknown",
+      "recovery_attempt": "原始 meta.json 随 tempfile 灭失，无法脚本重提；不补齐、不猜值"
+    },
+    "stderr_sha256_note": {
+      "status": "hand_transcribed_unverified",
+      "length": 64,
+      "note": "转录值（非原件脚本重提）；lead 机检确认长度 64；原件已灭失"
+    },
+    "evidence_phrasing_note": "所有 stderr/stdout 引录均为「留存转录片段」（转录自当时 meta 存证与对话转录），原始 logs 已灭失，不冒称原件"
+  },
+  "redaction": "无凭据打印/入库；key=stub-key 本身即合成值",
+  "fixes": [
+    "lab.CODEX_BIN 常量注入（拒绝 PATH 回退）",
+    "selftest mock_never_real_codex 守卫",
+    "最终 selftest 60/60，mock 桩为无网络 Python 文件脚本"
+  ],
+  "runtime_sources_sha256": {
+    "tools/lab.py": "42df040037aa5c5d85d715914eb5f4a7a1e723e0ade60f71e206316bf098822a",
+    "tools/selftest.py": "b1754abe59723bb76182b7ca5c908575ca5911d534353844b16163b5227ff56d"
+  },
+  "accounting": {
+    "ledger_kind": "interface_preflight incident / accidental CLI start",
+    "counts_toward_fixed_slots": false,
+    "scored": false,
+    "counts_as_synthetic_pass": false,
+    "evidence_grade": "incomplete（raw 日志灭失；仅哈希+转录片段）",
+    "reconstruction_policy": "不重建伪原件"
+  },
+  "original_claim_preserved": {
+    "text": "仅启动即退，未到模型调用 / socket 哨兵全程禁网 / 零真实 CLI 零网络",
+    "status": "superseded by dated correction 2026-10-29",
+    "correction": "1 次 chatgpt.com 出站 401 证实；DeepSeek 请求未知（倾向未发生）；证据等级 incomplete"
+  },
+  "corrected_at": "2026-10-29T21:13:14+08:00",
+  "corrections": [
+    {
+      "id": "incident-hash-fragment-void-20261029",
+      "at": "2026-10-29T21:18:44+08:00",
+      "field": "facts.stdout_sha256",
+      "action": "voided→reported_stdout_digest_fragment(52位原样,unverified,full=unknown)",
+      "also": [
+        "stderr引录改称留存转录片段",
+        "stderr_sha256 标注 hand_transcribed_unverified"
+      ],
+      "trigger": "lead 机检：stdout_sha256 长 52 非 64"
+    },
+    {
+      "id": "orphan-sigkill-rootcause-unknown-20261029",
+      "at": "2026-10-29T21:42:07+08:00",
+      "field": "REPORT/first-failure 孤儿组行为断言",
+      "action": "撤「沙箱静默 no-op」定性 → 根因 unknown/待 judge；judge 取证清单（子PID/实际PGID/savedPGID/killpg builtin 状态/fixture 定位）已入 REPORT"
+    }
+  ]
+}

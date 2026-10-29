@@ -1,0 +1,50 @@
+{
+  "kind": "mock_run_self_test",
+  "tool": "lab.py(l4-dsh)",
+  "spec": "l4-20261029-dsh",
+  "at": "2026-10-29T21:18:12+08:00",
+  "zero_model": true,
+  "counts": {
+    "total": 5,
+    "passed": 4,
+    "failed": 1
+  },
+  "cases": [
+    {
+      "case": "mock-ok-formal-admitted",
+      "pass": true,
+      "detail": "{\"planned\": 1, \"accounted\": 1, \"executed\": 1, \"partial\": 0, \"not_executed\": 0, \"formal_admitted\": 1, \"all_formal_admitted\": true, \"accounting_complete\": true}[]"
+    },
+    {
+      "case": "mock-ok-full-usage",
+      "pass": true,
+      "detail": "{\"compared\": 1, \"equal\": 1, \"mismatch\": []}"
+    },
+    {
+      "case": "mock-low-exit1-admitted",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "case": "mock-timeout-genuine-admitted",
+      "pass": false,
+      "detail": "[{\"n\": 1, \"kind\": \"single-dispatch\", \"policy\": \"whole_execution_restarts=0\", \"started_at\": \"2026-10-29T21:17:50+08:00\", \"finished_at\": \"2026-10-29T21:18:11+08:00\", \"duration_s\": 21.3, \"exit_code\": nul['termination receipt verified_stop≠true"
+    },
+    {
+      "case": "mock-unscored-null-partial",
+      "pass": true,
+      "detail": "{\"planned\": 1, \"accounted\": 1, \"executed\": 0, \"partial\": 1, \"not_executed\": 0, \"formal_admitted\": 0, \"all_formal_admitted\": false, \"accounting_complete\": true}[\"classify=fail:type issues=[{'field': 'weighted', 'class': 'type', 'detail': 'ex"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py",
+      "sha256_8": "23dcba0a",
+      "sha256": "23dcba0a8c81ea4419519b05733773279ea090fdb61e2ac9d08bad18d4c3ab06",
+      "bytes": 73229,
+      "at": "2026-10-29T21:18:12+08:00",
+      "line": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py · 23dcba0a · 73229B · 2026-10-29T21:18:12+08:00"
+    }
+  ],
+  "live_doc_drift": []
+}

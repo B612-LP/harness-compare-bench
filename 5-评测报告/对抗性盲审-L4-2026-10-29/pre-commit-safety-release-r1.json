@@ -1,0 +1,35 @@
+{
+ "kind": "pre_commit_safety_release",
+ "tool": "auditor (task-9)",
+ "at": "2026-10-29T23:12:00+08:00",
+ "verdict": "PASS",
+ "scope": "提交前安全放行：8 目录 PII 复扫 + 6 目录批准key凭据复扫（O_EXCL 新收据，零值输出）",
+ "pii": {
+  "exact_type_hits": 0,
+  "files_scanned": 360,
+  "label_self_matches": {"count": 10, "location": "5-评测报告/对抗性盲审-L4-2026-10-29/tools/pii_min_check.py",
+   "classification": "本工具正则/docstring 中的 label 字样自匹配（lead 指示的合成 label 误报类，非 PII）"},
+  "r1_finding_fix_verified": {
+   "file": "3-表现现场/l4-20261029-cli/dsh/config-baseline/config-snapshot/AGENTS.md",
+   "public_redacted_sha256_8": "5786a0ef",
+   "raw_source_global_sha256_8": "d343bcc3",
+   "global_unchanged": true,
+   "log": "pii-redaction-log.json（provenance/规则/过脱敏方向已披露，raw_source_sha256 与真实全局文件实测一致）",
+   "before_after": "r1 三类 exact 命中齐现于 :33 → r2 三类 exact 命中 0"}
+ },
+ "credential": {
+  "real_key_exact_hits": 0,
+  "files_scanned": 336,
+  "key_source": "approved-refs-DEEPSEEK_API_KEY(ASCII, in-memory)",
+  "generic_known_benign": [
+   "tools/credential_scan.py:197 自检 fixture（synthetic-stub）",
+   "dsh/tools/lab.py:1868 desensitize_text 自检占位串（unclassified→人工归类 benign，同 r1 :1491 行移位）"]
+ },
+ "receipts": [
+  "pii-min-check-report-l4new-r2-release.json",
+  "scan-report-baseline-preE-r2-release.json",
+  "../../3-表现现场/l4-20261029-cli/dsh/config-baseline/pii-redaction-log.json"
+ ],
+ "note": "发现即停条款未触发（零 exact 命中）；actual model 数据未产出，正式 F3–F11 仍待 E 后",
+ "live_doc_drift": []
+}

@@ -1,0 +1,55 @@
+{
+  "kind": "termination_self_test",
+  "tool": "lab.py(l4-dsh)",
+  "spec": "l4-20261029-dsh",
+  "at": "2026-10-29T21:17:50+08:00",
+  "zero_model": true,
+  "counts": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0
+  },
+  "cases": [
+    {
+      "case": "child-writing-before-stop",
+      "pass": true,
+      "detail": "probe bytes=8"
+    },
+    {
+      "case": "term-only-parent-exited-group-alive",
+      "pass": true,
+      "detail": "parent returncode=-15 group_alive=True（旧实现此处误 verified=True）"
+    },
+    {
+      "case": "term-only-verified-false",
+      "pass": true,
+      "detail": "{\"signal\": \"SIGTERM\", \"verified_stop\": false, \"group_confirmed_gone\": false}"
+    },
+    {
+      "case": "child-lived-through-term-only-window",
+      "pass": true,
+      "detail": "bytes 8→111 during TERM-only window（子进程跨 TERM 持续写）"
+    },
+    {
+      "case": "kill-group-confirmed-gone",
+      "pass": true,
+      "detail": "{\"signal\": \"SIGKILL\", \"escalated\": true, \"verified_stop\": true, \"group_confirmed_gone\": true}"
+    },
+    {
+      "case": "child-actually-stopped",
+      "pass": true,
+      "detail": "bytes stable at 210"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py",
+      "sha256_8": "23dcba0a",
+      "sha256": "23dcba0a8c81ea4419519b05733773279ea090fdb61e2ac9d08bad18d4c3ab06",
+      "bytes": 73229,
+      "at": "2026-10-29T21:17:50+08:00",
+      "line": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py · 23dcba0a · 73229B · 2026-10-29T21:17:50+08:00"
+    }
+  ],
+  "live_doc_drift": []
+}

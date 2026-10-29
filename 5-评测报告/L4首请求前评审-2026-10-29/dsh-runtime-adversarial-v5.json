@@ -1,0 +1,490 @@
+{
+  "category": "self_test",
+  "scope": "Independent production run_slot/cmd_run control flow with mandatory in-process Popen stub; no real process/model/checker/network",
+  "generated_at": "2026-10-29T14:29:18.909556+00:00",
+  "live_doc_drift": [],
+  "source_sha256": "556942828bc737578c10be40bb3d2b55824b6641d89ef6a3370edff35e76ec88",
+  "reviewer_script_sha256": "6288c76a3da76c710386f74d1261287bf239bf48d668afe22680fa4cd60d49ef",
+  "worlds": [
+    {
+      "phase": "timeout-unverified",
+      "checks": [
+        {
+          "id": "timeout-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "id": "timeout-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "id": "timeout-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "id": "timeout-unverified:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "id": "timeout-unverified:raw-stop-false-recorded",
+          "pass": true
+        }
+      ],
+      "observed": {
+        "first_code": 3,
+        "next_code": 3,
+        "first_exception": null,
+        "next_exception": null,
+        "counts_after_first": {
+          "popen": 1,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "counts_final": {
+          "popen": 1,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "stdout": "{\"slot\": \"synthetic-first\", \"status\": \"timeout\", \"stop_verified\": false, \"halted\": true, \"checker_calls\": 0, \"note\": \"未验证停止：早退 partial，formal=false，后续 slot 已被 halt 拒绝\", \"evidence\": \"/private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4-independent-runtime-3dlvaqdc/evidence/first\"}\n{\"ok\": false, \"halted\": true, \"by\": \"synthetic-first\", \"reason\": \"stop unverified (verified_stop=false, timeout)\", \"note\": \"持久 halt 标记在位，拒绝派发；须 lead 处置后移除\"}\n",
+        "meta": {
+          "batch": "l4-20261029",
+          "rule_version": "l4-20261029-batch-v1",
+          "product": "dsh",
+          "case": "synthetic-case",
+          "rep": 1,
+          "slot_id": "synthetic-first",
+          "order": 1,
+          "stratum": "cli_current_sentinel",
+          "event_id": "event:first",
+          "run_id": "synthetic-first",
+          "form": "cli",
+          "preregistration_commit": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "registered_at": "2026-10-29T10:00:00+00:00",
+          "workspace": "/private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4-independent-runtime-3dlvaqdc/workspaces/synthetic-first",
+          "created_at": "2026-10-29T22:29:18+08:00",
+          "model": "deepseek-flash",
+          "reasoning_effort": "low",
+          "product_version": "synthetic-build",
+          "route": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek-official",
+            "wire_protocol": "anthropic-messages (dsh-headless --json projection)",
+            "endpoint": null
+          },
+          "tools": [
+            "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+          ],
+          "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+          "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+          "web_search": "disabled",
+          "soft_constraints": [
+            "stay-in-workspace",
+            "no-oracle-hunt",
+            "offline"
+          ],
+          "prompt_sha256": "cb10bf6cd97438ceadc565b7cdb0fae331f73538b738aeea3aa0083bc7efa973",
+          "isolation": {
+            "ok": true
+          },
+          "inputs": [],
+          "inputs_verification": {
+            "ok": true
+          },
+          "selection": null,
+          "attempts": [
+            {
+              "n": 1,
+              "kind": "single-dispatch",
+              "policy": "whole_execution_restarts=0",
+              "pid": 424242,
+              "pgid": 424242,
+              "started_at": "2026-10-29T22:29:18+08:00",
+              "finished_at": "2026-10-29T22:29:18+08:00",
+              "duration_s": 0.0,
+              "exit_code": null,
+              "outcome": "timeout",
+              "termination": {
+                "policy": "synthetic stop failure",
+                "pgid": 424242,
+                "signal": "SIGKILL",
+                "at": "2026-10-29T22:29:18+08:00",
+                "verified_stop": false,
+                "group_confirmed_gone": false,
+                "error": "synthetic EPERM; group stop unconfirmed"
+              },
+              "stop_source": "plan timeout_s=1 process-group SIGKILL"
+            }
+          ],
+          "transport_retries": 0,
+          "app_asar_sha256": null,
+          "managed_unknowns": [],
+          "status": "timeout",
+          "exit_code": null,
+          "timed_out": true,
+          "termination_receipt": {
+            "file": "termination-receipt.json",
+            "sha256": "7ff209bd3ebd3f16d84ed414eea128db47a45e88f161d22a71aff1a2558b3405"
+          },
+          "diagnostic": {
+            "class": "timeout",
+            "stop_unverified": true,
+            "phase": null,
+            "stop_source": "plan timeout_s=1 process-group SIGKILL",
+            "termination": {
+              "policy": "synthetic stop failure",
+              "pgid": 424242,
+              "signal": "SIGKILL",
+              "at": "2026-10-29T22:29:18+08:00",
+              "verified_stop": false,
+              "group_confirmed_gone": false,
+              "error": "synthetic EPERM; group stop unconfirmed"
+            },
+            "evidence_scope": "frozen-first-stream-only（workspace 疑似仍写入，不冻结为完整产物）",
+            "retry": "none (whole_execution_restarts=0)"
+          },
+          "started_at": "2026-10-29T22:29:18+08:00",
+          "finished_at": "2026-10-29T22:29:18+08:00",
+          "duration_s": 0.0,
+          "stdout_bytes": 29,
+          "stdout_sha256": "45b9e0d3657248e4d747c63a87469aa523a95dfcdf9cf97e428d2ea54d644246",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "score_status": "unscored-unverified-stop",
+          "weighted": null,
+          "reward": null,
+          "judge": {
+            "checker_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "exit_code": null,
+            "error": "not scored: stop unverified"
+          }
+        },
+        "termination_receipt": {
+          "policy": "synthetic stop failure",
+          "pgid": 424242,
+          "signal": "SIGKILL",
+          "at": "2026-10-29T22:29:18+08:00",
+          "verified_stop": false,
+          "group_confirmed_gone": false,
+          "error": "synthetic EPERM; group stop unconfirmed",
+          "slot_id": "synthetic-first",
+          "timeout_s": 1,
+          "duration_s": 0.0,
+          "at_ack": null
+        },
+        "notexecuted": null,
+        "halt": {
+          "halted": true,
+          "slot_id": "synthetic-first",
+          "reason": "stop unverified (verified_stop=false, timeout)",
+          "at": "2026-10-29T22:29:18+08:00",
+          "effect": "后续所有 slot 派发被拒（跨进程持久），直至 lead 处置",
+          "notify": "lead",
+          "live_doc_drift": []
+        }
+      }
+    },
+    {
+      "phase": "normal-exit-unverified",
+      "checks": [
+        {
+          "id": "normal-exit-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "id": "normal-exit-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "id": "normal-exit-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "id": "normal-exit-unverified:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "id": "normal-exit-unverified:not-fictitious-timeout",
+          "pass": true
+        }
+      ],
+      "observed": {
+        "first_code": 3,
+        "next_code": 3,
+        "first_exception": null,
+        "next_exception": null,
+        "counts_after_first": {
+          "popen": 1,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "counts_final": {
+          "popen": 1,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "stdout": "{\"slot\": \"synthetic-first\", \"status\": \"error\", \"stop_verified\": false, \"halted\": true, \"checker_calls\": 0, \"note\": \"未验证停止：早退 partial，formal=false，后续 slot 已被 halt 拒绝\", \"evidence\": \"/private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4-independent-runtime-ibsywlks/evidence/first\"}\n{\"ok\": false, \"halted\": true, \"by\": \"synthetic-first\", \"reason\": \"stop unverified (verified_stop=false, error)\", \"note\": \"持久 halt 标记在位，拒绝派发；须 lead 处置后移除\"}\n",
+        "meta": {
+          "batch": "l4-20261029",
+          "rule_version": "l4-20261029-batch-v1",
+          "product": "dsh",
+          "case": "synthetic-case",
+          "rep": 1,
+          "slot_id": "synthetic-first",
+          "order": 1,
+          "stratum": "cli_current_sentinel",
+          "event_id": "event:first",
+          "run_id": "synthetic-first",
+          "form": "cli",
+          "preregistration_commit": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "registered_at": "2026-10-29T10:00:00+00:00",
+          "workspace": "/private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l4-independent-runtime-ibsywlks/workspaces/synthetic-first",
+          "created_at": "2026-10-29T22:29:18+08:00",
+          "model": "deepseek-flash",
+          "reasoning_effort": "low",
+          "product_version": "synthetic-build",
+          "route": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek-official",
+            "wire_protocol": "anthropic-messages (dsh-headless --json projection)",
+            "endpoint": null
+          },
+          "tools": [
+            "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+          ],
+          "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+          "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+          "web_search": "disabled",
+          "soft_constraints": [
+            "stay-in-workspace",
+            "no-oracle-hunt",
+            "offline"
+          ],
+          "prompt_sha256": "cb10bf6cd97438ceadc565b7cdb0fae331f73538b738aeea3aa0083bc7efa973",
+          "isolation": {
+            "ok": true
+          },
+          "inputs": [],
+          "inputs_verification": {
+            "ok": true
+          },
+          "selection": null,
+          "attempts": [
+            {
+              "n": 1,
+              "kind": "single-dispatch",
+              "policy": "whole_execution_restarts=0",
+              "pid": 424242,
+              "pgid": 424242,
+              "started_at": "2026-10-29T22:29:18+08:00",
+              "finished_at": "2026-10-29T22:29:18+08:00",
+              "duration_s": 0.0,
+              "exit_code": 0,
+              "outcome": "ok",
+              "closure": {
+                "policy": "synthetic stop failure",
+                "pgid": 424242,
+                "signal": "SIGKILL",
+                "at": "2026-10-29T22:29:18+08:00",
+                "verified_stop": false,
+                "group_confirmed_gone": false,
+                "error": "synthetic EPERM; group stop unconfirmed",
+                "phase": "post_exit_cleanup"
+              }
+            }
+          ],
+          "transport_retries": 0,
+          "app_asar_sha256": null,
+          "managed_unknowns": [],
+          "status": "error",
+          "exit_code": 0,
+          "timed_out": false,
+          "termination_receipt": {
+            "file": "termination-receipt.json",
+            "sha256": "beccdb31b58b6f47d7c38ab394e71cb01c2a5fa0ffe9d1cbd2fc0cb46893d0cb"
+          },
+          "diagnostic": {
+            "class": "post-exit stop unverified",
+            "stop_unverified": true,
+            "phase": "post_exit_cleanup",
+            "stop_source": null,
+            "termination": {
+              "policy": "synthetic stop failure",
+              "pgid": 424242,
+              "signal": "SIGKILL",
+              "at": "2026-10-29T22:29:18+08:00",
+              "verified_stop": false,
+              "group_confirmed_gone": false,
+              "error": "synthetic EPERM; group stop unconfirmed",
+              "phase": "post_exit_cleanup"
+            },
+            "evidence_scope": "frozen-first-stream-only（workspace 疑似仍写入，不冻结为完整产物）",
+            "retry": "none (whole_execution_restarts=0)"
+          },
+          "started_at": "2026-10-29T22:29:18+08:00",
+          "finished_at": "2026-10-29T22:29:18+08:00",
+          "duration_s": 0.0,
+          "stdout_bytes": 29,
+          "stdout_sha256": "45b9e0d3657248e4d747c63a87469aa523a95dfcdf9cf97e428d2ea54d644246",
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "score_status": "unscored-unverified-stop",
+          "weighted": null,
+          "reward": null,
+          "judge": {
+            "checker_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "exit_code": null,
+            "error": "not scored: stop unverified"
+          }
+        },
+        "termination_receipt": {
+          "policy": "synthetic stop failure",
+          "pgid": 424242,
+          "signal": "SIGKILL",
+          "at": "2026-10-29T22:29:18+08:00",
+          "verified_stop": false,
+          "group_confirmed_gone": false,
+          "error": "synthetic EPERM; group stop unconfirmed",
+          "phase": "post_exit_cleanup",
+          "slot_id": "synthetic-first",
+          "timeout_s": 1,
+          "duration_s": 0.0,
+          "at_ack": null
+        },
+        "notexecuted": null,
+        "halt": {
+          "halted": true,
+          "slot_id": "synthetic-first",
+          "reason": "stop unverified (verified_stop=false, error)",
+          "at": "2026-10-29T22:29:18+08:00",
+          "effect": "后续所有 slot 派发被拒（跨进程持久），直至 lead 处置",
+          "notify": "lead",
+          "live_doc_drift": []
+        }
+      }
+    },
+    {
+      "phase": "spawn-failure",
+      "checks": [
+        {
+          "id": "spawn-failure:checker-zero",
+          "pass": true
+        },
+        {
+          "id": "spawn-failure:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "id": "spawn-failure:valid-first-accounting",
+          "pass": true
+        }
+      ],
+      "observed": {
+        "first_code": 1,
+        "next_code": 3,
+        "first_exception": null,
+        "next_exception": null,
+        "counts_after_first": {
+          "popen": 1,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "counts_final": {
+          "popen": 1,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "stdout": "{\"slot\": \"synthetic-first\", \"accounting\": \"not_executed\", \"reason\": \"spawn failure (process never started)\", \"halted\": true, \"class\": \"infrastructure\"}\n{\"ok\": false, \"halted\": true, \"by\": \"synthetic-first\", \"reason\": \"spawn failure (process never started): synthetic spawn failure; no process ever launched\", \"note\": \"持久 halt 标记在位，拒绝派发；须 lead 处置后移除\"}\n",
+        "meta": null,
+        "termination_receipt": null,
+        "notexecuted": {
+          "slot_id": "synthetic-first",
+          "run_id": "synthetic-first",
+          "event_id": "event:first",
+          "accounting": "not_executed",
+          "preregistration_commit": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "registered_at": "2026-10-29T10:00:00+00:00",
+          "reason": "spawn failure (process never started): synthetic spawn failure; no process ever launched",
+          "stop_source": "runner-spawn",
+          "at": "2026-10-29T22:29:18+08:00",
+          "live_doc_drift": []
+        },
+        "halt": {
+          "halted": true,
+          "slot_id": "synthetic-first",
+          "reason": "spawn failure (process never started): synthetic spawn failure; no process ever launched",
+          "at": "2026-10-29T22:29:18+08:00",
+          "effect": "后续所有 slot 派发被拒（跨进程持久），直至 lead 处置",
+          "notify": "lead",
+          "live_doc_drift": []
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "timeout-unverified:checker-zero",
+      "pass": true
+    },
+    {
+      "id": "timeout-unverified:no-post-stop-capture",
+      "pass": true
+    },
+    {
+      "id": "timeout-unverified:next-slot-popen-zero",
+      "pass": true
+    },
+    {
+      "id": "timeout-unverified:valid-first-accounting",
+      "pass": true
+    },
+    {
+      "id": "timeout-unverified:raw-stop-false-recorded",
+      "pass": true
+    },
+    {
+      "id": "normal-exit-unverified:checker-zero",
+      "pass": true
+    },
+    {
+      "id": "normal-exit-unverified:no-post-stop-capture",
+      "pass": true
+    },
+    {
+      "id": "normal-exit-unverified:next-slot-popen-zero",
+      "pass": true
+    },
+    {
+      "id": "normal-exit-unverified:valid-first-accounting",
+      "pass": true
+    },
+    {
+      "id": "normal-exit-unverified:not-fictitious-timeout",
+      "pass": true
+    },
+    {
+      "id": "spawn-failure:checker-zero",
+      "pass": true
+    },
+    {
+      "id": "spawn-failure:no-post-stop-capture",
+      "pass": true
+    },
+    {
+      "id": "spawn-failure:valid-first-accounting",
+      "pass": true
+    }
+  ],
+  "passed": true
+}

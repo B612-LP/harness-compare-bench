@@ -1,0 +1,156 @@
+{
+  "kind": "interface_preflight",
+  "batch": "l4-20261029-wb-gateway",
+  "stratum_display": "WB 产品交付态（历史证据指向网关；本批路由状态单列）",
+  "mode": "static-zero-model",
+  "at": "2026-10-29T20:14:22+08:00",
+  "model_calls": 0,
+  "all_pass": true,
+  "checks": [
+    {
+      "check": "plan_sha256_matches_contract",
+      "pass": true,
+      "detail": "actual=e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da contract=e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da"
+    },
+    {
+      "check": "contract_file_readable",
+      "pass": true,
+      "detail": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33"
+    },
+    {
+      "check": "wb_slot_count_is_5",
+      "pass": true,
+      "detail": "n=5"
+    },
+    {
+      "check": "wb_slot_order_13_to_17",
+      "pass": true,
+      "detail": "[13, 14, 15, 16, 17]"
+    },
+    {
+      "check": "wb_case_sequence",
+      "pass": true,
+      "detail": "['bird-ca-schools-15', 'dabstep-payments-10', 'exercism-py-6', 'lcb-recent-hard-4', 'tb-cargo-plan']"
+    },
+    {
+      "check": "wb_timeouts_match_plan",
+      "pass": true,
+      "detail": "{\"bird-ca-schools-15\": 1800, \"dabstep-payments-10\": 1800, \"exercism-py-6\": 2400, \"lcb-recent-hard-4\": 3000, \"tb-cargo-plan\": 2400}"
+    },
+    {
+      "check": "wb_run_ids_unique",
+      "pass": true,
+      "detail": "5 unique"
+    },
+    {
+      "check": "namespace_not_r1030_r1031",
+      "pass": true,
+      "detail": "prefix l4-20261029-wb-gateway"
+    },
+    {
+      "check": "all_plan_slot_ids_unique_repo_wide",
+      "pass": true,
+      "detail": "n=35"
+    },
+    {
+      "check": "stratum_display_name",
+      "pass": true,
+      "detail": "WB 产品交付态（历史证据指向网关；本批路由状态单列）"
+    },
+    {
+      "check": "checker_sha256[bird-ca-schools-15]",
+      "pass": true,
+      "detail": "want=994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54 got=994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54"
+    },
+    {
+      "check": "checker_sha256[dabstep-payments-10]",
+      "pass": true,
+      "detail": "want=01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94 got=01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94"
+    },
+    {
+      "check": "checker_sha256[exercism-py-6]",
+      "pass": true,
+      "detail": "want=8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30 got=8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30"
+    },
+    {
+      "check": "checker_sha256[lcb-recent-hard-4]",
+      "pass": true,
+      "detail": "want=63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9 got=63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9"
+    },
+    {
+      "check": "checker_sha256[tb-cargo-plan]",
+      "pass": true,
+      "detail": "want=d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677 got=d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677"
+    },
+    {
+      "check": "driver_snapshot[driver-snapshot/workbuddy_driver.py]",
+      "pass": true,
+      "detail": "f9d4b076811bebad80ff952dd719060214f8ade83033227ab7d029bf6a0bec23"
+    },
+    {
+      "check": "driver_snapshot[driver-snapshot/driver-README.md]",
+      "pass": true,
+      "detail": "16cfec0f0bbb0c2551c721dba30c209db62b3e6a300d06e2516faffbe9e2dc45"
+    },
+    {
+      "check": "app_version_recorded",
+      "pass": true,
+      "detail": "WorkBuddy 5.9.3"
+    },
+    {
+      "check": "app_asar_sha256_recorded",
+      "pass": true,
+      "detail": "12a2be53ec7db2943a9958f6986d7807adcf083bd79b307d26706d83750effa7"
+    },
+    {
+      "check": "trace_paths_exist",
+      "pass": true,
+      "detail": "/Users/b612-lp/.workbuddy/projects | /Users/b612-lp/.workbuddy/workbuddy.db"
+    },
+    {
+      "check": "home_disk_free_gt_5GB",
+      "pass": true,
+      "detail": "free=330GB"
+    },
+    {
+      "check": "workspace_root_outside_repo",
+      "pass": true,
+      "detail": "/Users/b612-lp/bench-workspaces/l4-20261029-wb-gateway"
+    },
+    {
+      "check": "no_forbidden_api[networksetup]",
+      "pass": true,
+      "detail": "absent in runner sources"
+    },
+    {
+      "check": "no_forbidden_api[scutil]",
+      "pass": true,
+      "detail": "absent in runner sources"
+    },
+    {
+      "check": "no_forbidden_api[security add-trusted]",
+      "pass": true,
+      "detail": "absent in runner sources"
+    },
+    {
+      "check": "no_forbidden_api[http.proxy]",
+      "pass": true,
+      "detail": "absent in runner sources"
+    },
+    {
+      "check": "no_forbidden_api[NODE_OPTIONS]",
+      "pass": true,
+      "detail": "absent in runner sources"
+    },
+    {
+      "check": "no_forbidden_api[HTTPS_PROXY]",
+      "pass": true,
+      "detail": "absent in runner sources"
+    }
+  ],
+  "live_doc_drift": [],
+  "notes": [
+    "live 驱动预检（CDP 复用/空闲启动）按设计留待 E 释放后执行；本阶段不启动 WB、不建会话、不发请求",
+    "actual_gateway 本批默认 route_verification=current_not_observed，历史依据=1-评测方案/准入预检-2026-10-29/wb-preflight-r2.json（CLARIFICATION-L4-1 R2）"
+  ]
+}

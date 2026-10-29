@@ -1,0 +1,50 @@
+{
+  "kind": "judge_fake_e2e_receipt",
+  "harness": "codex_fake_e2e.py",
+  "harness_sha256": "5bd1ee77fa8add4018533a4f57096db6fa5d00387dcc00bd83f49fabadf5b5b5",
+  "fake_codex_sha256": "72e7e7db5948872706b62f1e713941c303f7d14b639beb7d9919367b2c635b30",
+  "snapshot": "/private/tmp/judge-l4/all-20261029T220156+0800",
+  "snapshot_head_shas": {
+    "src-codex/tools/lab.py": "0b3d8c910e2d5a3498b28d11c5455bcf62fdf08b5f5d9b1ee0917fa8e74c01de",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "3987b1728fc342db93e2509ac49f6c43f23c62b8735053c12876708079e7b7cb",
+    "execution_seal.py": "744ea116420076384365a691750b97830b4ecb0d8e70a30933d8e8c607e2fd48"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-codex-20261029T220156+0800/repo",
+  "binding_E": "5a141d35e1de414a8ba672eeb242e1b19fcfe2c4",
+  "registered_at": "2026-10-29T22:08:09+08:00",
+  "generated_at": "2026-10-29T22:18:10+08:00",
+  "cases": {
+    "CX5_config_drift": {
+      "verdict": "pass",
+      "detail": {
+        "lab_rc": 3,
+        "audit_after": 0,
+        "audit_delta": 0,
+        "no_claim": true,
+        "proc_rc": 0,
+        "gate_error_in_stderr": false,
+        "note": "fail-closed 拒绝即达标；未捕获 GateError→rc=1 traceback 属 runner 抛错面 polishing 项",
+        "stdout_tail": "{\"fail_closed\": true, \"reason\": \"runtime-binding.json 不存在（E 未封印）：真实调用 fail-closed\"}\n@@RESULT@@{\"rc\": 3, \"audit_invocations\": 0, \"halt_exists\": false}\n",
+        "stderr_tail": ""
+      }
+    },
+    "CX8_halt_gate_blocks_next": {
+      "verdict": "pass",
+      "detail": {
+        "lab_rc": 3,
+        "audit_delta": 0,
+        "stdout_tail": "{\"fail_closed\": true, \"reason\": \"批次已因未验证终止停批（halt.json）；待 lead 处置，不得续槽\"}\n@@RESULT@@{\"rc\": 3, \"audit_invocations\": 0, \"halt_exists\": true}\n",
+        "stderr_tail": ""
+      }
+    }
+  },
+  "zero_real_cli_evidence": {
+    "audit_entries": 0,
+    "all_argv_fake": true,
+    "sentinel_non_local_attempts": 0,
+    "method": "lab.CODEX_BIN 绝对路径注入；preflight 类仅受限 PATH（无 /opt/homebrew/bin）；真实 codex 在 /opt/homebrew/bin/codex 存在（事故向量）——全程未触"
+  },
+  "live_doc_drift": null
+}

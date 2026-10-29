@@ -1,0 +1,728 @@
+{
+  "category": "self_test",
+  "scope": "Independent truth-table retest; no model/CLI/checker execution; synthetic git and external-set isolation",
+  "generated_at": "2026-10-29T13:09:44.414221+00:00",
+  "live_doc_drift": [],
+  "source_sha256": "f8a4ca082396e2e6eb61ccede06a224acac98efe80bfaff2fed1cb5a51a4d577",
+  "validator_sha256": "8e423de5605c7c6ebda627e70cee3bfb7e0159fc4f9f046048a8ecc27797aef4",
+  "reviewer_script_sha256": "5bd327259960beb88c881b44adfc040c4613cd1c20aa71e219c946ce57f8d1dc",
+  "original_harness_sha256": "1ec4d64ef2771214bafb36780da4e52b021a721c050cad76ed1d18a45e874417",
+  "fixture_changes": [
+    "JSON raw checks for existing synthetic 7/10 and 0/10",
+    "inputs_verification.ok=true",
+    "guards_used=[]",
+    "identical synthetic PREREG D/E bytes",
+    "empty injected external only for admission truth-table"
+  ],
+  "checks": [
+    {
+      "id": "positive",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 1,
+          "all_formal_admitted": true,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "ok",
+          "genuine_timeout": false,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": true,
+          "fails": [],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "release-false",
+      "pass": true,
+      "observed": {
+        "raised": true,
+        "exception": "GateError",
+        "error": "准入判定要求 released_for_model_calls=true（当前 False）"
+      }
+    },
+    {
+      "id": "ok-nonzero-exit",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 0,
+          "all_formal_admitted": false,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "ok",
+          "genuine_timeout": false,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": false,
+          "fails": [
+            "status=ok 但 exit_code=9≠0"
+          ],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "fake-one-second-timeout",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 0,
+          "partial": 1,
+          "not_executed": 0,
+          "formal_admitted": 0,
+          "all_formal_admitted": false,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "partial",
+          "field_compliance": true,
+          "execution_status": "timeout",
+          "genuine_timeout": false,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": false,
+          "fails": [
+            "timeout 缺真实停止证据（duration_s≥slot.timeout_s 且 outcome/stop_source）"
+          ],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "wrong-checker-sha",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 0,
+          "partial": 1,
+          "not_executed": 0,
+          "formal_admitted": 0,
+          "all_formal_admitted": false,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "partial",
+          "field_compliance": true,
+          "execution_status": "ok",
+          "genuine_timeout": false,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": false,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": false,
+          "fails": [
+            "judge.checker_sha256 缺失或与 contract 不一致",
+            "score-receipt.checker_sha256 缺失或与 contract 不一致",
+            "raw checker.stdout 与 receipt.raw_checker_output 不一致",
+            "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+          ],
+          "record_valid": true,
+          "score_receipt_sha256": "3f3fe6ea7c893dbe08140c0b0cfedff24ce97b48ca3059b557df2911b6eedcab"
+        }
+      }
+    },
+    {
+      "id": "wrong-product-rule-order",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 0,
+          "all_formal_admitted": false,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "ok",
+          "genuine_timeout": false,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": false,
+          "fails": [
+            "meta.product 与门内 product 不一致：'codex'",
+            "rule_version 与 contract 不一致：'not-the-contract'",
+            "order 与 plan 不一致：999"
+          ],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "wrong-raw-checker",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 0,
+          "partial": 1,
+          "not_executed": 0,
+          "formal_admitted": 0,
+          "all_formal_admitted": false,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "partial",
+          "field_compliance": true,
+          "execution_status": "ok",
+          "genuine_timeout": false,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": false,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 0,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 0.0,
+              "exp8": 0.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": false,
+          "fails": [
+            "raw checker.stdout 与 receipt.raw_checker_output 不一致",
+            "meta.judge 计数 7/10 ≠ raw 重算 0/10",
+            "score.reported ≠ 按原始计数重算 8dp",
+            "meta.weighted ≠ 按原始计数重算 8dp",
+            "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+          ],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "notexec-missing-reason-and-seal",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 0,
+          "executed": 0,
+          "partial": 0,
+          "not_executed": 1,
+          "formal_admitted": 0,
+          "all_formal_admitted": false,
+          "accounting_complete": false
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "not_executed",
+          "field_compliance": false,
+          "execution_status": "not_executed",
+          "genuine_timeout": false,
+          "evidence_integrity": false,
+          "seal_plan_integrity": false,
+          "source_hash_integrity": false,
+          "allowed_actual_configuration": false,
+          "evidence_complete": false,
+          "contamination_cleared": false,
+          "full_denominator_score_valid": false,
+          "score": null,
+          "formal_admission": false,
+          "fails": [
+            "notexecuted.json 缺正确封印引用",
+            "not_executed 须非空 reason 与 stop_source"
+          ],
+          "record_valid": false
+        }
+      }
+    },
+    {
+      "id": "wb-observed-valid",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 1,
+          "all_formal_admitted": true,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "ok",
+          "genuine_timeout": false,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": true,
+          "fails": [],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "wb-unknown-without-management",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 0,
+          "all_formal_admitted": false,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "ok",
+          "genuine_timeout": false,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": false,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": false,
+          "fails": [
+            "actual_gateway=unknown 但 managed_unknowns 未覆盖 gateway 项（含影响/下一步/停止条件）"
+          ],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "timeout-verified-positive",
+      "pass": true,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 1,
+          "all_formal_admitted": true,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "timeout",
+          "genuine_timeout": true,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": true,
+          "fails": [],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "timeout-no-termination",
+      "pass": false,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 1,
+          "all_formal_admitted": true,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "timeout",
+          "genuine_timeout": true,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": true,
+          "fails": [],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "timeout-stop-false",
+      "pass": false,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 1,
+          "all_formal_admitted": true,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "timeout",
+          "genuine_timeout": true,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": true,
+          "fails": [],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "timeout-permission-denied",
+      "pass": false,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 1,
+          "all_formal_admitted": true,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "timeout",
+          "genuine_timeout": true,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": true,
+          "fails": [],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    },
+    {
+      "id": "wb-observed-effort-unknown-no-management",
+      "pass": false,
+      "observed": {
+        "raised": false,
+        "summary": {
+          "planned": 1,
+          "accounted": 1,
+          "executed": 1,
+          "partial": 0,
+          "not_executed": 0,
+          "formal_admitted": 1,
+          "all_formal_admitted": true,
+          "accounting_complete": true
+        },
+        "row": {
+          "slot_id": "synthetic-slot",
+          "order": 1,
+          "case": "synthetic-case",
+          "evidence_dir": "runs/synthetic",
+          "accounting": "executed",
+          "field_compliance": true,
+          "execution_status": "ok",
+          "genuine_timeout": false,
+          "evidence_integrity": true,
+          "seal_plan_integrity": true,
+          "source_hash_integrity": true,
+          "allowed_actual_configuration": true,
+          "evidence_complete": true,
+          "contamination_cleared": true,
+          "full_denominator_score_valid": true,
+          "score": {
+            "reported": 70.0,
+            "denominator": 10,
+            "earned_recomputed": 7,
+            "possible_recomputed": 10,
+            "raw_weighted_cross_check": {
+              "raw": 70.0,
+              "exp8": 70.0,
+              "within_2dp_rounding": true
+            }
+          },
+          "formal_admission": true,
+          "fails": [],
+          "record_valid": true,
+          "score_receipt_sha256": "2f26497ef0c59dc44b34092b40305e870971a5818a109838e16a226c833cb92a"
+        }
+      }
+    }
+  ],
+  "passed": false
+}

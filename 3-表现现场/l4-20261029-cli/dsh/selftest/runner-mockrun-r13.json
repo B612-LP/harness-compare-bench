@@ -1,0 +1,60 @@
+{
+  "kind": "mock_run_self_test",
+  "tool": "lab.py(l4-dsh)",
+  "spec": "l4-20261029-dsh",
+  "at": "2026-10-29T21:42:25+08:00",
+  "zero_model": true,
+  "counts": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0
+  },
+  "cases": [
+    {
+      "case": "mock-ok-formal-admitted",
+      "pass": true,
+      "detail": "{\"planned\": 1, \"accounted\": 1, \"executed\": 1, \"partial\": 0, \"not_executed\": 0, \"formal_admitted\": 1, \"all_formal_admitted\": true, \"accounting_complete\": true}[]"
+    },
+    {
+      "case": "mock-ok-full-usage",
+      "pass": true,
+      "detail": "{\"compared\": 1, \"equal\": 1, \"mismatch\": []}"
+    },
+    {
+      "case": "mock-low-exit1-admitted",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "case": "mock-timeout-genuine-admitted",
+      "pass": true,
+      "detail": "[{\"n\": 1, \"kind\": \"single-dispatch\", \"policy\": \"whole_execution_restarts=0\", \"pid\": 54562, \"pgid\": 54562, \"started_at\": \"2026-10-29T21:42:23+08:00\", \"finished_at\": \"2026-10-29T21:42:24+08:00\", \"durati[]"
+    },
+    {
+      "case": "mock-unverified-earlyexit-halt",
+      "pass": true,
+      "detail": "code1=3 checker=0 popen=1 halt=True next=3 popen_total=1"
+    },
+    {
+      "case": "mock-unverified-gate-not-formal",
+      "pass": true,
+      "detail": "{\"planned\": 2, \"accounted\": 1, \"executed\": 0, \"partial\": 1, \"not_executed\": 0, \"formal_admitted\": 0, \"all_formal_admitted\": false, \"accounting_complete\": false}[\"classify=fail:missing issues=[{'field': 'usage', 'class': 'missing', 'detail':"
+    },
+    {
+      "case": "mock-unscored-null-partial",
+      "pass": true,
+      "detail": "{\"planned\": 1, \"accounted\": 1, \"executed\": 0, \"partial\": 1, \"not_executed\": 0, \"formal_admitted\": 0, \"all_formal_admitted\": false, \"accounting_complete\": true}[\"classify=fail:type issues=[{'field': 'weighted', 'class': 'type', 'detail': 'ex"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py",
+      "sha256_8": "cf116ff8",
+      "sha256": "cf116ff872abe976f5a6847b484b01febc10d67217f1ebc39a8b38bd43945688",
+      "bytes": 82237,
+      "at": "2026-10-29T21:42:25+08:00",
+      "line": "3-表现现场/l4-20261029-cli/dsh/tools/lab.py · cf116ff8 · 82237B · 2026-10-29T21:42:25+08:00"
+    }
+  ],
+  "live_doc_drift": []
+}

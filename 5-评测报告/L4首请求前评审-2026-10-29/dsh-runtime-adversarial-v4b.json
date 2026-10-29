@@ -1,0 +1,231 @@
+{
+  "category": "self_test",
+  "scope": "Independent production run_slot/cmd_run control flow with mandatory in-process Popen stub; no real process/model/checker/network",
+  "generated_at": "2026-10-29T14:18:52.675311+00:00",
+  "live_doc_drift": [],
+  "source_sha256": "2a378846035526ee22d02120757ca56520463c27c9d1dd0b1e167343dcd032a2",
+  "reviewer_script_sha256": "0a4953565771b8f2f744cc8753a9ce2ad2c87be81808588c2cb843face801f9c",
+  "worlds": [
+    {
+      "phase": "timeout-unverified",
+      "checks": [
+        {
+          "id": "timeout-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "id": "timeout-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "id": "timeout-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "id": "timeout-unverified:valid-first-accounting",
+          "pass": false
+        },
+        {
+          "id": "timeout-unverified:raw-stop-false-recorded",
+          "pass": false
+        }
+      ],
+      "observed": {
+        "first_code": 3,
+        "next_code": 3,
+        "first_exception": null,
+        "next_exception": null,
+        "counts_after_first": {
+          "popen": 1,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "counts_final": {
+          "popen": 1,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "stdout": "{\"slot\": \"synthetic-first\", \"status\": \"timeout\", \"stop_verified\": false, \"halted\": true, \"checker_calls\": 0, \"note\": \"未验证停止：早退 partial，formal=false，后续 slot 已被 halt 拒绝\", \"evidence\": \"/private/tmp/l4-gate-dsh-reviewed-v4-a1n45c5e/evidence/first\"}\n{\"ok\": false, \"halted\": true, \"by\": \"synthetic-first\", \"reason\": \"timeout stop unverified (verified_stop=false)\", \"note\": \"持久 halt 标记在位，拒绝派发；须 lead 处置后移除\"}\n",
+        "meta": null,
+        "termination_receipt": null,
+        "notexecuted": null,
+        "halt": {
+          "halted": true,
+          "slot_id": "synthetic-first",
+          "reason": "timeout stop unverified (verified_stop=false)",
+          "at": "2026-10-29T22:18:52+08:00",
+          "effect": "后续所有 slot 派发被拒（跨进程持久），直至 lead 处置",
+          "notify": "lead",
+          "live_doc_drift": []
+        }
+      }
+    },
+    {
+      "phase": "normal-exit-unverified",
+      "checks": [
+        {
+          "id": "normal-exit-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "id": "normal-exit-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "id": "normal-exit-unverified:next-slot-popen-zero",
+          "pass": false
+        },
+        {
+          "id": "normal-exit-unverified:valid-first-accounting",
+          "pass": false
+        },
+        {
+          "id": "normal-exit-unverified:not-fictitious-timeout",
+          "pass": false
+        }
+      ],
+      "observed": {
+        "first_code": 2,
+        "next_code": 3,
+        "first_exception": null,
+        "next_exception": null,
+        "counts_after_first": {
+          "popen": 0,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "counts_final": {
+          "popen": 1,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "stdout": "证据目录已存在（永不覆盖/不重建，拒绝重复执行）：/private/tmp/l4-gate-dsh-reviewed-v4-a1n45c5e/evidence/first\n{\"slot\": \"synthetic-second\", \"note\": \"unverified-stop 早退归档部分失败\", \"error\": \"AttributeError(\\\"'NoneType' object has no attribute 'get'\\\")\"}\n{\"slot\": \"synthetic-second\", \"status\": \"timeout\", \"stop_verified\": false, \"halted\": true, \"checker_calls\": 0, \"note\": \"未验证停止：早退 partial，formal=false，后续 slot 已被 halt 拒绝\", \"evidence\": \"/private/tmp/l4-gate-dsh-reviewed-v4-a1n45c5e/evidence/second\"}\n",
+        "meta": null,
+        "termination_receipt": null,
+        "notexecuted": null,
+        "halt": {
+          "halted": true,
+          "slot_id": "synthetic-second",
+          "reason": "timeout stop unverified (verified_stop=false)",
+          "at": "2026-10-29T22:18:52+08:00",
+          "effect": "后续所有 slot 派发被拒（跨进程持久），直至 lead 处置",
+          "notify": "lead",
+          "live_doc_drift": []
+        }
+      }
+    },
+    {
+      "phase": "spawn-failure",
+      "checks": [
+        {
+          "id": "spawn-failure:checker-zero",
+          "pass": true
+        },
+        {
+          "id": "spawn-failure:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "id": "spawn-failure:next-slot-popen-zero",
+          "pass": false
+        },
+        {
+          "id": "spawn-failure:valid-first-accounting",
+          "pass": false
+        }
+      ],
+      "observed": {
+        "first_code": 2,
+        "next_code": 2,
+        "first_exception": null,
+        "next_exception": null,
+        "counts_after_first": {
+          "popen": 0,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "counts_final": {
+          "popen": 0,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "stdout": "证据目录已存在（永不覆盖/不重建，拒绝重复执行）：/private/tmp/l4-gate-dsh-reviewed-v4-a1n45c5e/evidence/first\n证据目录已存在（永不覆盖/不重建，拒绝重复执行）：/private/tmp/l4-gate-dsh-reviewed-v4-a1n45c5e/evidence/second\n",
+        "meta": null,
+        "termination_receipt": null,
+        "notexecuted": null,
+        "halt": null
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "timeout-unverified:checker-zero",
+      "pass": true
+    },
+    {
+      "id": "timeout-unverified:no-post-stop-capture",
+      "pass": true
+    },
+    {
+      "id": "timeout-unverified:next-slot-popen-zero",
+      "pass": true
+    },
+    {
+      "id": "timeout-unverified:valid-first-accounting",
+      "pass": false
+    },
+    {
+      "id": "timeout-unverified:raw-stop-false-recorded",
+      "pass": false
+    },
+    {
+      "id": "normal-exit-unverified:checker-zero",
+      "pass": true
+    },
+    {
+      "id": "normal-exit-unverified:no-post-stop-capture",
+      "pass": true
+    },
+    {
+      "id": "normal-exit-unverified:next-slot-popen-zero",
+      "pass": false
+    },
+    {
+      "id": "normal-exit-unverified:valid-first-accounting",
+      "pass": false
+    },
+    {
+      "id": "normal-exit-unverified:not-fictitious-timeout",
+      "pass": false
+    },
+    {
+      "id": "spawn-failure:checker-zero",
+      "pass": true
+    },
+    {
+      "id": "spawn-failure:no-post-stop-capture",
+      "pass": true
+    },
+    {
+      "id": "spawn-failure:next-slot-popen-zero",
+      "pass": false
+    },
+    {
+      "id": "spawn-failure:valid-first-accounting",
+      "pass": false
+    }
+  ],
+  "passed": false
+}

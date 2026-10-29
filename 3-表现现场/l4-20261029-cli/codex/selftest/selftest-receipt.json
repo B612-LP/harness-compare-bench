@@ -1,0 +1,48 @@
+{
+  "kind": "self_test",
+  "batch": "l4-20261029-cli-codex",
+  "at": "2026-10-29T21:52:45+08:00",
+  "live_doc_drift": [],
+  "scope_statement": {
+    "final_fixed_round": "本收据仅描述最终修复轮 selftest 进程自身：零真实请求（socket 哨兵覆盖 Python 侧；桩 CLI 为无网络文件脚本，经 lab.CODEX_BIN 注入，有 mock_never_real_codex 守卫）",
+    "phase_i_whole": "阶段 I 整体含一次已知事故（INCIDENT-20261029-mock-real-codex-launch）：真实请求数未知（已知 chatgpt.com 出站 1 次 401；DeepSeek 请求未知倾向未发生；证据等级 incomplete）——本收据不追溯覆盖该运行"
+  },
+  "model_calls": 0,
+  "model_calls_note": "仅指本轮 selftest 进程自身；非阶段 I 整体声明",
+  "credentials_read": false,
+  "counts": {
+    "pass": 73,
+    "fail": 0,
+    "total": 73
+  },
+  "verdict_line": "SELFTEST: PASS",
+  "incident_reference": "incidents/INCIDENT-20261029-mock-real-codex-launch.md + incident-receipt.json",
+  "covers": [
+    "plan 不变量",
+    "write_once O_EXCL",
+    "gate fail-closed 家族（含 prereg==seal 断言）",
+    "claim 重复调用零 Popen",
+    "close_process_group 双路径 + term_delivery/probe 分记 + verified 纪律",
+    "E-blocker 负例（孙代持续写→行为停止）",
+    "usage 四态",
+    "双归档 equivalent_simulation",
+    "真实 validate_meta/classify（gate.load_runner_validator）mock ok=pass",
+    "checker exit1=正常评分",
+    "cmd_run 全链 mock（桩 CLI）",
+    "halt.json 停批纪律",
+    "gate-shape（verified_stop/signal/ack_at + meta.termination_receipt 绑定）",
+    "首失败回归：父退+子忽略TERM孤儿组（saved_pgid 权威；行为停止断言受沙箱孤儿信号 no-op 阻断→WARN 待 judge 真实 runtime 复验）",
+    "termination 身份一致（slot_id/saved_pgid/attempt.pgid）",
+    "dsh atk14–16 契约：attempts[0] pid/pgid（Popen 即时 getpgid）+ doc group_confirmed_gone + meta 绑定仅{file,sha256}（无双说）",
+    "partial 早退：任何 phase 停止未确认 → checker 0 调用/score=null/halt/后槽阻断"
+  ],
+  "runtime_sources_sha256": {
+    "tools/lab.py": "0b3d8c910e2d5a3498b28d11c5455bcf62fdf08b5f5d9b1ee0917fa8e74c01de",
+    "tools/dual_archive.py": "5935e127e5317b62de2a36e90811e68d19ea1f78d59926f44230a5d0360202a7",
+    "tools/selftest.py": "0cce0cb84b5bf2478d7a1107ee425afdad79f60d44dfae98c06e0862c7a91672",
+    "config/codex-config.toml": "bc70bc913a6bd4fdd87548d4db77bbea077d75caf8114b3982ac4dece98a28ae"
+  },
+  "warnings": [
+    "WARN orphan_behavioral_stop -> still_alive_after_kill (size_before=16 size_after=89)"
+  ]
+}

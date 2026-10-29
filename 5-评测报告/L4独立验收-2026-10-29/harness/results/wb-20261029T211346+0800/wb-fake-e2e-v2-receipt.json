@@ -1,0 +1,66 @@
+{
+  "kind": "judge_fake_e2e_receipt_v2",
+  "harness": "wb_fake_e2e.py",
+  "harness_sha256": "b598830fd73781fd96926e52fe0872f9e81f8acf1ef7b4a7a068ee610a7ddcf9",
+  "snapshot": "/private/tmp/judge-l4/wb-20261029T211346+0800",
+  "snapshot_head_shas": {
+    "src-wb/runner/l4_wb_runner.py": "9eae069969c64c1501e9f7f536a20218db87f1e60fd4e3b3ff65d007b09d8c74",
+    "src-wb/runner/safe_driver.py": "8c90165f7896adff4379435bc8721e5f63434cdb2f48e84940b046524fdb54c6",
+    "src-wb/runner/verify_execution.py": "a2d5b24281a556fa78cca69a566760e7df93fb27d8c52f62eeb9a192772bf2c4",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "79dfad03c9fc02ccaa3110790526b8671abee96296cf976e1f36ea9b9575a207",
+    "execution_seal.py": "a756938d490634f19daa93454450d67fba4221c446bddad554f6c1b71992217c"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-wb2-20261029T211346+0800/repo",
+  "binding_E": "de38f9f928a008e8545403f6d702af64a2a69d45",
+  "registered_at": "2026-10-29T21:12:47+08:00",
+  "generated_at": "2026-10-29T21:22:48+08:00",
+  "cases": {
+    "W1_e_seal_block": {
+      "verdict": "pass",
+      "detail": {
+        "rc": 2,
+        "refused_receipt": true,
+        "stderr_tail": ""
+      }
+    },
+    "W11_binding_values_defined": {
+      "verdict": "pass",
+      "detail": {
+        "returns_keys": [
+          "contract_sha256",
+          "design_commit",
+          "execution_manifest_sha256",
+          "execution_seal_commit",
+          "generated_at",
+          "live_doc_drift"
+        ],
+        "error": null
+      }
+    },
+    "W2_dry_baseline": {
+      "verdict": "fail",
+      "detail": {
+        "rc": 1,
+        "status": null,
+        "accounting_state": null,
+        "usage_per_call_n": 0,
+        "slot_id_top_level": null,
+        "managed_unknowns_type": "NoneType",
+        "stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 11, in <module>\n  File \"/tmp/judge-l4/fixture-wb2-20261029T211346+0800/repo/3-表现现场/l4-20261029-wb-gateway/runner/l4_wb_runner.py\", line 459, in run_impl\n    case = slot[\"case\"]\nTypeError: string indices must be integers\n"
+      }
+    }
+  },
+  "sentinel": {
+    "sentinel-w1.log": {
+      "attempts": 0,
+      "non_local": 0
+    },
+    "sentinel.log": {
+      "attempts": 0,
+      "non_local": 0
+    }
+  },
+  "live_doc_drift": null
+}

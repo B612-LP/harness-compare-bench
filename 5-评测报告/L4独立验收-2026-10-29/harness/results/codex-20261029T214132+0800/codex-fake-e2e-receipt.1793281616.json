@@ -1,0 +1,91 @@
+{
+  "kind": "judge_fake_e2e_receipt",
+  "harness": "codex_fake_e2e.py",
+  "harness_sha256": "b7db1110e8e374bc34bbb91d62c66e492114d24fe3dceffd4a619fa4fd2e4a9c",
+  "fake_codex_sha256": "72e7e7db5948872706b62f1e713941c303f7d14b639beb7d9919367b2c635b30",
+  "snapshot": "/private/tmp/judge-l4/codex-20261029T214132+0800",
+  "snapshot_head_shas": {
+    "src-codex/tools/lab.py": "b3d1e7d012ec299846af9ae922c161ad741d8f8d69610a617f627f488d849913",
+    "plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract.json": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "gate.py": "eaf4b57cc1a346c5ba0b96cc25042761518032af644a31bcf04c2e08b8f6fdd8",
+    "execution_seal.py": "a756938d490634f19daa93454450d67fba4221c446bddad554f6c1b71992217c"
+  },
+  "fixture_repo": "/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo",
+  "binding_E": "70bb9a605ff3ba2de84ac90280375543abb41655",
+  "registered_at": "2026-10-29T21:36:55+08:00",
+  "generated_at": "2026-10-29T21:46:56+08:00",
+  "cases": {
+    "CX2_happy_full_chain": {
+      "verdict": "fail",
+      "detail": {
+        "prepare_rc": 0,
+        "run_rc": null,
+        "status": null,
+        "registered_at_ok": false,
+        "missing_evidence": [
+          "claim.json",
+          "prompt.txt",
+          "stdout.raw",
+          "stderr.raw",
+          "session-capture.json",
+          "score-receipt.json",
+          "checker.stdout",
+          "meta.json",
+          "dual-archive.status.json"
+        ],
+        "usage_calls": 0,
+        "presence_states": [],
+        "capture_matched": 0,
+        "reward": null,
+        "reward_is_int": false,
+        "all_invocations_fake": true,
+        "audit_n": 0,
+        "formal_eligible": null,
+        "stderr_tail": "20261029T214132+0800/repo/3-表现现场/l4-20261029-cli/codex/tools/lab.py\", line 723, in cmd_run\n    binding = gate_check_real()  # fail-closed：E 未封印/未释放/哈希不符/gate 拒绝 → 不发请求\n  File \"/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo/3-表现现场/l4-20261029-cli/codex/tools/lab.py\", line 211, in gate_check_real\n    call_gate(BINDING_PATH)\n  File \"/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo/3-表现现场/l4-20261029-cli/codex/tools/lab.py\", line 195, in call_gate\n    result = gate.verify_execution(str(binding_path), require_release=True)\n  File \"/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo/1-评测方案/工具链/l4-execution/gate.py\", line 321, in verify_execution\n    step(\"manifest-external-files-consistent\", not ext_drift,\n  File \"/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo/1-评测方案/工具链/l4-execution/gate.py\", line 201, in step\n    raise GateError(\"verify_execution 失败于 %s：%s\" % (name, detail))\nl4_gate.GateError: verify_execution 失败于 manifest-external-files-consistent：[{\"path\": \"/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/home/bench-workspaces/l4-20261029-cli/codex/_codex-home/config.toml\", \"reason\": \"sha-mismatch\", \"want\": \"bc70bc91\", \"got\": \"6f5e8a4a\"}]\n"
+      }
+    },
+    "CX6_timeout_verified": {
+      "verdict": "fail",
+      "detail": {
+        "status": null,
+        "term_phase": null,
+        "term_delivery": null,
+        "probe": null,
+        "verified": null,
+        "formal": null,
+        "judge_role": null,
+        "rc": 1,
+        "res": {},
+        "stdout_tail": "",
+        "stderr_tail": "epo/1-评测方案/工具链/l4-execution/gate.py\", line 321, in verify_execution\n    step(\"manifest-external-files-consistent\", not ext_drift,\n  File \"/private/tmp/judge-l4/fixture-codexF-20261029T214132+0800/repo/1-评测方案/工具链/l4-execution/gate.py\", line 201, in step\n    raise GateError(\"verify_execution 失败于 %s：%s\" % (name, detail))\nl4_gate.GateError: verify_execution 失败于 manifest-external-files-consistent：[{\"path\": \"/private/tmp/judge-l4/fixture-codexF-20261029T214132+0800/home/bench-workspaces/l4-20261029-cli/codex/_codex-home/config.toml\", \"reason\": \"sha-mismatch\", \"want\": \"bc70bc91\", \"got\": \"6f5e8a4a\"}]\n",
+        "stdout_raw_bytes": 0
+      }
+    },
+    "CX8_halt_gate_blocks_next": {
+      "verdict": "fail",
+      "detail": {
+        "rc": 0,
+        "audit_after": 0,
+        "stdout_tail": "{\"fail_closed\": true, \"reason\": \"批次已因未验证终止停批（halt.json）；待 lead 处置，不得续槽\"}\n@@RESULT@@{\"rc\": 3, \"audit_invocations\": 0, \"halt_exists\": true}\n",
+        "stderr_tail": ""
+      }
+    },
+    "CX9_resume_after_halt_cleared": {
+      "verdict": "fail",
+      "detail": {
+        "rc": null,
+        "status": null,
+        "stdout_tail": "",
+        "stderr_tail": "les-consistent\", not ext_drift,\n  File \"/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/repo/1-评测方案/工具链/l4-execution/gate.py\", line 201, in step\n    raise GateError(\"verify_execution 失败于 %s：%s\" % (name, detail))\nl4_gate.GateError: verify_execution 失败于 manifest-external-files-consistent：[{\"path\": \"/private/tmp/judge-l4/fixture-codex-20261029T214132+0800/home/bench-workspaces/l4-20261029-cli/codex/_codex-home/config.toml\", \"reason\": \"sha-mismatch\", \"want\": \"bc70bc91\", \"got\": \"6f5e8a4a\"}]\n"
+      }
+    }
+  },
+  "zero_real_cli_evidence": {
+    "audit_entries": 0,
+    "all_argv_fake": true,
+    "sentinel_non_local_attempts": 0,
+    "method": "lab.CODEX_BIN 绝对路径注入；preflight 类仅受限 PATH（无 /opt/homebrew/bin）；真实 codex 在 /opt/homebrew/bin/codex 存在（事故向量）——全程未触"
+  },
+  "live_doc_drift": null
+}
