@@ -26,7 +26,7 @@
 | 包 | 内容 | 执行者 | 状态 |
 |---|---|---|---|
 | A | r1031 n=3 可重复性（20 场，rep1=r1030） | builder-dsh / builder-codex → judge | 进行中 |
-| B | v2 全交付对抗盲审 | auditor | 进行中 |
+| B | v2 全交付对抗盲审 | auditor | **完成**(0 blocking;D1/D4 循环内修正,D2/D3 问题池;[AUDIT.md](<../../5-评测报告/对抗性盲审-2026-10-29/AUDIT.md>)) |
 | C | WB 请求级补证 | wb-probe | 进行中 |
 
 - 预注册封印：commit `be39fc2`（branch `loop1-2026-10-29`，先于一切运行）
