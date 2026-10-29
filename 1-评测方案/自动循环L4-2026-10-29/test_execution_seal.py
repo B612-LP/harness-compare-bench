@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+"""Synthetic git repositories only; no credentials, model APIs, or benchmark answers."""
+import argparse
+import contextlib
+import importlib.util
+import io
+import json
+import subprocess
+import tempfile
+import unittest
+from pathlib import Path
+
+SOURCE = Path(__file__).with_name('execution_seal.py')
+
+class SealTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(prefix='hcb-l4-seal-test-')
+        self.root = Path(self.tmp.name).resolve()
+        self.here = self.root/'1-plan'/'loop4'
+        self.here.mkdir(parents=True)
+        spec = importlib.util.spec_from_file_location('l4seal_under_test', SOURCE)
+        self.mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(self.mod)
+        self.mod.ROOT = self.root
+        self.mod.HERE = self.here
+        self.mod.MANIFEST = self.here/'execution-manifest.json'
+        self.mod.BINDING = self.here/'runtime-binding.json'
+        self.mod.__file__ = str(self.here/'execution_seal.py')
+        (self.here/'execution_seal.py').write_bytes(SOURCE.read_bytes())
+        for name in ('PREREGISTRATION.md','plan.json','contract.json'):
+            (self.here/name).write_text('{}\n',encoding='utf-8')
+        self.run_git('init','-q')
+        self.run_git('config','user.name','Synthetic L4 Test')
+        self.run_git('config','user.email','synthetic@example.invalid')
+        self.design = self.commit('synthetic design')
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def run_git(self,*args):
+        return subprocess.run(['git','-C',str(self.root),*args],capture_output=True,check=True).stdout.decode().strip()
+
+    def commit(self,msg):
+        # This is an isolated synthetic repository, never the user's repository.
+        self.run_git('add','1-plan/loop4')
+        self.run_git('commit','-qm',msg)
+        return self.run_git('rev-parse','HEAD')
+
+    def manifest(self):
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.mod.manifest(argparse.Namespace(design=self.design,file=[],external_file=[]))
+
+    def bind(self,seal):
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.mod.bind(argparse.Namespace(seal=seal,release=True))
+
+    def test_binding_matches_real_committer_time_and_blobs(self):
+        self.manifest()
+        seal=self.commit('synthetic execution seal')
+        self.bind(seal)
+        b=json.loads(self.mod.BINDING.read_text())
+        self.assertEqual(b['registered_at'],self.run_git('show','-s','--format=%cI',seal))
+        self.assertEqual(b['preregistration_commit'],seal)
+        self.assertTrue(b['released_for_model_calls'])
+
+    def test_design_drift_is_rejected(self):
+        (self.here/'plan.json').write_text('{"changed":true}\n')
+        with self.assertRaisesRegex(ValueError,'Design drift'):
+            self.manifest()
+
+    def test_source_drift_after_execution_seal_is_rejected(self):
+        self.manifest()
+        seal=self.commit('synthetic execution seal')
+        (self.here/'execution_seal.py').write_text('# changed\n')
+        with self.assertRaisesRegex(ValueError,'Source drift'):
+            self.bind(seal)
+
+    def test_uncommitted_manifest_is_rejected(self):
+        self.manifest()
+        with self.assertRaises(subprocess.CalledProcessError):
+            self.bind(self.design)
+
+    def test_manifest_and_binding_refuse_overwrite(self):
+        self.manifest()
+        before=self.mod.MANIFEST.read_bytes()
+        with self.assertRaises(FileExistsError):
+            self.manifest()
+        self.assertEqual(self.mod.MANIFEST.read_bytes(),before)
+        seal=self.commit('synthetic execution seal')
+        self.bind(seal)
+        binding=self.mod.BINDING.read_bytes()
+        with self.assertRaises(FileExistsError):
+            self.bind(seal)
+        self.assertEqual(self.mod.BINDING.read_bytes(),binding)
+
+    def test_dangling_symlink_refuses_create(self):
+        target=self.here/'missing-target'
+        path=self.here/'new.json'
+        path.symlink_to(target)
+        with self.assertRaises(FileExistsError):
+            self.mod.create(path,{'not':'written'})
+        self.assertFalse(target.exists())
+
+if __name__=='__main__':
+    unittest.main(verbosity=2)
