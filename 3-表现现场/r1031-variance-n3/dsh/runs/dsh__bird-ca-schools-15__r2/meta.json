@@ -1,0 +1,409 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "product": "dsh",
+  "case": "bird-ca-schools-15",
+  "rep": "2",
+  "event_id": "var-n3-dsh-bird-ca-schools-15-r2",
+  "form": "cli",
+  "preregistration_commit": "be39fc2",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/dsh/2/bird-ca-schools-15",
+  "created_at": "2026-10-29T13:42:11+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "24dc32c77a44674fd1660786c15d3224892f99d678d53cda8b900a1d667b8712",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/db/california_schools.sqlite",
+      "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+      "bytes": 11116544
+    },
+    {
+      "path": "inputs/questions.json",
+      "sha256": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+      "bytes": 15842
+    },
+    {
+      "path": "inputs/sample_rows.json",
+      "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+      "bytes": 7739
+    },
+    {
+      "path": "inputs/schema.sql",
+      "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+      "bytes": 3993
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T13:42:11+08:00",
+  "finished_at": "2026-10-29T13:44:38+08:00",
+  "duration_s": 146.8,
+  "transport_retries": [],
+  "archived_stdout": {
+    "raw_bytes": 0,
+    "raw_lines": 0,
+    "raw_file": "agent.jsonl",
+    "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+    "full_bytes": 170512,
+    "full_lines": 99,
+    "full_file": "agent.jsonl.full",
+    "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+  },
+  "usage": {
+    "requests": 18,
+    "input_tokens": 31689,
+    "output_tokens": 25485,
+    "cache_read_tokens": 658688,
+    "cache_creation_tokens": 0,
+    "per_call": [
+      {
+        "turn": 1,
+        "step": 1,
+        "input_tokens": 6915,
+        "output_tokens": 187,
+        "total_tokens": 7358,
+        "cache_read_tokens": 256,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 2,
+        "input_tokens": 6580,
+        "output_tokens": 170,
+        "total_tokens": 14046,
+        "cache_read_tokens": 7296,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 3,
+        "input_tokens": 3866,
+        "output_tokens": 2144,
+        "total_tokens": 19962,
+        "cache_read_tokens": 13952,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 4,
+        "input_tokens": 672,
+        "output_tokens": 2092,
+        "total_tokens": 22604,
+        "cache_read_tokens": 19840,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 5,
+        "input_tokens": 2048,
+        "output_tokens": 1419,
+        "total_tokens": 25995,
+        "cache_read_tokens": 22528,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 6,
+        "input_tokens": 1820,
+        "output_tokens": 1975,
+        "total_tokens": 29779,
+        "cache_read_tokens": 25984,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 7,
+        "input_tokens": 5241,
+        "output_tokens": 5863,
+        "total_tokens": 40800,
+        "cache_read_tokens": 29696,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 8,
+        "input_tokens": 410,
+        "output_tokens": 223,
+        "total_tokens": 41337,
+        "cache_read_tokens": 40704,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 9,
+        "input_tokens": 1618,
+        "output_tokens": 2052,
+        "total_tokens": 44886,
+        "cache_read_tokens": 41216,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 10,
+        "input_tokens": 382,
+        "output_tokens": 271,
+        "total_tokens": 45453,
+        "cache_read_tokens": 44800,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 11,
+        "input_tokens": 393,
+        "output_tokens": 866,
+        "total_tokens": 46699,
+        "cache_read_tokens": 45440,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 12,
+        "input_tokens": 157,
+        "output_tokens": 3057,
+        "total_tokens": 49806,
+        "cache_read_tokens": 46592,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 13,
+        "input_tokens": 393,
+        "output_tokens": 2271,
+        "total_tokens": 52456,
+        "cache_read_tokens": 49792,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 14,
+        "input_tokens": 284,
+        "output_tokens": 877,
+        "total_tokens": 53513,
+        "cache_read_tokens": 52352,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 15,
+        "input_tokens": 299,
+        "output_tokens": 258,
+        "total_tokens": 54061,
+        "cache_read_tokens": 53504,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 16,
+        "input_tokens": 231,
+        "output_tokens": 638,
+        "total_tokens": 54885,
+        "cache_read_tokens": 54016,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 17,
+        "input_tokens": 204,
+        "output_tokens": 1069,
+        "total_tokens": 56057,
+        "cache_read_tokens": 54784,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 18,
+        "input_tokens": 176,
+        "output_tokens": 53,
+        "total_tokens": 56165,
+        "cache_read_tokens": 55936,
+        "cache_creation_tokens": 0
+      }
+    ],
+    "cross_check": {
+      "compared": 0,
+      "equal": 0,
+      "mismatch": []
+    },
+    "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "bird-ca-schools-15",
+    "checker_version": "1.2-q26-frpm",
+    "contract_revision": "b2-tighten-2026-10-27",
+    "contract_status": "adopted-2026-10-26",
+    "parent_checker_version": "1.1",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/bench-workspaces/r1031/dsh/2/bird-ca-schools-15",
+    "reward": 1,
+    "weighted": 100.0,
+    "accuracy": 1.0,
+    "correct": 15,
+    "n_questions": 15,
+    "threshold": 0.8,
+    "input_integrity": "verified",
+    "failed_questions": [],
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "已附输入副本 4 件，均与 canonical 一致"
+      },
+      {
+        "id": "answers_file",
+        "pass": true,
+        "note": "/Users/b612-lp/bench-workspaces/r1031/dsh/2/bird-ca-schools-15/answers.jsonl"
+      },
+      {
+        "id": "answers_schema",
+        "pass": true,
+        "note": "15 行可解析，0 行 JSON/结构异常"
+      },
+      {
+        "id": "answers_coverage",
+        "pass": true,
+        "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+      },
+      {
+        "id": "q28",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（57 行）"
+      },
+      {
+        "id": "q36",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q62",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q83",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q87",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q12",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q23",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1239 行）"
+      },
+      {
+        "id": "q24",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1068 行）"
+      },
+      {
+        "id": "q25",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q26",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q27",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（8574 行）"
+      },
+      {
+        "id": "q31",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（2 行）"
+      },
+      {
+        "id": "q5",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q11",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（7806 行）"
+      },
+      {
+        "id": "q17",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（50 行）"
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+    "stdout_scan": {
+      "lines": 0,
+      "violations": 0
+    },
+    "session_scan": {
+      "lines": 127,
+      "violations": 0
+    },
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-dsh-bird-ca-schools-15-r2"
+}

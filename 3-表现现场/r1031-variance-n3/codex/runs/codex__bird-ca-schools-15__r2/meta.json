@@ -1,0 +1,448 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "preregistration_commit": "be39fc2",
+  "rep": 2,
+  "product": "codex",
+  "case": "bird-ca-schools-15",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/codex/2/bird-ca-schools-15",
+  "created_at": "2026-10-29T13:35:45+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+  "skills": "off（[skills] include_instructions=false，bundled disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "d94bc4f02497a3e2fbfd3655361618f6e62e64dc7f8a366ebe4889ee9a18045a",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/db/california_schools.sqlite",
+      "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+      "bytes": 11116544
+    },
+    {
+      "path": "inputs/questions.json",
+      "sha256": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+      "bytes": 15842
+    },
+    {
+      "path": "inputs/sample_rows.json",
+      "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+      "bytes": 7739
+    },
+    {
+      "path": "inputs/schema.sql",
+      "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+      "bytes": 3993
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T13:35:45+08:00",
+  "finished_at": "2026-10-29T13:38:29+08:00",
+  "duration_s": 163.8,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T13:35:45+08:00",
+      "duration_s": 163.8,
+      "exit_code": 0,
+      "outcome": "ok"
+    }
+  ],
+  "transport_retries": 0,
+  "stdout_bytes": 125526,
+  "stderr_bytes": 1095,
+  "stdout_sha256": "3effee8c36bc18605a34bf4c94ead742fbe9320129d4f7f175709f1b1b1e8467",
+  "stderr_sha256": "a6b1d15146b5059991916a2c70d4bd44bbf2fe856dc9191cc24674e6a24da26c",
+  "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+  "usage": {
+    "requests": 16,
+    "input_tokens": 608280,
+    "output_tokens": 28834,
+    "cache_read_tokens": 585856,
+    "cache_creation_tokens": 0,
+    "reasoning_output_tokens": 15326,
+    "total_tokens": 637114,
+    "cumulative_thread_final": {
+      "input_tokens": 608280,
+      "cached_input_tokens": 585856,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 28834,
+      "reasoning_output_tokens": 15326,
+      "total_tokens": 637114
+    },
+    "per_call": [
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:35:50.456Z",
+        "response_id": "d825d773-78b3-4a29-90ef-0b7856144192",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 9573,
+        "cache_read_tokens": 7808,
+        "cache_creation_tokens": 0,
+        "output_tokens": 975,
+        "reasoning_output_tokens": 55,
+        "total_tokens": 10548
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:35:53.346Z",
+        "response_id": "d277fd60-1589-436d-80c1-4751a0853488",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 17011,
+        "cache_read_tokens": 10496,
+        "cache_creation_tokens": 0,
+        "output_tokens": 420,
+        "reasoning_output_tokens": 54,
+        "total_tokens": 17431
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:36:11.745Z",
+        "response_id": "7a20ebe8-057f-4556-8254-2f7ca8863f6c",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 19833,
+        "cache_read_tokens": 17408,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3083,
+        "reasoning_output_tokens": 2184,
+        "total_tokens": 22916
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:36:20.214Z",
+        "response_id": "d7271cc0-a1e9-493f-b3f3-61757c3e10e4",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 23590,
+        "cache_read_tokens": 22912,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1722,
+        "reasoning_output_tokens": 331,
+        "total_tokens": 25312
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:36:27.559Z",
+        "response_id": "b318e4b3-90ef-4f5c-aace-f82e81c19142",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 26178,
+        "cache_read_tokens": 25216,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1192,
+        "reasoning_output_tokens": 611,
+        "total_tokens": 27370
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:36:41.209Z",
+        "response_id": "db168fc6-dd3b-4aa0-9120-ca3696835292",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 28700,
+        "cache_read_tokens": 27264,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2829,
+        "reasoning_output_tokens": 780,
+        "total_tokens": 31529
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:36:51.522Z",
+        "response_id": "c3a34a6b-8613-4c6d-80bc-27908fe1a073",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 35380,
+        "cache_read_tokens": 31488,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1880,
+        "reasoning_output_tokens": 926,
+        "total_tokens": 37260
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:37:02.419Z",
+        "response_id": "88679965-182d-49f3-9a78-5e049dd5f70f",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 38268,
+        "cache_read_tokens": 37248,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1873,
+        "reasoning_output_tokens": 1313,
+        "total_tokens": 40141
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:37:38.643Z",
+        "response_id": "c83322a0-2716-4cdb-826c-496152eae126",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 40756,
+        "cache_read_tokens": 40064,
+        "cache_creation_tokens": 0,
+        "output_tokens": 6426,
+        "reasoning_output_tokens": 4794,
+        "total_tokens": 47182
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:37:42.272Z",
+        "response_id": "376bf1ec-3eaf-49a6-b570-e88ff0aa4b64",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 48285,
+        "cache_read_tokens": 47104,
+        "cache_creation_tokens": 0,
+        "output_tokens": 580,
+        "reasoning_output_tokens": 154,
+        "total_tokens": 48865
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:37:50.579Z",
+        "response_id": "42150e48-ad4c-44b5-87f4-2532f6a12b8a",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 49020,
+        "cache_read_tokens": 48768,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2013,
+        "reasoning_output_tokens": 470,
+        "total_tokens": 51033
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:37:54.463Z",
+        "response_id": "14f7221f-b1ab-4a04-8f51-5f09bb4e751c",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 51084,
+        "cache_read_tokens": 50944,
+        "cache_creation_tokens": 0,
+        "output_tokens": 686,
+        "reasoning_output_tokens": 87,
+        "total_tokens": 51770
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:38:01.598Z",
+        "response_id": "cef45f59-fe1a-4f30-9a2b-d985119b8e8c",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 52380,
+        "cache_read_tokens": 51712,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1307,
+        "reasoning_output_tokens": 785,
+        "total_tokens": 53687
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:38:18.630Z",
+        "response_id": "d657b7b7-73bf-4555-938a-d1b3e3f27186",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 54090,
+        "cache_read_tokens": 53632,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2531,
+        "reasoning_output_tokens": 1872,
+        "total_tokens": 56621
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:38:21.956Z",
+        "response_id": "a4b51dbf-79cb-4806-a13b-b0858a9b50fd",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 56722,
+        "cache_read_tokens": 56576,
+        "cache_creation_tokens": 0,
+        "output_tokens": 553,
+        "reasoning_output_tokens": 185,
+        "total_tokens": 57275
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-35-46-01a18628-3b56-7ee2-b7e9-40dbd73bcf62.jsonl",
+        "ts": "2026-10-29T05:38:28.143Z",
+        "response_id": "558456f8-e3d3-4ae9-a9b2-cf31bfd799a5",
+        "turn_id": "01a18628-3b88-7d23-aca7-8f7a6f1b0f98",
+        "input_tokens": 57410,
+        "cache_read_tokens": 57216,
+        "cache_creation_tokens": 0,
+        "output_tokens": 764,
+        "reasoning_output_tokens": 725,
+        "total_tokens": 58174
+      }
+    ],
+    "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "bird-ca-schools-15",
+    "checker_version": "1.2-q26-frpm",
+    "contract_revision": "b2-tighten-2026-10-27",
+    "contract_status": "adopted-2026-10-26",
+    "parent_checker_version": "1.1",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/bench-workspaces/r1031/codex/2/bird-ca-schools-15",
+    "reward": 1,
+    "weighted": 100.0,
+    "accuracy": 1.0,
+    "correct": 15,
+    "n_questions": 15,
+    "threshold": 0.8,
+    "input_integrity": "verified",
+    "failed_questions": [],
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "已附输入副本 4 件，均与 canonical 一致"
+      },
+      {
+        "id": "answers_file",
+        "pass": true,
+        "note": "/Users/b612-lp/bench-workspaces/r1031/codex/2/bird-ca-schools-15/answers.jsonl"
+      },
+      {
+        "id": "answers_schema",
+        "pass": true,
+        "note": "15 行可解析，0 行 JSON/结构异常"
+      },
+      {
+        "id": "answers_coverage",
+        "pass": true,
+        "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+      },
+      {
+        "id": "q28",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（57 行）"
+      },
+      {
+        "id": "q36",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q62",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q83",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q87",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q12",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q23",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1239 行）"
+      },
+      {
+        "id": "q24",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1068 行）"
+      },
+      {
+        "id": "q25",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q26",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q27",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（8574 行）"
+      },
+      {
+        "id": "q31",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（2 行）"
+      },
+      {
+        "id": "q5",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q11",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（7806 行）"
+      },
+      {
+        "id": "q17",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（50 行）"
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "inline session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-codex-bird-ca-schools-15-r2",
+  "event_id": "var-n3-codex-bird-ca-schools-15-r2",
+  "selection": {
+    "plan_id": "var-n3-20261029",
+    "slot_id": "var-n3-codex-bird-ca-schools-15-r2",
+    "order": 2,
+    "kind": "rep"
+  }
+}
