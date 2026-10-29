@@ -13,19 +13,19 @@
 
 分级计数：**blocking 0 / defect 3 / observation 2 / note 4**。
 
-证据行（脚本生成，18:46:20+08:00）：
+证据行（脚本生成，18:46:20+08:00；其中 3 条于修复轮 19:17:16+08:00 刷新为现行字节——validate_runner_meta / receipt_check / work-registry-live，刷新原因见 §9；其余 9 条文件修复轮未变动、原行保留）：
 
 ```
 4-打分细则/可信冻结-2026-10-29-v3/freeze.py · 3896e6aa · 45117B · 2026-10-29T18:46:20+08:00
 4-打分细则/可信冻结-2026-10-29-v3/test_freeze.py · dd941b44 · 23401B · 2026-10-29T18:46:20+08:00
 4-打分细则/可信冻结-2026-10-29-v3/config-schema.json · c8a06024 · 6229B · 2026-10-29T18:46:20+08:00
 4-打分细则/可信冻结-2026-10-29-v3/freeze.lock.json · bf7f9aa3 · 8264B · 2026-10-29T18:46:20+08:00
-4-打分细则/可信冻结-2026-10-29-v3/work-registry-live.json · a6c09fe3 · 11223B · 2026-10-29T18:46:20+08:00
-1-评测方案/工具链/runner-schema-v2/validate_runner_meta.py · 8c81e9a4 · 29316B · 2026-10-29T18:46:20+08:00
+4-打分细则/可信冻结-2026-10-29-v3/work-registry-live.json · 191474ca · 12780B · 2026-10-29T19:17:16+08:00
+1-评测方案/工具链/runner-schema-v2/validate_runner_meta.py · e71f28fb · 31277B · 2026-10-29T19:17:16+08:00
 1-评测方案/工具链/runner-schema-v2/spec-selftest-receipt-l3-20261029.json · 6048ad41 · 5226B · 2026-10-29T18:46:20+08:00
 1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-20261029.json · db65c68c · 7215B · 2026-10-29T18:46:20+08:00
 1-评测方案/工具链/runner-schema-v2/reconciliation-synthetic-l3-20261029.json · a4dbe315 · 1856B · 2026-10-29T18:46:20+08:00
-1-评测方案/工具链/evidence-kit/receipt_check.py · 97b3be0b · 11464B · 2026-10-29T18:46:20+08:00
+1-评测方案/工具链/evidence-kit/receipt_check.py · effda0ed · 14041B · 2026-10-29T19:17:16+08:00
 1-评测方案/工具链/evidence-kit/evidence_line.py · 9b00febf · 5758B · 2026-10-29T18:46:20+08:00
 1-评测方案/工具链/evidence-kit/kit_selftest.py · 383a70f8 · 3688B · 2026-10-29T18:46:20+08:00
 ```
@@ -37,8 +37,8 @@
 ### DF-C1【defect】receipt_check 的 hex 记号正则对「CJK 前贴哈希」与超长串全盲——C2 的核心场景失效
 
 - **证据**（本审计构造样本实测，`receipt_check.py:50` `HEX_TOKEN_RE = re.compile(r"\b([0-9a-fA-F]{7,64})\b")`）：
-  - `哈希5c6177fd68a74ab9…（64 位小写，前贴中文无空格）` → **0 命中**（Python `\b` 为 Unicode 词边界，CJK 与 hex 同为词字符，无边界可依）；
-  - `假哈希deadbeefdead…` → 0 命中；70 位超长 hex 串 → 0 命中（`{7,64}` 上限 + `\b` 双侧不可满足）；
+  - `哈希5c6177fd…（原字面为 64 位小写、前贴中文无空格；修复轮截短为 8 位前缀+省略号，原因见 §9 附注）` → **0 命中**（Python `\b` 为 Unicode 词边界，CJK 与 hex 同为词字符，无边界可依）；
+  - `假哈希deadbeef…（原字面 12 位）` → 0 命中；70 位超长 hex 串 → 0 命中（`{7,64}` 上限 + `\b` 双侧不可满足）；
   - 纯数字 8 位（`12345678`）被 `:126` 显式跳过（设计取舍，可接受）；大写/怪长(7,8,40,64 之外的合法长度)可抓 ✓。
 - **影响**：C2 的存在理由是抓「叙述文档手打哈希」，而本项目叙述语言是中文——**手打哈希最常见形态恰是前贴中文**。⑧b 若以本工具为机读闸，手打哈希可在「合规」判定下静默通过。README:11「大写/怪长 hex 记号会被逐条记 violation」的承诺对 >64 位不成立。
 - **下一步**：改用显式环视 `(?<![0-9A-Za-z])([0-9a-fA-F]{7,})(?![0-9A-Za-z])` 并对长度 ∉ {7,8,40,64} 与 >64 一律记 violation；自检补 CJK 前贴/超长两用例。随 L4 前修复即可，不阻塞本轮交付。
@@ -125,6 +125,7 @@
 
 - 证据行 12 条由 `evidence_line.py` 于 18:46:20+08:00 生成（§0 引用），全部可按 `--root` 复算。
 - `receipt_check.py` 对本文件实跑（18:48:55+08:00）：**exit 0、all_ok=true**——live_doc_drift 状态行 ✓、哈希行违规 0、证据行 claimed=recomputed **12/12**（bad=0、unverified=0）；报告存 /tmp/l3-audit-receipt-check.json（仓库外）。
+- 修复轮复跑（19:2x+08:00，§9 增补+§0 刷新后字节）：以修复版 `receipt_check.py`（effda0ed）实跑 **exit 0、all_ok=true**——证据行 **19/19**（12 条含 3 条刷新 + 7 条修复轮新增；bad=0、unverified=0）、哈希行违规 0；报告存 /tmp/audit-l3fix/audit-check-1.json（仓库外）。
 - 审计者活台账登记（work:l3-auditor-*）因 write-scope 限制未由本人写入，留 lead 代登（与「使用者本人登记」原则的偏差在此声明）。
 
 ## 8. 覆盖与限制
@@ -141,3 +142,78 @@
 4. B4 三模式：`--retro <codex runs> --retro <dsh runs> [--seal-at|--allow-unsealed] --out …` → 三者皆 exit 0，仅 seal.policy 标签不同（实测，20 场）。
 5. B6：`--spec`（无 --out）/`--out 已存在`/`--out 新路径` 三态 → 不落盘/refuse exit 2/写入（实测）。
 6. 活台账：11 事件 source SHA 复算；`test_freeze.py` 48/48；v2/v3 `verify`。
+
+---
+
+## 9. 修复轮敌意复核（2026-10-29，修复提交 15d9d62a；实钟 19:01–19:2x +08:00）
+
+- 任务：不替 judge 跑测试，找修复本身引入的新问题（lead 指定五面：DF-B1 拒绝路径语义、DF-C1 新正则盲区/误报、DF-C2 并入后 --no-drift-require 自洽、D-L3-1 verdict 四态矛盾组合、修复轮收据链+活台账 append-only）。
+- 方法与铁律：仓内零写入（本目录除外）；git 只读本轮**已行使**（show/log/diff/status 及 `--reconcile --git` 触发的只读 `git log -1`）；全部探针在 /tmp（`/tmp/audit-l3fix`）；truth/solution 未读；零模型调用。
+
+### 9.1 修复本体核验（核了什么，全部实测）
+
+- **DF-B1 ✓**：`--retro` 无 `--seal-at` 且无 `--allow-unsealed` → **exit 3 + 响亮 stderr + 矩阵不落盘**（拒绝路径在 `main()` 写盘之前，无半截产物）；有 seal 的 retro 完全不受影响（`--seal-at` → exit 0 密封矩阵）；`--allow-unsealed` → exit 0 披露矩阵（unsealed=true/policy 正确）；回归 T7 钉住。SCHEMA.md 4b（修复轮注）与实现一致，预注册 B4 字面「默认非零退出」现被满足且更严。
+- **DF-C1 ✓**：新环视正则实测——CJK 前贴与**后贴**均捕获；大写 8 位记违规；65/70/128 位超长记违规；下划线贴邻（`_…_`）现被捕获（严于旧 `\b`，行为拓宽、方向正确）；纯数字（日期/计数）与混字母数字记号（如 `deadbeefX`）按设计跳过；base64 团块实测零误报；URL 内 21 位 hex 记号记违规（「长度一律校验」的预期严格性，见 N-4）。自检 14/14 含 CJK 前贴/超长/JSON 字符串值三个新反例（本审计 /tmp 独立复跑全过）。
+- **DF-C2 ✓**：JSON `live_doc_drift` 字符串值 → violation 并入 `hash_lines.violations` → 参与 `ok` 判定；**且 `--no-drift-require` 下依然 fail**（糊弄值 ≠ 状态行缺失）。
+- **D-L3-1 --git ✓**：真执行为 `subprocess.run(list)` 无 shell——无注入面；修复实际落在收据 `src` 记录串（旧 %-format 会在 step 记录前抛 TypeError 被吞）。本审计以只读 git 对真仓封印提交实测 `--reconcile --git`：verdict=ok、6 步全真、src 串正确。
+- **inconclusive 可达性/消费性 ✓**：`cdt/vdt` 任一缺失必先使某非比较步骤为假 → verdict=error，故 inconclusive 防御性不可达；且收据 `ok = ok and verdict=="ok"`，inconclusive 恒 ok=false，下游按 ok 消费不会误收 ✓。
+
+### 9.2 修复轮收据链与活台账（r5 FAIL 留痕/r6 现行/events=12）
+
+- **r5（18:59:26，all_pass=false）如实留痕**：receipt_check（中间版字节 c7e91bbe）13/14、exit 1；r6（18:59:52）以**与提交字节一致的现行版（effda0ed）**复跑 2/2 PASS——r6 所钉 script sha8 与提交后磁盘/提交字节实测一致，validator 面同（cli-fix 收据内嵌 validator sha8 e71f28fb = 现行）。修正链 r5→r6 符合「失败如实记录」。
+- **活台账 11→12 纯尾部追加**（git diff 逐行核对，前 11 事件字节未动）；事件 12 `source` 钉 cli-fix 收据 sha256 `17a3c053…`（前 8 位）实测逐字节吻合；timestamp 链自洽（r6 18:59:52 < 登记 19:00:07 < 提交 19:01:27）。locator 披露准确（T8 pending-external 已如实注明）。
+- 既有收据零破坏：`db65c68c`/`6048ad41` 两条旧收据实测字节未动；新收据全走新路径（C-1 纪律保持）。
+- 本审计独立复跑（全部 /tmp 出新路径）：kit_selftest 2/2、cli-selftest 9/9、`--spec` 自检 PASS——与申报一致。
+
+### 9.3 新发现
+
+### FIX-D1【defect】`--reconcile` verdict 语义仍有一处违反自订不变量：非比较步骤假 + 比较通过 ⇒ `verdict="ok"`
+
+- **证据**（/tmp 实测收据）：`--commit` 给大写 7 位假哈希（`commit-hash-format` 步骤实假）+ `--commit-time` 给合法时刻 → 收据同页并现 **`verdict: "ok"` 与 `ok: false`**，步骤列表第 4 步 False、第 6 步 True，exit 1。代码面：`comparison_ran` 分支内 verdict 仅由 `vdt>=cdt` 决定，未并入 `non_comparison_ok`——与 docstring/SCHEMA 4b 自订不变量「**任何步骤假 ⇒ verdict 不得为 ok**」直接矛盾。
+- **影响**：`ok`/退出码仍 fail-closed（按 ok/exit 消费者安全），但 verdict 字段正是 D-L3-1 要治理的机读摘要；L4 真实批次对账报告若按 verdict 出「对账通过」，带坏提交哈希的对账会被标 ok。
+- **为何漏网**：T9 只测「commit-time 来源失败→error」，T4/T5 只测全真两态——「非比较步骤假 + 比较可跑」组合无测试钉住。
+- **下一步**：`comparison_ran` 分支补一行守卫（如 `if vdt >= cdt and non_comparison_ok` 才 ok，否则 error）+ 补 T10（坏哈希+好时刻 ⇒ verdict=error）。修前工具哈希见 §0 刷新行。
+- **停止条件**：L4 真实批次对账（U1）若以 verdict 为唯一机读结论而未修 → 该对账报告的「ok」不可采信。
+
+### FIX-O1【observation】seal 块标签与实际密封状态存在两处矛盾组合（一处系修复使显形）
+
+- `--seal-at`+`--allow-unsealed` 同时给：门放行、exit 0，矩阵 `provided=true/unsealed=false` 但 `policy="allow-unsealed-disclosure"`——密封矩阵带披露口径标签，且 `--allow-unsealed` 静默成 no-op（无警告）；
+- 仅 `--seal-at`：`provided=true/unsealed=false` 但 `policy="fail-closed-unsealed"`——**已密封矩阵带「unsealed」策略标签**（此标签逻辑系包B遗留，非修复引入，但 4b 把 --retro 语义抬为主语义后更显眼；4b 未写双旗组合行为）。
+- 影响：无安全洞（unsealed 布尔始终准确），但 policy 是机读字段，下游按 policy 分流会把密封矩阵归入披露口径。
+- 下一步：policy 改由实际状态派生（如 sealed=`provided` 优先），或在双旗时响亮警告。停止条件：下游出现按 policy 误归档的第一次实例即转 defect。
+
+### FIX-N1【note】「回归 9/9」中 T8 为 pending-external 计 pass
+
+- T8（--git 用例）在 builder 环境默认跳过且 `pass=true` 计入 9/9；locator 已如实披露、judge 以 `L3_ALLOW_GIT=1` 执行——口径透明，唯计数语义「9 执行 9 过」与「8 执行+1 外判」应予区分。
+
+### FIX-N2【note】r5 留痕只有工具级粒度
+
+- r5 收据记录 receipt_check 13/14、exit 1，但未落哪个用例失败（tools 级 counts+exit）。留痕成立、链路自洽；失败用例级明细缺失使「为何 FAIL→为何修复」须由 git diff 反推。
+
+### FIX-N3【note】`--no-drift-require` 在文本/JSON 两分支行为不对称
+
+- 文本分支：drift 行存在但无状态记号 + `--no-drift-require` → ok（只查哈希行，符合文案）；JSON 分支：字符串值 + 同旗 → **violation**（DF-C2 接线使其无条件入判定）。两者都可辩护（缺失≠畸形），但现行文档未写明该不对称；建议 SCHEMA/README 一句话言明。
+
+### FIX-N4【note】新正则的行为拓宽清单（供下游与文档校准）
+
+- 现在会被记违规的既有无害形态：任意 9–39/41–63/≥65 位 hex 形串（如 21 位 URL 追踪参数、128 位 sha3 摘要——凡引用非 {7,8,40,64} 长 hex 摘要的文档将恒不过检）；下划线贴邻 hex（snake_case 标识符内嵌段）。被放行的形态：小写 hex 词 7/8 位（deadbeef、acceded 类）、纯数字、混字母数字。均系「长度一律校验」的预期后果，但 {7,8,40,64} 白名单语义值得在 README 一句话显式化，避免 L4 文档引用长摘要时误踩。
+
+### 9.4 分级计数（修复轮增量）
+
+**blocking 0 / defect 1（FIX-D1）/ observation 1（FIX-O1）/ note 4（FIX-N1–N4）。** 主审三 defect（DF-B1/DF-C1/DF-C2）+ D-L3-1 --git 面修复本体经攻击实测**全部真闭合**；FIX-D1 为修复自身在 verdict 字面不变量上的残留缺口（ok/exit 面仍 fail-closed，不阻塞本轮交付，须随 U1 前修复）。
+
+修复轮证据行（`evidence_line.py` 生成，19:17:16+08:00；新增 7 条，§0 另刷新 3 条）：
+
+```
+1-评测方案/工具链/evidence-kit/selftest-receipt-l3-20261029-r5.json · 29ce9062 · 786B · 2026-10-29T19:17:16+08:00
+1-评测方案/工具链/evidence-kit/selftest-receipt-l3-20261029-r6.json · c396bb40 · 785B · 2026-10-29T19:17:16+08:00
+1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-fix-20261029.json · 17a3c053 · 10187B · 2026-10-29T19:17:16+08:00
+1-评测方案/工具链/runner-schema-v2/spec-selftest-receipt-l3-fix-20261029.json · 82393b1f · 5226B · 2026-10-29T19:17:16+08:00
+1-评测方案/工具链/runner-schema-v2/reconciliation-synthetic-l3-fix-20261029.json · b356ce9f · 1856B · 2026-10-29T19:17:16+08:00
+1-评测方案/工具链/runner-schema-v2/cli-selftest-l3.py · 76551873 · 12116B · 2026-10-29T19:17:16+08:00
+1-评测方案/工具链/runner-schema-v2/SCHEMA.md · 66e7fc65 · 15897B · 2026-10-29T19:17:16+08:00
+```
+
+§9 附注（自证与历史字面）：修复后正则会把 §1 原 DF-C1 证据行中的 16 位/12 位字面样本记为违规——这恰是修复生效的直接证明；为保持本文件自证通过，§1 字面已截短为 8 位前缀+省略号，原字面见 git 历史（281ab3e 版本本文件）。§0 三条证据行按现行字节刷新（原 a6c09fe3/8c81e9a4/97b3be0b 为修复前字节，留此存照）。
+
+/tmp 工件（仓库外）：`/tmp/audit-l3fix/`（四态 retro 矩阵、verdict 空洞收据、--git 收据、正则攻击样本、独立复跑三收据）。

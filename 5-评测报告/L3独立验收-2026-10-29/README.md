@@ -4,12 +4,12 @@
 - 逐条款机械证据与疑点钉死：[verify-receipt-l3.json](<verify-receipt-l3.json>)
 - 纪律：未改任何既有文件（仅本目录新建）；未写 work-registry-live.json；git 仅只读（log/show/diff）；`--spec` 类一律 `--out`/tmp；未读 2-用例 truth/solution；全部哈希/时刻由脚本生成后粘贴
 
-live_doc_drift: []（none）——2026-10-29 实测 `freeze.py verify`（v3 与 v2 均 exit=0, ok=true），summary.live_doc_drift==[]；本行即 ⑧b 状态行。
+live_doc_drift: []（none）——2026-10-29 实测 `freeze.py verify`（v3 与 v2 均 exit=0, ok=true），summary.live_doc_drift==[]；本行即 ⑧b 状态行。修复轮复验后实测仍为 []（DF-B1 闭项复核），JSON 收据值已按 DF-C2 迁移为 list（见 fix-verification-20261029.md）。
 
 ## Dogfood（⑧b/C3 首次真实使用）
 
 - 证据行由 evidence_line.py 生成（工具 sha256 前 8 位 9b00febf，自测 11/11）：
-5-评测报告/L3独立验收-2026-10-29/verify-receipt-l3.json · 569d86bb · 12920B · 2026-10-29T18:45:20+08:00
+5-评测报告/L3独立验收-2026-10-29/verify-receipt-l3.json · 343e0df3 · 13848B · 2026-10-29T19:08:29+08:00
 - receipt_check.py（97b3be0b，自测 10/10）对本验收两文档执行：预期 all_ok=true（本文件含状态行与合规证据行；JSON 收据含顶层 live_doc_drift 键）；实测结果与命令见下节。
 
 ## 逐包裁定
