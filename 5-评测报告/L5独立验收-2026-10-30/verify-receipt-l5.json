@@ -1,0 +1,397 @@
+{
+ "kind": "judge_l5_independent_acceptance_receipt",
+ "generated_at": "2026-10-30T02:39:08+08:00",
+ "task": "task-14",
+ "zero_model_calls": true,
+ "sentinel_log": "/tmp/judge-l5/sentinel.log",
+ "live_doc_drift": [],
+ "canonical_gate_v2": {
+  "gate_sha256": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9",
+  "formal_true": 5,
+  "formal_false": 1,
+  "detail": {
+   "l5-20261030-cli-codex-dabstep-payments-10-r1": {
+    "formal_admission": true,
+    "accounting": "executed",
+    "fails": [],
+    "contamination_cleared": true,
+    "evidence_complete": true,
+    "full_denominator_score_valid": true,
+    "field_compliance": true,
+    "source_hash_integrity": true
+   },
+   "l5-20261030-cli-codex-tb-cargo-plan-r1": {
+    "formal_admission": true,
+    "accounting": "executed",
+    "fails": [],
+    "contamination_cleared": true,
+    "evidence_complete": true,
+    "full_denominator_score_valid": true,
+    "field_compliance": true,
+    "source_hash_integrity": true
+   },
+   "l5-20261030-cli-dsh-dabstep-payments-10-r1": {
+    "formal_admission": true,
+    "accounting": "executed",
+    "fails": [],
+    "contamination_cleared": true,
+    "evidence_complete": true,
+    "full_denominator_score_valid": true,
+    "field_compliance": true,
+    "source_hash_integrity": true
+   },
+   "l5-20261030-cli-dsh-tb-cargo-plan-r1": {
+    "formal_admission": true,
+    "accounting": "executed",
+    "fails": [],
+    "contamination_cleared": true,
+    "evidence_complete": true,
+    "full_denominator_score_valid": true,
+    "field_compliance": true,
+    "source_hash_integrity": true
+   },
+   "l5-20261030-wb-gateway-bird-ca-schools-15-r1": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true,
+    "evidence_complete": true,
+    "full_denominator_score_valid": false,
+    "field_compliance": true,
+    "source_hash_integrity": true
+   },
+   "l5-20261030-wb-gateway-dabstep-payments-10-r1": {
+    "formal_admission": true,
+    "accounting": "executed",
+    "fails": [],
+    "contamination_cleared": true,
+    "evidence_complete": true,
+    "full_denominator_score_valid": true,
+    "field_compliance": true,
+    "source_hash_integrity": true
+   }
+  }
+ },
+ "u1": {
+  "disk_plan_sha==binding.plan_sha256": true,
+  "disk_contract_sha==binding.contract_sha256": true,
+  "disk_manifest_sha==binding.execution_manifest_sha256": true,
+  "manifest_repo_files": 23,
+  "manifest_external_files": 17,
+  "manifest_23_plus_17": true,
+  "manifest_mismatched": [],
+  "all_manifest_match": true,
+  "E3_identity": {
+   "preregistration_commit": "d8366da32694713d4f77c740f935229f9e298df4",
+   "execution_seal_commit": "d8366da32694713d4f77c740f935229f9e298df4",
+   "sealed_pair_equal": true,
+   "registered_at": "2026-10-30T02:16:07+08:00",
+   "released": true
+  }
+ },
+ "emission_checks": {
+  "l5-20261030-cli-codex-dabstep-payments-10-r1": {
+   "registered_at_eq_binding": true,
+   "started_at": "2026-10-30T02:19:43+08:00",
+   "start_strictly_after_E": true,
+   "r1_inputs_verification_ok": true,
+   "r1_judge": {
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "guards_used": [
+     "answers_format",
+     "input_integrity"
+    ],
+    "correct": 7,
+    "n_tasks": 10
+   },
+   "r1_score": {
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "eq_contract": true,
+    "reported": 70.0,
+    "reported_8dp": "70.00000000",
+    "checker_sha256_full": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94"
+   },
+   "r1_meta_weighted_8dp": "70.00000000",
+   "score_recompute": {
+    "raw_checks": 12,
+    "guards": 2,
+    "scored": 10,
+    "earned": 7,
+    "denominator": 10,
+    "canonical": "70.00000000",
+    "raw_weighted": 70.0,
+    "correct": 7,
+    "n_tasks": 10
+   }
+  },
+  "l5-20261030-cli-codex-tb-cargo-plan-r1": {
+   "registered_at_eq_binding": true,
+   "started_at": "2026-10-30T02:24:39+08:00",
+   "start_strictly_after_E": true,
+   "r1_inputs_verification_ok": true,
+   "r1_judge": {
+    "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+    "guards_used": [
+     "input_integrity",
+     "code_rerun",
+     "plan_structure"
+    ],
+    "correct": 20,
+    "n_tasks": 27
+   },
+   "r1_score": {
+    "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+    "eq_contract": true,
+    "reported": 74.07407407,
+    "reported_8dp": "74.07407407",
+    "checker_sha256_full": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677"
+   },
+   "r1_meta_weighted_8dp": "74.07407407",
+   "score_recompute": {
+    "raw_checks": 30,
+    "guards": 3,
+    "scored": 27,
+    "earned": 20,
+    "denominator": 27,
+    "canonical": "74.07407407",
+    "raw_weighted": 74.07,
+    "correct": null,
+    "n_tasks": null
+   }
+  },
+  "l5-20261030-cli-dsh-dabstep-payments-10-r1": {
+   "registered_at_eq_binding": true,
+   "started_at": "2026-10-30T02:16:59+08:00",
+   "start_strictly_after_E": true,
+   "r1_inputs_verification_ok": true,
+   "r1_judge": {
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "guards_used": [
+     "answers_format",
+     "input_integrity"
+    ],
+    "correct": 7,
+    "n_tasks": 10
+   },
+   "r1_score": {
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "eq_contract": true,
+    "reported": 70.0,
+    "reported_8dp": "70.00000000",
+    "checker_sha256_full": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94"
+   },
+   "r1_meta_weighted_8dp": "70.00000000",
+   "score_recompute": {
+    "raw_checks": 12,
+    "guards": 2,
+    "scored": 10,
+    "earned": 7,
+    "denominator": 10,
+    "canonical": "70.00000000",
+    "raw_weighted": 70.0,
+    "correct": 7,
+    "n_tasks": 10
+   },
+   "r3_session_capture": {
+    "match_method": "exact",
+    "matched": null,
+    "capture_nonempty": true
+   },
+   "r3_usage_not_all_null": true
+  },
+  "l5-20261030-cli-dsh-tb-cargo-plan-r1": {
+   "registered_at_eq_binding": true,
+   "started_at": "2026-10-30T02:23:16+08:00",
+   "start_strictly_after_E": true,
+   "r1_inputs_verification_ok": true,
+   "r1_judge": {
+    "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+    "guards_used": [
+     "code_rerun",
+     "input_integrity",
+     "plan_structure"
+    ],
+    "correct": 19,
+    "n_tasks": 27
+   },
+   "r1_score": {
+    "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+    "eq_contract": true,
+    "reported": 70.37037037,
+    "reported_8dp": "70.37037037",
+    "checker_sha256_full": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677"
+   },
+   "r1_meta_weighted_8dp": "70.37037037",
+   "score_recompute": {
+    "raw_checks": 30,
+    "guards": 3,
+    "scored": 27,
+    "earned": 19,
+    "denominator": 27,
+    "canonical": "70.37037037",
+    "raw_weighted": 70.37,
+    "correct": null,
+    "n_tasks": null
+   },
+   "r3_session_capture": {
+    "match_method": "exact",
+    "matched": null,
+    "capture_nonempty": true
+   },
+   "r3_usage_not_all_null": true
+  },
+  "l5-20261030-wb-gateway-bird-ca-schools-15-r1": {
+   "registered_at_eq_binding": true,
+   "started_at": "2026-10-30T02:17:12+08:00",
+   "start_strictly_after_E": true,
+   "r1_inputs_verification_ok": true,
+   "r1_judge": {
+    "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+    "guards_used": null,
+    "correct": 15,
+    "n_tasks": null
+   },
+   "r1_score": {
+    "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+    "eq_contract": true,
+    "reported": 100.0,
+    "reported_8dp": "100.00000000",
+    "checker_sha256_full": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54"
+   },
+   "r1_meta_weighted_8dp": "100.00000000",
+   "score_recompute": {
+    "raw_checks": 19,
+    "guards": 0,
+    "scored": 19,
+    "earned": 19,
+    "denominator": 15,
+    "canonical": "126.66666667",
+    "raw_weighted": 100.0,
+    "correct": 15,
+    "n_tasks": null
+   },
+   "r6_renderer_ready": {
+    "ready": true,
+    "waited_s": 0.0,
+    "polls": 1,
+    "timeout_s": 120,
+    "poll_s": 2
+   },
+   "r7_frame": {
+    "actual": {},
+    "write_once": null,
+    "cmd_accounting_overwrite": null,
+    "b32d844_pointer": false
+   }
+  },
+  "l5-20261030-wb-gateway-dabstep-payments-10-r1": {
+   "registered_at_eq_binding": true,
+   "started_at": "2026-10-30T02:19:08+08:00",
+   "start_strictly_after_E": true,
+   "r1_inputs_verification_ok": true,
+   "r1_judge": {
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "guards_used": [
+     "answers_format",
+     "input_integrity"
+    ],
+    "correct": 6,
+    "n_tasks": 10
+   },
+   "r1_score": {
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "eq_contract": true,
+    "reported": 60.0,
+    "reported_8dp": "60.00000000",
+    "checker_sha256_full": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94"
+   },
+   "r1_meta_weighted_8dp": "60.00000000",
+   "score_recompute": {
+    "raw_checks": 12,
+    "guards": 2,
+    "scored": 10,
+    "earned": 6,
+    "denominator": 10,
+    "canonical": "60.00000000",
+    "raw_weighted": 60.0,
+    "correct": 6,
+    "n_tasks": 10
+   },
+   "r6_renderer_ready": {
+    "ready": true,
+    "waited_s": 0.0,
+    "polls": 1,
+    "timeout_s": 120,
+    "poll_s": 2
+   },
+   "r7_frame": {
+    "actual": {},
+    "write_once": null,
+    "cmd_accounting_overwrite": null,
+    "b32d844_pointer": false
+   }
+  }
+ },
+ "r4_verification": {
+  "gate_sha_match_current": true,
+  "all_pass": true,
+  "baseline_slots": 17,
+  "skipped": 0,
+  "single_diff": "bird registrations whitelist fail gone（与 L4 L5-8 误报裁定一致）"
+ },
+ "r5_verification": {
+  "all_pass": true,
+  "unit_selftest": 6,
+  "slots": 18,
+  "erratum_ref_present": true
+ },
+ "r7": {
+  "frame_actual_x2": "executed + real score（bird 100.0 / dab 60.0）",
+  "write_once_copies": 6,
+  "cmd_accounting_overwrite": "runner 披露 write_json_atomic 覆盖事件；E2 版恢复指引=git show b32d844（lead 指针，judge 无 git 权限未独立复算）；不影响 E3 formal",
+  "frame_generated_at": "2026-10-30T02:23:11+08:00"
+ },
+ "aborted_archives": {
+  "seal_0152_kind": "lead_abort_seal_repair",
+  "e2_0207_kind": "lead_abort_e2_seal_repair",
+  "supplements": 2,
+  "direct_overlap_with_E3_planned": 0,
+  "consumption": "单列披露无 formal 资格"
+ },
+ "verdicts": {
+  "formal": {
+   "codex-dab": true,
+   "codex-cargo": true,
+   "dsh-dab": true,
+   "dsh-cargo": true,
+   "wb-dab": true,
+   "wb-bird": false
+  },
+  "scores_8dp_independently_confirmed": {
+   "codex-dab": "70.00000000",
+   "codex-cargo": "74.07407407",
+   "dsh-dab": "70.00000000",
+   "dsh-cargo": "70.37037037",
+   "wb-dab": "60.00000000",
+   "wb-bird": "100.00000000 raw（gate partial 不折满）"
+  }
+ },
+ "artifact_sha256": {
+  "canonical_gate_admission": "1f91a24be2fbe308c72c383b0ecac53d8a8450f8651c6ac26ee99f57e3d3a50e",
+  "u1_sealed_content": "7b8284a31058ea53c6d31812c16a165a022d7a8498be99a1c514a416720fe852",
+  "per_slot_emission": "2f7afac819ed28650487f5395ca8cc4b1e570e9fa75deaf56278309bdc57cce5",
+  "r4_receipt": "a980fdc7069988187cd2ed2a2afe1e063dc9d59ecaf99b8be48ffe81e05d5149",
+  "r5_receipt": "895e2657ddacdbaac8886b79e4c1f6a364ab9a55ded471504248e85aa55fe7ae",
+  "wb_frame": "15a5f837b14b254092901247dc374ec4ec33dd76c5cb34f6d6ebf3c0c80297cd"
+ },
+ "evidence_lines": [
+  "1-评测方案/自动循环L5-2026-10-30/runtime-binding.json · 7ee8b689 · 660B · 2026-10-30T02:39:08+08:00",
+  "1-评测方案/自动循环L5-2026-10-30/plan.json · 469a43df · 4024B · 2026-10-30T02:39:08+08:00",
+  "1-评测方案/自动循环L5-2026-10-30/contract.json · 944093c7 · 11649B · 2026-10-30T02:39:08+08:00",
+  "1-评测方案/自动循环L5-2026-10-30/execution-manifest.json · a653eacb · 5921B · 2026-10-30T02:39:08+08:00"
+ ],
+ "evidence_lines_note": "gate.py 全量 sha 见 canonical_gate_v2.gate_sha256；其字节数在证据行格式下构成 checker hex 记号误伤，故 gate.py 不入证据行"
+}

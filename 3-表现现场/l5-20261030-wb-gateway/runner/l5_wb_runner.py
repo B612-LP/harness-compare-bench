@@ -2072,9 +2072,11 @@ def main(argv) -> int:
         return cmd_run_slot(rest[0], dry="--dry" in rest[1:])
     if cmd == "accounting":
         frames = [accounting_frame(s) for s in wb_slots()]
-        out = write_json_atomic(HERE / "receipts" / "slot-accounting-frame.json",
-                                {"kind": "slot_accounting_frame", "at": now_iso(),
-                                 "slots": frames, "live_doc_drift": []})
+        # L5 池顺延修复（post-admission 2026-10-30，lead；E3 已验毕不受 manifest 漂移影响）：
+        # R7 write-once 补齐本路径（wb-probe 披露的 cmd_accounting write_json_atomic 漏配）。
+        out = write_json_once(HERE / "receipts" / "slot-accounting-frame.json",
+                              {"kind": "slot_accounting_frame", "at": now_iso(),
+                               "slots": frames, "live_doc_drift": []})
         print(f"[accounting] frame={out}")
         return 0
     print(__doc__)

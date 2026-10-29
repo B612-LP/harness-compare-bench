@@ -228,6 +228,19 @@
       "description": "L4 六类分账索引：product 17 槽（16 执行、1 未执行），bare-model 18 槽；独立准入与原始得分分列。事件记录的是一份离线索引，不将其视为18次合成实验或把事故并入35槽；interface_preflight事故独立存在，provider请求未知。",
       "pin_class": "live_doc",
       "registered_at": "2026-10-30T00:33:42+08:00"
+    },
+    {
+      "event_id": "work:l5-six-ledger-index-20261030",
+      "kind": "offline_recompute",
+      "executor": "lead（代 freeze-engineer 串行登记；数值由 ledger_build.py 读现有证据实算，formal 引 judge canonical）",
+      "timestamp": "2026-10-30T02:51:20+08:00",
+      "source": {
+        "path": "5-评测报告/L5综合结论-2026-10-30/six-ledger.json",
+        "sha256": "0ff7a90c595078ba135820ad9dbfc1d8bb593fbae72222fce6640003196af5ef"
+      },
+      "locator": "categories 与 counts；仅索引，不向旧冻结正式表插行",
+      "description": "L5 六类分账索引：product_run 6 槽全执行（canonical formal 5/6，wb-bird False=checker 缺 guards_used/n_tasks 缺省，observed 保留）；grading_regression=2（gate v2/cache mapping v2）；bare_model_probe=0；E1/E2 中止尝试单列无 formal；事故 2 项披露（ps 误印零入库、WB frame 覆盖已修复）",
+      "live_doc_drift": []
     }
   ]
 }

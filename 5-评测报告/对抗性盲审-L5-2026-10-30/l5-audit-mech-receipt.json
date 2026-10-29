@@ -1,0 +1,102 @@
+{
+ "kind": "l5_audit_mech_receipt",
+ "tool": "l5_audit.py",
+ "at": "2026-10-30T02:35:45+08:00",
+ "results": [
+  {
+   "check": "A1_binding_D_E3_match_expected",
+   "status": "PASS",
+   "detail": "{\"design_commit\": \"8b1043d05c5b9dd9b3ae5aa5982cea4e9e852825\", \"preregistration_commit\": \"d8366da32694713d4f77c740f935229f9e298df4\", \"execution_seal_commit\": \"d8366da32694713d4f77c740f935229f9e298df4\"}"
+  },
+  {
+   "check": "A2_manifest_sha_matches_binding",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "A3_plan_contract_disk_match_binding",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "A4_manifest_files_exist_and_hash_match",
+   "status": "PASS",
+   "detail": "files=23 bad=[] missing=[]"
+  },
+  {
+   "check": "A5_manifest_external_hash_match",
+   "status": "PASS",
+   "detail": "ext=17 bad=[]"
+  },
+  {
+   "check": "A6_lead_sealcheck_18_steps_all_ok",
+   "status": "PASS",
+   "detail": "steps=21 false=[]"
+  },
+  {
+   "check": "A7_git_time_verification",
+   "status": "PASS",
+   "detail": "registered-at-equals-E-commit-time 由 lead seal-check 记录 binding=git=2026-10-30T02:16:07+08:00（本审计零 git 操作，依落盘收据）"
+  },
+  {
+   "check": "B1_abort_seal_timestamps_monotonic",
+   "status": "PASS",
+   "detail": "E1_abort=2026-10-30T01:58:08+08:00 E2_abort=2026-10-30T02:15:41+08:00 E3_reg=2026-10-30T02:16:07+08:00"
+  },
+  {
+   "check": "B2_e2_archive_observed_scores_match_receipt",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "B3_e3_final_scores_mixed_vs_e2",
+   "status": "PASS",
+   "detail": "{\"l5-20261030-cli-codex-dabstep-payments-10-r1\": 70.0, \"l5-20261030-cli-codex-tb-cargo-plan-r1\": 74.07407407, \"l5-20261030-wb-gateway-bird-ca-schools-15-r1\": 100.0, \"l5-20261030-wb-gateway-dabstep-payments-10-r1\": 60.0, \"l5-20261030-cli-dsh-dabstep-payments-10-r1\": 70.0, \"l5-20261030-cli-dsh-tb-cargo-plan-r1\": 70.37037037}"
+  },
+  {
+   "check": "B4_reseal_reasons_evidenced",
+   "status": "PASS",
+   "detail": "wb_refusal_found=None dsh_FileExistsError=True"
+  },
+  {
+   "check": "E1_abort_receipt_sha_reconcile",
+   "status": "PASS",
+   "detail": "checked=27 ok=27 bad=[]"
+  },
+  {
+   "check": "E2_abort_receipt_sha_reconcile_incl_supplements",
+   "status": "FAIL",
+   "detail": "checked=187 ok=186 bad=['abort-receipt.json']"
+  },
+  {
+   "check": "E2_archive_file_count",
+   "status": "PASS",
+   "detail": "archive files=187（含收据/元数据；164+ 声明核对）"
+  },
+  {
+   "check": "C1_gate_patch_files_and_hunks",
+   "status": "PASS",
+   "detail": "touched=[] hunks=9"
+  },
+  {
+   "check": "C2_dsh_lab_diff_hunks",
+   "status": "FAIL",
+   "detail": "hunks=15 ['@@ -1,8 +1,8 @@', '@@ -49,10 +49,10 @@', '@@ -60,7 +60,7 @@', '@@ -69,8 +69,8 @@', '@@ -148,7 +148,7 @@', '@@ -253,7 +253,7 @@', '@@ -290,7 +290,7 @@', '@@ -544,20 +544,50 @@', '@@ -878,7 +908,10 @@', '@@ -1083,7 +1116,7 @@', '@@ -1099,8 +1132,9 @@', '@@ -1184,6 +1218,7 @@', '@@ -1662,7 +1697,7 @@', '@@ -1792,8 +1827,8 @@', '@@ -1870,7 +1905,7 @@'] | exist_ok_fix=True"
+  },
+  {
+   "check": "C3_wb_runner_diff_inventory",
+   "status": "PASS",
+   "detail": "{\"l5_wb_runner.py\": \"L4无此文件(新增)\", \"safe_driver.py\": \"hunks=3\", \"verify_execution.py\": \"hunks=2\"}"
+  },
+  {
+   "check": "C4_codex_tools_diff_spot",
+   "status": "PASS",
+   "detail": "{\"lab.py\": \"hunks=11\", \"dual_archive.py\": \"hunks=0\", \"selftest.py\": \"hunks=11\"}"
+  }
+ ],
+ "live_doc_drift": [],
+ "counts": {
+  "PASS": 16,
+  "FAIL": 2
+ }
+}
