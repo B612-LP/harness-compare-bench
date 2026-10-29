@@ -497,10 +497,14 @@ def cmd_reconcile(ledger: Path, pointer: str | None, line_regex: str | None, com
     verdict = "inconclusive"
     if comparison_ran:
         delta = round((vdt - cdt).total_seconds(), 3)
-        verdict = "ok" if vdt >= cdt else "violation"
         ok &= step("registered-at-ge-commit-time", vdt >= cdt,
                    "registered_at %s vs commit_time %s" % (value, cdt.isoformat()),
                    delta_seconds=delta)
+        # FIX-D1：非比较步骤假 ⇒ verdict 不得为 ok（即使比较本身通过）
+        if not non_comparison_ok:
+            verdict = "error"
+        else:
+            verdict = "ok" if vdt >= cdt else "violation"
     elif not non_comparison_ok:
         verdict = "error"
     receipt = {"kind": "self_test", "tool": "validate_runner_meta.py --reconcile", "spec": SPEC,

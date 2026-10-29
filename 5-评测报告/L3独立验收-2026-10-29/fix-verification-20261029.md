@@ -60,3 +60,15 @@
 - 原 [verify-receipt-l3.json](<verify-receipt-l3.json>) 除 drift 值迁移（dict→list+旁挂 note）与 D-L3-1 标注 closed 外未改判词；[README.md](<README.md>) 同步更新状态行与证据行
 
 *judge 出品 · 全部哈希/时刻脚本生成 · 复验留痕 /tmp/judge-l2/（t8-git-judge.json、t5-judge.json、t9-judge.json、dfb1.*、dfc/*、v3-test-fix.log、v3-verify-fix.json、fix-cli-rerun.json、r6-check*.json、l3-receipt-check3.json）*
+
+
+## FIX-D1 闭项节（dated 2026-10-29T19:28:57+08:00 实钟脚本生成）
+
+- 对象：auditor §9 敌意复核发现的 FIX-D1 残留（工作树修复，validator `e71f28fb`→`8e423de5`、cli-selftest `97d7bc0a`、新收据 cli-regression-receipt-l3-fixd1-20261029.json=`c59c966e`；代码改动在工作树待 lead 入库）
+- 逐项亲测（复用上轮扫描方法）：
+  1. **auditor 复现组合**：`--commit 72EDB51`（大写 7 位假哈希）+ 合法 `--commit-time-file` → exit=1、**verdict=error、ok=false**（矛盾形态不可复现）；commit-hash-format 步骤正确转假、合法 commit-time-source 步骤保持 true。对照组 `72edb519`+合法时刻 → exit=0、verdict=ok、ok=true ✓
+  2. **L3_ALLOW_GIT=1 回归 10/10**（+T10_fixd1_badhash_goodtime 即 auditor 组合回归）；T8 --git 真仓随单仍绿（executed/verdict=ok/ok=true/steps_all_ok=true）✓
+  3. **不变量扫描**：修复后代码结构上 verdict=ok ⇔ 比较已运行 ∧ 非比较步全真 ∧ vdt≥cdt，而 ok=全步 AND ⇒ 「verdict=ok 而 ok=false」**不可达**；四态实证——ok（对照）/ violation（early，exit=1）/ error（大写哈希与坏 pointer 两路，exit=1）/ inconclusive（防御保留，文档明示理论不可达）全部 verdict⇔ok 一致 ✓（SCHEMA §三.5 与 ：489 docstring 四态语义一致）
+  4. **字节守护**：17a3c053 ✓、spec-l3-fix 实测 **82393b1f**（lead 回执笔误 82393b1b，实值未变，恰为 ⑥ 手打教训现场演示）、5c6177fd ✓、6048ad41 ✓；v3 test_freeze 48/48（exit=0）+ verify exit=0（drift=[]）✓；活台账 events=13（work:l3-fixround-fixd1-20261029）✓
+
+**FIX-D1 → closed**（补修 + 回归 + 不变量三重确认；validator 新权威哈希 8e423de5…aef4，收据 c59c966e…fcfe3；代码待 lead 入库）。至此 L3 四 defect（D-L3-1/DF-B1/DF-C1/DF-C2）+ FIX-D1 残留全部闭项，无遗留 pending。

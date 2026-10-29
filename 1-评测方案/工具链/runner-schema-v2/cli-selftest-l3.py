@@ -209,6 +209,29 @@ def main() -> int:
                  and rep9.get("ok") is False and src_step.get("ok") is False),
         "run": r9}
 
+    # T10 FIX-D1 回归：非比较步骤假（commit-hash-format 对大写 7 位假哈希实假）+ 合法
+    # --commit-time（比较可跑）⇒ verdict 必须 = error（不得 ok）、ok=false、exit 1；
+    # 对照组：真格式 + 合法时刻（--commit-time 显式值模式顺带覆盖）⇒ verdict=ok 不变
+    p10 = tmp / "reconcile-badhash.json"
+    r10 = run(["--reconcile", "--ledger", str(FIXTURES / "reconcile" / "synthetic-ledger.json"),
+               "--pointer", "/registered_at", "--commit", "ABC1234",
+               "--commit-time", COMMIT_TIME, "--out", str(p10)])
+    rep10 = json.loads(p10.read_text(encoding="utf-8")) if p10.exists() else {}
+    hash_step = next((s for s in rep10.get("steps", []) if s["step"] == "commit-hash-format"), {})
+    p10b = tmp / "reconcile-goodhash-argtime.json"
+    r10b = run(["--reconcile", "--ledger", str(FIXTURES / "reconcile" / "synthetic-ledger.json"),
+                "--pointer", "/registered_at", "--commit", COMMIT,
+                "--commit-time", COMMIT_TIME, "--out", str(p10b)])
+    rep10b = json.loads(p10b.read_text(encoding="utf-8")) if p10b.exists() else {}
+    tests["T10_fixd1_badhash_goodtime"] = {
+        "bad_exit": r10["exit"], "bad_verdict": rep10.get("verdict"), "bad_ok": rep10.get("ok"),
+        "hash_step_ok": hash_step.get("ok"),
+        "good_exit": r10b["exit"], "good_verdict": rep10b.get("verdict"),
+        "pass": (r10["exit"] == 1 and rep10.get("verdict") == "error"
+                 and rep10.get("ok") is False and hash_step.get("ok") is False
+                 and r10b["exit"] == 0 and rep10b.get("verdict") == "ok"),
+        "runs": [r10, r10b]}
+
     all_pass = all(t.get("pass") for t in tests.values())
     receipt = {"kind": "self_test", "tool": "cli-selftest-l3.py", "spec": SPEC,
                "at": now(), "validator_sha256": sha(VALIDATOR),

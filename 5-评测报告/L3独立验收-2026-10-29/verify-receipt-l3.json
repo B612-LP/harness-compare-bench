@@ -123,7 +123,7 @@
       "impact": "L4 真实批次若选 --git 模式，收据将自带「源失败+verdict ok」矛盾记录；以 verdict 为键的机读消费会被误导",
       "next_step": "一行修复（%%cI 转义或改 f-string/字符串拼接）+ verdict 语义与 ok 对齐（或更名 comparison-verdict）；修后以 L4 封印提交做一次 --git 对账自测",
       "stop_condition": "U1（真实批次对账）执行前必须修复；未修复前 --git 模式输出不得作为闭项证据",
-      "status": "closed（修复轮 15d9d62a；复验见 fix-verification-20261029.md）"
+      "status": "closed（修复 15d9d62a；auditor FIX-D1 残留补修后终验通过，见 fix-verification-20261029.md FIX-D1 节）"
     },
     {
       "id": "N-1",
@@ -173,7 +173,7 @@
   },
   "live_doc_drift_note": {
     "status": "none",
-    "evidence": "python3 -B 4-打分细则/可信冻结-2026-10-29-v3/freeze.py verify（仓库根）→ exit=0, ok=true, summary.live_doc_drift==[]（judge 实测 2026-10-29 两轮：初验与修复轮）",
+    "evidence": "python3 -B 4-打分细则/可信冻结-2026-10-29-v3/freeze.py verify（仓库根）→ exit=0, ok=true, summary.live_doc_drift==[]（judge 实测 2026-10-29 三轮：初验/修复轮/FIX-D1 复验均为空）",
     "migration": "DF-C2 生效后值类型收紧为 null|list，原 dict 表述迁移至本旁挂字段"
   }
 }
