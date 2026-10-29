@@ -1,0 +1,784 @@
+{
+  "batch": "l4-20261029-cli",
+  "rule_version": "l4-20261029-batch-v1",
+  "design_commit_D": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+  "preregistration_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+  "registered_at": "2026-10-29T23:13:56+08:00",
+  "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+  "run_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+  "event_id": "event:l4-20261029-cli-codex-tb-cargo-plan-r1",
+  "rep": 1,
+  "order": 2,
+  "stratum": "cli_current_sentinel",
+  "product": "codex",
+  "case": "tb-cargo-plan",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/l4-20261029-cli-codex-tb-cargo-plan-r1",
+  "created_at": "2026-10-29T23:34:04+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "timeout_s": 2400,
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME）",
+  "skills": "off",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "aaa5b67687dc37c5f0c52d9ae89d73dee3cbdffbc0329c1da0d40a7772560ff3",
+  "prompt_path_confound": "workspace 绝对路径内嵌于 prompt；跨槽路径不同为设计内显式保留混杂",
+  "whole_execution_restarts": 0,
+  "replacements": 0,
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/app/aircraft.py",
+      "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+      "bytes": 2376
+    },
+    {
+      "path": "inputs/app/data/aircraft.json",
+      "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+      "bytes": 496
+    },
+    {
+      "path": "inputs/app/data/airports.json",
+      "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+      "bytes": 1685
+    },
+    {
+      "path": "inputs/app/data/manifest.json",
+      "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+      "bytes": 1257
+    },
+    {
+      "path": "inputs/app/data/weather.json",
+      "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+      "bytes": 1611
+    },
+    {
+      "path": "inputs/app/dispatch.py",
+      "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+      "bytes": 8504
+    },
+    {
+      "path": "inputs/app/navigation.py",
+      "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+      "bytes": 2482
+    }
+  ],
+  "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+  "config_ref": {
+    "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/config/codex-config.toml",
+    "sha256": "bc70bc913a6bd4fdd87548d4db77bbea077d75caf8114b3982ac4dece98a28ae",
+    "compare_at_run": "CODEX_HOME/config.toml 必须与该快照逐字节一致；不一致=配置漂移停槽",
+    "contains_key": false
+  },
+  "status": "ok",
+  "exit_code": 0,
+  "infra_type": null,
+  "timed_out": false,
+  "started_at": "2026-10-29T23:34:04+08:00",
+  "finished_at": "2026-10-29T23:37:54+08:00",
+  "duration_s": 229.2,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T23:34:04+08:00",
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+      "pid": 94044,
+      "pgid": 94044,
+      "duration_s": 229.2,
+      "exit_code": 0,
+      "outcome": "ok"
+    }
+  ],
+  "termination": {
+    "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+    "run_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+    "event_id": "event:l4-20261029-cli-codex-tb-cargo-plan-r1",
+    "pid": 94044,
+    "saved_pgid": 94044,
+    "attempt": {
+      "n": 1,
+      "started_at": "2026-10-29T23:34:04+08:00",
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+      "pid": 94044,
+      "pgid": 94044
+    },
+    "phase": "normal_exit",
+    "at": "2026-10-29T23:37:54+08:00",
+    "pgid_source": "saved_at_dispatch",
+    "pgid": 94044,
+    "term_delivery": "skipped",
+    "probe": "verified_gone",
+    "signal": null,
+    "verified": true,
+    "verified_stop": true,
+    "group_confirmed_gone": true,
+    "ack_at": "2026-10-29T23:37:54+08:00",
+    "fallback_child_kill": false,
+    "direct_child_returncode": 0
+  },
+  "termination_receipt": {
+    "file": "termination.json",
+    "sha256": "1ca5641483855833ab41daa3d565ca7474e7f92fe77c8b61fe862a1ebfa60d7d"
+  },
+  "runner_formal_eligible": true,
+  "judge_role": "formal_candidate",
+  "transport_retries": 0,
+  "retry_note": "L4 §3B：whole-execution restart 上限 0；无 transport-retry 重启；CLI 进程内部不可观察重试如存在则披露为不可观察",
+  "execution_binding": {
+    "design_commit": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+    "execution_seal_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+    "execution_manifest_sha256": "da1a4fa09a2f64fefdf2a5339c83b8c9a992ad5c95cb79d810c46f671f7cd017"
+  },
+  "selection": {
+    "plan_id": "l4-20261029",
+    "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+    "order": 2,
+    "kind": "first",
+    "parent_id": null,
+    "reason": null,
+    "registered_at": "2026-10-29T23:13:56+08:00",
+    "plan_source": 0,
+    "plan_pointer": "/product_slots/1"
+  },
+  "diagnostic": null,
+  "usage": {
+    "requests": 15,
+    "input_tokens": 591561,
+    "output_tokens": 39140,
+    "cache_read_tokens": 562688,
+    "cache_creation_tokens": 0,
+    "reasoning_output_tokens": 25123,
+    "total_tokens": 630701,
+    "per_call": [
+      {
+        "ts": "2026-10-29T15:34:08.653Z",
+        "response_id": "ed89a7e8-22ae-4ccf-a77d-ddab7246c08d",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 8860,
+          "cached_input_tokens": 7808,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 928,
+          "reasoning_output_tokens": 43,
+          "total_tokens": 9788
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 8860,
+        "cache_read_tokens": 7808,
+        "cache_creation_tokens": 0,
+        "output_tokens": 928,
+        "reasoning_output_tokens": 43,
+        "total_tokens": 9788
+      },
+      {
+        "ts": "2026-10-29T15:34:12.430Z",
+        "response_id": "d047ea20-5ae1-45cc-a36a-26ea751d8740",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 15076,
+          "cached_input_tokens": 9728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 806,
+          "reasoning_output_tokens": 13,
+          "total_tokens": 15882
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 15076,
+        "cache_read_tokens": 9728,
+        "cache_creation_tokens": 0,
+        "output_tokens": 806,
+        "reasoning_output_tokens": 13,
+        "total_tokens": 15882
+      },
+      {
+        "ts": "2026-10-29T15:34:29.964Z",
+        "response_id": "d628a446-687a-4ac3-8df9-229d1fa40941",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 21036,
+          "cached_input_tokens": 15872,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2743,
+          "reasoning_output_tokens": 1875,
+          "total_tokens": 23779
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 21036,
+        "cache_read_tokens": 15872,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2743,
+        "reasoning_output_tokens": 1875,
+        "total_tokens": 23779
+      },
+      {
+        "ts": "2026-10-29T15:34:44.567Z",
+        "response_id": "c7bf8aa7-ab26-44d7-8254-7230d31ce38e",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 25001,
+          "cached_input_tokens": 23680,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2322,
+          "reasoning_output_tokens": 1524,
+          "total_tokens": 27323
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 25001,
+        "cache_read_tokens": 23680,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2322,
+        "reasoning_output_tokens": 1524,
+        "total_tokens": 27323
+      },
+      {
+        "ts": "2026-10-29T15:34:53.635Z",
+        "response_id": "140b08a5-fcb2-4fab-8065-8643f4fe2ddf",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 28541,
+          "cached_input_tokens": 27264,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1842,
+          "reasoning_output_tokens": 768,
+          "total_tokens": 30383
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 28541,
+        "cache_read_tokens": 27264,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1842,
+        "reasoning_output_tokens": 768,
+        "total_tokens": 30383
+      },
+      {
+        "ts": "2026-10-29T15:35:01.103Z",
+        "response_id": "878f0a79-0344-4bd0-89ad-9dc2238791bb",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 31810,
+          "cached_input_tokens": 30336,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1595,
+          "reasoning_output_tokens": 468,
+          "total_tokens": 33405
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 31810,
+        "cache_read_tokens": 30336,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1595,
+        "reasoning_output_tokens": 468,
+        "total_tokens": 33405
+      },
+      {
+        "ts": "2026-10-29T15:35:04.984Z",
+        "response_id": "9bc4c1ff-fa99-4c7f-81d4-968b41169d38",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 33491,
+          "cached_input_tokens": 33280,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1130,
+          "reasoning_output_tokens": 7,
+          "total_tokens": 34621
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 33491,
+        "cache_read_tokens": 33280,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1130,
+        "reasoning_output_tokens": 7,
+        "total_tokens": 34621
+      },
+      {
+        "ts": "2026-10-29T15:35:34.654Z",
+        "response_id": "ffd8a85e-ef1b-4461-a159-a39c0aa98649",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 36095,
+          "cached_input_tokens": 34560,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4373,
+          "reasoning_output_tokens": 3695,
+          "total_tokens": 40468
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 36095,
+        "cache_read_tokens": 34560,
+        "cache_creation_tokens": 0,
+        "output_tokens": 4373,
+        "reasoning_output_tokens": 3695,
+        "total_tokens": 40468
+      },
+      {
+        "ts": "2026-10-29T15:36:24.938Z",
+        "response_id": "8f1ebc57-edf8-4181-826f-d8bd3d868b1c",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 41011,
+          "cached_input_tokens": 40448,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 8012,
+          "reasoning_output_tokens": 6888,
+          "total_tokens": 49023
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 41011,
+        "cache_read_tokens": 40448,
+        "cache_creation_tokens": 0,
+        "output_tokens": 8012,
+        "reasoning_output_tokens": 6888,
+        "total_tokens": 49023
+      },
+      {
+        "ts": "2026-10-29T15:36:36.844Z",
+        "response_id": "4adda4b9-94de-4de9-bd32-67444284b9d5",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 49100,
+          "cached_input_tokens": 45056,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2493,
+          "reasoning_output_tokens": 1162,
+          "total_tokens": 51593
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 49100,
+        "cache_read_tokens": 45056,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2493,
+        "reasoning_output_tokens": 1162,
+        "total_tokens": 51593
+      },
+      {
+        "ts": "2026-10-29T15:36:40.070Z",
+        "response_id": "baa56f64-1c58-45fb-ac6b-102e8b46fd13",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 51646,
+          "cached_input_tokens": 51456,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 834,
+          "reasoning_output_tokens": 27,
+          "total_tokens": 52480
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 51646,
+        "cache_read_tokens": 51456,
+        "cache_creation_tokens": 0,
+        "output_tokens": 834,
+        "reasoning_output_tokens": 27,
+        "total_tokens": 52480
+      },
+      {
+        "ts": "2026-10-29T15:37:00.202Z",
+        "response_id": "41b56208-270b-4dd4-8b27-8a22a9cde836",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 53951,
+          "cached_input_tokens": 52480,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3920,
+          "reasoning_output_tokens": 1729,
+          "total_tokens": 57871
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 53951,
+        "cache_read_tokens": 52480,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3920,
+        "reasoning_output_tokens": 1729,
+        "total_tokens": 57871
+      },
+      {
+        "ts": "2026-10-29T15:37:29.552Z",
+        "response_id": "fdb1148f-a11f-4bca-b38c-a61721776901",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 58362,
+          "cached_input_tokens": 57856,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4803,
+          "reasoning_output_tokens": 4004,
+          "total_tokens": 63165
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 58362,
+        "cache_read_tokens": 57856,
+        "cache_creation_tokens": 0,
+        "output_tokens": 4803,
+        "reasoning_output_tokens": 4004,
+        "total_tokens": 63165
+      },
+      {
+        "ts": "2026-10-29T15:37:43.184Z",
+        "response_id": "1f4205e5-179b-465d-a8b0-cdca424edfb4",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 67605,
+          "cached_input_tokens": 63104,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2160,
+          "reasoning_output_tokens": 1837,
+          "total_tokens": 69765
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 67605,
+        "cache_read_tokens": 63104,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2160,
+        "reasoning_output_tokens": 1837,
+        "total_tokens": 69765
+      },
+      {
+        "ts": "2026-10-29T15:37:52.496Z",
+        "response_id": "474d1661-0811-4c3d-9432-b222b9fbe8e5",
+        "turn_id": "01a1884c-0200-7e31-bc74-73731b2f45dc",
+        "usage_raw": {
+          "input_tokens": 69976,
+          "cached_input_tokens": 69760,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1179,
+          "reasoning_output_tokens": 1083,
+          "total_tokens": 71155
+        },
+        "usage_presence": {
+          "input_tokens": "positive",
+          "cached_input_tokens": "positive",
+          "cache_write_input_tokens": "zero",
+          "output_tokens": "positive",
+          "reasoning_output_tokens": "positive",
+          "total_tokens": "positive"
+        },
+        "input_tokens": 69976,
+        "cache_read_tokens": 69760,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1179,
+        "reasoning_output_tokens": 1083,
+        "total_tokens": 71155
+      }
+    ],
+    "presence_summary": {
+      "input_tokens": {
+        "positive": 15
+      },
+      "cached_input_tokens": {
+        "positive": 15
+      },
+      "cache_write_input_tokens": {
+        "zero": 15
+      },
+      "output_tokens": {
+        "positive": 15
+      },
+      "reasoning_output_tokens": {
+        "positive": 15
+      },
+      "total_tokens": {
+        "positive": 15
+      }
+    },
+    "semantics_note": "数值列为 lossy 投影（缺失→0 仅为求和 convenience）；字段缺失/null/0/正值 四态以 usage_raw+usage_presence 为准；cache_creation_tokens 的历史 0 在 codex 侧不能区分 absent/null/0（r1031 提取层 or 0 合并），dsh 侧为 session log 键存在且值 0——两产品字段源层不同，报告须分开陈述",
+    "source": "session rollout token_usage_record（母本 agent-session/）；与历史 rollout 非同请求，不做逐调用对应"
+  },
+  "weighted": 70.37037037,
+  "reward": 0,
+  "failed": [
+    "tow_within_limit",
+    "leg2_weight_limits_fuel",
+    "leg2_fuel_below_planned",
+    "leg2_remaining_below_reserve",
+    "landing_weight_leg2",
+    "total_time_includes_turnaround",
+    "total_time_value",
+    "route_feasible"
+  ],
+  "judge": {
+    "case": "tb-cargo-plan",
+    "checker_version": "0.2",
+    "contract_revision": "b12-b14-b13a-tighten-2026-10-27",
+    "reward": 0,
+    "weighted": 70.37,
+    "passed": 19,
+    "total": 27,
+    "critical_ok": false,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "ok"
+      },
+      {
+        "id": "code_rerun",
+        "pass": true,
+        "note": "ok"
+      },
+      {
+        "id": "plan_structure",
+        "pass": true,
+        "note": "route=6 legs=5"
+      },
+      {
+        "id": "route_hub",
+        "pass": true,
+        "note": "NAN..NAN"
+      },
+      {
+        "id": "route_order",
+        "pass": true,
+        "note": "['SUV', 'TBU', 'APW', 'FUN'] vs ['SUV', 'TBU', 'APW', 'FUN']"
+      },
+      {
+        "id": "leg_suv_tbu_distance",
+        "pass": true,
+        "note": "404.2 vs 404.2"
+      },
+      {
+        "id": "tas_varies",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "heading_wind_corrected",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "ground_speed",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "crosswind_dest",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "crosswind_apw_near_limit",
+        "pass": true,
+        "note": "19.1"
+      },
+      {
+        "id": "crosswind_ok_field",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_carries_no_fuel_stop",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_no_refuel_carry",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_capacity",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "reserve_holding",
+        "pass": true,
+        "note": "31.5 vs 31.5"
+      },
+      {
+        "id": "tow_within_limit",
+        "pass": false,
+        "note": ""
+      },
+      {
+        "id": "leg2_weight_limits_fuel",
+        "pass": false,
+        "note": "150.6 vs 145.7"
+      },
+      {
+        "id": "leg2_fuel_below_planned",
+        "pass": false,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_formula",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_above_min",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_ok_field",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "leg2_remaining_below_reserve",
+        "pass": false,
+        "note": "31.5"
+      },
+      {
+        "id": "tow_leg1",
+        "pass": true,
+        "note": "8464.3"
+      },
+      {
+        "id": "landing_weight_leg2",
+        "pass": false,
+        "note": "7915.0"
+      },
+      {
+        "id": "total_time_includes_turnaround",
+        "pass": false,
+        "note": "568.7 vs 568.7"
+      },
+      {
+        "id": "total_time_value",
+        "pass": false,
+        "note": "568.7"
+      },
+      {
+        "id": "route_feasible",
+        "pass": false,
+        "note": "False"
+      },
+      {
+        "id": "feasibility_includes_crosswind",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "feasibility_includes_fuel",
+        "pass": true,
+        "note": ""
+      }
+    ],
+    "checker_exit_code": 0,
+    "judge_note": "checker exit1 + 合法评分 JSON 属正常评分路径；评分器退出码不并入 CLI status/infra 分类"
+  },
+  "capability_failure": false,
+  "live_doc_drift": [],
+  "stdout_sha256": "7ac64e7590a8388463276077e06ac22f19c50eb6d2485eb4a261572d3432bfb6",
+  "stderr_sha256": "e893303264a2ec8da1653f50526b5e43995ba7a7582abb518675e239f8752587",
+  "stdout_bytes": 119890,
+  "stderr_bytes": 1115
+}

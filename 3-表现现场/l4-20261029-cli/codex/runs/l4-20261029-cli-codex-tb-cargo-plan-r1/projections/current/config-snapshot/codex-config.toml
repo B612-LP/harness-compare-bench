@@ -1,0 +1,18 @@
+# l4-20261029 · Codex CLI 隔离 CODEX_HOME · DeepSeek V4.1-Flash · thinking=low
+model = "deepseek-flash"
+model_provider = "deepseek"
+model_reasoning_effort = "low"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+web_search = "disabled"
+
+[skills]
+include_instructions = false
+[skills.bundled]
+enabled = false
+
+[model_providers.deepseek]
+name = "DeepSeek"
+base_url = "https://api.deepseek.com"
+env_key = "DEEPSEEK_API_KEY"
+wire_api = "responses"

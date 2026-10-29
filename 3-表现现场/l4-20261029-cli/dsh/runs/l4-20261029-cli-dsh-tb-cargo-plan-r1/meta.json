@@ -1,0 +1,262 @@
+{
+  "batch": "l4-20261029",
+  "rule_version": "l4-20261029-batch-v1",
+  "product": "dsh",
+  "case": "tb-cargo-plan",
+  "rep": 1,
+  "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r1",
+  "order": 8,
+  "stratum": "cli_current_sentinel",
+  "event_id": "event:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+  "run_id": "l4-20261029-cli-dsh-tb-cargo-plan-r1",
+  "form": "cli",
+  "preregistration_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+  "registered_at": "2026-10-29T23:13:56+08:00",
+  "workspace": "/Users/b612-lp/bench-workspaces/l4-20261029/dsh/l4-20261029-cli-dsh-tb-cargo-plan-r1",
+  "created_at": "2026-10-29T23:36:22+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages (dsh-headless --json projection)",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "7cde1c2b35aabb20cb9de8122f893a92c50766c592667d1834cc0d9ab3d08309",
+  "isolation": {
+    "ok": true,
+    "problems": [],
+    "mode": "fresh-workspace-per-slot"
+  },
+  "inputs": [
+    {
+      "path": "inputs/app/aircraft.py",
+      "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+      "bytes": 2376
+    },
+    {
+      "path": "inputs/app/data/aircraft.json",
+      "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+      "bytes": 496
+    },
+    {
+      "path": "inputs/app/data/airports.json",
+      "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+      "bytes": 1685
+    },
+    {
+      "path": "inputs/app/data/manifest.json",
+      "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+      "bytes": 1257
+    },
+    {
+      "path": "inputs/app/data/weather.json",
+      "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+      "bytes": 1611
+    },
+    {
+      "path": "inputs/app/dispatch.py",
+      "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+      "bytes": 8504
+    },
+    {
+      "path": "inputs/app/navigation.py",
+      "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+      "bytes": 2482
+    }
+  ],
+  "inputs_verification": {
+    "ok": true,
+    "basis": "prepare-time shipped subset vs contract.case_snapshots.files (hash-only, no truth semantics; input-modifiable cases pinned at dispatch)",
+    "checked": [
+      {
+        "path": "inputs/app/aircraft.py",
+        "sha256": "7b2afc42",
+        "match": true
+      },
+      {
+        "path": "inputs/app/data/aircraft.json",
+        "sha256": "5042e4c7",
+        "match": true
+      },
+      {
+        "path": "inputs/app/data/airports.json",
+        "sha256": "25bb33e3",
+        "match": true
+      },
+      {
+        "path": "inputs/app/data/manifest.json",
+        "sha256": "e29b8743",
+        "match": true
+      },
+      {
+        "path": "inputs/app/data/weather.json",
+        "sha256": "5b5b3caa",
+        "match": true
+      },
+      {
+        "path": "inputs/app/dispatch.py",
+        "sha256": "7a435b3a",
+        "match": true
+      },
+      {
+        "path": "inputs/app/navigation.py",
+        "sha256": "b7932e8f",
+        "match": true
+      },
+      {
+        "path": "instruction.md",
+        "sha256": "e350cce5",
+        "match": true
+      },
+      {
+        "path": "case.json",
+        "sha256": "5be18f62",
+        "match": true
+      }
+    ]
+  },
+  "selection": {
+    "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r1",
+    "basis": "plan.json product_slots 固定序"
+  },
+  "attempts": [
+    {
+      "n": 1,
+      "kind": "single-dispatch",
+      "policy": "whole_execution_restarts=0",
+      "pid": 3839,
+      "pgid": 3839,
+      "started_at": "2026-10-29T23:36:22+08:00",
+      "finished_at": "2026-10-29T23:38:41+08:00",
+      "duration_s": 139.6,
+      "exit_code": 0,
+      "outcome": "ok",
+      "closure": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "signal": null,
+        "verified_stop": true,
+        "group_confirmed_gone": true,
+        "pgid": 3839,
+        "at": "2026-10-29T23:38:41+08:00",
+        "ack_at": "2026-10-29T23:38:41+08:00",
+        "note": "组已确认不存在（ESRCH）；正常退出无需发送信号",
+        "residual_probe": {
+          "still_growing": false,
+          "method": "workspace-growth-two-sample"
+        }
+      }
+    }
+  ],
+  "transport_retries": 0,
+  "app_asar_sha256": null,
+  "managed_unknowns": [],
+  "residual_disclosure": {
+    "group_coverage": "confirmation covers launched pgid only; setsid-escaped descendants not covered by group confirmation",
+    "host_guarantee": "none at whole-host level",
+    "probe": "workspace-growth-two-sample (post-stop)",
+    "policy": "detected ongoing writer => conservative partial (unverified stop)"
+  },
+  "status": "ok",
+  "exit_code": 0,
+  "diagnostic": null,
+  "termination_receipt": {
+    "file": "termination-receipt.json",
+    "sha256": "2576878d3796aa6a6ce7460ca21837e0dfad9047d622afcf7a98619aea96f852"
+  },
+  "timed_out": false,
+  "started_at": "2026-10-29T23:36:22+08:00",
+  "finished_at": "2026-10-29T23:38:41+08:00",
+  "duration_s": 139.6,
+  "stdout_bytes": 114499,
+  "stdout_sha256": "f840fcbe783623853968df47dce7a0daf830e6467beec26f3b19871313cc04dc",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "archived_stdout": {
+    "raw_file": "agent.jsonl",
+    "raw_bytes": 114499,
+    "raw_truncation": "dsh-headless --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no override in this version",
+    "full_file": null,
+    "full_sha256": null,
+    "full_bytes": 0,
+    "full_lines": 0,
+    "full_method": null
+  },
+  "usage": {
+    "requests": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cache_read_tokens": null,
+    "cache_creation_tokens": null,
+    "per_call": [],
+    "cross_check": {
+      "compared": 0,
+      "equal": 0,
+      "mismatch": []
+    },
+    "source": "session log unavailable——usage 全字段如实 null（unknown 不填 0）"
+  },
+  "reward": 0,
+  "weighted": 70.37037037,
+  "score_status": "scored",
+  "failed": [
+    "tow_within_limit",
+    "leg2_weight_limits_fuel",
+    "leg2_fuel_below_planned",
+    "leg2_remaining_below_reserve",
+    "landing_weight_leg2",
+    "total_time_includes_turnaround",
+    "total_time_value",
+    "route_feasible"
+  ],
+  "judge": {
+    "reward": 0,
+    "weighted": 70.37,
+    "correct": 19,
+    "n_tasks": 27,
+    "guards_used": [
+      "code_rerun",
+      "input_integrity",
+      "plan_structure"
+    ],
+    "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+    "exit_code": 0
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "runner stdout (staging-first, never overwritten) + session-trajectory dual scan",
+    "stdout_scan": {
+      "lines": 90,
+      "violations": 0
+    },
+    "session_scan": {
+      "lines": 0,
+      "violations": 0
+    },
+    "evidence": []
+  },
+  "integrity_verdict": "clean"
+}

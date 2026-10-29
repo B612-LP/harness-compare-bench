@@ -1,0 +1,46 @@
+{
+  "layer_raw_inventory": {
+    "input_tokens": {
+      "state": "positive",
+      "value": 235
+    },
+    "cache_creation_input_tokens": {
+      "state": "zero",
+      "value": 0
+    },
+    "cache_read_input_tokens": {
+      "state": "positive",
+      "value": 2048
+    },
+    "output_tokens": {
+      "state": "positive",
+      "value": 14
+    },
+    "service_tier": {
+      "state": "non-scalar",
+      "value": "standard"
+    }
+  },
+  "layer_mapping": {
+    "input_tokens": {
+      "wire_key": "input_tokens",
+      "state": "positive",
+      "value": 235
+    },
+    "cache_read_tokens": {
+      "wire_key": "cache_read_input_tokens",
+      "state": "positive",
+      "value": 2048
+    },
+    "cache_creation_tokens": {
+      "wire_key": "cache_creation_input_tokens",
+      "state": "zero"
+    },
+    "output_tokens": {
+      "wire_key": "output_tokens",
+      "state": "positive",
+      "value": 14
+    }
+  },
+  "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+}

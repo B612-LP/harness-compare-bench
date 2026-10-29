@@ -1,0 +1,47 @@
+{
+ "kind": "independent_crossing_verification",
+ "id": "AUD-CACHE-CROSSING-l4cli-cargo-r1",
+ "at": "2026-10-29T23:47:30+08:00",
+ "spec": "l4-20261029-cli-codex-tb-cargo-plan-r1（lead 转 judge 主裁的独立核）",
+ "questions": ["引用路径 vs 实际越界", "只 inputs+TASK 设计边界的额外 metadata 暴露范围", "作者『未读 truth/solution』主张"],
+ "findings": {
+  "ws_meta_exists": true,
+  "ws_meta_path": "/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/l4-20261029-cli-codex-tb-cargo-plan-r1/meta.json",
+  "meta_writer": "runner（TASK.md 不提及 meta.json；模型经 find . -maxdepth 1 自行发现后 cat）",
+  "exposed_fields": [
+   "身份面：batch/rule_version/D与E commit/slot/run/event id/rep/order/stratum",
+   "评估框架面：model=deepseek-flash、reasoning_effort=low、route(host/wire/endpoint)、product_version、timeout_s",
+   "判卷器身份：checker_sha256=d84b1111…（仅哈希，无逻辑）",
+   "活仓库路径：config_ref.path=/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/config/codex-config.toml（含 sha256 与比对规则、contains_key=false）",
+   "约束自曝：soft_constraints=[stay-in-workspace, no-oracle-hunt, offline]",
+   "inputs 清单（sha/bytes）与空状态字段"]
+ },
+ "crossing_verification": {
+  "trace": "agent.jsonl（46 shell 事件，逐条扫描）",
+  "outside_workspace_commands": 0,
+  "outside_ws_absolute_paths_seen": ["仅 config_ref.path 本身（cat meta.json 回显）"],
+  "reads_of_config_ref_target": 0,
+  "truth_occurrences": 0,
+  "solution_occurrences": 0,
+  "checker_content_access": 0,
+  "hcb_string_occurrences_in_trace": 1,
+  "hcb_source": "config_ref.path 回显（cat 输出）；ws meta.json 内该串计 1",
+  "author_claim_verified": "未读 truth/solution 成立；模型行为停留在 ws 内（含看到 no-oracle-hunt 后仍合规）"
+ },
+ "scope": {
+  "codex_released_slots": {
+   "dab-r1": "trace 无 hcb 串、无越界路径（其 solution×3 为任务文本『cost-effective solution』）",
+   "cargo-r1": "本收据主体",
+   "cargo-r2": "trace 无 hcb 串、无越界路径",
+   "ws meta.json 写入面": "runner 对每个 codex ws 均写 meta.json（dab-r2 已出现），即暴露面=全部 codex 槽"}
+ },
+ "classification_for_judge": {
+  "oracle_leakage": "none（无答案内容越过边界）",
+  "actual_crossing": "none（观察面）",
+  "exposure_gap": "runner 把评估框架元数据+一个活仓库路径写入被测 ws，超出『只 inputs+TASK』设计边界——runner 侧设计缺口（lead 已入 L5 池）",
+  "raw_meta_verdict": "violation（机械字符串命中）为保守 fail-closed，合理保留",
+  "admission_shape": "若按冻结合同无法正式准入→19/27 原分保留为诊断分、非能力 0；sidecar 不改原 meta、不重跑（与 lead 裁决一致）",
+  "measurement_hygiene_caveat": "模型获知自身模型/路由/被评约束，可能影响行为的度量卫生问题，非 oracle 污染——正式准入裁量归 judge"
+ },
+ "live_doc_drift": []
+}

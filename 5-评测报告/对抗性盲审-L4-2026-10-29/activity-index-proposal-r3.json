@@ -1,0 +1,291 @@
+{
+ "kind": "activity_index_proposal",
+ "id": "AUD-L4-ACTIDX-r3-programmatic",
+ "at": "2026-10-30T00:19:05+08:00",
+ "generated_by": "tools/activity_index_gen.py（零手写数值：at/executed/test_case_n/合计均程序计算）",
+ "supersedes": "activity-index-proposal-r2.json（保留不覆盖；其 erratum 见该文件）",
+ "status": "candidate proposal for lead 串行登记；非最终主账",
+ "metric_definitions": {
+  "activity_group": "程序化枚举的 receipt/报告单位组",
+  "group_total_computed": 18,
+  "planned_slots": 35,
+  "executed_slots_note": "product executed=16/17（bird not_executed）+probe 18/18，与 group 数分列"
+ },
+ "groups": {
+  "product_run": [
+   {
+    "group_id": "prod:codex-batch",
+    "planned": 6,
+    "executed": 6,
+    "per_slot": {
+     "l4-20261029-cli-codex-dabstep-payments-10-r1": {
+      "state": "executed",
+      "weighted": 70.0,
+      "integrity": "clean"
+     },
+     "l4-20261029-cli-codex-tb-cargo-plan-r1": {
+      "state": "executed",
+      "weighted": 70.37037037,
+      "integrity": "violation"
+     },
+     "l4-20261029-cli-codex-tb-cargo-plan-r2": {
+      "state": "executed",
+      "weighted": 70.37037037,
+      "integrity": "violation"
+     },
+     "l4-20261029-cli-codex-dabstep-payments-10-r2": {
+      "state": "executed",
+      "weighted": 70.0,
+      "integrity": "violation"
+     },
+     "l4-20261029-cli-codex-dabstep-payments-10-r3": {
+      "state": "executed",
+      "weighted": 70.0,
+      "integrity": "clean"
+     },
+     "l4-20261029-cli-codex-tb-cargo-plan-r3": {
+      "state": "executed",
+      "weighted": 70.37037037,
+      "integrity": "violation"
+     }
+    },
+    "receipt_unit": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/REPORT.md",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/REPORT.md",
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs"
+    ]
+   },
+   {
+    "group_id": "prod:dsh-batch",
+    "planned": 6,
+    "executed": 6,
+    "per_slot": {
+     "l4-20261029-cli-dsh-dabstep-payments-10-r1": {
+      "state": "executed",
+      "weighted": 70.0,
+      "integrity": "violation"
+     },
+     "l4-20261029-cli-dsh-tb-cargo-plan-r1": {
+      "state": "executed",
+      "weighted": 70.37037037,
+      "integrity": "clean"
+     },
+     "l4-20261029-cli-dsh-tb-cargo-plan-r2": {
+      "state": "executed",
+      "weighted": 74.07407407,
+      "integrity": "clean"
+     },
+     "l4-20261029-cli-dsh-dabstep-payments-10-r2": {
+      "state": "executed",
+      "weighted": 80.0,
+      "integrity": "clean"
+     },
+     "l4-20261029-cli-dsh-dabstep-payments-10-r3": {
+      "state": "executed",
+      "weighted": 70.0,
+      "integrity": "clean"
+     },
+     "l4-20261029-cli-dsh-tb-cargo-plan-r3": {
+      "state": "executed",
+      "weighted": 74.07407407,
+      "integrity": "clean"
+     }
+    },
+    "gate_formal": 0,
+    "recoveries_zstd": 8,
+    "receipt_unit": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/dsh/REPORT.md",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/dsh/REPORT.md",
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/dsh/recoveries"
+    ]
+   },
+   {
+    "group_id": "prod:wb-batch",
+    "planned": 5,
+    "executed": 4,
+    "per_slot": {
+     "l4-20261029-wb-gateway-bird-ca-schools-15-r1": {
+      "state": "not_executed_or_pending",
+      "weighted": null
+     },
+     "l4-20261029-wb-gateway-dabstep-payments-10-r1": {
+      "state": "executed",
+      "weighted": 50.0,
+      "integrity": "clean"
+     },
+     "l4-20261029-wb-gateway-exercism-py-6-r1": {
+      "state": "executed",
+      "weighted": 100.0,
+      "integrity": "clean"
+     },
+     "l4-20261029-wb-gateway-lcb-recent-hard-4-r1": {
+      "state": "executed",
+      "weighted": 100.0,
+      "integrity": "clean"
+     },
+     "l4-20261029-wb-gateway-tb-cargo-plan-r1": {
+      "state": "executed",
+      "weighted": 70.37,
+      "integrity": "clean"
+     }
+    },
+    "bird": "not_executed（startup-render-not-ready；provenance 旁挂见 refs）",
+    "receipt_unit": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-wb-gateway/REPORT.md",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-wb-gateway/REPORT.md",
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-wb-gateway/receipts/bird-notexec-preregE-provenance.json",
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-wb-gateway/receipts/bird-startup-failure-proof.json"
+    ]
+   }
+  ],
+  "bare_model_probe": [
+   {
+    "group_id": "probe:cache-batch",
+    "planned": 18,
+    "executed_http200": 18,
+    "slot_dirs": 18,
+    "receipt_unit": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cache/probe-receipt.json",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cache/probe-receipt.json",
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cache/probes"
+    ]
+   }
+  ],
+  "interface_preflight": [
+   {
+    "group_id": "preflight:incident-accidental-cli",
+    "count": 1,
+    "receipt_unit": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/incidents/incident-receipt.json",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/incidents/incident-receipt.json"
+    ]
+   },
+   {
+    "group_id": "preflight:cache-dryrun",
+    "count": 1,
+    "receipt_unit": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cache/dryrun/probe-receipt-dryrun.json",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cache/dryrun/probe-receipt-dryrun.json"
+    ]
+   },
+   {
+    "group_id": "preflight:wb-gateway",
+    "count": null,
+    "receipt_unit": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-wb-gateway/preflight",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-wb-gateway/preflight"
+    ],
+    "note": "细粒度次数未持久=null"
+   }
+  ],
+  "self_test": [
+   {
+    "group_id": "selftest:lead-seal",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/自动循环L4-2026-10-29/selftest"
+    ],
+    "files": 10,
+    "test_case_n": null,
+    "note": "v1→v6 修正链；用例数以各版本收据为准，未汇总"
+   },
+   {
+    "group_id": "selftest:l4-execution-gate",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/l4-execution/receipts/gate-selftest.json"
+    ],
+    "test_case_n": null
+   },
+   {
+    "group_id": "selftest:l4-execution-replay-dual",
+    "count_files": 9,
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/l4-execution/selftest-replay-dual-r2.json",
+     "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/l4-execution/selftest-replay-dual-r3.json",
+     "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/l4-execution/selftest-replay-dual-r4.json"
+    ],
+    "test_case_n": null
+   },
+   {
+    "group_id": "selftest:cache-probe",
+    "test_case_n": 32,
+    "receipt_at": "2026-10-29T21:04:05+08:00",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cache/selftest/selftest-receipt.json"
+    ]
+   },
+   {
+    "group_id": "selftest:codex-runner",
+    "test_case_n": 73,
+    "receipt_at": "2026-10-29T21:52:45+08:00",
+    "note": "落盘收据版本为准（REPORT 文叙如有更高数须以新收据落地为准）",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/selftest/selftest-receipt.json"
+    ]
+   },
+   {
+    "group_id": "selftest:wb-gateway",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-wb-gateway/selftest/selftest-receipt-l4-wb-v2.json"
+    ],
+    "test_case_n": null
+   },
+   {
+    "group_id": "selftest:judge-fake-e2e",
+    "count_files": 33,
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/5-评测报告/L4独立验收-2026-10-29/harness/results"
+    ],
+    "test_case_n": null
+   },
+   {
+    "group_id": "selftest:auditor-tools",
+    "test_case_n": 11,
+    "note": "另 pii 自检 6/6（tools 内置 selftest）",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/5-评测报告/对抗性盲审-L4-2026-10-29/selftest-receipt-credential-scan-r1.json"
+    ]
+   }
+  ],
+  "offline_recompute": [
+   {
+    "group_id": "recompute:dual-archive-codex",
+    "slots": 6,
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r1/projections"
+    ]
+   },
+   {
+    "group_id": "recompute:cache-erratum-sidecar",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cache/execution-accounting-sidecar.json"
+    ]
+   },
+   {
+    "group_id": "recompute:auditor-stages",
+    "refs": [
+     "/Users/b612-lp/Documents/harness-compare-bench/5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-u1-r1.json",
+     "/Users/b612-lp/Documents/harness-compare-bench/5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-cache-r3.json",
+     "/Users/b612-lp/Documents/harness-compare-bench/5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-codex-r1.json",
+     "/Users/b612-lp/Documents/harness-compare-bench/5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-dsh-r1.json",
+     "/Users/b612-lp/Documents/harness-compare-bench/5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-coverage-r2.json"
+    ]
+   }
+  ],
+  "grading_regression": []
+ },
+ "source_ref_validation": {
+  "refs_checked": 29,
+  "missing": []
+ },
+ "r2_erratum_reference": {
+  "r2_errors": [
+   "at 为手写未来时刻",
+   "groups 合计手写 23（实算 18）",
+   "WB executed 写 4/6（应 4/5）",
+   "product.groups 未随终态更新",
+   "codex selftest test_case_n 手写 60（落盘收据现版本 73）"
+  ],
+  "discipline": "本 r3 全部数值程序生成；r2 原值保留作缺陷记录"
+ },
+ "live_doc_drift": []
+}

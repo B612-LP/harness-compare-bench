@@ -1,0 +1,51 @@
+{
+  "kind": "late_archive_recovery",
+  "accounting": "offline_recompute/late_archive",
+  "run_id": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+  "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+  "at": "2026-10-29T23:50:35+08:00",
+  "binding": {
+    "run_id": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+    "expected_dir_name": "--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r1--",
+    "dir_exists": true,
+    "files_found": 2,
+    "files_out_of_time_window": [],
+    "uuid_subdirs_in_raw_stream": {
+      "23afbcc7-dde2-46ad-aa8d-f1680ede9573": true,
+      "session-e4f07e0c-375c-4618-84f2-3bfdae54bf32": true
+    },
+    "prompt_first_line_found_in_session": false
+  },
+  "binding_note": "exact cwd-encoded dir name + both session UUIDs present in this run's raw stdout stream + all files within [started_at-5s, finished_at+5s]; prompt substring check not performed on compressed content (zstd) — disclosed as non-confirming",
+  "source_dir": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r1--",
+  "collected_at": "2026-10-29T23:50:35+08:00",
+  "files": [
+    {
+      "path": "23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "source": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r1--/23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+      "sha256": "02e3f18d6745fb22b3c098b1643af1b3460d86082535d658a7e1ce6fa2b9fed3",
+      "bytes": 213022,
+      "source_stable_after_copy": true,
+      "copy_sha256": "02e3f18d6745fb22b3c098b1643af1b3460d86082535d658a7e1ce6fa2b9fed3",
+      "copy_bytes": 213022
+    },
+    {
+      "path": "session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "source": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r1--/session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+      "sha256": "17ddfd0172a9cd05f6ea9a6c97e705828967fbff6c66b34230f4ec96e02aaddc",
+      "bytes": 375048,
+      "source_stable_after_copy": true,
+      "copy_sha256": "17ddfd0172a9cd05f6ea9a6c97e705828967fbff6c66b34230f4ec96e02aaddc",
+      "copy_bytes": 375048
+    }
+  ],
+  "all_sources_stable": true,
+  "scope_discipline": "read-only collection of THIS batch's finished slot only; original empty capture, master meta, integrity verdict, usage nulls all untouched; no usage/registered_at backfill; nothing added under tools/",
+  "limitations": {
+    "impact": "session/usage evidence missing at gate time; recovery usability for independent integrity review is judge/auditor's call under frozen contract",
+    "next_step": "judge verifies binding + zstd/JSONL integrity; formal admission not promised",
+    "stop_condition": "no decompression/semantic reading performed here; no other user sessions touched"
+  },
+  "zero_model": true,
+  "live_doc_drift": []
+}

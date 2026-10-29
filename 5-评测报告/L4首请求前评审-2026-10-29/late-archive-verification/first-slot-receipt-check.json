@@ -1,0 +1,506 @@
+{
+  "kind": "receipt_check_report",
+  "tool": "receipt_check.py",
+  "at": "2026-10-30T00:12:42+08:00",
+  "root": "/Users/b612-lp/Documents/harness-compare-bench",
+  "require_drift": true,
+  "docs": [
+    {
+      "file": "5-评测报告/L4首请求前评审-2026-10-29/late-archive-verification/first-slot-review.md",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "text-line",
+            "line": 5,
+            "has_state_token": true,
+            "excerpt": "live_doc_drift: []（仅本次明确列出的22个输入项；不宣称扫描整个用户目录）。原始prompt/轨迹/凭据不在本报告或机器收据中展示；只在内存解压这两个指定zstd副本，无其他用户会话扫描、无全局session源读取、无模型/产品/判卷调用。"
+          },
+          {
+            "kind": "text-line",
+            "line": 83,
+            "has_state_token": true,
+            "excerpt": "  \"live_doc_drift\": []"
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 6,
+        "tokens": 9,
+        "violations": []
+      },
+      "evidence_lines": {
+        "total": 5,
+        "verified_ok": 5,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": [
+          {
+            "line": 88,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/late-archive-verification/verify_late_archive.py",
+              "sha256_8": "0cd90f55",
+              "bytes": 19105
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "0cd90f55",
+              "bytes": 19105
+            }
+          },
+          {
+            "line": 89,
+            "claimed": {
+              "path": "5-评测报告/L4首请求前评审-2026-10-29/late-archive-verification/dab-r1-verification-01.json",
+              "sha256_8": "e4dee72e",
+              "bytes": 26317
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "e4dee72e",
+              "bytes": 26317
+            }
+          },
+          {
+            "line": 90,
+            "claimed": {
+              "path": "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/recovery-record.json",
+              "sha256_8": "8c63da31",
+              "bytes": 3002
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "8c63da31",
+              "bytes": 3002
+            }
+          },
+          {
+            "line": 91,
+            "claimed": {
+              "path": "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd",
+              "sha256_8": "02e3f18d",
+              "bytes": 213022
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "02e3f18d",
+              "bytes": 213022
+            }
+          },
+          {
+            "line": 92,
+            "claimed": {
+              "path": "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd",
+              "sha256_8": "17ddfd01",
+              "bytes": 375048
+            },
+            "verified": true,
+            "match": true,
+            "actual": {
+              "sha256_8": "17ddfd01",
+              "bytes": 375048
+            }
+          }
+        ]
+      },
+      "ok": true
+    },
+    {
+      "file": "5-评测报告/L4首请求前评审-2026-10-29/late-archive-verification/dab-r1-verification-01.json",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 126,
+        "tokens": 204,
+        "violations": [
+          {
+            "line": 22,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"copy\": \"3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zs"
+          },
+          {
+            "line": 23,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"declared_source_path_not_read\": \"/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r1"
+          },
+          {
+            "line": 35,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"session_id\": \"23afbcc7-dde2-46ad-aa8d-f1680ede9573\","
+          },
+          {
+            "line": 114,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "        \"session-e4f07e0c-375c-4618-84f2-3bfdae54bf32\""
+          },
+          {
+            "line": 128,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"copy\": \"3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4."
+          },
+          {
+            "line": 129,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"declared_source_path_not_read\": \"/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r1"
+          },
+          {
+            "line": 141,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"session_id\": \"session-e4f07e0c-375c-4618-84f2-3bfdae54bf32\","
+          },
+          {
+            "line": 258,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"copy-hash-chain:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 263,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"copy-mtime-in-original-window:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 268,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"zstd-decompress-clean:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 273,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"every-jsonl-record-parseable:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 278,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"one-session-header:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 283,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"header-ID-matches-copy-subdir:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 288,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"header-cwd-exact-original-workspace:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 293,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"session-UUID-present-in-original-stdout:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 298,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"event-times-within-original-window:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 303,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"trace-has-terminal-turn-end:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 308,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"tool-call-result-ID-multisets-close:23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 313,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"copy-hash-chain:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 318,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"copy-mtime-in-original-window:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 323,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"zstd-decompress-clean:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 328,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"every-jsonl-record-parseable:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 333,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"one-session-header:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 338,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"header-ID-matches-copy-subdir:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 343,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"header-cwd-exact-original-workspace:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 348,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"session-UUID-present-in-original-stdout:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 353,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"event-times-within-original-window:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 358,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"trace-has-terminal-turn-end:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 363,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"tool-call-result-ID-multisets-close:session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd\","
+          },
+          {
+            "line": 378,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"child-parent-ID-resolves-in-these-copies:23afbcc7-dde2-46ad-aa8d-f1680ede9573\","
+          },
+          {
+            "line": 383,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"parent-trace-mentions-child-UUID:23afbcc7-dde2-46ad-aa8d-f1680ede9573\","
+          },
+          {
+            "line": 388,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "      \"id\": \"child-initial-task-block-byte-exact-parent-launch-prompt:23afbcc7-dde2-46ad-aa8d-f1680ede9573\","
+          },
+          {
+            "line": 439,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "    \"3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\": {"
+          },
+          {
+            "line": 444,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "    \"3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd"
+          },
+          {
+            "line": 551,
+            "issues": [
+              {
+                "token": "f1680ede9573",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "    \"3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/23afbcc7-dde2-46ad-aa8d-f1680ede9573/session.v4.jsonl.zstd\": {"
+          },
+          {
+            "line": 556,
+            "issues": [
+              {
+                "token": "3bfdae54bf32",
+                "reason": "hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+              }
+            ],
+            "excerpt": "    \"3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-dabstep-payments-10-r1/session/session-e4f07e0c-375c-4618-84f2-3bfdae54bf32/session.v4.jsonl.zstd"
+          }
+        ]
+      },
+      "evidence_lines": {
+        "total": 0,
+        "verified_ok": 0,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": []
+      },
+      "ok": false
+    }
+  ],
+  "all_ok": false
+}

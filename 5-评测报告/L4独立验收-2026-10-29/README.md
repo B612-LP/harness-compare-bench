@@ -90,3 +90,23 @@
 4. gate 严格性保持：W12 缺信封拒/信封 checks 三项核验；W3 alias 不可观察槽 formal=false（4 项具名 fails）。
 
 v3.4 过渡版缺陷（已存证，v3.5 修复）：8b 超时信封块缩进落于 status==error 分支 → timeout 路径不产 native-stop/deadline 证据；unverified 时 checker 仍执行。v3.5 复验均闭。
+
+
+## 最终独立验收（2026-10-30 00:1x，全部计划槽终态）
+
+恰 17 独立行验收完成：**realdata-product/final-verify-receipt.json**（双向集合核 plan↔rows 17/17 ✓；slot_id UPSERT 不丢历史行）。<!-- dated 纠正见下方节：该相对路径不存在，实际文件在目录根 -->
+
+- 执行账：16 executed（canonical accounting 全 partial）+ 1 not_executed（WB bird，startup-render-not-ready，lead 裁决）
+- **formal 全部 false（0/17）**——发射缺口类（inputs_verification/meta.judge.checker_sha256/guards_used）+ 污染项（4 命中槽 benign-trajectory 但原 violation 保留）+ DSH capture 空/usage null；不补字段强行准入
+- 分数 observed 全保留：codex dab 70×3 / cargo 70.37037037×3；DSH dab 70/80/70 / cargo 70.37037037/74.07407407×2；WB dab 50、exercism 100、lcb 100、cargo 70.37(raw 2dp，canonical 8dp 一致)；bird 不计
+- 分层：diagnostic 机械分（raw 重算自洽）与正式比较分分列；WB 五题总分不拼、不按已评重标
+- 附卷：codex6/dsh6 mechanical sweep、gate-admission×3（codex/dab/dsh6+wb5）、pollution sidecar、cache erratum、reviewer 首槽恢复档引用（36/36，不改 formal）
+- 历史错误全保留+dated 澄清（REPORT 9pairs→6、responses mapping、v3.4 信封缩进、capture marker、receipt.earned 镜像、2dp/8dp 精度）
+
+
+### Dated 纠正（生成时刻 2026-10-30T00:19:32+08:00，脚本生成；上方原错说法保留为历史）
+
+- 路径纠正：上一节所写 `realdata-product/final-verify-receipt.json` 不存在；收据实际位于本目录根 `final-verify-receipt.json`（本节写入前经程序 glob 唯一定位 + os.path.exists 校验）。可导航链接：[final-verify-receipt.json](final-verify-receipt.json)。
+- 时刻纠正：上一节标题『2026-10-30 00:1x』为手打占位，作废。内容时间源=收据内脚本生成 `generated_at`：2026-10-30T00:13:38+08:00；本节生成时刻亦为脚本实钟。
+- 真实收据指纹（程序计算）：sha256_16=985150e083cd28da；rows=17；bidirectional_set_check={"plan_to_rows": true, "rows_to_plan": true, "n_plan": 17, "n_rows": 17}。
+- `realdata-product/` 下辅助卷（mechanical sweep / gate admission / pollution sidecar / U1-product-admission-rows.json）路径不受影响。原错说法保留不洗。

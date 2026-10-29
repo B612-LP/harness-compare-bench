@@ -121,3 +121,39 @@ judge W13：WB 正常 completed 产物被"status=ok 但 exit_code=None≠0"误�
 - 触发误报定位：仅 DSH 侧三份现行收据的 JSON `evidence.lines[].line` 字段（r20:71/r15:61/r10:47，lab.py · 671630d5 · 105009 bytes 段）；JSON 内嵌行不走 checker canonical 解析，落入通用 hex 扫描。gate/replay 收据无此模式。
 - 修复=lab.py 增 `ek_json()` 展示适配（JSON 内嵌 line 字节段改"N bytes"；结构化字段与 evidence_line.py canonical 原格式不动），4 处 embed 包装。receipt_check.py 的宽放豁免已停写移交 lead 回退。
 - 收据重生成：mockrun 10/10(r21) · termination 8/8(r16) · selftest 3/3(r11)；按原规则（无豁免）模拟扫描全部现行收据/index/台账 PASS。
+
+
+## L4 正式执行结果（2026-10-29 23:27–00:0x，LEAD RELEASE 2）
+
+**执行**：`run --all` 6 槽单次串行（plan order 7–12），whole restarts=0、无补跑、无 halt、exit 0。全部 status=ok、单 attempt、组停止证实（residual probe 全部 still_growing=false）、8dp 全分母判卷、O_EXCL 原始流+session/workspace/prompt/termination-receipt/checker.stdout/config-snapshot（PII 安全派生）封存、dispatch 先于 Popen。
+
+| 槽 | 时长(s) | weighted | integrity(原始gate) |
+|---|---|---|---|
+| dab-r1 | 497.3 | 70.0 | violation |
+| cargo-r1 | 139.6 | 70.37037037 | clean |
+| cargo-r2 | 279.5 | 74.07407407 | clean |
+| dab-r2 | 592.0 | 80.0 | clean |
+| dab-r3 | 366.9 | 70.0 | clean |
+| cargo-r3 | 133.9 | 74.07407407 | clean |
+
+**capture 缺陷（E 冻结源内，未改）**：capture_session marker 双 dsh（r1031 三层路径假设）不匹配现行 CLI 会话目录名 ⇒ 全 6 槽 agent-session 空 ⇒ usage 全字段 null（unknown 不填 0）、full 重建流未执行、integrity 扫描 0 行（slot1 记 violation，其余 clean）。会话原始数据在 ~/.dsh/sessions/ 完好。
+
+**侧车补档（offline_recompute/late_archive，lead 裁决 A）**：recoveries/<run_id>/ 6/6，四标识绑定（cwd 精确编码目录名＋session UUID 均见于本槽原始流＋全文件时间窗；zstd 压缩内容不做明文/语义检查——如实披露）；逐文件来源路径/SHA/bytes/collected_at/复制前后源稳定；原 capture/meta/violation/usage 未动，未回填，tools/ 零新增，未触其他会话。能否用于独立完整性复核由 judge/auditor 按冻结合同裁定。
+
+**准入（原始 gate 结果，分列）**：admission-gate.json——planned 6 / accounted 6 / accounting_complete=true / **formal_admitted=0**（六槽同因：会话轨迹缺失/required_original_evidence 缺 session；slot1 另有 integrity=violation）。不将缺证变能力 0，不按已评分部分折满，不承诺 formal 准入。
+
+**双归档重放**：replay/<run>.json 6 份——legacy=rmtree 语义复现（raw 丢失→usage unknown 不补造、integrity vacuous）；current=partial_text_usage_projection（text/usage 局部投影，scope 明示非完整流）；双侧 score=not_evaluated，不宣称 score effect 已测。
+
+
+### 执行边界声明（durable，五条）
+
+1. **6 槽正常结束 ≠ 正式准入**：全部 status=ok 且零重启零 halt 仅证明执行完整性；formal 准入另见原始 gate 结果。
+2. **原始 formal_admitted=0**：admission-gate.json 原始结果——六槽同因"会话轨迹缺失"，slot1 另 integrity=violation；accounting_complete=true 与 formal=0 并存（记账完整≠准入）。
+3. **原 capture 空 / usage null**：六槽 agent-session 为空（capture marker 缺陷，源冻结未改），usage 全字段如实 null（unknown 不填 0），full 重建流未执行。
+4. **补档 collected_at 晚于运行，不伪当原证据**：recoveries/ 全部为事后只读侧车（offline_recompute/late_archive），逐文件记录 collected_at；原空 capture/母本 meta/violation/usage null 未替换未回填；能否用于独立完整性复核由 judge/auditor 按冻结合同裁定。
+5. **双归档双侧 score=not_evaluated**：replay_dual 不运行 checker，不作任何分数等值/效应声称；current 侧为 text/usage 局部投影（非完整流），legacy 侧无重建——不夸 full 投影、不宣称 score effect 已测。
+
+
+### cargo-r3 recovery-record 的 `at` 语义侧车（reviewer task10 KeyError 项）
+
+reviewer 发现 cargo-r3 recovery-record 只有 `at`、无 `collected_at`（其余 5 份两键同值=复制循环前单一 now()）。语义侧车 `recoveries/l4-20261029-cli-dsh-tb-cargo-plan-r3/record-at-semantics.json`（0444/O_EXCL 不可覆盖）已落：**`at`=记录构造时刻（复制循环完成后），非独立测得的采集起点；采集起点=unknown 不猜不补**。独立实测：原 record SHA256 现算=51159bfb…、副本 APFS birthtime=00:01:36.208847+08:00（采集完成下界，早于 at=00:02:29，自洽）；recorded_at=2026-10-30T00:15:15+08:00 机器生成，author 声明与独立实测分列。原 record/meta 未动；collector 为一次性内联脚本（范围纪律），代码引用按作者执行记录声明并附独立实测交叉核对。

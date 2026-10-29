@@ -70,3 +70,12 @@
 - 取证数据（当轮 receipt）：saved_pgid=27015（=helper pid，start_new_session=True 使 helper 为组长）；helper Popen 显式 start_new_session=True；inner 由 helper Popen 显式 start_new_session=False 派生；term_delivery="delivered+SIGKILL"；probe="still_alive_after_kill"；ack_at=2026-10-29T21:35:25+08:00；counter fixture=当轮 tempfile `td/orphan.out`（轮末已随临时目录清除，路径模式 `<tmp>/orphan.out`）；os.killpg 为 os 模块原生 builtin（源码未包装）。
 - 对照组：手动 OS 复现（同一机器、同构 fixture、无 selftest 套件）TERM→SIGKILL→killpg0 ESRCH、写入停止，全通过——差异聚焦 selftest 运行上下文，judge 可对照。
 - 处置：verified=false 为诚实结果；行为停止断言记 WARN，不占合成 pass；judge 于真实 runtime 复验。
+
+
+## 最终 6 槽运行事实与证据索引（2026-10-30T00:01:38+08:00；机器账 final-accounting.json）
+
+- 6 row：dab r1/r2/r3 = 70.0（7/10），cargo r1/r2/r3 = 70.37037037（19/27，8dp）；全部 ok/exit0、normal_exit 组级确认、restarts=0、无 timeout/transport；**6/6 正常结束 ≠ 满分通过**。
+- 证据索引：每槽 10 件（prompt/agent.jsonl/agent.stderr/checker.stdout/score-receipt/termination/session-capture/claim/dual-archive.status/meta，逐件 sha256+bytes）+ projections{legacy,current}——完整清单见 final-accounting.json `evidence_index`。
+- lexical hits 共 10 处（4 槽）：模式 {harness-compare-bench, reference/, ../}，逐条 excerpt 在 final-accounting.json `lexical_hits.entries`；**边界：lexical 命中 ≠ actual 越界事实**——excerpt 核验均为工作区 meta.json/TASK.md cat、命令文本与答复字样，无 truth/solution/凭据访问证据；裁定归 judge/auditor。
+- **flag 澄清**：`runner_formal_eligible` 是生产者局部 flag（停止确认门），**不是独立 canonical formal admission**；lead 转达 judge 实际首两行 formal=false（字段发射/原 verdict 原因）——据此如实记录，不作「全通过/全正式」暗示。
+- 分账：product_run 6/6 executed、partial=0、not_exec=0；无 shared ledger 写、无 git 操作。

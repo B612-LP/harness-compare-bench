@@ -1,0 +1,19 @@
+{
+  "kind": "bird_notexec_preregE_provenance",
+  "at": "2026-10-30T00:13:40+08:00",
+  "question": "notexecuted.json 的 preregistration_commit=canonical E 是内存首写前补，还是 helper 落盘 None 后改写？",
+  "answer": "内存首写前补，单次 O_EXCL 写成。冻结 helper persist_not_executed（runner/l4_wb_runner.py:502-508，硬编码 None）**从未被调用**；真实调用链=冻结真值表函数 acc_not_executed（取 reason/stop_source/slot 标识）→ 调用方脚本在内存构造 sidecar 字典并当场从 canonical runtime-binding.json 读 E=5674de65… 填入 → os.open(O_WRONLY|O_CREAT|O_EXCL|O_NOFOLLOW) **一次写就**。",
+  "none_bytes_on_disk": "不存在——None 路径从未落盘，无『原 None 字节/sha』可保留；文件 born=mtime=2026-10-29T23:35:14+080（同一秒，无改写历史），非 tmp+replace 亦非二次覆盖。",
+  "current_file": {
+    "sha256": "9126c3ade70226d84c43b7fcd4190ec6dd9b8a01848007f95ffdc1fdd5f39677",
+    "bytes": 727,
+    "born": "2026-10-29T23:35:14+08:00"
+  },
+  "source_evidence": {
+    "frozen_helper_uninvoked": "runner/l4_wb_runner.py:502-508 persist_not_executed（preregistration_commit: None 字面量，字节未动，文件 sha256_8=8634390f）",
+    "caller_script": "本会话 bash 转写 2026-10-29T23:35:14 前后：importlib 加载冻结模块→acc_not_executed→ne=dict(preregistration_commit=E)→os.open O_EXCL 单写",
+    "registration_earlier": "同槽 registrations/<run_id>.registration.json born=2026-10-29T23:31:52（E refs 原物在先，与 sidecar 无耦合）"
+  },
+  "scope": "仅 R1 记账证据链澄清；bird 维持 not_executed/score=null；不恢复任何模型槽；不改变 formal 判定归属（judge 批级）。",
+  "live_doc_drift": []
+}

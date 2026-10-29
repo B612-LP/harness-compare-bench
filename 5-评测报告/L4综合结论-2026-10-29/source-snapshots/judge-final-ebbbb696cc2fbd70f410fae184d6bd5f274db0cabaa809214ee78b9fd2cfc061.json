@@ -1,0 +1,1104 @@
+{
+ "kind": "judge_final_17row_verify_receipt",
+ "generated_at": "2026-10-30T00:13:38+08:00",
+ "binding": {
+  "execution_seal_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+  "registered_at": "2026-10-29T23:13:56+08:00"
+ },
+ "bidirectional_set_check": {
+  "plan_to_rows": true,
+  "rows_to_plan": true,
+  "n_plan": 17,
+  "n_rows": 17
+ },
+ "summary": {
+  "formal_true": 0,
+  "all_formal_false": true,
+  "accounting": {
+   "executed_partial": 16,
+   "not_executed": 1
+  },
+  "note": "accounting_complete 与机器 metadata row partial 分开陈述；不补字段强行准入；diagnostic 机械分与正式比较分列"
+ },
+ "rows": [
+  {
+   "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r1",
+   "product": "codex",
+   "case": "dabstep-payments-10",
+   "rep": 1,
+   "u1_checks": {
+    "exact_E_time": {
+     "binding_registered_at": "2026-10-29T23:13:56+08:00",
+     "meta_registered_at": "2026-10-29T23:13:56+08:00",
+     "meta_started_at": "2026-10-29T23:27:39+08:00",
+     "start_ge_E": true,
+     "E_binding_match": true,
+     "preregistration_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a"
+    },
+    "plan_membership": {
+     "in_plan_product_slots": true,
+     "order": 1,
+     "stratum": "cli_current_sentinel"
+    },
+    "command_config": {
+     "model": "deepseek-flash",
+     "route": {
+      "host": "api.deepseek.com",
+      "provider_id": "deepseek",
+      "wire_protocol": "responses",
+      "endpoint": "https://api.deepseek.com"
+     },
+     "config_snapshot_sha_matches_sealed": true
+    },
+    "input_source_and_evidence_sha": {
+     "distinction": "归档 EV/workspace 快照设计性排除 inputs ≠ 真实运行目录缺输入",
+     "real_host_ws_inputs": {
+      "path": "/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/l4-20261029-cli-codex-dabstep-payments-10-r1/inputs",
+      "files_n": 7,
+      "sha_all_match_contract": true,
+      "mismatch_files": [],
+      "interpretation": "全部与 contract 布局一致"
+     },
+     "archive_workspace": "归档含 TASK.md+产物，inputs 按设计排除",
+     "emission_gap_note": "meta.inputs_verification=null 真实存在（发射缺口）；不得夸大为题面无 inputs"
+    },
+    "score_full_denominator": {
+     "checker_stdout_fmt": "whole-json",
+     "checks_total": 12,
+     "contract_denominator": 10,
+     "correct": 7,
+     "n_tasks": 10,
+     "earned_recomputed": 7,
+     "weighted": 70.0,
+     "weighted_recomputed": 70.0,
+     "reward": 0,
+     "reward_dtype": "int",
+     "judge_checker_exit_code": 1,
+     "score_receipt": {
+      "earned": 7,
+      "possible": 10,
+      "reported": 70.0,
+      "checker_sha256_16": "01dfc97624f27ca7",
+      "equals_contract_checker_sha": true,
+      "raw_checker_output_equals_stdout": true
+     }
+    },
+    "trace_contamination": {
+     "isolation_ok": true,
+     "integrity_scan": {
+      "violations": 0,
+      "patterns": [
+       "2-用例",
+       "truth.json",
+       "checker.py",
+       "reference/",
+       "solution/",
+       "../",
+       "~/Documents",
+       "harness-compare-bench"
+      ],
+      "lines_scanned": 382,
+      "evidence": [],
+      "method": "session + runner-stdout rescan（母本只读）",
+      "live_doc_drift": []
+     },
+     "gate_contamination_cleared": true,
+     "ruling": "mechanical 扫描零违规；未读 truth/solution 内容"
+    },
+    "attempt_identity": {
+     "pid": 67286,
+     "pgid": 67286,
+     "pid_eq_pgid": true,
+     "outcome": "ok",
+     "exit_code": 0
+    }
+   },
+   "gate_admission_independent": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "field_compliance": true,
+    "evidence_complete": true,
+    "source_hash_integrity": true,
+    "full_denominator_score_valid": false,
+    "contamination_cleared": true,
+    "fails": [
+     "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+     "judge.checker_sha256 缺失或与 contract 不一致",
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ]
+   },
+   "fail_refinement": [
+    {
+     "gate_fail": "inputs_verification.ok 非真",
+     "raw_fact": "meta.inputs_verification=null——runner 未落机械比对记录（emission 缺口）"
+    },
+    {
+     "gate_fail": "judge.checker_sha256 缺失或与 contract 不一致",
+     "raw_fact": "meta.judge.checker_sha256=None，但 score-receipt.checker_sha256=01dfc976…==contract==real file——绑定存在于 receipt，meta.judge 未复制（emission 缺口）"
+    },
+    {
+     "gate_fail": "meta.judge.guards_used 缺失",
+     "raw_fact": "raw checker doc 无 guards_used，runner 未合成；contract guards={answers_format,input_integrity}，12 checks−2 guards=10=分母（结构自洽）"
+    },
+    {
+     "gate_fail": "status=ok 但证据/判卷不完备：partial 记账",
+     "raw_fact": "上述三项 emission 缺口的连带结果"
+    }
+   ],
+   "ruling": {
+    "executed": true,
+    "accounting": "partial",
+    "formal_admission": false,
+    "score_valid_low_score": "7/10=70.0（checker exit1=合法低分，非 infra、不作 diagnostic 排除、不排除出分母）",
+    "gap_class": "runner 产物字段发射缺口（inputs_verification/meta.judge.checker_sha256/guards_used），非能力问题、非数据无效",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-29T23:40:54+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r2",
+   "product": "codex",
+   "case": "dabstep-payments-10",
+   "rep": "2",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:43:15+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": {
+     "in_plan_product_slots": true
+    },
+    "command_config": {
+     "model": "deepseek-flash",
+     "route": "responses api.deepseek.com",
+     "config_snapshot_sha_matches_sealed": true
+    },
+    "input_source_and_evidence_sha": {
+     "distinction": "归档 EV/workspace 快照设计性排除 inputs ≠ 真实运行目录缺输入",
+     "real_host_ws_inputs": {
+      "path": "/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/l4-20261029-cli-codex-dabstep-payments-10-r2/inputs",
+      "files_n": 7,
+      "sha_all_match_contract": true,
+      "mismatch_files": [],
+      "interpretation": "全部与 contract 布局一致"
+     },
+     "archive_workspace": "归档含 TASK.md+产物，inputs 按设计排除",
+     "emission_gap_note": "meta.inputs_verification=null 真实存在（发射缺口）；不得夸大为题面无 inputs"
+    },
+    "score_full_denominator": {
+     "raw_checks": 12,
+     "raw_pass": 9,
+     "correct": 7,
+     "n_tasks": 10,
+     "denominator": 10,
+     "weighted": 70.0,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "termination": {
+     "outcome": "ok",
+     "pid_eq_pgid": true,
+     "exit_code": 0,
+     "no_restart": true,
+     "termination_receipt": true
+    },
+    "trace_contamination": {
+     "violations": 2,
+     "patterns": [
+      "../"
+     ],
+     "adjudication": "Reasoning 文本提及 ../（无命令/无读取）——echo 级"
+    }
+   },
+   "gate_admission_independent": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+     "judge.checker_sha256 缺失或与 contract 不一致",
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "integrity_verdict=violation（污染，不准入、不删槽）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": false
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "7/10=70.0 非 diagnostic 排除、不写能力 0",
+    "violation_kept": true,
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:02:46+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r3",
+   "product": "codex",
+   "case": "dabstep-payments-10",
+   "rep": "3",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:49:49+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": {
+     "in_plan_product_slots": true
+    },
+    "command_config": {
+     "model": "deepseek-flash",
+     "route": "responses api.deepseek.com",
+     "config_snapshot_sha_matches_sealed": true
+    },
+    "input_source_and_evidence_sha": {
+     "distinction": "归档 EV/workspace 快照设计性排除 inputs ≠ 真实运行目录缺输入",
+     "real_host_ws_inputs": {
+      "path": "/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/l4-20261029-cli-codex-dabstep-payments-10-r3/inputs",
+      "files_n": 7,
+      "sha_all_match_contract": true,
+      "mismatch_files": [],
+      "interpretation": "全部与 contract 布局一致"
+     },
+     "archive_workspace": "归档含 TASK.md+产物，inputs 按设计排除",
+     "emission_gap_note": "meta.inputs_verification=null 真实存在（发射缺口）；不得夸大为题面无 inputs"
+    },
+    "score_full_denominator": {
+     "raw_checks": 12,
+     "raw_pass": 9,
+     "correct": 7,
+     "n_tasks": 10,
+     "denominator": 10,
+     "weighted": 70.0,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "termination": {
+     "outcome": "ok",
+     "pid_eq_pgid": true,
+     "exit_code": 0,
+     "no_restart": true,
+     "termination_receipt": true
+    },
+    "trace_contamination": {
+     "violations": 0,
+     "patterns": [],
+     "adjudication": "无命中"
+    }
+   },
+   "gate_admission_independent": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+     "judge.checker_sha256 缺失或与 contract 不一致",
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "7/10=70.0 非 diagnostic 排除、不写能力 0",
+    "violation_kept": false,
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:02:46+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+   "product": "codex",
+   "case": "tb-cargo-plan",
+   "rep": 1,
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": {
+     "in_plan_product_slots": true
+    },
+    "command_config": {
+     "model": "deepseek-flash",
+     "route": "responses api.deepseek.com",
+     "config_snapshot_sha_matches_sealed": true
+    },
+    "score_full_denominator": {
+     "raw_checks": 30,
+     "guards": 3,
+     "denominator": 27,
+     "earned": 19,
+     "weighted": 70.37037037,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "trace_contamination": {
+     "integrity_violations": 3,
+     "pattern": "harness-compare-bench（ws/meta.json config_ref 回显）",
+     "adjudication": "benign-trajectory；无越界读取/零 oracle；暴露面设计 finding 入 L5"
+    },
+    "input_source_and_evidence_sha": {
+     "distinction": "归档 EV/workspace 快照设计性排除 inputs ≠ 真实运行目录缺输入",
+     "real_host_ws_inputs": {
+      "path": "/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/l4-20261029-cli-codex-tb-cargo-plan-r1/inputs",
+      "files_n": 7,
+      "sha_all_match_contract": false,
+      "mismatch_files": [
+       "inputs/app/aircraft.py",
+       "inputs/app/dispatch.py",
+       "inputs/app/navigation.py"
+      ],
+      "interpretation": "3 个 inputs/app/*.py 为任务内可修改代码文件，模型 apply_patch 修改后状态（trajectory 佐证）；prepare 时刻一致性因 runner 未落 inputs_verification 无法事后机械证明——记录为 emission 局限，不作篡改指控"
+     },
+     "archive_workspace": "归档含 TASK.md+产物，inputs 按设计排除",
+     "emission_gap_note": "meta.inputs_verification=null 真实存在（发射缺口）；不得夸大为题面无 inputs"
+    }
+   },
+   "gate_admission_independent": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "block_reason": "污染项不 clean（sidecar 不入 gate）+ meta 顶层发射缺口同类"
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "19/27=70.37037037 非 diagnostic 排除、不写能力 0",
+    "sidecar": "pollution-adjudication-cargo-r1.json",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-29T23:44:36+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r2",
+   "product": "codex",
+   "case": "tb-cargo-plan",
+   "rep": "2",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:38:27+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": {
+     "in_plan_product_slots": true
+    },
+    "command_config": {
+     "model": "deepseek-flash",
+     "route": "responses api.deepseek.com",
+     "config_snapshot_sha_matches_sealed": true
+    },
+    "input_source_and_evidence_sha": {
+     "distinction": "归档 EV/workspace 快照设计性排除 inputs ≠ 真实运行目录缺输入",
+     "real_host_ws_inputs": {
+      "path": "/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/l4-20261029-cli-codex-tb-cargo-plan-r2/inputs",
+      "files_n": 7,
+      "sha_all_match_contract": false,
+      "mismatch_files": [
+       "inputs/app/aircraft.py",
+       "inputs/app/dispatch.py",
+       "inputs/app/navigation.py"
+      ],
+      "interpretation": "3 个 inputs/app/*.py 为任务内可修改代码文件，模型 apply_patch 修改后状态（trajectory 佐证）；prepare 时刻一致性因 runner 未落 inputs_verification 无法事后机械证明——记录为 emission 局限，不作篡改指控"
+     },
+     "archive_workspace": "归档含 TASK.md+产物，inputs 按设计排除",
+     "emission_gap_note": "meta.inputs_verification=null 真实存在（发射缺口）；不得夸大为题面无 inputs"
+    },
+    "score_full_denominator": {
+     "raw_checks": 30,
+     "raw_pass": 22,
+     "correct": null,
+     "n_tasks": null,
+     "denominator": 27,
+     "weighted": 70.37037037,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "termination": {
+     "outcome": "ok",
+     "pid_eq_pgid": true,
+     "exit_code": 0,
+     "no_restart": true,
+     "termination_receipt": true
+    },
+    "trace_contamination": {
+     "violations": 2,
+     "patterns": [
+      "reference/"
+     ],
+     "adjudication": "Reasoning 文本提及 reference/（无命令/无读取）——echo 级"
+    }
+   },
+   "gate_admission_independent": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+     "judge.checker_sha256 缺失或与 contract 不一致",
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "integrity_verdict=violation（污染，不准入、不删槽）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": false
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "19/27=70.37037037 非 diagnostic 排除、不写能力 0",
+    "violation_kept": true,
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:02:46+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r3",
+   "product": "codex",
+   "case": "tb-cargo-plan",
+   "rep": "3",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:53:56+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": {
+     "in_plan_product_slots": true
+    },
+    "command_config": {
+     "model": "deepseek-flash",
+     "route": "responses api.deepseek.com",
+     "config_snapshot_sha_matches_sealed": true
+    },
+    "input_source_and_evidence_sha": {
+     "distinction": "归档 EV/workspace 快照设计性排除 inputs ≠ 真实运行目录缺输入",
+     "real_host_ws_inputs": {
+      "path": "/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/l4-20261029-cli-codex-tb-cargo-plan-r3/inputs",
+      "files_n": 7,
+      "sha_all_match_contract": false,
+      "mismatch_files": [
+       "inputs/app/aircraft.py",
+       "inputs/app/dispatch.py",
+       "inputs/app/navigation.py"
+      ],
+      "interpretation": "3 个 inputs/app/*.py 为任务内可修改代码文件，模型 apply_patch 修改后状态（trajectory 佐证）；prepare 时刻一致性因 runner 未落 inputs_verification 无法事后机械证明——记录为 emission 局限，不作篡改指控"
+     },
+     "archive_workspace": "归档含 TASK.md+产物，inputs 按设计排除",
+     "emission_gap_note": "meta.inputs_verification=null 真实存在（发射缺口）；不得夸大为题面无 inputs"
+    },
+    "score_full_denominator": {
+     "raw_checks": 30,
+     "raw_pass": 22,
+     "correct": null,
+     "n_tasks": null,
+     "denominator": 27,
+     "weighted": 70.37037037,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "termination": {
+     "outcome": "ok",
+     "pid_eq_pgid": true,
+     "exit_code": 0,
+     "no_restart": true,
+     "termination_receipt": true
+    },
+    "trace_contamination": {
+     "violations": 3,
+     "patterns": [
+      "harness-compare-bench"
+     ],
+     "adjudication": "cat TASK.md && cat meta.json 回显（与 r1 同类；ws meta 为 runner 主动放置）——echo 级"
+    }
+   },
+   "gate_admission_independent": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+     "judge.checker_sha256 缺失或与 contract 不一致",
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "integrity_verdict=violation（污染，不准入、不删槽）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": false
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "19/27=70.37037037 非 diagnostic 排除、不写能力 0",
+    "violation_kept": true,
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:02:46+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+   "product": "dsh",
+   "case": "dabstep-payments-10",
+   "rep": "1",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:28:04+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "attempt": {
+     "pid_eq_pgid": true,
+     "single_attempt": true
+    },
+    "group_stop": {
+     "verified_stop": true,
+     "signal": null,
+     "probe": "verified_gone"
+    },
+    "score": {
+     "raw_checks": 12,
+     "scored": 10,
+     "earned_recomputed": 7,
+     "denominator": 10,
+     "weighted": 70.0,
+     "raw_weighted": 70.0,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "capture": {
+     "archive_empty": true,
+     "usage_null": true,
+     "recovery": "late-archive 见 reviewer 侧车（首槽 36/36）；不自动改 formal"
+    },
+    "residual_disclosure_present": true
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "会话轨迹缺失",
+     "required_original_evidence 缺：['session']",
+     "integrity_verdict=violation（污染，不准入、不删槽）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": false
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "7/10=70.0（observed；capture 空=缺证非能力0）",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r2",
+   "product": "dsh",
+   "case": "dabstep-payments-10",
+   "rep": "2",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:43:22+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "attempt": {
+     "pid_eq_pgid": true,
+     "single_attempt": true
+    },
+    "group_stop": {
+     "verified_stop": true,
+     "signal": null,
+     "probe": "verified_gone"
+    },
+    "score": {
+     "raw_checks": 12,
+     "scored": 10,
+     "earned_recomputed": 8,
+     "denominator": 10,
+     "weighted": 80.0,
+     "raw_weighted": 80.0,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "capture": {
+     "archive_empty": true,
+     "usage_null": true,
+     "recovery": "late-archive 见 reviewer 侧车（首槽 36/36）；不自动改 formal"
+    },
+    "residual_disclosure_present": true
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "会话轨迹缺失",
+     "required_original_evidence 缺：['session']",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "8/10=80.0（observed；capture 空=缺证非能力0）",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+   "product": "dsh",
+   "case": "dabstep-payments-10",
+   "rep": "3",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:53:14+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "attempt": {
+     "pid_eq_pgid": true,
+     "single_attempt": true
+    },
+    "group_stop": {
+     "verified_stop": true,
+     "signal": null,
+     "probe": "verified_gone"
+    },
+    "score": {
+     "raw_checks": 12,
+     "scored": 10,
+     "earned_recomputed": 7,
+     "denominator": 10,
+     "weighted": 70.0,
+     "raw_weighted": 70.0,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "capture": {
+     "archive_empty": true,
+     "usage_null": true,
+     "recovery": "late-archive 见 reviewer 侧车（首槽 36/36）；不自动改 formal"
+    },
+    "residual_disclosure_present": true
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "会话轨迹缺失",
+     "required_original_evidence 缺：['session']",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "7/10=70.0（observed；capture 空=缺证非能力0）",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r1",
+   "product": "dsh",
+   "case": "tb-cargo-plan",
+   "rep": "1",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:36:22+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "attempt": {
+     "pid_eq_pgid": true,
+     "single_attempt": true
+    },
+    "group_stop": {
+     "verified_stop": true,
+     "signal": null,
+     "probe": "verified_gone"
+    },
+    "score": {
+     "raw_checks": 30,
+     "scored": 27,
+     "earned_recomputed": 19,
+     "denominator": 27,
+     "weighted": 70.37037037,
+     "raw_weighted": 70.37,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "capture": {
+     "archive_empty": true,
+     "usage_null": true,
+     "recovery": "late-archive 见 reviewer 侧车（首槽 36/36）；不自动改 formal"
+    },
+    "residual_disclosure_present": true
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "会话轨迹缺失",
+     "required_original_evidence 缺：['session']",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "19/27=70.37037037（observed；capture 空=缺证非能力0）",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r2",
+   "product": "dsh",
+   "case": "tb-cargo-plan",
+   "rep": "2",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:38:42+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "attempt": {
+     "pid_eq_pgid": true,
+     "single_attempt": true
+    },
+    "group_stop": {
+     "verified_stop": true,
+     "signal": null,
+     "probe": "verified_gone"
+    },
+    "score": {
+     "raw_checks": 30,
+     "scored": 27,
+     "earned_recomputed": 20,
+     "denominator": 27,
+     "weighted": 74.07407407,
+     "raw_weighted": 74.07,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "capture": {
+     "archive_empty": true,
+     "usage_null": true,
+     "recovery": "late-archive 见 reviewer 侧车（首槽 36/36）；不自动改 formal"
+    },
+    "residual_disclosure_present": true
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "会话轨迹缺失",
+     "required_original_evidence 缺：['session']",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "20/27=74.07407407（observed；capture 空=缺证非能力0）",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r3",
+   "product": "dsh",
+   "case": "tb-cargo-plan",
+   "rep": "3",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "started_at": "2026-10-29T23:59:22+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "attempt": {
+     "pid_eq_pgid": true,
+     "single_attempt": true
+    },
+    "group_stop": {
+     "verified_stop": true,
+     "signal": null,
+     "probe": "verified_gone"
+    },
+    "score": {
+     "raw_checks": 30,
+     "scored": 27,
+     "earned_recomputed": 20,
+     "denominator": 27,
+     "weighted": 74.07407407,
+     "raw_weighted": 74.07,
+     "score_block_checker_sha_equals_contract": true
+    },
+    "capture": {
+     "archive_empty": true,
+     "usage_null": true,
+     "recovery": "late-archive 见 reviewer 侧车（首槽 36/36）；不自动改 formal"
+    },
+    "residual_disclosure_present": true
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "会话轨迹缺失",
+     "required_original_evidence 缺：['session']",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "20/27=74.07407407（observed；capture 空=缺证非能力0）",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+   "product": "workbuddy",
+   "case": "bird-ca-schools-15",
+   "rep": "1",
+   "execution": {
+    "status": "not_executed",
+    "reason": "startup-render-not-ready（发送前失败，零会话/trace/usage）",
+    "score": null,
+    "evidence": "仅 registration+notexecuted.json；无会话/trace/meta/score/usage"
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "not_executed",
+    "fails": [
+     "not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations']"
+    ]
+   },
+   "ruling": "lead 裁决 not_executed；不计能力0/不入 formal/不凑总分",
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-wb-gateway-dabstep-payments-10-r1",
+   "product": "workbuddy",
+   "case": "dabstep-payments-10",
+   "rep": "1",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "native_terminal": "completed 原物 sha==meta（四槽全验）",
+    "alias": "DB 实证 deepseek-v4.1-flash；上游 actual_model 缺省(null)",
+    "inputs_verification": {
+     "ok": true
+    },
+    "score": {
+     "correct": 5,
+     "n_tasks": 10,
+     "weighted": 50.0,
+     "raw_weighted": 50.0,
+     "checks": 12,
+     "guards": 2,
+     "denom": 10,
+     "receipt_earned_mirrors_reward": "dab/cargo earned=0 系 reward 镜像 emission 语义（L5 池）",
+     "precision_note": ""
+    },
+    "trace_review": "原生 trace 全查：全 Read/Bash/Write/Edit/present_files，路径均在槽内 ws 或 /tmp scratch；无 web/越界/oracle"
+   },
+   "gate_admission_independent": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ]
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "5/10=50.0 非 diagnostic 排除、不写能力 0",
+    "raw_meta_untouched": true
+   },
+   "dated_note": "2026-10-30T00:07:54+08:00",
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-wb-gateway-exercism-py-6-r1",
+   "product": "workbuddy",
+   "case": "exercism-py-6",
+   "rep": "1",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "native_terminal": "completed 原物 sha==meta（四槽全验）",
+    "alias": "DB 实证 deepseek-v4.1-flash；上游 actual_model 缺省(null)",
+    "inputs_verification": {
+     "ok": true
+    },
+    "score": {
+     "correct": null,
+     "n_tasks": null,
+     "weighted": 100.0,
+     "raw_weighted": 100.0,
+     "checks": 7,
+     "guards": null,
+     "denom": 6,
+     "reward": 1,
+     "receipt_earned_mirrors_reward": "dab/cargo earned=0 系 reward 镜像 emission 语义（L5 池）",
+     "precision_note": ""
+    },
+    "trace_review": "原生 trace 全查：全 Read/Bash/Write/Edit/present_files，路径均在槽内 ws 或 /tmp scratch；无 web/越界/oracle"
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "full=100.0(reward 1) 非 diagnostic 排除、不写能力 0",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+   "product": "workbuddy",
+   "case": "lcb-recent-hard-4",
+   "rep": "1",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "native_terminal": "completed 原物 sha==meta（四槽全验）",
+    "alias": "DB 实证 deepseek-v4.1-flash；上游 actual_model 缺省(null)",
+    "inputs_verification": {
+     "ok": true
+    },
+    "score": {
+     "correct": null,
+     "n_tasks": null,
+     "weighted": 100.0,
+     "raw_weighted": 100.0,
+     "checks": 5,
+     "guards": null,
+     "denom": 4,
+     "reward": 1,
+     "receipt_earned_mirrors_reward": "dab/cargo earned=0 系 reward 镜像 emission 语义（L5 池）",
+     "precision_note": ""
+    },
+    "trace_review": "原生 trace 全查：全 Read/Bash/Write/Edit/present_files，路径均在槽内 ws 或 /tmp scratch；无 web/越界/oracle"
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "full=100.0(reward 1) 非 diagnostic 排除、不写能力 0",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  },
+  {
+   "slot_id": "l4-20261029-wb-gateway-tb-cargo-plan-r1",
+   "product": "workbuddy",
+   "case": "tb-cargo-plan",
+   "rep": "1",
+   "u1_checks": {
+    "exact_E_time": {
+     "registered_at": "2026-10-29T23:13:56+08:00",
+     "start_ge_E": true
+    },
+    "plan_membership": true,
+    "native_terminal": "completed 原物 sha==meta（四槽全验）",
+    "alias": "DB 实证 deepseek-v4.1-flash；上游 actual_model 缺省(null)",
+    "inputs_verification": {
+     "ok": true
+    },
+    "score": {
+     "correct": null,
+     "n_tasks": null,
+     "weighted": 70.37,
+     "raw_weighted": 70.37,
+     "checks": 30,
+     "guards": 3,
+     "denom": 27,
+     "receipt_earned_mirrors_reward": "dab/cargo earned=0 系 reward 镜像 emission 语义（L5 池）",
+     "precision_note": "raw 2dp 70.37 == round(70.37037037,2)；canonical 8dp 一致"
+    },
+    "trace_review": "原生 trace 全查：全 Read/Bash/Write/Edit/present_files，路径均在槽内 ws 或 /tmp scratch；无 web/越界/oracle"
+   },
+   "canonical_gate": {
+    "formal_admission": false,
+    "accounting": "partial",
+    "fails": [
+     "classify=fail:precision issues=[{'field': 'weighted', 'class': 'precision', 'detail': 'value=70.37 expected 8dp=70.37037037'}]",
+     "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+     "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+    ],
+    "contamination_cleared": true
+   },
+   "ruling": {
+    "executed": true,
+    "formal_admission": false,
+    "score_valid_kept": "19/27 raw 2dp=70.37（canonical 8dp 一致） 非 diagnostic 排除、不写能力 0",
+    "raw_meta_untouched": true
+   },
+   "at": "2026-10-30T00:13:38+08:00"
+  }
+ ],
+ "historical_errata_preserved": [
+  "REPORT 9pairs→6",
+  "responses mapping 缺口（raw/inventory 完整）",
+  "v3.4 WB 信封缩进",
+  "DSH capture 双dsh marker",
+  "WB receipt.earned 镜像 reward",
+  "cargo raw 2dp vs canonical 8dp 精度"
+ ],
+ "recovery_sidecars": "reviewer/task10 首槽 36/36 已引；余 5 待齐后仅 sidecar 引用，不改 formal",
+ "dated_amendments": [
+  {
+   "at": "2026-10-30T00:22:59+08:00",
+   "by": "judge",
+   "recovery_sidecars_final": {
+    "citable": [
+     "../L4首请求前评审-2026-10-29/late-archive-verification/final-six-review-01.md (sha16 98bc69a5fddf7815)",
+     "../L4首请求前评审-2026-10-29/late-archive-verification/final-six-summary-01.json (sha16 deaeea32e882bbda)",
+     "../L4首请求前评审-2026-10-29/late-archive-verification/final-six-receipt-check-01.json (sha16 2f832ef6ce19eec6, all_ok=true)"
+    ],
+    "facts": "slot_id 恰 6 去重/8 指定副本；6 身份结构支持；5 collected_at 明确晚于结束、cargo r3 采集起点 unknown（at 为作者称 copy 后构造，reviewer 仅独立 stat APFS birthtime/mtime+重 hash）；160 项 159 过 1 unknown；93 输入并集复 hash 零漂移；late usage 仅 commit-point 记录非 HTTP 分母",
+    "formal_effect": "无——原 formal0/meta/usage/score/time/gate 全不改，sidecar 仅引用"
+   },
+   "note": "recovery_sidecars 字段的『余 5 待齐』表述由本条取代（全部已齐）"
+  }
+ ]
+}

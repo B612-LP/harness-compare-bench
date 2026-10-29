@@ -1,0 +1,51 @@
+{
+  "kind": "recovery_record_at_semantics",
+  "companion_of": "recovery-record.json (bytes untouched; this sidecar explains, never replaces)",
+  "recorded_at": "2026-10-30T00:15:15+08:00",
+  "original_record": {
+    "path": "3-表现现场/l4-20261029-cli/dsh/recoveries/l4-20261029-cli-dsh-tb-cargo-plan-r3/recovery-record.json",
+    "sha256_independently_recomputed_now": "51159bfb16be2f2c859c80fa6d75a4ee7e25e1c62611d716ac3c3098c331dd2e",
+    "at_value_as_stored": "2026-10-30T00:02:29+08:00",
+    "has_collected_at_field": false
+  },
+  "semantic_answer": {
+    "at_in_this_record_is": "author-side wall-clock captured at record-dict construction, which executed AFTER the copy loop completed — i.e. record authoring/completion time, NOT a separately measured collection-start",
+    "collection_start_time": "UNKNOWN — not captured as a field by this collector run; not guessed, not hand-filled, not backfilled",
+    "why_field_missing": "cargo-r3 collector variant emitted only 'at'; the other five records carry 'at'=='collected_at' (single pre-copy now() shared by both keys) — field-schema drift between collector invocations, disclosed as-is"
+  },
+  "code_citation": {
+    "basis": "collector was an inline one-off (no persistent script, per scope discipline); construction order in that invocation:",
+    "order": [
+      "bind checks (exact cwd-encoded dir name / session-UUIDs-in-raw-stream / time window)",
+      "shutil.copy2 loop building the files inventory",
+      "rec dict built with at=datetime.datetime.now().astimezone().isoformat(timespec='seconds')",
+      "O_EXCL write of recovery-record.json"
+    ],
+    "honesty_note": "citation is from the author's execution record; no persistent source file exists to re-read — stated as author declaration and cross-checked below by independent measurement"
+  },
+  "independent_measurements": {
+    "measured_copy_path": "session-c827fb31-a59d-4586-bedf-a81d55380b51/session.v4.jsonl.zstd",
+    "copy_file_birthtime_apfs": "2026-10-30T00:01:36.208847",
+    "copy_file_mtime_as_on_disk": "2026-10-30T00:01:36.208847",
+    "interpretation": "birthtime (copy creation) machine-bounds collection completion BEFORE record at=00:02:29+08:00 — consistent with the semantic answer",
+    "anomaly_disclosed": "copy mtime equals birthtime rather than source mtime on this filesystem (copy2 metadata behavior not relied upon); provenance rests on recorded SHA/bytes, not copy mtimes",
+    "measurement_at": "2026-10-30T00:15:15+08:00"
+  },
+  "claim_separation": {
+    "author_declarations": [
+      "at value",
+      "files inventory",
+      "binding fields"
+    ],
+    "independently_measured_now": [
+      "original record sha256 (recomputed)",
+      "copy birthtime (APFS st_birthtime)",
+      "recorded_at"
+    ],
+    "unknown_left_unknown": [
+      "collection start moment for cargo-r3"
+    ]
+  },
+  "zero_model": true,
+  "live_doc_drift": []
+}

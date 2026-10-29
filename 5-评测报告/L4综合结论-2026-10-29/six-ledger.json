@@ -1,0 +1,662 @@
+{
+ "kind": "l4_six_category_ledger",
+ "id": "L4-SIX-LEDGER-r1",
+ "generated_at": "2026-10-30T00:29:23+08:00",
+ "builder": {
+  "script": "5-评测报告/L4综合结论-2026-10-29/ledger_build.py",
+  "sha256": "aaeafc81219da3eff7fd9b159ee3c44bf843ee6f65c07870a37291468dab9de3"
+ },
+ "basis": {
+  "design_commit_D": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+  "execution_seal_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+  "registered_at": "2026-10-29T23:13:56+08:00",
+  "inputs_sha256": {
+   "1-评测方案/自动循环L4-2026-10-29/plan.json": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+   "1-评测方案/自动循环L4-2026-10-29/runtime-binding.json": "bf73ed8071d5dbd36dadc723ae7764e4b60d0fa14a0183c93649c56b4b98ff18",
+   "3-表现现场/l4-20261029-cache/probe-receipt.json": "e8b3c3cb9f89693017da794eaa37fca4553df4d633ff5cf89ced0c4f36efe3d1"
+  }
+ },
+ "planned_slots": {
+  "product": 17,
+  "probe": 18,
+  "total": 35
+ },
+ "categories": {
+  "product_run": {
+   "planned_slots": 17,
+   "groups": [
+    {
+     "group_id": "prod:codex-batch",
+     "product": "codex",
+     "slots": [
+      {
+       "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r1",
+       "case": "dabstep-payments-10",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 70.0,
+       "integrity_verdict": "clean",
+       "usage_requests": 26,
+       "unknowns": [],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r1/meta.json",
+        "meta_sha256": "821c1a64acd5abf615630e08af552aa5ea1a1791049ad02b3de6bb26387bd9d5"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+       "case": "tb-cargo-plan",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 70.37037037,
+       "integrity_verdict": "violation",
+       "usage_requests": 15,
+       "unknowns": [],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r1/meta.json",
+        "meta_sha256": "97609d9615421d855defa6a1ca49245b1ca7908162bb4af187e055e61bc7168a"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r2",
+       "case": "tb-cargo-plan",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 70.37037037,
+       "integrity_verdict": "violation",
+       "usage_requests": 17,
+       "unknowns": [],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r2/meta.json",
+        "meta_sha256": "55f926f1604a1c11dfa6cd82e5072ddf3f47e9d0fb203d218088690e0f2a4612"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r2",
+       "case": "dabstep-payments-10",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 70.0,
+       "integrity_verdict": "violation",
+       "usage_requests": 36,
+       "unknowns": [],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r2/meta.json",
+        "meta_sha256": "187b55e34024c95710dd5611d69a8cd23522924e501d0ecf6474920d996ff314"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r3",
+       "case": "dabstep-payments-10",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 70.0,
+       "integrity_verdict": "clean",
+       "usage_requests": 29,
+       "unknowns": [],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r3/meta.json",
+        "meta_sha256": "69df984526ed52f7bef8728d7df87591302bbe18cb6cd783640683cc0169b888"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r3",
+       "case": "tb-cargo-plan",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 70.37037037,
+       "integrity_verdict": "violation",
+       "usage_requests": 16,
+       "unknowns": [],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r3/meta.json",
+        "meta_sha256": "ed855fb387c016b19e2fccf0d9f60e6f4daa2a55767799bc8ecaf55fce4ce2c5"
+       }
+      }
+     ],
+     "summary": {
+      "executed": 6,
+      "planned": 6
+     }
+    },
+    {
+     "group_id": "prod:dsh-batch",
+     "product": "dsh",
+     "slots": [
+      {
+       "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+       "case": "dabstep-payments-10",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 70.0,
+       "integrity_verdict": "violation",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/meta.json",
+        "meta_sha256": "572f394aa3977d3a8228922f192de7580ce1194115a3cc462a7ba271f886cc7c"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r1",
+       "case": "tb-cargo-plan",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 70.37037037,
+       "integrity_verdict": "clean",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-tb-cargo-plan-r1/meta.json",
+        "meta_sha256": "5799fa2894754c1233ea77bec98af852dc8da327a7447a2943153621931bb5bf"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r2",
+       "case": "tb-cargo-plan",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 74.07407407,
+       "integrity_verdict": "clean",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-tb-cargo-plan-r2/meta.json",
+        "meta_sha256": "84b9a9f4d3a37a1c3492ddb305d0c52071cda025c6532bb11e71ea77da11d1eb"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r2",
+       "case": "dabstep-payments-10",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 80.0,
+       "integrity_verdict": "clean",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r2/meta.json",
+        "meta_sha256": "5ce645a1d3a501d2b73335e52f61fee8e9b2fee53e896c6f95425fbeb809b754"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+       "case": "dabstep-payments-10",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 70.0,
+       "integrity_verdict": "clean",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/meta.json",
+        "meta_sha256": "d4af8baf5e3402a7c61f5b2f3ff0770e6bc5873bcab95495b3917d72b7f4f31a"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r3",
+       "case": "tb-cargo-plan",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": 0,
+       "timed_out": false,
+       "weighted": 74.07407407,
+       "integrity_verdict": "clean",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-tb-cargo-plan-r3/meta.json",
+        "meta_sha256": "78eda8c84ca9ea888a7a4c460d334d669d909a9a479570e152ed9d002e7cbeca"
+       }
+      }
+     ],
+     "summary": {
+      "executed": 6,
+      "planned": 6,
+      "gate_formal": 0,
+      "note": "usage 维度本轮不可结论（marker 缺陷原样保留）；recoveries 晚补档 sidecar 独立"
+     }
+    },
+    {
+     "group_id": "prod:wb-batch",
+     "product": "workbuddy",
+     "slots": [
+      {
+       "slot_id": "l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+       "accounting_state": "not_executed",
+       "not_executed_reason": "基础设施 startup-render-not-ready：E 后首槽冷启动，CDP 9332 已起但渲染进程未就绪（driver _page_ws_url 无 page target 即抛错，无就绪等待）；发送前失败——本批零 new_task/sendPrompt，未产生会话/trace/usage；仓外 workspace 已创建但不作为执行工件（保留不删）",
+       "score": null,
+       "formal_admission": false,
+       "unknowns": [],
+       "evidence": {
+        "notexecuted.json": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-bird-ca-schools-15-r1/notexecuted.json",
+        "notexecuted_sha256": "9126c3ade70226d84c43b7fcd4190ec6dd9b8a01848007f95ffdc1fdd5f39677",
+        "startup_proof": "3-表现现场/l4-20261029-wb-gateway/receipts/bird-startup-failure-proof.json",
+        "E_provenance_sidecar": "3-表现现场/l4-20261029-wb-gateway/receipts/bird-notexec-preregE-provenance.json"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-wb-gateway-dabstep-payments-10-r1",
+       "case": "dabstep-payments-10",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": null,
+       "timed_out": false,
+       "weighted": 50.0,
+       "integrity_verdict": "clean",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-dabstep-payments-10-r1/meta.json",
+        "meta_sha256": "14d4a478b722b5f7e284eb68729b1e4c43a2973e21f2dde70b7848c02b276717"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-wb-gateway-exercism-py-6-r1",
+       "case": "exercism-py-6",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": null,
+       "timed_out": false,
+       "weighted": 100.0,
+       "integrity_verdict": "clean",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-exercism-py-6-r1/meta.json",
+        "meta_sha256": "7718383864ef0dffc500102c37e6147212a2d16e2fbbb75338d5ae4732772445"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+       "case": "lcb-recent-hard-4",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": null,
+       "timed_out": false,
+       "weighted": 100.0,
+       "integrity_verdict": "clean",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-lcb-recent-hard-4-r1/meta.json",
+        "meta_sha256": "d3c880e10e3d73515af205fd66088d20c01c5abeaab5cb8e7b0a4c560a956f2b"
+       }
+      },
+      {
+       "slot_id": "l4-20261029-wb-gateway-tb-cargo-plan-r1",
+       "case": "tb-cargo-plan",
+       "accounting_state": "executed",
+       "status": "ok",
+       "exit_code": null,
+       "timed_out": false,
+       "weighted": 70.37,
+       "integrity_verdict": "clean",
+       "usage_requests": null,
+       "unknowns": [
+        "usage_observation=null(marker 缺陷原样保留)"
+       ],
+       "evidence": {
+        "meta.json": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-tb-cargo-plan-r1/meta.json",
+        "meta_sha256": "33c91bb7a2c0152d40018f9270ad4b6fe084b52a7a9e0fa71b94ae90109b1c4b"
+       }
+      }
+     ],
+     "summary": {
+      "executed": 4,
+      "planned": 5,
+      "not_executed": 1,
+      "note": "bird=not_executed（R1 真值表：score=null、formal=false、诊断完整）"
+     }
+    }
+   ],
+   "executed_total": 16,
+   "not_executed_total": 1,
+   "formal_admission_note": "逐槽 formal_admission 归 judge/lead 主裁，本账只记 accounting_state 与原分"
+  },
+  "bare_model_probe": {
+   "planned_slots": 18,
+   "groups": [
+    {
+     "group_id": "probe:cache-batch",
+     "receipt_unit": "3-表现现场/l4-20261029-cache/probe-receipt.json",
+     "receipt_sha256": "e8b3c3cb9f89693017da794eaa37fca4553df4d633ff5cf89ced0c4f36efe3d1",
+     "slots": [
+      {
+       "slot_id": "l4-20261029-cache-responses-b1-fresh",
+       "protocol": "responses",
+       "block": 1,
+       "condition": "fresh",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-responses-b1-repeat",
+       "protocol": "responses",
+       "block": 1,
+       "condition": "repeat",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-responses-b1-nonce-control",
+       "protocol": "responses",
+       "block": 1,
+       "condition": "nonce-control",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-anthropic-messages-b1-fresh",
+       "protocol": "anthropic-messages",
+       "block": 1,
+       "condition": "fresh",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-anthropic-messages-b1-repeat",
+       "protocol": "anthropic-messages",
+       "block": 1,
+       "condition": "repeat",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-anthropic-messages-b1-nonce-control",
+       "protocol": "anthropic-messages",
+       "block": 1,
+       "condition": "nonce-control",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-chat-completions-b1-fresh",
+       "protocol": "chat-completions",
+       "block": 1,
+       "condition": "fresh",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-chat-completions-b1-repeat",
+       "protocol": "chat-completions",
+       "block": 1,
+       "condition": "repeat",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-chat-completions-b1-nonce-control",
+       "protocol": "chat-completions",
+       "block": 1,
+       "condition": "nonce-control",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-chat-completions-b2-fresh",
+       "protocol": "chat-completions",
+       "block": 2,
+       "condition": "fresh",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-chat-completions-b2-repeat",
+       "protocol": "chat-completions",
+       "block": 2,
+       "condition": "repeat",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-chat-completions-b2-nonce-control",
+       "protocol": "chat-completions",
+       "block": 2,
+       "condition": "nonce-control",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-anthropic-messages-b2-fresh",
+       "protocol": "anthropic-messages",
+       "block": 2,
+       "condition": "fresh",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-anthropic-messages-b2-repeat",
+       "protocol": "anthropic-messages",
+       "block": 2,
+       "condition": "repeat",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-anthropic-messages-b2-nonce-control",
+       "protocol": "anthropic-messages",
+       "block": 2,
+       "condition": "nonce-control",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-responses-b2-fresh",
+       "protocol": "responses",
+       "block": 2,
+       "condition": "fresh",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-responses-b2-repeat",
+       "protocol": "responses",
+       "block": 2,
+       "condition": "repeat",
+       "http_status": 200,
+       "accounting_state": "executed"
+      },
+      {
+       "slot_id": "l4-20261029-cache-responses-b2-nonce-control",
+       "protocol": "responses",
+       "block": 2,
+       "condition": "nonce-control",
+       "http_status": 200,
+       "accounting_state": "executed"
+      }
+     ],
+     "summary": {
+      "executed_http200": 18,
+      "planned": 18
+     }
+    }
+   ],
+   "executed_total": 18
+  },
+  "interface_preflight": {
+   "groups": [
+    {
+     "group_id": "preflight:incident-accidental-cli",
+     "count": 1,
+     "receipt_unit": "3-表现现场/l4-20261029-cli/codex/incidents/incident-receipt.json",
+     "incident_sha256": "a04c90c36fafe5abe0080c77457ec99903ab866554d9a92388bad56b9a0bc004",
+     "provider_requests": "unknown",
+     "evidence_grade": "incomplete",
+     "note": "独立事故，不并 35 槽/不评分/不计合成 pass/不得称零调用"
+    },
+    {
+     "group_id": "preflight:cache-dryrun",
+     "count": 1,
+     "receipt_unit": "3-表现现场/l4-20261029-cache/dryrun/probe-receipt-dryrun.json"
+    },
+    {
+     "group_id": "preflight:wb-gateway",
+     "count": null,
+     "receipt_unit": "3-表现现场/l4-20261029-wb-gateway/preflight",
+     "unknowns": [
+      "细粒度预检次数未持久=null"
+     ]
+    }
+   ]
+  },
+  "self_test": {
+   "groups": [
+    {
+     "group_id": "selftest:lead-seal",
+     "refs": [
+      "1-评测方案/自动循环L4-2026-10-29/selftest"
+     ],
+     "files_json": 10,
+     "test_case_n": null,
+     "note": "v1→v6 修正链；用例数以各版本收据为准"
+    },
+    {
+     "group_id": "selftest:l4-execution-gate",
+     "refs": [
+      "1-评测方案/工具链/l4-execution/receipts/gate-selftest.json"
+     ],
+     "test_case_n": null
+    },
+    {
+     "group_id": "selftest:l4-execution-replay-dual",
+     "refs": [
+      "1-评测方案/工具链/l4-execution/selftest-replay-dual.json"
+     ],
+     "receipt_files": 9,
+     "test_case_n": null,
+     "note": "r1→r9 修正链留痕"
+    },
+    {
+     "group_id": "selftest:cache-probe",
+     "refs": [
+      "3-表现现场/l4-20261029-cache/selftest/selftest-receipt.json"
+     ],
+     "test_case_n": 32,
+     "receipt_at": "2026-10-29T21:04:05+08:00"
+    },
+    {
+     "group_id": "selftest:codex-runner",
+     "refs": [
+      "3-表现现场/l4-20261029-cli/codex/selftest/selftest-receipt.json"
+     ],
+     "test_case_n": 73,
+     "receipt_at": "2026-10-29T21:52:45+08:00",
+     "note": "以落盘收据版本为准"
+    },
+    {
+     "group_id": "selftest:wb-gateway",
+     "refs": [
+      "3-表现现场/l4-20261029-wb-gateway/selftest/selftest-receipt-l4-wb-v2.json",
+      "3-表现现场/l4-20261029-wb-gateway/receipts/v1-skeleton-archive"
+     ],
+     "test_case_n": null
+    },
+    {
+     "group_id": "selftest:judge-fake-e2e",
+     "refs": [
+      "5-评测报告/L4独立验收-2026-10-29/harness/results"
+     ],
+     "receipt_files": 33,
+     "test_case_n": null
+    },
+    {
+     "group_id": "selftest:auditor-tools",
+     "refs": [
+      "5-评测报告/对抗性盲审-L4-2026-10-29/selftest-receipt-credential-scan-r1.json"
+     ],
+     "test_case_n": 11,
+     "note": "另 pii_min_check 自检 6/6（内置 selftest）"
+    }
+   ],
+   "group_count": 8,
+   "note": "group 数≠用例数"
+  },
+  "offline_recompute": {
+   "groups": [
+    {
+     "group_id": "recompute:dual-archive-codex",
+     "slots": 6,
+     "refs": [
+      "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r1/projections"
+     ],
+     "note": "逐槽 equivalent_simulation 完备性终审留 judge"
+    },
+    {
+     "group_id": "recompute:cache-erratum-sidecar",
+     "refs": [
+      "3-表现现场/l4-20261029-cache/execution-accounting-sidecar.json"
+     ]
+    },
+    {
+     "group_id": "recompute:auditor-stages",
+     "refs": [
+      "5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-u1-r1.json",
+      "5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-cache-r3.json",
+      "5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-codex-r1.json",
+      "5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-dsh-r1.json",
+      "5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-coverage-r2.json"
+     ]
+    }
+   ]
+  },
+  "grading_regression": {
+   "value": 0,
+   "groups": [],
+   "note": "本环无 checker 修订/回归：contract 继承冻结 checker 字节；不为凑六账新跑"
+  }
+ },
+ "counts": {
+  "activity_group_total": 18,
+  "product_executed": 16,
+  "product_not_executed": 1,
+  "probe_executed": 18,
+  "grading_regression_runs": 0,
+  "incident_separate": 1,
+  "note": "activity_group 数 ≠ 槽次数 ≠ 用例数，三口径分列"
+ },
+ "unknowns_policy": "未记录细节一律 null/unknown 并逐条列出，不捏造",
+ "formal_admission": "本账不判定 formal_admission（judge/lead 主裁）；raw 原分照实保留",
+ "live_doc_drift": []
+}

@@ -52,3 +52,26 @@
 - 探针与历史 rollout 非同请求，禁止逐调用对应；历史「creation=0」按产品/字段源层分开陈述（codex=r1031 提取层 `or 0` 合并 absent/null/0；dsh=session log 键存在且值 0）。
 - anthropic 兼容官方出处：https://api-docs.deepseek.com/zh-cn/guides/anthropic_api（lead fetch：base /anthropic、version/thinking.budget_tokens/cache_control 忽略、output_config 仅 effort、max_tokens 全支持、content string 支持；Bearer 与官方 ANTHROPIC_AUTH_TOKEN 路径一致；**cache_control 忽略≠无缓存/成本结论，creation 与否以 18 探针 raw usage 为准**）
 - low 映射官方出处：https://api-docs.deepseek.com/guides/thinking_mode/ （lead web_fetch）：responses=reasoning.effort low、chat=reasoning_effort low、messages=output_config.effort low——与 SHAPES 一致，无形状改动。responses reasoning 字段若仍 4xx 首败按 R4.3 停该协议不适配（契约纪律不变）。
+
+
+## 执行账（RELEASE 1 · 2026-10-29 全链一次完成）
+
+- 绑定：E5674de65…（registered_at=2026-10-29T23:13:56+08:00）；gate.verify_execution 21 步 ok（42 repo files + 17 external）。
+- 结果：**18/18 executed，0 failed，无 401/403**（无全局停批）；发送 HTTP 请求 18 次（每槽恰 1 次），9 个 fresh/repeat pair 全部成立（repeat 与 fresh 逐字节同体，间隔 ≥5s 实测）。
+- usage 分 wire 观察（raw 原样保存，缺失/null/0/正值分态；不推成本、不证机制）：
+  - anthropic-messages：repeat/control 中 repeat cache_read=positive(2048)、fresh/control=0；creation 键存在且值 0（6/6）。
+  - chat-completions：repeat cache_read(prompt_tokens_details.cached_tokens)=positive(2048)、fresh/control=0；该线无 creation 映射（官方 hit/miss 语义）。
+  - responses：input 侧 cached/cache_write 键 6/6 **missing**（协议未回传该键，≠无缓存）。
+- 证据完整性：intent/request.body/response.body.raw/usage.raw+layers/accounting 各 18/18；probe-receipt.json 为批收据。
+- 未知/边界：fresh=0 不宣称冷缓存；repeat 命中不宣称由本实验建缓存或写入机制已证；responses 键缺失不作无缓存解释；未观测任何成本数据。
+
+### dated 更正（2026-10-29T23:27:38+08:00，仅叙述；raw 原物零改动）
+
+- pair 计数更正：3 wire × 2 block = **6 个 fresh/repeat pair**（每 pair 属同一 wire+block），此前短报「9 个 pair」为计数错误（误把 3 wire×3 条件当作 pair 基数）。raw accounting/transport 原物未改，paired_with_fresh 字段原始值照旧。
+- 措辞边界补强：responses 线 usage 判读以 judge 独立复算为准（应递归核所有 usage 路径，含嵌套 details 键），不以预设键 missing 即称「全协议未返 cache 字段」——本 REPORT 前述 responses 表述按此口径约束。
+
+### dated erratum 2（2026-10-29T23:33:34+08:00，仅叙述；raw/usage.layers 原物零改动，额外 HTTP 0）
+
+- lead 递归 raw 复核：responses 六个 body 均含 `/usage/input_tokens_details/cached_tokens`——fresh/control=0、两 repeat=2048。**此前「responses 线 cached/cache_write 键 6/6 missing」系 mapper 预设路径遗漏（USAGE_FIELDS['responses'] 未含该嵌套键），不是原协议缺失。**
+- 处置：本节保留原句作为缺陷记录；raw/usage.layers 原物不覆盖（layers 为 mapping defect 证物）；离线复算侧车 execution-accounting-sidecar.json 已落（judge 独立核）。mapping 机理证据本轮以 raw matched 复算提供，不装成 E 前工具已正确。
+- 口径统一：三 wire 各 2 repeat 的 cache 读数均为 2048；chat 线两个 cached 别名不重复累计；6 pair（非 9）。

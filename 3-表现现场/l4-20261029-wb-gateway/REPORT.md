@@ -244,3 +244,60 @@ stop_verified=false → timeout formal=false + 停后续槽。自检 T10a–d �
 - T19 completed 全门 formal=True 保持不变。
 自检 **59/59**（receipt_check all_ok；真实 runs/claims=0；动态 workspace 残留语义=
   未验证 stop 不动它——dry 根每次自测通配清理，真实根永不清理）。
+
+---
+
+## v4 FINAL（2026-10-30T00:12+08:00）：LEAD RELEASE 2 执行完毕——事实包（不宣称 formal）
+
+### 5 槽终态（机器版见 receipts/slot-accounting-frame.json；逐文件 sha 见 receipts/evidence-index.json）
+
+| 槽(order) | 终态 | weighted（checker 原发射值） | 时长 | 会话 | 记账 |
+|---|---|---|---|---|---|
+| bird(13) | not_executed：startup-render-not-ready（发送前，model_calls=0） | null | - | 无 | notexecuted.json（E=5674de65）+startup 旁证收据 |
+| dab(14) | ok | 50.0 | 186s | bcba2869 | executed，formal pending |
+| exercism(15) | ok | 100.0 | 119s | 040cf17a | executed，formal pending |
+| lcb(16) | ok | 100.0 | 1122s | 59f1eae2 | executed，formal pending |
+| cargo(17) | ok | 70.37 | 248s | 70ed7a91 | executed，formal pending |
+
+### 边界（重要）
+1. **原生 selected_alias（=declared deepseek-v4.1-flash，DB 字段实测同值）≠ upstream 上游模型
+   权重/供应商**——后者不可观测，维持受管未知，无同路由/跨模型排名表述。
+2. cargo weighted=70.37 为 checker **原发射值**；规范 8dp 归一/earned 计数重算由 judge 批级
+   裁决——原 meta/receipt 零改动。
+3. **本包不宣称 formal 批次通过**：批级 canonical gate（17 slot）由 judge 统一执行；
+   四完成槽 formal_admission=null（pending）。
+4. bird 冷启动渲染就绪等待缺口 → L5 池；E 后源零改动（runner 8634390f/safe a2105457
+   （lead 空白注释清理版，AST 同 8c90165f）/verify a2d5b242）。
+5. 披露：bird notexecuted.json 的 preregistration_commit 由一次性调用方按 gate §E 填
+   canonical E（冻结 persist_not_executed 该字段硬编码 None 无法表达）；bird 仓外 workspace
+   保留但不作为执行工件。
+
+### 运行纪律与进程处置
+- 全程复用本批 `open -g` 单实例（--remote-debugging-port=9332）；**保留运行**，理由：
+  ①judge 复核需可复现 CDP 会话面；②终止 Electron 全局进程属用户会话干扰路径
+  （composer 草稿/生成中任务），非本批可确认归属前不动；③未观察到更新器接管。
+- 未改网络/全局 settings/update/keychain；未跑自测/未新增源内 receipt（E 成员零漂移）；
+  无截图录屏；无 whole-session 重跑；attempts 恒 1。
+- 我启动的后台作业均已结束（job_list 空），无遗留采集器。
+
+### 证据索引（receipts/evidence-index.json）
+bird 2 文件｜dab 22｜exercism 33｜lcb 19｜cargo 22（含 trace 3 件原生拷贝、meta/score-receipt/
+checker.stdout/native-terminal/session-row/agent.stderr/prompt.txt/workspace 快照）。
+---
+
+## v4.1 dated 澄清（2026-10-30T00:35+08:00）：slot-accounting-frame.json 覆盖事件已恢复
+
+- **事件**：2026-10-30T00:08:33+08:00 本员重跑冻结 `accounting` 命令时，按其固定路径
+  覆盖了已提交的 `receipts/slot-accounting-frame.json`（原 at=2026-10-29T20:30:20+08:00，
+  阶段 I 产物）。lead 已从 HEAD 恢复原字节，覆盖版另存为
+  `receipts/slot-accounting-frame-regenerated-20261030.json`——两份均保留。
+- **哈希（脚本现取）**：恢复原 frame sha256=34dfe495acbbb026ea2c096dfe68018338cbd05bc34de8809b53a9e2a35028cd（与 HEAD 版逐字节一致=True）；
+  再生版 sha256=362d9ad3cf7c921928386835934eeb443813539d03bcbefa427c3a15f0b2b77a。
+- **内容事实**：两版**仅 at 字段不同**（2026-10-29T20:30:20+08:00 vs 2026-10-30T00:08:33+08:00），5 槽 accounting_file/state 均为
+  null——冻结 frame 函数未解析实际逐槽状态（其 accounting_file 路径解析与
+  `runs/*/slot-accounting.json` 布局不匹配）。
+- **记账效力**：本批实际 5 槽记账以**逐槽原件**为准（runs/*/slot-accounting.json ×4 +
+  runs/*/notexecuted.json ×1）及 judge 独立 17 行验收；**frame 文件不作为 final 5 槽
+  实际记账**。
+- **L5 池登记**：①frame 函数 accounting_file 路径解析缺陷；②固定路径收据的非破坏写入
+  （重跑前应改名保留）。

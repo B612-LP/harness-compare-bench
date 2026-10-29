@@ -1,0 +1,27 @@
+{
+ "kind": "judge_offline_cache_verify_final",
+ "generated_at": "2026-10-29T23:33:23+08:00",
+ "scope": "cache18 离线复核（bare_model_probe，非 product_run）；只读 builder 产物，原 layers/REPORT 未改写",
+ "basis": {
+  "probe_receipt": "3-表现现场/l4-20261029-cache/probe-receipt.json sha16=e8b3c3cb9f896930",
+  "binding": {
+   "execution_seal_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+   "registered_at": "2026-10-29T23:13:56+08:00"
+  }
+ },
+ "verdicts": {
+  "A_slots": "18/18 唯一、与 plan.probe_slots 18 成员双向一致（product_slots 为三产品 17，cache 在 probe_slots）",
+  "A_single_http": "18 槽各恰 1 transport+1 response.body.raw，raw sha/bytes 与记录自洽，全 200，write-once intent，无 stop-global/stop-protocol",
+  "B_pairs": "6 对（非 9）：fresh≡repeat 逐字节同体；nonce=sha256(D:proto:block)[:16] 确定性且 fresh≡repeat；control 全文档仅 nonce hex 不同（掩码比对）；间隔 6–7s 均 ≥5s",
+  "C_usage": "usage.raw.json 与 raw response usage 逐槽重算一致；layer_raw_inventory 覆盖 raw usage 全部路径（无漏）",
+  "C_recursive_cache_fields": "递归扫描三线：responses=usage.input_tokens_details.cached_tokens（fresh/control=0、repeat=2048，附 prompt_cache_key/retention=null）；messages=cache_creation_input_tokens 显式 0×6 + cache_read_input_tokens fresh/control=0、repeat=2048；chat=双 alias hit≡details.cached_tokens（0/2048）+miss 互补自洽（2283/2286）"
+ },
+ "erratum": "见 offline-recompute-erratum.json：responses 线 runner 映射判 missing 系映射抽取缺口（corrected: cache_read_tokens←usage.input_tokens_details.cached_tokens）；chat 双 alias 禁止重复求和；raw_creation 仅 messages 显式 0，responses/chat 缺键≠无写",
+ "release_opinion": "cache18 离线复核通过；responses 线测量器映射缺口作为 finding 记录（原 layers 不改写，erratum 侧车为准），不构成数据无效",
+ "files": [
+  "pairs-recomputed.json",
+  "cache-fields-raw-table.json",
+  "offline-recompute-erratum.json"
+ ],
+ "sentinel_note": "全程无网络调用（纯文件读）"
+}

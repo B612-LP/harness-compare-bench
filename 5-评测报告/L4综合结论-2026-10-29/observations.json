@@ -1,0 +1,1101 @@
+{
+  "artifact_class": "offline_observation_aggregation",
+  "generated_at": "2026-10-30T00:19:11+08:00",
+  "execution_binding": {
+    "schema_version": 1,
+    "design_commit": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+    "preregistration_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+    "execution_seal_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+    "registered_at": "2026-10-29T23:13:56+08:00",
+    "execution_manifest_sha256": "da1a4fa09a2f64fefdf2a5339c83b8c9a992ad5c95cb79d810c46f671f7cd017",
+    "plan_sha256": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "contract_sha256": "3a8a45ac5ac416b4d67d12be5047fc9c1411a4c233cb4a37136c177376348c33",
+    "released_for_model_calls": true,
+    "generated_at": "2026-10-29T23:15:12+08:00",
+    "live_doc_drift": []
+  },
+  "source_plan": {
+    "path": "1-评测方案/自动循环L4-2026-10-29/plan.json",
+    "sha256": "e8dfb73f25b2a82e6b8cd85aea521d4e604d2fb976e82732fa2c02b81dd744da",
+    "bytes": 17003
+  },
+  "source_final_judge_receipt": {
+    "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+    "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+    "bytes": 35286
+  },
+  "counts": {
+    "planned_product_records": 17,
+    "executed_product_records": 16,
+    "not_executed_product_records": 1,
+    "canonical_formal_true": 0,
+    "probe_http_records": 18,
+    "fresh_repeat_pairs": 6
+  },
+  "product_records": [
+    {
+      "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r1",
+      "product": "codex",
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "stratum": "cli_current_sentinel",
+      "order": 1,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+        "judge.checker_sha256 缺失或与 contract 不一致",
+        "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.0,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": 7,
+      "contract_denominator": 10,
+      "count_fraction_reference_not_a_regrade": "70.00000000",
+      "started_at": "2026-10-29T23:27:39+08:00",
+      "finished_at": "2026-10-29T23:33:01+08:00",
+      "duration_s": 322.2,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r1/meta.json",
+        "sha256": "821c1a64acd5abf615630e08af552aa5ea1a1791049ad02b3de6bb26387bd9d5",
+        "bytes": 41154
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+      "product": "codex",
+      "case": "tb-cargo-plan",
+      "rep": 1,
+      "stratum": "cli_current_sentinel",
+      "order": 2,
+      "canonical_formal": false,
+      "canonical_fails": [],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.37037037,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": null,
+      "contract_denominator": 27,
+      "count_fraction_reference_not_a_regrade": null,
+      "started_at": "2026-10-29T23:34:04+08:00",
+      "finished_at": "2026-10-29T23:37:54+08:00",
+      "duration_s": 229.2,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r1/meta.json",
+        "sha256": "97609d9615421d855defa6a1ca49245b1ca7908162bb4af187e055e61bc7168a",
+        "bytes": 26868
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r2",
+      "product": "codex",
+      "case": "tb-cargo-plan",
+      "rep": 2,
+      "stratum": "cli_current_sentinel",
+      "order": 3,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+        "judge.checker_sha256 缺失或与 contract 不一致",
+        "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+        "integrity_verdict=violation（污染，不准入、不删槽）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.37037037,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": null,
+      "contract_denominator": 27,
+      "count_fraction_reference_not_a_regrade": null,
+      "started_at": "2026-10-29T23:38:27+08:00",
+      "finished_at": "2026-10-29T23:42:56+08:00",
+      "duration_s": 268.7,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r2/meta.json",
+        "sha256": "55f926f1604a1c11dfa6cd82e5072ddf3f47e9d0fb203d218088690e0f2a4612",
+        "bytes": 28190
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r2",
+      "product": "codex",
+      "case": "dabstep-payments-10",
+      "rep": 2,
+      "stratum": "cli_current_sentinel",
+      "order": 4,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+        "judge.checker_sha256 缺失或与 contract 不一致",
+        "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+        "integrity_verdict=violation（污染，不准入、不删槽）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.0,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": 7,
+      "contract_denominator": 10,
+      "count_fraction_reference_not_a_regrade": "70.00000000",
+      "started_at": "2026-10-29T23:43:15+08:00",
+      "finished_at": "2026-10-29T23:49:43+08:00",
+      "duration_s": 388.5,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r2/meta.json",
+        "sha256": "187b55e34024c95710dd5611d69a8cd23522924e501d0ecf6474920d996ff314",
+        "bytes": 51499
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r3",
+      "product": "codex",
+      "case": "dabstep-payments-10",
+      "rep": 3,
+      "stratum": "cli_current_sentinel",
+      "order": 5,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+        "judge.checker_sha256 缺失或与 contract 不一致",
+        "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.0,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": 7,
+      "contract_denominator": 10,
+      "count_fraction_reference_not_a_regrade": "70.00000000",
+      "started_at": "2026-10-29T23:49:49+08:00",
+      "finished_at": "2026-10-29T23:53:50+08:00",
+      "duration_s": 240.9,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r3/meta.json",
+        "sha256": "69df984526ed52f7bef8728d7df87591302bbe18cb6cd783640683cc0169b888",
+        "bytes": 43897
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r3",
+      "product": "codex",
+      "case": "tb-cargo-plan",
+      "rep": 3,
+      "stratum": "cli_current_sentinel",
+      "order": 6,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "inputs_verification.ok 非真（派发前输入子集未对 contract 机械比对）",
+        "judge.checker_sha256 缺失或与 contract 不一致",
+        "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+        "integrity_verdict=violation（污染，不准入、不删槽）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.37037037,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": null,
+      "contract_denominator": 27,
+      "count_fraction_reference_not_a_regrade": null,
+      "started_at": "2026-10-29T23:53:56+08:00",
+      "finished_at": "2026-10-29T23:56:45+08:00",
+      "duration_s": 169.9,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r3/meta.json",
+        "sha256": "ed855fb387c016b19e2fccf0d9f60e6f4daa2a55767799bc8ecaf55fce4ce2c5",
+        "bytes": 27783
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r1",
+      "product": "dsh",
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "stratum": "cli_current_sentinel",
+      "order": 7,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "会话轨迹缺失",
+        "required_original_evidence 缺：['session']",
+        "integrity_verdict=violation（污染，不准入、不删槽）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.0,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": 7,
+      "contract_denominator": 10,
+      "count_fraction_reference_not_a_regrade": "70.00000000",
+      "started_at": "2026-10-29T23:28:04+08:00",
+      "finished_at": "2026-10-29T23:36:21+08:00",
+      "duration_s": 497.3,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r1/meta.json",
+        "sha256": "572f394aa3977d3a8228922f192de7580ce1194115a3cc462a7ba271f886cc7c",
+        "bytes": 7907
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r1",
+      "product": "dsh",
+      "case": "tb-cargo-plan",
+      "rep": 1,
+      "stratum": "cli_current_sentinel",
+      "order": 8,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "会话轨迹缺失",
+        "required_original_evidence 缺：['session']",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.37037037,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": 19,
+      "contract_denominator": 27,
+      "count_fraction_reference_not_a_regrade": "70.37037037",
+      "started_at": "2026-10-29T23:36:22+08:00",
+      "finished_at": "2026-10-29T23:38:41+08:00",
+      "duration_s": 139.6,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-tb-cargo-plan-r1/meta.json",
+        "sha256": "5799fa2894754c1233ea77bec98af852dc8da327a7447a2943153621931bb5bf",
+        "bytes": 7691
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r2",
+      "product": "dsh",
+      "case": "tb-cargo-plan",
+      "rep": 2,
+      "stratum": "cli_current_sentinel",
+      "order": 9,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "会话轨迹缺失",
+        "required_original_evidence 缺：['session']",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 74.07407407,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": 20,
+      "contract_denominator": 27,
+      "count_fraction_reference_not_a_regrade": "74.07407407",
+      "started_at": "2026-10-29T23:38:42+08:00",
+      "finished_at": "2026-10-29T23:43:21+08:00",
+      "duration_s": 279.5,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-tb-cargo-plan-r2/meta.json",
+        "sha256": "84b9a9f4d3a37a1c3492ddb305d0c52071cda025c6532bb11e71ea77da11d1eb",
+        "bytes": 7665
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r2",
+      "product": "dsh",
+      "case": "dabstep-payments-10",
+      "rep": 2,
+      "stratum": "cli_current_sentinel",
+      "order": 10,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "会话轨迹缺失",
+        "required_original_evidence 缺：['session']",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 80.0,
+      "producer_reward_do_not_treat_as_correct_count": 1,
+      "correct_count_from_judge_payload": 8,
+      "contract_denominator": 10,
+      "count_fraction_reference_not_a_regrade": "80.00000000",
+      "started_at": "2026-10-29T23:43:22+08:00",
+      "finished_at": "2026-10-29T23:53:14+08:00",
+      "duration_s": 592.0,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r2/meta.json",
+        "sha256": "5ce645a1d3a501d2b73335e52f61fee8e9b2fee53e896c6f95425fbeb809b754",
+        "bytes": 7458
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+      "product": "dsh",
+      "case": "dabstep-payments-10",
+      "rep": 3,
+      "stratum": "cli_current_sentinel",
+      "order": 11,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "会话轨迹缺失",
+        "required_original_evidence 缺：['session']",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.0,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": 7,
+      "contract_denominator": 10,
+      "count_fraction_reference_not_a_regrade": "70.00000000",
+      "started_at": "2026-10-29T23:53:14+08:00",
+      "finished_at": "2026-10-29T23:59:21+08:00",
+      "duration_s": 366.9,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-dabstep-payments-10-r3/meta.json",
+        "sha256": "d4af8baf5e3402a7c61f5b2f3ff0770e6bc5873bcab95495b3917d72b7f4f31a",
+        "bytes": 7469
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r3",
+      "product": "dsh",
+      "case": "tb-cargo-plan",
+      "rep": 3,
+      "stratum": "cli_current_sentinel",
+      "order": 12,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "会话轨迹缺失",
+        "required_original_evidence 缺：['session']",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 74.07407407,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": 20,
+      "contract_denominator": 27,
+      "count_fraction_reference_not_a_regrade": "74.07407407",
+      "started_at": "2026-10-29T23:59:22+08:00",
+      "finished_at": "2026-10-30T00:01:36+08:00",
+      "duration_s": 133.9,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-cli/dsh/runs/l4-20261029-cli-dsh-tb-cargo-plan-r3/meta.json",
+        "sha256": "78eda8c84ca9ea888a7a4c460d334d669d909a9a479570e152ed9d002e7cbeca",
+        "bytes": 7667
+      }
+    },
+    {
+      "slot_id": "l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+      "product": "workbuddy",
+      "case": "bird-ca-schools-15",
+      "rep": 1,
+      "stratum": "wb_gateway_delivery",
+      "order": 13,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations']"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "not_executed",
+      "reason": "基础设施 startup-render-not-ready：E 后首槽冷启动，CDP 9332 已起但渲染进程未就绪（driver _page_ws_url 无 page target 即抛错，无就绪等待）；发送前失败——本批零 new_task/sendPrompt，未产生会话/trace/usage；仓外 workspace 已创建但不作为执行工件（保留不删）",
+      "producer_reported_weighted": null,
+      "original_notexec_record": {
+        "path": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-bird-ca-schools-15-r1/notexecuted.json",
+        "sha256": "9126c3ade70226d84c43b7fcd4190ec6dd9b8a01848007f95ffdc1fdd5f39677",
+        "bytes": 727
+      }
+    },
+    {
+      "slot_id": "l4-20261029-wb-gateway-dabstep-payments-10-r1",
+      "product": "workbuddy",
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "stratum": "wb_gateway_delivery",
+      "order": 14,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 50.0,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": 5,
+      "contract_denominator": 10,
+      "count_fraction_reference_not_a_regrade": "50.00000000",
+      "started_at": "2026-10-29T23:35:22+08:00",
+      "finished_at": "2026-10-29T23:38:28+08:00",
+      "duration_s": 186.0,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-dabstep-payments-10-r1/meta.json",
+        "sha256": "14d4a478b722b5f7e284eb68729b1e4c43a2973e21f2dde70b7848c02b276717",
+        "bytes": 35631
+      }
+    },
+    {
+      "slot_id": "l4-20261029-wb-gateway-exercism-py-6-r1",
+      "product": "workbuddy",
+      "case": "exercism-py-6",
+      "rep": 1,
+      "stratum": "wb_gateway_delivery",
+      "order": 15,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 100.0,
+      "producer_reward_do_not_treat_as_correct_count": 1,
+      "correct_count_from_judge_payload": null,
+      "contract_denominator": 6,
+      "count_fraction_reference_not_a_regrade": null,
+      "started_at": "2026-10-29T23:39:19+08:00",
+      "finished_at": "2026-10-29T23:41:18+08:00",
+      "duration_s": 119.0,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-exercism-py-6-r1/meta.json",
+        "sha256": "7718383864ef0dffc500102c37e6147212a2d16e2fbbb75338d5ae4732772445",
+        "bytes": 40026
+      }
+    },
+    {
+      "slot_id": "l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+      "product": "workbuddy",
+      "case": "lcb-recent-hard-4",
+      "rep": 1,
+      "stratum": "wb_gateway_delivery",
+      "order": 16,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 100.0,
+      "producer_reward_do_not_treat_as_correct_count": 1,
+      "correct_count_from_judge_payload": null,
+      "contract_denominator": 4,
+      "count_fraction_reference_not_a_regrade": null,
+      "started_at": "2026-10-29T23:41:29+08:00",
+      "finished_at": "2026-10-30T00:00:11+08:00",
+      "duration_s": 1122.0,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-lcb-recent-hard-4-r1/meta.json",
+        "sha256": "d3c880e10e3d73515af205fd66088d20c01c5abeaab5cb8e7b0a4c560a956f2b",
+        "bytes": 53797
+      }
+    },
+    {
+      "slot_id": "l4-20261029-wb-gateway-tb-cargo-plan-r1",
+      "product": "workbuddy",
+      "case": "tb-cargo-plan",
+      "rep": 1,
+      "stratum": "wb_gateway_delivery",
+      "order": 17,
+      "canonical_formal": false,
+      "canonical_fails": [
+        "classify=fail:precision issues=[{'field': 'weighted', 'class': 'precision', 'detail': 'value=70.37 expected 8dp=70.37037037'}]",
+        "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+        "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+      ],
+      "admission_source": {
+        "path": "5-评测报告/L4独立验收-2026-10-29/final-verify-receipt.json",
+        "sha256": "985150e083cd28dacb5f37940cf11c044b281448baa4923fecf91f0e595c06c5",
+        "bytes": 35286
+      },
+      "record_state": "executed",
+      "producer_status": "ok",
+      "producer_reported_weighted": 70.37,
+      "producer_reward_do_not_treat_as_correct_count": 0,
+      "correct_count_from_judge_payload": null,
+      "contract_denominator": 27,
+      "count_fraction_reference_not_a_regrade": null,
+      "started_at": "2026-10-30T00:00:44+08:00",
+      "finished_at": "2026-10-30T00:04:52+08:00",
+      "duration_s": 248.0,
+      "original_metadata": {
+        "path": "3-表现现场/l4-20261029-wb-gateway/runs/l4-20261029-wb-gateway-tb-cargo-plan-r1/meta.json",
+        "sha256": "33c91bb7a2c0152d40018f9270ad4b6fe084b52a7a9e0fa71b94ae90109b1c4b",
+        "bytes": 38566
+      }
+    }
+  ],
+  "cli_descriptive_ranges": [
+    {
+      "product": "codex",
+      "case": "dabstep-payments-10",
+      "n_planned": 3,
+      "reported_scores_in_rep_order": [
+        "70.00000000",
+        "70.00000000",
+        "70.00000000"
+      ],
+      "observed_range_points": "0.00000000",
+      "duration_s_in_rep_order": [
+        322.2,
+        388.5,
+        240.9
+      ],
+      "not_population_variance_or_runner_generation_effect": true
+    },
+    {
+      "product": "codex",
+      "case": "tb-cargo-plan",
+      "n_planned": 3,
+      "reported_scores_in_rep_order": [
+        "70.37037037",
+        "70.37037037",
+        "70.37037037"
+      ],
+      "observed_range_points": "0.00000000",
+      "duration_s_in_rep_order": [
+        229.2,
+        268.7,
+        169.9
+      ],
+      "not_population_variance_or_runner_generation_effect": true
+    },
+    {
+      "product": "dsh",
+      "case": "dabstep-payments-10",
+      "n_planned": 3,
+      "reported_scores_in_rep_order": [
+        "70.00000000",
+        "80.00000000",
+        "70.00000000"
+      ],
+      "observed_range_points": "10.00000000",
+      "duration_s_in_rep_order": [
+        497.3,
+        592.0,
+        366.9
+      ],
+      "not_population_variance_or_runner_generation_effect": true
+    },
+    {
+      "product": "dsh",
+      "case": "tb-cargo-plan",
+      "n_planned": 3,
+      "reported_scores_in_rep_order": [
+        "70.37037037",
+        "74.07407407",
+        "74.07407407"
+      ],
+      "observed_range_points": "3.70370370",
+      "duration_s_in_rep_order": [
+        139.6,
+        279.5,
+        133.9
+      ],
+      "not_population_variance_or_runner_generation_effect": true
+    }
+  ],
+  "cache_records": [
+    {
+      "slot_id": "l4-20261029-cache-responses-b1-fresh",
+      "protocol": "responses",
+      "block": 1,
+      "condition": "fresh",
+      "order": 1,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-responses-b1-fresh/response.body.raw",
+        "sha256": "628a826948f28cef7120c6c51959667996c42c15484cf35acd1cbd3736b7f06a",
+        "bytes": 1415
+      },
+      "selected_cache_read_path": "/usage/input_tokens_details/cached_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "missing"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b1-repeat",
+      "protocol": "responses",
+      "block": 1,
+      "condition": "repeat",
+      "order": 2,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-responses-b1-repeat/response.body.raw",
+        "sha256": "16420ee9346a5673cf3bfa1da9af0c11cab6da4422e02389bf1e33877a912dd9",
+        "bytes": 1426
+      },
+      "selected_cache_read_path": "/usage/input_tokens_details/cached_tokens",
+      "cache_read": {
+        "state": "positive",
+        "value": 2048
+      },
+      "creation_named_field": {
+        "state": "missing"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b1-nonce-control",
+      "protocol": "responses",
+      "block": 1,
+      "condition": "nonce-control",
+      "order": 3,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-responses-b1-nonce-control/response.body.raw",
+        "sha256": "7192d384834786a9496bde6ecbf5f351f57ee852d6859cac6663b56cfcbd6b90",
+        "bytes": 1396
+      },
+      "selected_cache_read_path": "/usage/input_tokens_details/cached_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "missing"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b1-fresh",
+      "protocol": "anthropic-messages",
+      "block": 1,
+      "condition": "fresh",
+      "order": 4,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-anthropic-messages-b1-fresh/response.body.raw",
+        "sha256": "575c36a9f155bcc95fde021c42adc717b6494138e7757d1d3ce54f5c762646ab",
+        "bytes": 484
+      },
+      "selected_cache_read_path": "/usage/cache_read_input_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b1-repeat",
+      "protocol": "anthropic-messages",
+      "block": 1,
+      "condition": "repeat",
+      "order": 5,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-anthropic-messages-b1-repeat/response.body.raw",
+        "sha256": "42fa800ec5281d6430dfc61d69d978327a80cbffeadf1dd8de2c37419ee9a49c",
+        "bytes": 500
+      },
+      "selected_cache_read_path": "/usage/cache_read_input_tokens",
+      "cache_read": {
+        "state": "positive",
+        "value": 2048
+      },
+      "creation_named_field": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b1-nonce-control",
+      "protocol": "anthropic-messages",
+      "block": 1,
+      "condition": "nonce-control",
+      "order": 6,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-anthropic-messages-b1-nonce-control/response.body.raw",
+        "sha256": "93093caeec266f51678897b7c9373dd86743ca5bd9e3d57dafe07e93ee0a1aa4",
+        "bytes": 480
+      },
+      "selected_cache_read_path": "/usage/cache_read_input_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b1-fresh",
+      "protocol": "chat-completions",
+      "block": 1,
+      "condition": "fresh",
+      "order": 7,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-chat-completions-b1-fresh/response.body.raw",
+        "sha256": "d1006fb5c580090e268bb8bd11e94e10c5ecac8669e1148ad55a8e3fce3f2553",
+        "bytes": 586
+      },
+      "selected_cache_read_path": "/usage/prompt_cache_hit_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "missing"
+      },
+      "cached_tokens_alias": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b1-repeat",
+      "protocol": "chat-completions",
+      "block": 1,
+      "condition": "repeat",
+      "order": 8,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-chat-completions-b1-repeat/response.body.raw",
+        "sha256": "e8a1da62c2f4cc3f65b32ca5a290e762e4ec40d8f90cf63862e71d7a3a9c5b0e",
+        "bytes": 589
+      },
+      "selected_cache_read_path": "/usage/prompt_cache_hit_tokens",
+      "cache_read": {
+        "state": "positive",
+        "value": 2048
+      },
+      "creation_named_field": {
+        "state": "missing"
+      },
+      "cached_tokens_alias": {
+        "state": "positive",
+        "value": 2048
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b1-nonce-control",
+      "protocol": "chat-completions",
+      "block": 1,
+      "condition": "nonce-control",
+      "order": 9,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-chat-completions-b1-nonce-control/response.body.raw",
+        "sha256": "dc525bec524d7bb10f5056edf9ffecc9603fe44aa62fc9eb37f9eab9be147a43",
+        "bytes": 586
+      },
+      "selected_cache_read_path": "/usage/prompt_cache_hit_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "missing"
+      },
+      "cached_tokens_alias": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b2-fresh",
+      "protocol": "chat-completions",
+      "block": 2,
+      "condition": "fresh",
+      "order": 10,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-chat-completions-b2-fresh/response.body.raw",
+        "sha256": "3c3007c5d789e2287298a90cee9b4ed1a7ea9f801b7ea2095aaf3e76dc451c54",
+        "bytes": 598
+      },
+      "selected_cache_read_path": "/usage/prompt_cache_hit_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "missing"
+      },
+      "cached_tokens_alias": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b2-repeat",
+      "protocol": "chat-completions",
+      "block": 2,
+      "condition": "repeat",
+      "order": 11,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-chat-completions-b2-repeat/response.body.raw",
+        "sha256": "c33a75977de7c194ccc218be62b57961ff711cd196f0972ac6ce37f15cdefd1e",
+        "bytes": 588
+      },
+      "selected_cache_read_path": "/usage/prompt_cache_hit_tokens",
+      "cache_read": {
+        "state": "positive",
+        "value": 2048
+      },
+      "creation_named_field": {
+        "state": "missing"
+      },
+      "cached_tokens_alias": {
+        "state": "positive",
+        "value": 2048
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b2-nonce-control",
+      "protocol": "chat-completions",
+      "block": 2,
+      "condition": "nonce-control",
+      "order": 12,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-chat-completions-b2-nonce-control/response.body.raw",
+        "sha256": "d956b48620f60e90f3e4e34395b85d0a00be90dbae80e13834632475a337ec95",
+        "bytes": 581
+      },
+      "selected_cache_read_path": "/usage/prompt_cache_hit_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "missing"
+      },
+      "cached_tokens_alias": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b2-fresh",
+      "protocol": "anthropic-messages",
+      "block": 2,
+      "condition": "fresh",
+      "order": 13,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-anthropic-messages-b2-fresh/response.body.raw",
+        "sha256": "5b7a8cf67093fd24f3e992184363cc5d12bd66defe66a9b052b4710f914cfedc",
+        "bytes": 457
+      },
+      "selected_cache_read_path": "/usage/cache_read_input_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b2-repeat",
+      "protocol": "anthropic-messages",
+      "block": 2,
+      "condition": "repeat",
+      "order": 14,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-anthropic-messages-b2-repeat/response.body.raw",
+        "sha256": "f853663a85d2d786598120bee9463c516c04b01435eebbd62a07533889b24b3b",
+        "bytes": 462
+      },
+      "selected_cache_read_path": "/usage/cache_read_input_tokens",
+      "cache_read": {
+        "state": "positive",
+        "value": 2048
+      },
+      "creation_named_field": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b2-nonce-control",
+      "protocol": "anthropic-messages",
+      "block": 2,
+      "condition": "nonce-control",
+      "order": 15,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-anthropic-messages-b2-nonce-control/response.body.raw",
+        "sha256": "eec0e17ef2448406fb522af829f5f2db8499d2aa9d905c39276c743d1bc476fc",
+        "bytes": 466
+      },
+      "selected_cache_read_path": "/usage/cache_read_input_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "zero",
+        "value": 0
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b2-fresh",
+      "protocol": "responses",
+      "block": 2,
+      "condition": "fresh",
+      "order": 16,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-responses-b2-fresh/response.body.raw",
+        "sha256": "aceaa7ad852a29d7a2f719aa49d5c974040ac0415c1e511db041bcb79a074656",
+        "bytes": 1408
+      },
+      "selected_cache_read_path": "/usage/input_tokens_details/cached_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "missing"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b2-repeat",
+      "protocol": "responses",
+      "block": 2,
+      "condition": "repeat",
+      "order": 17,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-responses-b2-repeat/response.body.raw",
+        "sha256": "02d774ba4c5531f1bb28dbfd8c25ec72e558dd0832354bd5a3a4b67cf6c76670",
+        "bytes": 1406
+      },
+      "selected_cache_read_path": "/usage/input_tokens_details/cached_tokens",
+      "cache_read": {
+        "state": "positive",
+        "value": 2048
+      },
+      "creation_named_field": {
+        "state": "missing"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b2-nonce-control",
+      "protocol": "responses",
+      "block": 2,
+      "condition": "nonce-control",
+      "order": 18,
+      "http_status": 200,
+      "raw_source": {
+        "path": "3-表现现场/l4-20261029-cache/probes/l4-20261029-cache-responses-b2-nonce-control/response.body.raw",
+        "sha256": "269029178de9edffca1d8b2d68f598205468e12911315ee7cf408a47c989c8f8",
+        "bytes": 1398
+      },
+      "selected_cache_read_path": "/usage/input_tokens_details/cached_tokens",
+      "cache_read": {
+        "state": "zero",
+        "value": 0
+      },
+      "creation_named_field": {
+        "state": "missing"
+      }
+    }
+  ],
+  "limits": [
+    "No model/product/checker invocation by this program.",
+    "Record coverage is not metadata-contract compliance or formal admission.",
+    "Count fraction is a diagnostic reference, not a replacement of original score/guards.",
+    "No five-case total, normalization of missing cases, causal attribution, ranking or monetary inference.",
+    "One selected read counter per response; chat aliases are not added together."
+  ],
+  "live_doc_drift": [],
+  "live_doc_drift_source": {
+    "path": "1-评测方案/自动循环L4-2026-10-29/EXECUTION-RULINGS.json",
+    "sha256": "6035d9f79f2b4097a752ee58be3b86383fa9e402c94a342199c13e2c194fd02b",
+    "bytes": 3932
+  }
+}

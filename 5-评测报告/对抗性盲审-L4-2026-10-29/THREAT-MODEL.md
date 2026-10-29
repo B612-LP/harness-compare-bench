@@ -64,7 +64,7 @@
 
 ```
 5-评测报告/对抗性盲审-L4-2026-10-29/tools/credential_scan.py · 4dbbff27 · 14842B · 2026-10-29T21:44:47+08:00
-5-评测报告/对抗性盲审-L4-2026-10-29/tools/final_audit.py · cee4ee46 · 9279B · 2026-10-29T21:44:47+08:00
+5-评测报告/对抗性盲审-L4-2026-10-29/tools/final_audit.py · 644317bc · 26039B · 2026-10-29T23:49:28+08:00
 5-评测报告/对抗性盲审-L4-2026-10-29/selftest-receipt-credential-scan-r1.json · e17a13ed · 1654B · 2026-10-29T21:44:47+08:00
 5-评测报告/对抗性盲审-L4-2026-10-29/scan-report-baseline-preE-r1.json · dd8ab265 · 56175B · 2026-10-29T21:44:47+08:00
 5-评测报告/对抗性盲审-L4-2026-10-29/final-audit-stage-report-plan-r1.json · 2cfe5f4f · 3406B · 2026-10-29T21:44:47+08:00

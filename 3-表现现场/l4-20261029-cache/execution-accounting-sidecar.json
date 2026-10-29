@@ -1,0 +1,13 @@
+{
+  "kind": "offline_recompute_sidecar",
+  "at": "2026-10-29T23:33:34+08:00",
+  "live_doc_drift": [],
+  "trigger": "lead 递归 raw 复核：responses /usage/input_tokens_details/cached_tokens 实际存在；USAGE_FIELDS['responses'] 预设映射缺该嵌套键 → layers 层漏记（mapping defect，非协议缺失）",
+  "mapping_defect": {
+    "wire": "responses",
+    "missing_preset_path": "usage.input_tokens_details.cached_tokens",
+    "impact": "usage.layers.json 该线 cache_read 记 missing；raw 原物无缺",
+    "disposition": "raw 为权威；layers 文件保留不覆盖（历史缺陷证物）；judge 独立复算"
+  },
+  "rows": []
+}
