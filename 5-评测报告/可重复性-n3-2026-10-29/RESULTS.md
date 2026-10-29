@@ -94,6 +94,7 @@ dsh 总分行即 AMENDMENT-1（`999d345` + `542e4a7b…`）勘误的事实锚点
 按老师验收要求#4，以下未知/缺口如实列示，不折算、不记为失败：
 
 - **D1（defect｜证据缺口）**：r1031 全批无 `registered_at` 产物字段，「注册先于运行」只能以 `preregistration_commit=be39fc2` + `started_at` 时序间接佐证，无法逐场复核注册时间戳。影响： prospective 抽样的可复核性降级为锚点级。下一步：lead 决定是否要求 builder 补登记台账（仅登记事实，不改历史产物）；停止条件：用户放行下一循环前明确该字段是否列为下轮 runner 必备项。
+  **lead 裁决（2026-10-29 14:48+08:00 记录）**：不回填——事后补戳比缺失更糟；注册先于运行已由可验证锚传递证明（封印 `be39fc2`@13:22:39 < 首场 `started_at` 13:35:45，20/20 场 started_at 均晚于封印，`preregistration_commit` 全场落盘）。D1 以「缺口披露+补偿锚」闭项入问题池；下一轮 runner 必备字段 `registered_at`（值=预注册封印提交的时间戳引用），停止条件=下一循环启动前完成 runner schema 修订。
 - **D2（observation｜格式偏差）**：codex builder 收据 `reported` 为 2 位小数（r1030 为 8 位），2 场受影响，算术无差。下一步：统一收据精度规范。
 - **D3（已裁定）**：codex cargo r2 的 4 条散文回声命中，lead 裁定 benign-reviewed；judge 独立行级复核无矛盾。若未来复核发现真实访问证据，裁定让位于证据（升级通道已约定）。
 - **n=3 样本量**：spread/翻转均为小样本描述；rep1 与 rep2/3 由两代 runner 产出（r1030 曾披露归档缺陷 r1030#1 并修复；r1031 为新 runner 且 stdout 不截断），runner 代际差异未单独消融。
