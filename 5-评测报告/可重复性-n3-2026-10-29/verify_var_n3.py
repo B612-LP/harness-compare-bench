@@ -93,7 +93,10 @@ SELFTEST_EXPECT = {
     'weighted_total': {'codex': 444.81, 'dsh': 414.07},
     'headline': {'codex': 3, 'dsh': 3},
 }
-GAP0_LOCKED = 30.74  # PREREGISTRATION 包A 锁定判据，judge 不得改
+# ---- 判据参数（lead 裁决 + AMENDMENT-1：主判据 gap₀=0.74=|444.81−444.07| 产物可复现值；
+#      原预注册锁定值 30.74 降为敏感性对照；封印文件 be39fc2 不改写。动机=历史值勘误，与 r1031 结果无关） ----
+GAP0_MAIN = 0.74
+GAP0_SENSITIVITY = 30.74
 
 
 def sha256_file(p: pathlib.Path) -> str:
@@ -516,6 +519,10 @@ def main():
     ap.add_argument('--anchor-time', default=None)
     ap.add_argument('--require-commit-field', dest='require_commit_field', action='store_true', default=None)
     ap.add_argument('--expect-runs', type=int, default=None)
+    ap.add_argument('--gap0-main', type=float, default=GAP0_MAIN,
+                    help='主判据 gap0（AMENDMENT-1 默认 0.74）')
+    ap.add_argument('--gap0-sensitivity', type=float, default=GAP0_SENSITIVITY,
+                    help='敏感性对照 gap0（原预注册锁定值，默认 30.74）')
     ap.add_argument('--out', type=pathlib.Path, default=None)
     args = ap.parse_args()
 
@@ -538,7 +545,7 @@ def main():
     run_dirs = discover_runs(batch)
     rows = [verify_one(rd, prof, reg_plan, freeze_ok, cfg) for rd in run_dirs]
     rows.sort(key=lambda r: (str(r['product']), r['rep'] if r['rep'] is not None else -1, str(r['case'])))
-    agg = aggregate(rows)
+    agg = aggregate(rows, gap0_main=args.gap0_main, gap0_sens=args.gap0_sensitivity)
     matrix = {
         'tool': pathlib.Path(__file__).name,
         'tool_sha256': sha256_file(pathlib.Path(__file__)),
@@ -553,6 +560,11 @@ def main():
         'scoring_constants': {'source': '3-表现现场/r1030-formal-a1/tools/build_import.py（逐行移植，GUARDS 不计分，分母=全题数）',
                               'totals': TOTALS, 'guards': {k: sorted(v) for k, v in GUARDS.items()}},
         'integrity_constants': {'source': '3-表现现场/r1030-formal-a1/tools/rescan_integrity.py（八类模式移植）', 'patterns': PATTERNS},
+        'judgment_criteria': {'gap0_main': args.gap0_main,
+                              'gap0_main_basis': 'AMENDMENT-1 主判据：0.74=|444.81−444.07|（产物可复现值；历史 414.07 为笔误）',
+                              'gap0_sensitivity': args.gap0_sensitivity,
+                              'gap0_sensitivity_basis': '原 PREREGISTRATION 包A 锁定值 30.74，据锚点勘误降为敏感性对照；封印文件 be39fc2 未改写',
+                              'amendment_motivation': '历史值勘误，时点先于 judge 对 r1031 的任何聚合分析，与 r1031 结果无关'},
         'freeze_verification': freeze_ok,
         'runs_found': len(rows), 'runs_expected': prof['expect_runs'],
         'runs_count_note': ('run 数与预期一致' if len(rows) == prof['expect_runs'] else '警告：run 数与预期不符（可能批次未完成或布局不同）'),

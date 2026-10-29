@@ -1,7 +1,7 @@
 {
   "tool": "verify_var_n3.py",
-  "tool_sha256": "381ea797aa13e6785060a3c91a97f3e5bd2034e6b0407d8430e2f8316af588ac",
-  "generated_at": "2026-10-29T13:40:17+08:00",
+  "tool_sha256": "e6e9a6e50f8cf0a6f043e6f242bada54842d852ee011885e2b5542a0ec98aab5",
+  "generated_at": "2026-10-29T13:46:22+08:00",
   "read_only_over_batch": true,
   "profile": "r1030",
   "batch_dir": "3-表现现场/r1030-formal-a1",
@@ -57,6 +57,13 @@
       "~/Documents",
       "harness-compare-bench"
     ]
+  },
+  "judgment_criteria": {
+    "gap0_main": 0.74,
+    "gap0_main_basis": "AMENDMENT-1 主判据：0.74=|444.81−444.07|（产物可复现值；历史 414.07 为笔误）",
+    "gap0_sensitivity": 30.74,
+    "gap0_sensitivity_basis": "原 PREREGISTRATION 包A 锁定值 30.74，据锚点勘误降为敏感性对照；封印文件 be39fc2 未改写",
+    "amendment_motivation": "历史值勘误，时点先于 judge 对 r1031 的任何聚合分析，与 r1031 结果无关"
   },
   "freeze_verification": {
     "lock_file": "4-打分细则/可信冻结-2026-10-29-v2/freeze.lock.json",
@@ -1246,9 +1253,14 @@
         }
       },
       "prereg_rule_gap0": {
-        "gap0_locked": 30.74,
         "spread": null,
-        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用"
+        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用",
+        "role": "主判据（AMENDMENT-1：gap₀=0.74，=|444.81−444.07| 产物可复现值）"
+      },
+      "sensitivity_gap0": {
+        "spread": null,
+        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用",
+        "role": "敏感性对照（原预注册锁定值 gap₀=30.74，据锚点勘误降级；见锚点勘误披露）"
       }
     },
     "dsh": {
@@ -1307,9 +1319,14 @@
         }
       },
       "prereg_rule_gap0": {
-        "gap0_locked": 30.74,
         "spread": null,
-        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用"
+        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用",
+        "role": "主判据（AMENDMENT-1：gap₀=0.74，=|444.81−444.07| 产物可复现值）"
+      },
+      "sensitivity_gap0": {
+        "spread": null,
+        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用",
+        "role": "敏感性对照（原预注册锁定值 gap₀=30.74，据锚点勘误降级；见锚点勘误披露）"
       }
     }
   },
