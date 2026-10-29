@@ -52,3 +52,7 @@ self_test 8→13（+5 `work:r1030-selftest-*`）；interface_preflight 11→13�
 ## 信任边界（继承 v1/v2）
 
 SHA 封条不是数字签名；语义审查、可信证据作者与人工裁定是机器校验之外的明确信任边界。官方 host + alias 仍不能证明服务端权重 build 一致。
+
+## 勘误（2026-10-29T17:00:17+08:00，实钟；judge 验收 B-1，lead 裁定）
+
+corrections id=pkgb-test-live-ledger-fix-20261029：test_freeze.py 原 `test_live_ledger_exists_and_empty` 断言活台账 `events==[]`，与活台账 append-only 生命周期矛盾（commit ae6b37d 时点断言为真、44/44 成立；登记 5 事件后 HEAD 必失败，judge 实测）。已按 lead 裁定（采 judge 建议一）重写为 `test_live_ledger_structural_invariants` 结构不变量断言：(a) 存在且可解析；(b) 顶层 schema_version；(c) 逐条必备字段（event_id/kind/executor/timestamp/registered_at/source.path/source.sha256，ISO8601 带时区）；(d) event_id 无重复且时间非严格升序；(e) 该文件不是任何 contract pin；(f) 事件数仅写入测试输出不作数值断言。测试总数不变（44）。test_freeze.py 为 contract pin，已重建重锁（17 pin 重算）并刷新输出目录。原句（旧断言）以上述引述保留，未静默删改。

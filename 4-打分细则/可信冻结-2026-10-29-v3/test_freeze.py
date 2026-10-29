@@ -271,10 +271,28 @@ class FreezeTests(unittest.TestCase):
         t = f.load(REAL / "5-评测报告/可信冻结-2026-10-29-v3/official-main-table.json")
         self.assertEqual(t["groups"], {"A_same_model": [], "B_native": []})
 
-    def test_live_ledger_exists_and_empty(self):
-        live = f.load(REAL / f.BASE / "work-registry-live.json")
+    def test_live_ledger_structural_invariants(self):
+        # B-1 修复（judge, lead 裁定）：活台账 append-only，不做数值断言；只断言结构不变量。
+        live = f.load(REAL / f.BASE / "work-registry-live.json")            # (a) 存在且可解析
+        self.assertIn("schema_version", live)                              # (b)
         self.assertEqual(live["schema_version"], 1)
-        self.assertEqual(live["events"], [])
+        required = ("event_id", "kind", "executor", "timestamp", "registered_at", "source")
+        ids, ts = [], []
+        for e in live["events"]:                                           # (c) 必备字段
+            for k in required:
+                self.assertIn(k, e, k + " missing in " + str(e.get("event_id")))
+            self.assertIn("path", e["source"])
+            self.assertIn("sha256", e["source"])
+            f.stamp(e["timestamp"])                                        # ISO8601 带时区
+            f.stamp(e["registered_at"])
+            ids.append(e["event_id"])
+            ts.append(e["timestamp"])
+        self.assertEqual(len(ids), len(set(ids)))                          # (d) 无重复
+        self.assertEqual(ts, sorted(ts))                                   # (d) 时间升序（非严格，同秒登记合法）
+        lock = f.load(REAL / f.BASE / "freeze.lock.json")                  # (e) 非 contract pin
+        pinned = {x["path"]: x.get("pin_class", "contract") for x in lock["pins"]}
+        self.assertNotEqual(pinned.get(f.BASE + "/work-registry-live.json"), "contract")
+        print("[live-ledger] events=%d（仅报告，不断言）" % len(live["events"]))  # (f)
 
 
 if __name__ == '__main__':
