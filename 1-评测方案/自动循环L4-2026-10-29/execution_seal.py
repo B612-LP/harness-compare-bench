@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 from pathlib import PurePosixPath
 from datetime import datetime
@@ -18,7 +19,34 @@ REQUIRED_EXTERNAL_FILES = (
     Path.home()/'.dsh/profiles/bench-cli/cordis.patch.yml',
     Path.home()/'.dsh/profiles/bench-cli/package.json',
     Path.home()/'.dsh/AGENTS.md',
+    Path.home()/'bench-workspaces/l4-20261029-cli/codex/_codex-home/config.toml',
+    Path('/Applications/WorkBuddy.app/Contents/Info.plist'),
+    Path('/Applications/WorkBuddy.app/Contents/Resources/app.asar'),
 )
+REQUIRED_EXECUTABLES = ('dsh', 'codex')
+
+def required_external_paths():
+    paths = list(REQUIRED_EXTERNAL_FILES)
+    for command in REQUIRED_EXECUTABLES:
+        found = shutil.which(command)
+        if not found:
+            raise ValueError('Missing execution binary: '+command)
+        target=Path(found).resolve()
+        paths.append(target)
+        package_manifest=target.parent.parent/'package.json'
+        if package_manifest.is_file():
+            paths.append(package_manifest.resolve())
+        if command == 'codex':
+            # This preregistered host is macOS arm64; pin the native payload,
+            # not only npm's JavaScript launcher. No executable is launched here.
+            native=target.parent.parent/'node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/bin/codex'
+            if not native.is_file():
+                raise ValueError('Missing registered Codex native build: '+str(native))
+            paths.append(native.resolve())
+        elif command == 'dsh':
+            paths.extend(p.resolve() for p in sorted((target.parent.parent/'lib').glob('*.js')))
+    return paths
+
 RUNTIME_ROOTS = (
     '1-评测方案/工具链/l4-execution',
     '3-表现现场/l4-20261029-cli/codex/tools',
@@ -35,6 +63,8 @@ REQUIRED_RUNTIME = (
     '3-表现现场/l4-20261029-cli/codex/tools/lab.py',
     '3-表现现场/l4-20261029-cli/dsh/tools/lab.py',
     '3-表现现场/l4-20261029-cache/tools/cache_probe.py',
+    '3-表现现场/l4-20261029-cache/config/probe-config.json',
+    '3-表现现场/l4-20261029-cli/codex/config/codex-config.toml',
     '3-表现现场/l4-20261029-wb-gateway/runner/l4_wb_runner.py',
     '3-表现现场/l4-20261029-wb-gateway/driver-snapshot/workbuddy_driver.py',
     '3-表现现场/r1030-formal-a1/tools/lab.py',
@@ -96,7 +126,7 @@ def validate_manifest(doc):
     ext=doc.get('external_files')
     if not isinstance(ext,dict):
         raise ValueError('Invalid external_files schema')
-    mandatory_external={str(Path(p).resolve()) for p in REQUIRED_EXTERNAL_FILES}
+    mandatory_external={str(Path(p).resolve()) for p in required_external_paths()}
     if mandatory_external-set(ext):
         raise ValueError('Manifest missing mandatory external configuration: '+str(sorted(mandatory_external-set(ext))))
     for name,value in ext.items():
@@ -138,7 +168,7 @@ def manifest(args):
         if hashlib.sha256(committed).hexdigest() != sha(path):
             raise ValueError('Design drift: ' + name)
     external = {}
-    for name in list(REQUIRED_EXTERNAL_FILES)+args.external_file:
+    for name in required_external_paths()+args.external_file:
         original = Path(name).expanduser().absolute()
         if not original.is_file() or original.is_symlink():
             raise ValueError('Expected regular external source: ' + str(original))
@@ -147,7 +177,8 @@ def manifest(args):
     doc = {'schema_version':1, 'design_commit':design,
            'generated_at':datetime.now().astimezone().isoformat(timespec='seconds'),
            'files':dict(sorted(files.items())), 'external_files':dict(sorted(external.items())),
-           'policy':'All sources/configs pinned before first live request; outputs are append-only new paths.',
+           'policy':'Benchmark runtime sources/configs and declared external build identities pinned before planned live requests; outputs are append-only new paths.',
+           'exhaustive_transitive_product_dependencies_pinned':False,
            'live_doc_drift':[]}
     validate_manifest(doc)
     create(MANIFEST, doc)

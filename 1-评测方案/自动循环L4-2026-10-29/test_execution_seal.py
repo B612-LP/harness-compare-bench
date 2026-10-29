@@ -8,6 +8,7 @@ import json
 import subprocess
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 SOURCE = Path(__file__).with_name('execution_seal.py')
@@ -26,7 +27,8 @@ class SealTests(unittest.TestCase):
         self.mod.MANIFEST = self.here/'execution-manifest.json'
         self.mod.BINDING = self.here/'runtime-binding.json'
         self.mod.__file__ = str(self.here/'execution_seal.py')
-        self.mod.REQUIRED_EXTERNAL_FILES=tuple(self.root/'external-profile-fixtures'/name for name in ('profile.yml','package.json','AGENTS.md'))
+        self.mod.REQUIRED_EXTERNAL_FILES=tuple(self.root/'external-profile-fixtures'/name for name in ('profile.yml','package.json','AGENTS.md','codex-config.toml','WB-Info.plist','WB-app.asar'))
+        self.mod.REQUIRED_EXECUTABLES=()  # isolated fixtures need no actual benchmark products
         for path in self.mod.REQUIRED_EXTERNAL_FILES:
             path.parent.mkdir(parents=True,exist_ok=True)
             path.write_text('# external synthetic configuration\n')
@@ -139,6 +141,45 @@ class SealTests(unittest.TestCase):
         new.write_text('# unsealed')
         with self.assertRaisesRegex(ValueError,'missing required'):
             self.bind(seal)
+
+    def test_cli_binary_is_mandatory_external_source(self):
+        executable=self.root/'synthetic-cli-binary'
+        executable.write_text('# fixture, never executed')
+        self.mod.REQUIRED_EXECUTABLES=('fixture-cli',)
+        with mock.patch.object(self.mod.shutil,'which',return_value=str(executable)):
+            self.manifest()
+            doc=json.loads(self.mod.MANIFEST.read_text())
+            self.assertIn(str(executable),doc['external_files'])
+            del doc['external_files'][str(executable)]
+            self.mod.MANIFEST.write_text(json.dumps(doc))
+            seal=self.commit('malformed omitted binary')
+            with self.assertRaisesRegex(ValueError,'mandatory external'):
+                self.bind(seal)
+
+    def test_codex_native_payload_is_pinned_not_just_launcher(self):
+        package=self.root/'synthetic-codex-package'
+        launcher=package/'bin/codex.js'
+        native=package/'node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/bin/codex'
+        launcher.parent.mkdir(parents=True)
+        launcher.write_text('// fixture launcher, never executed')
+        native.parent.mkdir(parents=True)
+        native.write_text('# native fixture bytes, never executed')
+        self.mod.REQUIRED_EXECUTABLES=('codex',)
+        with mock.patch.object(self.mod.shutil,'which',return_value=str(launcher)):
+            self.manifest()
+            doc=json.loads(self.mod.MANIFEST.read_text())
+            self.assertIn(str(native),doc['external_files'])
+            del doc['external_files'][str(native)]
+            self.mod.MANIFEST.write_text(json.dumps(doc))
+            seal=self.commit('malformed omitted native payload')
+            with self.assertRaisesRegex(ValueError,'mandatory external'):
+                self.bind(seal)
+
+    def test_missing_cli_binary_is_rejected(self):
+        self.mod.REQUIRED_EXECUTABLES=('fixture-cli',)
+        with mock.patch.object(self.mod.shutil,'which',return_value=None):
+            with self.assertRaisesRegex(ValueError,'Missing execution binary'):
+                self.manifest()
 
     def test_empty_external_configuration_manifest_is_rejected(self):
         self.manifest()

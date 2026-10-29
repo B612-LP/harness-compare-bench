@@ -25,6 +25,16 @@
 - L3的候选校验组件未等于已接通的生产准入门。本轮严格检查全集、来源、文件哈希、字段合规与事实语义；`--retro`或fixtures自检的退出码不作准入凭据。详见首请求前澄清及准入工具负例。
 - WB历史补证仅支持历史探针窗口的网关结论，不能填成本批实际请求模型/路由已证。本批选择alias、build必须有原生记录，路由/effort等未知仅按预声明白名单管理；不进入同路由A组排名。
 
+## 准备期网络事故：不能再笼统声明全队零调用
+
+[事故收据](<../../3-表现现场/l4-20261029-cli/codex/incidents/incident-receipt.json>)单列一次 mock 测试误启动真实 Codex。留存的 stderr 转录显示插件预热向 chatgpt.com 返回401；原始临时日志已灭失，无法从原件独立复核，DeepSeek provider 请求发生与否未知。该事件为 interface_preflight incident / accidental CLI start，不占35固定槽、不评分、不计合成pass，证据等级 incomplete。不以没有usage排除模型请求，不重建伪原件。原先笼统“零网络/零调用”口径已由dated更正取代；仅最终显式桩修复轮可按其测试证据声称零真实请求。正式槽位仍须E封印与lead释放。
+
+## E 封印、测试输出与合并方式
+
+本轮采用 **merge commit** 合入main，不采用既往squash：共同闸门要求原始E为执行/复核HEAD的祖先，squash会使这个已冻结的溯源条件在合并后必然失效。GitHub已允许merge commit，无须修改仓库设置，也不以放松祖先校验来迁就合并。E锁定本轮运行源码/配置和声明的外部产品构建标识（含Codex native payload与WB app.asar），不冒称所有第三方传递依赖都逐字节封闭。
+
+E之后不得在真实runtime源码根新增/覆盖自检收据；后续回归在 `/tmp` 副本执行并把验收证据写评审目录，以免把新增测试输出误作未封运行源码。真实运行产物只落预先约定的输出目录，不能修源后补跑。
+
 ## O6 人类引用消歧（本轮集中旁挂，不改已封印历史文件）
 
 - `r1030/yuanbao/lcb-recent-hard-4`、`r1031/yuanbao/lcb-recent-hard-4` 是历史元宝桌面运行ID，不是后来的CLI正式/重复性批。
