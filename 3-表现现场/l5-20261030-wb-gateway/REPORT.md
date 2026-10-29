@@ -112,3 +112,28 @@ D 封印：8b1043d05c5b9dd9b3ae5aa5982cea4e9e852825 ｜ model_calls=0（零真�
 - evidence：runs/l5-20261030-wb-gateway-{bird-ca-schools-15,dabstep-payments-10}-r1/
   （trace 3 件/prompt.txt/agent.stderr.txt/agent-session/workspace 快照/meta/score-receipt/
   checker.stdout/native-terminal/registrations）。
+
+
+---
+
+## v5.3 E3 重跑记录（2026-10-30T02:23:50+08:00）：E3=d8366da3 WB 2 槽完毕
+
+| 槽(order) | 状态 | earned | weighted | 时长 | R6 | 原生DB model | drift | integrity |
+|---|---|---|---|---|---|---|---|---|
+| bird(5) | ok | 1 | 100.0 | 88s | ready 0.0s/1poll | deepseek-v4.1-flash | 无 | clean |
+| dab(6) | ok | 0 | 60.0 | 230s | ready 0.0s/1poll | deepseek-v4.1-flash | 无 | clean |
+
+- 会话：bird=d7635d84 / dab=e78a719b；E2 runs 已由 lead 归档（中止重封档案E2-20261030T0207/），
+  本轮全新 claim/registration/workspace（E2 仓外 ws 已按写界清理）。
+- 验收点：R6 入 meta×2（均 ready 0.0s/1poll）；R7 frame actual 非 null×2（executed+真实
+  score，write-once 在 selftest/preflight 持续生效）；R1 发射：dab guards 推导 live
+  （['answers_format','input_integrity']，correct=6/n_tasks=10），bird insufficient_fields 诚实
+  缺省；earned 镜像 reward（1/0）、weighted 8dp（100.0/60.0，checker 原发射）；ws 无 meta；
+  asar 前后一致。
+- **披露（我的 R7 漏配）**：runner cmd_accounting（:2075）仍 write_json_atomic——本批
+  accounting 重跑把 receipts/slot-accounting-frame.json 的 E2 版覆盖为 E3 版。E2 版可从
+  git HEAD（b32d844）恢复；修复=该行改 write_json_once（一行，待授权，随下次重封 pin）；
+  已登记 L5 池（固定路径收据非破坏写入清单补漏此点）。
+- 恢复指引（lead 裁决补充，02:24）：E2 版 frame 精确恢复命令=
+  `git show b32d844:"3-表现现场/l5-20261030-wb-gateway/receipts/slot-accounting-frame.json"`；
+  一行修复（write_json_once）由 lead 于 E3 验收完成后统一提交，本员不再改源。

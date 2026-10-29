@@ -1,0 +1,1221 @@
+{
+  "batch": "l5-20261030-wb-gateway",
+  "rule_version": "l5-20261030-batch-v1",
+  "preregistration_commit": "d8366da32694713d4f77c740f935229f9e298df4",
+  "registered_at": "2026-10-30T02:16:07+08:00",
+  "rep": 1,
+  "product": "workbuddy",
+  "case": "dabstep-payments-10",
+  "form": "desktop-auto-cdp-rpc",
+  "slot_id": "l5-20261030-wb-gateway-dabstep-payments-10-r1",
+  "order": 6,
+  "run_id": "l5-20261030-wb-gateway-dabstep-payments-10-r1",
+  "event_id": "event:l5-20261030-wb-gateway-dabstep-payments-10-r1",
+  "selection": {
+    "plan_id": "l5-20261030",
+    "slot_id": "l5-20261030-wb-gateway-dabstep-payments-10-r1",
+    "order": 6,
+    "kind": "first"
+  },
+  "workspace": "/Users/b612-lp/bench-workspaces/l5-20261030-wb-gateway/dabstep-payments-10",
+  "model": "deepseek-v4.1-flash",
+  "declared_alias": "deepseek-v4.1-flash",
+  "actual_request_model": null,
+  "actual_request_model_status": "not_observable_in_this_batch（不可观测≠已证）",
+  "alias_evidence": {
+    "driver_create_model_param": "DeepSeek V4.1-Flash",
+    "session_db_model_field": "deepseek-v4.1-flash",
+    "note": "collect 后以 session-row/jsonl requestModelId 复核；不可观察或非 deepseek-v4.1-flash → 停槽诊断",
+    "session_db_thought_level": "low",
+    "source_records": {
+      "session_row": "trace/session-row.json",
+      "jsonl": [
+        "e78a719b-0167-4280-9494-d73c30e30090.jsonl"
+      ]
+    }
+  },
+  "reasoning_effort": "low（会话级声明设置；上游解释不可观测→managed unknown）",
+  "product_version": "5.9.3",
+  "app_asar_sha256": "12a2be53ec7db2943a9958f6986d7807adcf083bd79b307d26706d83750effa7",
+  "route": {
+    "host": null,
+    "provider_id": "workbuddy-gateway（产品交付态）",
+    "wire_protocol": "unobservable（TLS 端到端）",
+    "endpoint": null,
+    "actual_gateway": "unknown",
+    "declared_alias": "deepseek-v4.1-flash",
+    "alias_evidence": "agent-session/session-row.json",
+    "route_verification": "current_not_observed",
+    "validation": "current_not_observed",
+    "r2_history_ref": "1-评测方案/准入预检-2026-10-29/wb-preflight-r2.json"
+  },
+  "tools": [],
+  "soft_constraints": [
+    "离线题解约束（workspace 仅 inputs+TASK）"
+  ],
+  "permissions": "fullAccess（wb:conversations:create 参数，DB 可核）",
+  "skills": "record actual from trace；不可观测项 managed unknown",
+  "web_search": "off（未启用；以 trace 审计为准）",
+  "prompt_sha256": "139ef4157dc7aa02e41f534396638d974b1fedb0d084bed497898a1ab6088ec1",
+  "isolation": {
+    "ok": true,
+    "workspace_outside_repo": true
+  },
+  "inputs": [
+    {
+      "path": "inputs/acquirer_countries.csv",
+      "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+      "bytes": 194
+    },
+    {
+      "path": "inputs/fees.json",
+      "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+      "bytes": 531118
+    },
+    {
+      "path": "inputs/manual.md",
+      "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+      "bytes": 22127
+    },
+    {
+      "path": "inputs/merchant_category_codes.csv",
+      "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+      "bytes": 26611
+    },
+    {
+      "path": "inputs/merchant_data.json",
+      "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+      "bytes": 6857
+    },
+    {
+      "path": "inputs/payments.csv",
+      "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+      "bytes": 23581339
+    },
+    {
+      "path": "inputs/questions.jsonl",
+      "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+      "bytes": 3889
+    }
+  ],
+  "created_at": "2026-10-30T02:19:08+08:00",
+  "started_at": "2026-10-30T02:19:08+08:00",
+  "finished_at": "2026-10-30T02:22:58+08:00",
+  "duration_s": 230.0,
+  "status": "ok",
+  "exit_code": null,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-30T02:19:08+08:00",
+      "exit_code": null,
+      "outcome": "sent"
+    }
+  ],
+  "transport_retries": 0,
+  "transport_retry_events": [],
+  "stdout_bytes": 507192,
+  "stderr_bytes": 0,
+  "stdout_sha256": "50a96cdf5f945c0db369569a11cb324d7c3de475aa4abf9fedf9a9ddf966f7d8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_source": "product-native-trace（WB 无 CLI stdout 流；canonical=会话 jsonl）",
+  "usage": {
+    "per_call": [
+      {
+        "prompt_tokens": 30834,
+        "completion_tokens": 140,
+        "total_tokens": 30974,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 29568
+        },
+        "prompt_cache_hit_tokens": 29568,
+        "prompt_cache_miss_tokens": 1266,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 0,
+        "credit": 0.03,
+        "cached_tokens": 0,
+        "ts": 1793297953843,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 37420,
+        "completion_tokens": 165,
+        "total_tokens": 37585,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 17,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 30720
+        },
+        "prompt_cache_hit_tokens": 30720,
+        "prompt_cache_miss_tokens": 6700,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 17,
+        "credit": 0.11,
+        "cached_tokens": 0,
+        "ts": 1793297955336,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 38942,
+        "completion_tokens": 313,
+        "total_tokens": 39255,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 62,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 37504
+        },
+        "prompt_cache_hit_tokens": 37504,
+        "prompt_cache_miss_tokens": 1438,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 62,
+        "credit": 0.05,
+        "cached_tokens": 0,
+        "ts": 1793297958236,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 40288,
+        "completion_tokens": 1911,
+        "total_tokens": 42199,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1599,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 39168
+        },
+        "prompt_cache_hit_tokens": 39168,
+        "prompt_cache_miss_tokens": 1120,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1599,
+        "credit": 0.14,
+        "cached_tokens": 0,
+        "ts": 1793297970467,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 42586,
+        "completion_tokens": 400,
+        "total_tokens": 42986,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 97,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 42112
+        },
+        "prompt_cache_hit_tokens": 42112,
+        "prompt_cache_miss_tokens": 474,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 97,
+        "credit": 0.04,
+        "cached_tokens": 0,
+        "ts": 1793297973768,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 44006,
+        "completion_tokens": 843,
+        "total_tokens": 44849,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 380,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 42880
+        },
+        "prompt_cache_hit_tokens": 42880,
+        "prompt_cache_miss_tokens": 1126,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 380,
+        "credit": 0.08,
+        "cached_tokens": 0,
+        "ts": 1793297978616,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 45365,
+        "completion_tokens": 1599,
+        "total_tokens": 46964,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1272,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 44800
+        },
+        "prompt_cache_hit_tokens": 44800,
+        "prompt_cache_miss_tokens": 565,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1272,
+        "credit": 0.11,
+        "cached_tokens": 0,
+        "ts": 1793297988523,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 48581,
+        "completion_tokens": 1323,
+        "total_tokens": 49904,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 386,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 46848
+        },
+        "prompt_cache_hit_tokens": 46848,
+        "prompt_cache_miss_tokens": 1733,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 386,
+        "credit": 0.11,
+        "cached_tokens": 0,
+        "ts": 1793297995459,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 51250,
+        "completion_tokens": 1723,
+        "total_tokens": 52973,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1156,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 49792
+        },
+        "prompt_cache_hit_tokens": 49792,
+        "prompt_cache_miss_tokens": 1458,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1156,
+        "credit": 0.13,
+        "cached_tokens": 0,
+        "ts": 1793298005918,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 53895,
+        "completion_tokens": 1127,
+        "total_tokens": 55022,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 730,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 52864
+        },
+        "prompt_cache_hit_tokens": 52864,
+        "prompt_cache_miss_tokens": 1031,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 730,
+        "credit": 0.09,
+        "cached_tokens": 0,
+        "ts": 1793298013457,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 55564,
+        "completion_tokens": 1307,
+        "total_tokens": 56871,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1215,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 54912
+        },
+        "prompt_cache_hit_tokens": 54912,
+        "prompt_cache_miss_tokens": 652,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1215,
+        "credit": 0.1,
+        "cached_tokens": 0,
+        "ts": 1793298022756,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 58056,
+        "completion_tokens": 1533,
+        "total_tokens": 59589,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1278,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 56832
+        },
+        "prompt_cache_hit_tokens": 56832,
+        "prompt_cache_miss_tokens": 1224,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1278,
+        "credit": 0.12,
+        "cached_tokens": 0,
+        "ts": 1793298033664,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 59880,
+        "completion_tokens": 1311,
+        "total_tokens": 61191,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 560,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 59520
+        },
+        "prompt_cache_hit_tokens": 59520,
+        "prompt_cache_miss_tokens": 360,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 560,
+        "credit": 0.1,
+        "cached_tokens": 0,
+        "ts": 1793298040879,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 62192,
+        "completion_tokens": 1098,
+        "total_tokens": 63290,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 671,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 61184
+        },
+        "prompt_cache_hit_tokens": 61184,
+        "prompt_cache_miss_tokens": 1008,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 671,
+        "credit": 0.09,
+        "cached_tokens": 0,
+        "ts": 1793298048309,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 64974,
+        "completion_tokens": 2740,
+        "total_tokens": 67714,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 2015,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 63232
+        },
+        "prompt_cache_hit_tokens": 63232,
+        "prompt_cache_miss_tokens": 1742,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 2015,
+        "credit": 0.2,
+        "cached_tokens": 0,
+        "ts": 1793298064358,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 68505,
+        "completion_tokens": 970,
+        "total_tokens": 69475,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 301,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 67712
+        },
+        "prompt_cache_hit_tokens": 67712,
+        "prompt_cache_miss_tokens": 793,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 301,
+        "credit": 0.09,
+        "cached_tokens": 0,
+        "ts": 1793298070607,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 70190,
+        "completion_tokens": 1274,
+        "total_tokens": 71464,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 995,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 69376
+        },
+        "prompt_cache_hit_tokens": 69376,
+        "prompt_cache_miss_tokens": 814,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 995,
+        "credit": 0.1,
+        "cached_tokens": 0,
+        "ts": 1793298079700,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 71840,
+        "completion_tokens": 1985,
+        "total_tokens": 73825,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1654,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 71424
+        },
+        "prompt_cache_hit_tokens": 71424,
+        "prompt_cache_miss_tokens": 416,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1654,
+        "credit": 0.14,
+        "cached_tokens": 0,
+        "ts": 1793298093317,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 75430,
+        "completion_tokens": 1516,
+        "total_tokens": 76946,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1105,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 73728
+        },
+        "prompt_cache_hit_tokens": 73728,
+        "prompt_cache_miss_tokens": 1702,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1105,
+        "credit": 0.13,
+        "cached_tokens": 0,
+        "ts": 1793298102823,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 77629,
+        "completion_tokens": 3012,
+        "total_tokens": 80641,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 2135,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 76928
+        },
+        "prompt_cache_hit_tokens": 76928,
+        "prompt_cache_miss_tokens": 701,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 2135,
+        "credit": 0.2,
+        "cached_tokens": 0,
+        "ts": 1793298120329,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 81873,
+        "completion_tokens": 1774,
+        "total_tokens": 83647,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1445,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 80640
+        },
+        "prompt_cache_hit_tokens": 80640,
+        "prompt_cache_miss_tokens": 1233,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 1445,
+        "credit": 0.14,
+        "cached_tokens": 0,
+        "ts": 1793298131970,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 84016,
+        "completion_tokens": 3280,
+        "total_tokens": 87296,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 2154,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 83584
+        },
+        "prompt_cache_hit_tokens": 83584,
+        "prompt_cache_miss_tokens": 432,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 2154,
+        "credit": 0.22,
+        "cached_tokens": 0,
+        "ts": 1793298148604,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 88760,
+        "completion_tokens": 653,
+        "total_tokens": 89413,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 525,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 87296
+        },
+        "prompt_cache_hit_tokens": 87296,
+        "prompt_cache_miss_tokens": 1464,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 525,
+        "credit": 0.08,
+        "cached_tokens": 0,
+        "ts": 1793298154455,
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "prompt_tokens": 89782,
+        "completion_tokens": 820,
+        "total_tokens": 90602,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 43,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 89344
+        },
+        "prompt_cache_hit_tokens": 89344,
+        "prompt_cache_miss_tokens": 438,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 43,
+        "credit": 0.08,
+        "cached_tokens": 0,
+        "ts": 1793298160485,
+        "model_in_record": "deepseek-v4.1-flash"
+      }
+    ],
+    "note": "WB 原生 rawUsage 逐调用落盘；缺失保留 null 不填 0"
+  },
+  "reward": 0,
+  "weighted": 60.0,
+  "failed": [
+    "q49",
+    "q70",
+    "q1681",
+    "q2697"
+  ],
+  "judge": {
+    "case": "dabstep-payments-10",
+    "case_id": "dabstep-payments-10",
+    "checker_version": "0.2",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/bench-workspaces/l5-20261030-wb-gateway/dabstep-payments-10",
+    "artifact": "/Users/b612-lp/bench-workspaces/l5-20261030-wb-gateway/dabstep-payments-10/answers.jsonl",
+    "scoring_mode": "official-compat",
+    "official_compat": {
+      "scorer_version": "dabstep-official-port-v0.1",
+      "reward": 0,
+      "weighted": 60.0,
+      "score_rate": 0.6,
+      "correct": 6,
+      "checks": [
+        {
+          "id": "answers_format",
+          "pass": true,
+          "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+        },
+        {
+          "id": "input_integrity",
+          "pass": true,
+          "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+        },
+        {
+          "id": "q5",
+          "pass": true,
+          "note": "pred='NL' ｜ gold='NL'",
+          "task_id": "5",
+          "level": "easy"
+        },
+        {
+          "id": "q49",
+          "pass": false,
+          "note": "pred='A. NL' ｜ gold='B. BE'",
+          "task_id": "49",
+          "level": "easy"
+        },
+        {
+          "id": "q70",
+          "pass": false,
+          "note": "pred='yes' ｜ gold='Not Applicable'",
+          "task_id": "70",
+          "level": "easy"
+        },
+        {
+          "id": "q1273",
+          "pass": true,
+          "note": "pred='0.120132' ｜ gold='0.120132'",
+          "task_id": "1273",
+          "level": "hard"
+        },
+        {
+          "id": "q1305",
+          "pass": true,
+          "note": "pred='0.123217' ｜ gold='0.123217'",
+          "task_id": "1305",
+          "level": "hard"
+        },
+        {
+          "id": "q1464",
+          "pass": true,
+          "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+          "task_id": "1464",
+          "level": "hard"
+        },
+        {
+          "id": "q1681",
+          "pass": false,
+          "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+          "task_id": "1681",
+          "level": "hard"
+        },
+        {
+          "id": "q1753",
+          "pass": true,
+          "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+          "task_id": "1753",
+          "level": "hard"
+        },
+        {
+          "id": "q1871",
+          "pass": true,
+          "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+          "task_id": "1871",
+          "level": "hard"
+        },
+        {
+          "id": "q2697",
+          "pass": false,
+          "note": "pred='E:41.66' ｜ gold='E:13.57'",
+          "task_id": "2697",
+          "level": "hard"
+        }
+      ],
+      "failed": [
+        "q49",
+        "q70",
+        "q1681",
+        "q2697"
+      ]
+    },
+    "strict_contract": {
+      "scorer_version": "signed-aci-v1",
+      "scope": [
+        "1871:signed-number",
+        "2697:aci-and-signed-fee"
+      ],
+      "numeric_tolerance": {
+        "rel_tol": 0.0001,
+        "abs_tol": 0.0001
+      },
+      "reward": 0,
+      "weighted": 60.0,
+      "score_rate": 0.6,
+      "correct": 6,
+      "checks": [
+        {
+          "id": "answers_format",
+          "pass": true,
+          "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+        },
+        {
+          "id": "input_integrity",
+          "pass": true,
+          "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+        },
+        {
+          "id": "q5",
+          "pass": true,
+          "note": "pred='NL' ｜ gold='NL'",
+          "task_id": "5",
+          "level": "easy"
+        },
+        {
+          "id": "q49",
+          "pass": false,
+          "note": "pred='A. NL' ｜ gold='B. BE'",
+          "task_id": "49",
+          "level": "easy"
+        },
+        {
+          "id": "q70",
+          "pass": false,
+          "note": "pred='yes' ｜ gold='Not Applicable'",
+          "task_id": "70",
+          "level": "easy"
+        },
+        {
+          "id": "q1273",
+          "pass": true,
+          "note": "pred='0.120132' ｜ gold='0.120132'",
+          "task_id": "1273",
+          "level": "hard"
+        },
+        {
+          "id": "q1305",
+          "pass": true,
+          "note": "pred='0.123217' ｜ gold='0.123217'",
+          "task_id": "1305",
+          "level": "hard"
+        },
+        {
+          "id": "q1464",
+          "pass": true,
+          "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+          "task_id": "1464",
+          "level": "hard"
+        },
+        {
+          "id": "q1681",
+          "pass": false,
+          "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+          "task_id": "1681",
+          "level": "hard"
+        },
+        {
+          "id": "q1753",
+          "pass": true,
+          "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+          "task_id": "1753",
+          "level": "hard"
+        },
+        {
+          "id": "q1871",
+          "pass": true,
+          "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+          "task_id": "1871",
+          "level": "hard"
+        },
+        {
+          "id": "q2697",
+          "pass": false,
+          "note": "pred='E:41.66' ｜ gold='E:13.57'",
+          "task_id": "2697",
+          "level": "hard"
+        }
+      ],
+      "failed": [
+        "q49",
+        "q70",
+        "q1681",
+        "q2697"
+      ]
+    },
+    "reward": 0,
+    "weighted": 60.0,
+    "score_rate": 0.6,
+    "threshold": 0.8,
+    "correct": 6,
+    "n_tasks": 10,
+    "gates": {
+      "answers_format": true,
+      "input_integrity": true
+    },
+    "input_integrity": "verified",
+    "checks": [
+      {
+        "id": "answers_format",
+        "pass": true,
+        "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+      },
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+      },
+      {
+        "id": "q5",
+        "pass": true,
+        "note": "pred='NL' ｜ gold='NL'",
+        "task_id": "5",
+        "level": "easy"
+      },
+      {
+        "id": "q49",
+        "pass": false,
+        "note": "pred='A. NL' ｜ gold='B. BE'",
+        "task_id": "49",
+        "level": "easy"
+      },
+      {
+        "id": "q70",
+        "pass": false,
+        "note": "pred='yes' ｜ gold='Not Applicable'",
+        "task_id": "70",
+        "level": "easy"
+      },
+      {
+        "id": "q1273",
+        "pass": true,
+        "note": "pred='0.120132' ｜ gold='0.120132'",
+        "task_id": "1273",
+        "level": "hard"
+      },
+      {
+        "id": "q1305",
+        "pass": true,
+        "note": "pred='0.123217' ｜ gold='0.123217'",
+        "task_id": "1305",
+        "level": "hard"
+      },
+      {
+        "id": "q1464",
+        "pass": true,
+        "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+        "task_id": "1464",
+        "level": "hard"
+      },
+      {
+        "id": "q1681",
+        "pass": false,
+        "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+        "task_id": "1681",
+        "level": "hard"
+      },
+      {
+        "id": "q1753",
+        "pass": true,
+        "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+        "task_id": "1753",
+        "level": "hard"
+      },
+      {
+        "id": "q1871",
+        "pass": true,
+        "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+        "task_id": "1871",
+        "level": "hard"
+      },
+      {
+        "id": "q2697",
+        "pass": false,
+        "note": "pred='E:41.66' ｜ gold='E:13.57'",
+        "task_id": "2697",
+        "level": "hard"
+      }
+    ],
+    "failed": [
+      "q49",
+      "q70",
+      "q1681",
+      "q2697"
+    ],
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "exit_code": 1,
+    "raw_stdout_head": "{\"case\": \"dabstep-payments-10\", \"case_id\": \"dabstep-payments-10\", \"checker_version\": \"0.2\", \"binary\": true, \"run_dir\": \"/Users/b612-lp/bench-workspaces/l5-20261030-wb-gateway/dabstep-payments-10\", \"artifact\": \"/Users/b612-lp/bench-workspaces/l5-20261030-wb-gateway/dabstep-payments-10/answers.jsonl\", \"scoring_mode\": \"official-compat\", \"official_compat\": {\"scorer_version\": \"dabstep-official-port-v0.1\", \"reward\": 0, \"weighted\": 60.0, \"score_rate\": 0.6, \"correct\": 6, \"checks\": [{\"id\": \"answers_forma",
+    "guards_used": [
+      "answers_format",
+      "input_integrity"
+    ],
+    "guards_method": "first_reconciling_in_order",
+    "guards_candidates": 1
+  },
+  "integrity": {
+    "contamination_hits": [],
+    "scan_patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "missing_trace": false
+  },
+  "integrity_verdict": "clean",
+  "stratum": "wb_gateway_delivery",
+  "stratum_display": "WB 产品交付态（历史证据指向网关；本批路由状态单列）",
+  "timeout_s": 1800,
+  "managed_unknowns": [
+    {
+      "item": "gateway_upstream_model",
+      "impact": "网关服务端上游模型权重/供应商不可观测；不能参与同模型/同路由因果比较",
+      "next_step": "如需闭环向产品方索取披露",
+      "stop_condition": "披露或本批结束即停"
+    },
+    {
+      "item": "gateway_host_current",
+      "impact": "本批无被动网络取证时 actual_gateway 不可观察",
+      "next_step": "route_validation=current_not_observed + r2 历史依据",
+      "stop_condition": "本批不主动做网络取证（无干扰纪律）"
+    },
+    {
+      "item": "effort_upstream_interpretation",
+      "impact": "declared thought_level=low 的上游解释不可观测",
+      "next_step": "逐场登记 DB 会话行值",
+      "stop_condition": "本批结束即停"
+    },
+    {
+      "item": "internal_tools_skills",
+      "impact": "产品内部工具/skills 开关不可见",
+      "next_step": "以 trace 可见行为审计为准",
+      "stop_condition": "本批结束即停"
+    }
+  ],
+  "timed_out": false,
+  "stop_info": null,
+  "driver": {
+    "snapshot_sha256": "f9d4b076811bebad80ff952dd719060214f8ade83033227ab7d029bf6a0bec23",
+    "sigterm_branch": "structurally disabled (runner/safe_driver.py)"
+  },
+  "inputs_verification": {
+    "ok": true,
+    "checked": 7,
+    "method": "sha256 vs contract.case_snapshots.files（机械比对）"
+  },
+  "renderer_ready": {
+    "ready": true,
+    "waited_s": 0.0,
+    "polls": 1,
+    "timeout_s": 120,
+    "poll_s": 2
+  },
+  "evidence_paths": {
+    "prompt": "prompt.txt",
+    "stdout": "trace/e78a719b-0167-4280-9494-d73c30e30090.jsonl",
+    "stderr": "agent.stderr.txt",
+    "session": "agent-session",
+    "workspace": "workspace"
+  },
+  "native_terminal": {
+    "file": "native-terminal.json",
+    "sha256": "031cddf0ed87d32347cf60e121306be6dad1a575d4945d11a67adaa0debc0547"
+  },
+  "app_asar_sha256_after": "12a2be53ec7db2943a9958f6986d7807adcf083bd79b307d26706d83750effa7",
+  "app_version_after": "5.9.3"
+}
