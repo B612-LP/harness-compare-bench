@@ -67,3 +67,23 @@ D 封印：8b1043d05c5b9dd9b3ae5aa5982cea4e9e852825 ｜ model_calls=0（零真�
 - E 后 runner/ 整树 pin（写满不再动）；selftest/receipts 位于批次根。
 - 已知边界：guards_used 推导是算术回归（非语义护栏命名）；frame 不替代 judge 独立验收；
   wb_run_ids 前缀 l5-20261030-wb-gateway（不撞 r1030/r1031/l4）。
+
+
+---
+
+## v5.1 dated 备注（2026-10-30T02:00:04+08:00）：E 后授权修复——verify_execution.py gate 路径
+
+- **事件**：E=7474b84a 首槽 bird REFUSED（plan-disk-sha disk=e8dfb73f≠binding=469a43df）。
+  根因=runner/verify_execution.py:21-22 仍 pin **l4-execution/gate.py**（其 DEFAULT_PLAN_DIR=L4），
+  适配遗漏；fail-closed 生效，零调用，bird 无 claim/registration 残留（REFUSED 先于 claim）。
+- **lead 授权最小修复已施行**（同文件 3 处）：l4-execution→l5-execution、
+  alias l4_common_gate→l5_common_gate、docstring 同步。修后 disk 计划读取正确
+  （L5 plan 469a43df 过 plan-disk-sha），现 REFUSED 项=**E manifest 对本文件的旧哈希锚定**
+  （want=a2d5b242，disk=904bb6d1）——即待 lead 统一重封的预期状态；fail-closed 链路全程工作。
+- **新哈希冻结**：verify_execution.py sha256=904bb6d11e058bd19410ef7af681bc571c9fba90b62a45a3a9487cc9614a9b58
+  （sha256_8=904bb6d1）；l5_wb_runner.py=d7445659；
+  safe_driver.py=5a3a5203。
+- selftest 重跑 71/71 全过（receipt=selftest/selftest-receipt-l5-wb-v1-20261030T0159340800.json）；
+  T17/T19 端到端对真 l5 gate 实跑（经 runner 模块 GATE_PATH）保持通过；经 adapter 的
+  verify-execution CLI 现达 manifest 检查层（plan/contract/释放检查全过）。
+- 等待 lead 重封新 E（runner 树哈希更新）后执行 WB 2 槽；新 E 前不启动任何真实槽。

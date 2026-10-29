@@ -3,7 +3,7 @@
 """verify_execution.py — L4 runtime-binding 释放闸门【薄适配层】。
 
 方向（lead 2026-10-29 指令）：WB runner **必须调用共同 gate**
-  1-评测方案/工具链/l4-execution/gate.py 的 verify_execution（含 E blob 等值、
+  1-评测方案/工具链/l5-execution/gate.py 的 verify_execution（含 E blob 等值、
   runtime 源漂移、manifest 全文件复核、registered_at==E git 时刻等全部封印检查），
   而不是共同 gate 调用本模块的弱化副本。本文件只是适配层：
 
@@ -19,14 +19,14 @@ import importlib.util
 from pathlib import Path
 
 GATE_PATH = (Path(__file__).resolve().parents[3] / "1-评测方案" / "工具链"
-             / "l4-execution" / "gate.py")
+             / "l5-execution" / "gate.py")
 
 
 def load_common_gate():
     """导入共同 gate 模块；缺失/损坏即抛（调用方 fail-closed）。"""
     if not GATE_PATH.is_file():
         raise FileNotFoundError(f"common gate missing: {GATE_PATH}")
-    spec = importlib.util.spec_from_file_location("l4_common_gate", str(GATE_PATH))
+    spec = importlib.util.spec_from_file_location("l5_common_gate", str(GATE_PATH))
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     if not hasattr(mod, "verify_execution"):
