@@ -118,6 +118,8 @@ mutation-negatives 目录（2026-10-26 审计收据，保持原样）、3-表现
 | tb-cargo-plan | 10 | 0 | 10/10 | 其中 2 场经工作区兜底后与总账一致（artifact_note 标注） |
 | **合计** | **24** | **0** | 15/24 | 9 场差异全部查因、均先于本批存在 |
 
+> **[勘误 2026-10-29 16:06:56 +0800]（L2 包A）** 上表合计行 `ledger_match 15/24` 为 2026-10-27 17:58 初版收据快照口径；与 19:28 刷新后 [replay-results.json](<replay-results.json>) 对齐应为 **16/24**（逐 case：bird 2/10、lcb 4/4、cargo 10/10；上表 lcb 行 3/4 系初版口径，差异即 r1029 doubao lcb 一行当日与登记分一致）。上表按「原句保留」不改，合计以 16/24 为准。另：2026-10-29 B13a 合同回放（[replay-b13a-results.json](<replay-b13a-results.json>)）同口径 `ledger_match=15/24`，唯一差异行仍为 r1029 doubao lcb 负载超时抖动（README §1 既有边界；见该收据 `post_run_annotations`）。
+
 三场 cargo 在被否决的 B13 候选下的翻转证据单列为
 [replay-b13-candidate-precheck.json](<replay-b13-candidate-precheck.json>)（该文件「after」轨=被否决候选，
 仅作闸门证据；现行 after 以 replay-results.json 为准）。
@@ -190,3 +192,5 @@ lcb truth `0ce2f9c1…`(inputs/problems.json) 均与改前一致，回归 SHA �
 - **B13b 维持不并入**：legs 侧诊断字段为合法合同外延，留版本决策（同首轮登记）。
 
 验证：cargo selftest ALL PASS（oracle=1 / 9 负例=0 或逐项拦截）；24 场历史只读回放重跑 `flipped=0`（`replay-results.json` 已刷新）；`run_regression.py` PASS，`SHA_MANIFEST` cargo checker 条目重算（`d84b1111…`）。spec §8 决策表已拆分为 B13a/B13b 两行。
+
+> **[勘误 2026-10-29 16:06:56 +0800]（L2 包A / 盲审 D3）** 上句「24 场历史只读回放重跑 `flipped=0`（`replay-results.json` 已刷新）」所指收据（[replay-results.json](<replay-results.json>)，19:28 刷新版）的 **after 轨是 B12/B14 合同**——其 cargo after 字节为 B13a 并入前 `70acdbb7…`（`after/tb-cargo-plan/checker.py` 实测），并非 B13a 合同。**B13a 合同（cargo `d84b1111…`，即现行 `2-用例/tb-cargo-plan/checker.py`）的 24 场历史回放以 [replay-b13a-results.json](<replay-b13a-results.json>) 为准**：行集冻结=本收据 41 行口径（lead 裁决 B，排除其后入总账的 r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4，理由与排除规则见该收据 `protocol`/`corrections`）；after 轨三 SHA 自证 bird `994be0b3…` / lcb `63845361…` / cargo `d84b1111…`；结果 `n_replayed=24`、`flipped=0`、`ledger_match=15/24`（与旧收据逐行对照的唯一差异行披露见该收据 `post_run_annotations`）。脚本 [replay_b13a_2026_10_29.py](<replay_b13a_2026_10_29.py>)；原脚本与本句按「原句保留」不动。

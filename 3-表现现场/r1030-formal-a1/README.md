@@ -26,6 +26,8 @@
 
 首轮运行器的 `agent.jsonl`（runner 侧 stdout 事件流）写入证据目录内，被归档 `rmtree` 连带删除：运行本身（工作区、产物、会话轨迹、判分、meta）完好，但 stdout 流不可恢复，且首轮 `meta.integrity` 扫描空转。处置：`tools/lab.py` 已修（日志经 staging 移动）；全部 10 场以更完整的**会话轨迹重扫**替代并显式修正 meta（保留 `corrections` 记录，不静默改写）。证据等级相应记为 `original-contemporaneous-full`（会话轨迹完整、runner 流缺失已披露）。
 
+> **[勘误 2026-10-29 15:59:56 +0800]（L2 问题池④；r1031#1 证伪）** 上段「处置：`tools/lab.py` 已修（日志经 staging 移动）」的**「已修」声明不成立**：实测该文件 `shutil.rmtree(ev)` 在 :308，staging 移动块自 :317 起——rmtree 先于日志移动执行，写在证据目录内的日志在移动前已被删除，该代码级修复从未生效（r1031 第 1 场 bird r2 复现实证，raw stdout/stderr 同机制丢失）。实际生效的修复是 r1031 侧 `tools-dsh/lab.py` 的结构性修复：日志自落盘起即写入证据目录外的 staging，证据目录可安全重建。逐场披露与处置记录见 [r1031 tools-dsh/README.md §批内发现并修复](<../r1031-variance-n3/tools-dsh/README.md>) 与 r1031 `dsh/runs/dsh__bird-ca-schools-15__r2/meta.json` 的 `corrections`（id `r1031-archiver-log-loss`）。本节其余内容（缺陷机理、会话轨迹重扫替代、证据等级）不受影响；r1030 代码与收据按纪律不做回改。
+
 ## 六类分账（本批）
 
 product_run 10（导入 [formal-a1-events.json](<formal-a1-events.json>)，v2 `validate-import` 通过）；self_test 5（[selftest/](<selftest/>)）；interface_preflight 2（[preflight/](<preflight/cli-preflight.json>) + [WorkBuddy 准入预检](<../../1-评测方案/准入预检-2026-10-29/wb-preflight.json>)）；其余三类本批无新增（如实为空）。

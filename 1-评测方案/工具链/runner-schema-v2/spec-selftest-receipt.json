@@ -1,0 +1,138 @@
+{
+  "kind": "self_test",
+  "tool": "validate_runner_meta.py",
+  "spec": "runner-schema-v2",
+  "at": "2026-10-29T16:15:21+08:00",
+  "seal_at_used": "2026-10-29T13:22:39+08:00",
+  "fixtures_dir": "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures",
+  "results": {
+    "fixture-missing-fields.json": {
+      "expect": "fail:missing",
+      "got": "fail:missing",
+      "match": true,
+      "issues": [
+        {
+          "field": "registered_at",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "selection",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "attempts",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "stdout_bytes",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "stdout_sha256",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "stderr_bytes",
+          "class": "missing",
+          "detail": "required field absent"
+        },
+        {
+          "field": "stderr_sha256",
+          "class": "missing",
+          "detail": "required field absent"
+        }
+      ]
+    },
+    "fixture-registered-at-after-start.json": {
+      "expect": "fail:temporal-order",
+      "got": "fail:temporal-order",
+      "match": true,
+      "issues": [
+        {
+          "field": "registered_at",
+          "class": "temporal-order",
+          "detail": "registered_at 2026-10-29T16:30:00+08:00 >= started_at 2026-10-29T16:06:00+08:00"
+        }
+      ]
+    },
+    "fixture-registered-at-before-seal.json": {
+      "expect": "fail:temporal-seal",
+      "got": "fail:temporal-seal",
+      "match": true,
+      "issues": [
+        {
+          "field": "registered_at",
+          "class": "temporal-seal",
+          "detail": "registered_at 2026-10-29T13:00:00+08:00 < seal_at 2026-10-29T13:22:39+08:00"
+        }
+      ]
+    },
+    "fixture-valid.json": {
+      "expect": "pass",
+      "got": "pass",
+      "match": true,
+      "issues": []
+    },
+    "fixture-wrong-precision.json": {
+      "expect": "fail:precision",
+      "got": "fail:precision",
+      "match": true,
+      "issues": [
+        {
+          "field": "weighted",
+          "class": "precision",
+          "detail": "value=81.48 expected 8dp=81.48148148"
+        }
+      ]
+    },
+    "fixture-wrong-type.json": {
+      "expect": "fail:type",
+      "got": "fail:type",
+      "match": true,
+      "issues": [
+        {
+          "field": "attempts",
+          "class": "type",
+          "detail": "expect list got int"
+        },
+        {
+          "field": "transport_retries",
+          "class": "type",
+          "detail": "expect int got list"
+        },
+        {
+          "field": "stdout_bytes",
+          "class": "type",
+          "detail": "expect int_nonneg got str"
+        }
+      ]
+    }
+  },
+  "all_match": true,
+  "results_provenance": "results 数据取自 2026-10-29T16:11:16+08:00 裸输出（字节存证 receipt-overwrite-evidence-20261029.json，bare sha256 0f62d42a69b9399f1ed75d9b9d2d91170431c9c4837c10b34d7294e98dfe1be5），与 16:06 首轮及 16:08 补全时的 6/6 match 结果一致，零改动",
+  "artifacts": {
+    "SCHEMA.md": "a98f11af4d882c9adcd8b310c73c56593c2c1784eb27151a3350fc45c1f4649d",
+    "validate_runner_meta.py": "ac2e4b7cd483c41dae64829eca4fd63fbe7a47d54459a594f6f0f82681d7d87a",
+    "retro-r1031-matrix.json": "12cd335411ef88c9c184c00aa269b738d23279b8d5727bea91e03ea199bb511f",
+    "fixtures/manifest.json": "517b87a8c4ff4dd2b06e94911ebd6e155d5f416bcaf0291b90d0bae64e3d0137"
+  },
+  "corrections": [
+    {
+      "id": "pkgc-retro-path-typo-rerun",
+      "note": "--retro 首跑相对路径少算一层（../../ 而非 ../../../）FileNotFoundError，未产出任何扫描结果；以绝对路径重跑成功。属调用笔误重跑，非结果不满意重试；扫描为只读操作。该真事件发生于 16:08 前，本应随首轮收据落盘，因收据被覆盖链路（见下条）未存活，随本补全登记。",
+      "at": "2026-10-29T16:08+08:00 附近"
+    },
+    {
+      "id": "pkgc-receipt-completion-20261029",
+      "note": "收据生命周期披露：16:06 --spec 产出裸收据；16:08 补全（corrections/artifacts/receipt_sha256）写入并经 16:09 在位 grep 验证（L83/L90）；16:11:16 一次 --spec 重跑将文件覆盖回裸结果（cmd_spec 无条件重写本收据文件；bare at=16:11:16，字节存证 receipt-overwrite-evidence-20261029.json）；lead 16:1x 抽查发现交付报告与文件不符。原报告引用的 receipt_sha256=086f52af 对应被覆盖前的补全版，作废。本补全为收据层增量：results/spec/矩阵/校验器零改动；artifacts 四项实算与先前报告值一致（无漂移）。根因=校验器覆盖式收据写法，validator 本包不改，留 L3 修正项。lead 抽查触发。 补全操作内透明记录：自验失败两次（55725d40…：canonical 范围未含 receipt_sha256_rule 说明键；265e771d…：载入 dict 未先弹出旧 receipt_sha256 即计算），均同批次内秒级修正覆盖，未被任何报告引用；本终版自验 MATCH。收据认证值=canonical 哈希（字段在文件内时与文件字节哈希必然不同）；16:1x 回执曾把 canonical 值误标为『文件实际 SHA-256』，文件字节哈希以 lead 循环台账/judge 收据外置记录为准。",
+      "at": "2026-10-29T16:15:21+08:00"
+    }
+  ],
+  "receipt_sha256_rule": "sha256(canonical JSON of this object WITHOUT receipt_sha256 field; ensure_ascii=false, indent=2, + trailing newline)",
+  "receipt_sha256": "620cd322a3a96b09dbf9010edb71242d3eb757a300d0f14ddc6b72b2074f59f4"
+}

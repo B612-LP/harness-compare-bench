@@ -1,0 +1,117 @@
+# runner-schema-v2：runner 产物 meta 规范（L2 包C）
+
+- 版本：v2.0-draft1（规范+校验器交付；lab.py 实跑集成不在本包，见文末 unknown）
+- 绑定：[自动循环L2-2026-10-29 PREREGISTRATION §五](../../自动循环L2-2026-10-29/PREREGISTRATION.md)（封印 commit `ae36f67`，分支 `loop2-2026-10-29`）
+- 落盘时刻：2026-10-29 16:00:57 +0800（实钟）
+- 基线：r1031 codex 侧 `runs/*/meta.json` 字段集逐项对齐（参照 `3-表现现场/r1031-variance-n3/codex/runs/*/meta.json` 与 `tools-codex/lab.py`，两者本包只读）
+- 缺陷动机：**D1** 全批无 `registered_at`，注册先于运行只能锚点级间接佐证（lead 裁决不回填，本字段列为下轮 runner 必备）；**D2** codex 收据 `reported` 2 位小数 vs r1030 口径 8 位；**D5** dsh meta 缺 `selection/attempts/stdout_bytes` 等、`transport_retries` 列表型 vs codex 整型
+- 配套校验器：[validate_runner_meta.py](validate_runner_meta.py)（stdlib-only；`--spec` 对 [fixtures/](fixtures/) 自检，`--retro` 对 runs 目录只读产出兼容矩阵）
+
+## 一、必备字段集（v2 meta.json，逐字段动机锚点）
+
+### 身份与注册
+
+| 字段 | 类型 | 约束 | 动机锚点 |
+|---|---|---|---|
+| `batch` | string | 非空 | 基线：批次归属，审计链分组键 |
+| `rule_version` | string | 非空 | 基线：判卷合同版本，准入比对键 |
+| `preregistration_commit` | string | `^[0-9a-f]{7,40}$` | **D1**：封印哈希逐场落盘，使「注册先于运行」有逐场机器可查锚点 |
+| `registered_at` | string ISO8601 带时区 | 见 §三时序校验 | **D1（新增必备）**：值=预注册封印提交时间戳的引用；消除 D1 的逐场注册时序不可验证缺口 |
+| `rep` | int | ≥1 | 基线：重复性研究 rep 槽位 |
+| `product` / `case` / `form` | string | 非空 | 基线：运行身份三元组 |
+| `run_id` / `event_id` | string | 非空，全场唯一 | 基线：证据链引用键 |
+| `selection` | object 或 null | null 时必须伴随 `diagnostic` | **D5**：dsh 补齐；计划槽位（plan_id/slot_id/order/kind）；运行级失败记 null+诊断（L1 总则2 口径） |
+
+### 运行环境（基线沿用，无新增缺陷动机）
+
+| 字段 | 类型 | 动机锚点 |
+|---|---|---|
+| `workspace` | string | 基线：仓库外工作区路径，隔离断言对象 |
+| `model` / `reasoning_effort` / `product_version` | string | 基线：模型与产品版本（老师要求①） |
+| `route` | object（host/provider_id/wire_protocol/endpoint） | 基线：路由证据 |
+| `tools` / `soft_constraints` | list | 基线：工具与软约束清单（老师要求①） |
+| `permissions` / `skills` / `web_search` | string | 基线：权限/技能状态（老师要求①） |
+| `prompt_sha256` | string `^[0-9a-f]{64}$` | 基线：题面哈希 |
+| `isolation` | object（含 `ok`: bool） | 基线：工作区隔离断言 |
+| `inputs` | list（path/sha256/bytes） | 基线：输入副本清单 |
+
+### 时序（D1 关联）
+
+| 字段 | 类型 | 约束 | 动机锚点 |
+|---|---|---|---|
+| `created_at` / `started_at` / `finished_at` | string ISO8601 带时区 | `started_at`/`finished_at` 为运行实测 | 基线 + **D1**：`started_at` 参与 `registered_at < started_at` 校验 |
+| `duration_s` | number | ≥0 | 基线：耗时 |
+
+### 执行明细
+
+| 字段 | 类型 | 约束 | 动机锚点 |
+|---|---|---|---|
+| `status` / `exit_code` | string / int 或 null | status∈{ok,timeout,error,transport-error,…} | 基线：运行结局 |
+| `attempts` | list | 每元素含 n/started_at/duration_s/exit_code/outcome | **D5**：dsh 补齐；逐尝试留档，重试证据不丢 |
+| `transport_retries` | **int**（≥0） | 同一逻辑运行内传输层重试计数 | **D5**：统一整型（r1031 dsh 为列表型、codex 为整型） |
+| `transport_retry_events` | list（可选） | 逐次退避明细（n/at/backoff_s/outcome） | **D5**：明细与计数分离，计数恒为整型 |
+| `stdout_bytes` / `stderr_bytes` | int ≥0 | 完整流字节数 | **D5**：dsh 补齐；工程项 a 的落盘完整性证据（回应 stdout 8192 截断未知登记） |
+| `stdout_sha256` / `stderr_sha256` | string `^[0-9a-f]{64}$` | 完整流哈希 | **D5**：与 bytes 组成可复核完整性对 |
+| `archived_stdout` | object（**可选，dsh 特有映射字段**） | 见 §四映射 | **D5**：保留 dsh 现有投影统计字段并声明映射；不豁免四个 canonical `stdout_*/stderr_*` 字段 |
+
+### 计分与证据
+
+| 字段 | 类型 | 约束 | 动机锚点 |
+|---|---|---|---|
+| `usage` | object（含 `per_call` 明细） | 逐调用含 cache_read/cache_creation | 基线（工程项 b）：provider-cache 语义观察数据层 |
+| `reward` | int 或 null | checker 原值 | 基线 |
+| `weighted` | number，**唯一精度 8 位小数** | 见 §五精度规范 | **D2**：机读加权分统一 8dp，消除 2dp/8dp 双口径 |
+| `failed` | list | 失败项 id | 基线 |
+| `judge` | object | checker 原始输出 | 基线：判分双源之一 |
+| `integrity` / `integrity_verdict` | object / string | verdict∈{clean, benign-reviewed, violation}（benign-reviewed 须附 corrections） | 基线（L1 两级裁定先例） |
+
+## 二、逐场收据（score-receipt.json）
+
+| 字段 | 类型 | 约束 | 动机锚点 |
+|---|---|---|---|
+| `score.reported` | number，**唯一精度 8 位小数** | 算术=round(earned/possible×100, 8) | **D2**：本字段的 2dp 偏差即 D2 本体；v2 统一为 8dp 机读唯一精度 |
+| `score.reward` / `score.rule_version` / `score.checker_sha256` / `raw_checker_output` | 同 r1030 口径 | — | 基线：收据双源结构沿用 |
+
+## 三、`registered_at` 时序校验（D1 专条）
+
+1. **格式**：ISO8601 且必须带时区（naive 时间戳判类型错误）。
+2. **先注册后运行**：`registered_at < started_at`，违反记 `temporal-error(order)`。
+3. **不早于封印**：`registered_at ≥ 预注册封印提交时刻`（校验器经 `--seal-at` 提供封印时刻，如 r1031 为 `2026-10-29T13:22:39+08:00`），违反记 `temporal-error(seal)`。
+4. 值语义：预注册封印提交时间戳的**引用**——runner 启动时从批次预注册登记读取，不得事手写未来时刻（L2 总则5）。
+
+## 四、dsh 侧补齐与 `archived_stdout` 映射（D5 专条）
+
+dsh 现有 `archived_stdout` 保留为 **dsh 特有可选映射字段**，与 v2 canonical 字段映射关系：
+
+| archived_stdout（dsh 现状） | v2 canonical（必备） | 说明 |
+|---|---|---|
+| `full_bytes` | `stdout_bytes` | 完整流字节数（`agent.jsonl.full`） |
+| `full_file` | —（文件名引用） | 完整流落盘文件 |
+| `full_lines` / `full_method` / `raw_bytes` / `raw_lines` / `raw_file` / `raw_truncation` / `raw_lost` / `raw_lost_reason` | —（dsh 特有留存） | CLI 投影统计（`maxStringBytes=8192` 等 cap 证据）与归档缺陷披露 |
+
+规则：`archived_stdout` 的存在**不豁免** `stdout_bytes/stdout_sha256/stderr_bytes/stderr_sha256` 四个必备字段；stderr 侧 dsh 现状无对应投影字段，v2 直接要求 canonical 字段落盘。
+
+## 五、机读精度规范（D2 专条）
+
+1. **唯一机读精度 = 8 位小数**：`score-receipt.json: score.reported` 与 `meta.json: weighted` 的值必须等于 `round(earned/possible×100, 8)`（分母来源 judge 计数字段四组之一：`correct/n_questions`、`correct/n_tasks`、`passed_problems/total_problems`、`passed/total`）；计数不可导出时做表示性检查（`round(v,8)==v`）。
+2. **展示层 2dp 另列**：如需两位小数展示，用显式命名的展示字段（建议 `score_display.reported_2dp` / `weighted_display_2dp`），不得复用机读字段名，也不得回写机读字段。
+3. 判定分级：`ok`（值==8dp 期望）/ `precision-error`（值==2dp 粗化等）/ `representable-only`（不可导出期望，仅表示性检查通过）。
+
+## 六、校验器用法
+
+```bash
+# --spec：对合成 fixtures 自检（manifest 期望全匹配则 exit 0）
+python3 validate_runner_meta.py --spec
+# --retro：runs 目录只读兼容矩阵（每场×每必备字段：有/缺/类型/精度）
+python3 validate_runner_meta.py --retro <runs_dir> [--retro <runs_dir> ...] \
+    --out retro-r1031-matrix.json [--seal-at 2026-10-29T13:22:39+08:00]
+```
+
+--retro 为**只读**操作；矩阵为披露性 delta 报告，不构成对历史批次的追溯判定（见矩阵文件首部声明）。
+
+## 七、显式 unknown（老师④格式）
+
+**lab.py 实跑集成未验证**：本包交付规范+校验器+模板级合成 fixtures，`registered_at` 采集、8dp 写出、dsh canonical 字段补齐均未经真实 API 运行检验。
+影响：schema 可能在真实批次暴露工程缺口（字段采集时点、序列化精度实现）。
+下一步：L3 预注册时将 v2 集成进 codex/dsh 两侧 lab.py，并入首次真实批次验收。
+停止条件：集成完成并通过一次真实批次全量校验，或 schema 被继任版本显式废弃。
