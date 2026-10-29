@@ -87,3 +87,28 @@ D 封印：8b1043d05c5b9dd9b3ae5aa5982cea4e9e852825 ｜ model_calls=0（零真�
   T17/T19 端到端对真 l5 gate 实跑（经 runner 模块 GATE_PATH）保持通过；经 adapter 的
   verify-execution CLI 现达 manifest 检查层（plan/contract/释放检查全过）。
 - 等待 lead 重封新 E（runner 树哈希更新）后执行 WB 2 槽；新 E 前不启动任何真实槽。
+
+
+---
+
+## v5.2 执行记录（2026-10-30T02:07:45+08:00）：E2=02a4cac2 WB 2 槽真实执行完毕
+
+| 槽(order) | 状态 | earned | weighted | 时长 | R6 就绪等待 | 原生DB model | drift | integrity |
+|---|---|---|---|---|---|---|---|---|
+| bird(5) | ok | 1 | 100.0 | 74s | ready 0.0s/1poll | deepseek-v4.1-flash | 无 | clean |
+| dab(6) | ok | 0 | 70.0 | 192s | ready 0.0s/1poll | deepseek-v4.1-flash | 无 | clean |
+
+- 会话：bird=f096fa9d / dab=dc9a6ea3（各自独立，attempts 恒 1）；R1 发射全过——dab 的
+  guards_used 在真实 checker 输出上推导成功（['answers_format','input_integrity']，
+  first_reconciling_in_order，correct=7/n_tasks=10）；bird 的 checker 不发射 n_tasks ⇒
+  guards_method=insufficient_fields（诚实缺省，如实入 meta 供 judge 裁定）。
+- earned 镜像 reward（bird=1/dab=0），weighted 为 checker 原发射 8dp（100.0/70.0），
+  两键并列不覆盖；score.checker_sha256 与 meta.judge 绑定一致。
+- R7 验收：accounting frame 逐槽 actual 非 null（executed+真实 score），frame 收据为本批
+  首写（write-once 无覆盖）；selftest/preflight 收据时间戳副本并存。
+- 纪律：复用 9332 单实例（用户进程零终止）、未改网络/版本、无 git、无截图录屏；
+  app_asar 前后哈希记录（upgrade_drift=None×2）；执行中一次 ps 误印产品进程命令行
+  （含会话级 Bearer）——未入库未复述，收据/REPORT 零凭据，已核。
+- evidence：runs/l5-20261030-wb-gateway-{bird-ca-schools-15,dabstep-payments-10}-r1/
+  （trace 3 件/prompt.txt/agent.stderr.txt/agent-session/workspace 快照/meta/score-receipt/
+  checker.stdout/native-terminal/registrations）。

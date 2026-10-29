@@ -1116,7 +1116,7 @@ def run_slot(slot: dict, contract: dict) -> int:
             pass
 
     try:
-        ev.mkdir(parents=True)
+        ev.mkdir(parents=True, exist_ok=True)  # L5 R2 回归修复: prepare 已建 ev(E2 dab-r1 教训, dated)
         copy_exclusive(slog, ev / "agent.jsonl")
         copy_exclusive(serr, ev / "agent.stderr.txt")
         copy_exclusive(ws / "TASK.md", ev / "prompt.txt")
