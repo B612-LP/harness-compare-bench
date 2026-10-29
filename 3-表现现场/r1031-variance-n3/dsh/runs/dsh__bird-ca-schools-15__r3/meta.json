@@ -1,0 +1,463 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "product": "dsh",
+  "case": "bird-ca-schools-15",
+  "rep": "3",
+  "event_id": "var-n3-dsh-bird-ca-schools-15-r3",
+  "form": "cli",
+  "preregistration_commit": "be39fc2",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/dsh/3/bird-ca-schools-15",
+  "created_at": "2026-10-29T14:09:28+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "eb0db1586265aac65ced0f745e8c0dde1ea9a93d669180c8df395120a25ac940",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/db/california_schools.sqlite",
+      "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+      "bytes": 11116544
+    },
+    {
+      "path": "inputs/questions.json",
+      "sha256": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+      "bytes": 15842
+    },
+    {
+      "path": "inputs/sample_rows.json",
+      "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+      "bytes": 7739
+    },
+    {
+      "path": "inputs/schema.sql",
+      "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+      "bytes": 3993
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T14:09:28+08:00",
+  "finished_at": "2026-10-29T14:11:26+08:00",
+  "duration_s": 117.9,
+  "transport_retries": [],
+  "archived_stdout": {
+    "raw_bytes": 121953,
+    "raw_lines": 127,
+    "raw_file": "agent.jsonl",
+    "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+    "full_bytes": 132770,
+    "full_lines": 127,
+    "full_file": "agent.jsonl.full",
+    "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+  },
+  "usage": {
+    "requests": 24,
+    "input_tokens": 26784,
+    "output_tokens": 20017,
+    "cache_read_tokens": 679936,
+    "cache_creation_tokens": 0,
+    "per_call": [
+      {
+        "turn": 1,
+        "step": 1,
+        "input_tokens": 6915,
+        "output_tokens": 104,
+        "total_tokens": 7275,
+        "cache_read_tokens": 256,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 2,
+        "input_tokens": 6203,
+        "output_tokens": 208,
+        "total_tokens": 13579,
+        "cache_read_tokens": 7168,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 3,
+        "input_tokens": 2361,
+        "output_tokens": 2798,
+        "total_tokens": 18727,
+        "cache_read_tokens": 13568,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 4,
+        "input_tokens": 1229,
+        "output_tokens": 517,
+        "total_tokens": 20434,
+        "cache_read_tokens": 18688,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 5,
+        "input_tokens": 328,
+        "output_tokens": 660,
+        "total_tokens": 21340,
+        "cache_read_tokens": 20352,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 6,
+        "input_tokens": 672,
+        "output_tokens": 982,
+        "total_tokens": 22902,
+        "cache_read_tokens": 21248,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 7,
+        "input_tokens": 429,
+        "output_tokens": 546,
+        "total_tokens": 23759,
+        "cache_read_tokens": 22784,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 8,
+        "input_tokens": 807,
+        "output_tokens": 594,
+        "total_tokens": 25081,
+        "cache_read_tokens": 23680,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 9,
+        "input_tokens": 290,
+        "output_tokens": 613,
+        "total_tokens": 25863,
+        "cache_read_tokens": 24960,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 10,
+        "input_tokens": 392,
+        "output_tokens": 602,
+        "total_tokens": 26850,
+        "cache_read_tokens": 25856,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 11,
+        "input_tokens": 157,
+        "output_tokens": 612,
+        "total_tokens": 27521,
+        "cache_read_tokens": 26752,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 12,
+        "input_tokens": 728,
+        "output_tokens": 741,
+        "total_tokens": 28989,
+        "cache_read_tokens": 27520,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 13,
+        "input_tokens": 680,
+        "output_tokens": 297,
+        "total_tokens": 29905,
+        "cache_read_tokens": 28928,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 14,
+        "input_tokens": 2304,
+        "output_tokens": 835,
+        "total_tokens": 32963,
+        "cache_read_tokens": 29824,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 15,
+        "input_tokens": 156,
+        "output_tokens": 409,
+        "total_tokens": 33461,
+        "cache_read_tokens": 32896,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 16,
+        "input_tokens": 931,
+        "output_tokens": 787,
+        "total_tokens": 35126,
+        "cache_read_tokens": 33408,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 17,
+        "input_tokens": 138,
+        "output_tokens": 362,
+        "total_tokens": 35572,
+        "cache_read_tokens": 35072,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 18,
+        "input_tokens": 549,
+        "output_tokens": 715,
+        "total_tokens": 36720,
+        "cache_read_tokens": 35456,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 19,
+        "input_tokens": 301,
+        "output_tokens": 3943,
+        "total_tokens": 40852,
+        "cache_read_tokens": 36608,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 20,
+        "input_tokens": 504,
+        "output_tokens": 914,
+        "total_tokens": 42250,
+        "cache_read_tokens": 40832,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 21,
+        "input_tokens": 155,
+        "output_tokens": 522,
+        "total_tokens": 42789,
+        "cache_read_tokens": 42112,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 22,
+        "input_tokens": 188,
+        "output_tokens": 1522,
+        "total_tokens": 44462,
+        "cache_read_tokens": 42752,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 23,
+        "input_tokens": 153,
+        "output_tokens": 423,
+        "total_tokens": 44992,
+        "cache_read_tokens": 44416,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 24,
+        "input_tokens": 214,
+        "output_tokens": 311,
+        "total_tokens": 45325,
+        "cache_read_tokens": 44800,
+        "cache_creation_tokens": 0
+      }
+    ],
+    "cross_check": {
+      "compared": 24,
+      "equal": 24,
+      "mismatch": []
+    },
+    "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "bird-ca-schools-15",
+    "checker_version": "1.2-q26-frpm",
+    "contract_revision": "b2-tighten-2026-10-27",
+    "contract_status": "adopted-2026-10-26",
+    "parent_checker_version": "1.1",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/bench-workspaces/r1031/dsh/3/bird-ca-schools-15",
+    "reward": 1,
+    "weighted": 100.0,
+    "accuracy": 1.0,
+    "correct": 15,
+    "n_questions": 15,
+    "threshold": 0.8,
+    "input_integrity": "verified",
+    "failed_questions": [],
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "已附输入副本 4 件，均与 canonical 一致"
+      },
+      {
+        "id": "answers_file",
+        "pass": true,
+        "note": "/Users/b612-lp/bench-workspaces/r1031/dsh/3/bird-ca-schools-15/answers.jsonl"
+      },
+      {
+        "id": "answers_schema",
+        "pass": true,
+        "note": "15 行可解析，0 行 JSON/结构异常"
+      },
+      {
+        "id": "answers_coverage",
+        "pass": true,
+        "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+      },
+      {
+        "id": "q28",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（57 行）"
+      },
+      {
+        "id": "q36",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q62",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q83",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q87",
+        "pass": true,
+        "difficulty": "challenging",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q12",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q23",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1239 行）"
+      },
+      {
+        "id": "q24",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（1068 行）"
+      },
+      {
+        "id": "q25",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q26",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（6 行）"
+      },
+      {
+        "id": "q27",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（8574 行）"
+      },
+      {
+        "id": "q31",
+        "pass": true,
+        "difficulty": "moderate",
+        "note": "行集一致（2 行）"
+      },
+      {
+        "id": "q5",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（1 行）"
+      },
+      {
+        "id": "q11",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（7806 行）"
+      },
+      {
+        "id": "q17",
+        "pass": true,
+        "difficulty": "simple",
+        "note": "行集一致（50 行）"
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+    "stdout_scan": {
+      "lines": 127,
+      "violations": 0
+    },
+    "session_scan": {
+      "lines": 161,
+      "violations": 0
+    },
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-dsh-bird-ca-schools-15-r3"
+}

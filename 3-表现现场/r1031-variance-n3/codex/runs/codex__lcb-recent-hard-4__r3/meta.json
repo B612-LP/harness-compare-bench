@@ -1,0 +1,463 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "preregistration_commit": "be39fc2",
+  "rep": 3,
+  "product": "codex",
+  "case": "lcb-recent-hard-4",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/codex/3/lcb-recent-hard-4",
+  "created_at": "2026-10-29T14:15:23+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+  "skills": "off（[skills] include_instructions=false，bundled disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "7b22680bf0cf4437a71659ca7fda2f705fcb7922b69ee4ffcedde500666ecfcd",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/problems.json",
+      "sha256": "0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673",
+      "bytes": 7884
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T14:15:23+08:00",
+  "finished_at": "2026-10-29T14:21:19+08:00",
+  "duration_s": 355.8,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T14:15:23+08:00",
+      "duration_s": 355.8,
+      "exit_code": 0,
+      "outcome": "ok"
+    }
+  ],
+  "transport_retries": 0,
+  "stdout_bytes": 62038,
+  "stderr_bytes": 1419,
+  "stdout_sha256": "1cbcaba08c5a4698780f937f33b928d0a0b0fd7064bdbd64e67f8c5dccbedd87",
+  "stderr_sha256": "e9d21116b1ce920912f7fb472425a56d962f9b67f7240bb3ec17b3638ec90d46",
+  "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+  "usage": {
+    "requests": 24,
+    "input_tokens": 1024329,
+    "output_tokens": 48044,
+    "cache_read_tokens": 1015296,
+    "cache_creation_tokens": 0,
+    "reasoning_output_tokens": 34730,
+    "total_tokens": 1072373,
+    "cumulative_thread_final": {
+      "input_tokens": 1024329,
+      "cached_input_tokens": 1015296,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 48044,
+      "reasoning_output_tokens": 34730,
+      "total_tokens": 1072373
+    },
+    "per_call": [
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:15:26.078Z",
+        "response_id": "e73c602c-ce93-453a-8ab0-9392a7e6474e",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 9039,
+        "cache_read_tokens": 7808,
+        "cache_creation_tokens": 0,
+        "output_tokens": 255,
+        "reasoning_output_tokens": 92,
+        "total_tokens": 9294
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:15:27.817Z",
+        "response_id": "b46090fc-e879-4c57-b9e4-366efbf02eec",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 9567,
+        "cache_read_tokens": 9216,
+        "cache_creation_tokens": 0,
+        "output_tokens": 233,
+        "reasoning_output_tokens": 4,
+        "total_tokens": 9800
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:17:09.110Z",
+        "response_id": "0544357e-bf3e-4482-8412-fa579d85c266",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 12520,
+        "cache_read_tokens": 9728,
+        "cache_creation_tokens": 0,
+        "output_tokens": 14658,
+        "reasoning_output_tokens": 14206,
+        "total_tokens": 27178
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:17:40.391Z",
+        "response_id": "4ef2ad4d-1cc9-40c5-b183-d8b2140d5c10",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 27227,
+        "cache_read_tokens": 27008,
+        "cache_creation_tokens": 0,
+        "output_tokens": 108,
+        "reasoning_output_tokens": 10,
+        "total_tokens": 27335
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:18:41.187Z",
+        "response_id": "7b791244-a985-4f09-9743-7f4a50847acf",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 27533,
+        "cache_read_tokens": 27264,
+        "cache_creation_tokens": 0,
+        "output_tokens": 8310,
+        "reasoning_output_tokens": 7963,
+        "total_tokens": 35843
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:18:55.285Z",
+        "response_id": "1e7c6465-4040-4ee2-943a-2209f80fb951",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 36102,
+        "cache_read_tokens": 35840,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2002,
+        "reasoning_output_tokens": 1705,
+        "total_tokens": 38104
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:19:09.359Z",
+        "response_id": "c25227d9-37c8-4279-9abc-aee7ea86be0d",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 38158,
+        "cache_read_tokens": 38016,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2458,
+        "reasoning_output_tokens": 1091,
+        "total_tokens": 40616
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:19:12.026Z",
+        "response_id": "41ff7f50-aa8e-4dca-a389-5c861c347f74",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 40789,
+        "cache_read_tokens": 40576,
+        "cache_creation_tokens": 0,
+        "output_tokens": 354,
+        "reasoning_output_tokens": 155,
+        "total_tokens": 41143
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:19:13.992Z",
+        "response_id": "f98164ea-7ebd-4847-b210-732e22462bcf",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 41241,
+        "cache_read_tokens": 41088,
+        "cache_creation_tokens": 0,
+        "output_tokens": 277,
+        "reasoning_output_tokens": 16,
+        "total_tokens": 41518
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:19:20.425Z",
+        "response_id": "b8a1a5f3-36cd-4348-be02-8e76b8585c05",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 41796,
+        "cache_read_tokens": 41472,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1040,
+        "reasoning_output_tokens": 97,
+        "total_tokens": 42836
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:19:32.412Z",
+        "response_id": "64daea3a-c474-46e7-83c6-e10e3a88c737",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 43009,
+        "cache_read_tokens": 42752,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1920,
+        "reasoning_output_tokens": 1181,
+        "total_tokens": 44929
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:19:43.073Z",
+        "response_id": "afe11469-b574-476b-aa2d-da293f3b9362",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 45024,
+        "cache_read_tokens": 44800,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1715,
+        "reasoning_output_tokens": 919,
+        "total_tokens": 46739
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:19:47.580Z",
+        "response_id": "a6fce930-de03-441b-8157-dcf911e6c34a",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 46964,
+        "cache_read_tokens": 46720,
+        "cache_creation_tokens": 0,
+        "output_tokens": 894,
+        "reasoning_output_tokens": 109,
+        "total_tokens": 47858
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:19:55.238Z",
+        "response_id": "8a2e1b18-4a07-4ce8-9983-0c8064e94e69",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 47917,
+        "cache_read_tokens": 47744,
+        "cache_creation_tokens": 0,
+        "output_tokens": 976,
+        "reasoning_output_tokens": 419,
+        "total_tokens": 48893
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:20:00.306Z",
+        "response_id": "25cc59a2-b099-4c49-9b66-5ccff382dc07",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 48996,
+        "cache_read_tokens": 48768,
+        "cache_creation_tokens": 0,
+        "output_tokens": 592,
+        "reasoning_output_tokens": 79,
+        "total_tokens": 49588
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:20:06.234Z",
+        "response_id": "8049685d-c131-4708-a91b-e1ec3a959dfb",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 49667,
+        "cache_read_tokens": 49408,
+        "cache_creation_tokens": 0,
+        "output_tokens": 503,
+        "reasoning_output_tokens": 38,
+        "total_tokens": 50170
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:20:19.415Z",
+        "response_id": "44125cd3-2b37-4c4b-9f2d-426b59fff5fd",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 50228,
+        "cache_read_tokens": 50048,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1859,
+        "reasoning_output_tokens": 1711,
+        "total_tokens": 52087
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:20:30.742Z",
+        "response_id": "a1d1132b-efa3-4fc6-8d37-f79bec299bc3",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 52134,
+        "cache_read_tokens": 51968,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3384,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 55518
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:20:33.716Z",
+        "response_id": "7ac996c2-bdcb-44c6-a9ba-128838086c2e",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 55596,
+        "cache_read_tokens": 55424,
+        "cache_creation_tokens": 0,
+        "output_tokens": 447,
+        "reasoning_output_tokens": 31,
+        "total_tokens": 56043
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:21:01.527Z",
+        "response_id": "58670fa4-8ee2-4e83-a534-9a7c0883071a",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 56270,
+        "cache_read_tokens": 55936,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3803,
+        "reasoning_output_tokens": 3511,
+        "total_tokens": 60073
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:21:06.891Z",
+        "response_id": "5c5b0087-aec3-4e4d-9d79-bfe8010f28ea",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 60136,
+        "cache_read_tokens": 59904,
+        "cache_creation_tokens": 0,
+        "output_tokens": 827,
+        "reasoning_output_tokens": 390,
+        "total_tokens": 60963
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:21:09.384Z",
+        "response_id": "8230c5b7-be11-4d3c-9d40-b7083e49a757",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 61123,
+        "cache_read_tokens": 60928,
+        "cache_creation_tokens": 0,
+        "output_tokens": 274,
+        "reasoning_output_tokens": 96,
+        "total_tokens": 61397
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:21:11.434Z",
+        "response_id": "78956170-7a3c-4fdd-9475-a6ab4264d649",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 61485,
+        "cache_read_tokens": 61312,
+        "cache_creation_tokens": 0,
+        "output_tokens": 216,
+        "reasoning_output_tokens": 35,
+        "total_tokens": 61701
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-15-23-01a1864c-844c-7481-a610-e3c894861f1c.jsonl",
+        "ts": "2026-10-29T06:21:19.273Z",
+        "response_id": "44bbe6d1-fd49-4061-9aa1-a6dcbb813b9b",
+        "turn_id": "01a1864c-846a-7de3-b131-84a7723d2276",
+        "input_tokens": 61808,
+        "cache_read_tokens": 61568,
+        "cache_creation_tokens": 0,
+        "output_tokens": 939,
+        "reasoning_output_tokens": 872,
+        "total_tokens": 62747
+      }
+    ],
+    "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "lcb-recent-hard-4",
+    "checker_version": "0.1",
+    "reward": 1,
+    "weighted": 100.0,
+    "passed_problems": 4,
+    "total_problems": 4,
+    "threshold": 2,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "item": "输入完整性（守卫）",
+        "weight": 0.0,
+        "pass": true,
+        "note": "附带输入副本与 canonical 一致（inputs/problems.json）",
+        "guard": true
+      },
+      {
+        "id": "abc387_f",
+        "item": "abc387_f Count Arrays",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_f",
+        "item": "abc388_f Dangerous Sugoroku",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_g",
+        "item": "abc388_g Simultaneous Kagamimochi 2",
+        "weight": 25.0,
+        "pass": true,
+        "note": "42/42 全过",
+        "passed_tests": 42,
+        "total_tests": 42,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc389_g",
+        "item": "abc389_g Odd Even Graph",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-codex-lcb-recent-hard-4-r3",
+  "event_id": "var-n3-codex-lcb-recent-hard-4-r3",
+  "selection": {
+    "plan_id": "var-n3-20261029",
+    "slot_id": "var-n3-codex-lcb-recent-hard-4-r3",
+    "order": 3,
+    "kind": "rep"
+  }
+}

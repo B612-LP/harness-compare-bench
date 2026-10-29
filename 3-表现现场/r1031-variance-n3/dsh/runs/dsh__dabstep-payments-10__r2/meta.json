@@ -1,0 +1,890 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "product": "dsh",
+  "case": "dabstep-payments-10",
+  "rep": "2",
+  "event_id": "var-n3-dsh-dabstep-payments-10-r2",
+  "form": "cli",
+  "preregistration_commit": "be39fc2",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/dsh/2/dabstep-payments-10",
+  "created_at": "2026-10-29T13:49:15+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "23aa6c8e7016dcb3dd36ef945599d79426bdcc076ecf403c6effb8739004abce",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/acquirer_countries.csv",
+      "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+      "bytes": 194
+    },
+    {
+      "path": "inputs/fees.json",
+      "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+      "bytes": 531118
+    },
+    {
+      "path": "inputs/manual.md",
+      "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+      "bytes": 22127
+    },
+    {
+      "path": "inputs/merchant_category_codes.csv",
+      "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+      "bytes": 26611
+    },
+    {
+      "path": "inputs/merchant_data.json",
+      "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+      "bytes": 6857
+    },
+    {
+      "path": "inputs/payments.csv",
+      "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+      "bytes": 23581339
+    },
+    {
+      "path": "inputs/questions.jsonl",
+      "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+      "bytes": 3889
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T13:49:15+08:00",
+  "finished_at": "2026-10-29T13:55:54+08:00",
+  "duration_s": 398.6,
+  "transport_retries": [],
+  "archived_stdout": {
+    "raw_bytes": 276192,
+    "raw_lines": 261,
+    "raw_file": "agent.jsonl",
+    "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+    "full_bytes": 328727,
+    "full_lines": 261,
+    "full_file": "agent.jsonl.full",
+    "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+  },
+  "usage": {
+    "requests": 50,
+    "input_tokens": 42534,
+    "output_tokens": 57195,
+    "cache_read_tokens": 2958208,
+    "cache_creation_tokens": 0,
+    "per_call": [
+      {
+        "turn": 1,
+        "step": 1,
+        "input_tokens": 6668,
+        "output_tokens": 140,
+        "total_tokens": 7064,
+        "cache_read_tokens": 256,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 2,
+        "input_tokens": 2745,
+        "output_tokens": 86,
+        "total_tokens": 9871,
+        "cache_read_tokens": 7040,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 3,
+        "input_tokens": 2834,
+        "output_tokens": 294,
+        "total_tokens": 12984,
+        "cache_read_tokens": 9856,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 4,
+        "input_tokens": 1409,
+        "output_tokens": 1516,
+        "total_tokens": 15853,
+        "cache_read_tokens": 12928,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 5,
+        "input_tokens": 9287,
+        "output_tokens": 670,
+        "total_tokens": 25701,
+        "cache_read_tokens": 15744,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 6,
+        "input_tokens": 798,
+        "output_tokens": 956,
+        "total_tokens": 27354,
+        "cache_read_tokens": 25600,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 7,
+        "input_tokens": 1157,
+        "output_tokens": 1031,
+        "total_tokens": 29452,
+        "cache_read_tokens": 27264,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 8,
+        "input_tokens": 489,
+        "output_tokens": 644,
+        "total_tokens": 30573,
+        "cache_read_tokens": 29440,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 9,
+        "input_tokens": 3051,
+        "output_tokens": 1985,
+        "total_tokens": 35500,
+        "cache_read_tokens": 30464,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 10,
+        "input_tokens": 406,
+        "output_tokens": 622,
+        "total_tokens": 36484,
+        "cache_read_tokens": 35456,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 11,
+        "input_tokens": 1041,
+        "output_tokens": 839,
+        "total_tokens": 38360,
+        "cache_read_tokens": 36480,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 12,
+        "input_tokens": 203,
+        "output_tokens": 1511,
+        "total_tokens": 39986,
+        "cache_read_tokens": 38272,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 13,
+        "input_tokens": 152,
+        "output_tokens": 663,
+        "total_tokens": 40751,
+        "cache_read_tokens": 39936,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 14,
+        "input_tokens": 251,
+        "output_tokens": 949,
+        "total_tokens": 41904,
+        "cache_read_tokens": 40704,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 15,
+        "input_tokens": 197,
+        "output_tokens": 1263,
+        "total_tokens": 43316,
+        "cache_read_tokens": 41856,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 16,
+        "input_tokens": 1131,
+        "output_tokens": 1235,
+        "total_tokens": 45630,
+        "cache_read_tokens": 43264,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 17,
+        "input_tokens": 204,
+        "output_tokens": 328,
+        "total_tokens": 45972,
+        "cache_read_tokens": 45440,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 18,
+        "input_tokens": 205,
+        "output_tokens": 2146,
+        "total_tokens": 48175,
+        "cache_read_tokens": 45824,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 19,
+        "input_tokens": 1309,
+        "output_tokens": 1457,
+        "total_tokens": 50894,
+        "cache_read_tokens": 48128,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 20,
+        "input_tokens": 376,
+        "output_tokens": 465,
+        "total_tokens": 51657,
+        "cache_read_tokens": 50816,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 21,
+        "input_tokens": 265,
+        "output_tokens": 2119,
+        "total_tokens": 53968,
+        "cache_read_tokens": 51584,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 22,
+        "input_tokens": 257,
+        "output_tokens": 2792,
+        "total_tokens": 56809,
+        "cache_read_tokens": 53760,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 23,
+        "input_tokens": 215,
+        "output_tokens": 471,
+        "total_tokens": 57390,
+        "cache_read_tokens": 56704,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 24,
+        "input_tokens": 597,
+        "output_tokens": 469,
+        "total_tokens": 58410,
+        "cache_read_tokens": 57344,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 25,
+        "input_tokens": 198,
+        "output_tokens": 599,
+        "total_tokens": 59037,
+        "cache_read_tokens": 58240,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 26,
+        "input_tokens": 183,
+        "output_tokens": 1059,
+        "total_tokens": 60250,
+        "cache_read_tokens": 59008,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 27,
+        "input_tokens": 943,
+        "output_tokens": 1131,
+        "total_tokens": 62234,
+        "cache_read_tokens": 60160,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 28,
+        "input_tokens": 294,
+        "output_tokens": 624,
+        "total_tokens": 63126,
+        "cache_read_tokens": 62208,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 29,
+        "input_tokens": 153,
+        "output_tokens": 3148,
+        "total_tokens": 66405,
+        "cache_read_tokens": 63104,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 30,
+        "input_tokens": 1074,
+        "output_tokens": 2744,
+        "total_tokens": 70122,
+        "cache_read_tokens": 66304,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 31,
+        "input_tokens": 157,
+        "output_tokens": 690,
+        "total_tokens": 70863,
+        "cache_read_tokens": 70016,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 32,
+        "input_tokens": 282,
+        "output_tokens": 9729,
+        "total_tokens": 80795,
+        "cache_read_tokens": 70784,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 33,
+        "input_tokens": 431,
+        "output_tokens": 2158,
+        "total_tokens": 83357,
+        "cache_read_tokens": 80768,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 34,
+        "input_tokens": 182,
+        "output_tokens": 1360,
+        "total_tokens": 84870,
+        "cache_read_tokens": 83328,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 35,
+        "input_tokens": 174,
+        "output_tokens": 760,
+        "total_tokens": 85670,
+        "cache_read_tokens": 84736,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 36,
+        "input_tokens": 168,
+        "output_tokens": 389,
+        "total_tokens": 86189,
+        "cache_read_tokens": 85632,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 37,
+        "input_tokens": 188,
+        "output_tokens": 34,
+        "total_tokens": 86238,
+        "cache_read_tokens": 86016,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 38,
+        "input_tokens": 138,
+        "output_tokens": 669,
+        "total_tokens": 86951,
+        "cache_read_tokens": 86144,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 39,
+        "input_tokens": 211,
+        "output_tokens": 682,
+        "total_tokens": 87677,
+        "cache_read_tokens": 86784,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 40,
+        "input_tokens": 210,
+        "output_tokens": 1757,
+        "total_tokens": 89519,
+        "cache_read_tokens": 87552,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 41,
+        "input_tokens": 255,
+        "output_tokens": 493,
+        "total_tokens": 90092,
+        "cache_read_tokens": 89344,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 42,
+        "input_tokens": 156,
+        "output_tokens": 1279,
+        "total_tokens": 91419,
+        "cache_read_tokens": 89984,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 43,
+        "input_tokens": 183,
+        "output_tokens": 227,
+        "total_tokens": 91674,
+        "cache_read_tokens": 91264,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 44,
+        "input_tokens": 174,
+        "output_tokens": 900,
+        "total_tokens": 92594,
+        "cache_read_tokens": 91520,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 45,
+        "input_tokens": 365,
+        "output_tokens": 66,
+        "total_tokens": 92975,
+        "cache_read_tokens": 92544,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 46,
+        "input_tokens": 219,
+        "output_tokens": 226,
+        "total_tokens": 93245,
+        "cache_read_tokens": 92800,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 47,
+        "input_tokens": 229,
+        "output_tokens": 706,
+        "total_tokens": 93991,
+        "cache_read_tokens": 93056,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 48,
+        "input_tokens": 211,
+        "output_tokens": 128,
+        "total_tokens": 94163,
+        "cache_read_tokens": 93824,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 49,
+        "input_tokens": 252,
+        "output_tokens": 778,
+        "total_tokens": 94982,
+        "cache_read_tokens": 93952,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 50,
+        "input_tokens": 257,
+        "output_tokens": 208,
+        "total_tokens": 95441,
+        "cache_read_tokens": 94976,
+        "cache_creation_tokens": 0
+      }
+    ],
+    "cross_check": {
+      "compared": 50,
+      "equal": 50,
+      "mismatch": []
+    },
+    "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+  },
+  "reward": 0,
+  "weighted": 70.0,
+  "failed": [
+    "q49",
+    "q70",
+    "q2697"
+  ],
+  "judge": {
+    "case": "dabstep-payments-10",
+    "case_id": "dabstep-payments-10",
+    "checker_version": "0.2",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/bench-workspaces/r1031/dsh/2/dabstep-payments-10",
+    "artifact": "/Users/b612-lp/bench-workspaces/r1031/dsh/2/dabstep-payments-10/answers.jsonl",
+    "scoring_mode": "official-compat",
+    "official_compat": {
+      "scorer_version": "dabstep-official-port-v0.1",
+      "reward": 0,
+      "weighted": 70.0,
+      "score_rate": 0.7,
+      "correct": 7,
+      "checks": [
+        {
+          "id": "answers_format",
+          "pass": true,
+          "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+        },
+        {
+          "id": "input_integrity",
+          "pass": true,
+          "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+        },
+        {
+          "id": "q5",
+          "pass": true,
+          "note": "pred='NL' ｜ gold='NL'",
+          "task_id": "5",
+          "level": "easy"
+        },
+        {
+          "id": "q49",
+          "pass": false,
+          "note": "pred='A. NL' ｜ gold='B. BE'",
+          "task_id": "49",
+          "level": "easy"
+        },
+        {
+          "id": "q70",
+          "pass": false,
+          "note": "pred='yes' ｜ gold='Not Applicable'",
+          "task_id": "70",
+          "level": "easy"
+        },
+        {
+          "id": "q1273",
+          "pass": true,
+          "note": "pred='0.120132' ｜ gold='0.120132'",
+          "task_id": "1273",
+          "level": "hard"
+        },
+        {
+          "id": "q1305",
+          "pass": true,
+          "note": "pred='0.123217' ｜ gold='0.123217'",
+          "task_id": "1305",
+          "level": "hard"
+        },
+        {
+          "id": "q1464",
+          "pass": true,
+          "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+          "task_id": "1464",
+          "level": "hard"
+        },
+        {
+          "id": "q1681",
+          "pass": true,
+          "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+          "task_id": "1681",
+          "level": "hard"
+        },
+        {
+          "id": "q1753",
+          "pass": true,
+          "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+          "task_id": "1753",
+          "level": "hard"
+        },
+        {
+          "id": "q1871",
+          "pass": true,
+          "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+          "task_id": "1871",
+          "level": "hard"
+        },
+        {
+          "id": "q2697",
+          "pass": false,
+          "note": "pred='E:77.68' ｜ gold='E:13.57'",
+          "task_id": "2697",
+          "level": "hard"
+        }
+      ],
+      "failed": [
+        "q49",
+        "q70",
+        "q2697"
+      ]
+    },
+    "strict_contract": {
+      "scorer_version": "signed-aci-v1",
+      "scope": [
+        "1871:signed-number",
+        "2697:aci-and-signed-fee"
+      ],
+      "numeric_tolerance": {
+        "rel_tol": 0.0001,
+        "abs_tol": 0.0001
+      },
+      "reward": 0,
+      "weighted": 70.0,
+      "score_rate": 0.7,
+      "correct": 7,
+      "checks": [
+        {
+          "id": "answers_format",
+          "pass": true,
+          "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+        },
+        {
+          "id": "input_integrity",
+          "pass": true,
+          "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+        },
+        {
+          "id": "q5",
+          "pass": true,
+          "note": "pred='NL' ｜ gold='NL'",
+          "task_id": "5",
+          "level": "easy"
+        },
+        {
+          "id": "q49",
+          "pass": false,
+          "note": "pred='A. NL' ｜ gold='B. BE'",
+          "task_id": "49",
+          "level": "easy"
+        },
+        {
+          "id": "q70",
+          "pass": false,
+          "note": "pred='yes' ｜ gold='Not Applicable'",
+          "task_id": "70",
+          "level": "easy"
+        },
+        {
+          "id": "q1273",
+          "pass": true,
+          "note": "pred='0.120132' ｜ gold='0.120132'",
+          "task_id": "1273",
+          "level": "hard"
+        },
+        {
+          "id": "q1305",
+          "pass": true,
+          "note": "pred='0.123217' ｜ gold='0.123217'",
+          "task_id": "1305",
+          "level": "hard"
+        },
+        {
+          "id": "q1464",
+          "pass": true,
+          "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+          "task_id": "1464",
+          "level": "hard"
+        },
+        {
+          "id": "q1681",
+          "pass": true,
+          "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+          "task_id": "1681",
+          "level": "hard"
+        },
+        {
+          "id": "q1753",
+          "pass": true,
+          "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+          "task_id": "1753",
+          "level": "hard"
+        },
+        {
+          "id": "q1871",
+          "pass": true,
+          "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+          "task_id": "1871",
+          "level": "hard"
+        },
+        {
+          "id": "q2697",
+          "pass": false,
+          "note": "pred='E:77.68' ｜ gold='E:13.57'",
+          "task_id": "2697",
+          "level": "hard"
+        }
+      ],
+      "failed": [
+        "q49",
+        "q70",
+        "q2697"
+      ]
+    },
+    "reward": 0,
+    "weighted": 70.0,
+    "score_rate": 0.7,
+    "threshold": 0.8,
+    "correct": 7,
+    "n_tasks": 10,
+    "gates": {
+      "answers_format": true,
+      "input_integrity": true
+    },
+    "input_integrity": "verified",
+    "checks": [
+      {
+        "id": "answers_format",
+        "pass": true,
+        "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+      },
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+      },
+      {
+        "id": "q5",
+        "pass": true,
+        "note": "pred='NL' ｜ gold='NL'",
+        "task_id": "5",
+        "level": "easy"
+      },
+      {
+        "id": "q49",
+        "pass": false,
+        "note": "pred='A. NL' ｜ gold='B. BE'",
+        "task_id": "49",
+        "level": "easy"
+      },
+      {
+        "id": "q70",
+        "pass": false,
+        "note": "pred='yes' ｜ gold='Not Applicable'",
+        "task_id": "70",
+        "level": "easy"
+      },
+      {
+        "id": "q1273",
+        "pass": true,
+        "note": "pred='0.120132' ｜ gold='0.120132'",
+        "task_id": "1273",
+        "level": "hard"
+      },
+      {
+        "id": "q1305",
+        "pass": true,
+        "note": "pred='0.123217' ｜ gold='0.123217'",
+        "task_id": "1305",
+        "level": "hard"
+      },
+      {
+        "id": "q1464",
+        "pass": true,
+        "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+        "task_id": "1464",
+        "level": "hard"
+      },
+      {
+        "id": "q1681",
+        "pass": true,
+        "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+        "task_id": "1681",
+        "level": "hard"
+      },
+      {
+        "id": "q1753",
+        "pass": true,
+        "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+        "task_id": "1753",
+        "level": "hard"
+      },
+      {
+        "id": "q1871",
+        "pass": true,
+        "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+        "task_id": "1871",
+        "level": "hard"
+      },
+      {
+        "id": "q2697",
+        "pass": false,
+        "note": "pred='E:77.68' ｜ gold='E:13.57'",
+        "task_id": "2697",
+        "level": "hard"
+      }
+    ],
+    "failed": [
+      "q49",
+      "q70",
+      "q2697"
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+    "stdout_scan": {
+      "lines": 261,
+      "violations": 0
+    },
+    "session_scan": {
+      "lines": 328,
+      "violations": 0
+    },
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-dsh-dabstep-payments-10-r2"
+}

@@ -1,0 +1,53 @@
+{
+  "violations": 4,
+  "patterns": [
+    "2-用例",
+    "truth.json",
+    "checker.py",
+    "reference/",
+    "solution/",
+    "../",
+    "~/Documents",
+    "harness-compare-bench"
+  ],
+  "session_files": [
+    {
+      "name": "agent-session/rollout-2026-10-29T13-54-11-01a18639-181d-79e3-be52-9631ab7ecff2.jsonl",
+      "bytes": 480280
+    }
+  ],
+  "stdout_files": [
+    {
+      "name": "agent.jsonl",
+      "bytes": 65774
+    }
+  ],
+  "lines_scanned": 215,
+  "evidence": [
+    {
+      "source": "rollout-2026-10-29T13-54-11-01a18639-181d-79e3-be52-9631ab7ecff2.jsonl",
+      "line": 74,
+      "pattern": "reference/",
+      "excerpt": "{\"timestamp\": \"2026-10-29T05:55:38.642Z\", \"ordinal\": 73, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a18639-181d-79e3-be52-9631ab7ecff2\", \"turn_id\": \"01a18639-1886-7773-8394-a3e1423017da\", \"item\": {\"type\": \"Reasoning\", \"id\": \"5657016b-4014-4848-9bea-81871a36a209\", \"sum"
+    },
+    {
+      "source": "rollout-2026-10-29T13-54-11-01a18639-181d-79e3-be52-9631ab7ecff2.jsonl",
+      "line": 75,
+      "pattern": "reference/",
+      "excerpt": "{\"timestamp\": \"2026-10-29T05:55:38.645Z\", \"ordinal\": 74, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"5657016b-4014-4848-9bea-81871a36a209\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"No git. Need infer.\\n\\nLet's inspect meta? It may be task author info; user "
+    },
+    {
+      "source": "rollout-2026-10-29T13-54-11-01a18639-181d-79e3-be52-9631ab7ecff2.jsonl",
+      "line": 112,
+      "pattern": "reference/",
+      "excerpt": "{\"timestamp\": \"2026-10-29T05:58:20.861Z\", \"ordinal\": 111, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a18639-181d-79e3-be52-9631ab7ecff2\", \"turn_id\": \"01a18639-1886-7773-8394-a3e1423017da\", \"item\": {\"type\": \"Reasoning\", \"id\": \"f58bd438-ccb6-4150-a051-f0b5603ed379\", \"su"
+    },
+    {
+      "source": "rollout-2026-10-29T13-54-11-01a18639-181d-79e3-be52-9631ab7ecff2.jsonl",
+      "line": 113,
+      "pattern": "reference/",
+      "excerpt": "{\"timestamp\": \"2026-10-29T05:58:20.862Z\", \"ordinal\": 112, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"f58bd438-ccb6-4150-a051-f0b5603ed379\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"We need ensure route feasibility false only weight. Is that correct expecte"
+    }
+  ],
+  "method": "inline session-trajectory + runner-stdout rescan (r1030#1 fixed: staging move)"
+}

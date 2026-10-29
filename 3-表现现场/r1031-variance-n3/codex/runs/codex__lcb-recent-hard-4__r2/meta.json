@@ -1,0 +1,451 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "preregistration_commit": "be39fc2",
+  "rep": 2,
+  "product": "codex",
+  "case": "lcb-recent-hard-4",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/codex/2/lcb-recent-hard-4",
+  "created_at": "2026-10-29T13:48:58+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+  "skills": "off（[skills] include_instructions=false，bundled disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "1b2d7551977fa9dd5e34ad80f5d48b1f0cc6c0d64e01504efb989b7881b303f4",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/problems.json",
+      "sha256": "0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673",
+      "bytes": 7884
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T13:48:58+08:00",
+  "finished_at": "2026-10-29T13:53:52+08:00",
+  "duration_s": 294.3,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T13:48:58+08:00",
+      "duration_s": 294.3,
+      "exit_code": 0,
+      "outcome": "ok"
+    }
+  ],
+  "transport_retries": 0,
+  "stdout_bytes": 66678,
+  "stderr_bytes": 1095,
+  "stdout_sha256": "74c7adb18c25862b9cebf46a725444231ae8945fd309e6358f695cb6b9dd1358",
+  "stderr_sha256": "00844a7de439da7492f084ed99e6dbc537bfe425a6f85a8ea8062a8afd899164",
+  "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+  "usage": {
+    "requests": 23,
+    "input_tokens": 889711,
+    "output_tokens": 41578,
+    "cache_read_tokens": 880512,
+    "cache_creation_tokens": 0,
+    "reasoning_output_tokens": 24861,
+    "total_tokens": 931289,
+    "cumulative_thread_final": {
+      "input_tokens": 889711,
+      "cached_input_tokens": 880512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 41578,
+      "reasoning_output_tokens": 24861,
+      "total_tokens": 931289
+    },
+    "per_call": [
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:49:01.496Z",
+        "response_id": "3bebfba6-f323-4fda-991a-11993142626a",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 9039,
+        "cache_read_tokens": 7808,
+        "cache_creation_tokens": 0,
+        "output_tokens": 592,
+        "reasoning_output_tokens": 58,
+        "total_tokens": 9631
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:49:56.496Z",
+        "response_id": "c4ffa8a7-e085-4e68-8b3f-f26187af9d08",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 12698,
+        "cache_read_tokens": 9600,
+        "cache_creation_tokens": 0,
+        "output_tokens": 7394,
+        "reasoning_output_tokens": 6907,
+        "total_tokens": 20092
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:50:01.874Z",
+        "response_id": "fac5839c-61a8-4bdb-b4c6-88078d3026a3",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 20265,
+        "cache_read_tokens": 19968,
+        "cache_creation_tokens": 0,
+        "output_tokens": 914,
+        "reasoning_output_tokens": 298,
+        "total_tokens": 21179
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:50:48.132Z",
+        "response_id": "f46a4de1-d341-44c7-a209-f22d47dfd7c5",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 21239,
+        "cache_read_tokens": 20992,
+        "cache_creation_tokens": 0,
+        "output_tokens": 6552,
+        "reasoning_output_tokens": 6074,
+        "total_tokens": 27791
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:51:03.957Z",
+        "response_id": "1a2f70e3-5049-47d2-9e66-39d0d6142bf8",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 27877,
+        "cache_read_tokens": 27648,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2608,
+        "reasoning_output_tokens": 1597,
+        "total_tokens": 30485
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:51:10.150Z",
+        "response_id": "08660ab5-6660-4b5a-81a8-574ed0986526",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 30567,
+        "cache_read_tokens": 30336,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1296,
+        "reasoning_output_tokens": 347,
+        "total_tokens": 31863
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:51:14.578Z",
+        "response_id": "c2d50818-8660-4421-abba-cc378fbe5aae",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 32135,
+        "cache_read_tokens": 31744,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1018,
+        "reasoning_output_tokens": 32,
+        "total_tokens": 33153
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:51:46.275Z",
+        "response_id": "544a9b01-76ac-422a-8b13-f457c87a91f3",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 33245,
+        "cache_read_tokens": 33024,
+        "cache_creation_tokens": 0,
+        "output_tokens": 4500,
+        "reasoning_output_tokens": 3913,
+        "total_tokens": 37745
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:51:50.098Z",
+        "response_id": "abe6d925-dec6-4371-89bb-d351e2c42fc6",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 37802,
+        "cache_read_tokens": 37632,
+        "cache_creation_tokens": 0,
+        "output_tokens": 833,
+        "reasoning_output_tokens": 178,
+        "total_tokens": 38635
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:51:57.993Z",
+        "response_id": "34929ac4-d906-4fa1-8713-d37b253c7990",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 38743,
+        "cache_read_tokens": 38528,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1443,
+        "reasoning_output_tokens": 790,
+        "total_tokens": 40186
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:52:09.095Z",
+        "response_id": "198edc58-46fd-479c-9520-fa09d0d5143c",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 40293,
+        "cache_read_tokens": 40064,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1573,
+        "reasoning_output_tokens": 1291,
+        "total_tokens": 41866
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:52:19.275Z",
+        "response_id": "8909fbf5-f6ae-4991-b93b-98f0c3e62418",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 41913,
+        "cache_read_tokens": 41728,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3044,
+        "reasoning_output_tokens": 9,
+        "total_tokens": 44957
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:52:21.738Z",
+        "response_id": "ddb8f587-1359-4302-9c41-95a6ed713bba",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 45035,
+        "cache_read_tokens": 44800,
+        "cache_creation_tokens": 0,
+        "output_tokens": 436,
+        "reasoning_output_tokens": 24,
+        "total_tokens": 45471
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:52:28.903Z",
+        "response_id": "21acd4f4-4715-4e20-868d-bd65d20e5cf8",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 45629,
+        "cache_read_tokens": 45440,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1439,
+        "reasoning_output_tokens": 324,
+        "total_tokens": 47068
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:53:00.684Z",
+        "response_id": "41783849-a9b6-4e97-8711-642b6ef1f317",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 47118,
+        "cache_read_tokens": 46976,
+        "cache_creation_tokens": 0,
+        "output_tokens": 120,
+        "reasoning_output_tokens": 24,
+        "total_tokens": 47238
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:53:05.733Z",
+        "response_id": "138b4d36-54a9-4d99-bea5-4d8fcd696e91",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 47303,
+        "cache_read_tokens": 47104,
+        "cache_creation_tokens": 0,
+        "output_tokens": 691,
+        "reasoning_output_tokens": 99,
+        "total_tokens": 47994
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:53:09.084Z",
+        "response_id": "8d72437d-9173-47b6-bd0a-4c37e45cad3c",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 48080,
+        "cache_read_tokens": 47872,
+        "cache_creation_tokens": 0,
+        "output_tokens": 662,
+        "reasoning_output_tokens": 71,
+        "total_tokens": 48742
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:53:12.674Z",
+        "response_id": "729aaa68-f684-453d-8ef3-27163e31fa8b",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 48925,
+        "cache_read_tokens": 48640,
+        "cache_creation_tokens": 0,
+        "output_tokens": 487,
+        "reasoning_output_tokens": 123,
+        "total_tokens": 49412
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:53:15.608Z",
+        "response_id": "a0a84a2b-79ca-46fa-a886-d9ebd99fa378",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 49466,
+        "cache_read_tokens": 49280,
+        "cache_creation_tokens": 0,
+        "output_tokens": 596,
+        "reasoning_output_tokens": 5,
+        "total_tokens": 50062
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:53:23.773Z",
+        "response_id": "19f1253e-c09d-4320-a64a-c249c52c5614",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 50183,
+        "cache_read_tokens": 50048,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1867,
+        "reasoning_output_tokens": 279,
+        "total_tokens": 52050
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:53:34.578Z",
+        "response_id": "0a3efadd-8826-4aee-866e-6f6683e51f44",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 52275,
+        "cache_read_tokens": 51968,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1377,
+        "reasoning_output_tokens": 759,
+        "total_tokens": 53652
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:53:46.917Z",
+        "response_id": "813e4b7c-9b78-4733-82c1-1fb36a99a971",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 53962,
+        "cache_read_tokens": 53632,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1789,
+        "reasoning_output_tokens": 1395,
+        "total_tokens": 55751
+      },
+      {
+        "session_file": "rollout-2026-10-29T13-48-58-01a18634-5284-7722-a2fc-c0a3a1e93cd7.jsonl",
+        "ts": "2026-10-29T05:53:50.874Z",
+        "response_id": "7b42c1ea-b1d4-4a76-b5e6-88909bb62a39",
+        "turn_id": "01a18634-52e8-7370-bb3a-1dc783f4282f",
+        "input_tokens": 55919,
+        "cache_read_tokens": 55680,
+        "cache_creation_tokens": 0,
+        "output_tokens": 347,
+        "reasoning_output_tokens": 264,
+        "total_tokens": 56266
+      }
+    ],
+    "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+  },
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "lcb-recent-hard-4",
+    "checker_version": "0.1",
+    "reward": 1,
+    "weighted": 100.0,
+    "passed_problems": 4,
+    "total_problems": 4,
+    "threshold": 2,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "item": "输入完整性（守卫）",
+        "weight": 0.0,
+        "pass": true,
+        "note": "附带输入副本与 canonical 一致（inputs/problems.json）",
+        "guard": true
+      },
+      {
+        "id": "abc387_f",
+        "item": "abc387_f Count Arrays",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_f",
+        "item": "abc388_f Dangerous Sugoroku",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_g",
+        "item": "abc388_g Simultaneous Kagamimochi 2",
+        "weight": 25.0,
+        "pass": true,
+        "note": "42/42 全过",
+        "passed_tests": 42,
+        "total_tests": 42,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc389_g",
+        "item": "abc389_g Odd Even Graph",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-codex-lcb-recent-hard-4-r2",
+  "event_id": "var-n3-codex-lcb-recent-hard-4-r2",
+  "selection": {
+    "plan_id": "var-n3-20261029",
+    "slot_id": "var-n3-codex-lcb-recent-hard-4-r2",
+    "order": 2,
+    "kind": "rep"
+  }
+}

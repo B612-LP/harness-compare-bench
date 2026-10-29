@@ -1,0 +1,63 @@
+# WB-r2 preflight probe pre-state snapshot
+# captured: 2026-10-29T05:36:33Z (local 2026-10-29T13:36:33+0800)
+
+## scutil --proxy
+<dictionary> {
+  ExceptionsList : <array> {
+    0 : 127.0.0.1
+    1 : 192.168.0.0/16
+    2 : 10.0.0.0/8
+    3 : 172.16.0.0/12
+    4 : localhost
+    5 : *.local
+    6 : *.crashlytics.com
+    7 : <local>
+  }
+  FTPPassive : 1
+  HTTPEnable : 1
+  HTTPPort : 7897
+  HTTPProxy : 127.0.0.1
+  HTTPSEnable : 1
+  HTTPSPort : 7897
+  HTTPSProxy : 127.0.0.1
+  ProxyAutoConfigEnable : 0
+  SOCKSEnable : 1
+  SOCKSPort : 7897
+  SOCKSProxy : 127.0.0.1
+}
+
+## Wi-Fi proxies
+Enabled: Yes
+Server: 127.0.0.1
+Port: 7897
+Authenticated Proxy Enabled: 0
+Enabled: Yes
+Server: 127.0.0.1
+Port: 7897
+Authenticated Proxy Enabled: 0
+Enabled: Yes
+Server: 127.0.0.1
+Port: 7897
+Authenticated Proxy Enabled: 0
+
+## clash processes
+986 /Applications/Clash Verge.app/Contents/MacOS/clash-verge
+1069 /Applications/Clash Verge.app/Contents/MacOS/verge-mihomo -d /Users/b612-lp/Library/Application Support/io.github.clash-verge-rev.clash-verge-rev -f /Users/b612-lp/Library/Application Support/io.github.clash-verge-rev.clash-verge-rev/clash-verge.yaml -ext-ctl-unix /var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/verge-mihomo.sock
+
+## port 7897 listener
+COMMAND    PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+verge-mih 1069 b612-lp    7u  IPv4 0xd9d82b334c90b548      0t0  TCP 127.0.0.1:7897 (LISTEN)
+
+## /etc/hosts sha256
+c7dd0e2ed261ce76d76f852596c5b54026b9a894fa481381ffd399b556c0e2da  /etc/hosts
+
+## workbuddy settings.json sha256
+51c1411fb138326f30e71ae591ee8fba5ebe0558a80b52fb636a58ccd1981b00  /Users/b612-lp/.workbuddy/settings.json
+
+## settings.json top-level keys
+['autoLaunchLegacyCleanerRanAt', 'claw', 'dockRecentAppsRepairedAt', 'enabledPlugins', 'officeFileAssociationsRepairMarker', 'officeMarkdownDefaultClaimAttempted', 'sandbox']
+
+## workbuddy processes
+
+## keychain mitm CA presence (expect none)
+security: SecKeychainSearchCopyNext: The specified item could not be found in the keychain.

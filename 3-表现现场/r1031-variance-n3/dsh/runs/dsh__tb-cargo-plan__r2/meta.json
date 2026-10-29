@@ -1,0 +1,493 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "product": "dsh",
+  "case": "tb-cargo-plan",
+  "rep": "2",
+  "event_id": "var-n3-dsh-tb-cargo-plan-r2",
+  "form": "cli",
+  "preregistration_commit": "be39fc2",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/dsh/2/tb-cargo-plan",
+  "created_at": "2026-10-29T14:05:16+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "281df568d7d698b91c61994659418ecec5b577d44d0222236b92fdbca6f9c927",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/app/aircraft.py",
+      "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+      "bytes": 2376
+    },
+    {
+      "path": "inputs/app/data/aircraft.json",
+      "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+      "bytes": 496
+    },
+    {
+      "path": "inputs/app/data/airports.json",
+      "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+      "bytes": 1685
+    },
+    {
+      "path": "inputs/app/data/manifest.json",
+      "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+      "bytes": 1257
+    },
+    {
+      "path": "inputs/app/data/weather.json",
+      "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+      "bytes": 1611
+    },
+    {
+      "path": "inputs/app/dispatch.py",
+      "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+      "bytes": 8504
+    },
+    {
+      "path": "inputs/app/navigation.py",
+      "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+      "bytes": 2482
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T14:05:16+08:00",
+  "finished_at": "2026-10-29T14:08:56+08:00",
+  "duration_s": 219.7,
+  "transport_retries": [],
+  "archived_stdout": {
+    "raw_bytes": 152740,
+    "raw_lines": 134,
+    "raw_file": "agent.jsonl",
+    "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+    "full_bytes": 195177,
+    "full_lines": 134,
+    "full_file": "agent.jsonl.full",
+    "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+  },
+  "usage": {
+    "requests": 21,
+    "input_tokens": 27368,
+    "output_tokens": 34454,
+    "cache_read_tokens": 729728,
+    "cache_creation_tokens": 0,
+    "per_call": [
+      {
+        "turn": 1,
+        "step": 1,
+        "input_tokens": 6160,
+        "output_tokens": 137,
+        "total_tokens": 6553,
+        "cache_read_tokens": 256,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 2,
+        "input_tokens": 542,
+        "output_tokens": 185,
+        "total_tokens": 7255,
+        "cache_read_tokens": 6528,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 3,
+        "input_tokens": 5085,
+        "output_tokens": 245,
+        "total_tokens": 12498,
+        "cache_read_tokens": 7168,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 4,
+        "input_tokens": 2660,
+        "output_tokens": 127,
+        "total_tokens": 15203,
+        "cache_read_tokens": 12416,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 5,
+        "input_tokens": 2164,
+        "output_tokens": 3232,
+        "total_tokens": 20500,
+        "cache_read_tokens": 15104,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 6,
+        "input_tokens": 1310,
+        "output_tokens": 2023,
+        "total_tokens": 23813,
+        "cache_read_tokens": 20480,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 7,
+        "input_tokens": 527,
+        "output_tokens": 1301,
+        "total_tokens": 25636,
+        "cache_read_tokens": 23808,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 8,
+        "input_tokens": 715,
+        "output_tokens": 1137,
+        "total_tokens": 27452,
+        "cache_read_tokens": 25600,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 9,
+        "input_tokens": 696,
+        "output_tokens": 2972,
+        "total_tokens": 31060,
+        "cache_read_tokens": 27392,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 10,
+        "input_tokens": 1883,
+        "output_tokens": 10890,
+        "total_tokens": 43749,
+        "cache_read_tokens": 30976,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 11,
+        "input_tokens": 243,
+        "output_tokens": 840,
+        "total_tokens": 44603,
+        "cache_read_tokens": 43520,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 12,
+        "input_tokens": 189,
+        "output_tokens": 1733,
+        "total_tokens": 46466,
+        "cache_read_tokens": 44544,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 13,
+        "input_tokens": 261,
+        "output_tokens": 1177,
+        "total_tokens": 47774,
+        "cache_read_tokens": 46336,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 14,
+        "input_tokens": 204,
+        "output_tokens": 87,
+        "total_tokens": 47907,
+        "cache_read_tokens": 47616,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 15,
+        "input_tokens": 1325,
+        "output_tokens": 612,
+        "total_tokens": 49809,
+        "cache_read_tokens": 47872,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 16,
+        "input_tokens": 2252,
+        "output_tokens": 2229,
+        "total_tokens": 54017,
+        "cache_read_tokens": 49536,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 17,
+        "input_tokens": 153,
+        "output_tokens": 787,
+        "total_tokens": 54956,
+        "cache_read_tokens": 54016,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 18,
+        "input_tokens": 218,
+        "output_tokens": 1363,
+        "total_tokens": 56365,
+        "cache_read_tokens": 54784,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 19,
+        "input_tokens": 373,
+        "output_tokens": 1084,
+        "total_tokens": 57777,
+        "cache_read_tokens": 56320,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 20,
+        "input_tokens": 226,
+        "output_tokens": 129,
+        "total_tokens": 57955,
+        "cache_read_tokens": 57600,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 21,
+        "input_tokens": 182,
+        "output_tokens": 2164,
+        "total_tokens": 60202,
+        "cache_read_tokens": 57856,
+        "cache_creation_tokens": 0
+      }
+    ],
+    "cross_check": {
+      "compared": 21,
+      "equal": 21,
+      "mismatch": []
+    },
+    "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+  },
+  "reward": 0,
+  "weighted": 70.37,
+  "failed": [
+    "tow_within_limit",
+    "leg2_weight_limits_fuel",
+    "leg2_fuel_below_planned",
+    "leg2_remaining_below_reserve",
+    "landing_weight_leg2",
+    "total_time_includes_turnaround",
+    "total_time_value",
+    "route_feasible"
+  ],
+  "judge": {
+    "case": "tb-cargo-plan",
+    "checker_version": "0.2",
+    "contract_revision": "b12-b14-b13a-tighten-2026-10-27",
+    "reward": 0,
+    "weighted": 70.37,
+    "passed": 19,
+    "total": 27,
+    "critical_ok": false,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "ok"
+      },
+      {
+        "id": "code_rerun",
+        "pass": true,
+        "note": "ok"
+      },
+      {
+        "id": "plan_structure",
+        "pass": true,
+        "note": "route=6 legs=5"
+      },
+      {
+        "id": "route_hub",
+        "pass": true,
+        "note": "NAN..NAN"
+      },
+      {
+        "id": "route_order",
+        "pass": true,
+        "note": "['SUV', 'TBU', 'APW', 'FUN'] vs ['SUV', 'TBU', 'APW', 'FUN']"
+      },
+      {
+        "id": "leg_suv_tbu_distance",
+        "pass": true,
+        "note": "404.2 vs 404.2"
+      },
+      {
+        "id": "tas_varies",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "heading_wind_corrected",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "ground_speed",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "crosswind_dest",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "crosswind_apw_near_limit",
+        "pass": true,
+        "note": "19.1"
+      },
+      {
+        "id": "crosswind_ok_field",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_carries_no_fuel_stop",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_no_refuel_carry",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_capacity",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "reserve_holding",
+        "pass": true,
+        "note": "31.5 vs 31.5"
+      },
+      {
+        "id": "tow_within_limit",
+        "pass": false,
+        "note": ""
+      },
+      {
+        "id": "leg2_weight_limits_fuel",
+        "pass": false,
+        "note": "150.6 vs 145.7"
+      },
+      {
+        "id": "leg2_fuel_below_planned",
+        "pass": false,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_formula",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_above_min",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "fuel_remaining_ok_field",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "leg2_remaining_below_reserve",
+        "pass": false,
+        "note": "31.5"
+      },
+      {
+        "id": "tow_leg1",
+        "pass": true,
+        "note": "8464.3"
+      },
+      {
+        "id": "landing_weight_leg2",
+        "pass": false,
+        "note": "7915.0"
+      },
+      {
+        "id": "total_time_includes_turnaround",
+        "pass": false,
+        "note": "568.7 vs 568.7"
+      },
+      {
+        "id": "total_time_value",
+        "pass": false,
+        "note": "568.7"
+      },
+      {
+        "id": "route_feasible",
+        "pass": false,
+        "note": "False"
+      },
+      {
+        "id": "feasibility_includes_crosswind",
+        "pass": true,
+        "note": ""
+      },
+      {
+        "id": "feasibility_includes_fuel",
+        "pass": true,
+        "note": ""
+      }
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+    "stdout_scan": {
+      "lines": 134,
+      "violations": 0
+    },
+    "session_scan": {
+      "lines": 168,
+      "violations": 0
+    },
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-dsh-tb-cargo-plan-r2"
+}
