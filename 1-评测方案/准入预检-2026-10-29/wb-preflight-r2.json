@@ -1,0 +1,96 @@
+{
+  "kind": "interface_preflight_r2",
+  "scope": "WorkBuddy 请求级补证（自动循环 L1 包C）：受管未知 wb-upstream-route-host-undisclosed / wb-model-alias-equivalence 的证据状态更新",
+  "at": "2026-10-29T14:45:00+08:00",
+  "preregistration": "1-评测方案/自动循环L1-2026-10-29/PREREGISTRATION.md 包C",
+  "model_calls": 0,
+  "probe_sessions": {
+    "count": 6,
+    "note": "预检级探针会话（每会话一句固定应答题），经 WB 网关真实调用模型；非评分运行，不进正式表",
+    "tasks": ["797c56b6", "b62e6a25", "ea90ae73", "fdc374c1", "7d55d5d5", "b6663bce"],
+    "workspace": "~/bench-workspaces/_probe/wb-r2/ws-m1"
+  },
+  "mechanisms_budget": {
+    "m1_app_proxy_env_tap": "部分有效（服务面全捕获；模型面旁路直连——负结果本身入档）",
+    "m2_chromium_proxy_flag": "负结果（实证排除 Chromium 栈）",
+    "m3_inprocess_observation_plus_rea": "有效（进程归属 + 直连 IP + DNS 集合匹配 + 静态目录，主机归属判定成立；SNI 未直读）",
+    "hard_cap": "3 机制未超；方法升级（REA 静态分析）系用户 2026-10-29 直接指令，经 lead 批准计入 M3"
+  },
+  "checked_products": {
+    "workbuddy": {
+      "product_version_observed": ["5.8.3（M1）", "5.9.3（M2/M3，探针期内自动更新，行为跨版本一致）"],
+      "model_label_disclosed": "deepseek-v4.1-flash",
+      "upstream_route_request_level": "DIRECT https://www.workbuddy.cn（腾讯 EdgeOne）——模型面直连，不经任何代理",
+      "upstream_route_evidence": {
+        "dynamic": "全部探针会话模型窗口内直连 443 仅出现 {119.147.114.214, 113.108.215.157}，恰为同时段系统 resolver 下 www.workbuddy.cn A 记录集合（两 POP 全命中、跨会话交替）；api.deepseek.com 同期 A 记录 {14.29.51.120, 14.116.174.67} 无交集",
+        "static": "app.asar(main/common.js) 内置 provider 目录：deepseek-flash→https://api.deepseek.com（唯一 DeepSeek 直连端点）；deepseek-v4.1-flash 无 api.deepseek.com 条目（内置三条目分别指向 opencode.ai/阿里云 MaaS/openrouter，均与观测 IP 矛盾）",
+        "honest_boundary": "TLS 端到端未破坏，SNI 未从线路层直读；归属为同解析时段 A 记录集合精确匹配 + 时序对齐 + 服务面同主机 SNI 钩子互证",
+        "api_deepseek_com_excluded": true
+      },
+      "proxy_bypass_behavior": "模型面绕过全部代理向量（env HTTPS_PROXY、应用内 http.proxy+proxySupport=override、Chromium --proxy-server、NO_PROXY 重写均无效）；服务面（www.workbuddy.cn 等 axios）正常走代理",
+      "capture_limit": "请求体级模型字段与响应头未捕获（模型面旁路 + TLS 端到端 + 观察钩子不重定向连接，按纪律不采用行为有损取证）"
+    }
+  },
+  "admission_impact": {
+    "verdict": "not_admitted_to_formal_a1（维持 r1 裁定；本循环不自动准入，进 A 组与否留给未来正式批次）",
+    "changed_reason": "阻断理由从 r1 的「路由证据缺口」升级为「请求级证据表明路由不同」：桌面会话 deepseek-v4.1-flash 走 WB 自家网关，与 CLI 统一 alias deepseek-flash（api.deepseek.com 直连）不构成同模型同路由事实",
+    "formal_a1_composition": ["codex", "dsh"]
+  },
+  "unknowns": [
+    {
+      "id": "wb-upstream-route-host-undisclosed",
+      "knowledge_status": "answered_r2",
+      "investigation_status": "completed",
+      "resolution": "请求级出站证据在案：模型面直连 https://www.workbuddy.cn（腾讯 EdgeOne，IP 集合 {119.147.114.214, 113.108.215.157}），api.deepseek.com 被同期 DNS A 记录集合排除；WB 自身静态目录亦无 deepseek-v4.1-flash→api.deepseek.com 条目",
+      "impact": "原「路由事实无出处」的 A 组阻断已解除为「路由不同」的正面刻画；r1030 私有日志 NO_PROXY 名单经查为本机 harness/launchd 环境变量继承，非 WB 自述（r1 解读在此修正）",
+      "residual_unknown": "WB 网关服务端之后的最终推理上游属服务端行为，本机不可观测",
+      "next_step": "无需本侧补证；如需闭环到最终推理服务商，向产品方索取网关上游披露",
+      "stop_condition": "本机侧已停（线路级 SNI 直读需 sudo 抓包或行为有损重定向，均超红线）",
+      "reopen_condition": "产品方披露网关上游，或新版本模型面路由行为变化（可复跑本探针工具链）"
+    },
+    {
+      "id": "wb-model-alias-equivalence",
+      "knowledge_status": "answered_route_level_r2",
+      "investigation_status": "completed",
+      "resolution": "路由级不等价成立：统一 alias deepseek-flash 在 WB 自身目录映射 api.deepseek.com（直连），桌面会话 deepseek-v4.1-flash 为网关计费目录条目、请求级走 WB 网关——两者不构成同模型同路由",
+      "impact": "A 组「同模型同路由」要求在路由层已可判定不满足；无需再以「无佐证」表述",
+      "residual_unknown": "请求体级 model 字段未观测（TLS）；网关服务端将请求转发给何种上游模型 id 不可本机观测",
+      "next_step": "无需本侧补证；如产品方披露 deepseek-v4.1-flash 网关条目与 DeepSeek 直连条目的对应关系，可重开评估",
+      "stop_condition": "本机侧已停（理由同上）",
+      "reopen_condition": "线路级请求体证据出现（需产品配合或红线变化），或产品方官方披露"
+    }
+  ],
+  "evidence": {
+    "root": "1-评测方案/准入预检-2026-10-29/evidence-r2/",
+    "files": [
+      "environment-snapshot/pre-state.txt",
+      "environment-snapshot/settings-json.pre.keys-and-sha.txt",
+      "environment-snapshot/post-state-restore-proof.txt",
+      "m1-app-proxy-tap/README.md",
+      "m1-app-proxy-tap/m1-connects.redacted.jsonl",
+      "m1-app-proxy-tap/m1-lsof-chain.redacted.txt",
+      "m2-proxy-server-flag/README.md",
+      "m2-proxy-server-flag/m2-lsof-chain.redacted.txt",
+      "m3-inprocess-observation/README.md",
+      "m3-inprocess-observation/m3-hook.redacted.jsonl",
+      "m3-inprocess-observation/m3-lsof-chain.redacted.txt",
+      "m3-inprocess-observation/m3d-lsof-chain.redacted.txt",
+      "m3-inprocess-observation/m3d-connects.redacted.jsonl",
+      "rea-static-analysis/README.md"
+    ],
+    "redaction": "入库文件均经脱敏（Authorization/api-key/cookie 类头以 <redacted> 占位，本机局域网 IP 以 <local-ip> 打码）；未脱敏原始捕获与工具链留存于仓外 ~/bench-workspaces/_probe/wb-r2/，不入库"
+  },
+  "restore_proof": "系统代理（scutil/networksetup → Clash 7897）、/etc/hosts、keychain（无新增 CA）、settings.json（sha256 字节级一致）、WB 进程清零、监听器清零——全部还原，详见 environment-snapshot/post-state-restore-proof.txt",
+  "product_integrity": "/Applications/WorkBuddy.app 全程只读（hash/解包副本到仓外/检索），无写入无补丁；app.asar 5.9.3 sha256=12a2be53ec7db2943a9958f6986d7807adcf083bd79b307d26706d83750effa7",
+  "sources": [
+    {
+      "path": "1-评测方案/准入预检-2026-10-29/evidence-r2/m3-inprocess-observation/README.md"
+    },
+    {
+      "path": "1-评测方案/准入预检-2026-10-29/evidence-r2/rea-static-analysis/README.md"
+    },
+    {
+      "path": "1-评测方案/准入预检-2026-10-29/evidence-r2/m1-app-proxy-tap/README.md"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+# WB-r2 probe post-state restore proof
+# captured: 2026-10-29T06:29:50Z
+
+## WB processes (expect 0)
+       0
+
+## residual listeners on 8888/9332/9340 (expect none)
+       0
+
+## scutil --proxy (must equal pre-state: Clash 7897)
+  HTTPEnable : 1
+  HTTPPort : 7897
+  HTTPProxy : 127.0.0.1
+  HTTPSEnable : 1
+  HTTPSPort : 7897
+  HTTPSProxy : 127.0.0.1
+  ProxyAutoConfigEnable : 0
+  SOCKSEnable : 1
+  SOCKSPort : 7897
+  SOCKSProxy : 127.0.0.1
+
+## Wi-Fi proxies
+Enabled: Yes
+Server: 127.0.0.1
+Port: 7897
+Enabled: Yes
+Server: 127.0.0.1
+Port: 7897
+Enabled: Yes
+Server: 127.0.0.1
+Port: 7897
+
+## /etc/hosts sha256 (pre: 9feb94ca37e5d1554880552bddb6778d964189ab)
+c7dd0e2ed261ce76d76f852596c5b54026b9a894fa481381ffd399b556c0e2da  /etc/hosts
+
+## clash processes + 7897
+       2
+verge-mih 1069 b612-lp    7u  IPv4 0xd9d82b334c90b548      0t0  TCP 127.0.0.1:7897 (LISTEN)
+
+## settings.json restored sha256 (pre: 51c1411fb138326f30e71ae591ee8fba5ebe0558a80b52fb636a58ccd1981b00)
+51c1411fb138326f30e71ae591ee8fba5ebe0558a80b52fb636a58ccd1981b00  /Users/b612-lp/.workbuddy/settings.json
+
+## keychain wb-r2-probe CA (expect none, never added)
+security: SecKeychainSearchCopyNext: The specified item could not be found in the keychain.
+
+## app bundle untouched (read-only analysis; mtime of app.asar)
+Oct 27 17:25 /Applications/WorkBuddy.app/Contents/Resources/app.asar
