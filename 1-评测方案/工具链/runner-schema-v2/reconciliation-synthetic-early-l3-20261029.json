@@ -1,0 +1,53 @@
+{
+  "kind": "self_test",
+  "tool": "validate_runner_meta.py --reconcile",
+  "spec": "runner-schema-v2",
+  "at": "2026-10-29T18:07:02+08:00",
+  "binding_disclosure": "顺序检查（registered_at<started_at）必要非充分（O-1/⑦披露，SCHEMA.md §三.4）；本子命令把 registered_at 与封印提交时刻机械对账并逐项落盘。commit_time 来源：--commit-time（cli-arg）/ --commit-time-file（文件，审计侧可粘贴 git log 输出）/ --git（直接读取；L3 未行使——builder 禁 git，真实批次对账留 L4，U1）。",
+  "inputs": {
+    "ledger": "fixtures/reconcile/synthetic-ledger-early.json",
+    "ledger_sha256": "e66d7c608078b95d1f82775984d3159e9128db8f9b63ec21733817ce9e9128f2",
+    "extract": "json-pointer:/registered_at",
+    "pointer": "/registered_at",
+    "line_regex": null,
+    "commit": "72edb519",
+    "commit_time_source": "commit-time-file:fixtures/reconcile/commit-time-72edb519.txt",
+    "commit_time": "2026-10-29T17:52:27+08:00",
+    "registered_at": "2026-10-29T17:00:00+08:00"
+  },
+  "steps": [
+    {
+      "step": "ledger-readable",
+      "ok": true,
+      "detail": "fixtures/reconcile/synthetic-ledger-early.json"
+    },
+    {
+      "step": "extract-registered-at",
+      "ok": true,
+      "detail": "json-pointer:/registered_at"
+    },
+    {
+      "step": "registered-at-format",
+      "ok": true,
+      "detail": "'2026-10-29T17:00:00+08:00'"
+    },
+    {
+      "step": "commit-hash-format",
+      "ok": true,
+      "detail": "72edb519"
+    },
+    {
+      "step": "commit-time-source",
+      "ok": true,
+      "detail": "2026-10-29T17:52:27+08:00"
+    },
+    {
+      "step": "registered-at-ge-commit-time",
+      "ok": false,
+      "detail": "registered_at 2026-10-29T17:00:00+08:00 vs commit_time 2026-10-29T17:52:27+08:00",
+      "delta_seconds": -3147.0
+    }
+  ],
+  "verdict": "violation",
+  "ok": false
+}

@@ -1,11 +1,21 @@
-# runner-schema-v2：runner 产物 meta 规范（L2 包C）
+# runner-schema-v2：runner 产物 meta 规范（L2 包C 交付，L3 包B 修订）
 
-- 版本：v2.0-draft1（规范+校验器交付；lab.py 实跑集成不在本包，见文末 unknown）
+- 版本：v2.1-l3（L3 修订见文首「L3 变更框」；lab.py 实跑集成不在本包，见文末 unknown）
 - 绑定：[自动循环L2-2026-10-29 PREREGISTRATION §五](../../自动循环L2-2026-10-29/PREREGISTRATION.md)（封印 commit `ae36f67`，分支 `loop2-2026-10-29`）
-- 落盘时刻：2026-10-29 16:00:57 +0800（实钟）
+- L3 修订绑定：[自动循环L3-2026-10-29 PREREGISTRATION §三包B](../../自动循环L3-2026-10-29/PREREGISTRATION.md)（封印 commit `72edb519`，分支 `loop3-2026-10-29`）；缺陷依据 [AUDIT-L2 DF-2 / O-1](../../5-评测报告/对抗性盲审-L2-2026-10-29/AUDIT.md)
+- 落盘时刻：2026-10-29 16:00:57 +0800（实钟，L2 初版）；L3 修订时刻以本框与收据脚本生成为准
 - 基线：r1031 codex 侧 `runs/*/meta.json` 字段集逐项对齐（参照 `3-表现现场/r1031-variance-n3/codex/runs/*/meta.json` 与 `tools-codex/lab.py`，两者本包只读）
 - 缺陷动机：**D1** 全批无 `registered_at`，注册先于运行只能锚点级间接佐证（lead 裁决不回填，本字段列为下轮 runner 必备）；**D2** codex 收据 `reported` 2 位小数 vs r1030 口径 8 位；**D5** dsh meta 缺 `selection/attempts/stdout_bytes` 等、`transport_retries` 列表型 vs codex 整型
-- 配套校验器：[validate_runner_meta.py](validate_runner_meta.py)（stdlib-only；`--spec` 对 [fixtures/](fixtures/) 自检，`--retro` 对 runs 目录只读产出兼容矩阵）
+- 配套校验器：[validate_runner_meta.py](validate_runner_meta.py)（stdlib-only；`--spec` 对 [fixtures/](fixtures/) 自检，`--retro` 对 runs 目录只读产出兼容矩阵，`--reconcile` 做 registered_at ↔ 封印提交时刻离线对账）
+
+> **L3 变更框（2026-10-29，包B builder-dsh；依据 AUDIT-L2 DF-2/O-1 与 L3 预注册 §三包B B1–B7；时刻由脚本生成，见收据）**
+> 1. **B1** `status` 值域定死为 `{ok, timeout, error, transport-error}`（§一原行 `status∈{ok,timeout,error,transport-error,…}` 的「…」移除）；validator 自 v2.1 起按 enum 强制，越值 → `fail:enum`。
+> 2. **B2** `integrity_verdict` 值域 `{clean, benign-reviewed, violation}`；`benign-reviewed` 必须伴随**非空 `corrections`**，否则 → `fail:companion`。
+> 3. **B3** `selection` 为 null 必须伴随**非空 `diagnostic`**，否则 → `fail:companion`。
+> 4. **B4** seal 校验响亮化：未提供 `--seal-at` 时 `classify` **永不返回裸 `pass`**——返回 `fail:unsealed`（`--spec` 由此非零退出，fail-closed）；显式 opt-in `--allow-unsealed` **仅限 `--retro` 披露模式**（`--spec` 传它即 exit 2），矩阵带 `seal.unsealed=true` 与 `seal.policy` 标记；判定值 `pass:unsealed` 本身带 unsealed 标记、不可被消费为裸 pass。
+> 5. **B5** fixtures 6 → **10**（新增 B1/B2/B3 反例 ×3 + benign-reviewed 带 corrections 正例 ×1）；spec-selftest 收据改出新路径 `spec-selftest-receipt-l3-20261029.json`，原收据（`5c6177fd…`）与 `receipt-overwrite-evidence-20261029.json` 字节不动。
+> 6. **B6** C-1 非破坏化：`--spec` 收据只写显式 `--out`；目标已存在即拒绝（exit 2、原字节不动）；缺 `--out` 不落盘（结果仍打印）。回归 `cli-selftest-l3.py` T1 机械复现 16:11:16 覆盖模式（二写失败且首文件字节不变）。
+> 7. **B7** ⑦溯源：§三.4 显式披露「顺序检查必要非充分」；新增 §三.5 `--reconcile` 离线对账；L3 仅合成对账（fixtures/reconcile/，L3 封印提交 `72edb519` 口径），**真实批次对账留 L4（§五 U1）**。
 
 ## 一、必备字段集（v2 meta.json，逐字段动机锚点）
 
@@ -20,7 +30,7 @@
 | `rep` | int | ≥1 | 基线：重复性研究 rep 槽位 |
 | `product` / `case` / `form` | string | 非空 | 基线：运行身份三元组 |
 | `run_id` / `event_id` | string | 非空，全场唯一 | 基线：证据链引用键 |
-| `selection` | object 或 null | null 时必须伴随 `diagnostic` | **D5**：dsh 补齐；计划槽位（plan_id/slot_id/order/kind）；运行级失败记 null+诊断（L1 总则2 口径） |
+| `selection` | object 或 null | **null 时必须伴随非空 `diagnostic`**（v2.1 validator 强制，违反 → `fail:companion`） | **D5**：dsh 补齐；计划槽位（plan_id/slot_id/order/kind）；运行级失败记 null+诊断（L1 总则2 口径） |
 
 ### 运行环境（基线沿用，无新增缺陷动机）
 
@@ -46,7 +56,7 @@
 
 | 字段 | 类型 | 约束 | 动机锚点 |
 |---|---|---|---|
-| `status` / `exit_code` | string / int 或 null | status∈{ok,timeout,error,transport-error,…} | 基线：运行结局 |
+| `status` / `exit_code` | string / int 或 null | **status ∈ {ok, timeout, error, transport-error}**（v2.1 封闭值域，validator 强制，越值 → `fail:enum`） | 基线：运行结局 |
 | `attempts` | list | 每元素含 n/started_at/duration_s/exit_code/outcome | **D5**：dsh 补齐；逐尝试留档，重试证据不丢 |
 | `transport_retries` | **int**（≥0） | 同一逻辑运行内传输层重试计数 | **D5**：统一整型（r1031 dsh 为列表型、codex 为整型） |
 | `transport_retry_events` | list（可选） | 逐次退避明细（n/at/backoff_s/outcome） | **D5**：明细与计数分离，计数恒为整型 |
@@ -63,7 +73,7 @@
 | `weighted` | number，**唯一精度 8 位小数** | 见 §五精度规范 | **D2**：机读加权分统一 8dp，消除 2dp/8dp 双口径 |
 | `failed` | list | 失败项 id | 基线 |
 | `judge` | object | checker 原始输出 | 基线：判分双源之一 |
-| `integrity` / `integrity_verdict` | object / string | verdict∈{clean, benign-reviewed, violation}（benign-reviewed 须附 corrections） | 基线（L1 两级裁定先例） |
+| `integrity` / `integrity_verdict` | object / string | **verdict ∈ {clean, benign-reviewed, violation}**（v2.1 validator 强制）；`benign-reviewed` 必须伴随**非空 `corrections`**（否则 → `fail:companion`） | 基线（L1 两级裁定先例） |
 
 ## 二、逐场收据（score-receipt.json）
 
@@ -77,7 +87,23 @@
 1. **格式**：ISO8601 且必须带时区（naive 时间戳判类型错误）。
 2. **先注册后运行**：`registered_at < started_at`，违反记 `temporal-error(order)`。
 3. **不早于封印**：`registered_at ≥ 预注册封印提交时刻`（校验器经 `--seal-at` 提供封印时刻，如 r1031 为 `2026-10-29T13:22:39+08:00`），违反记 `temporal-error(seal)`。
+   **B4（v2.1）**：未提供 `--seal-at` 时本条**不可静默跳过**——`classify` 返回 `fail:unsealed`（非裸 pass，`--spec` 非零退出）；`--allow-unsealed` 仅限 `--retro` 披露模式且矩阵带 `seal.unsealed=true`/`seal.policy` 标记。
 4. 值语义：预注册封印提交时间戳的**引用**——runner 启动时从批次预注册登记读取，不得事手写未来时刻（L2 总则5）。
+   **⑦/O-1 披露（v2.1 显式化）**：第 2/3 条的顺序检查是**必要非充分**——它们只能验证格式与时序自洽，不能验证 `registered_at` 确实来自封印提交时刻；「可查真」依赖 §三.5 的离线对账。
+
+### §三.5 `--reconcile`：registered_at ↔ 封印提交时刻离线对账（⑦/O-1，v2.1 新增）
+
+```bash
+python3 validate_runner_meta.py --reconcile \
+    --ledger <预注册台账路径> (--pointer /registered_at | --line-regex <含时刻的行>) \
+    --commit <封印提交哈希> \
+    (--commit-time <ISO8601+tz> | --commit-time-file <含 git log 输出的文件> | --git) \
+    --out <对账收据路径>
+```
+
+- 机械步骤：台账可读 → 字段位置提取 → ISO8601+tz 格式 → 提交哈希格式 → 提交时刻来源解析 → `registered_at ≥ commit_time`（记 delta_seconds）；每步落盘、任何一步失败即 `ok=false` 非零退出。
+- **commit_time 来源三模式**：`--commit-time`（显式值）/ `--commit-time-file`（文件内首个 ISO8601+tz 记号；审计侧可粘贴 `git log -1 --format=%cI <hash>` 输出）/ `--git`（脚本直接读取 git）。**L3 未行使 `--git`**（builder 禁 git 纪律），该模式代码路径在 L3 无行使记录，如实披露；**真实批次对账为正式闭项条件（§五 U1，留 L4）**。
+- L3 自检证据（合成对账，self_test）：[reconciliation-synthetic-l3-20261029.json](reconciliation-synthetic-l3-20261029.json)（正例 verdict=ok，delta=0）与 [reconciliation-synthetic-early-l3-20261029.json](reconciliation-synthetic-early-l3-20261029.json)（负例 verdict=violation，exit 1），样本在 [fixtures/reconcile/](fixtures/reconcile/)。
 
 ## 四、dsh 侧补齐与 `archived_stdout` 映射（D5 专条）
 
@@ -100,14 +126,21 @@ dsh 现有 `archived_stdout` 保留为 **dsh 特有可选映射字段**，与 v2
 ## 六、校验器用法
 
 ```bash
-# --spec：对合成 fixtures 自检（manifest 期望全匹配则 exit 0）
-python3 validate_runner_meta.py --spec
+# --spec：对合成 fixtures 自检（manifest 期望全匹配则 exit 0；收据只写显式 --out，B6 C-1 非破坏化）
+python3 validate_runner_meta.py --spec --out spec-selftest-receipt-l3-20261029.json
+#   目标已存在 → 拒绝（exit 2，原字节不动）；缺 --out → 不落盘（结果仍打印）
+#   --spec 不接受 --allow-unsealed（B4：固定 fail-closed；未提供 --seal-at 时 pass 期望必失败）
 # --retro：runs 目录只读兼容矩阵（每场×每必备字段：有/缺/类型/精度）
 python3 validate_runner_meta.py --retro <runs_dir> [--retro <runs_dir> ...] \
-    --out retro-r1031-matrix.json [--seal-at 2026-10-29T13:22:39+08:00]
+    --out retro-r1031-matrix.json [--seal-at 2026-10-29T13:22:39+08:00] \
+    [--allow-unsealed]   # 仅限本披露模式；矩阵带 seal.unsealed / seal.policy 标记
+# --reconcile：registered_at ↔ 封印提交时刻离线对账（§三.5，⑦/O-1）
+python3 validate_runner_meta.py --reconcile --ledger <台账> --pointer /registered_at \
+    --commit <hash> --commit-time-file <文件> --out <对账收据>
 ```
 
 --retro 为**只读**操作；矩阵为披露性 delta 报告，不构成对历史批次的追溯判定（见矩阵文件首部声明）。
+L3 收据路径（本包内）：`spec-selftest-receipt-l3-20261029.json`（--spec）、`cli-regression-receipt-l3-20261029.json`（[cli-selftest-l3.py](cli-selftest-l3.py) 机械回归：B6 覆盖模式 / B4 fail-closed 与 opt-in 界限 / B7 对账正负例 / 原收据字节守护）、`reconciliation-synthetic-l3-20261029.json` 与 `reconciliation-synthetic-early-l3-20261029.json`（B7 合成对账）。L2 原收据 `spec-selftest-receipt.json`（`5c6177fd…`）与 `receipt-overwrite-evidence-20261029.json` 字节不动。
 
 ## 七、显式 unknown（老师④格式）
 
