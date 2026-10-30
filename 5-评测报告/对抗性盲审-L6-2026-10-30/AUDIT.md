@@ -20,7 +20,7 @@
 
 - **l5_wb_runner.py**：`git diff 1c27a6b..aae5eda` = 51 变更行/11 hunks，位置逐一对应废止纪要授权清单：:32 计划目录、:193 batch meta、:394 WORKSPACE_ROOT、:616 evidence_dir、:1021 批形状断言（授权补充 A：L5 双槽硬编码→按 L6 plan/contract 事实一致性断言）、:1087/:1148/:1368/:1468/:1714 自测架适配（授权补充 C：单槽别名/前置 reset/contract19 rule_version 标签镜像）——**11/11 hunks 全部授权内，零超界**。
 - **verify_execution.py**：5 行（PLAN_DIR 站点常量+调用处显式 `plan_dir=`），与 E3 授权补充逐字吻合；gate 文件不在 diff 中。
-- **runner 终态独立实算**：l5_wb_runner.py 磁盘 sha256=**06d171bbdf96…**（与 wb 侧自报一致，本审计独立实算）；verify_execution.py=**f0612ba6…**（E3 manifest 钉值吻合）；两值均已写入 E3 manifest 且实算一致。
+- **runner 终态独立实算**：l5_wb_runner.py 磁盘 sha256=**06d171bb…**（与 wb 侧自报一致，本审计独立实算）；verify_execution.py=**f0612ba6…**（E3 manifest 钉值吻合）；两值均已写入 E3 manifest 且实算一致。
 - **SUMS（授权补充 B）**：driver-snapshot/SHA256SUMS.txt 终态重算机制在案（runner 定稿后重算）。
 
 ## 3. F1 处置审计（AUD-L6-S3）
@@ -32,7 +32,7 @@
 ## 4. 真实槽证据链（AUD-L6-S4）
 
 - **全件在档**：runs/l6-20261030-wb-gateway-bird-ca-schools-15-r1/ = prompt.txt/agent-session/trace/native-terminal.json/score-receipt/checker.stdout/meta.json/registrations/slot-accounting.json/workspace（inputs+TASK）齐备。
-- **contract pin 实算**：case_snapshots.bird 9 个文件 pin 与 `2-用例/bird-ca-schools-15/` 实际字节 **9/9 吻合**；checker.py 顶层 pin=ffa7389adef3…（checker_sha256/bird 与 files 双处一致）**实算吻合** ✓。
+- **contract pin 实算**：case_snapshots.bird 9 个文件 pin 与 `2-用例/bird-ca-schools-15/` 实际字节 **9/9 吻合**；checker.py 顶层 pin=ffa7389a…（checker_sha256/bird 与 files 双处一致）**实算吻合** ✓。
 - **污染扫描**：模型可见轨迹（native-terminal+trace）中 truth.json/solution/harness-compare-bench/checker.py 计数全 **0**；网络动作动词 0；ws 外路径仅为产品自身 app-data（.workbuddy projects/personal——产品交付态固有，沿 L4/L5 度量卫生口径）。
 - **别名证据**：driver 创建参数「DeepSeek V4.1-Flash」+ 会话库 model 字段双证（alias_evidence 在案）；actual_request_model=null=managed unknown（不可观测，不参与同路由归因）；app_asar before==after 无漂移；integrity_verdict=clean。
 
