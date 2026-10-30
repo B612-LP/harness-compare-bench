@@ -1,0 +1,33 @@
+{
+  "plan_id": "formal-b1-20261030",
+  "rule_version": "freeze-20261029-v4",
+  "created_at": "2026-10-30T23:00:00+08:00",
+  "note": "B 组首次正式准入的前瞻抽样注册（L11 环，用户 2026-10-30 放行）。本文件在任何真实运行开始之前定稿并由 freeze-20261029-v4 封印（plan_sha256 绑定 config.official_slots）；先注册、后运行、全量导入，不按结果增删。B_native 语义=产品开箱交付路径、模型封闭不可同模型归因，正式行不与 A_same_model 排名混排（policy.mixed_group_ranking=false）。元宝执行 2026-10-27 落表三件套（任务书禁检索条款+逐会话 speechesV2[].internetSearch 实值披露+批后 integrity_scan 与人工终审），豆包执行同日修订三件套（任务书禁网条款+轨迹披露+integrity_scan 兜底）；实证 clean 记 V、实证命中记 X，原分留档不改。配额制：每 slot 本批仅 1 次发射（kind=first），发射失败即停不重试不补跑；替代/重试按 SAFE_POLICY，注册队列外不补跑、不选最高分。",
+  "batch": "r1101-formal-b1",
+  "design": {
+    "group": "B_native",
+    "products": ["yuanbao", "doubao"],
+    "cases": ["bird-ca-schools-15", "dabstep-payments-10", "exercism-py-6", "lcb-recent-hard-4", "tb-cargo-plan"],
+    "samples_per_slot": 1,
+    "policy": {
+      "first": "first_registered",
+      "repeat": "all_registered_no_best",
+      "retry": "infrastructure_only_max_1",
+      "replacement": "invalid_only_next_registered_max_1"
+    },
+    "provenance_template": "运行记录模板 schema v2（2026-10-30 十字段强制；桌面封闭字段=披露值+承载位置）",
+    "workspace": "~/bench-workspaces/r1101/<product>/<case>/（仓库外，仅 inputs+TASK.md）"
+  },
+  "registrations": [
+    {"event_id": "formal-b1-yuanbao-bird-ca-schools-15-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-yuanbao-bird-ca-schools-15", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"},
+    {"event_id": "formal-b1-yuanbao-dabstep-payments-10-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-yuanbao-dabstep-payments-10", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"},
+    {"event_id": "formal-b1-yuanbao-exercism-py-6-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-yuanbao-exercism-py-6", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"},
+    {"event_id": "formal-b1-yuanbao-lcb-recent-hard-4-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-yuanbao-lcb-recent-hard-4", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"},
+    {"event_id": "formal-b1-yuanbao-tb-cargo-plan-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-yuanbao-tb-cargo-plan", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"},
+    {"event_id": "formal-b1-doubao-bird-ca-schools-15-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-doubao-bird-ca-schools-15", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"},
+    {"event_id": "formal-b1-doubao-dabstep-payments-10-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-doubao-dabstep-payments-10", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"},
+    {"event_id": "formal-b1-doubao-exercism-py-6-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-doubao-exercism-py-6", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"},
+    {"event_id": "formal-b1-doubao-lcb-recent-hard-4-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-doubao-lcb-recent-hard-4", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"},
+    {"event_id": "formal-b1-doubao-tb-cargo-plan-01", "plan_id": "formal-b1-20261030", "slot_id": "b1-doubao-tb-cargo-plan", "order": 1, "kind": "first", "parent_id": null, "reason": null, "registered_at": "2026-10-30T23:00:00+08:00"}
+  ]
+}
