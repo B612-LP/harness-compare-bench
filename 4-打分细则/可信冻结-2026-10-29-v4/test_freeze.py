@@ -316,35 +316,62 @@ class FreezeTests(unittest.TestCase):
 
     @unittest.skipUnless((REAL / f.OUT).is_dir(), "OUT 未生成（build 后门；封印纪律：不预生成产物）")
     def test_v4_six_ledgers_counts_match_registry(self):
-        # (b) v2 registry 23 事件并入六账：非 product_run 各类计数 = registry 动态计数，逐 event_id 恰一次
+        # (b) 非产品类六账 = v2 registry 事件 ∪ 本代 imports 非产品事件，逐 event_id 恰一次
+        # v4 修订（2026-10-31，封印修订-1）：原期望仅计 registry 动态计数，漏计 imports 的
+        # self_test/interface_preflight 事件（formal-b1 各 1），与 build 实况不符；改为动态并集。
         reg = f.load(REAL / "4-打分细则/可信冻结-2026-10-29-v2/work-registry.json")
         out = REAL / f.OUT
         path = next((p for p in (out / "six-ledgers.json", out / "six-ledgers.public-derived.json") if p.is_file()), None)
         self.assertIsNotNone(path, "six-ledgers 未生成（build 后门）")
         led = f.load(path)
+        recipe = f.load(out / "build-recipe.json")
+        import_ids = {}
+        for s in recipe["imports"]:
+            for e in f.load(REAL / s["path"])["events"]:
+                import_ids.setdefault(e["category"], []).append(e["event_id"])
         registry_ids = {e["event_id"] for e in reg["events"]}
-        for cat in ("self_test", "interface_preflight", "offline_recompute", "grading_regression", "bare_model_probe"):
-            expected = [e["event_id"] for e in reg["events"] if e["category"] == cat]
+        ledger = f.load(REAL / f.LEDGER)
+        hist_by_cat = {"product_run": [], "bare_model_probe": []}
+        for r in ledger["runs"]:
+            hist_by_cat["bare_model_probe" if r["product"] == "bare" else "product_run"].append("history:" + r["run_id"])
+        for cat in ("self_test", "interface_preflight", "offline_recompute", "grading_regression", "bare_model_probe", "product_run"):
+            expected = ([e["event_id"] for e in reg["events"] if e["category"] == cat]
+                        + import_ids.get(cat, []) + hist_by_cat.get(cat, []))
             ids = [e["event_id"] for e in led[cat]]
-            self.assertEqual(len(ids), len(expected), cat + " 计数不等于 registry 动态计数")
-            for eid in expected:
+            self.assertEqual(sorted(ids), sorted(expected), cat + " 计数须等于 历史∪registry∪imports 动态并集")
+            for eid in set(expected):
                 self.assertEqual(ids.count(eid), 1, eid + " missing/duplicated in " + cat)
         self.assertEqual([e for e in led["product_run"] if e["event_id"] in registry_ids], [],
                          "v2 registry 不含 product_run 事件（build 管道既有约束）")
 
     @unittest.skipUnless((REAL / f.OUT).is_dir(), "OUT 未生成（build 后门；封印纪律：不预生成产物）")
     def test_v4_official_groups_after_build(self):
-        # 「不重新准入历史」的 v4 等价断言：build 后 groups.B_native==10 个注册 event_id、A_same_model==空
-        plan = f.load(REAL / "1-评测方案/正式批次-2026-10-30/registration-plan.json")
-        expected = sorted(r["event_id"] for r in plan["registrations"])
-        self.assertEqual(len(expected), 10)
+        # 「不重新准入历史」的 v4 等价断言（v4 修订 2026-10-31，封印修订-1）：准入=8 行合规行，
+        # 豆包 cargo（污染 X）与豆包 exercism（发射期 infrastructure_invalid）按判定纪律被拒——
+        # 原期望「B_native==10」误将拒绝行计入，与准入语义不符；README 差异节与验收收据同步披露。
+        admitted = sorted([
+            "formal-b1-yuanbao-bird-ca-schools-15-01", "formal-b1-yuanbao-dabstep-payments-10-01",
+            "formal-b1-yuanbao-exercism-py-6-01", "formal-b1-yuanbao-lcb-recent-hard-4-01",
+            "formal-b1-yuanbao-tb-cargo-plan-01", "formal-b1-doubao-bird-ca-schools-15-01",
+            "formal-b1-doubao-dabstep-payments-10-01", "formal-b1-doubao-lcb-recent-hard-4-01"])
+        rejected_expect = {
+            "formal-b1-doubao-tb-cargo-plan-01": ["final_adjudication_not_valid", "gate:contamination_free", "gate:evidence_valid"],
+            "formal-b1-doubao-exercism-py-6-01": ["final_adjudication_not_valid", "gate:evidence_valid", "gate:scoring_reviewable", "no_reviewable_score"]}
         out = REAL / f.OUT
         path = next((p for p in (out / "official-main-table.json", out / "official-main-table.public-derived.json") if p.is_file()), None)
         self.assertIsNotNone(path, "official-main-table 未生成（build 后门）")
         t = f.load(path)
         self.assertEqual(t["rule_version"], f.RULE)
         self.assertEqual(sorted(t["groups"]["A_same_model"]), [], "A_same_model 必须为空（v4 不准入 A 组历史）")
-        self.assertEqual(sorted(t["groups"]["B_native"]), expected, "B_native 必须恰为 10 个注册 event_id")
+        self.assertEqual(sorted(t["groups"]["B_native"]), admitted, "B_native 必须恰为 8 行合规准入")
+        rej = {r["event_id"]: r["reasons"] for r in t["rejected"] if r["event_id"].startswith("formal-b1-")}
+        self.assertEqual(len(rej), 5, "formal-b1 rejected = 2 产品拒绝行 + 3 非产品事件（预检×2/自测，类别性拒绝）")
+        for eid, reasons in rejected_expect.items():
+            self.assertEqual(sorted(rej[eid]), sorted(reasons), eid + " 拒绝理由须逐项一致")
+        for nonprod in ("formal-b1-yuanbao-preflight-01", "formal-b1-doubao-preflight-01", "formal-b1-checker-selftest-01"):
+            self.assertIn("not_product_run", rej[nonprod], nonprod + " 非产品事件按类别拒绝")
+        self.assertEqual(len([r for r in t["rejected"] if r["event_id"].startswith("history:")]), 96,
+                         "96 条历史行全部 rejected 且含 historical 理由")
 
     # ---- L3-A4：pin_class 机械归类（读取面引用路径必为 contract；错标样本必红） ----
 

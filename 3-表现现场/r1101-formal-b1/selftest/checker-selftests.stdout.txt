@@ -1,0 +1,113 @@
+== bird-ca-schools-15
+[bird-ca-schools-15] checker v1.2-q26-frpm 自测（15 题：challenging 5 / moderate 7 / simple 3；threshold=0.80）
+  用例自身校验通过：输入 SHA-256 全一致，gold 全部可执行且非空
+  PASS nop（空运行目录，无产物）                                 reward=0（期望 0，accuracy=0.000）
+  PASS oracle（solution/answers.jsonl 原样）              reward=1（期望 1，accuracy=1.000）
+  PASS 漏 1 题（删掉 q36 一行）                               reward=0（期望 0，accuracy=0.933）
+  PASS 多 1 题（追加 question_id=9999）                     reward=0（期望 0，accuracy=1.000）
+  PASS 重复 question_id（q28 写两遍，共 16 行）                 reward=0（期望 0，accuracy=1.000）
+  PASS 无效 SQL（6 题查不存在的表）                              reward=0（期望 0，accuracy=0.600）
+  PASS 空结果集（6 题改成 SELECT 1 WHERE 0）                   reward=0（期望 0，accuracy=0.600）
+  PASS 少 JOIN 条件（5 题 ON 1=1 笛卡尔积）                     reward=0（期望 0，accuracy=0.667）
+  PASS 少 DISTINCT/未去重（5 题多行结果翻倍）                      reward=0（期望 0，accuracy=0.667）
+  PASS 近正确负例（4 题口径差一处：删 *100 / 偏移 / 阈值）               reward=0（期望 0，accuracy=0.733）
+  PASS 追加非法行（15 题全对但 schema 必须否决）                     reward=0（期望 0，accuracy=1.000）
+  PASS 追加非对象 JSON（15 题全对但 schema 必须否决）                reward=0（期望 0，accuracy=1.000）
+  PASS 格式错（首行不是 JSON）                                 reward=0（期望 0，accuracy=0.933）
+  PASS 改输入库（run_dir 内 db 副本翻 1 字节）                    reward=0（期望 0，accuracy=1.000）
+  PASS 改输入文件（run_dir 内 schema.sql 被追加内容）              reward=0（期望 0，accuracy=1.000）
+  PASS 阈值边界正例（3 题错 → 12/15=0.8，应判过）                   reward=1（期望 1，accuracy=0.800）
+  PASS 等价答案正例（q5 去掉 DISTINCT，结果不变）                    reward=1（期望 1，accuracy=1.000）
+  PASS q26旧Free5行（逐题拒绝，14/15仍过）                       reward=1（期望 1，accuracy=0.933）
+  PASS q26漏North一校（逐题拒绝，14/15仍过）                      reward=1（期望 1，accuracy=0.933）
+  PASS q26附加一校（逐题拒绝，14/15仍过）                          reward=1（期望 1，accuracy=0.933）
+  PASS q26重复一校（多重集拒绝，14/15仍过）                         reward=1（期望 1，accuracy=0.933）
+  PASS B2负例：每行多余键 status/verified（schema 否决）          reward=0（期望 0，accuracy=0.000）
+  PASS B2负例：15 条 SQL 末尾加 -- 注释（schema 否决）             reward=0（期望 0，accuracy=0.000）
+  守卫自测（期望 ERROR exit 2）：
+  PASS gold SQL 执行失败（truth 注入坏 gold）                  exit=2（期望 2）  ERROR: 用例缺陷：gold SQL 执行失败 q28: no such table: __broken_gold_table__
+  PASS truth 的输入 SHA-256 与实际 inputs 不符                exit=2（期望 2）    actual=33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d
+  PASS threshold 与 checker 常量不一致                      exit=2（期望 2）  ERROR: checker 常量与 truth 不一致：threshold=0.5（期望 0.8）
+  PASS L6-A 元数据不变量（oracle 满分 分支）
+  PASS L6-A 元数据不变量（nop 空产物 分支）
+  PASS canonical 输入在自测前后未被改动
+自测通过：29/29 项符合预期
+exit=0
+== dabstep-payments-10
+[dabstep-payments-10] checker v0.2 自测（canonical inputs sha256[payments.csv]=5fbb26210a45…，TASKS=10，THRESHOLD=0.80）
+  PASS  oracle：solution/answers.jsonl 原样                     reward=1（期望 1）
+  PASS  符号反例：q1871 正负颠倒（官方通过，strict 逐题拒绝）                    reward=1（期望 1）
+  PASS  ACI反例：q2697 Z:13.57（官方通过，strict 逐题拒绝）                reward=1（期望 1）
+  PASS  三错反例：q49+符号+ACI（官方0.9过线，strict0.7拒绝）                 reward=1（期望 1）
+  PASS  oracle＋canonical 输入副本（运行器拷贝形态）                       reward=1（期望 1）
+  PASS  oracle 等价写法（空白/大小写/列表乱序/数字补零）                        reward=1（期望 1）
+  PASS  容错边界：仅 q49 答错（9/10=0.9 过线）                           reward=1（期望 1）
+  PASS  达标线边界：10 题错 2（8/10=0.8，恰好过线）                         reward=1（期望 1）
+  PASS  nop：空运行目录                                            reward=0（期望 0）
+  PASS  漏答 1 题（9 行，得分率 0.9 但结构否决）                            reward=0（期望 0）
+  PASS  多答 1 题（11 行，出现未知 task_id=9999）                       reward=0（期望 0）
+  PASS  格式错：某行缺 answer 字段                                    reward=0（期望 0）
+  PASS  格式错：answer 为 null（非字符串）                              reward=0（期望 0）
+  PASS  格式错：第 3 行非法 JSON（尾随逗号）                               reward=0（期望 0）
+  PASS  重复 task_id（10 行，q2697 被写成 q1871）                     reward=0（期望 0）
+  PASS  近正确：q49/q1273/q1464 三题答错（0.7 < 0.8）                  reward=0（期望 0）
+  PASS  近正确：N/A 题（q70）硬答 yes 且另 2 题错（0.7）                    reward=0（期望 0）
+  PASS  守卫：附篡改的 inputs/payments.csv（答案全对）                    reward=0（期望 0）
+  PASS  守卫：附篡改的 inputs/questions.jsonl（答案全对）                 reward=0（期望 0）
+  PASS  守卫：canonical inputs/payments.csv 被改                  ERROR=True（期望 ERROR）
+  PASS  守卫：truth.threshold 漂移（0.8→0.9）                       ERROR=True（期望 ERROR）
+  PASS  守卫：truth.input_sha256 漂移                             ERROR=True（期望 ERROR）
+  PASS  守卫：solution oracle 漂移                                ERROR=True（期望 ERROR）
+负控制自测：通过（23 组，含 11 组近正确负例）
+exit=0
+== exercism-py-6
+PASS  nop                      expected=0 reward=0 weighted=0.0
+PASS  oracle                   expected=1 reward=1 weighted=100.0
+PASS  neg-skeleton             expected=0 reward=0 weighted=0.0
+PASS  neg-half                 expected=0 reward=0 weighted=50.0
+PASS  neg-modified-tests       expected=0 reward=0 weighted=0.0
+PASS  neg-deleted-tests        expected=0 reward=0 weighted=100.0
+PASS  neg-syntax-error         expected=0 reward=0 weighted=0.0
+PASS  neg-only-five            expected=0 reward=0 weighted=66.67
+PASS  boundary-five-pass       expected=1 reward=1 weighted=83.33
+PASS  neg-os-exit-zero         expected=0 reward=0 weighted=0.0
+PASS  neg-sys-exit-zero        expected=0 reward=0 weighted=0.0
+PASS  neg-fake-summary         expected=0 reward=0 weighted=0.0
+PASS  neg-empty-suite          expected=0 reward=0 weighted=0.0
+PASS  neg-no-callbacks         expected=0 reward=0 weighted=0.0
+PASS  neg-skip-all             expected=0 reward=0 weighted=0.0
+PASS  guard-truth-mismatch     expected=2 reward=ERROR weighted=None
+SELFTEST PASS: 16/16 全部 PASS (nop=0, oracle=1, 原有及完成计数负例全 0, 边界 5/6→1, 守卫 exit=2)
+exit=0
+== lcb-recent-hard-4
+[PASS] nop（空 run_dir）                     expect=0 got=0  passed=0
+[PASS] oracle（solution/ 四题）               expect=1 got=1  passed=4 weighted=100.0
+[PASS] 边界：恰好 2/4 通过                       expect=1 got=1  passed=2 weighted=50.0
+[PASS] 负例：只交 1 题正确解                       expect=0 got=0  passed=1 weighted=25.0
+[PASS] 负例：四题空文件                           expect=0 got=0  abc387_f:0/43 首个失败 #0 输出不符（期望 '6'，实际 ''） | abc388_f:0/43 首个失败 #0 输出不符（期望 'Yes'，实际 ''） | abc388_g:0/42 首个失败 #0 输出不符（期望 '2\n3\n1\n0\n5'，实际 ''） | abc389_g:0/43 首个失败 #0 输出不符（期望 '12 9 3 0'，实际 ''）
+[PASS] 负例：四题 print(0)                     expect=0 got=0  abc387_f:0/43 首个失败 #0 输出不符（期望 '6'，实际 '0'） | abc388_f:0/43 首个失败 #0 输出不符（期望 'Yes'，实际 '0'） | abc388_g:0/42 首个失败 #0 输出不符（期望 '2\n3\n1\n0\n5'，实际 '0'） | abc389_g:0/43 首个失败 #0 输出不符（期望 '12 9 3 0'，实际 '0'）
+[PASS] 负例：只过公开样例不过私有                      expect=0 got=0  reward=0 每题首个失败点=公开测试数? True（abc387_f:3/3 | abc388_f:3/3 | abc388_g:2/2 | abc389_g:3/3）
+[PASS] 负例：超时死循环                           expect=0 got=0  abc387_f fail_kind=timeout（timeout? True）
+[PASS] 负例：输出格式多空格                         expect=0 got=0  四题均为输出不符? True（abc387_f:wrong | abc388_f:wrong | abc388_g:wrong | abc389_g:wrong）
+[PASS] 负例：run_dir 输入副本被篡改                 expect=0 got=0  四题全过但守卫拦截? True（integrity=False, passed=4）
+[PASS] 披露项：stderr 伪造标记不影响分值               expect=1 got=1  四题全过? True（abc389_g stdout 与 oracle 一致、stderr 带 'OK passed all tests' 仍判全过——stderr 不参与输出比较，与上游 AtCoder 官方判定一致）
+[PASS] 守卫：truth SHA-256 漂移 → ERROR exit 2 expect=2 got=2  stderr=['  actual=0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673']
+----------------------------------------------------------------------------------------------------
+自测：12/12 项通过（正例 3、负例 8、守卫/ERROR 项 1）；输入 SHA-256=0ce2f9c1eee0039f
+SELFTEST OK
+exit=0
+== tb-cargo-plan
+[selftest] nop: reward=0 weighted=33.33 passed=9/27
+[selftest] oracle: reward=1 weighted=100.0 passed=27/27
+[selftest] neg:partial_fix: reward=0 weighted=51.85 passed=14/27
+[selftest] neg:syntax_error: reward=0 weighted=0.0 passed=0/0
+[selftest] neg:handwritten_plan: reward=0 weighted=33.33 passed=9/27
+[selftest] neg:data_modified: reward=0 weighted=0.0 passed=0/0
+[selftest] neg:no_code: reward=0 weighted=0.0 passed=0/0
+[selftest] neg:extra_leg: reward=0 weighted=0.0 passed=0/0
+[selftest] neg:b14_leg_missing_cargo: reward=0 weighted=0.0 passed=0/0
+[selftest] neg:b13a_top_extra_keys: reward=0 weighted=0.0 passed=0/0
+[selftest] neg:b12_distance_round0: reward=1 weighted=96.3 passed=26/27
+
+selftest: ALL PASS (nop=0 / oracle=1 / 9 负例=0 或逐项拦截)
+exit=0

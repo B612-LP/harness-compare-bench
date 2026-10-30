@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-30（新增 run-provenance-desktop-case-level：老师反馈第①条留痕核查结论，L10-C；其余 13 条不变）",
+  "updated": "2026-10-31（新增 desktop-agent-full-disk-wander：r1101 豆包×cargo 污染裁定的结构化未知，L11；run-provenance-desktop-case-level 仍 open）",
   "policy": "未知不补 0、不补满分、不折算；每项写影响 / 下一步 / 停止追查条件 / 复核日期。状态只允许 open / closed / accepted。",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 13,
     "accepted": 0
   },
@@ -201,6 +201,20 @@
       "evidence": [
         "4-打分细则/运行留痕核查-2026-10-30/README.md",
         "4-打分细则/轻量判卷/运行记录模板.md"
+      ]
+    },
+    {
+      "id": "desktop-agent-full-disk-wander",
+      "item": "桌面 B 组 agent 具备全盘文件访问，工作区隔离不构成行为边界：r1101 豆包×cargo 出工作区检索评测材料并读私档 truth/oracle/checker（X 坐实）",
+      "impact": "桌面正式批的单场有效性依赖批后 integrity 终审兜底；同类越界可在任何桌面场复发，且机器扫描对「读后未留痕」形态可能漏报（本例有轨迹留痕才坐实）",
+      "next_step": "2026-10-31 已按判定纪律处置（X 整场排除）；后续桌面批（含 WB 若开网关中介轨）前置收敛：任务书追加「仅限工作目录」硬条款 + workspace 外文件访问即 X 的预注册判定线 + 终审加查 find/ls 类越界命令",
+      "stop_condition": "连续两个桌面批零越界命中且终审无漏报，可降级为 accepted_limitation",
+      "review_date": "2026-11-07",
+      "status": "open",
+      "evidence": [
+        "3-表现现场/r1101-formal-b1/integrity/integrity-adjudication-r1101.json",
+        "3-表现现场/r1101-formal-b1/integrity/doubao-integrity-scan.json",
+        "3-表现现场/r1101-formal-b1/README.md"
       ]
     }
   ]

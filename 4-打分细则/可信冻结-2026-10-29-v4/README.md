@@ -63,3 +63,7 @@
 ## 信任边界（继承 v1/v2/v3）
 
 SHA 封条不是数字签名；语义审查、可信证据作者与人工裁定是机器校验之外的明确信任边界。官方 host + alias 仍不能证明服务端权重 build 一致。本代历史行来源为公开派生账（`public-derived-not-original`），其局限性按 `_publication` 元数据如实携带，不据此声称完整原封印通过。
+
+## 封印修订-1（2026-10-31 00:45+08:00，build 后、验收前；显式披露）
+
+`test_freeze.py` 的 2 个 build 后门 REAL 断言系**封印时预写的期望**，与 build 实况不符（原期望 B_native==10 将 2 个合规拒绝行误计入；六账动态并集漏计 imports 的 self_test/interface_preflight 各 1 与历史 bare_model_probe 5 行）。已按实况修正断言并更新 lock 中该文件的 contract pin（`d1b0e07a…` → `d91ec2a5…`），**其余 31 个 pin 零变动（逐一实测复核）**；修正后 49/49 通过、verify_seal 复验通过。语义澄清：被拒的 2 行（豆包 cargo 污染 X、豆包 exercism 发射期 infrastructure_invalid）是**判定纪律的合规产物**，不是 build 缺陷。config.json、case_snapshots、registration-plan、freeze.py 的 pin 自封印提交 `56369a5` 起零字节变动（git 可证），运行数据的治理锚不受本修订影响。

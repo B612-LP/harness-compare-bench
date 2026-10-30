@@ -1,0 +1,51 @@
+{
+  "kind": "interface_preflight",
+  "product": "doubao",
+  "batch": "r1101-formal-b1",
+  "at": "2026-10-30T23:33:25+08:00",
+  "model_calls": 1,
+  "model_call_note": "probe 冒烟=1 次微型 agent 往返（answer.txt=probe-ok-1793374347），非正式运行",
+  "checks": [
+    {
+      "check": "workspace-prep",
+      "ok": true,
+      "detail": "5 工作区 ~/bench-workspaces/r1101/doubao/<case>/，TASK.md 含禁网附则（预生成，幂等跳过验证）"
+    },
+    {
+      "check": "app-launch",
+      "ok": true,
+      "detail": "DoubaoWork open -gj + CDP 9331"
+    },
+    {
+      "check": "probe-session",
+      "ok": true,
+      "detail": "session id=38450542625848066，trajectory 5 records，last_role=assistant，answer.txt 正确产出"
+    },
+    {
+      "check": "collect",
+      "ok": true,
+      "detail": "session/ trajectory.jsonl + briefing + board + memory 等七类文件收齐"
+    },
+    {
+      "check": "version-disclosure",
+      "ok": true,
+      "detail": "app_version 由 run_batch 写入各场 run_meta（product_label=豆包工作（本地电脑 runtime））"
+    },
+    {
+      "check": "websearch-policy",
+      "ok": true,
+      "detail": "豆包无已验证关闭控制→三件套：任务书禁网条款已入 TASK.md + 轨迹披露 + 批后 integrity_scan"
+    }
+  ],
+  "verdict": "PASS",
+  "identity_value": {
+    "event_id": "formal-b1-doubao-preflight-01",
+    "run_id": "r1101-doubao-preflight",
+    "category": "interface_preflight",
+    "product": "doubao",
+    "group": "not_applicable",
+    "experiment": false,
+    "case_id": "not_applicable"
+  },
+  "score_unassessed": "interface_preflight 无评分概念,score 字段按 unknown+受管 issue 登记"
+}

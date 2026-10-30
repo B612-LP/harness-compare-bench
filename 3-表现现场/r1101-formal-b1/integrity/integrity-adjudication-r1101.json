@@ -1,0 +1,18 @@
+{
+  "scanner": "integrity_scan-v1 + 人工终审",
+  "at": "2026-10-31T00:30:00+08:00",
+  "batch": "r1101-formal-b1",
+  "policy": "机器只产候选，人工终审；实证 clean 记 V、实证命中记 X（整场排除、不按子题豁免）；题面自带来源标注豁免",
+  "adjudications": [
+    {"run": "doubao/bird-ca-schools-15", "findings": 5, "adjudication": "误报×5：assignment.md 为任务书副本，q26 合同措辞与 bird-bench.github.io / arxiv URL 均为 instruction.md 题面自带（豁免口径同 r20261026）；trajectory L5 URL 为题面回声。0 检索步骤、0 题解接触。", "verdict": "V", "integrity": "clean"},
+    {"run": "doubao/dabstep-payments-10", "findings": 0, "adjudication": "扫描零命中。", "verdict": "V", "integrity": "clean"},
+    {"run": "doubao/lcb-recent-hard-4", "findings": 0, "adjudication": "扫描零命中；产物 4 项（4 题 sample 自测提交），轨迹无检索无越界。", "verdict": "V", "integrity": "clean"},
+    {"run": "doubao/tb-cargo-plan", "findings": 24, "adjudication": "污染坐实：trajectory L62-75 记录 agent 出工作区在全盘检索 cargo 材料（Glob Documents-backup/harness-compare-bench-feedback → find bench-private/harness-compare-bench → find iCloud 归档树），tool result L67 列出私档 remote-verification 树中 r1029 doubao 场的 truth.json/checker.py/spec.md 路径，L68 assistant 自述「There's an _oracle and a truth.json. Let me read the oracle solution and the checker to align with intended semantics」，L74-75 实读 checker 源码，L82 自述「The output matches the expected truth」。session/memory/MEMORY.md 为空（0 字节），非跨会话记忆泄漏；属桌面 agent 全盘文件访问的结构性越界。", "verdict": "X", "integrity": "contaminated", "score_disposition": "1/100.0 留档不采用，整场排除主表，不按子题豁免"},
+    {"run": "doubao/exercism-py-6", "findings": null, "adjudication": "发射期基础设施失败（点「新工作任务」后 5 次重试仍未到达全新任务页），未创建会话、零模型暴露；按预注册配额制（每 slot 仅 1 次 kind=first 发射、发射失败即停不重试）该 slot 本批无 primary。", "verdict": "infrastructure_invalid", "integrity": "not_applicable"},
+    {"run": "yuanbao/bird-ca-schools-15", "findings": 0, "adjudication": "search_usage_audit：0 检索步骤+0 题解 URL；发送档位 auto（设置不可关闭，批后审计兜底）。", "verdict": "V", "integrity": "clean"},
+    {"run": "yuanbao/dabstep-payments-10", "findings": 0, "adjudication": "同上，clean。", "verdict": "V", "integrity": "clean"},
+    {"run": "yuanbao/exercism-py-6", "findings": 0, "adjudication": "同上，clean；六文件全回收（zipper 本批到位）。", "verdict": "V", "integrity": "clean"},
+    {"run": "yuanbao/tb-cargo-plan", "findings": 0, "adjudication": "clean；0 分系产物未达标（诊断列另记），非污染。", "verdict": "V", "integrity": "clean"},
+    {"run": "yuanbao/lcb-recent-hard-4", "findings": 0, "adjudication": "完成判定 v3 于 8min 冻结无答案块，无有效产出；会话证据完整（conv API dump），检索口径不适用且无任何命中；与 B22（r20261027）同形态先例（V，任务未达标 0 分），人工终审裁定运行有效、结果可判（无产物=0），非污染非运行失败。", "verdict": "V", "integrity": "clean", "note": "driver 保守提示 suspect，人工终审改判 V；0 分不折算不豁免"}
+  ]
+}
