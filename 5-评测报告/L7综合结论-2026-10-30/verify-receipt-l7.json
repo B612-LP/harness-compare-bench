@@ -1,0 +1,83 @@
+{
+ "kind": "judge_l7_verifier_revision_independent_acceptance_receipt",
+ "generated_at": "2026-10-30T13:46:30+08:00",
+ "task": "task-22 (lead 指令; 板上未建 task-22，沿 task-18 先例执行并回报)",
+ "zero_model_calls": true,
+ "live_doc_drift": [],
+ "timing": {
+  "main_c8710fb": "2026-10-30T13:10:47+08:00 (PR#10 集成点，D1 祖先)",
+  "D1": "a186ff38eaf2c12e1f8b5441580ccb5e351242e8 @ 2026-10-30T13:13:05+08:00",
+  "D2": "47bd6855d61f13cd9fbb0f5461c5e938b316db75 @ 2026-10-30T13:42:35+08:00",
+  "D1_ancestor_of_D2": true,
+  "D1_before_D2": true
+ },
+ "identity": {
+  "pre_sha256": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9",
+  "post_sha256": "25dbf52e46404014609b76324750452ce5f680bb770e1e0fbe4d6c57908ea6c9",
+  "disk_gate_sha256": "25dbf52e46404014609b76324750452ce5f680bb770e1e0fbe4d6c57908ea6c9",
+  "disk_eq_post_archive": true,
+  "pre_is_38b42a87": true
+ },
+ "diff_classification": {
+  "hunks": 5,
+  "changed_lines": 24,
+  "categories": [
+   "DEFAULT_PLAN_DIR 常量拔除+注释",
+   "verify_execution plan_dir=None→GateError",
+   "load_execution_seal None→GateError",
+   "gate_admission 签名 plan_dir=None",
+   "CLI --binding/--plan-dir 必填 ap.error"
+  ],
+  "scoring_paths_touched": false,
+  "guards_recompute_747_770_untouched": true
+ },
+ "r7_independent_rerun": {
+  "method": "同内容脚本 /tmp 副本输出重定向（原收据 write-once 不覆盖）",
+  "all_pass": true,
+  "counts": {
+   "total": 12,
+   "passed": 12,
+   "failed": 0
+  },
+  "results": null
+ },
+ "gate_selftest_independent": "PASS",
+ "design_note_assessment": {
+  "argument_holds": true,
+  "corroboration": [
+   "r1 结构发现=P4 独立复现（修订版复判 L6 恰因封印 pin 拒）",
+   "binding E 后重写=L6 废封纪要原文（r4 发现成立）",
+   "manifest 钉全套工链（含 evidence-kit）=L4 验收已知（r3 发现成立）",
+   "gate 三方一致（manifest==E blob==磁盘）为本 judge L5/L6 验收亲证"
+  ],
+  "voided_chain_spotcheck": {
+   "r1": "22 断言 5 过 17 败（留档 VOIDED）",
+   "r5": "17 断言 14 过 3 败（留档 VOIDED）"
+  }
+ },
+ "prereg_deviation_observation": {
+  "item": "PREREG 写『API plan_dir=None → ValueError』；实现为 GateError（gate 自有异常层级，非 ValueError 子类）",
+  "classification": "措辞级预注册偏差（observation，非 defect）：fail-closed 意图完全达成且更强（调用方按 GateError 捕获），r7 N2 断言『GateError 非 TypeError』与实现一致",
+  "impact": "无判分/准入影响",
+  "next": "无（记录即可）；后续 PREREG 措辞宜写明异常类型以实现为准"
+ },
+ "l7b_verification": {
+  "ops_doc": "1-评测方案/工具链/OPERATIONS-hygiene.md（36 行，P4 规程在案）",
+  "bearer_scan_receipt": "1-评测方案/工具链/bearer-scan-receipt-l7.json",
+  "receipt_files_scanned": 156,
+  "note": "lead 消息称 155，收据实值 156（以收据为准）",
+  "all_clear": true,
+  "hits": "9 全部 env-var-passthrough 允许形态",
+  "independent_corroboration": "judge 自扫 Bearer 字面量（l6 现场+工具链）= 0 命中"
+ },
+ "impact_surface": {
+  "l6": "显式传参（L6 修复 PLAN_DIR），不受影响",
+  "l4_l5": "现场封存不重跑（PREREG declared known-impact），未来重跑须先适配（池）"
+ },
+ "referenced_sha256": {
+  "1-评测方案/自动循环L7-2026-10-30/PREREGISTRATION.md": "1817c6f6afeae13eb71b08ce593f39049972ec2b7b3aea126a8de16b2a48a353",
+  "1-评测方案/自动循环L7-2026-10-30/history-replay-design-note.md": "5b0e41b231aac92a2a02c82325aabba44f1f7ae66846955d53c38ea727beedb7",
+  "5-评测报告/L7验证器修订-2026-10-30/l7-gate-recompute-receipt.json": "5c71bc5662f697d09be034d762477e39226bcfe647aa1966b93a10dc712e0045",
+  "1-评测方案/工具链/OPERATIONS-hygiene.md": "964d92de8d4e9444bad99cfe6e9b39d648bcaa6688c03ab31c3298b0a46b50df"
+ }
+}

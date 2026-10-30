@@ -270,6 +270,20 @@
       },
       "locator": "修复前完整字节（本 correction 提交的父提交可考）；对 #17/#18 两条 offline_recompute 事件",
       "description": "发现#17(L5 索引)与#18(L6 索引)缺 registered_at/pin_class 且含 schema 外键 live_doc_drift——L5 收尾登记时偏离 DF-1 schema 且未跑 test_freeze 不变量（过程漏洞，L6 收尾补跑抓获）。修复=#17 registered_at 考古自引入提交 8f25d64 的 committer 时刻、#18 取登记提交 8edc58f 时刻，两者补 pin_class=live_doc、移除 schema 外键（原值 [] 已录本描述）；原 timestamp 与全部业务内容零改动。制度化：批收尾清单必须含 work-registry 不变量测试；本 correction 事件自身首稿亦误带该键，同批移除（登记纪律：本台账条目不带 live_doc_drift，后者属收据/报告件）"
+    },
+    {
+      "event_id": "work:l7-seven-ledger-index-20261030",
+      "kind": "offline_recompute",
+      "executor": "lead（串行登记；sha 由本脚本读现有证据实算）",
+      "timestamp": "2026-10-30T13:50:15+08:00",
+      "registered_at": "2026-10-30T13:50:15+08:00",
+      "pin_class": "live_doc",
+      "source": {
+        "path": "5-评测报告/L7综合结论-2026-10-30/seven-ledger.json",
+        "sha256": "2255e7dc4729e8a320a973086b73745da30288c26a1be0aad9513ee99be0352c"
+      },
+      "locator": "七类分账索引；仅索引，不向旧冻结正式表插行",
+      "description": "L7 七类分账索引：零真实批零模型环——L7-A gate 语义默认值显式化（DEFAULT_PLAN_DIR 拔除，CLI/API 双面 fail-closed，判分语义零改动）+L7-B 运维卫生规程（P4 闭合，0 字面量）；三批基线收据引用固定（L4 0/17、L5 5/6、L6 1/1）；r1-r6 设计演化全档；事故/中止=0；集成前置=PR#10（L5+L6→main）"
     }
   ]
 }

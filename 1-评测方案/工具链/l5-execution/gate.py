@@ -65,8 +65,8 @@ from pathlib import Path, PurePosixPath
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[2]
-# L5 v2：默认计划目录指向本批（L4 复判等场景经参数 plan_dir 显式传入，见 R4 收据）
-DEFAULT_PLAN_DIR = REPO / "1-评测方案" / "自动循环L5-2026-10-30"
+# L7-A（2026-10-30）：原默认计划目录常量已拔除——计划目录一律显式传参（CLI 必填 / API None 即拒），不再有隐式批。
+# 修前行为（v2，锚定 L5 目录）见 git c8710fb；跨批错位实证=L6 E2 REFUSED（L6 废封纪要）。
 SPEC = "l4-execution-gate"
 ISO_TZ_TOKEN = (r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?"
                 r"(?:Z|[+-]\d{2}:?\d{2})")
@@ -200,12 +200,14 @@ def load_binding(binding_path: Path) -> dict:
     return b
 
 
-def verify_execution(binding_path, repo: Path = REPO, plan_dir: Path = DEFAULT_PLAN_DIR,
+def verify_execution(binding_path, repo: Path = REPO, plan_dir=None,
                      git_reader=None, git_time=None, git_ancestor=None, now=None,
                      require_release=True, required_set=None) -> dict:
     """核验 runtime binding 与 E 封印一致；require_release=True（默认）时未放行即 raise。
     required_set=None（真实路径）时复用 lead execution_seal.validate_manifest 强制必需成员集合
     （防漏封 gate/validator/runner 入口/helper；E 前缺入口被拒=正确）；合成测试注入显式集合。"""
+    if plan_dir is None:
+        raise GateError("plan_dir 须显式传参（L7-A：不再有隐式默认批目录）")
     binding_path = Path(binding_path)
     repo = Path(repo).resolve()
     plan_dir = Path(plan_dir).resolve()
@@ -368,7 +370,9 @@ def load_execution_seal(plan_dir: Path = None):
     L5 v2：随 plan_dir 取各批自己的 seal 脚本（required_files 与该批 runtime roots
     对应），使同一 gate 可复判历史批次（L4 复判传 plan_dir=L4 目录，用 L4 seal 检查
     L4 manifest，成员集才可比）。"""
-    p = (plan_dir or DEFAULT_PLAN_DIR) / "execution_seal.py"
+    if plan_dir is None:
+        raise GateError("plan_dir 须显式传参（L7-A：不再有隐式默认批目录）")
+    p = Path(plan_dir) / "execution_seal.py"
     spec = importlib.util.spec_from_file_location("l4_execution_seal", p)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -384,7 +388,7 @@ def _read_json(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-def gate_admission(binding_path: Path, product: str, repo: Path = REPO, plan_dir: Path = DEFAULT_PLAN_DIR,
+def gate_admission(binding_path: Path, product: str, repo: Path = REPO, plan_dir=None,
                    git_reader=None, git_time=None, git_ancestor=None, required_set=None) -> dict:
     """真实批次逐场准入。先 verify_execution（release 必须）再逐场；fail-closed。"""
     vm = load_runner_validator()
@@ -1945,15 +1949,19 @@ def main(argv) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--verify-execution", action="store_true")
     ap.add_argument("--admission", action="store_true")
-    ap.add_argument("--binding", default=str(DEFAULT_PLAN_DIR / "runtime-binding.json"))
+    ap.add_argument("--binding", default=None,
+                    help="runtime-binding.json 路径（L7-A：必填，无默认批）")
     ap.add_argument("--product", default="dsh", choices=["dsh", "codex", "workbuddy"])
-    ap.add_argument("--plan-dir", default=str(DEFAULT_PLAN_DIR))
+    ap.add_argument("--plan-dir", default=None,
+                    help="计划目录（L7-A：必填，无默认批）")
     ap.add_argument("--no-require-release", dest="require_release", action="store_false", default=True)
     ap.add_argument("--out", default=None)
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args(argv)
     if a.selftest:
         return selftest()
+    if not a.binding or not a.plan_dir:
+        ap.error("--binding 与 --plan-dir 均必填（L7-A：不再有隐式默认批目录）")
     try:
         if a.verify_execution:
             report = verify_execution(a.binding, plan_dir=Path(a.plan_dir),

@@ -1,0 +1,117 @@
+{
+  "kind": "l7_seven_category_ledger",
+  "generated_at": "2026-10-30T13:49:12+08:00",
+  "cycle": {
+    "plan_id": "l7-20261030",
+    "branch": "loop7-2026-10-30",
+    "main_base": "c8710fbcee1b9598c15077b5d2be344d4cbf49fa (PR#10 L5+L6 集成点)",
+    "D1": "a186ff38eaf2c12e1f8b5441580ccb5e351242e8",
+    "D2": "47bd6855d61f13cd9fbb0f5461c5e938b316db75",
+    "real_batch": "本环零真实批（工具链/规程环）；最近真实批=L6 formal 1/1（见 L6 综合结论）"
+  },
+  "verifier_revision": {
+    "name": "L7-A gate 语义默认值显式化（池：L6 U-2）",
+    "before": {
+      "path": "1-评测方案/工具链/l5-execution/gate.py",
+      "sha256": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9",
+      "default": "DEFAULT_PLAN_DIR=自动循环L5-2026-10-30（5 处锚定）"
+    },
+    "after": {
+      "path": "1-评测方案/工具链/l5-execution/gate.py",
+      "sha256": "25dbf52e46404014609b76324750452ce5f680bb770e1e0fbe4d6c57908ea6c9",
+      "default": "无默认批（CLI 必填 / API None→GateError / --selftest 例外）"
+    },
+    "scoring_semantics_changed": false,
+    "acceptance": {
+      "r7": "12/12（judge 独立复跑同数）",
+      "selftest": "PASS",
+      "near_miss": [
+        "缺两参拒",
+        "缺 --plan-dir 拒",
+        "API None→GateError",
+        "load_execution_seal(None)→GateError",
+        "坏目录 fail-closed",
+        "P4 封印 pin 精确拒"
+      ]
+    },
+    "receipt": "5-评测报告/L7验证器修订-2026-10-30/l7-gate-recompute-receipt.json",
+    "prereg_wording_deviation": "PREREG『ValueError』→实现 GateError（措辞级 observation，fail-closed 意图完全达成）"
+  },
+  "operations_hygiene": {
+    "name": "L7-B P4 ps 操作规程条目化",
+    "doc": {
+      "path": "1-评测方案/工具链/OPERATIONS-hygiene.md",
+      "sha256": "964d92de8d4e9444bad99cfe6e9b39d648bcaa6688c03ab31c3298b0a46b50df"
+    },
+    "scan": {
+      "receipt": "1-评测方案/工具链/bearer-scan-receipt-l7.json",
+      "sha256": "27f792aac1fa6da11f3c87c610b97d4b829f10ff813960d6fc94a8a01229c162",
+      "files_scanned": 156,
+      "bearer_literals": 0,
+      "hits_classified": "9 全部 env-var-passthrough（规程允许形态）",
+      "judge_corroboration": "独立自扫 Bearer 字面量（l6 现场+工具链）=0 命中",
+      "voided": "r1 未分类误报 VOIDED 留档"
+    }
+  },
+  "history_baseline_references": {
+    "rule": "跨批重演按设计不可行（见④）；历史批裁定由封印时刻收据固定",
+    "L4": {
+      "formal": "0/17",
+      "source": "L4 收官收据（realdata-product）",
+      "status": "frozen"
+    },
+    "L5": {
+      "formal": "5/6",
+      "source": "L5独立复核 r4-history-reproduced-receipt-02 + judge canonical",
+      "status": "frozen"
+    },
+    "L6": {
+      "formal": "1/1",
+      "source": "1-评测方案/自动循环L6-2026-10-30/gate-admission-e3.json + judge canonical rerun",
+      "status": "frozen"
+    },
+    "known_impact": "l4/l5 冻结现场调 gate 无显式参=documented known-impact（现场封存不重跑）；l6 已显式不受影响；未来重跑须先适配（池）"
+  },
+  "design_change_record": {
+    "note": "1-评测方案/自动循环L7-2026-10-30/history-replay-design-note.md",
+    "sha256": "5b0e41b231aac92a2a02c82325aabba44f1f7ae66846955d53c38ea727beedb7",
+    "voided_chain": [
+      {
+        "r": "r1",
+        "fate": "跨 pin 复算设计误（22 断言 5 过）——封印 fail-closed 按设计工作"
+      },
+      {
+        "r": "r2",
+        "fate": "冻结副本错位（HERE 相对推导崩溃）"
+      },
+      {
+        "r": "r3",
+        "fate": "部分世界复判不可（manifest 钉全套工链）"
+      },
+      {
+        "r": "r4",
+        "fate": "树内 binding 代际错位（E 后重写）"
+      },
+      {
+        "r": "r5",
+        "fate": "封印树不含 E 后证据（伪期望 executed=17）"
+      },
+      {
+        "r": "r6",
+        "fate": "证据子树覆盖无法既全又纯"
+      }
+    ],
+    "judge_assessment": "论证成立：r1 发现=P4 独立复现；r4 与 L6 废封纪要互证；r3 与 L4 验收已知互证；三方一致机制为本 judge L5/L6 验收亲证"
+  },
+  "grading_semantics_impact": {
+    "changed": 0,
+    "note": "判分语义零改动（formal 真值表/重算口径/白名单不动；diff 24 行全声明类）"
+  },
+  "incidents_abortions": [],
+  "judge_independent": {
+    "receipt": "5-评测报告/L7综合结论-2026-10-30/verify-receipt-l7.json",
+    "sha256": "4e3866987a61cd683eff95f971bd479b55e0e54f5912e72a64223dfff3a494aa",
+    "summary": "r7 12/12 独立复跑+selftest 独立 PASS+diff 逐行分类+设计论证核可+L7-B 独立佐证"
+  },
+  "live_doc_drift": []
+}

@@ -1,0 +1,75 @@
+{
+ "kind": "l7_audit_mech_receipt",
+ "tool": "inline-verifier",
+ "at": "2026-10-30T13:49:55+08:00",
+ "results": [
+  {
+   "check": "A1_pre_hash_38b42a87_matches_c8710fb",
+   "status": "PASS",
+   "detail": "38b42a87"
+  },
+  {
+   "check": "A2_post_hash_25dbf52e_matches_disk",
+   "status": "PASS",
+   "detail": "25dbf52e"
+  },
+  {
+   "check": "A3_DEFAULT_PLAN_DIR_zero_residue",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "A4_gate_diff_22_lines",
+   "status": "PASS",
+   "detail": "1-评测方案/工具链/l5-execution/gate.py | 22 +++++++++++++++-------\n 1 file changed, 15 "
+  },
+  {
+   "check": "A5_selftest_synthetic_no_defaults",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "B1_escape_surface_all_declared_or_batch_owned",
+   "status": "PASS",
+   "detail": "refs=12 unreviewed=[]"
+  },
+  {
+   "check": "C1_voided_chain_r1_r6_preserved_r7_12_12",
+   "status": "PASS",
+   "detail": "voided=6 r7={'total': 12, 'passed': 12, 'failed': 0}"
+  },
+  {
+   "check": "D1_pr10_merge_zero_new_changes",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "E1_hygiene_aligns_l5_ps_event",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "E2_bearer_9_env_0_literal",
+   "status": "PASS",
+   "detail": "{\"hits_total\": 9, \"env_passthrough_ok\": 9, \"literal_violations\": 0}"
+  },
+  {
+   "check": "E3_spot_check_literal_free",
+   "status": "PASS",
+   "detail": "literal hits=0"
+  },
+  {
+   "check": "F1_test_freeze_green_main_tree",
+   "status": "FAIL",
+   "detail": "[live-ledger] events=19（仅报告，不断言；schema=live_registry_entry 全过）"
+  }
+ ],
+ "counts": {
+  "PASS": 11,
+  "FAIL": 1
+ },
+ "notes": [
+  "B1 白名单含 L7综合结论/ledger_build.py:55 人工复核（账目内容描述串，非锚定）；生成器首版 stat 解析与白名单不完整两轮迭代，均系工具自身，非证据问题"
+ ],
+ "live_doc_drift": []
+}
