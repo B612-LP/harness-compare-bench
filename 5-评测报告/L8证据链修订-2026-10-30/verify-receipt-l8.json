@@ -1,0 +1,127 @@
+{
+ "kind": "judge_l8_evidence_chain_revision_independent_acceptance_receipt",
+ "generated_at": "2026-10-30T14:25:35+08:00",
+ "task": "L8 循环独立验收（lead 指令）",
+ "zero_model_calls": true,
+ "no_git_writes": true,
+ "live_doc_drift": [],
+ "timing": {
+  "main_base": "016dbfe341504ce6362651dddc70f562e46ec7c6 @ 2026-10-30T13:50:57+08:00",
+  "D1": "294aee6141174dbed3278d971d743ecdf473b1a4 @ 2026-10-30T14:10:54+08:00",
+  "D2": "f50e31b462a0a1d7d0e48672c1a6496e68cbe188 @ 2026-10-30T14:17:45+08:00",
+  "D1_ancestor_of_D2": true
+ },
+ "assertions": [
+  {
+   "name": "① receipt_check --selftest",
+   "pass": true,
+   "detail": "25/25 PASS（judge 直跑）"
+  },
+  {
+   "name": "② demo 收据复跑",
+   "pass": true,
+   "detail": "ok=True/0 violations；supersedes 6 条全部实锚真实 L7 六废链（内容寻址逐条核过）"
+  },
+  {
+   "name": "③ 自构负例 11+2",
+   "pass": true,
+   "detail": "traversal/symlink(内容寻址拒)/大写 sha/63 位 sha/多余键/缺 file 键/重复条目/非 VOIDED 名/非 list/自引/成环——11/11 拒；深探：真成环=哈希不动点密码学不可行（环走查=纵深防御）；越界相对路径+VOIDED 名+正确 sha=ACCEPTED（规格文字符合，root 约束未实现→observation O-1）"
+  },
+  {
+   "name": "④ 历史零改动",
+   "pass": true,
+   "detail": "git diff 016dbfe HEAD -- L7验证器修订/ L6判卷修订/ = 0 行；L7 六废链与终局收据字节未动"
+  },
+  {
+   "name": "⑤ A/B 无字段行为不变",
+   "pass": true,
+   "detail": "origin/main 修前版置仓内同级深度（.l8-ab-pre，REPO 推导成立），无 supersedes 文档两版输出逐字段一致（ok/violations/bad 全等，supersession 键两侧均无）；脚手架已清理"
+  },
+  {
+   "name": "⑥ test_freeze v3",
+   "pass": true,
+   "detail": "48/48 OK + live-ledger events=20（schema=live_registry_entry 全过）"
+  },
+  {
+   "name": "⑦ L8-B 自食核对",
+   "pass": true,
+   "detail": "PREREG-template 必填 1/2/3/4 在 L8 PREREG 逐字段指认全✓（含偏离声明 AUD-L7-O1 前向→后向）；异常类条款（逐字一致/不得猜测）以 L7-O1 反例引用如实申报"
+  },
+  {
+   "name": "⑧ D1 祖先于 D2",
+   "pass": true,
+   "detail": "git merge-base --is-ancestor 通过"
+  }
+ ],
+ "observations": [
+  {
+   "id": "O-1",
+   "item": "supersedes 相对解析无 root 约束：越界一级相对路径+VOIDED 名+正确 sha 可通过",
+   "impact": "低——内容寻址+VOIDED 双载体+仓库内使用惯例三重缓解；且逃逸目标必须真实存在且哈希吻合",
+   "next": "下版可加 root 前缀约束（解析后须在 repo 内）；或明文接受并在 PREREG-template 影响面声明",
+   "stop": "约束版发布并回归 12 自测"
+  },
+  {
+   "id": "O-2",
+   "item": "真成环受哈希不动点保护（互指双方哈希无法同时正确），walk 深度≤16 为纵深防御",
+   "impact": "无",
+   "next": "无",
+   "stop": "无"
+  }
+ ],
+ "referenced_sha256": {
+  "PREREGISTRATION_l8": "97262a1b71f29edc35709acb6c7dfdcf86b392d8efe1072ba73703613efbd9af",
+  "PREREG_template": "3e99f5cda75beeb8d1be513e3c95b2f53d54bd6b64f0ece5822445ab251a7eb1",
+  "receipt_check_post": "fde05e3f738d2820bf83b5363624e8bcaccaad9c7fb71a97586bd2802e3ef903",
+  "demo_receipt": "48c67684376e4788c28087dc64bbd4973c26f5de7cd34d7b891855a8e458cc8c",
+  "l8_report": "1e5f1adc0573ebce99b23df20ffdf4faaa85a9b64667079172c34398d3f7dab7",
+  "l8_selftest_receipt": "187ab7675abb7b046eb502e8b74daed7a867f2d5be6e2a37148d9e18610c73b5"
+ },
+ "negative_matrix": {
+  "traversal": {
+   "rejected": true,
+   "first_violation": "supersedes[0]: 被指文件不存在: ../../etc/old-VOIDED.json"
+  },
+  "symlink_escape": {
+   "rejected": true,
+   "first_violation": "supersedes[0]: sha256 不符 want=8a437293… actual=c7dd0e2e…"
+  },
+  "sha_upper": {
+   "rejected": true,
+   "first_violation": "supersedes[0].sha256: 须为 64 位小写 hex"
+  },
+  "sha_63": {
+   "rejected": true,
+   "first_violation": "supersedes[0].sha256: 须为 64 位小写 hex"
+  },
+  "extra_key": {
+   "rejected": true,
+   "first_violation": "supersedes[0]: 键须恰为 {file, sha256}，实测 ['file', 'note', 'sha256']"
+  },
+  "missing_file_key": {
+   "rejected": true,
+   "first_violation": "supersedes[0]: 键须恰为 {file, sha256}，实测 ['sha256']"
+  },
+  "duplicate": {
+   "rejected": true,
+   "first_violation": "supersedes[1]: 重复条目 (voided/old-VOIDED.json)"
+  },
+  "non_voided_name": {
+   "rejected": true,
+   "first_violation": "supersedes[0]: 被指文件名须含 VOIDED（人机双载体）: voided/old.json"
+  },
+  "not_list": {
+   "rejected": true,
+   "first_violation": "supersedes 须为 list，实测 dict"
+  },
+  "self_ref": {
+   "rejected": true,
+   "first_violation": "supersedes[0]: 自引（收据不得 supersedes 自身）"
+  },
+  "cycle": {
+   "rejected": true,
+   "first_violation": "supersedes[0]: sha256 不符 want=8a437293… actual=ac42f72f…"
+  }
+ },
+ "verdict": "PASS — 8 项验收全过；2 observations（O-1 root 约束/O-2 哈希不动点说明）无阻塞"
+}

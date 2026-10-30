@@ -14,6 +14,11 @@
 3. 证据行复算（claimed vs recomputed）：凡匹配 evidence_line.py 标准格式
    `<路径> · <sha8> · <N>B · <时刻>` 的行，按 `--root` 解析文件并**重算** sha8/字节数
    比对；不一致 → fail。对账不到的文件（不存在/仓库外）如实记 unverified，不计 pass。
+4. 废止链机器可读（L8-A，2026-10-30，AUD-L7-O1→supersedes 后向指针设计）：
+   JSON 收据含可选 `supersedes` 字段时，每项须恰为 {file, sha256}（64 位小写全哈希）；
+   file 相对收据父目录解析、必须存在、sha256 与实算一致、文件名须含 `VOIDED`；
+   禁自引、禁重复条目、沿链上行深度 ≤16 不得成环；任一违反 → fail。
+   **无该字段行为逐字节不变**（历史收据零改动原则，不追溯补写）。
 
 退出码：全部必需检查通过 exit 0；否则 exit 1；用法错误 exit 2。
 报告写 `--out`（目标已存在即拒绝，同 C-1 纪律）；无 `--out` 只打印不落盘。
@@ -45,6 +50,8 @@ EVIDENCE_LINE_RE = (r"^(?P<path>.+?) · (?P<sha8>[0-9a-f]{8}) · (?P<bytes>\d+)B
 # 一律记违规。
 HEX_TOKEN_RE = re.compile(r"(?<![0-9A-Za-z])([0-9a-fA-F]{7,})(?![0-9A-Za-z])")
 VALID_HEX_LEN = {7, 8, 40, 64}
+SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+SUPERSEDES_MAX_DEPTH = 16
 DRIFT_STATUS_RE = re.compile(r"live_doc_drift", re.I)
 DRIFT_STATE_RE = re.compile(r"(none|非空|空|\[\]|\d+\s*项)", re.I)
 
@@ -67,6 +74,93 @@ def iter_json_strings(node):
     elif isinstance(node, list):
         for v in node:
             yield from iter_json_strings(v)
+
+
+def validate_supersession(field, receipt_path: Path) -> dict:
+    """L8-A（2026-10-30）：废止链机器可读校验（AUD-L7-O1→supersedes 后向指针）。
+
+    语义：存续收据声明「我取代这些已废止收据」。方向选择见 L8 PREREG：O1 原文的
+    前向指针（superseded_by）在终局收据文件名不可预知的链上（L7 实证）要么事后改
+    已定稿字节、要么存空哈希；后向指针单次 write-once、全哈希锚定、可机械验证
+    被指文件名含 VOIDED。返回 {"found","entries","violations"}（violations 空=过）。
+    """
+    v: list = []
+    entries: list = []
+    if not isinstance(field, list):
+        return {"found": True, "entries": [], "violations":
+                ["supersedes 须为 list，实测 %s" % type(field).__name__]}
+    seen = set()
+    targets = []
+    for i, ent in enumerate(field):
+        where = "supersedes[%d]" % i
+        if not isinstance(ent, dict):
+            v.append("%s: 须为 object，实测 %s" % (where, type(ent).__name__))
+            continue
+        if set(ent.keys()) != {"file", "sha256"}:
+            v.append("%s: 键须恰为 {file, sha256}，实测 %s"
+                     % (where, sorted(map(str, ent.keys()))))
+            continue
+        f, s = ent["file"], ent["sha256"]
+        if not isinstance(f, str) or not f:
+            v.append("%s.file: 须为非空字符串" % where)
+            continue
+        if not isinstance(s, str) or not SHA256_RE.match(s):
+            v.append("%s.sha256: 须为 64 位小写 hex" % where)
+            continue
+        key = (f, s)
+        if key in seen:
+            v.append("%s: 重复条目 (%s)" % (where, f))
+            continue
+        seen.add(key)
+        t_self = Path(f)
+        if not t_self.is_absolute():
+            t_self = receipt_path.parent / t_self
+        if t_self.resolve() == receipt_path.resolve():
+            v.append("%s: 自引（收据不得 supersedes 自身）" % where)
+            continue
+        if "VOIDED" not in Path(f).name:
+            v.append("%s: 被指文件名须含 VOIDED（人机双载体）: %s" % (where, f))
+            continue
+        target = Path(f)
+        if not target.is_absolute():
+            target = receipt_path.parent / target
+        if not target.is_file():
+            v.append("%s: 被指文件不存在: %s" % (where, f))
+            continue
+        actual = sha256_of(target)
+        if actual != s:
+            v.append("%s: sha256 不符 want=%s… actual=%s…" % (where, s[:8], actual[:8]))
+            continue
+        entries.append({"file": f, "sha256": s, "verified": True})
+        targets.append(target)
+
+    def walk(p: Path, stack: frozenset, depth: int) -> bool:
+        """沿被指收据自身的 supersedes 上行；回到出发收据=环。"""
+        if p.resolve() == receipt_path.resolve():
+            return True
+        if depth >= SUPERSEDES_MAX_DEPTH or p.resolve() in stack:
+            return False
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            return False
+        if not (isinstance(d, dict) and isinstance(d.get("supersedes"), list)):
+            return False
+        for ent in d["supersedes"]:
+            if not (isinstance(ent, dict) and isinstance(ent.get("file"), str)):
+                continue
+            child = Path(ent["file"])
+            if not child.is_absolute():
+                child = p.parent / child
+            if child.is_file() and walk(child, stack | {p.resolve()}, depth + 1):
+                return True
+        return False
+
+    for t in targets:
+        if walk(t, frozenset(), 0):
+            v.append("supersedes 链成环（经 %s 回到收据自身）" % t.name)
+            break
+    return {"found": True, "entries": entries, "violations": v}
 
 
 def check_doc(path: Path, root: Path, require_drift: bool) -> dict:
@@ -117,6 +211,14 @@ def check_doc(path: Path, root: Path, require_drift: bool) -> dict:
                     {"line": None,
                      "reason": "self-referenced hash entry（AUD-L5-O1：收据不得列入自身）: %s"
                                % ", ".join(self_refs)})
+        # L8-A（2026-10-30）：废止链机器可读（AUD-L7-O1→supersedes 后向指针设计，
+        # PREREG 已声明方向偏离）。无该字段=行为逐字节不变（历史收据零改动原则）。
+        if isinstance(doc, dict) and "supersedes" in doc:
+            sup = validate_supersession(doc["supersedes"], path)
+            rep["supersession"] = sup
+            for reason in sup["violations"]:
+                rep["hash_lines"]["violations"].append(
+                    {"line": None, "reason": "supersession(L8-A): " + reason})
     else:
         for i, line in enumerate(text.splitlines(), 1):
             if DRIFT_STATUS_RE.search(line):
@@ -277,6 +379,67 @@ def selftest() -> int:
         check("self_referenced_receipt_rejected",
               r11["ok"] is False and r11.get("self_reference", {}).get("found") is True,
               json.dumps(r11.get("self_reference"), ensure_ascii=False))
+
+        # ---- L8-A（2026-10-30）废止链 supersedes：正例 + 负例组 + 链环 ----
+        prev = tmp / "prev-attempt-VOIDED-设计误.json"
+        prev.write_text(json.dumps({"kind": "demo-prev", "live_doc_drift": []},
+                                   ensure_ascii=False), encoding="utf-8")
+        prev_sha = hashlib.sha256(prev.read_bytes()).hexdigest()
+        ok_sup = tmp / "final-supersedes-ok.json"
+        ok_sup.write_text(json.dumps(
+            {"kind": "demo-final",
+             "supersedes": [{"file": prev.name, "sha256": prev_sha}],
+             "live_doc_drift": []}, ensure_ascii=False), encoding="utf-8")
+        r12 = check_doc(ok_sup, tmp, require_drift=True)
+        check("supersedes_positive_ok",
+              r12["ok"] is True and r12["supersession"]["violations"] == []
+              and len(r12["supersession"]["entries"]) == 1,
+              json.dumps(r12.get("supersession"), ensure_ascii=False)[:200])
+
+        def neg_sup(name, field, needle):
+            p = tmp / name
+            p.write_text(json.dumps({"kind": "demo-neg", "supersedes": field,
+                                     "live_doc_drift": []}, ensure_ascii=False),
+                         encoding="utf-8")
+            r = check_doc(p, tmp, require_drift=False)
+            reasons = " | ".join(
+                x.get("reason", "") or " ".join(i.get("reason", "")
+                                                for i in x.get("issues", []))
+                for x in r["hash_lines"]["violations"])
+            check(name, r["ok"] is False and needle in reasons, reasons[:200])
+
+        neg_sup("sup_bad_sha.json", [{"file": prev.name, "sha256": "0" * 64}],
+                "sha256 不符")
+        neg_sup("sup_missing_file.json",
+                [{"file": "nope-VOIDED-x.json", "sha256": prev_sha}], "不存在")
+        plain = tmp / "plain-prev.json"
+        plain.write_text("{}\n", encoding="utf-8")
+        neg_sup("sup_not_voided_name.json",
+                [{"file": plain.name,
+                  "sha256": hashlib.sha256(plain.read_bytes()).hexdigest()}],
+                "VOIDED")
+        neg_sup("sup_selfref.json", [{"file": "sup_selfref.json",
+                                      "sha256": prev_sha}], "自引")
+        neg_sup("sup_extra_key.json",
+                [{"file": prev.name, "sha256": prev_sha, "note": "x"}], "键须恰为")
+        neg_sup("sup_bad_sha_format.json",
+                [{"file": prev.name, "sha256": prev_sha.upper()}], "64 位小写")
+        neg_sup("sup_not_list.json", {"file": prev.name}, "须为 list")
+
+        # 链环：cyc-a → cyc-b → cyc-a（walk 不校验被指收据自身条目，只沿链跟随）
+        cyc_b = tmp / "cyc-b-VOIDED.json"
+        cyc_a = tmp / "cyc-a-VOIDED.json"
+        cyc_b.write_text(json.dumps({"kind": "cyc-b", "supersedes": [
+            {"file": "cyc-a-VOIDED.json", "sha256": "0" * 64}],
+            "live_doc_drift": []}, ensure_ascii=False), encoding="utf-8")
+        cyc_a.write_text(json.dumps({"kind": "cyc-a", "supersedes": [
+            {"file": cyc_b.name,
+             "sha256": hashlib.sha256(cyc_b.read_bytes()).hexdigest()}],
+            "live_doc_drift": []}, ensure_ascii=False), encoding="utf-8")
+        rc = check_doc(cyc_a, tmp, require_drift=False)
+        rc_reasons = " | ".join(x["reason"] for x in rc["hash_lines"]["violations"])
+        check("supersedes_cycle_detected", rc["ok"] is False and "成环" in rc_reasons,
+              rc_reasons[:200])
 
     counts = {"total": len(results), "passed": sum(1 for r in results if r["pass"]),
               "failed": sum(1 for r in results if not r["pass"])}

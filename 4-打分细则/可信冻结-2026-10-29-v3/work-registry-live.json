@@ -1,289 +1,303 @@
 {
-  "schema_version": 1,
-  "coverage": {
-    "note": "L2 起活动台账：append-only，由执行者本人登记；不入本代封印 build，事件进六账走未来代显式注册",
-    "created_at": "2026-10-29T16:31:12+08:00"
+ "schema_version": 1,
+ "coverage": {
+  "note": "L2 起活动台账：append-only，由执行者本人登记；不入本代封印 build，事件进六账走未来代显式注册",
+  "created_at": "2026-10-29T16:31:12+08:00"
+ },
+ "events": [
+  {
+   "event_id": "work:l2-r1030-readme-erratum-20261029",
+   "kind": "correction",
+   "executor": "builder-a（builder-dsh）",
+   "timestamp": "2026-10-29T15:59:56+08:00",
+   "source": {
+    "path": "3-表现现场/r1030-formal-a1/README.md",
+    "sha256": "93444a74bc626a09fab2af0d766b649d35e398ef1f61787503b2f7014de6c85a"
+   },
+   "locator": "归档缺陷披露节 dated 勘误框",
+   "description": "target_claim=\"tools/lab.py 已修（日志经 staging 移动）\"；finding=\"声明不成立：rmtree(:308) 先于 staging(:317)，修复未生效\"；effective_fix_pointer=\"../r1031-variance-n3/tools-dsh/README.md + r1031 dsh/runs/dsh__bird-ca-schools-15__r2/meta.json#corrections\"",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T16:41:14+08:00"
   },
-  "events": [
-    {
-      "event_id": "work:l2-r1030-readme-erratum-20261029",
-      "kind": "correction",
-      "executor": "builder-a（builder-dsh）",
-      "timestamp": "2026-10-29T15:59:56+08:00",
-      "source": {
-        "path": "3-表现现场/r1030-formal-a1/README.md",
-        "sha256": "93444a74bc626a09fab2af0d766b649d35e398ef1f61787503b2f7014de6c85a"
-      },
-      "locator": "归档缺陷披露节 dated 勘误框",
-      "description": "target_claim=\"tools/lab.py 已修（日志经 staging 移动）\"；finding=\"声明不成立：rmtree(:308) 先于 staging(:317)，修复未生效\"；effective_fix_pointer=\"../r1031-variance-n3/tools-dsh/README.md + r1031 dsh/runs/dsh__bird-ca-schools-15__r2/meta.json#corrections\"",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T16:41:14+08:00"
-    },
-    {
-      "event_id": "work:l2-b13a-replay-20261029",
-      "kind": "grading_regression",
-      "executor": "builder-a（builder-dsh）",
-      "timestamp": "2026-10-29T16:05:22+08:00",
-      "source": {
-        "path": "4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/replay-b13a-results.json",
-        "sha256": "13d2ef97388101257555d949d6791985e66fcf1aff2798de94e3b769e7782933"
-      },
-      "locator": "同目录 replay_b13a_2026_10_29.py 与 README.md（L121/L196 两处 dated 勘误）；receipt_sha256_8=13d2ef97",
-      "description": "n_replayed=24；n_skip=17；n_flipped=0；n_ledger_match=15；rowset=\"frozen-41-lead-ruling-B\"；after_track_sha256_prefix={bird:994be0b3, lcb:63845361, cargo:d84b1111}；corrections=[\"b13a-replay-rowset-freeze\"]",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T16:41:14+08:00"
-    },
-    {
-      "event_id": "work:pkgc-runner-schema-v2-spec-selftest",
-      "kind": "self_test",
-      "executor": "builder-c（builder-codex）",
-      "timestamp": "2026-10-29T16:41:14+08:00",
-      "source": {
-        "path": "1-评测方案/工具链/runner-schema-v2/spec-selftest-receipt.json",
-        "sha256": "5c6177fd68a74ab93ef872b48394b185b0f25b884e8b0da6659f718fdbb39492"
-      },
-      "locator": "modes.spec.results（6/6 match, exit 0）",
-      "description": "校验器 fixtures 自检 6 合成样本全过。哈希口径披露：lead 指令给出的 620cd322a3a96b09dbf9010edb71242d3eb757a300d0f14ddc6b72b2074f59f4 为该收据内部 canonical 自哈希（receipt_sha256 字段值）；本条按登记实算记文件字节哈希（收据认证值≠文件字节哈希，pkgC correction 已披露该区分）。",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T16:41:14+08:00"
-    },
-    {
-      "event_id": "work:pkgc-runner-schema-v2-retro-matrix",
-      "kind": "self_test",
-      "executor": "builder-c（builder-codex）",
-      "timestamp": "2026-10-29T16:41:14+08:00",
-      "source": {
-        "path": "1-评测方案/工具链/runner-schema-v2/retro-r1031-matrix.json",
-        "sha256": "12cd335411ef88c9c184c00aa269b738d23279b8d5727bea91e03ea199bb511f"
-      },
-      "locator": "summary（20 场兼容矩阵，披露性 delta 报告）",
-      "description": "r1031 只读扫描：registered_at 缺 20/20；dsh 缺 selection/attempts/stdout_*/stderr_* 各 10/10；transport_retries dsh 列表型 10/10；codex 2dp 收据 2 场；额外发现 dsh rep 字符串型 10/10 与 meta.weighted 8dp delta 4 场",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T16:41:14+08:00"
-    },
-    {
-      "event_id": "work:pkgb-freeze-v3-selftest",
-      "kind": "self_test",
-      "executor": "builder-c（builder-codex，代位 builder-b；lead 2026-10-29 指派）",
-      "timestamp": "2026-10-29T16:41:14+08:00",
-      "source": {
-        "path": "5-评测报告/可信冻结-2026-10-29-v3/output-manifest.json",
-        "sha256": "84003413ec01d85a9d28e6137bc20c03e9594bcab68c195368ff04df999052b0"
-      },
-      "locator": "summary.json: live_doc_drift=[]，self_test=13，interface_preflight=13；test_freeze.py 44/44 OK",
-      "description": "freeze-20261029-v3 build/verify ok=true；引擎自测 44/44（含 pin_class 两级漂移语义与 7 收据入账断言）",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T16:41:14+08:00"
-    },
-    {
-      "event_id": "work:l3-pkga-schema-alignment-20261029",
-      "kind": "self_test",
-      "executor": "builder-codex",
-      "timestamp": "2026-10-29T18:04:22+08:00",
-      "source": {
-        "path": "4-打分细则/可信冻结-2026-10-29-v3/freeze.lock.json",
-        "sha256": "bf7f9aa3473ec12be0a95f466ce0a278457250def5dff5fca6e2db3ba2627c1f"
-      },
-      "locator": "test_freeze.py 48/48 OK（44 继承 + 4 新增 A4）；verify exit 0、live_doc_drift=[]；v2 verify exit 0；v2 双目录零字节",
-      "description": "L3 包A（A1–A6）：config-schema live_registry_entry 增 registered_at（date-time 带时区，required）+ kind.enum 扩 correction，现行 5 事件 5/5 合 schema（机械校验）；测试并入 validate_against_schema 实例校验；verify_seal 增读取面机械归类自检（check_pin_classification，错标必红），连带新增 contract pins 21 项（固定读取面 3 + registry sources 18），lock 17→38 pin（contract 31/live_doc 7）；tripwire 保留，README 明示报告制≠免检。lock_before=544a7f96cb6206cbc326c1f23900cf7de967c390ab3088bf564af33de37d2527，lock_after=bf7f9aa3473ec12be0a95f466ce0a278457250def5dff5fca6e2db3ba2627c1f。dated 变更框见 v3 README。",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T18:04:22+08:00"
-    },
-    {
-      "event_id": "work:l3-pkgb-spec-selftest-20261029",
-      "kind": "self_test",
-      "executor": "builder-dsh",
-      "source": {
-        "path": "1-评测方案/工具链/runner-schema-v2/spec-selftest-receipt-l3-20261029.json",
-        "sha256": "6048ad41aa959fe23758a9184a71db7056adca4eb7b21f228fc8351d481cb9d2"
-      },
-      "locator": "--spec 10/10 fixtures 期望全 match（fixtures 6→10：+B1 status 越值 / +B2 benign 无 corrections / +B3 selection-null 无 diagnostic / +benign 带 corrections 正例）；validate_runner_meta.py=8c81e9a4",
-      "description": "L3 包B B1/B2/B5：status enum={ok,timeout,error,transport-error}、integrity_verdict enum={clean,benign-reviewed,violation}+corrections 伴随、selection-null→diagnostic 伴随，validator 强制实现与 SCHEMA.md v2.1-l3 一致；原收据 spec-selftest-receipt.json（5c6177fd）字节不动。",
-      "timestamp": "2026-10-29T18:13:14+08:00",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T18:13:14+08:00"
-    },
-    {
-      "event_id": "work:l3-pkgb-cli-regression-b4b6-20261029",
-      "kind": "self_test",
-      "executor": "builder-dsh",
-      "source": {
-        "path": "1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-20261029.json",
-        "sha256": "db65c68c26068b982310967bc76c4005cfaf931c0ea0b094f155be78f2c2ebe2"
-      },
-      "locator": "cli-selftest-l3.py 6/6 PASS：T1 复现 16:11:16 覆盖模式（二写 exit 2 且首文件字节不变）/ T2 无 --seal-at 默认 exit 1 且 pass 期望实得 fail:unsealed / T3 --spec 拒 --allow-unsealed、--retro 披露标记 / T6 原收据字节守护",
-      "description": "L3 包B B4/B6：seal 缺省 fail-closed（classify 永不返回裸 pass）、--allow-unsealed 仅限 --retro 披露模式且矩阵带 seal.unsealed/seal.policy；--spec 收据只写显式 --out，目标已存在即拒（exit 2 原字节不动）。",
-      "timestamp": "2026-10-29T18:13:14+08:00",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T18:13:14+08:00"
-    },
-    {
-      "event_id": "work:l3-pkgb-reconcile-synthetic-20261029",
-      "kind": "self_test",
-      "executor": "builder-dsh",
-      "source": {
-        "path": "1-评测方案/工具链/runner-schema-v2/reconciliation-synthetic-l3-20261029.json",
-        "sha256": "a4dbe3150a4f5438a8ce9e3083261c4e20367ccf45d01af0b5d7b7e377b9374b"
-      },
-      "locator": "--reconcile 合成对账：正例 verdict=ok（delta_seconds=0.0，对 L3 封印 72edb519 @ 2026-10-29T17:52:27+08:00 口径）；负例 reconciliation-synthetic-early-l3-20261029.json（bfdcfcf6）verdict=violation exit 1",
-      "description": "L3 包B B7（⑦/O-1）：SCHEMA §三.4 显式披露顺序检查必要非充分；新增 --reconcile 离线对账（commit_time 来源 --commit-time/--commit-time-file/--git）；--git 模式 L3 未行使（builder 禁 git），真实批次对账留 L4（U1）。",
-      "timestamp": "2026-10-29T18:13:14+08:00",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T18:13:14+08:00"
-    },
-    {
-      "event_id": "work:l3-pkgc-evidence-kit-20261029",
-      "kind": "self_test",
-      "executor": "builder-dsh",
-      "timestamp": "2026-10-29T18:19:22+08:00",
-      "source": {
-        "path": "1-评测方案/工具链/evidence-kit/selftest-receipt-l3-20261029-r2.json",
-        "sha256": "74b989e79eb331673400b6f8c9d8c5b37cb13827aa7c3624f4bd182dcd4dcdc1"
-      },
-      "locator": "evidence-kit 联合自测 2/2 工具 PASS（C1 evidence_line.py --selftest 11/11；C2 receipt_check.py --selftest 10/10；kit_selftest.py 汇总收据 74b989e7）；dogfood 证据行 5 条（脚本生成）",
-      "description": "L3 包C C1–C4：证据行生成器（路径·sha256前8·字节·ISO8601+tz，--selftest）、收据规范检查器（live_doc_drift 状态行+哈希行合规+证据行重算，只读不回改，--out 拒绝已存在）、README 铁律（哈希/时刻禁止手打）。工具修正披露：REPO 根层级（parents[3]→[2]）与纯数字 hex 记号误报过滤，均由自测/dogfood 抓出后修复；修复前收据 selftest-receipt-l3-20261029.json（r1）字节保留。dogfood 对 v3 README 两 fact：无 live_doc_drift 状态行（叙述文档，--no-drift-require 适用类）、DAB2697 记号 hash 形似——机械输出如实登记，v3 README 未动。",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T18:19:22+08:00"
-    },
-    {
-      "event_id": "work:l3-pkgc-kit-selftest-r4-20261029",
-      "kind": "self_test",
-      "executor": "builder-dsh",
-      "timestamp": "2026-10-29T18:21:46+08:00",
-      "source": {
-        "path": "1-评测方案/工具链/evidence-kit/selftest-receipt-l3-20261029-r4.json",
-        "sha256": "a95631d5956d88609808e66b92412a4e1ee57a7277f35ea5e7f29197b1f9ddbd"
-      },
-      "locator": "kit_selftest.py r4 收据：C1 11/11、C2 10/10、all_pass=true；supersede 上一事件 source 的 r2 收据（74b989e7）",
-      "description": "L3 包C 工具修正链收口：kit_selftest counts 解析修复（跨行 JSON 切分 ^ 锚点缺 re.M→去锚点）并加 counts 硬断言（None 即 FAIL）；r1（d951ba4a，REPO 层级/hex 过滤修复前）、r2（74b989e7，counts=None）、r3（e9a14c17，断言后 FAIL 如实落盘）均字节保留，r4 为现行。",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T18:21:46+08:00"
-    },
-    {
-      "event_id": "work:l3-fixround-dlb1-dl31-dfc1-dfc2-20261029",
-      "kind": "self_test",
-      "executor": "builder-dsh",
-      "timestamp": "2026-10-29T19:00:07+08:00",
-      "source": {
-        "path": "1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-fix-20261029.json",
-        "sha256": "17a3c053fc574afdf685380be2214eadeb1a8e201a5cfe5d7243bcbfd431a855"
-      },
-      "locator": "修复轮 9/9 PASS（T1–T6 继承 + T7 DF-B1 --retro 无 seal exit 3 不落盘 + T8 --git pending-external（judge 只读 git 执行，L3_ALLOW_GIT=1）+ T9 D-L3-1 verdict 语义非 git 验证=error）；--spec 基线 10/10（spec-selftest-receipt-l3-fix-20261029.json）；C2 --selftest 14/14（DF-C1 CJK 前贴/超长 + DF-C2 JSON 字符串值反例）；kit r6 收据（2/2 工具 PASS）",
-      "description": "L3 修复轮（judge D-L3-1 + auditor DF-B1/DF-C1/DF-C2）：validate_runner_meta.py --git src 字符串拼接修 %cI 冲突、verdict/ok 语义对齐（任何步骤假⇒非 ok；error/violation/ok/inconclusive）；--retro 无 --seal-at 且无 --allow-unsealed ⇒ exit 3 不落盘（预注册 B4 字面，裁定不走出修正框）；receipt_check.py hex 记号改显式环视（CJK 前贴命中、>64 超长记违规）、JSON live_doc_drift 字符串值入判 fail。SCHEMA.md 收窄表述改回与实现一致（4b 修复轮注）。--spec 面已验行为未动；既有收据字节不动，新收据全部新路径 --out。",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T19:00:07+08:00"
-    },
-    {
-      "event_id": "work:l3-fixround-fixd1-20261029",
-      "kind": "self_test",
-      "executor": "builder-dsh",
-      "timestamp": "2026-10-29T19:25:23+08:00",
-      "source": {
-        "path": "1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-fixd1-20261029.json",
-        "sha256": "c59c966e5c23ca8ca4c07cbeb1d3ff7ef87ed0a2779a63a8bfe034d8965fcfe3"
-      },
-      "locator": "cli-selftest 10/10 PASS（新增 T10：大写 7 位假哈希+合法 --commit-time ⇒ commit-hash-format 步骤假 ⇒ verdict=error、ok=false、exit 1；对照组真格式+合法时刻 verdict=ok 不变）；--spec 面零触碰",
-      "description": "L3 修复轮 FIX-D1（auditor §9.3，D-L3-1 同类残留）：--reconcile comparison_ran 分支 verdict 判定并入 non_comparison_ok——非比较步骤假 ⇒ verdict=error（不再出现 verdict=ok 与 ok=false 同页矛盾）；validator 现 8e423de5。SCHEMA §三.5/docstring 修复前已与自订不变量一致（未改动）。T8 --git 用例仍 pending-external（judge 只读 git）。",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T19:25:23+08:00"
-    },
-    {
-      "event_id": "work:l3-judge-acceptance-20261029",
-      "kind": "self_test",
-      "executor": "lead（代登：执行者只读约束，2026-10-29 18:52 裁定）",
-      "timestamp": "2026-10-29T19:31:27+08:00",
-      "source": {
-        "path": "5-评测报告/L3独立验收-2026-10-29/fix-verification-20261029.md",
-        "sha256": "5dd7fedf463c1b8ad0a9e669fd98d1ce45f58af9dddc29817fbf78e59b92cf95"
-      },
-      "locator": "见文件本体；哈希为本脚本实算",
-      "description": "L3 独立验收全链收口：三包 pass+六疑点钉死+修复轮复验（D-L3-1/DF-B1/DF-C1/DF-C2 闭项）+FIX-D1 闭项（19:28:57 dated）；配套 verify-receipt-l3.json=7aa54b1c、验收 README=98cbb2d6；judge 收据过 receipt_check all_ok=true",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T19:31:27+08:00"
-    },
-    {
-      "event_id": "work:l3-auditor-audit-20261029",
-      "kind": "self_test",
-      "executor": "lead（代登：执行者只读约束，2026-10-29 18:52 裁定）",
-      "timestamp": "2026-10-29T19:31:27+08:00",
-      "source": {
-        "path": "5-评测报告/对抗性盲审-L3-2026-10-29/AUDIT.md",
-        "sha256": "639880ed43448585bb8a648034b86c600b8ac358ffd48c89081f5de6939aa51c"
-      },
-      "locator": "见文件本体；哈希为本脚本实算",
-      "description": "L3 敌意盲审：0 blocking/defect 3(DL31归属judge,DF-B1/C1/C2)+obs 2/note 4；§9 修复轮复核 FIX-D1 残留+FIX-O1/N1-N4（处置见循环台账）；终版过修复版 receipt_check（证据行 19/19）",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-29T19:31:27+08:00"
-    },
-    {
-      "event_id": "work:l4-six-ledger-index-20261030",
-      "kind": "offline_recompute",
-      "executor": "auditor；lead 代登（串行）",
-      "timestamp": "2026-10-30T00:29:23+08:00",
-      "source": {
-        "path": "5-评测报告/L4综合结论-2026-10-29/six-ledger.json",
-        "sha256": "7c5460d83b13cca87cde7e93ea724d57e6a78e334ea4ca2cd3a6edf9c81d140e"
-      },
-      "locator": "categories 与 counts；仅索引，不向旧冻结正式表插行",
-      "description": "L4 六类分账索引：product 17 槽（16 执行、1 未执行），bare-model 18 槽；独立准入与原始得分分列。事件记录的是一份离线索引，不将其视为18次合成实验或把事故并入35槽；interface_preflight事故独立存在，provider请求未知。",
-      "pin_class": "live_doc",
-      "registered_at": "2026-10-30T00:33:42+08:00"
-    },
-    {
-      "event_id": "work:l5-six-ledger-index-20261030",
-      "kind": "offline_recompute",
-      "executor": "lead（代 freeze-engineer 串行登记；数值由 ledger_build.py 读现有证据实算，formal 引 judge canonical）",
-      "timestamp": "2026-10-30T02:51:20+08:00",
-      "source": {
-        "path": "5-评测报告/L5综合结论-2026-10-30/six-ledger.json",
-        "sha256": "0ff7a90c595078ba135820ad9dbfc1d8bb593fbae72222fce6640003196af5ef"
-      },
-      "locator": "categories 与 counts；仅索引，不向旧冻结正式表插行",
-      "description": "L5 六类分账索引：product_run 6 槽全执行（canonical formal 5/6，wb-bird False=checker 缺 guards_used/n_tasks 缺省，observed 保留）；grading_regression=2（gate v2/cache mapping v2）；bare_model_probe=0；E1/E2 中止尝试单列无 formal；事故 2 项披露（ps 误印零入库、WB frame 覆盖已修复）",
-      "registered_at": "2026-10-30T02:51:20+08:00",
-      "pin_class": "live_doc"
-    },
-    {
-      "event_id": "work:l6-six-ledger-index-20261030",
-      "kind": "offline_recompute",
-      "executor": "lead（串行登记；sha 由本脚本读现有证据实算，formal 引 judge canonical rerun）",
-      "timestamp": "2026-10-30T12:40:59+08:00",
-      "source": {
-        "path": "5-评测报告/L6综合结论-2026-10-30/six-ledger.json",
-        "sha256": "1ae5bd78c4e32b25835786861878e931e845db4cfa0b7096e0f0b6eb5ed52eee"
-      },
-      "locator": "categories 与 counts；仅索引，不向旧冻结正式表插行",
-      "description": "L6 六类分账索引：product_run 1 槽全执行（canonical formal 1/1，wb-bird raw 100.0 15/15，L5-P1 formal 准入链路修复实证）；grading_regression=2（L6-A checker 元数据两键/L6-C 收据自引排除）；bare_model_probe=0；E1/E2 废封零消耗单列；事故 0；池结转 P4 ps 规程+L3 尾项+2 建议（gate DEFAULT_PLAN_DIR 显式化、T22d fixture 退役）",
-      "registered_at": "2026-10-30T12:41:07+08:00",
-      "pin_class": "live_doc"
-    },
-    {
-      "event_id": "work:l6-ledger-schema-correction-20261030",
-      "kind": "correction",
-      "executor": "lead（L6 收尾跑 test_freeze 发现；修复=结构键补齐，原 timestamp/内容零改动）",
-      "timestamp": "2026-10-30T12:43:51+08:00",
-      "registered_at": "2026-10-30T12:43:51+08:00",
-      "pin_class": "live_doc",
-      "source": {
-        "path": "4-打分细则/可信冻结-2026-10-29-v3/work-registry-live.json",
-        "sha256": "f73e2dc334f75616f0216655be181d478e6bcffc58d2d91b2c040290c325a693"
-      },
-      "locator": "修复前完整字节（本 correction 提交的父提交可考）；对 #17/#18 两条 offline_recompute 事件",
-      "description": "发现#17(L5 索引)与#18(L6 索引)缺 registered_at/pin_class 且含 schema 外键 live_doc_drift——L5 收尾登记时偏离 DF-1 schema 且未跑 test_freeze 不变量（过程漏洞，L6 收尾补跑抓获）。修复=#17 registered_at 考古自引入提交 8f25d64 的 committer 时刻、#18 取登记提交 8edc58f 时刻，两者补 pin_class=live_doc、移除 schema 外键（原值 [] 已录本描述）；原 timestamp 与全部业务内容零改动。制度化：批收尾清单必须含 work-registry 不变量测试；本 correction 事件自身首稿亦误带该键，同批移除（登记纪律：本台账条目不带 live_doc_drift，后者属收据/报告件）"
-    },
-    {
-      "event_id": "work:l7-seven-ledger-index-20261030",
-      "kind": "offline_recompute",
-      "executor": "lead（串行登记；sha 由本脚本读现有证据实算）",
-      "timestamp": "2026-10-30T13:50:15+08:00",
-      "registered_at": "2026-10-30T13:50:15+08:00",
-      "pin_class": "live_doc",
-      "source": {
-        "path": "5-评测报告/L7综合结论-2026-10-30/seven-ledger.json",
-        "sha256": "2255e7dc4729e8a320a973086b73745da30288c26a1be0aad9513ee99be0352c"
-      },
-      "locator": "七类分账索引；仅索引，不向旧冻结正式表插行",
-      "description": "L7 七类分账索引：零真实批零模型环——L7-A gate 语义默认值显式化（DEFAULT_PLAN_DIR 拔除，CLI/API 双面 fail-closed，判分语义零改动）+L7-B 运维卫生规程（P4 闭合，0 字面量）；三批基线收据引用固定（L4 0/17、L5 5/6、L6 1/1）；r1-r6 设计演化全档；事故/中止=0；集成前置=PR#10（L5+L6→main）"
-    }
-  ]
+  {
+   "event_id": "work:l2-b13a-replay-20261029",
+   "kind": "grading_regression",
+   "executor": "builder-a（builder-dsh）",
+   "timestamp": "2026-10-29T16:05:22+08:00",
+   "source": {
+    "path": "4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/replay-b13a-results.json",
+    "sha256": "13d2ef97388101257555d949d6791985e66fcf1aff2798de94e3b769e7782933"
+   },
+   "locator": "同目录 replay_b13a_2026_10_29.py 与 README.md（L121/L196 两处 dated 勘误）；receipt_sha256_8=13d2ef97",
+   "description": "n_replayed=24；n_skip=17；n_flipped=0；n_ledger_match=15；rowset=\"frozen-41-lead-ruling-B\"；after_track_sha256_prefix={bird:994be0b3, lcb:63845361, cargo:d84b1111}；corrections=[\"b13a-replay-rowset-freeze\"]",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T16:41:14+08:00"
+  },
+  {
+   "event_id": "work:pkgc-runner-schema-v2-spec-selftest",
+   "kind": "self_test",
+   "executor": "builder-c（builder-codex）",
+   "timestamp": "2026-10-29T16:41:14+08:00",
+   "source": {
+    "path": "1-评测方案/工具链/runner-schema-v2/spec-selftest-receipt.json",
+    "sha256": "5c6177fd68a74ab93ef872b48394b185b0f25b884e8b0da6659f718fdbb39492"
+   },
+   "locator": "modes.spec.results（6/6 match, exit 0）",
+   "description": "校验器 fixtures 自检 6 合成样本全过。哈希口径披露：lead 指令给出的 620cd322a3a96b09dbf9010edb71242d3eb757a300d0f14ddc6b72b2074f59f4 为该收据内部 canonical 自哈希（receipt_sha256 字段值）；本条按登记实算记文件字节哈希（收据认证值≠文件字节哈希，pkgC correction 已披露该区分）。",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T16:41:14+08:00"
+  },
+  {
+   "event_id": "work:pkgc-runner-schema-v2-retro-matrix",
+   "kind": "self_test",
+   "executor": "builder-c（builder-codex）",
+   "timestamp": "2026-10-29T16:41:14+08:00",
+   "source": {
+    "path": "1-评测方案/工具链/runner-schema-v2/retro-r1031-matrix.json",
+    "sha256": "12cd335411ef88c9c184c00aa269b738d23279b8d5727bea91e03ea199bb511f"
+   },
+   "locator": "summary（20 场兼容矩阵，披露性 delta 报告）",
+   "description": "r1031 只读扫描：registered_at 缺 20/20；dsh 缺 selection/attempts/stdout_*/stderr_* 各 10/10；transport_retries dsh 列表型 10/10；codex 2dp 收据 2 场；额外发现 dsh rep 字符串型 10/10 与 meta.weighted 8dp delta 4 场",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T16:41:14+08:00"
+  },
+  {
+   "event_id": "work:pkgb-freeze-v3-selftest",
+   "kind": "self_test",
+   "executor": "builder-c（builder-codex，代位 builder-b；lead 2026-10-29 指派）",
+   "timestamp": "2026-10-29T16:41:14+08:00",
+   "source": {
+    "path": "5-评测报告/可信冻结-2026-10-29-v3/output-manifest.json",
+    "sha256": "84003413ec01d85a9d28e6137bc20c03e9594bcab68c195368ff04df999052b0"
+   },
+   "locator": "summary.json: live_doc_drift=[]，self_test=13，interface_preflight=13；test_freeze.py 44/44 OK",
+   "description": "freeze-20261029-v3 build/verify ok=true；引擎自测 44/44（含 pin_class 两级漂移语义与 7 收据入账断言）",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T16:41:14+08:00"
+  },
+  {
+   "event_id": "work:l3-pkga-schema-alignment-20261029",
+   "kind": "self_test",
+   "executor": "builder-codex",
+   "timestamp": "2026-10-29T18:04:22+08:00",
+   "source": {
+    "path": "4-打分细则/可信冻结-2026-10-29-v3/freeze.lock.json",
+    "sha256": "bf7f9aa3473ec12be0a95f466ce0a278457250def5dff5fca6e2db3ba2627c1f"
+   },
+   "locator": "test_freeze.py 48/48 OK（44 继承 + 4 新增 A4）；verify exit 0、live_doc_drift=[]；v2 verify exit 0；v2 双目录零字节",
+   "description": "L3 包A（A1–A6）：config-schema live_registry_entry 增 registered_at（date-time 带时区，required）+ kind.enum 扩 correction，现行 5 事件 5/5 合 schema（机械校验）；测试并入 validate_against_schema 实例校验；verify_seal 增读取面机械归类自检（check_pin_classification，错标必红），连带新增 contract pins 21 项（固定读取面 3 + registry sources 18），lock 17→38 pin（contract 31/live_doc 7）；tripwire 保留，README 明示报告制≠免检。lock_before=544a7f96cb6206cbc326c1f23900cf7de967c390ab3088bf564af33de37d2527，lock_after=bf7f9aa3473ec12be0a95f466ce0a278457250def5dff5fca6e2db3ba2627c1f。dated 变更框见 v3 README。",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T18:04:22+08:00"
+  },
+  {
+   "event_id": "work:l3-pkgb-spec-selftest-20261029",
+   "kind": "self_test",
+   "executor": "builder-dsh",
+   "source": {
+    "path": "1-评测方案/工具链/runner-schema-v2/spec-selftest-receipt-l3-20261029.json",
+    "sha256": "6048ad41aa959fe23758a9184a71db7056adca4eb7b21f228fc8351d481cb9d2"
+   },
+   "locator": "--spec 10/10 fixtures 期望全 match（fixtures 6→10：+B1 status 越值 / +B2 benign 无 corrections / +B3 selection-null 无 diagnostic / +benign 带 corrections 正例）；validate_runner_meta.py=8c81e9a4",
+   "description": "L3 包B B1/B2/B5：status enum={ok,timeout,error,transport-error}、integrity_verdict enum={clean,benign-reviewed,violation}+corrections 伴随、selection-null→diagnostic 伴随，validator 强制实现与 SCHEMA.md v2.1-l3 一致；原收据 spec-selftest-receipt.json（5c6177fd）字节不动。",
+   "timestamp": "2026-10-29T18:13:14+08:00",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T18:13:14+08:00"
+  },
+  {
+   "event_id": "work:l3-pkgb-cli-regression-b4b6-20261029",
+   "kind": "self_test",
+   "executor": "builder-dsh",
+   "source": {
+    "path": "1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-20261029.json",
+    "sha256": "db65c68c26068b982310967bc76c4005cfaf931c0ea0b094f155be78f2c2ebe2"
+   },
+   "locator": "cli-selftest-l3.py 6/6 PASS：T1 复现 16:11:16 覆盖模式（二写 exit 2 且首文件字节不变）/ T2 无 --seal-at 默认 exit 1 且 pass 期望实得 fail:unsealed / T3 --spec 拒 --allow-unsealed、--retro 披露标记 / T6 原收据字节守护",
+   "description": "L3 包B B4/B6：seal 缺省 fail-closed（classify 永不返回裸 pass）、--allow-unsealed 仅限 --retro 披露模式且矩阵带 seal.unsealed/seal.policy；--spec 收据只写显式 --out，目标已存在即拒（exit 2 原字节不动）。",
+   "timestamp": "2026-10-29T18:13:14+08:00",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T18:13:14+08:00"
+  },
+  {
+   "event_id": "work:l3-pkgb-reconcile-synthetic-20261029",
+   "kind": "self_test",
+   "executor": "builder-dsh",
+   "source": {
+    "path": "1-评测方案/工具链/runner-schema-v2/reconciliation-synthetic-l3-20261029.json",
+    "sha256": "a4dbe3150a4f5438a8ce9e3083261c4e20367ccf45d01af0b5d7b7e377b9374b"
+   },
+   "locator": "--reconcile 合成对账：正例 verdict=ok（delta_seconds=0.0，对 L3 封印 72edb519 @ 2026-10-29T17:52:27+08:00 口径）；负例 reconciliation-synthetic-early-l3-20261029.json（bfdcfcf6）verdict=violation exit 1",
+   "description": "L3 包B B7（⑦/O-1）：SCHEMA §三.4 显式披露顺序检查必要非充分；新增 --reconcile 离线对账（commit_time 来源 --commit-time/--commit-time-file/--git）；--git 模式 L3 未行使（builder 禁 git），真实批次对账留 L4（U1）。",
+   "timestamp": "2026-10-29T18:13:14+08:00",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T18:13:14+08:00"
+  },
+  {
+   "event_id": "work:l3-pkgc-evidence-kit-20261029",
+   "kind": "self_test",
+   "executor": "builder-dsh",
+   "timestamp": "2026-10-29T18:19:22+08:00",
+   "source": {
+    "path": "1-评测方案/工具链/evidence-kit/selftest-receipt-l3-20261029-r2.json",
+    "sha256": "74b989e79eb331673400b6f8c9d8c5b37cb13827aa7c3624f4bd182dcd4dcdc1"
+   },
+   "locator": "evidence-kit 联合自测 2/2 工具 PASS（C1 evidence_line.py --selftest 11/11；C2 receipt_check.py --selftest 10/10；kit_selftest.py 汇总收据 74b989e7）；dogfood 证据行 5 条（脚本生成）",
+   "description": "L3 包C C1–C4：证据行生成器（路径·sha256前8·字节·ISO8601+tz，--selftest）、收据规范检查器（live_doc_drift 状态行+哈希行合规+证据行重算，只读不回改，--out 拒绝已存在）、README 铁律（哈希/时刻禁止手打）。工具修正披露：REPO 根层级（parents[3]→[2]）与纯数字 hex 记号误报过滤，均由自测/dogfood 抓出后修复；修复前收据 selftest-receipt-l3-20261029.json（r1）字节保留。dogfood 对 v3 README 两 fact：无 live_doc_drift 状态行（叙述文档，--no-drift-require 适用类）、DAB2697 记号 hash 形似——机械输出如实登记，v3 README 未动。",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T18:19:22+08:00"
+  },
+  {
+   "event_id": "work:l3-pkgc-kit-selftest-r4-20261029",
+   "kind": "self_test",
+   "executor": "builder-dsh",
+   "timestamp": "2026-10-29T18:21:46+08:00",
+   "source": {
+    "path": "1-评测方案/工具链/evidence-kit/selftest-receipt-l3-20261029-r4.json",
+    "sha256": "a95631d5956d88609808e66b92412a4e1ee57a7277f35ea5e7f29197b1f9ddbd"
+   },
+   "locator": "kit_selftest.py r4 收据：C1 11/11、C2 10/10、all_pass=true；supersede 上一事件 source 的 r2 收据（74b989e7）",
+   "description": "L3 包C 工具修正链收口：kit_selftest counts 解析修复（跨行 JSON 切分 ^ 锚点缺 re.M→去锚点）并加 counts 硬断言（None 即 FAIL）；r1（d951ba4a，REPO 层级/hex 过滤修复前）、r2（74b989e7，counts=None）、r3（e9a14c17，断言后 FAIL 如实落盘）均字节保留，r4 为现行。",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T18:21:46+08:00"
+  },
+  {
+   "event_id": "work:l3-fixround-dlb1-dl31-dfc1-dfc2-20261029",
+   "kind": "self_test",
+   "executor": "builder-dsh",
+   "timestamp": "2026-10-29T19:00:07+08:00",
+   "source": {
+    "path": "1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-fix-20261029.json",
+    "sha256": "17a3c053fc574afdf685380be2214eadeb1a8e201a5cfe5d7243bcbfd431a855"
+   },
+   "locator": "修复轮 9/9 PASS（T1–T6 继承 + T7 DF-B1 --retro 无 seal exit 3 不落盘 + T8 --git pending-external（judge 只读 git 执行，L3_ALLOW_GIT=1）+ T9 D-L3-1 verdict 语义非 git 验证=error）；--spec 基线 10/10（spec-selftest-receipt-l3-fix-20261029.json）；C2 --selftest 14/14（DF-C1 CJK 前贴/超长 + DF-C2 JSON 字符串值反例）；kit r6 收据（2/2 工具 PASS）",
+   "description": "L3 修复轮（judge D-L3-1 + auditor DF-B1/DF-C1/DF-C2）：validate_runner_meta.py --git src 字符串拼接修 %cI 冲突、verdict/ok 语义对齐（任何步骤假⇒非 ok；error/violation/ok/inconclusive）；--retro 无 --seal-at 且无 --allow-unsealed ⇒ exit 3 不落盘（预注册 B4 字面，裁定不走出修正框）；receipt_check.py hex 记号改显式环视（CJK 前贴命中、>64 超长记违规）、JSON live_doc_drift 字符串值入判 fail。SCHEMA.md 收窄表述改回与实现一致（4b 修复轮注）。--spec 面已验行为未动；既有收据字节不动，新收据全部新路径 --out。",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T19:00:07+08:00"
+  },
+  {
+   "event_id": "work:l3-fixround-fixd1-20261029",
+   "kind": "self_test",
+   "executor": "builder-dsh",
+   "timestamp": "2026-10-29T19:25:23+08:00",
+   "source": {
+    "path": "1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-fixd1-20261029.json",
+    "sha256": "c59c966e5c23ca8ca4c07cbeb1d3ff7ef87ed0a2779a63a8bfe034d8965fcfe3"
+   },
+   "locator": "cli-selftest 10/10 PASS（新增 T10：大写 7 位假哈希+合法 --commit-time ⇒ commit-hash-format 步骤假 ⇒ verdict=error、ok=false、exit 1；对照组真格式+合法时刻 verdict=ok 不变）；--spec 面零触碰",
+   "description": "L3 修复轮 FIX-D1（auditor §9.3，D-L3-1 同类残留）：--reconcile comparison_ran 分支 verdict 判定并入 non_comparison_ok——非比较步骤假 ⇒ verdict=error（不再出现 verdict=ok 与 ok=false 同页矛盾）；validator 现 8e423de5。SCHEMA §三.5/docstring 修复前已与自订不变量一致（未改动）。T8 --git 用例仍 pending-external（judge 只读 git）。",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T19:25:23+08:00"
+  },
+  {
+   "event_id": "work:l3-judge-acceptance-20261029",
+   "kind": "self_test",
+   "executor": "lead（代登：执行者只读约束，2026-10-29 18:52 裁定）",
+   "timestamp": "2026-10-29T19:31:27+08:00",
+   "source": {
+    "path": "5-评测报告/L3独立验收-2026-10-29/fix-verification-20261029.md",
+    "sha256": "5dd7fedf463c1b8ad0a9e669fd98d1ce45f58af9dddc29817fbf78e59b92cf95"
+   },
+   "locator": "见文件本体；哈希为本脚本实算",
+   "description": "L3 独立验收全链收口：三包 pass+六疑点钉死+修复轮复验（D-L3-1/DF-B1/DF-C1/DF-C2 闭项）+FIX-D1 闭项（19:28:57 dated）；配套 verify-receipt-l3.json=7aa54b1c、验收 README=98cbb2d6；judge 收据过 receipt_check all_ok=true",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T19:31:27+08:00"
+  },
+  {
+   "event_id": "work:l3-auditor-audit-20261029",
+   "kind": "self_test",
+   "executor": "lead（代登：执行者只读约束，2026-10-29 18:52 裁定）",
+   "timestamp": "2026-10-29T19:31:27+08:00",
+   "source": {
+    "path": "5-评测报告/对抗性盲审-L3-2026-10-29/AUDIT.md",
+    "sha256": "639880ed43448585bb8a648034b86c600b8ac358ffd48c89081f5de6939aa51c"
+   },
+   "locator": "见文件本体；哈希为本脚本实算",
+   "description": "L3 敌意盲审：0 blocking/defect 3(DL31归属judge,DF-B1/C1/C2)+obs 2/note 4；§9 修复轮复核 FIX-D1 残留+FIX-O1/N1-N4（处置见循环台账）；终版过修复版 receipt_check（证据行 19/19）",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-29T19:31:27+08:00"
+  },
+  {
+   "event_id": "work:l4-six-ledger-index-20261030",
+   "kind": "offline_recompute",
+   "executor": "auditor；lead 代登（串行）",
+   "timestamp": "2026-10-30T00:29:23+08:00",
+   "source": {
+    "path": "5-评测报告/L4综合结论-2026-10-29/six-ledger.json",
+    "sha256": "7c5460d83b13cca87cde7e93ea724d57e6a78e334ea4ca2cd3a6edf9c81d140e"
+   },
+   "locator": "categories 与 counts；仅索引，不向旧冻结正式表插行",
+   "description": "L4 六类分账索引：product 17 槽（16 执行、1 未执行），bare-model 18 槽；独立准入与原始得分分列。事件记录的是一份离线索引，不将其视为18次合成实验或把事故并入35槽；interface_preflight事故独立存在，provider请求未知。",
+   "pin_class": "live_doc",
+   "registered_at": "2026-10-30T00:33:42+08:00"
+  },
+  {
+   "event_id": "work:l5-six-ledger-index-20261030",
+   "kind": "offline_recompute",
+   "executor": "lead（代 freeze-engineer 串行登记；数值由 ledger_build.py 读现有证据实算，formal 引 judge canonical）",
+   "timestamp": "2026-10-30T02:51:20+08:00",
+   "source": {
+    "path": "5-评测报告/L5综合结论-2026-10-30/six-ledger.json",
+    "sha256": "0ff7a90c595078ba135820ad9dbfc1d8bb593fbae72222fce6640003196af5ef"
+   },
+   "locator": "categories 与 counts；仅索引，不向旧冻结正式表插行",
+   "description": "L5 六类分账索引：product_run 6 槽全执行（canonical formal 5/6，wb-bird False=checker 缺 guards_used/n_tasks 缺省，observed 保留）；grading_regression=2（gate v2/cache mapping v2）；bare_model_probe=0；E1/E2 中止尝试单列无 formal；事故 2 项披露（ps 误印零入库、WB frame 覆盖已修复）",
+   "registered_at": "2026-10-30T02:51:20+08:00",
+   "pin_class": "live_doc"
+  },
+  {
+   "event_id": "work:l6-six-ledger-index-20261030",
+   "kind": "offline_recompute",
+   "executor": "lead（串行登记；sha 由本脚本读现有证据实算，formal 引 judge canonical rerun）",
+   "timestamp": "2026-10-30T12:40:59+08:00",
+   "source": {
+    "path": "5-评测报告/L6综合结论-2026-10-30/six-ledger.json",
+    "sha256": "1ae5bd78c4e32b25835786861878e931e845db4cfa0b7096e0f0b6eb5ed52eee"
+   },
+   "locator": "categories 与 counts；仅索引，不向旧冻结正式表插行",
+   "description": "L6 六类分账索引：product_run 1 槽全执行（canonical formal 1/1，wb-bird raw 100.0 15/15，L5-P1 formal 准入链路修复实证）；grading_regression=2（L6-A checker 元数据两键/L6-C 收据自引排除）；bare_model_probe=0；E1/E2 废封零消耗单列；事故 0；池结转 P4 ps 规程+L3 尾项+2 建议（gate DEFAULT_PLAN_DIR 显式化、T22d fixture 退役）",
+   "registered_at": "2026-10-30T12:41:07+08:00",
+   "pin_class": "live_doc"
+  },
+  {
+   "event_id": "work:l6-ledger-schema-correction-20261030",
+   "kind": "correction",
+   "executor": "lead（L6 收尾跑 test_freeze 发现；修复=结构键补齐，原 timestamp/内容零改动）",
+   "timestamp": "2026-10-30T12:43:51+08:00",
+   "registered_at": "2026-10-30T12:43:51+08:00",
+   "pin_class": "live_doc",
+   "source": {
+    "path": "4-打分细则/可信冻结-2026-10-29-v3/work-registry-live.json",
+    "sha256": "f73e2dc334f75616f0216655be181d478e6bcffc58d2d91b2c040290c325a693"
+   },
+   "locator": "修复前完整字节（本 correction 提交的父提交可考）；对 #17/#18 两条 offline_recompute 事件",
+   "description": "发现#17(L5 索引)与#18(L6 索引)缺 registered_at/pin_class 且含 schema 外键 live_doc_drift——L5 收尾登记时偏离 DF-1 schema 且未跑 test_freeze 不变量（过程漏洞，L6 收尾补跑抓获）。修复=#17 registered_at 考古自引入提交 8f25d64 的 committer 时刻、#18 取登记提交 8edc58f 时刻，两者补 pin_class=live_doc、移除 schema 外键（原值 [] 已录本描述）；原 timestamp 与全部业务内容零改动。制度化：批收尾清单必须含 work-registry 不变量测试；本 correction 事件自身首稿亦误带该键，同批移除（登记纪律：本台账条目不带 live_doc_drift，后者属收据/报告件）"
+  },
+  {
+   "event_id": "work:l7-seven-ledger-index-20261030",
+   "kind": "offline_recompute",
+   "executor": "lead（串行登记；sha 由本脚本读现有证据实算）",
+   "timestamp": "2026-10-30T13:50:15+08:00",
+   "registered_at": "2026-10-30T13:50:15+08:00",
+   "pin_class": "live_doc",
+   "source": {
+    "path": "5-评测报告/L7综合结论-2026-10-30/seven-ledger.json",
+    "sha256": "2255e7dc4729e8a320a973086b73745da30288c26a1be0aad9513ee99be0352c"
+   },
+   "locator": "七类分账索引；仅索引，不向旧冻结正式表插行",
+   "description": "L7 七类分账索引：零真实批零模型环——L7-A gate 语义默认值显式化（DEFAULT_PLAN_DIR 拔除，CLI/API 双面 fail-closed，判分语义零改动）+L7-B 运维卫生规程（P4 闭合，0 字面量）；三批基线收据引用固定（L4 0/17、L5 5/6、L6 1/1）；r1-r6 设计演化全档；事故/中止=0；集成前置=PR#10（L5+L6→main）"
+  },
+  {
+   "event_id": "work:l8-supersession-machine-chain-20261030",
+   "kind": "offline_recompute",
+   "executor": "lead（串行登记；sha 由本脚本读现有证据实算）",
+   "timestamp": "2026-10-30T14:33:41+08:00",
+   "registered_at": "2026-10-30T14:33:41+08:00",
+   "pin_class": "live_doc",
+   "source": {
+    "path": "5-评测报告/L8证据链修订-2026-10-30/l8-supersession-demo-receipt.json",
+    "sha256": "48c67684376e4788c28087dc64bbd4973c26f5de7cd34d7b891855a8e458cc8c"
+   },
+   "locator": "L8 废止链机器可读索引；仅索引，不向旧冻结正式表插行",
+   "description": "L8 证据链/规程零模型环——L8-A receipt_check 第4检查 supersedes（存续收据后向指针全哈希链：恰两键/64位小写实算一致/文件名 VOIDED 双载体/禁自引重复环；selftest 16→25 全绿；demo 收据 6/6 实锚真实 L7 六废链；历史收据零字节改动；无字段行为 A/B judge+auditor 双独立逐字段一致）；L8-B PREREG-template 异常类如实申报条款（自食核对全过，措辞 vs 实现零偏差，0 新 raise）；AUD-L7-O1 前向→后向偏离 D 内预声明双核可；judge 8/8 PASS+11 自构负例全拒；auditor 0 缺陷/2 obs（O-1 仓内限定记池）；事故/中止=0"
+  }
+ ]
 }

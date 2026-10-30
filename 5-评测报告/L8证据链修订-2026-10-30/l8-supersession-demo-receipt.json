@@ -1,0 +1,37 @@
+{
+  "kind": "l8-supersession-demo",
+  "tool": "lead（sha256 由本生成脚本实算，write-once）",
+  "at": "2026-10-30T14:17:06+08:00",
+  "design": "L8-A 正例：存续收据 supersedes 后向指针指向真实 L7 六文件废止链；历史收据零字节改动（引用为只读）",
+  "supersedes": [
+    {
+      "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r1-VOIDED-跨pin复算设计误.json",
+      "sha256": "b2c977a5985b1e870656fc54adbe5eb0d6b8e3071040da40c73c67c251f4087c"
+    },
+    {
+      "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r2-VOIDED-冻结副本错位.json",
+      "sha256": "9532cd142e77205d933fd112bdfe267e0f96c4acbb286155e38bcdc93651f970"
+    },
+    {
+      "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r3-VOIDED-部分世界复判设计误.json",
+      "sha256": "4e7c424533d910877947d031fc22b5b06df7138f30d991978b86a8ebdf50ff75"
+    },
+    {
+      "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r4-VOIDED-树内binding代际错位.json",
+      "sha256": "11ace1ec584a2d20f06c6f996bf1005dfaead5ece9b4983fe7a04e81564ffc0b"
+    },
+    {
+      "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r5-VOIDED-证据缺位.json",
+      "sha256": "1461b8c96922d446bd24aa058a167c56f78c81e2979f753978b0f92c5e97db2e"
+    },
+    {
+      "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r6-VOIDED-跨批重演设计废弃.json",
+      "sha256": "91398ac2dee60d417d7fa90a88419f616c7136c07f9d6f710b55d76f35c23a77"
+    }
+  ],
+  "live_doc_drift": [],
+  "notes": [
+    "验证口径：receipt_check.py 第 4 检查（supersession）全过 = 链每项存在+全哈希一致+文件名含 VOIDED+无自引/重复/环",
+    "L8 PREREG D=294aee6；方向偏离 AUD-L7-O1（superseded_by 前向→supersedes 后向）已在 PREREG 声明"
+  ]
+}

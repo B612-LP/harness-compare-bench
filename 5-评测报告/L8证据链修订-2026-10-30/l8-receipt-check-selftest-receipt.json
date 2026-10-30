@@ -1,0 +1,138 @@
+{
+  "kind": "self_test",
+  "tool": "receipt_check.py",
+  "at": "2026-10-30T14:17:30+08:00",
+  "counts": {
+    "total": 25,
+    "passed": 25,
+    "failed": 0
+  },
+  "cases": [
+    {
+      "case": "good_doc_ok",
+      "pass": true,
+      "detail": "{\"total\": 1, \"verified_ok\": 1, \"verified_bad\": 0, \"unverified\": 0, \"details\": [{\"line\": 5, \"claimed\": {\"path\": \"payload.txt\", \"sha256_8\": \"36ea43d4\", \"bytes\": 24}, \"verified\": true, \"match\": true, \"actual\": {\"sha256_8\": \"36ea43d4\", \"bytes\": 24}}]}"
+    },
+    {
+      "case": "good_evidence_recomputed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "good_drift_found",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bad_doc_fails",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bad_hash_violations",
+      "pass": true,
+      "detail": "[{'line': None, 'reason': 'live_doc_drift 状态行缺失'}, {'line': 1, 'issues': [{'token': 'ABCDEF123', 'reason': 'hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}'}], 'excerpt': '哈希：ABCDEF123（大写手打）'}]"
+    },
+    {
+      "case": "bad_drift_missing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_drift_require_still_fails_on_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stale_evidence_detected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "json_drift_key_ok",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "missing_file_not_ok",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "cjk_prefixed_64hex_captured",
+      "pass": true,
+      "detail": "{\"scanned\": 1, \"tokens\": 1, \"violations\": []}"
+    },
+    {
+      "case": "cjk_prefixed_short_flagged",
+      "pass": true,
+      "detail": "['deadbeefdead', 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefcafe']"
+    },
+    {
+      "case": "overlong_hex_flagged",
+      "pass": true,
+      "detail": "['deadbeefdead', 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefcafe']"
+    },
+    {
+      "case": "json_drift_string_value_fails",
+      "pass": true,
+      "detail": "[{\"line\": null, \"reason\": \"JSON live_doc_drift 值须为 null 或 list，实测 str\"}]"
+    },
+    {
+      "case": "self_excluded_receipt_ok",
+      "pass": true,
+      "detail": "{\"found\": false, \"keys\": []}"
+    },
+    {
+      "case": "self_referenced_receipt_rejected",
+      "pass": true,
+      "detail": "{\"found\": true, \"keys\": [\"/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/evidence-kit-check-to30ko13/manifest-receipt-selfref.json\"]}"
+    },
+    {
+      "case": "supersedes_positive_ok",
+      "pass": true,
+      "detail": "{\"found\": true, \"entries\": [{\"file\": \"prev-attempt-VOIDED-设计误.json\", \"sha256\": \"60af507ee0f3786ae8f4c42aaa8f5e14f87657d3feb9e024fd21b888d3bd1982\", \"verified\": true}], \"violations\": []}"
+    },
+    {
+      "case": "sup_bad_sha.json",
+      "pass": true,
+      "detail": "supersession(L8-A): supersedes[0]: sha256 不符 want=00000000… actual=60af507e…"
+    },
+    {
+      "case": "sup_missing_file.json",
+      "pass": true,
+      "detail": "supersession(L8-A): supersedes[0]: 被指文件不存在: nope-VOIDED-x.json"
+    },
+    {
+      "case": "sup_not_voided_name.json",
+      "pass": true,
+      "detail": "supersession(L8-A): supersedes[0]: 被指文件名须含 VOIDED（人机双载体）: plain-prev.json"
+    },
+    {
+      "case": "sup_selfref.json",
+      "pass": true,
+      "detail": "supersession(L8-A): supersedes[0]: 自引（收据不得 supersedes 自身）"
+    },
+    {
+      "case": "sup_extra_key.json",
+      "pass": true,
+      "detail": "supersession(L8-A): supersedes[0]: 键须恰为 {file, sha256}，实测 ['file', 'note', 'sha256']"
+    },
+    {
+      "case": "sup_bad_sha_format.json",
+      "pass": true,
+      "detail": "supersession(L8-A): supersedes[0].sha256: 须为 64 位小写 hex | hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}"
+    },
+    {
+      "case": "sup_not_list.json",
+      "pass": true,
+      "detail": "supersession(L8-A): supersedes 须为 list，实测 dict"
+    },
+    {
+      "case": "supersedes_cycle_detected",
+      "pass": true,
+      "detail": "supersession(L8-A): supersedes 链成环（经 cyc-b-VOIDED.json 回到收据自身）"
+    }
+  ]
+}
+RECEIPT_CHECK_SELFTEST: PASS
