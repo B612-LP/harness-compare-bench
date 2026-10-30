@@ -334,6 +334,21 @@ class FreezeTests(unittest.TestCase):
         self.assertNotEqual(pinned.get(f.BASE + "/work-registry-live.json"), "contract")
         print("[live-ledger] events=%d（仅报告，不断言；schema=live_registry_entry 全过）" % len(live["events"]))  # (f)
 
+    def test_live_ledger_account_reality_l9b(self):
+        # L9-B（2026-10-30）：账实对账不变量——全事件 FRESH/HISTORICAL（内容 sha256 口径，
+        # ledger_reconcile.py 同源实现）；UNRESOLVED 须命中静态 allowlist（新增豁免须走 PREREG）。
+        spec = importlib.util.spec_from_file_location(
+            "ledger_reconcile", Path(__file__).with_name("ledger_reconcile.py"))
+        lr = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(lr)
+        allow = {}  # 静态豁免表（初始空；本环首跑 20 FRESH + 1 HISTORICAL，无需豁免）
+        rep = lr.reconcile(REAL / f.BASE / "work-registry-live.json", REAL, allow)
+        self.assertEqual(rep["structure_violations"], [])
+        unres = [e for e in rep["events"] if e["class"] == "UNRESOLVED" and not e["waived"]]
+        self.assertEqual(unres, [], "存在未豁免 UNRESOLVED：账实断裂 %s" % unres)
+        print("[live-ledger] 账实对账（L9-B）: FRESH=%d HISTORICAL=%d / total=%d，UNRESOLVED 未豁免=0"
+              % (rep["counts"]["FRESH"], rep["counts"]["HISTORICAL"], rep["counts"]["total"]))
+
     # ---- L3-A4：pin_class 机械归类（读取面引用路径必为 contract；错标样本必红） ----
 
     def _classification_fixture(self, config_pin_class, pin_registry_source):

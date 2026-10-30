@@ -1,0 +1,63 @@
+{
+  "kind": "self_test",
+  "tool": "ledger_reconcile.py",
+  "at": "2026-10-30T15:04:42+08:00",
+  "counts": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0
+  },
+  "cases": [
+    {
+      "case": "fresh_classified",
+      "pass": true,
+      "detail": "{'event_id': 'work:e-fresh', 'kind': 'offline_recompute', 'class': 'FRESH', 'waived': False, 'path': 'doc.json', 'want_sha8': 'a5f49b8c'}"
+    },
+    {
+      "case": "historical_classified",
+      "pass": true,
+      "detail": "{'event_id': 'work:e-hist', 'kind': 'offline_recompute', 'class': 'HISTORICAL', 'waived': False, 'path': 'doc.json', 'want_sha8': 'fc1046dd', 'commit': '7943a1342773e131d020e616f1295b386b38b504', 'act"
+    },
+    {
+      "case": "unres_classified",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "missing_is_unresolved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "all_resolved_false_with_unwaived",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "allowlist_waives",
+      "pass": true,
+      "detail": "{'total': 4, 'FRESH': 1, 'HISTORICAL': 1, 'UNRESOLVED': 2, 'waived': 2}"
+    },
+    {
+      "case": "dup_id_detected",
+      "pass": true,
+      "detail": "event_id 重复: work:e-fresh（#0 与 #4） | timestamp 回逆: work:e-fresh（2026-10-30T10:00:00+08:00 < 前一事件） | timestamp 回逆: work:e-notz（2026-10-30T10:00:00+08:00 < 前一事件） | registered_at 缺时区偏移: work:e-notz（2026-"
+    },
+    {
+      "case": "ts_regress_detected",
+      "pass": true,
+      "detail": "event_id 重复: work:e-fresh（#0 与 #4） | timestamp 回逆: work:e-fresh（2026-10-30T10:00:00+08:00 < 前一事件） | timestamp 回逆: work:e-notz（2026-10-30T10:00:00+08:00 < 前一事件） | registered_at 缺时区偏移: work:e-notz（2026-"
+    },
+    {
+      "case": "missing_tz_detected",
+      "pass": true,
+      "detail": "event_id 重复: work:e-fresh（#0 与 #4） | timestamp 回逆: work:e-fresh（2026-10-30T10:00:00+08:00 < 前一事件） | timestamp 回逆: work:e-notz（2026-10-30T10:00:00+08:00 < 前一事件） | registered_at 缺时区偏移: work:e-notz（2026-"
+    },
+    {
+      "case": "structure_blocks_resolved",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
+LEDGER_RECONCILE_SELFTEST: PASS

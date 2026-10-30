@@ -19,6 +19,9 @@
    file 相对收据父目录解析、必须存在、sha256 与实算一致、文件名须含 `VOIDED`；
    禁自引、禁重复条目、沿链上行深度 ≤16 不得成环；任一违反 → fail。
    **无该字段行为逐字节不变**（历史收据零改动原则，不追溯补写）。
+5. 解析根约束（L9-A，2026-10-30）：`supersedes` 条目目标 resolved 后必须落在
+   `--root` 根内（CLI 默认=仓库根）；`../` 穿越出根、根外绝对路径、symlink 指根外
+   （resolve 后判定）一律 violation；根内兄弟目录相对路径合法。
 
 退出码：全部必需检查通过 exit 0；否则 exit 1；用法错误 exit 2。
 报告写 `--out`（目标已存在即拒绝，同 C-1 纪律）；无 `--out` 只打印不落盘。
@@ -34,6 +37,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import os
 import re
 import sys
 import tempfile
@@ -76,19 +80,24 @@ def iter_json_strings(node):
             yield from iter_json_strings(v)
 
 
-def validate_supersession(field, receipt_path: Path) -> dict:
+def validate_supersession(field, receipt_path: Path, root: Path) -> dict:
     """L8-A（2026-10-30）：废止链机器可读校验（AUD-L7-O1→supersedes 后向指针）。
 
     语义：存续收据声明「我取代这些已废止收据」。方向选择见 L8 PREREG：O1 原文的
     前向指针（superseded_by）在终局收据文件名不可预知的链上（L7 实证）要么事后改
     已定稿字节、要么存空哈希；后向指针单次 write-once、全哈希锚定、可机械验证
     被指文件名含 VOIDED。返回 {"found","entries","violations"}（violations 空=过）。
+
+    L9-A（2026-10-30）第 5 守卫：resolved 目标必须落在 `--root` 根内（CLI 默认=
+    仓库根；自测传自给根）。关闭 L8-O1（judge/auditor 独立收敛）的 `../` 穿越与
+    根外绝对路径指针；symlink 以 resolve() 后判定。
     """
     v: list = []
     entries: list = []
     if not isinstance(field, list):
         return {"found": True, "entries": [], "violations":
                 ["supersedes 须为 list，实测 %s" % type(field).__name__]}
+    root_r = root.resolve()
     seen = set()
     targets = []
     for i, ent in enumerate(field):
@@ -124,6 +133,10 @@ def validate_supersession(field, receipt_path: Path) -> dict:
         target = Path(f)
         if not target.is_absolute():
             target = receipt_path.parent / target
+        resolved_t = target.resolve()
+        if not (resolved_t == root_r or root_r in resolved_t.parents):
+            v.append("%s: 仓外指针（超出 --root 根）(L9-A): %s" % (where, f))
+            continue
         if not target.is_file():
             v.append("%s: 被指文件不存在: %s" % (where, f))
             continue
@@ -214,7 +227,7 @@ def check_doc(path: Path, root: Path, require_drift: bool) -> dict:
         # L8-A（2026-10-30）：废止链机器可读（AUD-L7-O1→supersedes 后向指针设计，
         # PREREG 已声明方向偏离）。无该字段=行为逐字节不变（历史收据零改动原则）。
         if isinstance(doc, dict) and "supersedes" in doc:
-            sup = validate_supersession(doc["supersedes"], path)
+            sup = validate_supersession(doc["supersedes"], path, root)
             rep["supersession"] = sup
             for reason in sup["violations"]:
                 rep["hash_lines"]["violations"].append(
@@ -437,9 +450,50 @@ def selftest() -> int:
              "sha256": hashlib.sha256(cyc_b.read_bytes()).hexdigest()}],
             "live_doc_drift": []}, ensure_ascii=False), encoding="utf-8")
         rc = check_doc(cyc_a, tmp, require_drift=False)
-        rc_reasons = " | ".join(x["reason"] for x in rc["hash_lines"]["violations"])
+        rc_reasons = " | ".join(x.get("reason", "") or " ".join(
+            i.get("reason", "") for i in x.get("issues", []))
+            for x in rc["hash_lines"]["violations"])
         check("supersedes_cycle_detected", rc["ok"] is False and "成环" in rc_reasons,
               rc_reasons[:200])
+
+        # ---- L9-A（2026-10-30）解析根约束：出根即拒、根内不误伤、symlink resolve 后判 ----
+        with tempfile.TemporaryDirectory(prefix="evidence-kit-l9a-out-") as td_out:
+            outside = Path(td_out) / "outside-VOIDED-x.json"
+            outside.write_text("{}\n", encoding="utf-8")
+            out_sha = hashlib.sha256(outside.read_bytes()).hexdigest()
+
+            def l9a_case(name, file_ref, sha, expect_reject):
+                p = tmp / name
+                p.write_text(json.dumps({"kind": "l9a", "supersedes": [
+                    {"file": file_ref, "sha256": sha}],
+                    "live_doc_drift": []}, ensure_ascii=False), encoding="utf-8")
+                r = check_doc(p, tmp, require_drift=False)
+                reasons = " | ".join(x.get("reason", "") or " ".join(
+                    i.get("reason", "") for i in x.get("issues", []))
+                    for x in r["hash_lines"]["violations"])
+                ok = (expect_reject and r["ok"] is False and "仓外指针" in reasons) \
+                    or (not expect_reject and r["ok"] is True)
+                check(name, ok, reasons[:200])
+
+            # ① ../ 相对穿越出根（tmp 与 td_out 为不同子树）
+            rel_out = os.path.relpath(outside, tmp)
+            l9a_case("l9a_rel_escape_rejected.json", rel_out, out_sha, True)
+            # ② 根外绝对路径
+            l9a_case("l9a_abs_escape_rejected.json", str(outside), out_sha, True)
+            # ③ 根内兄弟目录（demo 收据同形态）→ 不误伤
+            sub = tmp / "subdir-l9a"
+            sub.mkdir()
+            sib = sub / "sibling-VOIDED-y.json"
+            sib.write_text("{}\n", encoding="utf-8")
+            l9a_case("l9a_inroot_sibling_ok.json", "subdir-l9a/sibling-VOIDED-y.json",
+                     hashlib.sha256(sib.read_bytes()).hexdigest(), False)
+            # ④ 根内 symlink 指向根外（resolve 后出根）→ 拒
+            link = tmp / "link-VOIDED-z.json"
+            try:
+                os.symlink(outside, link)
+                l9a_case("l9a_symlink_escape_rejected.json", link.name, out_sha, True)
+            except OSError:
+                check("l9a_symlink_escape_rejected.json", True, "symlink 不可用，跳过")
 
     counts = {"total": len(results), "passed": sum(1 for r in results if r["pass"]),
               "failed": sum(1 for r in results if not r["pass"])}
