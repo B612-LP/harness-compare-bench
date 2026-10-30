@@ -1,0 +1,54 @@
+{
+  "kind": "l6c-selfref-rule-historical-replay",
+  "tool": "receipt_check.py (with L6-C self-reference rule) + manifest_receipt.py selftest",
+  "at": "2026-10-30T11:32:30+08:00",
+  "rule": "JSON 收据 files_sha256 含自身路径/文件名 → violation（AUD-L5-O1 wart 类）",
+  "expectations": [
+    "E1 abort-receipt（l5-cli aborted-attempts）：无自引 → ok",
+    "E2 abort-receipt（中止重封档案）：自引条目必须被抓获（AUD-L5-O1 实证）",
+    "E2 supplement 1/2：无自引 → ok",
+    "kit 联合自测新收据（selftest-receipt-l6-20261030.json）：self-excluded → ok"
+  ],
+  "docs": [
+    {
+      "file": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l5-20261030-cli/aborted-attempts-20261030T0152seal/abort-receipt.json",
+      "ok": true,
+      "self_reference": {
+        "found": false,
+        "keys": []
+      },
+      "hash_violations": []
+    },
+    {
+      "file": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/中止重封档案E2-20261030T0207/abort-receipt.json",
+      "ok": false,
+      "self_reference": {
+        "found": true,
+        "keys": [
+          "abort-receipt.json"
+        ]
+      },
+      "hash_violations": 9
+    },
+    {
+      "file": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/中止重封档案E2-20261030T0207/abort-receipt-supplement.json",
+      "ok": true,
+      "self_reference": null,
+      "hash_violations": []
+    },
+    {
+      "file": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/中止重封档案E2-20261030T0207/abort-receipt-supplement-2.json",
+      "ok": true,
+      "self_reference": null,
+      "hash_violations": []
+    }
+  ],
+  "verdict": {
+    "e1_no_selfref_ok": true,
+    "e2_selfref_caught": true,
+    "supplements_ok": true,
+    "note": "E2 abort-receipt 另有既有 hex 记号规则命中（trace 文件名内嵌 uuid 段，L3 既有行为，非本次新规则引入）",
+    "all_expectations_met": true
+  },
+  "live_doc_drift": []
+}
