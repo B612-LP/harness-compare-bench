@@ -79,3 +79,25 @@ L5 现场。
   含 bird pin ffa7389a 绿）；selftest **70/71**（唯一 T22d=L5 D 锚定已知败，未修）；
   runner 终态 sha256=06d171bb…（SUMS 已同步）；零模型调用、零真实槽、零 WorkBuddy 启动。
 - 状态：待 lead 提交+重封 E2 后执行唯一真实槽 wb-bird-r1。
+
+
+---
+
+## v6.3 dated 备注（2026-10-30T12:22:00+08:00）：E2 废止后的 2 行修复 + 运行路径默认值审计
+
+- **E2=46d64eef 废止**（REFUSED：plan-disk-sha disk=469a43df≠binding=f4b25402；零调用零残留）。
+  根因=adapter 依赖被调方 gate 的 DEFAULT_PLAN_DIR（锚定 L5）——我的站点适配第二次漏同一
+  链条，如实认账。
+- **授权 2 行修复已施行**（runner/verify_execution.py，904bb6d1→f0612ba6，hunks 入 diff
+  收据 appendix E）：新增 PLAN_DIR 站点常量 + gate.verify_execution 显式传 plan_dir；gate
+  文件本身未动（L5 现场不受影响）。修后复验：plan-disk-sha 过（L6 f4b25402 ✓）。
+- **运行路径默认值审计（E3 前置硬条件）**：receipts/l6-runtime-defaults-audit.json——
+  全链 5 文件、85 项常量/默认逐项分类（l6 已适配/与 l5 无关/残留）；唯一残留=
+  gate.DEFAULT_PLAN_DIR（已缓解，文件默认值归 freeze/lead 决定）。
+- **发现 F1（blocker，seal 侧，归 lead/freeze-engineer）**：L6 binding 的
+  manifest.external_files=[]（空），而 gate.EXTERNAL_REQUIRED 要求 3 锁定件
+  （cordis.patch.yml/package.json/AGENTS.md——磁盘均在）；verify_execution 在
+  manifest-external-required-locked 步 REFUSED。下一步=seal 侧补三键重封 E3；
+  停止条件=external_files 齐三键且 verify 全绿。
+- **SUMS**：verify_execution 终态 f0612ba6 已定稿入 SHA256SUMS.txt。
+- 状态：待 seal 侧修 F1 重封 E3 → 我 verify 全绿 → 执行 wb-bird-r1。零调用不变。

@@ -16,7 +16,10 @@ ROOT = HERE.parents[1]
 MANIFEST = HERE / 'execution-manifest.json'
 BINDING = HERE / 'runtime-binding.json'
 REQUIRED_EXTERNAL_FILES = (
-    # L6 单槽 WB 批：外 pin 收敛为规则文件与 WorkBuddy 本体身份（无 CLI 通道）。
+    # F1（2026-10-30）：gate EXTERNAL_REQUIRED 硬要求的环境身份三件——超量满足，
+    # 不放松验证器（DSH CLI profile 件对本 WB-only 批冗余但属环境身份，pin 之）。
+    Path.home()/'.dsh/profiles/bench-cli/cordis.patch.yml',
+    Path.home()/'.dsh/profiles/bench-cli/package.json',
     Path.home()/'.dsh/AGENTS.md',
     Path('/Applications/WorkBuddy.app/Contents/Info.plist'),
     Path('/Applications/WorkBuddy.app/Contents/Resources/app.asar'),

@@ -41,4 +41,29 @@ E1→E2 适配在原 6 处清单外新增（均限自测/静态面，运行时�
 - **dry 残件清理**：selftest/dry-evidence-v20f 等 L5 dry 件删除清单进 REPORT dated 备注。
 - **验收口径**：preflight 全绿（已达）；selftest 除 T22d（L5 锚定已知败）外全过。
 
+## E2 废止与 E3 授权补充（2026-10-30 12:20，lead dated）
+
+- **E2=46d64ee 废止**（registered_at=2026-10-30T12:15:41+08:00）：第二次 REFUSED，
+  **零消耗**（REFUSED 先于 claim，零 claim/零 registration/零发送，runs/ 空）。
+- **根因（同类第二次）**：`runner/verify_execution.py` 调 gate 时未传 `plan_dir`，
+  gate `DEFAULT_PLAN_DIR` 硬编码 L5 计划目录 → gate 读 L5 plan，与 L6 binding
+  plan_sha 错配 → fail-closed。字面 grep 不可见（L5-性存在于 gate 默认值，非 runner
+  文件内），属语义默认值遗漏。链上先例：L4→L5 漏 gate 路径、L5→L6 漏 plan_dir。
+- **授权 diff（E3）**：`verify_execution.py` 增站点常量
+  `PLAN_DIR = REPO/"1-评测方案"/"自动循环L6-2026-10-30"`，调用处显式
+  `plan_dir=PLAN_DIR`（2 行级；gate 文件本身零改动，L5 现场不受影响）。
+- **E3 前置硬条件**：wb-probe 完成「运行路径默认值审计」——沿 pre-claim 校验→claim→
+  prompt→启动→collect→checker→meta 全链，逐常量/默认值清点 l5/L5-era 引用或语义
+  默认（含间接：所调模块的 DEFAULT_*），出 nil-or-found 清单收据；无审计收据不封 E3。
+- **SUMS/manifest**：verify_execution 变更后 runner 目录终态重算 SUMS；E3 manifest
+  重新钉全部源字节。
+- **F1（2026-10-30 12:25 追加）**：verify_execution 修复后进至
+  `manifest-external-required-locked` REFUSED——gate 的 EXTERNAL_REQUIRED 硬要求
+  manifest.external_files 含 3 件环境身份（`~/.dsh/profiles/bench-cli/cordis.patch.yml`、
+  同目录 `package.json`、`~/.dsh/AGENTS.md`）。处置=**超量满足，不放松验证器**：
+  L6 execution_seal.py 的 REQUIRED_EXTERNAL_FILES 补回前两件（AGENTS.md 原已钉），
+  WorkBuddy 两件保留；gate 零改动（DEFAULT_PLAN_DIR 残留维持「显式传参覆盖+默认值
+  冻结」处置，L5 行为不变）。审计收据=runner 侧
+  `receipts/l6-runtime-defaults-audit.json`（85 项分类，唯一残留=gate 默认，已覆盖）。
+
 live_doc_drift: none（0 项）

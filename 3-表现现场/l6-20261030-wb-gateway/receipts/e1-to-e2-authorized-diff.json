@@ -154,5 +154,34 @@
       }
     ],
     "live_doc_drift": []
+  },
+  "appendix_E_plan_dir_fix": {
+    "at": "2026-10-30T12:19:29+08:00",
+    "file": "runner/verify_execution.py",
+    "sha256_before": "904bb6d11e058bd19410ef7af681bc571c9fba90b62a45a3a9487cc9614a9b58",
+    "sha256_after": "f0612ba69d219177cd06fcd613c2a8b69e4ad9bfdf50199749493352fd932d49",
+    "hunks": [
+      {
+        "around": "GATE_PATH 常量区",
+        "before": "GATE_PATH = (Path(__file__).resolve().parents[3] / \"1-评测方案\" / \"工具链\"\n             / \"l5-execution\" / \"gate.py\")",
+        "after": "GATE_PATH = (Path(__file__).resolve().parents[3] / \"1-评测方案\" / \"工具链\"\n             / \"l5-execution\" / \"gate.py\")\n# L6 站点常量：显式传 plan_dir 给 gate（gate.DEFAULT_PLAN_DIR 锚定 L5，不得依赖被调方默认）\nPLAN_DIR = Path(__file__).resolve().parents[3] / \"1-评测方案\" / \"自动循环L6-2026-10-30\"",
+        "reason": "授权 2 行修复之 1：新增 PLAN_DIR 站点常量"
+      },
+      {
+        "around": "verify_execution 调用点",
+        "before": "        evidence = gate.verify_execution(binding_path, require_release=True)",
+        "after": "        evidence = gate.verify_execution(binding_path, require_release=True,\n                                         plan_dir=PLAN_DIR)",
+        "reason": "授权 2 行修复之 2：显式传 plan_dir（消除被调方 L5 默认）"
+      }
+    ],
+    "authorization": "lead 裁决「E2 废止与 E3 授权补充」节（2 行方案）",
+    "live_doc_drift": []
+  },
+  "appendix_F_defaults_audit": {
+    "at": "2026-10-30T12:22:00+08:00",
+    "verify_execution_final_sha256": "f0612ba69d219177cd06fcd613c2a8b69e4ad9bfdf50199749493352fd932d49",
+    "audit_receipt": "receipts/l6-runtime-defaults-audit.json",
+    "finding_F1": "seal 侧 manifest.external_files 空 vs gate.EXTERNAL_REQUIRED 三锁定件",
+    "live_doc_drift": []
   }
 }

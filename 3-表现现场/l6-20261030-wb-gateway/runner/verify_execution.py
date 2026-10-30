@@ -20,6 +20,8 @@ from pathlib import Path
 
 GATE_PATH = (Path(__file__).resolve().parents[3] / "1-评测方案" / "工具链"
              / "l5-execution" / "gate.py")
+# L6 站点常量：显式传 plan_dir 给 gate（gate.DEFAULT_PLAN_DIR 锚定 L5，不得依赖被调方默认）
+PLAN_DIR = Path(__file__).resolve().parents[3] / "1-评测方案" / "自动循环L6-2026-10-30"
 
 
 def load_common_gate():
@@ -42,7 +44,8 @@ def verify_execution(binding_path) -> dict:
                 "binding_path": str(binding_path),
                 "rule": "fail-closed: 缺共同 gate 即零调用"}
     try:
-        evidence = gate.verify_execution(binding_path, require_release=True)
+        evidence = gate.verify_execution(binding_path, require_release=True,
+                                         plan_dir=PLAN_DIR)
         return {"ok": True, "reasons": [], "gate_evidence": evidence,
                 "binding_path": str(binding_path),
                 "rule": "共同 gate 全部封印检查通过（require_release=True）"}
