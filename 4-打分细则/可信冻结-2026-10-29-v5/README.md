@@ -21,3 +21,7 @@
 - 本批是**运行记录模板 schema v2 的首个执行批**（十字段强制），也是[桌面工作区边界判定线](<../../1-评测方案/正式批次-2026-10-31/判定线-2026-10-31-桌面工作区边界.md>)的首个适用批（任务书硬条款 + 越界即 X + 终审加查 find/ls）；两者均在注册计划 note 中预注册声明，先于运行封存。
 - 豆包检索三件套与 formal-b1 相同（任务书禁网条款 + 轨迹披露 + integrity_scan 兜底）；实证 clean 记 V、实证命中记 X。
 - 配额制：本 slot 仅 1 次发射（kind=first），发射失败即停不重试不补跑；probe 绿但会话无效仍按 `infrastructure_invalid` 合规拒绝。**三种终局均为合规终局，本代封印不预设结果。**
+
+## 封印修订-2（2026-10-31 02:19+08:00，运行完成后、事件导入前；显式披露）
+
+注册计划的 `registration[0].parent_id` 在封印时预写为 `formal-b1-doubao-exercism-py-6-01`，与机械契约冲突：`validate_event` 要求 selection 与计划条目**逐字段全等**，而 `select_events` 队列要求首事件 `kind=first` 且 `parent_id=null`——两者不可同时满足，validate-import 以 `queue must start at first` 拒绝。修正：计划该字段 → `null`（先承关系由 `design.predecessor` 与条目 `reason` 叙述保留，跨批作废重跑在本队列语义中=新 plan 新 slot 的 first）；级联更新 `config.official_slots.plan_sha256`（`d7f21136…` → `f050cbe8…`）与 lock 中 config、registration-plan 两个 contract pin（现算）。**其余 30 个 pin 零变动（逐一实测复核）**；运行操作严格按封印计划执行（单次发射、无重试），未受修订影响；修订后 validate-import / build / verify 全 exit 0、49/49 测试通过。修订时序：D 封印（`dec790a`）→ 运行（01:27–02:07）→ 修订-2（02:19）→ 导入与 build。

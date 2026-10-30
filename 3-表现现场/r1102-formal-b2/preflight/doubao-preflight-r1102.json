@@ -1,0 +1,51 @@
+{
+  "kind": "interface_preflight",
+  "product": "doubao",
+  "batch": "r1102-formal-b2",
+  "at": "2026-10-31T01:18:44+08:00",
+  "model_calls": 1,
+  "model_call_note": "probe 冒烟=1 次微型 agent 往返（answer.txt=probe-ok-1793380669），非正式运行",
+  "checks": [
+    {
+      "check": "probe-session",
+      "ok": true,
+      "detail": "session id=38450462757539586，trajectory 5 records，last_role=assistant，answer.txt 正确产出——确认 r1101 exercism 发射失败为瞬时故障"
+    },
+    {
+      "check": "app-lifecycle",
+      "ok": true,
+      "detail": "probe 后 DoubaoWork 正常退场；正式场 01:27 重启发射成功"
+    },
+    {
+      "check": "workspace-prep",
+      "ok": true,
+      "detail": "1 工作区 ~/bench-workspaces/r1102/doubao/exercism-py-6/，TASK.md 含边界硬条款（r1102 模板）+禁网附则（同文追加，sha f52abe00…）"
+    },
+    {
+      "check": "collect",
+      "ok": true,
+      "detail": "session/ trajectory.jsonl + briefing + board + memory 等七类文件收齐"
+    },
+    {
+      "check": "version",
+      "ok": true,
+      "detail": "DoubaoWork app_version=2.33.7（与 r1101 同版本）"
+    },
+    {
+      "check": "adjudication-precheck",
+      "ok": true,
+      "detail": "完成判定 timeout 收敛路径演练：wait 返回 timeout + artifacts 计数，judgment 留人工终审（本批实发后按此处置）"
+    }
+  ],
+  "verdict": "PASS",
+  "score_unassessed": "interface_preflight 无评分概念,score 字段按 unknown+受管 issue 登记",
+  "identity_value": {
+    "event_id": "formal-b2-doubao-preflight-01",
+    "run_id": "r1102-doubao-preflight",
+    "category": "interface_preflight",
+    "product": "doubao",
+    "group": "not_applicable",
+    "experiment": false,
+    "case_id": "not_applicable"
+  }
+}

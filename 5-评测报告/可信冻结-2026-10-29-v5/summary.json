@@ -1,0 +1,53 @@
+{
+  "rule_version": "freeze-20261029-v5",
+  "collected_at": "2026-10-31T01:22:59+08:00",
+  "live_doc_drift": [
+    {
+      "path": "4-打分细则/可信冻结-2026-10-29-v5/README.md",
+      "sealed_sha256": "c64758a15f722f74717b76372de1ec675fbe347c2da9c19c8e6d4aae1b8fcb17",
+      "actual_sha256": "a36f4e1a5624014694bee563808df6c4567e64a3f24207f2e46aa66380298ea7"
+    }
+  ],
+  "historical_rows": 96,
+  "historical_original_sources": 326,
+  "source_counts": {
+    "verified": 242,
+    "external_not_packaged": 84
+  },
+  "registered_counts_not_all_time_totals": {
+    "product_run": 92,
+    "self_test": 13,
+    "offline_recompute": 5,
+    "grading_regression": 3,
+    "bare_model_probe": 5,
+    "interface_preflight": 4
+  },
+  "official_counts": {
+    "A_same_model": 0,
+    "B_native": 1
+  },
+  "historical_cells": 25,
+  "coverage": {
+    "scope": "selected individually locatable invocation/batch receipts, not exhaustive historical totals",
+    "cutoff": "2026-10-29T02:12:00+08:00",
+    "self_test": "3 historical standalone logs +1 supplemented failed engine invocation +3 raw-captured passing invocations(32/35/38 assertions); additional imported selftests counted by their own event IDs",
+    "offline_recompute": "5 separately identified result batches including archived10-27 replay; not each result row",
+    "grading_regression": "2 archived and 1 fresh lead invocation, nested selftests not additional events",
+    "interface_preflight": "one external WB sandbox preflight reference, not public verified evidence",
+    "bare_model_probe": "5 canonical bare-model records from 96-row ledger",
+    "product_run": "91 canonical tool/product executions in ledger, including invalid/research; exploratory-probe uses product tools and is not bare model",
+    "excluded": "source scans, syntax checks, future reviewer validation and subsequent unregistered invocations not silently counted",
+    "original_times": "retain explicit receipt timestamps/verbatim time lines; generated_at/date not automatically runtime; unknown if no explicit field",
+    "imported_events": "build-recipe pins exact imported envelopes; their source collection times are preserved per event, not inferred from batch names",
+    "formal_a1_addendum": "r1030-formal-a1 首批正式批次：5 个判分器自测收据 + CLI 接口预检（零模型调用） + WorkBuddy 准入预检；产品运行事件由导入登记，不入 registry。"
+  },
+  "import_pins": [
+    {
+      "path": "3-表现现场/r1102-formal-b2/formal-b2-events.json",
+      "sha256": "d9d7bf3181d9ec89cc5e23cb8c92de73bb670aa0c66a6dae210130e194b8889c"
+    }
+  ],
+  "source_map": {},
+  "no_cross_group_ranking": true,
+  "current_config_hash_is_not_historical_version": true
+}
