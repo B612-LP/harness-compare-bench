@@ -1,7 +1,7 @@
 # L6 判卷器修订独立验收（task-18，judge）— 2026-10-30
 
 - 范围：L6-A（bird checker 元数据两键纯增量）与 L6-C（receipt 自引排除+manifest_receipt 生成器）的独立复算验收；E 封印前门禁。全程零模型；git 只读（rev-parse/log/show/merge-base/diff/status）。
-- 结论速览：**清单 1–3、5 全 PASS（独立复算）；清单 4 项内 FAIL 一处——L6 contract.json 的 bird pin 为修前哈希，违反 PREREG『pin 修订后』声明，已立即报 lead（未静默修正）**。其余四 case 继承、分母、rule_version、plan_cardinality=1 均核过。
+- 结论速览（初验 11:36）：清单 1–3、5 全 PASS；清单 4 FAIL 一处（contract bird pin=修前哈希）→ **已闭环（D3 复验 11:47，见文末 Dated）**。其余四 case 继承、分母、rule_version、plan_cardinality=1 均核过。
 - 机器收据：`verify-receipt-l6.json`（sha256 `51ea7cc253bbe549819f1cfcf8b083fb668728e45bb32e712f1e141d782c73f6`，receipt_check 自检 ok/0 违规）。
 
 ## 一、观察
@@ -52,3 +52,10 @@ python3 -c "import hashlib,json;from pathlib import Path;c=json.loads(Path('1-�
 ```
 
 附：task-18 未见于共享任务板（板至 task-16），按 lead 消息指令执行，已回报请其知悉。
+
+
+## Dated：F-1 闭环复验（2026-10-30T11:48:19+08:00，D3=1211b5b）
+
+- **根因（lead 如实声明，与其 diff 相符）**：prepare_design.py 首版 --contract-only 只刷新顶层 checker_sha256 映射，漏了 case_snapshots 内嵌 per-file pin；缺陷版 contract 保留于 f10881c 可考，未销痕。
+- **独立复验（全绿）**：①snapshot pin==顶层映射==盘面==`ffa7389adef32779…`；②顶层映射四 case==disk==L5；③snapshot files 8 件 disk 全 match，L5 相比仅 `checker.py` 与 `spec.md` 两件变化——**修订面恰为二件**；④truth/instruction/case.json/inputs（4 件递归）与 L5 逐字节一致；⑤case_version 新值 `bird-ca-schools-15@sha256:4ea5ee92…e35bdf8c`；⑥fail-closed 三断言（非 bird 重算==L5 / bird 修订面恰二件 / 快照 pin==顶层映射）在 prepare_design.py case_snapshot 实现核到。
+- **判定**：清单 4 转 **PASS**；本验收七项全 PASS。F-1 由 judge 独立验收抓获→lead 修复→judge 复验闭环，全程留痕（f10881c→1211b5b）。

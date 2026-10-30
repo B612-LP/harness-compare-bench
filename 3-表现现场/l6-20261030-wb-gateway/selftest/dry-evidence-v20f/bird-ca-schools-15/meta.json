@@ -1,0 +1,214 @@
+{
+  "batch": "l5-20261030-wb-gateway",
+  "rule_version": "l5-20261030-batch-v1",
+  "preregistration_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "registered_at": "2026-10-29T20:00:00+08:00",
+  "rep": 1,
+  "product": "workbuddy",
+  "case": "bird-ca-schools-15",
+  "form": "desktop-auto-cdp-rpc",
+  "slot_id": "l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+  "order": 5,
+  "run_id": "l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+  "event_id": "event:l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+  "selection": {
+    "plan_id": "l5-20261030",
+    "slot_id": "l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+    "order": 5,
+    "kind": "first"
+  },
+  "workspace": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l6-20261030-wb-gateway/selftest/dry-ws-v/bird-ca-schools-15",
+  "model": "deepseek-v4.1-flash",
+  "declared_alias": "deepseek-v4.1-flash",
+  "actual_request_model": null,
+  "actual_request_model_status": "not_observable_in_this_batch（不可观测≠已证）",
+  "alias_evidence": {
+    "driver_create_model_param": "DeepSeek V4.1-Flash",
+    "session_db_model_field": "deepseek-v4.1-flash",
+    "note": "collect 后以 session-row/jsonl requestModelId 复核；不可观察或非 deepseek-v4.1-flash → 停槽诊断",
+    "session_db_thought_level": "low",
+    "source_records": {
+      "session_row": "trace/session-row.json",
+      "jsonl": [
+        "mock-session-0001.jsonl"
+      ]
+    }
+  },
+  "reasoning_effort": "low（会话级声明设置；上游解释不可观测→managed unknown）",
+  "product_version": "9.9.9-dry",
+  "app_asar_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "route": {
+    "host": null,
+    "provider_id": "workbuddy-gateway（产品交付态）",
+    "wire_protocol": "unobservable（TLS 端到端）",
+    "endpoint": null,
+    "actual_gateway": "unknown",
+    "declared_alias": "deepseek-v4.1-flash",
+    "alias_evidence": "agent-session/session-row.json",
+    "route_verification": "current_not_observed",
+    "validation": "current_not_observed",
+    "r2_history_ref": "1-评测方案/准入预检-2026-10-29/wb-preflight-r2.json"
+  },
+  "tools": [],
+  "soft_constraints": [
+    "离线题解约束（workspace 仅 inputs+TASK）"
+  ],
+  "permissions": "fullAccess（wb:conversations:create 参数，DB 可核）",
+  "skills": "record actual from trace；不可观测项 managed unknown",
+  "web_search": "off（未启用；以 trace 审计为准）",
+  "prompt_sha256": "f061e095867e8659d84b3a214a9a3688760f8a725c6fc00c69c30d7d362939ed",
+  "isolation": {
+    "ok": false,
+    "workspace_outside_repo": false
+  },
+  "inputs": [
+    {
+      "path": "inputs/answer.txt",
+      "sha256": "9e9e4a5de400a360bbda90cb05b4f93103902397b7ed7fb7a432749fdfca9fce",
+      "bytes": 38
+    }
+  ],
+  "created_at": "2026-10-30T10:54:09+08:00",
+  "started_at": "2026-10-30T10:54:09+08:00",
+  "finished_at": "2026-10-30T10:54:09+08:00",
+  "duration_s": 0.0,
+  "status": "timeout",
+  "exit_code": null,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-30T10:54:09+08:00",
+      "exit_code": null,
+      "outcome": "timeout"
+    }
+  ],
+  "transport_retries": 0,
+  "transport_retry_events": [],
+  "stdout_bytes": 691,
+  "stderr_bytes": 0,
+  "stdout_sha256": "e6ea6da8f28199120546fe90acc4ec86af9cfedfc10fc90241c22f5f9cbc10d6",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_source": "product-native-trace（WB 无 CLI stdout 流；canonical=会话 jsonl）",
+  "usage": {
+    "per_call": [
+      {
+        "input_tokens": 120,
+        "output_tokens": 18,
+        "cache_read_input_tokens": null,
+        "cache_creation_input_tokens": null,
+        "ts": "2026-10-29T20:30:10+08:00",
+        "model_in_record": "deepseek-v4.1-flash"
+      },
+      {
+        "input_tokens": 240,
+        "output_tokens": 36,
+        "cache_read_input_tokens": 96,
+        "cache_creation_input_tokens": 12,
+        "ts": "2026-10-29T20:30:20+08:00",
+        "model_in_record": "deepseek-v4.1-flash"
+      }
+    ],
+    "note": "WB 原生 rawUsage 逐调用落盘；缺失保留 null 不填 0"
+  },
+  "reward": 0,
+  "weighted": 0.0,
+  "failed": [
+    "ok-file"
+  ],
+  "judge": {
+    "reward": 0,
+    "weighted": 0.0,
+    "checks": [
+      {
+        "id": "ok-file",
+        "pass": false
+      }
+    ],
+    "n_checks": 1,
+    "checker_sha256": "785fb074aa281bbeb9d6889363197b6f485072e485132f4c61ae008a008e0d48",
+    "exit_code": 1,
+    "raw_stdout_head": "{\"reward\": 0, \"weighted\": 0.0, \"checks\": [{\"id\": \"ok-file\", \"pass\": false}], \"n_checks\": 1}\n",
+    "guards_used": null,
+    "guards_method": "insufficient_fields",
+    "guards_candidates": 0
+  },
+  "integrity": {
+    "contamination_hits": [],
+    "scan_patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "missing_trace": false
+  },
+  "integrity_verdict": "clean",
+  "stratum": "wb_gateway_delivery",
+  "stratum_display": "WB 产品交付态（历史证据指向网关；本批路由状态单列）",
+  "timeout_s": 1800,
+  "managed_unknowns": [
+    {
+      "item": "gateway_upstream_model",
+      "impact": "网关服务端上游模型权重/供应商不可观测；不能参与同模型/同路由因果比较",
+      "next_step": "如需闭环向产品方索取披露",
+      "stop_condition": "披露或本批结束即停"
+    },
+    {
+      "item": "gateway_host_current",
+      "impact": "本批无被动网络取证时 actual_gateway 不可观察",
+      "next_step": "route_validation=current_not_observed + r2 历史依据",
+      "stop_condition": "本批不主动做网络取证（无干扰纪律）"
+    },
+    {
+      "item": "effort_upstream_interpretation",
+      "impact": "declared thought_level=low 的上游解释不可观测",
+      "next_step": "逐场登记 DB 会话行值",
+      "stop_condition": "本批结束即停"
+    },
+    {
+      "item": "internal_tools_skills",
+      "impact": "产品内部工具/skills 开关不可见",
+      "next_step": "以 trace 可见行为审计为准",
+      "stop_condition": "本批结束即停"
+    }
+  ],
+  "timed_out": true,
+  "stop_info": {
+    "stop_verified": true,
+    "cancel_at": "2026-10-30T10:54:09+08:00",
+    "cancel_invoked": true,
+    "deadline_reached_at": "2026-10-30T10:54:09+08:00"
+  },
+  "driver": {
+    "snapshot_sha256": "f9d4b076811bebad80ff952dd719060214f8ade83033227ab7d029bf6a0bec23",
+    "sigterm_branch": "structurally disabled (runner/safe_driver.py)"
+  },
+  "inputs_verification": {
+    "ok": true,
+    "checked": 1,
+    "method": "fixture（干跑）"
+  },
+  "renderer_ready": {
+    "ready": true,
+    "waited_s": 0.0,
+    "polls": 1,
+    "timeout_s": 120,
+    "poll_s": 2
+  },
+  "native_stop": {
+    "file": "native-stop.json",
+    "sha256": "b094569e06702188c67afeb2de32cd56601fe581ff6b1db86b61f9d67629b1ad"
+  },
+  "evidence_paths": {
+    "prompt": "prompt.txt",
+    "stdout": "trace/mock-session-0001.jsonl",
+    "stderr": "agent.stderr.txt",
+    "session": "agent-session",
+    "workspace": "workspace"
+  },
+  "upgrade_drift": false
+}

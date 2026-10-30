@@ -680,5 +680,78 @@
   "builder_replay_receipt": "a9686e745b8bfd1924d207b8db0570a0e1c0b372cf2ddd696d554d87981b230b",
   "gate_l5": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9"
  },
- "evidence_lines_note": "哈希以本收据 referenced_sha256 与 identity 键为准（64 位全量）"
+ "evidence_lines_note": "哈希以本收据 referenced_sha256 与 identity 键为准（64 位全量）",
+ "d3_recheck_2026-10-30T11:48:04+08:00": {
+  "commit": "1211b5b787049b9367af8b85aa99ab15d9d7104c @ 2026-10-30T11:45:03+08:00",
+  "root_cause_confirmed": "prepare_design --contract-only 首版漏刷新 case_snapshots 内嵌 per-file pin（缺陷版保留于 f10881c 可考）",
+  "fail_closed_assertions_in_source": [
+   "非 bird 重算==L5 逐字节",
+   "bird 修订面=={checker.py,spec.md}",
+   "快照 pin==顶层映射"
+  ],
+  "check_matrix": {
+   "top_map_bird==disk": true,
+   "snap_pin==top_map": true,
+   "top_map_dabstep-payments-10==disk": true,
+   "top_map_dabstep-payments-10==L5": true,
+   "top_map_tb-cargo-plan==disk": true,
+   "top_map_tb-cargo-plan==L5": true,
+   "top_map_exercism-py-6==disk": true,
+   "top_map_exercism-py-6==L5": true,
+   "top_map_lcb-recent-hard-4==disk": true,
+   "top_map_lcb-recent-hard-4==L5": true,
+   "snap_files": {
+    "instruction.md": {
+     "disk_match": true,
+     "l5_unchanged": true
+    },
+    "spec.md": {
+     "disk_match": true,
+     "l5_unchanged": false
+    },
+    "case.json": {
+     "disk_match": true,
+     "l5_unchanged": true
+    },
+    "truth.json": {
+     "disk_match": true,
+     "l5_unchanged": true
+    },
+    "checker.py": {
+     "disk_match": true,
+     "l5_unchanged": false
+    },
+    "inputs/db/california_schools.sqlite": {
+     "disk_match": true,
+     "l5_unchanged": true
+    },
+    "inputs/questions.json": {
+     "disk_match": true,
+     "l5_unchanged": true
+    },
+    "inputs/sample_rows.json": {
+     "disk_match": true,
+     "l5_unchanged": true
+    },
+    "inputs/schema.sql": {
+     "disk_match": true,
+     "l5_unchanged": true
+    }
+   },
+   "inputs_walk": {
+    "n": 4,
+    "all_match_and_l5_unchanged": true
+   },
+   "spec_md_changed_vs_L5": true,
+   "checker_changed_vs_L5": true,
+   "revised_face_exactly": [
+    "checker.py",
+    "spec.md"
+   ],
+   "case_version_value_L6": "bird-ca-schools-15@sha256:4ea5ee92db986ba556ff876f9646310e9d7a1659bcc96ce10b9e04c6e35bdf8c",
+   "case_version_value_L5": "bird-ca-schools-15@sha256:8d24ed6561eb8c80672b863fa32c23f7429dd293ac9733bac0ce4111eee8c80f"
+  },
+  "case_version_L6": "bird-ca-schools-15@sha256:4ea5ee92db986ba556ff876f9646310e9d7a1659bcc96ce10b9e04c6e35bdf8c",
+  "verdict": "F-1 CLOSED — 清单4 转 PASS（复验 2026-10-30T11:47+08:00）"
+ }
 }
