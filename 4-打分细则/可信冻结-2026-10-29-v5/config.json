@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "rule_version": "freeze-20261029-v5",
+  "effective_at": "2026-10-31T01:22:59+08:00",
+  "collected_at": "2026-10-31T01:22:59+08:00",
+  "a_model": "deepseek-flash",
+  "a_route_host": "api.deepseek.com",
+  "policy": {
+    "first": "first_registered",
+    "replacement": "invalid_only_next_registered_max_1",
+    "repeat": "all_registered_no_best",
+    "retry": "infrastructure_only_max_1",
+    "unknown": "no_zero_no_rescale",
+    "dab2697": "not_capability_attribution",
+    "mixed_group_ranking": false
+  },
+  "case_snapshots": {
+    "bird-ca-schools-15": {
+      "checker.py": "ffa7389adef32779686bbe56aef7d711db1d8d1c191ff5dd389310e6c01d1910",
+      "truth.json": "c5bb7999079ac8f1711049d81392729edf127a27134d32a905ca39de15b8ea19",
+      "instruction.md": "4af848ac71de686cb839124ab79cc7da87c9139b5820cd312653a9fd273ead91",
+      "manifest_sha256": "4ea5ee92db986ba556ff876f9646310e9d7a1659bcc96ce10b9e04c6e35bdf8c",
+      "case_version": "bird-ca-schools-15@sha256:4ea5ee92db986ba556ff876f9646310e9d7a1659bcc96ce10b9e04c6e35bdf8c",
+      "files": {
+        "instruction.md": "4af848ac71de686cb839124ab79cc7da87c9139b5820cd312653a9fd273ead91",
+        "spec.md": "1dacc22e77955d987ee29b1fbeb997899e30ee0c22264a861033681beb547d26",
+        "case.json": "d8a4856adbc214862c27c0ba86cf316ec8d02bec982abe84b29587b607f71cd7",
+        "truth.json": "c5bb7999079ac8f1711049d81392729edf127a27134d32a905ca39de15b8ea19",
+        "checker.py": "ffa7389adef32779686bbe56aef7d711db1d8d1c191ff5dd389310e6c01d1910",
+        "inputs/db/california_schools.sqlite": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+        "inputs/questions.json": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+        "inputs/sample_rows.json": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+        "inputs/schema.sql": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d"
+      }
+    },
+    "dabstep-payments-10": {
+      "checker.py": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+      "truth.json": "9e6e395fc7b0e5cf60238b8c3ab30fdaa399422fc047f554f0198488156e46d8",
+      "instruction.md": "2d22b2f3e44841e663b32c58ff8eb4d67a408f564820cf307e443094e810d940",
+      "manifest_sha256": "2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+      "case_version": "dabstep-payments-10@sha256:2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+      "files": {
+        "instruction.md": "2d22b2f3e44841e663b32c58ff8eb4d67a408f564820cf307e443094e810d940",
+        "spec.md": "ef0f822d01b56089bb6fe56f1a9a6bcf7f4a1ee9796689908c8ac04a45c53852",
+        "case.json": "8a2f327a6696832c9c54a92bb176d9ba6ea293e5f4e42fd9badb657a32f52179",
+        "truth.json": "9e6e395fc7b0e5cf60238b8c3ab30fdaa399422fc047f554f0198488156e46d8",
+        "checker.py": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "inputs/acquirer_countries.csv": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+        "inputs/fees.json": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+        "inputs/manual.md": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+        "inputs/merchant_category_codes.csv": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+        "inputs/merchant_data.json": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+        "inputs/payments.csv": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+        "inputs/questions.jsonl": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730"
+      }
+    },
+    "exercism-py-6": {
+      "checker.py": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+      "truth.json": "6e4a66ad8ca47693d404f769374d55d7fdee457bed376764d5d3a014374c1f55",
+      "instruction.md": "d9b3644b9d88e4238fdc040a09c6c5df1daef87e8fb6cac89181ce72dc3dc95a",
+      "manifest_sha256": "7913a1ad769f1f9e002b5473375ea3ddf076bad152e2fed8f50c514ff3e2420c",
+      "case_version": "exercism-py-6@sha256:7913a1ad769f1f9e002b5473375ea3ddf076bad152e2fed8f50c514ff3e2420c",
+      "files": {
+        "instruction.md": "d9b3644b9d88e4238fdc040a09c6c5df1daef87e8fb6cac89181ce72dc3dc95a",
+        "spec.md": "1ae5102ebf4cf6fe0971f136ec536e438d977a56daa0e1bc20183ab06bead2c6",
+        "case.json": "3934a0cad5dccb53bacf691a02a4aeda669cc6e63a500780434f078c7a8e53fe",
+        "truth.json": "6e4a66ad8ca47693d404f769374d55d7fdee457bed376764d5d3a014374c1f55",
+        "checker.py": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+        "trusted_runner.py": "4002bcf55618673aea7ef408ea84dd8752b1596dd173db834330b24ce0c7ba86",
+        "inputs/README.md": "ce8cd74f03bf3517217591fc7289246069c4a6466f59960f115330ab0899956f",
+        "inputs/exercises/bowling/README.md": "5ab7dcccef9be464f8e5f1d6a9c543d6c4c14e435c2ffe40d2e118ebfd299e32",
+        "inputs/exercises/bowling/bowling.py": "a356c0682b6c0c04e9e30a7da603b2014c227426b43bbe37f34cd99913d368b6",
+        "inputs/exercises/bowling/bowling_test.py": "6b9a80b6835828f575ce0aba66876850f75c59f764014ac509fe1df7e3a9ee20",
+        "inputs/exercises/dominoes/README.md": "77f6d2a86ba50b8ba2f0b53f1ab799eb2f30c1e4853ce1296ee1949578d6c50e",
+        "inputs/exercises/dominoes/dominoes.py": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b",
+        "inputs/exercises/dominoes/dominoes_test.py": "9645efc873738b9247ced09ccdce782fe2124646d24588d52c23df59e23ab140",
+        "inputs/exercises/forth/README.md": "0480b8a2eef97049ddff262b0bc21f5b31167561325c402918b5ceb0c37b466a",
+        "inputs/exercises/forth/forth.py": "9acd281e02feff4fc5ae766063a1ce1290b625bb930cc8f54c15a0109610e562",
+        "inputs/exercises/forth/forth_test.py": "05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c",
+        "inputs/exercises/poker/README.md": "9c24e6480e2ddbf3b72116c30cde1560657ca8ef283d1be26004ef2fa7908c97",
+        "inputs/exercises/poker/poker.py": "6a4b5adab3ba9261fb4f9e2b09abc549b9ea37bf0774edc3c7759cec9a8b41fe",
+        "inputs/exercises/poker/poker_test.py": "b39f023208318973e18a341449aa076f7595ff98f07174082a2a1b05c84ad8fd",
+        "inputs/exercises/pov/README.md": "12dafe5d49b0510037ea6ced53ae6ff08305b75f2d3be89efcad2635d54d75ec",
+        "inputs/exercises/pov/pov.py": "ed7eba5f0b64b69a0a1904dc338ce39039b5de3ea2aa74019d8d494ca46b11ba",
+        "inputs/exercises/pov/pov_test.py": "a5127ac17db6ad1563a08ba8ee2bbfc25ed8ab81ee56b92a355eb4a4dc2559fe",
+        "inputs/exercises/zipper/README.md": "8b932da02d3e213b5b1e03a8f585c89b72084d024074287d4b7427a351e4d619",
+        "inputs/exercises/zipper/zipper.py": "66276107d448f53a12509da6f503280e0dca4a6bbd9d690a774fb0972a55f926",
+        "inputs/exercises/zipper/zipper_test.py": "a3cf6e5ebcf6b2171bcc80fa0ce81b425af23b522f222e841fa2abd3119e95b2"
+      }
+    },
+    "lcb-recent-hard-4": {
+      "checker.py": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+      "truth.json": "8a9ae6deb4d088b011348d5245d18697f5df5b8b65390c7679c6a8d539c90d14",
+      "instruction.md": "1c39b2fa66982a7d54851e20822cb4064d8254122f2b047634b64fecdbd6045c",
+      "manifest_sha256": "d53d6e9e318c7a84d2103c3c75828a25be67aac645ab027a7b11624941b14a65",
+      "case_version": "lcb-recent-hard-4@sha256:d53d6e9e318c7a84d2103c3c75828a25be67aac645ab027a7b11624941b14a65",
+      "files": {
+        "instruction.md": "1c39b2fa66982a7d54851e20822cb4064d8254122f2b047634b64fecdbd6045c",
+        "spec.md": "65c1debb503fefe9f4e813be9f414cd859fc75063fa3670c838b250772a174b9",
+        "case.json": "ac6b7b901cb5192285f26dd31db03ce4af55611d163a18fb27f3596018f298df",
+        "truth.json": "8a9ae6deb4d088b011348d5245d18697f5df5b8b65390c7679c6a8d539c90d14",
+        "checker.py": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "inputs/problems.json": "0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673"
+      }
+    },
+    "tb-cargo-plan": {
+      "checker.py": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+      "truth.json": "982754f17eea923b0abfcfee08c991d7c502b771c5c0c598c5c097fe3460c163",
+      "instruction.md": "e350cce533227c47e76199a31070d7881c6d9b182ed84631a16b0b7ac7e4e227",
+      "manifest_sha256": "fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+      "case_version": "tb-cargo-plan@sha256:fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+      "files": {
+        "instruction.md": "e350cce533227c47e76199a31070d7881c6d9b182ed84631a16b0b7ac7e4e227",
+        "spec.md": "8a94143a8333254fe5e57f7d47ea3708bd7837dd674c4189343c245f514758ea",
+        "case.json": "5be18f62549cf7b532eed796fbca9aa1995cf69c1add8e94a0b5966cb0ef37b4",
+        "truth.json": "982754f17eea923b0abfcfee08c991d7c502b771c5c0c598c5c097fe3460c163",
+        "checker.py": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "inputs/app/aircraft.py": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+        "inputs/app/data/aircraft.json": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+        "inputs/app/data/airports.json": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+        "inputs/app/data/manifest.json": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+        "inputs/app/data/weather.json": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+        "inputs/app/dispatch.py": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+        "inputs/app/navigation.py": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e"
+      }
+    }
+  },
+  "official_slots": {
+    "B_native|doubao|exercism-py-6": {
+      "plan_id": "formal-b2-20261031",
+      "slot_id": "b2-doubao-exercism-py-6",
+      "plan_sha256": "d7f2113632e66615917232007d181bc1d27a72a99da9b7d7fd9b124a07ce2382"
+    }
+  },
+  "historical_ledger": {
+    "path": "5-评测报告/运行总账-2026-10-24.public-derived.json",
+    "sha256": "6351b27778000078a653a2a5f725f9bd3bd39e8f65e671b8e54bc6bdbe037bbb"
+  },
+  "work_registry": {
+    "path": "4-打分细则/可信冻结-2026-10-29-v2/work-registry.json",
+    "sha256": "04944e28f243e06fd119a614c766f990c81813f4bce8a45958076e37796a93a6"
+  }
+}
