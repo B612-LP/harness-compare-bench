@@ -1,0 +1,75 @@
+{
+  "kind": "receipt_check_report",
+  "tool": "receipt_check.py",
+  "at": "2026-10-30T14:17:30+08:00",
+  "root": "/Users/b612-lp/Documents/harness-compare-bench",
+  "require_drift": true,
+  "docs": [
+    {
+      "file": "5-评测报告/L8证据链修订-2026-10-30/l8-supersession-demo-receipt.json",
+      "exists": true,
+      "live_doc_drift": {
+        "required": true,
+        "found": true,
+        "lines": [
+          {
+            "kind": "json-key",
+            "wellformed": true,
+            "value_kind": "list",
+            "length": 0
+          }
+        ]
+      },
+      "hash_lines": {
+        "scanned": 7,
+        "tokens": 7,
+        "violations": []
+      },
+      "evidence_lines": {
+        "total": 0,
+        "verified_ok": 0,
+        "verified_bad": 0,
+        "unverified": 0,
+        "details": []
+      },
+      "ok": true,
+      "supersession": {
+        "found": true,
+        "entries": [
+          {
+            "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r1-VOIDED-跨pin复算设计误.json",
+            "sha256": "b2c977a5985b1e870656fc54adbe5eb0d6b8e3071040da40c73c67c251f4087c",
+            "verified": true
+          },
+          {
+            "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r2-VOIDED-冻结副本错位.json",
+            "sha256": "9532cd142e77205d933fd112bdfe267e0f96c4acbb286155e38bcdc93651f970",
+            "verified": true
+          },
+          {
+            "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r3-VOIDED-部分世界复判设计误.json",
+            "sha256": "4e7c424533d910877947d031fc22b5b06df7138f30d991978b86a8ebdf50ff75",
+            "verified": true
+          },
+          {
+            "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r4-VOIDED-树内binding代际错位.json",
+            "sha256": "11ace1ec584a2d20f06c6f996bf1005dfaead5ece9b4983fe7a04e81564ffc0b",
+            "verified": true
+          },
+          {
+            "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r5-VOIDED-证据缺位.json",
+            "sha256": "1461b8c96922d446bd24aa058a167c56f78c81e2979f753978b0f92c5e97db2e",
+            "verified": true
+          },
+          {
+            "file": "../L7验证器修订-2026-10-30/l7-gate-recompute-receipt-r6-VOIDED-跨批重演设计废弃.json",
+            "sha256": "91398ac2dee60d417d7fa90a88419f616c7136c07f9d6f710b55d76f35c23a77",
+            "verified": true
+          }
+        ],
+        "violations": []
+      }
+    }
+  ],
+  "all_ok": true
+}
