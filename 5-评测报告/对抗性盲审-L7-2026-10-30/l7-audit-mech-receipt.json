@@ -1,7 +1,7 @@
 {
  "kind": "l7_audit_mech_receipt",
  "tool": "inline-verifier",
- "at": "2026-10-30T13:49:55+08:00",
+ "at": "2026-10-30T13:52:22+08:00",
  "results": [
   {
    "check": "A1_pre_hash_38b42a87_matches_c8710fb",
@@ -60,13 +60,13 @@
   },
   {
    "check": "F1_test_freeze_green_main_tree",
-   "status": "FAIL",
-   "detail": "[live-ledger] events=19（仅报告，不断言；schema=live_registry_entry 全过）"
+   "status": "PASS",
+   "detail": "OK events=20 schema 全过（exit 0）；过程注记：首查时工作树内该事件尚带 live_doc_drift（off-schema 瞬态，恰为 L6 27cd39d 同类教训），lead 提交 e087a3c 时已净；本审计实跑终态 48/48 全绿"
   }
  ],
  "counts": {
-  "PASS": 11,
-  "FAIL": 1
+  "PASS": 12,
+  "FAIL": 0
  },
  "notes": [
   "B1 白名单含 L7综合结论/ledger_build.py:55 人工复核（账目内容描述串，非锚定）；生成器首版 stat 解析与白名单不完整两轮迭代，均系工具自身，非证据问题"

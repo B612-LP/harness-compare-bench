@@ -38,7 +38,7 @@
 ## 5. 集成动作（AUD-L7-S5）
 
 - **PR#10（c8710fb merge loop6→main）零新改动实证**：c8710fb 为双亲 merge（main f40c75e + loop6 42ecf72）；`git diff 42ecf72 c8710fb` = **0 行**——merge 树与 loop6 侧完全一致，零新改动 ✓（main 侧净增=L5+L6 全部交付 715 文件）。注：loop6 侧 42ecf72 含 L6 收尾三提交（acceptance/ledger schema repair/auditor polish），早于 L7 D1——时序正常。
-- **main test_freeze**：现行树实跑 **OK，events=19，schema=live_registry_entry 全过** ✓。
+- **main test_freeze**：现行树实跑 **OK，events=20，schema=live_registry_entry 全过（exit 0）** ✓。过程注记：本审计首查曾捕得 L7 索引事件瞬态 off-schema（带 live_doc_drift，恰为 L6 27cd39d 同类教训复现瞬态），lead 提交 e087a3c 时已净、终态 48/48 全绿；收尾清单制度（必跑 invariant）已在 27cd39d 立制，本次为提交前窗口期瞬态，非终态缺陷。
 
 ## 6. 凭据/PII 与红线（AUD-L7-S6）
 
@@ -56,8 +56,10 @@
 - l7-audit-mech-receipt.json（本目录机械核）；scan-report-l7-full-r1.json；pii-min-check-report-l7-full-r1.json。
 - live_doc_drift: none（0 项）；证据行见 §9。
 
-## 9. 证据行
+## 9. 证据行（evidence_line.py 生成，2026-10-30T13:52:22+08:00）
 
 ```
-（由 evidence_line.py 生成后填充——见 receipt_check 回验记录）
+5-评测报告/对抗性盲审-L7-2026-10-30/l7-audit-mech-receipt.json · 394ed4a1 · 2036B · 2026-10-30T13:53:32+08:00
+5-评测报告/对抗性盲审-L7-2026-10-30/scan-report-l7-full-r1.json · 39946d2e · 4876B · 2026-10-30T13:52:22+08:00
+5-评测报告/对抗性盲审-L7-2026-10-30/pii-min-check-report-l7-full-r1.json · 548f48a7 · 441B · 2026-10-30T13:52:22+08:00
 ```
