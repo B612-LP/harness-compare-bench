@@ -1,0 +1,65 @@
+{
+  "kind": "l7-bearer-hygiene-scan",
+  "at": "2026-10-30T13:40:47+08:00",
+  "patterns": [
+    "Bearer\\s+[A-Za-z0-9_\\-\\.]{16,}",
+    "sk-[A-Za-z0-9]{20,}",
+    "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]"
+  ],
+  "scan_roots": [
+    "3-表现现场/l6-20261030-wb-gateway",
+    "1-评测方案/工具链",
+    "5-评测报告/L7验证器修订-2026-10-30",
+    "1-评测方案/自动循环L7-2026-10-30"
+  ],
+  "files_scanned": 155,
+  "hits": [
+    {
+      "file": "1-评测方案/工具链/run-dsh-xiaomi.sh",
+      "pattern": "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]",
+      "excerpt": ".patch.yml\" \\\n    --ae XIAOMI_API_KEY=\"$XIAOMI_API_KEY\" \\\n    --a"
+    },
+    {
+      "file": "1-评测方案/工具链/run-one-codex-xiaomi.sh",
+      "pattern": "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]",
+      "excerpt": "b_search=true \\\n  --ae XIAOMI_API_KEY=\"$XIAOMI_API_KEY\" --ae OPEN"
+    },
+    {
+      "file": "1-评测方案/工具链/run-one-codex-xiaomi.sh",
+      "pattern": "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]",
+      "excerpt": "\"$XIAOMI_API_KEY\" --ae OPENAI_API_KEY=\"$XIAOMI_API_KEY\" \\\n  --ae "
+    },
+    {
+      "file": "1-评测方案/工具链/run-dsh.sh",
+      "pattern": "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]",
+      "excerpt": "ordis.patch.yml\" \\\n  --ae ZAI_API_KEY=\"$ZAI_API_KEY\" \\\n  --ext"
+    },
+    {
+      "file": "1-评测方案/工具链/run-codex-xiaomi.sh",
+      "pattern": "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]",
+      "excerpt": "search=true \\\n    --ae XIAOMI_API_KEY=\"$XIAOMI_API_KEY\" --ae OPEN"
+    },
+    {
+      "file": "1-评测方案/工具链/run-codex-xiaomi.sh",
+      "pattern": "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]",
+      "excerpt": "\"$XIAOMI_API_KEY\" --ae OPENAI_API_KEY=\"$XIAOMI_API_KEY\" \\\n    --a"
+    },
+    {
+      "file": "1-评测方案/工具链/run-bare.sh",
+      "pattern": "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]",
+      "excerpt": "t_path=\"$3\" \\\n    --ae XIAOMI_API_KEY=\"$XIAOMI_API_KEY\" \\\n    --e"
+    },
+    {
+      "file": "1-评测方案/工具链/run-codex.sh",
+      "pattern": "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]",
+      "excerpt": "eb_search=true \\\n    --ae ZAI_API_KEY=\"$ZAI_API_KEY\" --ae OPEN"
+    },
+    {
+      "file": "1-评测方案/工具链/run-codex.sh",
+      "pattern": "(?i)(api[_-]?key|token|secret|password)\\s*[=:]\\s*['\\\"][^'\\\"]{12,}['\\\"]",
+      "excerpt": "EY=\"$ZAI_API_KEY\" --ae OPENAI_API_KEY=\"$ZAI_API_KEY\" \\\n    --e"
+    }
+  ],
+  "all_clear": false,
+  "live_doc_drift": []
+}
