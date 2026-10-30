@@ -64,6 +64,10 @@
 
 SHA 封条不是数字签名；语义审查、可信证据作者与人工裁定是机器校验之外的明确信任边界。官方 host + alias 仍不能证明服务端权重 build 一致。本代历史行来源为公开派生账（`public-derived-not-original`），其局限性按 `_publication` 元数据如实携带，不据此声称完整原封印通过。
 
+## 输出重建披露-1（2026-10-31 03:30+08:00，L13 环；显式披露）
+
+`freeze.py verify` 在 HEAD 上一度 exit 2（`generated output drift: archive.json`）：根因是 **build 产物内嵌了 `未知登记.json` 的 build 时现算 pin**，而该活登记按其 append-only 属性持续演进（v4 封印时 `fdb61f19…` → L12 提交 `8bffbcb6…` → L13 收口 `fb754c84…`）。这是 v3 先例（活登记追加致读取面漂移）在**生成产物侧**的复发：lock 的「活登记不入 pin、pin() 现算自洽」设计保护了封印校验，但不覆盖已提交产物内嵌值。处置：按确定性 build 对登记现值**重建 v4 输出**（对拍实证：5 个 OUT 文件的全部变更行均为 sha 字段 `fdb61f19…→fb754c84…`，**判定数字与裁定零变化**，official-main-table.json 不在变更集内）；重建后 `freeze.py verify` exit 0。**维护规则（自本披露起生效，含 live_doc 递归）**：`未知登记.json` 或本目录 `README.md`（summary.json 内嵌其现算 sha）每次变更后，v4 OUT 需随之确定性重建（同 commit 提交），否则 verify 报 output drift——属已知并披露的产物侧活性，不构成判分或裁定变更。v2 代的同类问题（lock 把活登记钉为 contract，`sealed file drift`）不重建不改钉，按 v3 缺失 pin 先例以「v2 时代判卷记录以当时字节解释」保留，在报告 §10 如实标注。
+
 ## 封印修订-1（2026-10-31 00:45+08:00，build 后、验收前；显式披露）
 
 `test_freeze.py` 的 2 个 build 后门 REAL 断言系**封印时预写的期望**，与 build 实况不符（原期望 B_native==10 将 2 个合规拒绝行误计入；六账动态并集漏计 imports 的 self_test/interface_preflight 各 1 与历史 bare_model_probe 5 行）。已按实况修正断言并更新 lock 中该文件的 contract pin（`d1b0e07a…` → `d91ec2a5…`），**其余 31 个 pin 零变动（逐一实测复核）**；修正后 49/49 通过、verify_seal 复验通过。语义澄清：被拒的 2 行（豆包 cargo 污染 X、豆包 exercism 发射期 infrastructure_invalid）是**判定纪律的合规产物**，不是 build 缺陷。config.json、case_snapshots、registration-plan、freeze.py 的 pin 自封印提交 `56369a5` 起零字节变动（git 可证），运行数据的治理锚不受本修订影响。

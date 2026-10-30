@@ -22,6 +22,10 @@
 - 豆包检索三件套与 formal-b1 相同（任务书禁网条款 + 轨迹披露 + integrity_scan 兜底）；实证 clean 记 V、实证命中记 X。
 - 配额制：本 slot 仅 1 次发射（kind=first），发射失败即停不重试不补跑；probe 绿但会话无效仍按 `infrastructure_invalid` 合规拒绝。**三种终局均为合规终局，本代封印不预设结果。**
 
+## 输出重建披露-1（2026-10-31 03:45+08:00，L13 环；与 v4 同款维护规则，显式披露）
+
+本代 build 产物同样内嵌 `未知登记.json` 的 build 时现算 pin（封印时 `8bffbcb6…` → L12 `fb754c84…` → L13 收口 `b4a5e53c…`）与 live_doc README 现算 sha；活登记/本目录 README 变更后需**确定性重建**（同 commit 提交）：`python3 freeze.py build --imports 3-表现现场/r1102-formal-b2/formal-b2-events.json`（**必须带 --imports**，裸 build 丢 b2 导入行致 B_native 1→0）。重建对拍纪律同 v4：变更行应全部为 sha 字段，判定数字与 official 表零变化。首次触发=本披露提交（对拍 172 对 sha-only，verify exit 0）。
+
 ## 封印修订-2（2026-10-31 02:19+08:00，运行完成后、事件导入前；显式披露）
 
 注册计划的 `registration[0].parent_id` 在封印时预写为 `formal-b1-doubao-exercism-py-6-01`，与机械契约冲突：`validate_event` 要求 selection 与计划条目**逐字段全等**，而 `select_events` 队列要求首事件 `kind=first` 且 `parent_id=null`——两者不可同时满足，validate-import 以 `queue must start at first` 拒绝。修正：计划该字段 → `null`（先承关系由 `design.predecessor` 与条目 `reason` 叙述保留，跨批作废重跑在本队列语义中=新 plan 新 slot 的 first）；级联更新 `config.official_slots.plan_sha256`（`d7f21136…` → `f050cbe8…`）与 lock 中 config、registration-plan 两个 contract pin（现算）。**其余 30 个 pin 零变动（逐一实测复核）**；运行操作严格按封印计划执行（单次发射、无重试），未受修订影响；修订后 validate-import / build / verify 全 exit 0、49/49 测试通过。修订时序：D 封印（`dec790a`）→ 运行（01:27–02:07）→ 修订-2（02:19）→ 导入与 build。
