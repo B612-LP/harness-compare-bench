@@ -1,0 +1,92 @@
+{
+  "kind": "l6-judge-revision-acceptance",
+  "tool": "l6_meta_recompute.py",
+  "at": "2026-10-30T12:33:43+08:00",
+  "pre_revision_source": "79cebe0:2-用例/bird-ca-schools-15/checker.py",
+  "pre_checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+  "post_checker_sha256": "ffa7389adef32779686bbe56aef7d711db1d8d1c191ff5dd389310e6c01d1910",
+  "counts": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0
+  },
+  "assertions": [
+    {
+      "assert": "pre_checker_extracted",
+      "pass": true,
+      "detail": "sha256=994be0b3b766e457"
+    },
+    {
+      "assert": "A:l5-e3-wb-bird 冻结证据可复现",
+      "pass": true,
+      "detail": "reward frozen=1 rerun=1"
+    },
+    {
+      "assert": "B:l5-e3-wb-bird 修后判分零翻转",
+      "pass": true,
+      "detail": "reward pre=1 post=1 weighted pre=100.0 post=100.0"
+    },
+    {
+      "assert": "B:l5-e3-wb-bird 键集恰增两键",
+      "pass": true,
+      "detail": "new=['guards_used', 'n_tasks']"
+    },
+    {
+      "assert": "B:l5-e3-wb-bird 新键值正确",
+      "pass": true,
+      "detail": "n_tasks=15 guards=['input_integrity', 'answers_file', 'answers_schema', 'answers_coverage']"
+    },
+    {
+      "assert": "C:l5-e3-wb-bird gate 重算调和",
+      "pass": true,
+      "detail": "{\"earned_raw\": 15, \"possible_raw\": 15, \"exp8\": 100.0, \"count_match\": true, \"denom_match\": true}"
+    },
+    {
+      "assert": "D:l5-e3-wb-bird 篡改 n_tasks=14 被拒",
+      "pass": true,
+      "detail": "{\"earned_raw\": 15, \"possible_raw\": 15, \"exp8\": 100.0, \"count_match\": false, \"denom_match\": true}"
+    },
+    {
+      "assert": "E:l5-e3-wb-bird guards_used 漏项被拒",
+      "pass": true,
+      "detail": "{\"earned_raw\": 16, \"possible_raw\": 16, \"exp8\": 100.0, \"count_match\": false, \"denom_match\": false}"
+    },
+    {
+      "assert": "A:e2-aborted-wb-bird 冻结证据可复现",
+      "pass": true,
+      "detail": "reward frozen=1 rerun=1"
+    },
+    {
+      "assert": "B:e2-aborted-wb-bird 修后判分零翻转",
+      "pass": true,
+      "detail": "reward pre=1 post=1 weighted pre=100.0 post=100.0"
+    },
+    {
+      "assert": "B:e2-aborted-wb-bird 键集恰增两键",
+      "pass": true,
+      "detail": "new=['guards_used', 'n_tasks']"
+    },
+    {
+      "assert": "B:e2-aborted-wb-bird 新键值正确",
+      "pass": true,
+      "detail": "n_tasks=15 guards=['input_integrity', 'answers_file', 'answers_schema', 'answers_coverage']"
+    },
+    {
+      "assert": "C:e2-aborted-wb-bird gate 重算调和",
+      "pass": true,
+      "detail": "{\"earned_raw\": 15, \"possible_raw\": 15, \"exp8\": 100.0, \"count_match\": true, \"denom_match\": true}"
+    },
+    {
+      "assert": "D:e2-aborted-wb-bird 篡改 n_tasks=14 被拒",
+      "pass": true,
+      "detail": "{\"earned_raw\": 15, \"possible_raw\": 15, \"exp8\": 100.0, \"count_match\": false, \"denom_match\": true}"
+    },
+    {
+      "assert": "E:e2-aborted-wb-bird guards_used 漏项被拒",
+      "pass": true,
+      "detail": "{\"earned_raw\": 16, \"possible_raw\": 16, \"exp8\": 100.0, \"count_match\": false, \"denom_match\": false}"
+    }
+  ],
+  "all_ok": true,
+  "live_doc_drift": []
+}
