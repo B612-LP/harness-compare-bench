@@ -32,12 +32,12 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
 REPO = HERE.parents[1]
-L5 = REPO / "1-评测方案" / "自动循环L5-2026-10-30"
+L5 = REPO / "1-评测方案" / "自动循环L6-2026-10-30"
 PLAN_PATH = L5 / "plan.json"
 CONTRACT_PATH = L5 / "contract.json"
 BINDING_PATH = L5 / "runtime-binding.json"
 CASE_ROOT = REPO / "2-用例"
-WORKSPACE_ROOT = Path.home() / "bench-workspaces" / "l5-20261030-wb-gateway"
+WORKSPACE_ROOT = Path.home() / "bench-workspaces" / "l6-20261030-wb-gateway"
 WB_APP = Path("/Applications/WorkBuddy.app")
 GATE_PATH = REPO / "1-评测方案" / "工具链" / "l5-execution" / "gate.py"
 TZ = timezone(timedelta(hours=8))
@@ -193,7 +193,7 @@ def acc_executed(slot: dict, score, timed_out: bool, evidence_loc: str,
 # ================================================================ meta
 def build_meta_frame(slot: dict, registered_at: str, preregistration_commit: str) -> dict:
     return {
-        "batch": "l5-20261030-wb-gateway",
+        "batch": "l6-20261030-wb-gateway",
         "rule_version": load_json(CONTRACT_PATH)["rule_version"],
         "preregistration_commit": preregistration_commit,
         "registered_at": registered_at,
@@ -394,7 +394,7 @@ def setup_workspace(case_root: Path, ws: Path) -> dict:
         inputs.append({"path": f"inputs/{rel}", "sha256": sha256_file(p),
                        "bytes": p.stat().st_size})
     instruction = (case_root / "instruction.md").read_text(encoding="utf-8").rstrip()
-    task = (f"# 本场任务：l5-20261030-wb-gateway（WB 产品交付态）\n\n"
+    task = (f"# 本场任务：l6-20261030-wb-gateway（WB 产品交付态）\n\n"
             f"**你的工作目录（绝对路径）：`{ws}`**\n\n"
             "请在这个目录里工作：输入都在该目录的 `inputs/` 下，产物按题目要求写到该目录里"
             "（题目里的相对路径都相对这个目录）。除题目明确要求修改的代码外，"
@@ -616,7 +616,7 @@ def run_impl(slot: dict, driver_api, *, dry: bool = False, case_root: Path = Non
                   else HERE / "selftest" / "dry-evidence") / case
     else:
         ev_dir = HERE / Path(slot["evidence_dir"]).relative_to(
-            "3-表现现场/l5-20261030-wb-gateway")
+            "3-表现现场/l6-20261030-wb-gateway")
     result = {"slot_id": slot["slot_id"], "dry": dry, "evidence_dir": str(ev_dir)}
 
     # 0-) 批级 halt：先序槽 stop 未验证 ⇒ 本槽零 send，持久 not_executed 记账
@@ -1021,22 +1021,28 @@ def cmd_preflight(live: bool = False) -> int:
 
     slots = wb_slots()
     plan = load_json(PLAN_PATH)
-    # L5 批次形状：WB 仅 2 槽（PREREGISTRATION §3 固定），order 5/6
-    check("wb_slot_count_is_2", len(slots) == 2, f"n={len(slots)}")
-    check("wb_slot_order_5_6", [s["order"] for s in slots] == [5, 6],
-          str([s["order"] for s in slots]))
-    expect_cases = ["bird-ca-schools-15", "dabstep-payments-10"]
-    check("wb_case_sequence", [s["case"] for s in slots] == expect_cases,
-          str([s["case"] for s in slots]))
-    expect_timeouts = {"bird-ca-schools-15": 1800, "dabstep-payments-10": 1800}
-    check("wb_timeouts_match_plan",
-          all(s["timeout_s"] == expect_timeouts[s["case"]] for s in slots),
-          json.dumps({s["case"]: s["timeout_s"] for s in slots}))
+    # L6 批次形状：不再硬编码槽位清单——读 plan/contract 后对事实一致性断言
+    contract_l6 = load_json(CONTRACT_PATH)
+    contract_cases = set((contract_l6.get("case_snapshots") or {}).keys())
     ids = [s["run_id"] for s in slots]
-    check("wb_run_ids_unique", len(set(ids)) == 2, f"{len(set(ids))} unique")
+    orders = [s["order"] for s in slots]
+    cases = [s["case"] for s in slots]
+    check("wb_slot_count_positive_unique",
+          len(slots) >= 1 and len({s["slot_id"] for s in slots}) == len(slots),
+          f"n={len(slots)}")
+    check("wb_slot_order_ascending_strict",
+          orders == sorted(orders) and len(set(orders)) == len(orders),
+          str(orders))
+    check("wb_case_sequence_covers_contract",
+          set(cases) <= contract_cases and len(set(cases)) == len(cases),
+          f"cases={cases} contract_keys={sorted(contract_cases)}")
+    check("wb_timeouts_positive",
+          all(isinstance(s["timeout_s"], int) and s["timeout_s"] > 0 for s in slots),
+          json.dumps({s["case"]: s["timeout_s"] for s in slots}))
+    check("wb_run_ids_unique", len(set(ids)) == len(ids), f"{len(set(ids))} unique")
     check("namespace_not_r1030_r1031",
           all(not rid.startswith(("r1030", "r1031")) for rid in ids),
-          "prefix l5-20261030-wb-gateway")
+          "prefix l6-20261030-wb-gateway")
     all_pids = [s["slot_id"] for s in plan["product_slots"]] + \
                [p["slot_id"] for p in plan.get("probe_slots", [])]
     check("all_plan_slot_ids_unique_repo_wide", len(set(all_pids)) == len(all_pids),
@@ -1087,7 +1093,7 @@ def cmd_preflight(live: bool = False) -> int:
         check(f"no_forbidden_api[{token}]", token not in scan_src, "absent in runner sources")
     check("common_gate_present", GATE_PATH.is_file(), str(GATE_PATH))
 
-    receipt = {"kind": "interface_preflight", "batch": "l5-20261030-wb-gateway",
+    receipt = {"kind": "interface_preflight", "batch": "l6-20261030-wb-gateway",
                "stratum_display": STRATUM_DISPLAY,
                "mode": "static-zero-model" if not live else "live-noninterference",
                "at": now_iso(), "model_calls": 0, "all_pass": ok, "checks": checks,
@@ -1142,7 +1148,7 @@ def cmd_selftest() -> int:
             d.unlink()
 
     SLOT_A = wb_slots()[0]  # bird（order 5）
-    SLOT_B = wb_slots()[1]  # dab（order 6）
+    SLOT_B = wb_slots()[-1]  # L6 单槽：取最后一个=SLOT_A 别名（harness 复用槽）
 
     def reset_evidence_only(slot):
         ev = HERE / "selftest" / "dry-evidence" / slot["case"]
@@ -1368,7 +1374,7 @@ def cmd_selftest() -> int:
     if not meta:
         t("T7a.dry_run_status_ok", False,
           f"early-return: status={r.get('status')} acc={json.dumps(r.get('accounting'), ensure_ascii=False)[:160]}")
-        receipt = {"kind": "self_test", "batch": "l5-20261030-wb-gateway",
+        receipt = {"kind": "self_test", "batch": "l6-20261030-wb-gateway",
                    "at": now_iso(), "model_calls": 0, "all_pass": False,
                    "results": results, "live_doc_drift": []}
         out = write_json_once(HERE / "selftest" / "selftest-receipt-l5-wb-v1.json", receipt)
@@ -1462,6 +1468,7 @@ def cmd_selftest() -> int:
 
     # ---- T12 setup 失败也持久 accounting（另一 slot，预占 ws 目录） ----
     slot2 = SLOT_B
+    reset_slot(slot2)  # 授权(a)2/3：单槽别名下必须先重置夹具，才能触达 setup-failure 分支
     blocker = HERE / "selftest" / "dry-ws" / slot2["case"]
     blocker.mkdir(parents=True, exist_ok=True)
     r3 = run_impl(slot2, MockDriver(fixture_session), dry=True,
@@ -1714,7 +1721,7 @@ def cmd_selftest() -> int:
             pass
         with _tf2.TemporaryDirectory(prefix="l4wb-t19-") as td:
             tmp = Path(td)
-            contract19 = {"rule_version": "l5-20261030-batch-v1",
+            contract19 = {"rule_version": "l6-20261030-batch-v1",
                           "strata": {"wb_gateway_delivery": {
                               "products": ["workbuddy"],
                               "declared_model_alias": "deepseek-v4.1-flash",

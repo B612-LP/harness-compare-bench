@@ -1,4 +1,4 @@
-# 本场任务：l5-20261030-wb-gateway（WB 产品交付态）
+# 本场任务：l6-20261030-wb-gateway（WB 产品交付态）
 
 **你的工作目录（绝对路径）：`/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l6-20261030-wb-gateway/selftest/dry-ws/bird-ca-schools-15`**
 
