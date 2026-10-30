@@ -90,3 +90,22 @@
 D 先于实现；历史证据（含 registry 既有 20 事件与 L6/L7/L8 全部收据）零字节改动；
 哈希/时刻脚本生成；write-once；CHANGELOG 不动；live 台账收尾登记+必跑 work-registry
 不变量（含本环新增对账不变量）；收尾 PR 合并 main；结论五段结构。
+
+---
+
+## 补正一（D=cda92f5 封印后、实现前，append-only，2026-10-30T14:57+08:00）
+
+- **§4「修后」段 F-1 描述作废**：预检判定「sha 在 10 个提交 blob 中不可考、locator
+  声明不实」系**预检方法学缺陷**——比对了 git blob sha1（`git rev-parse c:path`）
+  与内容 sha256 两个不同哈希体系，比对无效。以内容 sha256（`git cat-file blob`
+  管入 sha256）重考：`f73e2dc3…` **精确可考于提交 8edc58f**（L6 验收提交，off-schema
+  #18 所在），且 `27cd39d^ == 8edc58f` ——**L6 更正事件 locator「父提交可考」声明
+  核可为真**，台账账实完全一致（20 FRESH + 1 HISTORICAL，0 UNRESOLVED）。
+- **§4 相应修订**：①「修后」首跑预期由「F-1 入册」改为「20 FRESH + 1 HISTORICAL
+  （l6-correction @ 8edc58f）、0 UNRESOLVED」；② HISTORICAL 判定方法钉死为
+  **内容 sha256 考古**（`git cat-file blob` 管道入 sha256，禁用 blob sha1 冒比——
+  本环 §0 对照 #5 的教训实例，实现与自测固化该口径）；③ 静态 allowlist 初始为空
+  （不再收纳 L6 事件）；④ sidecar 规则保留（防患：HISTORICAL 依赖修前字节曾经
+  入 git，未入 git 的更正前态仍会 UNRESOLVED）；⑤ 原预检假发现与方法学教训转为
+  结论 O 段观察项（哈希体系混用=可复算工具的自检盲区实例）。
+- 其余各节（L9-A 全部、§0/§1/§2/§3/§5）不受影响。本补正先于任何实现 commit。
