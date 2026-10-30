@@ -1,0 +1,684 @@
+{
+ "kind": "judge_l6_revision_independent_acceptance_receipt",
+ "generated_at": "2026-10-30T11:41:54+08:00",
+ "task": "task-18 (lead 指令; 未建板)",
+ "zero_model_calls": true,
+ "git_scope": "read-only (rev-parse/log/show/merge-base/diff/status)",
+ "live_doc_drift": [],
+ "verdict": {
+  "L6_A_pure_additive_semantics_unchanged": true,
+  "L6_A_selftest_29_of_29": true,
+  "L6_A_workspace_zero_flip": "score fields all equal; 唯一共同键差=contract_revision(声明内标记); 键集恰增两键零删",
+  "L6_A_gate_recompute": "两工作区 15/15 → exp8=100.0",
+  "L6_A_nearmiss": {
+   "n_tasks_14": "REJECTED",
+   "guard_missing": "REJECTED(possible 16≠15)",
+   "control": "ACCEPT"
+  },
+  "L6_C_selftest_16_of_16": true,
+  "L6_C_manifest_receipt_selftest": "PASS",
+  "L6_C_historical_replay_differential": {
+   "E1": "pre/post 均 ok 0 viol",
+   "E2": "pre 8 viol → post 9 viol（+1=自引规则抓获 abort-receipt.json；187 条唯一自引）"
+  },
+  "contract_inheritance": {
+   "other_4_cases": "全等",
+   "denominators": "等",
+   "rule_version": "l6-20261030-batch-v1",
+   "plan_cardinality": 1
+  },
+  "red_lines": "git status 仅 ?? 3-表现现场/l6-20261030-wb-gateway/；自 D1 起历史批零改动提交",
+  "CONTRACT_PIN": "FAIL — bird pin=994be0b3…(修前) ≠ 修订后 ffa7389a…；违反 PREREG『pin 修订后』声明；已立即报 lead"
+ },
+ "timing": {
+  "D1": "8c3e4b9e595a8d49ddd10150a67cf101a8bea19c @ 2026-10-30T10:50:20+08:00",
+  "D2": "f10881ccf8380f01159c43dd09b55cb826888130 @ 2026-10-30T11:35:00+08:00",
+  "D1_ancestor_of_D2": true,
+  "D1_before_D2": true
+ },
+ "identity": {
+  "git79cebe0==archive_pre": true,
+  "disk==archive_post": true,
+  "pre_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+  "post_sha256": "ffa7389adef32779686bbe56aef7d711db1d8d1c191ff5dd389310e6c01d1910"
+ },
+ "diff_classification": {
+  "unified": "+41/-3",
+  "minus3": [
+   "docstring dated 补记",
+   "CONTRACT_REVISION 值 b2-tighten-2026-10-27→l6-meta-fields-2026-10-30（PREREG 声明）",
+   "selftest total 计数"
+  ],
+  "scoring_paths_touched": false
+ },
+ "workspace_recompute": {
+  "l5-bird": {
+   "pre": {
+    "rc": 0,
+    "doc": {
+     "case": "bird-ca-schools-15",
+     "checker_version": "1.2-q26-frpm",
+     "contract_revision": "b2-tighten-2026-10-27",
+     "contract_status": "adopted-2026-10-26",
+     "parent_checker_version": "1.1",
+     "binary": true,
+     "run_dir": "/private/tmp/judge-l6/l5-bird",
+     "reward": 1,
+     "weighted": 100.0,
+     "accuracy": 1.0,
+     "correct": 15,
+     "n_questions": 15,
+     "threshold": 0.8,
+     "input_integrity": "verified",
+     "failed_questions": [],
+     "checks": [
+      {
+       "id": "input_integrity",
+       "pass": true,
+       "note": "已附输入副本 4 件，均与 canonical 一致"
+      },
+      {
+       "id": "answers_file",
+       "pass": true,
+       "note": "/private/tmp/judge-l6/l5-bird/answers.jsonl"
+      },
+      {
+       "id": "answers_schema",
+       "pass": true,
+       "note": "15 行可解析，0 行 JSON/结构异常"
+      },
+      {
+       "id": "answers_coverage",
+       "pass": true,
+       "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+      },
+      {
+       "id": "q28",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（57 行）"
+      },
+      {
+       "id": "q36",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q62",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q83",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q87",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q12",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q23",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1239 行）"
+      },
+      {
+       "id": "q24",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1068 行）"
+      },
+      {
+       "id": "q25",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（6 行）"
+      },
+      {
+       "id": "q26",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（6 行）"
+      },
+      {
+       "id": "q27",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（8574 行）"
+      },
+      {
+       "id": "q31",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（2 行）"
+      },
+      {
+       "id": "q5",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q11",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（7806 行）"
+      },
+      {
+       "id": "q17",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（50 行）"
+      }
+     ]
+    },
+    "err": ""
+   },
+   "post": {
+    "rc": 0,
+    "doc": {
+     "case": "bird-ca-schools-15",
+     "checker_version": "1.2-q26-frpm",
+     "contract_revision": "l6-meta-fields-2026-10-30",
+     "contract_status": "adopted-2026-10-26",
+     "parent_checker_version": "1.1",
+     "binary": true,
+     "run_dir": "/private/tmp/judge-l6/l5-bird",
+     "reward": 1,
+     "weighted": 100.0,
+     "accuracy": 1.0,
+     "correct": 15,
+     "n_questions": 15,
+     "n_tasks": 15,
+     "guards_used": [
+      "input_integrity",
+      "answers_file",
+      "answers_schema",
+      "answers_coverage"
+     ],
+     "threshold": 0.8,
+     "input_integrity": "verified",
+     "failed_questions": [],
+     "checks": [
+      {
+       "id": "input_integrity",
+       "pass": true,
+       "note": "已附输入副本 4 件，均与 canonical 一致"
+      },
+      {
+       "id": "answers_file",
+       "pass": true,
+       "note": "/private/tmp/judge-l6/l5-bird/answers.jsonl"
+      },
+      {
+       "id": "answers_schema",
+       "pass": true,
+       "note": "15 行可解析，0 行 JSON/结构异常"
+      },
+      {
+       "id": "answers_coverage",
+       "pass": true,
+       "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+      },
+      {
+       "id": "q28",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（57 行）"
+      },
+      {
+       "id": "q36",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q62",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q83",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q87",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q12",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q23",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1239 行）"
+      },
+      {
+       "id": "q24",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1068 行）"
+      },
+      {
+       "id": "q25",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（6 行）"
+      },
+      {
+       "id": "q26",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（6 行）"
+      },
+      {
+       "id": "q27",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（8574 行）"
+      },
+      {
+       "id": "q31",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（2 行）"
+      },
+      {
+       "id": "q5",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q11",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（7806 行）"
+      },
+      {
+       "id": "q17",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（50 行）"
+      }
+     ]
+    },
+    "err": ""
+   },
+   "assert": {
+    "rc_pre": 0,
+    "rc_post": 0,
+    "reward": 1,
+    "weighted": 100.0,
+    "correct": 15,
+    "zero_flip": false,
+    "added_keys": [
+     "guards_used",
+     "n_tasks"
+    ],
+    "removed_keys": [],
+    "exactly_two_added": true,
+    "n_tasks": 15,
+    "guards_used": [
+     "input_integrity",
+     "answers_file",
+     "answers_schema",
+     "answers_coverage"
+    ]
+   },
+   "gate_recompute": {
+    "earned": 15,
+    "possible": 15,
+    "possible_eq_denom15": true,
+    "exp8": 100.0
+   }
+  },
+  "e2-bird": {
+   "pre": {
+    "rc": 0,
+    "doc": {
+     "case": "bird-ca-schools-15",
+     "checker_version": "1.2-q26-frpm",
+     "contract_revision": "b2-tighten-2026-10-27",
+     "contract_status": "adopted-2026-10-26",
+     "parent_checker_version": "1.1",
+     "binary": true,
+     "run_dir": "/private/tmp/judge-l6/e2-bird",
+     "reward": 1,
+     "weighted": 100.0,
+     "accuracy": 1.0,
+     "correct": 15,
+     "n_questions": 15,
+     "threshold": 0.8,
+     "input_integrity": "verified",
+     "failed_questions": [],
+     "checks": [
+      {
+       "id": "input_integrity",
+       "pass": true,
+       "note": "已附输入副本 4 件，均与 canonical 一致"
+      },
+      {
+       "id": "answers_file",
+       "pass": true,
+       "note": "/private/tmp/judge-l6/e2-bird/answers.jsonl"
+      },
+      {
+       "id": "answers_schema",
+       "pass": true,
+       "note": "15 行可解析，0 行 JSON/结构异常"
+      },
+      {
+       "id": "answers_coverage",
+       "pass": true,
+       "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+      },
+      {
+       "id": "q28",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（57 行）"
+      },
+      {
+       "id": "q36",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q62",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q83",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q87",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q12",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q23",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1239 行）"
+      },
+      {
+       "id": "q24",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1068 行）"
+      },
+      {
+       "id": "q25",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（6 行）"
+      },
+      {
+       "id": "q26",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（6 行）"
+      },
+      {
+       "id": "q27",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（8574 行）"
+      },
+      {
+       "id": "q31",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（2 行）"
+      },
+      {
+       "id": "q5",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q11",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（7806 行）"
+      },
+      {
+       "id": "q17",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（50 行）"
+      }
+     ]
+    },
+    "err": ""
+   },
+   "post": {
+    "rc": 0,
+    "doc": {
+     "case": "bird-ca-schools-15",
+     "checker_version": "1.2-q26-frpm",
+     "contract_revision": "l6-meta-fields-2026-10-30",
+     "contract_status": "adopted-2026-10-26",
+     "parent_checker_version": "1.1",
+     "binary": true,
+     "run_dir": "/private/tmp/judge-l6/e2-bird",
+     "reward": 1,
+     "weighted": 100.0,
+     "accuracy": 1.0,
+     "correct": 15,
+     "n_questions": 15,
+     "n_tasks": 15,
+     "guards_used": [
+      "input_integrity",
+      "answers_file",
+      "answers_schema",
+      "answers_coverage"
+     ],
+     "threshold": 0.8,
+     "input_integrity": "verified",
+     "failed_questions": [],
+     "checks": [
+      {
+       "id": "input_integrity",
+       "pass": true,
+       "note": "已附输入副本 4 件，均与 canonical 一致"
+      },
+      {
+       "id": "answers_file",
+       "pass": true,
+       "note": "/private/tmp/judge-l6/e2-bird/answers.jsonl"
+      },
+      {
+       "id": "answers_schema",
+       "pass": true,
+       "note": "15 行可解析，0 行 JSON/结构异常"
+      },
+      {
+       "id": "answers_coverage",
+       "pass": true,
+       "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+      },
+      {
+       "id": "q28",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（57 行）"
+      },
+      {
+       "id": "q36",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q62",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q83",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q87",
+       "pass": true,
+       "difficulty": "challenging",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q12",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q23",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1239 行）"
+      },
+      {
+       "id": "q24",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（1068 行）"
+      },
+      {
+       "id": "q25",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（6 行）"
+      },
+      {
+       "id": "q26",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（6 行）"
+      },
+      {
+       "id": "q27",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（8574 行）"
+      },
+      {
+       "id": "q31",
+       "pass": true,
+       "difficulty": "moderate",
+       "note": "行集一致（2 行）"
+      },
+      {
+       "id": "q5",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（1 行）"
+      },
+      {
+       "id": "q11",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（7806 行）"
+      },
+      {
+       "id": "q17",
+       "pass": true,
+       "difficulty": "simple",
+       "note": "行集一致（50 行）"
+      }
+     ]
+    },
+    "err": ""
+   },
+   "assert": {
+    "rc_pre": 0,
+    "rc_post": 0,
+    "reward": 1,
+    "weighted": 100.0,
+    "correct": 15,
+    "zero_flip": false,
+    "added_keys": [
+     "guards_used",
+     "n_tasks"
+    ],
+    "removed_keys": [],
+    "exactly_two_added": true,
+    "n_tasks": 15,
+    "guards_used": [
+     "input_integrity",
+     "answers_file",
+     "answers_schema",
+     "answers_coverage"
+    ]
+   },
+   "gate_recompute": {
+    "earned": 15,
+    "possible": 15,
+    "possible_eq_denom15": true,
+    "exp8": 100.0
+   }
+  }
+ },
+ "near_miss": {
+  "a_n_tasks_tamper": [
+   "meta.judge 计数 n_tasks ≠ raw 重算"
+  ],
+  "b_guard_missing": [
+   "raw 计分项数 16 ≠ contract 分母 15",
+   "meta.judge 计数 correct ≠ raw 重算",
+   "meta.judge 计数 n_tasks ≠ raw 重算"
+  ],
+  "control": []
+ },
+ "l6c_differential": {
+  "old_tool": "79cebe0:1-评测方案/工具链/evidence-kit/receipt_check.py",
+  "E2_pre_viol": 8,
+  "E2_post_viol": 9
+ },
+ "referenced_sha256": {
+  "PREREGISTRATION": "22a16abbe549d8381aa3088a2fafe2db89697b86065ad7742c56d92248dc2135",
+  "contract_L6": "37b8445e0bb2349c03696c10e901486a13758ec7527dfcfe0fd99a71d75bbfa3",
+  "builder_recompute_receipt": "5504cb4591d8b852d409c2c47f88db9bd431613abd11ad3e5b67fe0cbd0d7316",
+  "builder_replay_receipt": "a9686e745b8bfd1924d207b8db0570a0e1c0b372cf2ddd696d554d87981b230b",
+  "gate_l5": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9"
+ },
+ "evidence_lines_note": "哈希以本收据 referenced_sha256 与 identity 键为准（64 位全量）"
+}

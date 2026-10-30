@@ -61,16 +61,57 @@ def plan_only():
     print('plan.json slots=%d written' % len(slots))
 
 
+def case_snapshot(case):
+    """freeze v2/v3 同款算法（4-打分细则/可信冻结-2026-10-29-v3/freeze.py:69-74）。
+
+    修复记录（F-1，2026-10-30）：首版 --contract-only 只刷新了顶层 checker_sha256 映射，
+    漏了继承自 L5 的 case_snapshots 内嵌 per-file pin（checker.py/spec.md/manifest_sha256/
+    case_version）——judge 独立验收抓获（L6独立验收 F-1）。本函数自盘面重算并配断言。
+    """
+    d = ROOT / '2-用例' / case
+    fixed = [n for n in ('instruction.md', 'spec.md', 'case.json', 'truth.json',
+                         'checker.py', 'trusted_runner.py') if (d / n).is_file()]
+    rels = fixed + sorted(p.relative_to(d).as_posix()
+                          for p in (d / 'inputs').rglob('*') if p.is_file())
+    tree = {rel: hashlib.sha256((d / rel).read_bytes()).hexdigest() for rel in rels}
+    sha = hashlib.sha256(json.dumps(tree, ensure_ascii=False, sort_keys=True,
+                                    separators=(',', ':')).encode('utf-8')).hexdigest()
+    return {'checker.py': tree['checker.py'], 'truth.json': tree['truth.json'],
+            'instruction.md': tree['instruction.md'],
+            'manifest_sha256': sha,
+            'case_version': '%s@sha256:%s' % (case, sha),
+            'files': tree}
+
+
 def contract_only():
     l5c = json.loads(L5_CONTRACT.read_text(encoding='utf-8'))
     checker_sha = dict(l5c['checker_sha256'])
     checker_sha[BIRD_CASE] = digest(ROOT / '2-用例' / BIRD_CASE / 'checker.py')
+    # case_snapshots：非 bird 逐字节继承 L5；bird 自盘面按 freeze 算法重算。
+    snapshots = dict(l5c['case_snapshots'])
+    for case in sorted(l5c['case_snapshots']):
+        fresh = case_snapshot(case)
+        if case != BIRD_CASE:
+            # 算法有效性 + 继承不变断言：未修订 case 的重算必须与 L5 逐字节一致。
+            if fresh != l5c['case_snapshots'][case]:
+                raise SystemExit('FAIL-CLOSED: 非修订 case 快照重算与 L5 不一致: %s' % case)
+        else:
+            # 修订面断言：bird 仅 checker.py 与 spec.md 变化；truth/instruction/case.json/
+            # inputs 全部与 L5 逐字节一致（判分输入零改动）。
+            old = l5c['case_snapshots'][BIRD_CASE]
+            changed = {k for k in fresh['files'] if fresh['files'][k] != old['files'].get(k)}
+            if changed != {'checker.py', 'spec.md'}:
+                raise SystemExit('FAIL-CLOSED: bird 修订面超出声明: %s' % sorted(changed))
+            if fresh['checker.py'] != checker_sha[BIRD_CASE]:
+                raise SystemExit('FAIL-CLOSED: 快照 checker pin 与 checker_sha256 映射不一致')
+            snapshots[BIRD_CASE] = fresh
     contract = dict(rule_version='l6-20261030-batch-v1', schema_version=1,
                     plan_sha256=digest(HERE / 'plan.json'),
                     grading_contract_inheritance='L5 l5-20261030-batch-v1 semantics; only bird '
-                                                 'checker_sha256 refreshed per PREREGISTRATION L6-A',
+                                                 'checker_sha256 + case_snapshots refreshed per '
+                                                 'PREREGISTRATION L6-A (F-1 fix: snapshots recompute)',
                     source_config=l5c['source_config'],
-                    case_snapshots=l5c['case_snapshots'],
+                    case_snapshots=snapshots,
                     checker_sha256=checker_sha,
                     denominators=l5c['denominators'],
                     strata=l5c['strata'],
@@ -91,7 +132,8 @@ def contract_only():
                     old_contracts_mutated=False,
                     live_doc_drift=[])
     create('contract.json', contract)
-    print('contract.json written; bird checker sha=%s' % checker_sha[BIRD_CASE][:16])
+    print('contract.json written; bird checker sha=%s; bird case=%s'
+          % (checker_sha[BIRD_CASE][:16], snapshots[BIRD_CASE]['case_version'][-20:]))
 
 
 if __name__ == '__main__':
