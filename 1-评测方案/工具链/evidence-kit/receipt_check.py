@@ -102,6 +102,21 @@ def check_doc(path: Path, root: Path, require_drift: bool) -> dict:
                     rep["hash_lines"]["violations"].append(
                         {"line": None, "reason": "JSON live_doc_drift 值须为 null 或 list，实测 %s"
                                                  % type(v).__name__})
+        # L6-C（2026-10-30）：收据自引排除（AUD-L5-O1 wart 类）——JSON 收据含 dict 型
+        # files_sha256 映射时，其键不得含收据自身路径/文件名：自引哈希逻辑上不可自证
+        #（列示值只能是定稿前某版本，违「哈希即终态」直觉）。manifest-receipt 生成器
+        # （manifest_receipt.py）以 self_excluded 字段显式声明排除。
+        if isinstance(doc, dict) and isinstance(doc.get("files_sha256"), dict):
+            own_names = {path.name, str(path)}
+            self_refs = sorted({k for k in doc["files_sha256"]
+                                if isinstance(k, str) and (k in own_names
+                                                           or k.endswith("/" + path.name))})
+            rep["self_reference"] = {"found": bool(self_refs), "keys": self_refs}
+            if self_refs:
+                rep["hash_lines"]["violations"].append(
+                    {"line": None,
+                     "reason": "self-referenced hash entry（AUD-L5-O1：收据不得列入自身）: %s"
+                               % ", ".join(self_refs)})
     else:
         for i, line in enumerate(text.splitlines(), 1):
             if DRIFT_STATUS_RE.search(line):
@@ -239,6 +254,29 @@ def selftest() -> int:
         check("json_drift_string_value_fails",
               r9["ok"] is False and r9["live_doc_drift"]["found"] is True,
               json.dumps(r9["hash_lines"]["violations"], ensure_ascii=False)[:200])
+
+        # ---- L6-C（2026-10-30）收据自引排除：正例 self-excluded / 负例自引必拒 ----
+        selfok = tmp / "manifest-receipt-ok.json"
+        selfok.write_text(json.dumps(
+            {"kind": "manifest-receipt", "at": "2026-10-30T11:00:00+08:00",
+             "files_sha256": {"payload.txt": digest},
+             "self_excluded": str(selfok), "live_doc_drift": []},
+            ensure_ascii=False), encoding="utf-8")
+        r10 = check_doc(selfok, tmp, require_drift=True)
+        check("self_excluded_receipt_ok",
+              r10["ok"] is True and r10.get("self_reference", {}).get("found") is False,
+              json.dumps(r10.get("self_reference"), ensure_ascii=False))
+        selfbad = tmp / "manifest-receipt-selfref.json"
+        full64 = "5c6177fd68a74ab9" + "0123456789abcdef" * 3
+        selfbad.write_text(json.dumps(
+            {"kind": "manifest-receipt",
+             "files_sha256": {"payload.txt": digest, str(selfbad): full64},
+             "live_doc_drift": []},
+            ensure_ascii=False), encoding="utf-8")
+        r11 = check_doc(selfbad, tmp, require_drift=True)
+        check("self_referenced_receipt_rejected",
+              r11["ok"] is False and r11.get("self_reference", {}).get("found") is True,
+              json.dumps(r11.get("self_reference"), ensure_ascii=False))
 
     counts = {"total": len(results), "passed": sum(1 for r in results if r["pass"]),
               "failed": sum(1 for r in results if not r["pass"])}

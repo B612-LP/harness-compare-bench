@@ -3,7 +3,10 @@
 """bird-ca-schools-15 判分器 v1.2-q26-frpm（2026-10-26 并入正式合同：仅q26 FRPM口径修订；
 2026-10-27 收紧批 B2：答案行精确键集 + SQL 禁 `--` 注释，判分合同修订见
 4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/；CHECKER_VERSION 因
-truth.json 冻结保持 1.2-q26-frpm 不变，合同修订以 CONTRACT_REVISION 标记）
+truth.json 冻结保持 1.2-q26-frpm 不变，合同修订以 CONTRACT_REVISION 标记；
+2026-10-30 元数据批 L6-A：输出 JSON 纯增量两键 n_tasks/guards_used（判分语义零改动，
+动机=WB runner derive_guards 与 gate 重算所需元数据，L5-P1），见
+5-评测报告/L6判卷修订-2026-10-30/）
 
 用法：
     python3 checker.py <run_dir> [--json]     # 正式判分：最后一行输出一行 JSON
@@ -42,7 +45,7 @@ from pathlib import Path
 
 CASE_ID = "bird-ca-schools-15"
 CHECKER_VERSION = "1.2-q26-frpm"      # truth.json 冻结所钉；合同修订见 CONTRACT_REVISION
-CONTRACT_REVISION = "b2-tighten-2026-10-27"   # 2026-10-27 收紧批 B2（精确键集 + 禁 -- 注释）
+CONTRACT_REVISION = "l6-meta-fields-2026-10-30"   # 2026-10-30 L6-A：输出纯增量 n_tasks/guards_used（判分语义零改动；修前=b2-tighten-2026-10-27）
 BINARY = True
 THRESHOLD = 0.8
 N_QUESTIONS = 15
@@ -60,6 +63,11 @@ ANSWER_KEYS = frozenset({"question_id", "sql"})
 # B2：SQL 字符串字面量掩码（含 '' 转义，须有闭合引号），用于检测字面量之外的 `--` 注释
 # （题面要求提交可执行 SQL；字面量内的 `--`（如电话/日期文本）不受影响）
 _SQL_LITERAL_RE = re.compile(r"'(?:[^']|'')*'")
+# L6-A（2026-10-30 元数据批）：守卫 id 静态表——恰为 checks 中四个非任务项 id，
+# 与 WB runner derive_guards「索引序首个调和组合」的推导结果一致；
+# gate 消费方式：id ∈ guards_used 的检查为守卫项（不计分），其余按 pass 计数重算
+# （计分项 = 15 个 qNN，possible_raw 必须等于 contract 分母 15）。
+GUARDS_USED = ("input_integrity", "answers_file", "answers_schema", "answers_coverage")
 HERE = Path(__file__).resolve().parent
 
 _CACHE = {}
@@ -352,6 +360,8 @@ def judge(run_dir):
         "accuracy": round(accuracy, 4),
         "correct": correct,
         "n_questions": N_QUESTIONS,
+        "n_tasks": N_QUESTIONS,            # L6-A：与 n_questions 同值（gate 重算消费键）
+        "guards_used": list(GUARDS_USED),  # L6-A：非任务检查 id 表（见常量注）
         "threshold": THRESHOLD,
         "input_integrity": integrity,
         "failed_questions": failed_qids,
@@ -616,6 +626,34 @@ def selftest() -> int:
         guards.append(_guard_expect_error(name, mutator))
     failed += sum(0 if ok else 1 for ok in guards)
 
+    # L6-A 元数据批断言（2026-10-30）：新两键在案且守卫/任务划分不变量成立
+    # （满分 oracle 与空产物 nop 两分支；口径与 gate 重算一致：
+    #   计分项数 = n_tasks、计分项 pass 数 = correct、守卫 id 不与任务 id 相交）
+    meta_problems_total = 0
+    for meta_answers, label in ((oracle_text, "oracle 满分"), (None, "nop 空产物")):
+        with tempfile.TemporaryDirectory() as tmp:
+            run_dir = _make_run_dir(tmp, answers_text=meta_answers, inputs="link")
+            meta_res = judge(run_dir)
+        ids = {c["id"] for c in meta_res["checks"]}
+        guard_ids = set(meta_res.get("guards_used", ()))
+        task_ids = {i for i in ids if i.startswith("q") and i[1:].isdigit()}
+        scored = [c for c in meta_res["checks"] if c["id"] not in guard_ids]
+        problems = []
+        if meta_res.get("n_tasks") != N_QUESTIONS:
+            problems.append("n_tasks=%r" % (meta_res.get("n_tasks"),))
+        if guard_ids != set(GUARDS_USED):
+            problems.append("guards_used=%r" % sorted(guard_ids))
+        if not guard_ids <= ids or (guard_ids & task_ids):
+            problems.append("守卫/任务划分异常")
+        if len(scored) != N_QUESTIONS or \
+                sum(1 for c in scored if c["pass"] is True) != meta_res["correct"]:
+            problems.append("gate 口径计数不调和")
+        meta_problems_total += 1 if problems else 0
+        print("  %-4s L6-A 元数据不变量（%s 分支）%s"
+              % ("PASS" if not problems else "FAIL", label,
+                 "" if not problems else "  ← " + "；".join(problems)))
+    failed += meta_problems_total
+
     # 自测收尾：确认 canonical 输入未被判分过程改动
     untouched = True
     for rel in INPUT_FILES:
@@ -624,7 +662,7 @@ def selftest() -> int:
     print("  %-4s %s" % ("PASS" if untouched else "FAIL", "canonical 输入在自测前后未被改动"))
     failed += 0 if untouched else 1
 
-    total = len(fixtures) + len(guards) + 1
+    total = len(fixtures) + len(guards) + 3
     print("自测%s：%d/%d 项符合预期" % ("通过" if failed == 0 else "失败",
                                         total - failed, total))
     return 0 if failed == 0 else 2

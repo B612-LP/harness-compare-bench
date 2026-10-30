@@ -1,0 +1,187 @@
+{
+  "kind": "l6_authorized_minimal_diff",
+  "at": "2026-10-30T11:59:35+08:00",
+  "file": "runner/l5_wb_runner.py",
+  "sha256_before": "e1def09017dbecb096fd60aaf501d6f2c73140d118130448101a46f48a222d4b",
+  "sha256_after": "fe7632643fe92d602ad17a1bd698e50fdf01cedb578693dd8fee828dbf7c3e72",
+  "hunks": [
+    {
+      "line": 35,
+      "before": "L5 = REPO / \"1-评测方案\" / \"自动循环L5-2026-10-30\"",
+      "after": "L5 = REPO / \"1-评测方案\" / \"自动循环L6-2026-10-30\""
+    },
+    {
+      "line": 40,
+      "before": "WORKSPACE_ROOT = Path.home() / \"bench-workspaces\" / \"l5-20261030-wb-gateway\"",
+      "after": "WORKSPACE_ROOT = Path.home() / \"bench-workspaces\" / \"l6-20261030-wb-gateway\""
+    },
+    {
+      "line": 196,
+      "before": "        \"batch\": \"l5-20261030-wb-gateway\",",
+      "after": "        \"batch\": \"l6-20261030-wb-gateway\","
+    },
+    {
+      "line": 397,
+      "before": "    task = (f\"# 本场任务：l5-20261030-wb-gateway（WB 产品交付态）\\n\\n\"",
+      "after": "    task = (f\"# 本场任务：l6-20261030-wb-gateway（WB 产品交付态）\\n\\n\""
+    },
+    {
+      "line": 619,
+      "before": "            \"3-表现现场/l5-20261030-wb-gateway\")",
+      "after": "            \"3-表现现场/l6-20261030-wb-gateway\")"
+    },
+    {
+      "line": 1090,
+      "before": "    receipt = {\"kind\": \"interface_preflight\", \"batch\": \"l5-20261030-wb-gateway\",",
+      "after": "    receipt = {\"kind\": \"interface_preflight\", \"batch\": \"l6-20261030-wb-gateway\","
+    },
+    {
+      "line": 1371,
+      "before": "        receipt = {\"kind\": \"self_test\", \"batch\": \"l5-20261030-wb-gateway\",",
+      "after": "        receipt = {\"kind\": \"self_test\", \"batch\": \"l6-20261030-wb-gateway\","
+    }
+  ],
+  "fixture_section_untouched_lines_with_l5": [
+    1535,
+    1545,
+    1554,
+    1591,
+    1597,
+    1641,
+    1683,
+    1684,
+    1708,
+    1709,
+    1717,
+    1728
+  ],
+  "authorized_by": "lead 裁决（E1 废止纪要 seal-supersession-E1-20261030T1153.md）",
+  "live_doc_drift": [],
+  "appendix_A": {
+    "kind": "l6_authorized_minimal_diff_appendix_A",
+    "at": "2026-10-30T12:03:25+08:00",
+    "file": "runner/l5_wb_runner.py",
+    "sha256_before_appendix": "fe7632643fe92d602ad17a1bd698e50fdf01cedb578693dd8fee828dbf7c3e72",
+    "sha256_after_appendix": "6ad752e7f48e34c47325665b15b8e60e62a300c1eeabf295a8681c69c534bba8",
+    "replaced_line_range": [
+      1024,
+      1039
+    ],
+    "before": [
+      "    # L5 批次形状：WB 仅 2 槽（PREREGISTRATION §3 固定），order 5/6",
+      "    check(\"wb_slot_count_is_2\", len(slots) == 2, f\"n={len(slots)}\")",
+      "    check(\"wb_slot_order_5_6\", [s[\"order\"] for s in slots] == [5, 6],",
+      "          str([s[\"order\"] for s in slots]))",
+      "    expect_cases = [\"bird-ca-schools-15\", \"dabstep-payments-10\"]",
+      "    check(\"wb_case_sequence\", [s[\"case\"] for s in slots] == expect_cases,",
+      "          str([s[\"case\"] for s in slots]))",
+      "    expect_timeouts = {\"bird-ca-schools-15\": 1800, \"dabstep-payments-10\": 1800}",
+      "    check(\"wb_timeouts_match_plan\",",
+      "          all(s[\"timeout_s\"] == expect_timeouts[s[\"case\"]] for s in slots),",
+      "          json.dumps({s[\"case\"]: s[\"timeout_s\"] for s in slots}))",
+      "    ids = [s[\"run_id\"] for s in slots]",
+      "    check(\"wb_run_ids_unique\", len(set(ids)) == 2, f\"{len(set(ids))} unique\")",
+      "    check(\"namespace_not_r1030_r1031\",",
+      "          all(not rid.startswith((\"r1030\", \"r1031\")) for rid in ids),",
+      "          \"prefix l5-20261030-wb-gateway\")"
+    ],
+    "after": [
+      "    # L6 批次形状：不再硬编码槽位清单——读 plan/contract 后对事实一致性断言",
+      "    contract_l6 = load_json(CONTRACT_PATH)",
+      "    contract_cases = set((contract_l6.get(\"case_snapshots\") or {}).keys())",
+      "    ids = [s[\"run_id\"] for s in slots]",
+      "    orders = [s[\"order\"] for s in slots]",
+      "    cases = [s[\"case\"] for s in slots]",
+      "    check(\"wb_slot_count_positive_unique\",",
+      "          len(slots) >= 1 and len({s[\"slot_id\"] for s in slots}) == len(slots),",
+      "          f\"n={len(slots)}\")",
+      "    check(\"wb_slot_order_ascending_strict\",",
+      "          orders == sorted(orders) and len(set(orders)) == len(orders),",
+      "          str(orders))",
+      "    check(\"wb_case_sequence_covers_contract\",",
+      "          set(cases) <= contract_cases and len(set(cases)) == len(cases),",
+      "          f\"cases={cases} contract_keys={sorted(contract_cases)}\")",
+      "    check(\"wb_timeouts_positive\",",
+      "          all(isinstance(s[\"timeout_s\"], int) and s[\"timeout_s\"] > 0 for s in slots),",
+      "          json.dumps({s[\"case\"]: s[\"timeout_s\"] for s in slots}))",
+      "    check(\"wb_run_ids_unique\", len(set(ids)) == len(ids), f\"{len(set(ids))} unique\")",
+      "    check(\"namespace_not_r1030_r1031\",",
+      "          all(not rid.startswith((\"r1030\", \"r1031\")) for rid in ids),",
+      "          \"prefix l6-20261030-wb-gateway\")"
+    ],
+    "semantic": "批形状断言改为 plan/contract 事实一致性（不硬编码槽位清单）",
+    "live_doc_drift": []
+  },
+  "appendix_B": {
+    "at": "2026-10-30T12:04:05+08:00",
+    "action": "driver-snapshot/SHA256SUMS.txt 定稿重算（含 A 项定稿后 runner 终态字节）",
+    "runner_final_sha256": "06d171bbdf96e9cd9b3e2fddf37da0547208296d891b0bf592ca23d115330728",
+    "live_doc_drift": [],
+    "note": "SUMS 于全部授权 diff（主7行+A/B/C/D）定稿后重算，记录=最终字节"
+  },
+  "appendix_C_harness": {
+    "at": "2026-10-30T12:07:38+08:00",
+    "scope": "仅 cmd_selftest harness 段（运行时函数/fixture 数据段零触碰）",
+    "sha256_before": "6ad752e7f48e34c47325665b15b8e60e62a300c1eeabf295a8681c69c534bba8",
+    "sha256_after": "e0588e6a138b4540b5ec94e0e4b52e0f4b0535f93074e486a6cc2390c2ef9f2e",
+    "hunks": [
+      {
+        "line": 1151,
+        "reason": "授权(a)1：单槽别名",
+        "before": "    SLOT_B = wb_slots()[1]  # dab（order 6）",
+        "after": "    SLOT_B = wb_slots()[-1]  # L6 单槽：取最后一个=SLOT_A 别名（harness 复用槽）"
+      },
+      {
+        "line": 1470,
+        "reason": "授权(a)2/3：T12 前置 reset（触发顺序=全新 claim→ws-exists，与原语义一致）",
+        "before": "(insert before)     slot2 = SLOT_B",
+        "after": "    reset_slot(slot2)  # 授权(a)2/3：单槽别名下必须先重置夹具，才能触达 setup-failure 分支"
+      }
+    ],
+    "live_doc_drift": []
+  },
+  "appendix_D_single_line_exception": {
+    "at": "2026-10-30T12:12:28+08:00",
+    "authorization": "lead 裁决选①（废封纪要「授权补充(2026-10-30 12:10)」节）",
+    "sha256_before": "e37f23af5a95710f8a422fec35472d21acffc9c58293a31c9aaa141a49e9f4ca",
+    "sha256_after": "06d171bbdf96e9cd9b3e2fddf37da0547208296d891b0bf592ca23d115330728",
+    "hunks": [
+      {
+        "line": 1724,
+        "reason": "授权①单行例外：合成世界 contract19 rule_version 标签镜像活体 L6 合同（slot id/plan 体语义未动）",
+        "before": "            contract19 = {\"rule_version\": \"l5-20261030-batch-v1\",",
+        "after": "            contract19 = {\"rule_version\": \"l6-20261030-batch-v1\","
+      }
+    ],
+    "live_doc_drift": []
+  },
+  "appendix_E_plan_dir_fix": {
+    "at": "2026-10-30T12:19:29+08:00",
+    "file": "runner/verify_execution.py",
+    "sha256_before": "904bb6d11e058bd19410ef7af681bc571c9fba90b62a45a3a9487cc9614a9b58",
+    "sha256_after": "f0612ba69d219177cd06fcd613c2a8b69e4ad9bfdf50199749493352fd932d49",
+    "hunks": [
+      {
+        "around": "GATE_PATH 常量区",
+        "before": "GATE_PATH = (Path(__file__).resolve().parents[3] / \"1-评测方案\" / \"工具链\"\n             / \"l5-execution\" / \"gate.py\")",
+        "after": "GATE_PATH = (Path(__file__).resolve().parents[3] / \"1-评测方案\" / \"工具链\"\n             / \"l5-execution\" / \"gate.py\")\n# L6 站点常量：显式传 plan_dir 给 gate（gate.DEFAULT_PLAN_DIR 锚定 L5，不得依赖被调方默认）\nPLAN_DIR = Path(__file__).resolve().parents[3] / \"1-评测方案\" / \"自动循环L6-2026-10-30\"",
+        "reason": "授权 2 行修复之 1：新增 PLAN_DIR 站点常量"
+      },
+      {
+        "around": "verify_execution 调用点",
+        "before": "        evidence = gate.verify_execution(binding_path, require_release=True)",
+        "after": "        evidence = gate.verify_execution(binding_path, require_release=True,\n                                         plan_dir=PLAN_DIR)",
+        "reason": "授权 2 行修复之 2：显式传 plan_dir（消除被调方 L5 默认）"
+      }
+    ],
+    "authorization": "lead 裁决「E2 废止与 E3 授权补充」节（2 行方案）",
+    "live_doc_drift": []
+  },
+  "appendix_F_defaults_audit": {
+    "at": "2026-10-30T12:22:00+08:00",
+    "verify_execution_final_sha256": "f0612ba69d219177cd06fcd613c2a8b69e4ad9bfdf50199749493352fd932d49",
+    "audit_receipt": "receipts/l6-runtime-defaults-audit.json",
+    "finding_F1": "seal 侧 manifest.external_files 空 vs gate.EXTERNAL_REQUIRED 三锁定件",
+    "live_doc_drift": []
+  }
+}

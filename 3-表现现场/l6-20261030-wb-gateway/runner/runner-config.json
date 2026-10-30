@@ -1,0 +1,15 @@
+{
+  "snapshot_at": "2026-10-30T10:55:00+08:00",
+  "source_paths": [
+    "/Users/b612-lp/bench-automation/drivers/workbuddy/workbuddy_driver.py",
+    "/Users/b612-lp/bench-automation/drivers/workbuddy/README.md"
+  ],
+  "design_seal_commit_D": "8c3e4b9e595a8d49ddd10150a67cf101a8bea19c",
+  "rule_version": "l6-20261030-batch-v1",
+  "plan_sha256_expected": null,
+  "driver_import": "runner imports the pinned snapshot copy in driver-snapshot/, never the live external file",
+  "forensic_boundary": "driver 只做 CDP+RPC 驱动与仓外 collect；无 hook/注入/代理/网络改动；SIGTERM 分支在 runner/safe_driver.py 结构性禁用",
+  "no_secrets": true,
+  "renderer_ready_timeout_s": 120,
+  "renderer_ready_poll_s": 2
+}

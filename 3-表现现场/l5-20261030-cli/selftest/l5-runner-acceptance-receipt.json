@@ -1,0 +1,79 @@
+{
+  "kind": "l5_runner_repair_acceptance",
+  "zero_model": true,
+  "zero_network": true,
+  "generated_at": "2026-10-30T01:48:02+08:00",
+  "checks": [
+    {
+      "case": "r1_cargo_guards",
+      "pass": true,
+      "detail": "{\"guards_used\": [\"input_integrity\", \"code_rerun\", \"plan_structure\"], \"guards_candidates\": 1540, \"guards_method\": \"canonical_first_reconciliation\", \"guards_conflict\": false}"
+    },
+    {
+      "case": "r1_dab_guards",
+      "pass": true,
+      "detail": "{\"guards_used\": [\"answers_format\", \"input_integrity\"], \"guards_candidates\": 36, \"guards_method\": \"canonical_first_reconciliation\", \"guards_conflict\": false}"
+    },
+    {
+      "case": "r1_impossible_counts_conflict",
+      "pass": true,
+      "detail": "{\"guards_used\": null, \"guards_candidates\": 0, \"guards_method\": \"canonical_first_reconciliation\", \"guards_conflict\": true}"
+    },
+    {
+      "case": "r1_judge_block_8dp",
+      "pass": true,
+      "detail": "{\"checker_sha256\": \"d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677\", \"guards_used\": [\"input_integrity\", \"code_rerun\", \"plan_structure\"], \"guards_candidates\": 1540, \"guards_method\": \"canonical_first_reconciliation\", \"guards_conflict\": false, \""
+    },
+    {
+      "case": "r2_prepare_rc0",
+      "pass": true,
+      "detail": "rc=0"
+    },
+    {
+      "case": "r2_ws_only_inputs_task",
+      "pass": true,
+      "detail": "['TASK.md', 'inputs']"
+    },
+    {
+      "case": "r2_meta_prepare_in_ev",
+      "pass": true,
+      "detail": "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/tmpo1nu034e/runs/l5-20261030-cli-codex-dabstep-payments-10-r1/meta.prepare.json"
+    },
+    {
+      "case": "r2_inputs_verification_ok",
+      "pass": true,
+      "detail": "{\"ok\": true, \"checked\": 1, \"mismatches\": [], \"unexpected\": [], \"method\": \"sha256 ws/inputs vs contract.case_snapshots.files[inputs/*]\"}"
+    },
+    {
+      "case": "r2_negative_ws_meta_detected",
+      "pass": true,
+      "detail": "['meta.json']"
+    },
+    {
+      "case": "r3_new_matcher_6of6",
+      "pass": true,
+      "detail": "hit=6/6"
+    },
+    {
+      "case": "r3_old_marker_0of6_defect_reproduced",
+      "pass": true,
+      "detail": "hit=0/6（L4 缺陷复现）"
+    }
+  ],
+  "live_doc_drift": [],
+  "summary": {
+    "total": 11,
+    "passed": 11
+  },
+  "evidence": [
+    {
+      "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l5-20261030-cli/codex/tools/lab.py",
+      "sha256": "dab676165aa16f6f59d15e074f633d3b6e310dfe01c5d4242a4d0e415ea31ad2"
+    },
+    {
+      "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l5-20261030-cli/dsh/tools/lab.py",
+      "sha256": "22cabdefdac91bf316aef2d1ea8c1c4847bf2f630809da25c7139b83dcec49ff"
+    }
+  ],
+  "all_pass": true
+}

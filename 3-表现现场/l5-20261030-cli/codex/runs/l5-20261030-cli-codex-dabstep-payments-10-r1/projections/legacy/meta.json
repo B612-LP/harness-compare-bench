@@ -1,0 +1,124 @@
+{
+  "batch": "l5-20261030-cli",
+  "rule_version": "l5-20261030-batch-v1",
+  "product": "codex",
+  "case": "dabstep-payments-10",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/l5-20261030-cli/codex/l5-20261030-cli-codex-dabstep-payments-10-r1",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME）",
+  "skills": "off",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "900ba60def9854201c32d725475c515e6b7fed7b18234b14a5a6283176f7aa76",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/acquirer_countries.csv",
+      "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+      "bytes": 194
+    },
+    {
+      "path": "inputs/fees.json",
+      "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+      "bytes": 531118
+    },
+    {
+      "path": "inputs/manual.md",
+      "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+      "bytes": 22127
+    },
+    {
+      "path": "inputs/merchant_category_codes.csv",
+      "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+      "bytes": 26611
+    },
+    {
+      "path": "inputs/merchant_data.json",
+      "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+      "bytes": 6857
+    },
+    {
+      "path": "inputs/payments.csv",
+      "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+      "bytes": 23581339
+    },
+    {
+      "path": "inputs/questions.jsonl",
+      "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+      "bytes": 3889
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-30T02:19:43+08:00",
+  "finished_at": "2026-10-30T02:24:29+08:00",
+  "duration_s": 286.0,
+  "reward": 0,
+  "weighted": 70.0,
+  "failed": [
+    "q49",
+    "q70",
+    "q2697"
+  ],
+  "judge": {
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "guards_used": [
+      "answers_format",
+      "input_integrity"
+    ],
+    "guards_candidates": 36,
+    "guards_method": "canonical_first_reconciliation",
+    "guards_conflict": false,
+    "correct": 7,
+    "n_tasks": 10,
+    "weighted": 70.0,
+    "exit_code": 0,
+    "raw_output_ref": "checker.stdout"
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "lines_scanned": 949,
+    "evidence": [],
+    "method": "session + runner-stdout rescan（母本只读）",
+    "live_doc_drift": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "l5-20261030-cli-codex-dabstep-payments-10-r1",
+  "usage": {
+    "requests": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "note": "legacy semantics: runner-side usage extraction absent as standalone per_call; r1030 codex aggregate zeros are extraction-layer coercions (int(u.get(...) or 0) merges absent/null/0; note 'absent fields stay 0'), whereas r1031 dsh mapped cacheWriteTokens only when the key existed (no key -> field not written; total None when valueless) — historical 'creation=0 across 20 runs' must be reported per product/field-source layer, not as a uniform SDK default"
+  }
+}

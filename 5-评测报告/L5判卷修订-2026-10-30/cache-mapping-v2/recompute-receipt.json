@@ -1,0 +1,2454 @@
+{
+  "generated_at": "2026-10-30T01:36:45+08:00",
+  "zero_model_calls": true,
+  "scope": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cache/probes 只读",
+  "mapping_version": "cache-mapping-v2",
+  "erratum_ref": "5-评测报告/L4独立验收-2026-10-29/realdata-cache/offline-recompute-erratum.json",
+  "unit_selftest": [
+    {
+      "case": "nested positive",
+      "pass": true
+    },
+    {
+      "case": "nested zero",
+      "pass": true
+    },
+    {
+      "case": "parent_missing",
+      "pass": true
+    },
+    {
+      "case": "parent_non_object",
+      "pass": true
+    },
+    {
+      "case": "child_missing",
+      "pass": true
+    },
+    {
+      "case": "alias no-sum",
+      "pass": true
+    }
+  ],
+  "slot_count": 18,
+  "recompute": {
+    "l4-20261029-cache-anthropic-messages-b1-fresh": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2284
+        },
+        "cache_creation_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "cache_read_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 21
+        },
+        "service_tier": {
+          "state": "non-scalar",
+          "value": "standard"
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2284
+        },
+        "cache_read_input_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "cache_creation_input_tokens": {
+          "norm": "cache_creation_tokens",
+          "state": "zero"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 21
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2284
+          ],
+          "distinct_values": [
+            2284
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "cache_read_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens": {
+          "wire_keys": [
+            "cache_creation_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            21
+          ],
+          "distinct_values": [
+            21
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-anthropic-messages-b1-nonce-control": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2281
+        },
+        "cache_creation_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "cache_read_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 19
+        },
+        "service_tier": {
+          "state": "non-scalar",
+          "value": "standard"
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2281
+        },
+        "cache_read_input_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "cache_creation_input_tokens": {
+          "norm": "cache_creation_tokens",
+          "state": "zero"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 19
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2281
+          ],
+          "distinct_values": [
+            2281
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "cache_read_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens": {
+          "wire_keys": [
+            "cache_creation_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            19
+          ],
+          "distinct_values": [
+            19
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-anthropic-messages-b1-repeat": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 236
+        },
+        "cache_creation_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "cache_read_input_tokens": {
+          "state": "positive",
+          "value": 2048
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 23
+        },
+        "service_tier": {
+          "state": "non-scalar",
+          "value": "standard"
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 236
+        },
+        "cache_read_input_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "positive",
+          "value": 2048
+        },
+        "cache_creation_input_tokens": {
+          "norm": "cache_creation_tokens",
+          "state": "zero"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 23
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            236
+          ],
+          "distinct_values": [
+            236
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "cache_read_input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2048
+          ],
+          "distinct_values": [
+            2048
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens": {
+          "wire_keys": [
+            "cache_creation_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            23
+          ],
+          "distinct_values": [
+            23
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-anthropic-messages-b2-fresh": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2283
+        },
+        "cache_creation_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "cache_read_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 13
+        },
+        "service_tier": {
+          "state": "non-scalar",
+          "value": "standard"
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2283
+        },
+        "cache_read_input_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "cache_creation_input_tokens": {
+          "norm": "cache_creation_tokens",
+          "state": "zero"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 13
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2283
+          ],
+          "distinct_values": [
+            2283
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "cache_read_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens": {
+          "wire_keys": [
+            "cache_creation_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            13
+          ],
+          "distinct_values": [
+            13
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-anthropic-messages-b2-nonce-control": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2284
+        },
+        "cache_creation_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "cache_read_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 15
+        },
+        "service_tier": {
+          "state": "non-scalar",
+          "value": "standard"
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2284
+        },
+        "cache_read_input_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "cache_creation_input_tokens": {
+          "norm": "cache_creation_tokens",
+          "state": "zero"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 15
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2284
+          ],
+          "distinct_values": [
+            2284
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "cache_read_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens": {
+          "wire_keys": [
+            "cache_creation_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            15
+          ],
+          "distinct_values": [
+            15
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-anthropic-messages-b2-repeat": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 235
+        },
+        "cache_creation_input_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "cache_read_input_tokens": {
+          "state": "positive",
+          "value": 2048
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 14
+        },
+        "service_tier": {
+          "state": "non-scalar",
+          "value": "standard"
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 235
+        },
+        "cache_read_input_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "positive",
+          "value": 2048
+        },
+        "cache_creation_input_tokens": {
+          "norm": "cache_creation_tokens",
+          "state": "zero"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 14
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            235
+          ],
+          "distinct_values": [
+            235
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "cache_read_input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2048
+          ],
+          "distinct_values": [
+            2048
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens": {
+          "wire_keys": [
+            "cache_creation_input_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            14
+          ],
+          "distinct_values": [
+            14
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-chat-completions-b1-fresh": {
+      "layer_raw_inventory": {
+        "prompt_tokens": {
+          "state": "positive",
+          "value": 2283
+        },
+        "completion_tokens": {
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2297
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "completion_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 12
+        },
+        "prompt_cache_hit_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "prompt_cache_miss_tokens": {
+          "state": "positive",
+          "value": 2283
+        }
+      },
+      "layer_mapping_v2": {
+        "prompt_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2283
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "prompt_cache_hit_tokens": {
+          "norm": "cache_read_tokens_hit_alias",
+          "state": "zero"
+        },
+        "prompt_cache_miss_tokens": {
+          "norm": "cache_miss_tokens",
+          "state": "positive",
+          "value": 2283
+        },
+        "completion_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2297
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "prompt_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2283
+          ],
+          "distinct_values": [
+            2283
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "prompt_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_hit_alias": {
+          "wire_keys": [
+            "prompt_cache_hit_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_miss_tokens": {
+          "wire_keys": [
+            "prompt_cache_miss_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2283
+          ],
+          "distinct_values": [
+            2283
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "completion_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            14
+          ],
+          "distinct_values": [
+            14
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2297
+          ],
+          "distinct_values": [
+            2297
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-chat-completions-b1-nonce-control": {
+      "layer_raw_inventory": {
+        "prompt_tokens": {
+          "state": "positive",
+          "value": 2282
+        },
+        "completion_tokens": {
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2296
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "completion_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 12
+        },
+        "prompt_cache_hit_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "prompt_cache_miss_tokens": {
+          "state": "positive",
+          "value": 2282
+        }
+      },
+      "layer_mapping_v2": {
+        "prompt_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2282
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "prompt_cache_hit_tokens": {
+          "norm": "cache_read_tokens_hit_alias",
+          "state": "zero"
+        },
+        "prompt_cache_miss_tokens": {
+          "norm": "cache_miss_tokens",
+          "state": "positive",
+          "value": 2282
+        },
+        "completion_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2296
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "prompt_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2282
+          ],
+          "distinct_values": [
+            2282
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "prompt_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_hit_alias": {
+          "wire_keys": [
+            "prompt_cache_hit_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_miss_tokens": {
+          "wire_keys": [
+            "prompt_cache_miss_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2282
+          ],
+          "distinct_values": [
+            2282
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "completion_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            14
+          ],
+          "distinct_values": [
+            14
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2296
+          ],
+          "distinct_values": [
+            2296
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-chat-completions-b1-repeat": {
+      "layer_raw_inventory": {
+        "prompt_tokens": {
+          "state": "positive",
+          "value": 2283
+        },
+        "completion_tokens": {
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2297
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "state": "positive",
+          "value": 2048
+        },
+        "completion_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 12
+        },
+        "prompt_cache_hit_tokens": {
+          "state": "positive",
+          "value": 2048
+        },
+        "prompt_cache_miss_tokens": {
+          "state": "positive",
+          "value": 235
+        }
+      },
+      "layer_mapping_v2": {
+        "prompt_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2283
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "positive",
+          "value": 2048
+        },
+        "prompt_cache_hit_tokens": {
+          "norm": "cache_read_tokens_hit_alias",
+          "state": "positive",
+          "value": 2048
+        },
+        "prompt_cache_miss_tokens": {
+          "norm": "cache_miss_tokens",
+          "state": "positive",
+          "value": 235
+        },
+        "completion_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2297
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "prompt_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2283
+          ],
+          "distinct_values": [
+            2283
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "prompt_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2048
+          ],
+          "distinct_values": [
+            2048
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_hit_alias": {
+          "wire_keys": [
+            "prompt_cache_hit_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2048
+          ],
+          "distinct_values": [
+            2048
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_miss_tokens": {
+          "wire_keys": [
+            "prompt_cache_miss_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            235
+          ],
+          "distinct_values": [
+            235
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "completion_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            14
+          ],
+          "distinct_values": [
+            14
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2297
+          ],
+          "distinct_values": [
+            2297
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-chat-completions-b2-fresh": {
+      "layer_raw_inventory": {
+        "prompt_tokens": {
+          "state": "positive",
+          "value": 2286
+        },
+        "completion_tokens": {
+          "state": "positive",
+          "value": 17
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2303
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "completion_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 15
+        },
+        "prompt_cache_hit_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "prompt_cache_miss_tokens": {
+          "state": "positive",
+          "value": 2286
+        }
+      },
+      "layer_mapping_v2": {
+        "prompt_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2286
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "prompt_cache_hit_tokens": {
+          "norm": "cache_read_tokens_hit_alias",
+          "state": "zero"
+        },
+        "prompt_cache_miss_tokens": {
+          "norm": "cache_miss_tokens",
+          "state": "positive",
+          "value": 2286
+        },
+        "completion_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 17
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2303
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "prompt_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2286
+          ],
+          "distinct_values": [
+            2286
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "prompt_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_hit_alias": {
+          "wire_keys": [
+            "prompt_cache_hit_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_miss_tokens": {
+          "wire_keys": [
+            "prompt_cache_miss_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2286
+          ],
+          "distinct_values": [
+            2286
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "completion_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            17
+          ],
+          "distinct_values": [
+            17
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2303
+          ],
+          "distinct_values": [
+            2303
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-chat-completions-b2-nonce-control": {
+      "layer_raw_inventory": {
+        "prompt_tokens": {
+          "state": "positive",
+          "value": 2285
+        },
+        "completion_tokens": {
+          "state": "positive",
+          "value": 13
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2298
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "completion_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 11
+        },
+        "prompt_cache_hit_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "prompt_cache_miss_tokens": {
+          "state": "positive",
+          "value": 2285
+        }
+      },
+      "layer_mapping_v2": {
+        "prompt_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2285
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "prompt_cache_hit_tokens": {
+          "norm": "cache_read_tokens_hit_alias",
+          "state": "zero"
+        },
+        "prompt_cache_miss_tokens": {
+          "norm": "cache_miss_tokens",
+          "state": "positive",
+          "value": 2285
+        },
+        "completion_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 13
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2298
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "prompt_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2285
+          ],
+          "distinct_values": [
+            2285
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "prompt_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_hit_alias": {
+          "wire_keys": [
+            "prompt_cache_hit_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_miss_tokens": {
+          "wire_keys": [
+            "prompt_cache_miss_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2285
+          ],
+          "distinct_values": [
+            2285
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "completion_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            13
+          ],
+          "distinct_values": [
+            13
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2298
+          ],
+          "distinct_values": [
+            2298
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-chat-completions-b2-repeat": {
+      "layer_raw_inventory": {
+        "prompt_tokens": {
+          "state": "positive",
+          "value": 2286
+        },
+        "completion_tokens": {
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2300
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "state": "positive",
+          "value": 2048
+        },
+        "completion_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 12
+        },
+        "prompt_cache_hit_tokens": {
+          "state": "positive",
+          "value": 2048
+        },
+        "prompt_cache_miss_tokens": {
+          "state": "positive",
+          "value": 238
+        }
+      },
+      "layer_mapping_v2": {
+        "prompt_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2286
+        },
+        "prompt_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "positive",
+          "value": 2048
+        },
+        "prompt_cache_hit_tokens": {
+          "norm": "cache_read_tokens_hit_alias",
+          "state": "positive",
+          "value": 2048
+        },
+        "prompt_cache_miss_tokens": {
+          "norm": "cache_miss_tokens",
+          "state": "positive",
+          "value": 238
+        },
+        "completion_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2300
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "prompt_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2286
+          ],
+          "distinct_values": [
+            2286
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "prompt_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2048
+          ],
+          "distinct_values": [
+            2048
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_hit_alias": {
+          "wire_keys": [
+            "prompt_cache_hit_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2048
+          ],
+          "distinct_values": [
+            2048
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_miss_tokens": {
+          "wire_keys": [
+            "prompt_cache_miss_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            238
+          ],
+          "distinct_values": [
+            238
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "completion_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            14
+          ],
+          "distinct_values": [
+            14
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2300
+          ],
+          "distinct_values": [
+            2300
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-responses-b1-fresh": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2287
+        },
+        "input_tokens_details.cached_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 17
+        },
+        "output_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 15
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2304
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2287
+        },
+        "input_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "cached_input_tokens": {
+          "norm": "cache_read_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "cache_write_input_tokens": {
+          "norm": "cache_creation_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 17
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2304
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2287
+          ],
+          "distinct_values": [
+            2287
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "input_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_flat_legacy": {
+          "wire_keys": [
+            "cached_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens_flat_legacy": {
+          "wire_keys": [
+            "cache_write_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            17
+          ],
+          "distinct_values": [
+            17
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2304
+          ],
+          "distinct_values": [
+            2304
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-responses-b1-nonce-control": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2284
+        },
+        "input_tokens_details.cached_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 13
+        },
+        "output_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 11
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2297
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2284
+        },
+        "input_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "cached_input_tokens": {
+          "norm": "cache_read_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "cache_write_input_tokens": {
+          "norm": "cache_creation_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 13
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2297
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2284
+          ],
+          "distinct_values": [
+            2284
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "input_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_flat_legacy": {
+          "wire_keys": [
+            "cached_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens_flat_legacy": {
+          "wire_keys": [
+            "cache_write_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            13
+          ],
+          "distinct_values": [
+            13
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2297
+          ],
+          "distinct_values": [
+            2297
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-responses-b1-repeat": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2287
+        },
+        "input_tokens_details.cached_tokens": {
+          "state": "positive",
+          "value": 2048
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 20
+        },
+        "output_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 18
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2307
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2287
+        },
+        "input_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "positive",
+          "value": 2048
+        },
+        "cached_input_tokens": {
+          "norm": "cache_read_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "cache_write_input_tokens": {
+          "norm": "cache_creation_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 20
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2307
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2287
+          ],
+          "distinct_values": [
+            2287
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "input_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2048
+          ],
+          "distinct_values": [
+            2048
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_flat_legacy": {
+          "wire_keys": [
+            "cached_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens_flat_legacy": {
+          "wire_keys": [
+            "cache_write_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            20
+          ],
+          "distinct_values": [
+            20
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2307
+          ],
+          "distinct_values": [
+            2307
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-responses-b2-fresh": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2284
+        },
+        "input_tokens_details.cached_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 16
+        },
+        "output_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2300
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2284
+        },
+        "input_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "cached_input_tokens": {
+          "norm": "cache_read_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "cache_write_input_tokens": {
+          "norm": "cache_creation_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 16
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2300
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2284
+          ],
+          "distinct_values": [
+            2284
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "input_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_flat_legacy": {
+          "wire_keys": [
+            "cached_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens_flat_legacy": {
+          "wire_keys": [
+            "cache_write_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            16
+          ],
+          "distinct_values": [
+            16
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2300
+          ],
+          "distinct_values": [
+            2300
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-responses-b2-nonce-control": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2285
+        },
+        "input_tokens_details.cached_tokens": {
+          "state": "zero",
+          "value": 0
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 13
+        },
+        "output_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 11
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2298
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2285
+        },
+        "input_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "zero"
+        },
+        "cached_input_tokens": {
+          "norm": "cache_read_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "cache_write_input_tokens": {
+          "norm": "cache_creation_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 13
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2298
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2285
+          ],
+          "distinct_values": [
+            2285
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "input_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "zero"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_flat_legacy": {
+          "wire_keys": [
+            "cached_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens_flat_legacy": {
+          "wire_keys": [
+            "cache_write_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            13
+          ],
+          "distinct_values": [
+            13
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2298
+          ],
+          "distinct_values": [
+            2298
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    },
+    "l4-20261029-cache-responses-b2-repeat": {
+      "layer_raw_inventory": {
+        "input_tokens": {
+          "state": "positive",
+          "value": 2284
+        },
+        "input_tokens_details.cached_tokens": {
+          "state": "positive",
+          "value": 2048
+        },
+        "output_tokens": {
+          "state": "positive",
+          "value": 14
+        },
+        "output_tokens_details.reasoning_tokens": {
+          "state": "positive",
+          "value": 12
+        },
+        "total_tokens": {
+          "state": "positive",
+          "value": 2298
+        }
+      },
+      "layer_mapping_v2": {
+        "input_tokens": {
+          "norm": "input_tokens",
+          "state": "positive",
+          "value": 2284
+        },
+        "input_tokens_details.cached_tokens": {
+          "norm": "cache_read_tokens",
+          "state": "positive",
+          "value": 2048
+        },
+        "cached_input_tokens": {
+          "norm": "cache_read_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "cache_write_input_tokens": {
+          "norm": "cache_creation_tokens_flat_legacy",
+          "state": "child_missing"
+        },
+        "output_tokens": {
+          "norm": "output_tokens",
+          "state": "positive",
+          "value": 14
+        },
+        "total_tokens": {
+          "norm": "total_tokens",
+          "state": "positive",
+          "value": 2298
+        }
+      },
+      "normalized": {
+        "input_tokens": {
+          "wire_keys": [
+            "input_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2284
+          ],
+          "distinct_values": [
+            2284
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens": {
+          "wire_keys": [
+            "input_tokens_details.cached_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2048
+          ],
+          "distinct_values": [
+            2048
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_read_tokens_flat_legacy": {
+          "wire_keys": [
+            "cached_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "cache_creation_tokens_flat_legacy": {
+          "wire_keys": [
+            "cache_write_input_tokens"
+          ],
+          "states": [
+            "child_missing"
+          ],
+          "values": [],
+          "distinct_values": [],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "output_tokens": {
+          "wire_keys": [
+            "output_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            14
+          ],
+          "distinct_values": [
+            14
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        },
+        "total_tokens": {
+          "wire_keys": [
+            "total_tokens"
+          ],
+          "states": [
+            "positive"
+          ],
+          "values": [
+            2298
+          ],
+          "distinct_values": [
+            2298
+          ],
+          "note": "多别名不求和;distinct_values 仅列出不同取值"
+        }
+      }
+    }
+  },
+  "assertions": [
+    {
+      "name": "responses b1 repeat nested=2048",
+      "pass": true
+    },
+    {
+      "name": "responses b1 fresh nested=0",
+      "pass": true
+    },
+    {
+      "name": "responses b1 nonce-control nested=0",
+      "pass": true
+    },
+    {
+      "name": "responses b1 flat legacy 键 raw/mapping 双缺",
+      "pass": true
+    },
+    {
+      "name": "messages b1 repeat read=2048",
+      "pass": true
+    },
+    {
+      "name": "messages b1 fresh creation 显式 0",
+      "pass": true
+    },
+    {
+      "name": "messages b1 nonce-control creation 显式 0",
+      "pass": true
+    },
+    {
+      "name": "messages b1 repeat creation 显式 0",
+      "pass": true
+    },
+    {
+      "name": "chat b1 双别名一致 2048 且不求和",
+      "pass": true
+    },
+    {
+      "name": "chat b1 fresh read=0",
+      "pass": true
+    },
+    {
+      "name": "chat b1 nonce-control read=0",
+      "pass": true
+    },
+    {
+      "name": "responses b2 repeat nested=2048",
+      "pass": true
+    },
+    {
+      "name": "responses b2 fresh nested=0",
+      "pass": true
+    },
+    {
+      "name": "responses b2 nonce-control nested=0",
+      "pass": true
+    },
+    {
+      "name": "responses b2 flat legacy 键 raw/mapping 双缺",
+      "pass": true
+    },
+    {
+      "name": "messages b2 repeat read=2048",
+      "pass": true
+    },
+    {
+      "name": "messages b2 fresh creation 显式 0",
+      "pass": true
+    },
+    {
+      "name": "messages b2 nonce-control creation 显式 0",
+      "pass": true
+    },
+    {
+      "name": "messages b2 repeat creation 显式 0",
+      "pass": true
+    },
+    {
+      "name": "chat b2 双别名一致 2048 且不求和",
+      "pass": true
+    },
+    {
+      "name": "chat b2 fresh read=0",
+      "pass": true
+    },
+    {
+      "name": "chat b2 nonce-control read=0",
+      "pass": true
+    },
+    {
+      "name": "erratum 一致 responses-b1-fresh=0",
+      "pass": true
+    },
+    {
+      "name": "erratum 一致 responses-b1-repeat=2048",
+      "pass": true
+    },
+    {
+      "name": "erratum 一致 responses-b1-nonce-control=0",
+      "pass": true
+    },
+    {
+      "name": "erratum 一致 responses-b2-fresh=0",
+      "pass": true
+    },
+    {
+      "name": "erratum 一致 responses-b2-repeat=2048",
+      "pass": true
+    },
+    {
+      "name": "erratum 一致 responses-b2-nonce-control=0",
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "receipt": "cache-mapping-v2-recompute-receipt.json"
+}

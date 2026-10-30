@@ -1,0 +1,237 @@
+{
+  "kind": "l5_six_category_ledger",
+  "generated_at": "2026-10-30T02:50:22+08:00",
+  "plan": {
+    "plan_id": "l5-20261030",
+    "binding_registered_at": "2026-10-30T02:16:07+08:00",
+    "design_commit_D": "8b1043d05c5b9dd9b3ae5aa5982cea4e9e852825",
+    "execution_seal_E3": "d8366da32694713d4f77c740f935229f9e298df4",
+    "superseded_seals": [
+      {
+        "commit": "7474b84aeaa7290c67ee2288d114953dd6cccadd",
+        "fate": "aborted pre-consumption (WB adapter gate pin defect, zero calls)",
+        "archive": "3-表现现场/l5-20261030-cli/aborted-attempts-20261030T0152seal/"
+      },
+      {
+        "commit": "02a4cac25f679b0e2359f9de6e2b10c82bd9ea0d",
+        "fate": "aborted mid-batch (DSH archive mkdir defect; 4 completed slots preserved then discarded for seal uniformity)",
+        "archive": "3-表现现场/中止重封档案E2-20261030T0207/"
+      }
+    ]
+  },
+  "product_run": {
+    "planned": 6,
+    "executed": 6,
+    "partial": 0,
+    "not_executed": 0,
+    "formal_true": 5,
+    "formal_false": 1,
+    "by_product": {
+      "codex": 2,
+      "dsh": 2,
+      "workbuddy": 2
+    },
+    "slots": [
+      {
+        "slot_id": "l5-20261030-cli-codex-dabstep-payments-10-r1",
+        "product": "codex",
+        "case": "dabstep-payments-10",
+        "order": 1,
+        "accounting": "executed",
+        "status": "ok",
+        "score_observed": 70.0,
+        "formal_admission": true,
+        "evidence_dir": "3-表现现场/l5-20261030-cli/codex/runs/l5-20261030-cli-codex-dabstep-payments-10-r1",
+        "session_capture": null,
+        "canonical_fails": []
+      },
+      {
+        "slot_id": "l5-20261030-cli-codex-tb-cargo-plan-r1",
+        "product": "codex",
+        "case": "tb-cargo-plan",
+        "order": 2,
+        "accounting": "executed",
+        "status": "ok",
+        "score_observed": 74.07407407,
+        "formal_admission": true,
+        "evidence_dir": "3-表现现场/l5-20261030-cli/codex/runs/l5-20261030-cli-codex-tb-cargo-plan-r1",
+        "session_capture": null,
+        "canonical_fails": []
+      },
+      {
+        "slot_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+        "product": "dsh",
+        "case": "dabstep-payments-10",
+        "order": 3,
+        "accounting": "executed",
+        "status": "ok",
+        "score_observed": 70.0,
+        "formal_admission": true,
+        "evidence_dir": "3-表现现场/l5-20261030-cli/dsh/runs/l5-20261030-cli-dsh-dabstep-payments-10-r1",
+        "session_capture": "exact",
+        "canonical_fails": []
+      },
+      {
+        "slot_id": "l5-20261030-cli-dsh-tb-cargo-plan-r1",
+        "product": "dsh",
+        "case": "tb-cargo-plan",
+        "order": 4,
+        "accounting": "executed",
+        "status": "ok",
+        "score_observed": 70.37037037,
+        "formal_admission": true,
+        "evidence_dir": "3-表现现场/l5-20261030-cli/dsh/runs/l5-20261030-cli-dsh-tb-cargo-plan-r1",
+        "session_capture": "exact",
+        "canonical_fails": []
+      },
+      {
+        "slot_id": "l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+        "product": "workbuddy",
+        "case": "bird-ca-schools-15",
+        "order": 5,
+        "accounting": "executed",
+        "status": "ok",
+        "score_observed": 100.0,
+        "formal_admission": false,
+        "evidence_dir": "3-表现现场/l5-20261030-wb-gateway/runs/l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+        "session_capture": null,
+        "canonical_fails": [
+          "meta.judge.guards_used 缺失（无法按 guard 重算 earned/possible）",
+          "status=ok 但证据/判卷不完备：partial 记账（unknown 不折满）"
+        ]
+      },
+      {
+        "slot_id": "l5-20261030-wb-gateway-dabstep-payments-10-r1",
+        "product": "workbuddy",
+        "case": "dabstep-payments-10",
+        "order": 6,
+        "accounting": "executed",
+        "status": "ok",
+        "score_observed": 60.0,
+        "formal_admission": true,
+        "evidence_dir": "3-表现现场/l5-20261030-wb-gateway/runs/l5-20261030-wb-gateway-dabstep-payments-10-r1",
+        "session_capture": null,
+        "canonical_fails": []
+      }
+    ],
+    "note": "bird formal=False 系 checker 缺 guards_used/n_tasks 缺省字段（judge canonical 判定，unknown 不折满），observed 100.0 保留"
+  },
+  "bare_model_probe": {
+    "planned": 0,
+    "executed": 0
+  },
+  "self_test": {
+    "items": [
+      {
+        "name": "codex tools selftest (mock full chain)",
+        "receipt": "3-表现现场/l5-20261030-cli/codex",
+        "result": "PASS"
+      },
+      {
+        "name": "dsh lab selftest",
+        "receipt": "3-表现现场/l5-20261030-cli/dsh/selftest/runner-selftest-r2.json",
+        "result": "3/3 PASS",
+        "sha256": "2a0f3eb823f8b89db41731e359641d6464dad7aff39adf43e9141612389f4274"
+      },
+      {
+        "name": "L5 runner acceptance (R1/R2/R3)",
+        "receipt": "3-表现现场/l5-20261030-cli/selftest/l5-runner-acceptance-receipt.json",
+        "result": "11/11 PASS",
+        "sha256": "940d1552e2f0e31fab9454b6ac2612f4a77fd48ef0004246905c9473a3460199"
+      },
+      {
+        "name": "WB runner selftest",
+        "receipt": "3-表现现场/l5-20261030-wb-gateway/selftest/",
+        "result": "71/71 PASS (wb-probe 报告)"
+      }
+    ]
+  },
+  "offline_recompute": {
+    "items": [
+      {
+        "name": "gate v2 history recompute (L4 frozen 17 rows)",
+        "receipt": "5-评测报告/L5判卷修订-2026-10-30/gate-v2-history-recompute-receipt.json",
+        "result": "17/17, 唯一差异=bird 白名单 fail 消失",
+        "all_pass": true
+      },
+      {
+        "name": "cache mapping v2 over L4 18 probes",
+        "receipt": "5-评测报告/L5判卷修订-2026-10-30/cache-mapping-v2/recompute-receipt.json",
+        "result": "18 槽 28 断言 + erratum 逐值一致",
+        "all_pass": true
+      }
+    ]
+  },
+  "grading_regression": {
+    "items": [
+      {
+        "name": "gate v2 (R4/池L5-8)",
+        "before": {
+          "path": "1-评测方案/工具链/l4-execution/gate.py",
+          "sha256": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+          "frozen": true
+        },
+        "after": {
+          "path": "1-评测方案/工具链/l5-execution/gate.py",
+          "sha256": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9"
+        },
+        "positive_nearwrong": "8/8 (dual-run v2 vs frozen v4)",
+        "receipt": "5-评测报告/L5判卷修订-2026-10-30/gate-v2-acceptance-receipt.json"
+      },
+      {
+        "name": "cache mapping v2 (R5/池L5-5)",
+        "before": {
+          "path": "3-表现现场/l4-20261029-cache/tools/cache_probe.py",
+          "sha256": "80f2343df454cb2aad3e50d954558011abc5322b1c0fa10fa666358c56027f11",
+          "frozen": true,
+          "gap_evidence": "5-评测报告/L4独立验收-2026-10-29/realdata-cache/offline-recompute-erratum.json"
+        },
+        "after": {
+          "path": "1-评测方案/工具链/l5-execution/cache_mapping_v2.py",
+          "sha256": "784855402f1b9dbc4fea0556602a1c09988652488f980dbb5588bd0ef515332d"
+        },
+        "positive_nearwrong": "unit 6/6",
+        "receipt": "5-评测报告/L5判卷修订-2026-10-30/cache-mapping-v2/recompute-receipt.json"
+      }
+    ],
+    "checker_semantic_revisions": 0
+  },
+  "interface_preflight": {
+    "items": [
+      {
+        "name": "codex preflight (isolation/checker smoke)",
+        "result": "PASS (builder-codex)"
+      },
+      {
+        "name": "dsh preflight",
+        "result": "PASS (builder-dsh)"
+      },
+      {
+        "name": "WB preflight + seal-check",
+        "result": "PASS (wb-probe; receipts/write-once)"
+      }
+    ]
+  },
+  "aborted_attempts_disclosure": {
+    "E1_attempt": "codex/dsh 首槽在途 kill -9（真实消耗，无 formal），档案 l5-20261030-cli/aborted-attempts-20261030T0152seal/",
+    "E2_attempts": "codex×2 ok / wb×2 ok / dsh dab partial(error) / dsh cargo not_executed —— 全部真实消耗无 formal，档案 中止重封档案E2-20261030T0207/（187 条目，auditor AUD-L5-O1 自引哈希 observation）",
+    "E3_voided_claims": "codex dab E3 首试 ws 残留 fail-closed 零调用 claim 作废（supplement-2）",
+    "rule": "中止尝试一律单列，不计 6 计划槽，不折算任何分数"
+  },
+  "incidents": [
+    {
+      "name": "wb-probe ps 误印产品进程命令行（含会话级 Bearer）",
+      "disposition": "零入库（auditor 全 L5 grep 仅披露语句本身命中，无 token 值）；操作规程加固入池"
+    },
+    {
+      "name": "WB cmd_accounting write_json_atomic 覆盖 E2 frame",
+      "disposition": "E2 版可经 git b32d844 恢复（judge/auditor 双确认不影响 E3 formal）；一行修复 post-admission 提交，条目入 L5 池"
+    }
+  ],
+  "judge_independent": {
+    "receipt": "5-评测报告/L5独立验收-2026-10-30/verify-receipt-l5.json",
+    "sha256": "a05dafca6b7f5bb36f55ab770f1db4e51aea630ce9e4a38ca12f7561dff97d05",
+    "summary_from_judge": "formal 5/6；wb-bird formal=False（checker 字段缺省，非基础设施）"
+  },
+  "live_doc_drift": []
+}

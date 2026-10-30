@@ -1,0 +1,107 @@
+{
+  "plan_id": "l5-20261030",
+  "schema_version": 1,
+  "generated_at": "2026-10-30T01:17:06+08:00",
+  "registered_at_source": "execution seal E git committer timestamp; exact value in post-seal runtime-binding.json",
+  "product_slots": [
+    {
+      "slot_id": "l5-20261030-cli-codex-dabstep-payments-10-r1",
+      "run_id": "l5-20261030-cli-codex-dabstep-payments-10-r1",
+      "event_id": "event:l5-20261030-cli-codex-dabstep-payments-10-r1",
+      "kind": "product_run",
+      "product": "codex",
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "stratum": "cli_current_sentinel",
+      "order": 1,
+      "evidence_dir": "3-表现现场/l5-20261030-cli/codex/runs/l5-20261030-cli-codex-dabstep-payments-10-r1",
+      "timeout_s": 1800
+    },
+    {
+      "slot_id": "l5-20261030-cli-codex-tb-cargo-plan-r1",
+      "run_id": "l5-20261030-cli-codex-tb-cargo-plan-r1",
+      "event_id": "event:l5-20261030-cli-codex-tb-cargo-plan-r1",
+      "kind": "product_run",
+      "product": "codex",
+      "case": "tb-cargo-plan",
+      "rep": 1,
+      "stratum": "cli_current_sentinel",
+      "order": 2,
+      "evidence_dir": "3-表现现场/l5-20261030-cli/codex/runs/l5-20261030-cli-codex-tb-cargo-plan-r1",
+      "timeout_s": 2400
+    },
+    {
+      "slot_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+      "run_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+      "event_id": "event:l5-20261030-cli-dsh-dabstep-payments-10-r1",
+      "kind": "product_run",
+      "product": "dsh",
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "stratum": "cli_current_sentinel",
+      "order": 3,
+      "evidence_dir": "3-表现现场/l5-20261030-cli/dsh/runs/l5-20261030-cli-dsh-dabstep-payments-10-r1",
+      "timeout_s": 1800
+    },
+    {
+      "slot_id": "l5-20261030-cli-dsh-tb-cargo-plan-r1",
+      "run_id": "l5-20261030-cli-dsh-tb-cargo-plan-r1",
+      "event_id": "event:l5-20261030-cli-dsh-tb-cargo-plan-r1",
+      "kind": "product_run",
+      "product": "dsh",
+      "case": "tb-cargo-plan",
+      "rep": 1,
+      "stratum": "cli_current_sentinel",
+      "order": 4,
+      "evidence_dir": "3-表现现场/l5-20261030-cli/dsh/runs/l5-20261030-cli-dsh-tb-cargo-plan-r1",
+      "timeout_s": 2400
+    },
+    {
+      "slot_id": "l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+      "run_id": "l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+      "event_id": "event:l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+      "kind": "product_run",
+      "product": "workbuddy",
+      "case": "bird-ca-schools-15",
+      "rep": 1,
+      "stratum": "wb_gateway_delivery",
+      "order": 5,
+      "evidence_dir": "3-表现现场/l5-20261030-wb-gateway/runs/l5-20261030-wb-gateway-bird-ca-schools-15-r1",
+      "timeout_s": 1800
+    },
+    {
+      "slot_id": "l5-20261030-wb-gateway-dabstep-payments-10-r1",
+      "run_id": "l5-20261030-wb-gateway-dabstep-payments-10-r1",
+      "event_id": "event:l5-20261030-wb-gateway-dabstep-payments-10-r1",
+      "kind": "product_run",
+      "product": "workbuddy",
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "stratum": "wb_gateway_delivery",
+      "order": 6,
+      "evidence_dir": "3-表现现场/l5-20261030-wb-gateway/runs/l5-20261030-wb-gateway-dabstep-payments-10-r1",
+      "timeout_s": 1800
+    }
+  ],
+  "probe_slots": [],
+  "whole_execution_restarts": 0,
+  "replacements": 0,
+  "result_driven_extra_samples": 0,
+  "design_scope": {
+    "purpose": "toolchain verifiability repair (L5-1/2/3/4/5/8 + L4 closeout) and formal-admission restoration re-verification",
+    "repairs": [
+      "R1 emission",
+      "R2 ws-meta removal",
+      "R3 dsh capture marker",
+      "R4 gate v2 whitelist",
+      "R5 cache mapping v2",
+      "R6 wb readiness wait",
+      "R7 wb frame path + write-once receipts"
+    ],
+    "discipline": [
+      "D1 setsid residual disclosure + post-stop ws double sampling",
+      "D2 raw-precision and canonical-8dp dual statement"
+    ],
+    "frozen_history": "L4 batch and contracts v1/v2/v3 untouched; L4 formal 0/17 permanent"
+  }
+}

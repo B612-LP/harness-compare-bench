@@ -19,6 +19,8 @@
 
 ## 2. 判分模式
 
+> **L6-A 修订记载（2026-10-30，`CONTRACT_REVISION=l6-meta-fields-2026-10-30`；`CHECKER_VERSION` 因 truth 冻结不变）**：判分器输出 JSON **纯增量两键**——`n_tasks`（=15，gate 重算消费键，与 `n_questions` 同值）与 `guards_used`（=非任务检查 id 静态表 `input_integrity/answers_file/answers_schema/answers_coverage`，与 WB runner 索引序推导一致）。动机=工具链元数据完备（L5-P1：缺键曾致 wb-bird 无法按 guard 重算而不得 formal），**判分口径零改动**；修前/修后 diff、正例、近似错误例与历史复算收据见 [L6 判卷修订](<../../5-评测报告/L6判卷修订-2026-10-30/README.md>)。
+
 - **headline 二值 0/1**（`BINARY=True`）：reward = 1 当且仅当
   ① 交付契约通过（`answers_schema` 与 `answers_coverage` 均为硬门：15 个非空行均为合法 JSON 对象，**每行恰为 `question_id`/`sql` 两键（B2，2026-10-27：多余键如 status/verified → schema 否决）**，`sql` 不含字符串字面量之外的 `--` 注释（B2，题面要求提交可执行 SQL）），15 个 `question_id` 与题集一一对应，无缺失/多余/重复；任意追加非法行即使逐题全对也否决）；
   ② 输入完整性未被破坏（run_dir 里若带 `inputs/` 副本，逐件 SHA-256 与 canonical 一致）；

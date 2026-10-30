@@ -1,0 +1,704 @@
+{
+  "batch": "l5-20261030",
+  "rule_version": "l5-20261030-batch-v1",
+  "product": "dsh",
+  "case": "dabstep-payments-10",
+  "rep": 1,
+  "slot_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+  "order": 3,
+  "stratum": "cli_current_sentinel",
+  "event_id": "event:l5-20261030-cli-dsh-dabstep-payments-10-r1",
+  "run_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+  "form": "cli",
+  "preregistration_commit": "d8366da32694713d4f77c740f935229f9e298df4",
+  "registered_at": "2026-10-30T02:16:07+08:00",
+  "workspace": "/Users/b612-lp/bench-workspaces/l5-20261030/dsh/l5-20261030-cli-dsh-dabstep-payments-10-r1",
+  "created_at": "2026-10-30T02:16:59+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages (dsh-headless --json projection)",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "cb30421a96253f3926de3563d96e1c9a445ea339e3e5e64b1036f13f8e34ca7c",
+  "isolation": {
+    "ok": true,
+    "problems": [],
+    "mode": "fresh-workspace-per-slot"
+  },
+  "inputs": [
+    {
+      "path": "inputs/acquirer_countries.csv",
+      "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+      "bytes": 194
+    },
+    {
+      "path": "inputs/fees.json",
+      "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+      "bytes": 531118
+    },
+    {
+      "path": "inputs/manual.md",
+      "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+      "bytes": 22127
+    },
+    {
+      "path": "inputs/merchant_category_codes.csv",
+      "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+      "bytes": 26611
+    },
+    {
+      "path": "inputs/merchant_data.json",
+      "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+      "bytes": 6857
+    },
+    {
+      "path": "inputs/payments.csv",
+      "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+      "bytes": 23581339
+    },
+    {
+      "path": "inputs/questions.jsonl",
+      "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+      "bytes": 3889
+    }
+  ],
+  "inputs_verification": {
+    "ok": true,
+    "basis": "prepare-time shipped subset vs contract.case_snapshots.files (hash-only, no truth semantics; input-modifiable cases pinned at dispatch)",
+    "checked": [
+      {
+        "path": "inputs/acquirer_countries.csv",
+        "sha256": "6744cf19",
+        "match": true
+      },
+      {
+        "path": "inputs/fees.json",
+        "sha256": "9a833666",
+        "match": true
+      },
+      {
+        "path": "inputs/manual.md",
+        "sha256": "bb7f4ca6",
+        "match": true
+      },
+      {
+        "path": "inputs/merchant_category_codes.csv",
+        "sha256": "83247d79",
+        "match": true
+      },
+      {
+        "path": "inputs/merchant_data.json",
+        "sha256": "f158e834",
+        "match": true
+      },
+      {
+        "path": "inputs/payments.csv",
+        "sha256": "5fbb2621",
+        "match": true
+      },
+      {
+        "path": "inputs/questions.jsonl",
+        "sha256": "d99d3109",
+        "match": true
+      },
+      {
+        "path": "instruction.md",
+        "sha256": "2d22b2f3",
+        "match": true
+      },
+      {
+        "path": "case.json",
+        "sha256": "8a2f327a",
+        "match": true
+      }
+    ]
+  },
+  "selection": {
+    "slot_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+    "basis": "plan.json product_slots 固定序"
+  },
+  "attempts": [
+    {
+      "n": 1,
+      "kind": "single-dispatch",
+      "policy": "whole_execution_restarts=0",
+      "pid": 70595,
+      "pgid": 70595,
+      "started_at": "2026-10-30T02:16:59+08:00",
+      "finished_at": "2026-10-30T02:23:16+08:00",
+      "duration_s": 376.4,
+      "exit_code": 0,
+      "outcome": "ok",
+      "closure": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "signal": null,
+        "verified_stop": true,
+        "group_confirmed_gone": true,
+        "pgid": 70595,
+        "at": "2026-10-30T02:23:16+08:00",
+        "ack_at": "2026-10-30T02:23:16+08:00",
+        "note": "组已确认不存在（ESRCH）；正常退出无需发送信号",
+        "residual_probe": {
+          "still_growing": false,
+          "method": "workspace-growth-two-sample"
+        }
+      }
+    }
+  ],
+  "transport_retries": 0,
+  "app_asar_sha256": null,
+  "managed_unknowns": [],
+  "residual_disclosure": {
+    "group_coverage": "confirmation covers launched pgid only; setsid-escaped descendants not covered by group confirmation",
+    "host_guarantee": "none at whole-host level",
+    "probe": "workspace-growth-two-sample (post-stop)",
+    "policy": "detected ongoing writer => conservative partial (unverified stop)"
+  },
+  "status": "ok",
+  "exit_code": 0,
+  "diagnostic": null,
+  "termination_receipt": {
+    "file": "termination-receipt.json",
+    "sha256": "d1d79e646872aed16ce4b3a09ebca9e49150c30d2793fc5926ecf5e794c56730"
+  },
+  "timed_out": false,
+  "started_at": "2026-10-30T02:16:59+08:00",
+  "finished_at": "2026-10-30T02:23:16+08:00",
+  "duration_s": 376.4,
+  "stdout_bytes": 294841,
+  "stdout_sha256": "790bbb5bad0b645a2f6140433fdcb28597f44b95875e81365bf0c19eaf89df70",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "archived_stdout": {
+    "raw_file": "agent.jsonl",
+    "raw_bytes": 294841,
+    "raw_truncation": "dsh-headless --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no override in this version",
+    "full_file": "agent.jsonl.full",
+    "full_sha256": "c4a01bef61d9fb31766dd45d2101dedd92446318090ed0e545bfc97f0ff80760",
+    "full_bytes": 334238,
+    "full_lines": 251,
+    "full_method": "lossless re-projection of durable session log with string/line caps removed; commit-point semantics identical to CLI projection"
+  },
+  "usage": {
+    "requests": 49,
+    "input_tokens": 31613,
+    "output_tokens": 63654,
+    "cache_read_tokens": 2680960,
+    "cache_creation_tokens": 0,
+    "per_call": [
+      {
+        "turn": 1,
+        "step": 1,
+        "input_tokens": 227,
+        "output_tokens": 185,
+        "total_tokens": 7196,
+        "cache_read_tokens": 6784,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 2,
+        "input_tokens": 6436,
+        "output_tokens": 264,
+        "total_tokens": 13868,
+        "cache_read_tokens": 7168,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 3,
+        "input_tokens": 818,
+        "output_tokens": 1392,
+        "total_tokens": 16034,
+        "cache_read_tokens": 13824,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 4,
+        "input_tokens": 702,
+        "output_tokens": 290,
+        "total_tokens": 16992,
+        "cache_read_tokens": 16000,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 5,
+        "input_tokens": 1681,
+        "output_tokens": 982,
+        "total_tokens": 19559,
+        "cache_read_tokens": 16896,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 6,
+        "input_tokens": 312,
+        "output_tokens": 645,
+        "total_tokens": 20413,
+        "cache_read_tokens": 19456,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 7,
+        "input_tokens": 1437,
+        "output_tokens": 1180,
+        "total_tokens": 22969,
+        "cache_read_tokens": 20352,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 8,
+        "input_tokens": 1532,
+        "output_tokens": 1869,
+        "total_tokens": 26313,
+        "cache_read_tokens": 22912,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 9,
+        "input_tokens": 691,
+        "output_tokens": 1145,
+        "total_tokens": 28076,
+        "cache_read_tokens": 26240,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 10,
+        "input_tokens": 1694,
+        "output_tokens": 1577,
+        "total_tokens": 31303,
+        "cache_read_tokens": 28032,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 11,
+        "input_tokens": 162,
+        "output_tokens": 1806,
+        "total_tokens": 33200,
+        "cache_read_tokens": 31232,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 12,
+        "input_tokens": 447,
+        "output_tokens": 421,
+        "total_tokens": 34020,
+        "cache_read_tokens": 33152,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 13,
+        "input_tokens": 399,
+        "output_tokens": 1190,
+        "total_tokens": 35509,
+        "cache_read_tokens": 33920,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 14,
+        "input_tokens": 1205,
+        "output_tokens": 725,
+        "total_tokens": 37386,
+        "cache_read_tokens": 35456,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 15,
+        "input_tokens": 1453,
+        "output_tokens": 1236,
+        "total_tokens": 40065,
+        "cache_read_tokens": 37376,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 16,
+        "input_tokens": 202,
+        "output_tokens": 978,
+        "total_tokens": 41116,
+        "cache_read_tokens": 39936,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 17,
+        "input_tokens": 326,
+        "output_tokens": 1036,
+        "total_tokens": 42450,
+        "cache_read_tokens": 41088,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 18,
+        "input_tokens": 162,
+        "output_tokens": 873,
+        "total_tokens": 43403,
+        "cache_read_tokens": 42368,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 19,
+        "input_tokens": 622,
+        "output_tokens": 1843,
+        "total_tokens": 45857,
+        "cache_read_tokens": 43392,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 20,
+        "input_tokens": 285,
+        "output_tokens": 782,
+        "total_tokens": 46891,
+        "cache_read_tokens": 45824,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 21,
+        "input_tokens": 234,
+        "output_tokens": 2009,
+        "total_tokens": 49091,
+        "cache_read_tokens": 46848,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 22,
+        "input_tokens": 225,
+        "output_tokens": 1852,
+        "total_tokens": 51101,
+        "cache_read_tokens": 49024,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 23,
+        "input_tokens": 486,
+        "output_tokens": 337,
+        "total_tokens": 51895,
+        "cache_read_tokens": 51072,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 24,
+        "input_tokens": 565,
+        "output_tokens": 1984,
+        "total_tokens": 54389,
+        "cache_read_tokens": 51840,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 25,
+        "input_tokens": 446,
+        "output_tokens": 3465,
+        "total_tokens": 58183,
+        "cache_read_tokens": 54272,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 26,
+        "input_tokens": 318,
+        "output_tokens": 679,
+        "total_tokens": 59109,
+        "cache_read_tokens": 58112,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 27,
+        "input_tokens": 413,
+        "output_tokens": 440,
+        "total_tokens": 59861,
+        "cache_read_tokens": 59008,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 28,
+        "input_tokens": 206,
+        "output_tokens": 729,
+        "total_tokens": 60711,
+        "cache_read_tokens": 59776,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 29,
+        "input_tokens": 463,
+        "output_tokens": 563,
+        "total_tokens": 61698,
+        "cache_read_tokens": 60672,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 30,
+        "input_tokens": 298,
+        "output_tokens": 656,
+        "total_tokens": 62650,
+        "cache_read_tokens": 61696,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 31,
+        "input_tokens": 269,
+        "output_tokens": 1204,
+        "total_tokens": 64065,
+        "cache_read_tokens": 62592,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 32,
+        "input_tokens": 222,
+        "output_tokens": 697,
+        "total_tokens": 64919,
+        "cache_read_tokens": 64000,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 33,
+        "input_tokens": 186,
+        "output_tokens": 6428,
+        "total_tokens": 71382,
+        "cache_read_tokens": 64768,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 34,
+        "input_tokens": 432,
+        "output_tokens": 561,
+        "total_tokens": 72289,
+        "cache_read_tokens": 71296,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 35,
+        "input_tokens": 199,
+        "output_tokens": 581,
+        "total_tokens": 72972,
+        "cache_read_tokens": 72192,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 36,
+        "input_tokens": 2881,
+        "output_tokens": 1211,
+        "total_tokens": 77052,
+        "cache_read_tokens": 72960,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 37,
+        "input_tokens": 214,
+        "output_tokens": 828,
+        "total_tokens": 77970,
+        "cache_read_tokens": 76928,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 38,
+        "input_tokens": 259,
+        "output_tokens": 2819,
+        "total_tokens": 81030,
+        "cache_read_tokens": 77952,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 39,
+        "input_tokens": 273,
+        "output_tokens": 4067,
+        "total_tokens": 85364,
+        "cache_read_tokens": 81024,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 40,
+        "input_tokens": 172,
+        "output_tokens": 2100,
+        "total_tokens": 87520,
+        "cache_read_tokens": 85248,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 41,
+        "input_tokens": 332,
+        "output_tokens": 1735,
+        "total_tokens": 89491,
+        "cache_read_tokens": 87424,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 42,
+        "input_tokens": 362,
+        "output_tokens": 826,
+        "total_tokens": 90660,
+        "cache_read_tokens": 89472,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 43,
+        "input_tokens": 214,
+        "output_tokens": 2274,
+        "total_tokens": 92984,
+        "cache_read_tokens": 90496,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 44,
+        "input_tokens": 251,
+        "output_tokens": 698,
+        "total_tokens": 93749,
+        "cache_read_tokens": 92800,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 45,
+        "input_tokens": 155,
+        "output_tokens": 1209,
+        "total_tokens": 95060,
+        "cache_read_tokens": 93696,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 46,
+        "input_tokens": 272,
+        "output_tokens": 749,
+        "total_tokens": 95997,
+        "cache_read_tokens": 94976,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 47,
+        "input_tokens": 139,
+        "output_tokens": 487,
+        "total_tokens": 96498,
+        "cache_read_tokens": 95872,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 48,
+        "input_tokens": 172,
+        "output_tokens": 726,
+        "total_tokens": 97282,
+        "cache_read_tokens": 96384,
+        "cache_creation_tokens": 0
+      },
+      {
+        "turn": 1,
+        "step": 49,
+        "input_tokens": 162,
+        "output_tokens": 1321,
+        "total_tokens": 98635,
+        "cache_read_tokens": 97152,
+        "cache_creation_tokens": 0
+      }
+    ],
+    "cross_check": {
+      "compared": 49,
+      "equal": 49,
+      "mismatch": []
+    },
+    "source": "durable session log assistant/message usage (commit points); raw usage 原样，缺失保留 null，不填 0"
+  },
+  "session_capture": {
+    "match_method": "exact",
+    "matched_dir": "--Users-b612-lp-bench-workspaces-l5-20261030-dsh-l5-20261030-cli-dsh-dabstep-payments-10-r1--",
+    "expected": "--Users-b612-lp-bench-workspaces-l5-20261030-dsh-l5-20261030-cli-dsh-dabstep-payments-10-r1--",
+    "copied": 1
+  },
+  "reward": 0,
+  "weighted": 70.0,
+  "score_status": "scored",
+  "failed": [
+    "q49",
+    "q70",
+    "q2697"
+  ],
+  "judge": {
+    "reward": 0,
+    "weighted": 70.0,
+    "correct": 7,
+    "n_tasks": 10,
+    "guards_used": [
+      "answers_format",
+      "input_integrity"
+    ],
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "exit_code": 1
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "runner stdout (staging-first, never overwritten) + session-trajectory dual scan",
+    "stdout_scan": {
+      "lines": 251,
+      "violations": 0
+    },
+    "session_scan": {
+      "lines": 309,
+      "violations": 0
+    },
+    "evidence": []
+  },
+  "integrity_verdict": "clean"
+}

@@ -1,0 +1,191 @@
+{
+  "batch": "l5-20261030",
+  "rule_version": "l5-20261030-batch-v1",
+  "product": "dsh",
+  "case": "dabstep-payments-10",
+  "rep": 1,
+  "slot_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+  "order": 3,
+  "stratum": "cli_current_sentinel",
+  "event_id": "event:l5-20261030-cli-dsh-dabstep-payments-10-r1",
+  "run_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+  "form": "cli",
+  "preregistration_commit": "7474b84aeaa7290c67ee2288d114953dd6cccadd",
+  "registered_at": "2026-10-30T01:51:27+08:00",
+  "workspace": "/Users/b612-lp/bench-workspaces/l5-20261030/dsh/l5-20261030-cli-dsh-dabstep-payments-10-r1",
+  "created_at": "2026-10-30T01:53:15+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages (dsh-headless --json projection)",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "cb30421a96253f3926de3563d96e1c9a445ea339e3e5e64b1036f13f8e34ca7c",
+  "isolation": {
+    "ok": true,
+    "problems": [],
+    "mode": "fresh-workspace-per-slot"
+  },
+  "inputs": [
+    {
+      "path": "inputs/acquirer_countries.csv",
+      "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+      "bytes": 194
+    },
+    {
+      "path": "inputs/fees.json",
+      "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+      "bytes": 531118
+    },
+    {
+      "path": "inputs/manual.md",
+      "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+      "bytes": 22127
+    },
+    {
+      "path": "inputs/merchant_category_codes.csv",
+      "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+      "bytes": 26611
+    },
+    {
+      "path": "inputs/merchant_data.json",
+      "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+      "bytes": 6857
+    },
+    {
+      "path": "inputs/payments.csv",
+      "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+      "bytes": 23581339
+    },
+    {
+      "path": "inputs/questions.jsonl",
+      "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+      "bytes": 3889
+    }
+  ],
+  "inputs_verification": {
+    "ok": true,
+    "basis": "prepare-time shipped subset vs contract.case_snapshots.files (hash-only, no truth semantics; input-modifiable cases pinned at dispatch)",
+    "checked": [
+      {
+        "path": "inputs/acquirer_countries.csv",
+        "sha256": "6744cf19",
+        "match": true
+      },
+      {
+        "path": "inputs/fees.json",
+        "sha256": "9a833666",
+        "match": true
+      },
+      {
+        "path": "inputs/manual.md",
+        "sha256": "bb7f4ca6",
+        "match": true
+      },
+      {
+        "path": "inputs/merchant_category_codes.csv",
+        "sha256": "83247d79",
+        "match": true
+      },
+      {
+        "path": "inputs/merchant_data.json",
+        "sha256": "f158e834",
+        "match": true
+      },
+      {
+        "path": "inputs/payments.csv",
+        "sha256": "5fbb2621",
+        "match": true
+      },
+      {
+        "path": "inputs/questions.jsonl",
+        "sha256": "d99d3109",
+        "match": true
+      },
+      {
+        "path": "instruction.md",
+        "sha256": "2d22b2f3",
+        "match": true
+      },
+      {
+        "path": "case.json",
+        "sha256": "8a2f327a",
+        "match": true
+      }
+    ]
+  },
+  "selection": {
+    "slot_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+    "basis": "plan.json product_slots 固定序"
+  },
+  "attempts": [
+    {
+      "n": 1,
+      "kind": "single-dispatch",
+      "policy": "whole_execution_restarts=0",
+      "pid": 73208,
+      "pgid": 73208,
+      "started_at": "2026-10-30T01:53:15+08:00",
+      "finished_at": "2026-10-30T01:57:51+08:00",
+      "duration_s": 276.4,
+      "exit_code": -9,
+      "outcome": "ok",
+      "closure": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "signal": null,
+        "verified_stop": true,
+        "group_confirmed_gone": true,
+        "pgid": 73208,
+        "at": "2026-10-30T01:57:51+08:00",
+        "ack_at": "2026-10-30T01:57:51+08:00",
+        "note": "组已确认不存在（ESRCH）；正常退出无需发送信号",
+        "residual_probe": {
+          "still_growing": false,
+          "method": "workspace-growth-two-sample"
+        }
+      }
+    }
+  ],
+  "transport_retries": 0,
+  "app_asar_sha256": null,
+  "managed_unknowns": [],
+  "residual_disclosure": {
+    "group_coverage": "confirmation covers launched pgid only; setsid-escaped descendants not covered by group confirmation",
+    "host_guarantee": "none at whole-host level",
+    "probe": "workspace-growth-two-sample (post-stop)",
+    "policy": "detected ongoing writer => conservative partial (unverified stop)"
+  },
+  "status": "error",
+  "exit_code": null,
+  "diagnostic": {
+    "class": "runner-exception",
+    "stderr_tail": "FileExistsError(17, 'File exists')"
+  },
+  "termination_receipt": null,
+  "timed_out": false,
+  "score_status": "unscored-diagnostic",
+  "weighted": null,
+  "reward": null,
+  "stdout_bytes": 218210,
+  "stdout_sha256": "edac08bd8c4379bf0f7c2a537ffa23b936e9fc67dc228f317eafd45ce713c4fd",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "started_at": "2026-10-30T01:53:15+08:00",
+  "finished_at": "2026-10-30T01:57:52+08:00",
+  "duration_s": 276.8
+}

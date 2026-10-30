@@ -228,6 +228,48 @@
       "description": "L4 六类分账索引：product 17 槽（16 执行、1 未执行），bare-model 18 槽；独立准入与原始得分分列。事件记录的是一份离线索引，不将其视为18次合成实验或把事故并入35槽；interface_preflight事故独立存在，provider请求未知。",
       "pin_class": "live_doc",
       "registered_at": "2026-10-30T00:33:42+08:00"
+    },
+    {
+      "event_id": "work:l5-six-ledger-index-20261030",
+      "kind": "offline_recompute",
+      "executor": "lead（代 freeze-engineer 串行登记；数值由 ledger_build.py 读现有证据实算，formal 引 judge canonical）",
+      "timestamp": "2026-10-30T02:51:20+08:00",
+      "source": {
+        "path": "5-评测报告/L5综合结论-2026-10-30/six-ledger.json",
+        "sha256": "0ff7a90c595078ba135820ad9dbfc1d8bb593fbae72222fce6640003196af5ef"
+      },
+      "locator": "categories 与 counts；仅索引，不向旧冻结正式表插行",
+      "description": "L5 六类分账索引：product_run 6 槽全执行（canonical formal 5/6，wb-bird False=checker 缺 guards_used/n_tasks 缺省，observed 保留）；grading_regression=2（gate v2/cache mapping v2）；bare_model_probe=0；E1/E2 中止尝试单列无 formal；事故 2 项披露（ps 误印零入库、WB frame 覆盖已修复）",
+      "registered_at": "2026-10-30T02:51:20+08:00",
+      "pin_class": "live_doc"
+    },
+    {
+      "event_id": "work:l6-six-ledger-index-20261030",
+      "kind": "offline_recompute",
+      "executor": "lead（串行登记；sha 由本脚本读现有证据实算，formal 引 judge canonical rerun）",
+      "timestamp": "2026-10-30T12:40:59+08:00",
+      "source": {
+        "path": "5-评测报告/L6综合结论-2026-10-30/six-ledger.json",
+        "sha256": "1ae5bd78c4e32b25835786861878e931e845db4cfa0b7096e0f0b6eb5ed52eee"
+      },
+      "locator": "categories 与 counts；仅索引，不向旧冻结正式表插行",
+      "description": "L6 六类分账索引：product_run 1 槽全执行（canonical formal 1/1，wb-bird raw 100.0 15/15，L5-P1 formal 准入链路修复实证）；grading_regression=2（L6-A checker 元数据两键/L6-C 收据自引排除）；bare_model_probe=0；E1/E2 废封零消耗单列；事故 0；池结转 P4 ps 规程+L3 尾项+2 建议（gate DEFAULT_PLAN_DIR 显式化、T22d fixture 退役）",
+      "registered_at": "2026-10-30T12:41:07+08:00",
+      "pin_class": "live_doc"
+    },
+    {
+      "event_id": "work:l6-ledger-schema-correction-20261030",
+      "kind": "correction",
+      "executor": "lead（L6 收尾跑 test_freeze 发现；修复=结构键补齐，原 timestamp/内容零改动）",
+      "timestamp": "2026-10-30T12:43:51+08:00",
+      "registered_at": "2026-10-30T12:43:51+08:00",
+      "pin_class": "live_doc",
+      "source": {
+        "path": "4-打分细则/可信冻结-2026-10-29-v3/work-registry-live.json",
+        "sha256": "f73e2dc334f75616f0216655be181d478e6bcffc58d2d91b2c040290c325a693"
+      },
+      "locator": "修复前完整字节（本 correction 提交的父提交可考）；对 #17/#18 两条 offline_recompute 事件",
+      "description": "发现#17(L5 索引)与#18(L6 索引)缺 registered_at/pin_class 且含 schema 外键 live_doc_drift——L5 收尾登记时偏离 DF-1 schema 且未跑 test_freeze 不变量（过程漏洞，L6 收尾补跑抓获）。修复=#17 registered_at 考古自引入提交 8f25d64 的 committer 时刻、#18 取登记提交 8edc58f 时刻，两者补 pin_class=live_doc、移除 schema 外键（原值 [] 已录本描述）；原 timestamp 与全部业务内容零改动。制度化：批收尾清单必须含 work-registry 不变量测试；本 correction 事件自身首稿亦误带该键，同批移除（登记纪律：本台账条目不带 live_doc_drift，后者属收据/报告件）"
     }
   ]
 }

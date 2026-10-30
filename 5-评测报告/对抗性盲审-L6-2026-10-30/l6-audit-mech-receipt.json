@@ -1,0 +1,68 @@
+{
+ "kind": "l6_audit_mech_receipt",
+ "tool": "inline-verifier",
+ "at": "2026-10-30T12:40:48+08:00",
+ "results": [
+  {
+   "check": "A1_gate_byte_unchanged_since_L5",
+   "status": "PASS",
+   "detail": "diff lines=0"
+  },
+  {
+   "check": "A2_runner_final_hashes",
+   "status": "PASS",
+   "detail": "l5_wb_runner=06d171bbdf96e9cd verify_execution=f0612ba69d219177"
+  },
+  {
+   "check": "A3_manifest_28_pins_all_match",
+   "status": "PASS",
+   "detail": "files=28 ext=5 bad=[]/[]"
+  },
+  {
+   "check": "B1_e1_to_e3_runner_diff_scope",
+   "status": "PASS",
+   "detail": "touched=['l5_wb_runner.py', 'verify_execution.py']"
+  },
+  {
+   "check": "B2_prereg_plan_frozen_since_D1",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "B3_contract_frozen_since_D3",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "C1_e1_e2_zero_residue_in_runs",
+   "status": "PASS",
+   "detail": "hits=''"
+  },
+  {
+   "check": "D1_bird_contract_pins_9_9",
+   "status": "PASS",
+   "detail": "verified=9"
+  },
+  {
+   "check": "D2_bird_checker_pin_ffa7389a",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "D3_truth_inputs_untouched",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "E1_redline_no_other_paths",
+   "status": "PASS",
+   "detail": "extra=[]"
+  }
+ ],
+ "counts": {
+  "PASS": 11,
+  "FAIL": 0
+ },
+ "note": "B1 首两版 FAIL 为收据生成器自身 stat 行解析空格缺陷（工具 bug 非证据问题），修正后 PASS；过程如实记录",
+ "live_doc_drift": []
+}

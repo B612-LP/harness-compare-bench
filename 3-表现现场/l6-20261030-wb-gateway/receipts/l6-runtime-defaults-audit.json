@@ -1,0 +1,666 @@
+{
+  "kind": "l6_runtime_defaults_audit",
+  "at": "2026-10-30T12:21:39+08:00",
+  "scope": "pre-claim verify→claim→prompt 组装→启动→collect→checker→meta/收据 全链常量与 DEFAULT_",
+  "files_scanned": [
+    "runner/l5_wb_runner.py",
+    "runner/safe_driver.py",
+    "runner/verify_execution.py",
+    "driver-snapshot/workbuddy_driver.py",
+    "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/l5-execution/gate.py"
+  ],
+  "items": [
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "HERE",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（本站点根）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "REPO",
+      "value": "<expr>",
+      "verdict": "与 l5 无关"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "L5",
+      "value": "<expr>",
+      "verdict": "l6 已适配（:35 现 L6 目录；变量名 L5 为遗留命名，语义=本批目录）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "PLAN_PATH",
+      "value": "<expr>",
+      "verdict": "l6 已适配（随 L5 目录常量）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "CONTRACT_PATH",
+      "value": "<expr>",
+      "verdict": "l6 已适配"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "BINDING_PATH",
+      "value": "<expr>",
+      "verdict": "l6 已适配"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "CASE_ROOT",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（2-用例）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "WORKSPACE_ROOT",
+      "value": "<expr>",
+      "verdict": "l6 已适配（bench-workspaces/l6-20261030-wb-gateway）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "WB_APP",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "GATE_PATH",
+      "value": "<expr>",
+      "verdict": "与 l5 无关——L6 复用 l5-execution gate 文件（约定路径，内容为共同 gate）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "TZ",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "STRATUM_DISPLAY",
+      "value": "WB 产品交付态（历史证据指向网关；本批路由状态单列）",
+      "verdict": "与 l5 无关（展示文案）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "R2_EVIDENCE",
+      "value": "1-评测方案/准入预检-2026-10-29/wb-preflight-r2.json",
+      "verdict": "与 l5 无关（历史依据记账性引用）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "module_const",
+      "name": "CONTAMINATION_PATTERNS",
+      "value": "['2-用例', 'truth.json', 'checker.py', 'reference/', 'solution/', '../', '~/Documents', 'harness-compare-bench']",
+      "verdict": "与 l5 无关"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "run_impl",
+      "name": "run_impl:False",
+      "value": "False",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "cmd_preflight",
+      "name": "cmd_preflight:False",
+      "value": "False",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "cmd_run_slot",
+      "name": "cmd_run_slot:False",
+      "value": "False",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "__init__",
+      "name": "__init__:9332",
+      "value": "9332",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "page_target_ready",
+      "name": "page_target_ready:120",
+      "value": "120",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "page_target_ready",
+      "name": "page_target_ready:2",
+      "value": "2",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "__init__",
+      "name": "__init__:False",
+      "value": "False",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "__init__",
+      "name": "__init__:False",
+      "value": "False",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "__init__",
+      "name": "__init__:True",
+      "value": "True",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "new_task",
+      "name": "new_task:DeepSeek V4.1-Flash",
+      "value": "DeepSeek V4.1-Flash",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "new_task",
+      "name": "new_task:9332",
+      "value": "9332",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "page_target_ready",
+      "name": "page_target_ready:120",
+      "value": "120",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "page_target_ready",
+      "name": "page_target_ready:2",
+      "value": "2",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "__init__",
+      "name": "__init__:60",
+      "value": "60",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "t",
+      "name": "t:",
+      "value": "",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "_wb_timeout_world",
+      "name": "_wb_timeout_world:True",
+      "value": "True",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "l5_wb_runner",
+      "kind": "default_arg",
+      "func": "_wb_timeout_world",
+      "name": "_wb_timeout_world:False",
+      "value": "False",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "safe_driver",
+      "kind": "module_const",
+      "name": "SNAPSHOT",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（相对本站点 driver-snapshot/）"
+    },
+    {
+      "module": "safe_driver",
+      "kind": "module_const",
+      "name": "TERMINAL_STATUSES",
+      "value": "{'cancelled', 'stopped', 'failed', 'completed', 'error'}",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "safe_driver",
+      "kind": "module_const",
+      "name": "POST_CANCEL_WINDOW_S",
+      "value": "15.0",
+      "verdict": "与 l5 无关（15s 停止验证窗）"
+    },
+    {
+      "module": "safe_driver",
+      "kind": "default_arg",
+      "func": "install_safe_driver",
+      "name": "install_safe_driver:9332",
+      "value": "9332",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "safe_driver",
+      "kind": "default_arg",
+      "func": "_lsof",
+      "name": "_lsof:15",
+      "value": "15",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "safe_driver",
+      "kind": "default_arg",
+      "func": "wait_completion_strict",
+      "name": "wait_completion_strict:15.0",
+      "value": "15.0",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "safe_driver",
+      "kind": "default_arg",
+      "func": "wait_completion_strict",
+      "name": "wait_completion_strict:3.0",
+      "value": "3.0",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "verify_execution_adapter",
+      "kind": "module_const",
+      "name": "GATE_PATH",
+      "value": "<expr>",
+      "verdict": "与 l5 无关——L6 复用 l5-execution gate 文件（约定路径，内容为共同 gate）"
+    },
+    {
+      "module": "verify_execution_adapter",
+      "kind": "module_const",
+      "name": "PLAN_DIR",
+      "value": "<expr>",
+      "verdict": "l6 已适配（本次 2 行修复新增）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "APP_PATH",
+      "value": "/Applications/WorkBuddy.app",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "HOME",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "WB_DB",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "WB_PROJECTS",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "TZ",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "TERMINAL_STATUS",
+      "value": "{'cancelled', 'stopped', 'failed', 'completed', 'error'}",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "RUNNING_STATUS",
+      "value": "{'active', 'waiting_confirmation', 'waiting_permission', 'queued', 'working', 'planning', 'streaming', 'pending'}",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "MODEL_IDS",
+      "value": "{'deepseek v4.1-flash': 'deepseek-v4.1-flash', 'deepseek-v4.1-flash': 'deepseek-v4.1-flash', 'deepseek v4-pro': 'deepsee",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "DEFAULT_MODEL_UI",
+      "value": "DeepSeek V4.1-Flash",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "DEFAULT_THOUGHT_LEVEL",
+      "value": "low",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "module_const",
+      "name": "_GLOBAL",
+      "value": "{'cdp': None, 'port': None}",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "_quit_app",
+      "name": "_quit_app:20",
+      "value": "20",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "_launch",
+      "name": "_launch:45",
+      "value": "45",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "_wait_page_ready",
+      "name": "_wait_page_ready:60",
+      "value": "60",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "ensure_app",
+      "name": "ensure_app:9332",
+      "value": "9332",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "new_task",
+      "name": "new_task:9332",
+      "value": "9332",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "wait_completion",
+      "name": "wait_completion:20.0",
+      "value": "20.0",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "wait_completion",
+      "name": "wait_completion:3.0",
+      "value": "3.0",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "__init__",
+      "name": "__init__:60",
+      "value": "60",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "eval_js",
+      "name": "eval_js:True",
+      "value": "True",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "eval_js",
+      "name": "eval_js:120",
+      "value": "120",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "workbuddy_driver(冻结快照)",
+      "kind": "default_arg",
+      "func": "wb_invoke",
+      "name": "wb_invoke:120",
+      "value": "120",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "module_const",
+      "name": "HERE",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（本站点根）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "module_const",
+      "name": "REPO",
+      "value": "<expr>",
+      "verdict": "与 l5 无关"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "module_const",
+      "name": "DEFAULT_PLAN_DIR",
+      "value": "<expr>",
+      "verdict": "残留 l5 语义默认——本次已由 adapter PLAN_DIR 显式传参覆盖；gate 文件默认值是否同步归 freeze/lead"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "module_const",
+      "name": "SPEC",
+      "value": "l4-execution-gate",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "module_const",
+      "name": "ISO_TZ_TOKEN",
+      "value": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "module_const",
+      "name": "FULL_HEX_RE",
+      "value": "<expr>",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "module_const",
+      "name": "UNKNOWN_SENTINELS",
+      "value": "{'', 'unobserved', 'n/a', 'not observed', 'na', 'null', 'unknown', 'none', 'unobservable', 'not_observed'}",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "module_const",
+      "name": "EXTERNAL_REQUIRED",
+      "value": "<expr>",
+      "verdict": "发现项 F1（gate 消费端锁定件 vs L6 seal 产物 external_files 空）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "module_const",
+      "name": "REQUIRED_BINDING_KEYS",
+      "value": "('design_commit', 'preregistration_commit', 'execution_seal_commit', 'registered_at', 'execution_manifest_sha256', 'plan",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "verify_execution",
+      "name": "verify_execution:True",
+      "value": "True",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "step",
+      "name": "step:",
+      "value": "",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "check",
+      "name": "check:",
+      "value": "",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "slot",
+      "name": "slot:ok",
+      "value": "ok",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "mk_meta",
+      "name": "mk_meta:ok",
+      "value": "ok",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "mk_meta",
+      "name": "mk_meta:clean",
+      "value": "clean",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "mkslot",
+      "name": "mkslot:cli_current_sentinel",
+      "value": "cli_current_sentinel",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "mkslot",
+      "name": "mkslot:dsh",
+      "value": "dsh",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "mkmeta",
+      "name": "mkmeta:ok",
+      "value": "ok",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "mkmeta",
+      "name": "mkmeta:clean",
+      "value": "clean",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "expect_formal",
+      "name": "expect_formal:",
+      "value": "",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "expect_formal",
+      "name": "expect_formal:2",
+      "value": "2",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate(l5-execution，L6 复用)",
+      "kind": "default_arg",
+      "func": "wb_world",
+      "name": "wb_world:ok",
+      "value": "ok",
+      "verdict": "与 l5 无关（数值/文案/路径类默认，批次中立）"
+    },
+    {
+      "module": "common_gate",
+      "kind": "module_const",
+      "name": "DEFAULT_PLAN_DIR",
+      "value": "REPO/1-评测方案/自动循环L5-2026-10-30",
+      "verdict": "残留 l5 语义默认——本次已由 adapter PLAN_DIR 显式传参覆盖；gate 文件默认值是否同步归 freeze/lead"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "blocker（seal 侧）",
+      "owner": "lead/freeze-engineer",
+      "fact": "gate.EXTERNAL_REQUIRED 要求 manifest.external_files 含 3 锁定件（cordis.patch.yml/package.json/AGENTS.md，磁盘均在）；L6 binding 的 manifest external_files=[]",
+      "impact": "verify_execution 于 manifest-external-required-locked 步 REFUSED",
+      "next_step": "seal 侧（execution_seal.py/binding 生成）补 external_files 三键后重封 E3",
+      "stop_condition": "external_files 齐三键且 verify 全绿"
+    }
+  ],
+  "nil_or_found": "found（1 项残留已缓解+1 项 seal 侧发现 F1）"
+}

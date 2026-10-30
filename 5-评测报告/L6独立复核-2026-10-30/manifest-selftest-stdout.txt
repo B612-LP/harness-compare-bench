@@ -1,0 +1,43 @@
+{
+  "kind": "self_test",
+  "tool": "manifest_receipt.py",
+  "at": "2026-10-30T12:33:47+08:00",
+  "counts": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0
+  },
+  "cases": [
+    {
+      "case": "build_self_excluded",
+      "pass": true,
+      "detail": "[\"a.txt\", \"b.txt\"]"
+    },
+    {
+      "case": "write_once_created",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "write_once_refuses",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "receipt_check_passes_self_excluded",
+      "pass": true,
+      "detail": "{\"found\": false, \"keys\": []}"
+    },
+    {
+      "case": "receipt_check_rejects_self_reference",
+      "pass": true,
+      "detail": "{\"found\": true, \"keys\": [\"/private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l6-independent-4sueje6w/tmp/manifest-receipt-test-1wu6ptm8/selfref.json\"]}"
+    },
+    {
+      "case": "self_input_refused",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
+MANIFEST_RECEIPT_SELFTEST: PASS

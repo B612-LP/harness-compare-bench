@@ -1,0 +1,254 @@
+{
+  "generated_at": "2026-10-30T02:36:38+08:00",
+  "zero_model_calls": true,
+  "worlds": [
+    "plain",
+    "registrations-dir",
+    "typo-variant",
+    "reg-plus-extra",
+    "fabricated-extra"
+  ],
+  "v2": [
+    {
+      "slot": "l5-ne-plain-r1",
+      "fails": [],
+      "record_valid": true,
+      "whitelisted_entries": null
+    },
+    {
+      "slot": "l5-ne-registrations-dir-r2",
+      "fails": [],
+      "record_valid": true,
+      "whitelisted_entries": [
+        {
+          "path": "registrations/inputs/manifest.json",
+          "sha256": "1acf3ffb051b4821b59466dc8a6219853c53e67fa3874fed9b8d1dadbfdd7679",
+          "bytes": 11
+        },
+        {
+          "path": "registrations/reg-01.json",
+          "sha256": "e6d9bf3eca8d49fd2b8400f3873209bf70dd8078dec23dba232231fe13271807",
+          "bytes": 71
+        }
+      ]
+    },
+    {
+      "slot": "l5-ne-typo-variant-r3",
+      "fails": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations.json']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    },
+    {
+      "slot": "l5-ne-reg-plus-extra-r4",
+      "fails": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['another_extra.txt']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": [
+        {
+          "path": "registrations/inputs/manifest.json",
+          "sha256": "1acf3ffb051b4821b59466dc8a6219853c53e67fa3874fed9b8d1dadbfdd7679",
+          "bytes": 11
+        },
+        {
+          "path": "registrations/reg-01.json",
+          "sha256": "e6d9bf3eca8d49fd2b8400f3873209bf70dd8078dec23dba232231fe13271807",
+          "bytes": 71
+        }
+      ]
+    },
+    {
+      "slot": "l5-ne-fabricated-extra-r5",
+      "fails": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['fabricated_evidence.jsonl']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    }
+  ],
+  "checks": [
+    {
+      "world": "plain",
+      "gate": "v2",
+      "whitelist_fail": [],
+      "record_valid": true,
+      "whitelisted_entries": null
+    },
+    {
+      "world": "registrations-dir",
+      "gate": "v2",
+      "whitelist_fail": [],
+      "record_valid": true,
+      "whitelisted_entries": [
+        {
+          "path": "registrations/inputs/manifest.json",
+          "sha256": "1acf3ffb051b4821b59466dc8a6219853c53e67fa3874fed9b8d1dadbfdd7679",
+          "bytes": 11
+        },
+        {
+          "path": "registrations/reg-01.json",
+          "sha256": "e6d9bf3eca8d49fd2b8400f3873209bf70dd8078dec23dba232231fe13271807",
+          "bytes": 71
+        }
+      ]
+    },
+    {
+      "world": "typo-variant",
+      "gate": "v2",
+      "whitelist_fail": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations.json']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    },
+    {
+      "world": "reg-plus-extra",
+      "gate": "v2",
+      "whitelist_fail": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['another_extra.txt']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": [
+        {
+          "path": "registrations/inputs/manifest.json",
+          "sha256": "1acf3ffb051b4821b59466dc8a6219853c53e67fa3874fed9b8d1dadbfdd7679",
+          "bytes": 11
+        },
+        {
+          "path": "registrations/reg-01.json",
+          "sha256": "e6d9bf3eca8d49fd2b8400f3873209bf70dd8078dec23dba232231fe13271807",
+          "bytes": 71
+        }
+      ]
+    },
+    {
+      "world": "fabricated-extra",
+      "gate": "v2",
+      "whitelist_fail": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['fabricated_evidence.jsonl']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    },
+    {
+      "world": "plain",
+      "gate": "v4-frozen",
+      "whitelist_fail": [],
+      "record_valid": true,
+      "whitelisted_entries": null
+    },
+    {
+      "world": "registrations-dir",
+      "gate": "v4-frozen",
+      "whitelist_fail": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    },
+    {
+      "world": "typo-variant",
+      "gate": "v4-frozen",
+      "whitelist_fail": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations.json']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    },
+    {
+      "world": "reg-plus-extra",
+      "gate": "v4-frozen",
+      "whitelist_fail": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['another_extra.txt', 'registrations']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    },
+    {
+      "world": "fabricated-extra",
+      "gate": "v4-frozen",
+      "whitelist_fail": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['fabricated_evidence.jsonl']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    }
+  ],
+  "v4-frozen": [
+    {
+      "slot": "l5-ne-plain-r1",
+      "fails": [],
+      "record_valid": true,
+      "whitelisted_entries": null
+    },
+    {
+      "slot": "l5-ne-registrations-dir-r2",
+      "fails": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    },
+    {
+      "slot": "l5-ne-typo-variant-r3",
+      "fails": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['registrations.json']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    },
+    {
+      "slot": "l5-ne-reg-plus-extra-r4",
+      "fails": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['another_extra.txt', 'registrations']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    },
+    {
+      "slot": "l5-ne-fabricated-extra-r5",
+      "fails": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['fabricated_evidence.jsonl']"
+      ],
+      "record_valid": false,
+      "whitelisted_entries": null
+    }
+  ],
+  "assertions": [
+    {
+      "name": "v2 正例 registrations/ 无 fail",
+      "pass": true
+    },
+    {
+      "name": "v2 正例 record_valid=True",
+      "pass": true
+    },
+    {
+      "name": "v2 正例 whitelisted_entries 记录 2 文件 SHA",
+      "pass": true
+    },
+    {
+      "name": "v2 拼写变体仍 fail",
+      "pass": true
+    },
+    {
+      "name": "v2 registrations+extra 并存仍 fail",
+      "pass": true
+    },
+    {
+      "name": "v2 纯虚造 extra 仍 fail",
+      "pass": true
+    },
+    {
+      "name": "v4 冻结版对 registrations/ 仍 fail(原行为保持)",
+      "pass": true
+    },
+    {
+      "name": "v4 冻结版对其余三个负例均 fail",
+      "pass": true
+    }
+  ],
+  "all_pass": true
+}

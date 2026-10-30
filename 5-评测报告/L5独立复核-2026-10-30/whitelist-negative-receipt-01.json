@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-10-30T02:40:19+08:00",
+  "gate_sha256": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9",
+  "selected_bypass": "Registrations uppercase name (one bypass plus exact-name positive control)",
+  "world": "/private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l5-independent-urge16kp/tmp/independent-uppercase-m1h9iy69",
+  "per_slot": [
+    {
+      "slot_id": "independent-exact-control",
+      "order": 1,
+      "case": "dabstep-payments-10",
+      "evidence_dir": "runs/independent-exact-control",
+      "accounting": "not_executed",
+      "field_compliance": false,
+      "execution_status": "not_executed",
+      "genuine_timeout": false,
+      "evidence_integrity": false,
+      "seal_plan_integrity": false,
+      "source_hash_integrity": false,
+      "allowed_actual_configuration": false,
+      "evidence_complete": false,
+      "contamination_cleared": false,
+      "full_denominator_score_valid": false,
+      "score": null,
+      "formal_admission": false,
+      "fails": [],
+      "whitelisted_entries": [
+        {
+          "path": "registrations/registration.json",
+          "sha256": "3eefcd9b1d4a809bedef71eeed7c147305d6946329500828c8795e7dc0350e95",
+          "bytes": 21
+        }
+      ],
+      "record_valid": true
+    },
+    {
+      "slot_id": "independent-uppercase-bypass",
+      "order": 2,
+      "case": "dabstep-payments-10",
+      "evidence_dir": "runs/independent-uppercase-bypass",
+      "accounting": "not_executed",
+      "field_compliance": false,
+      "execution_status": "not_executed",
+      "genuine_timeout": false,
+      "evidence_integrity": false,
+      "seal_plan_integrity": false,
+      "source_hash_integrity": false,
+      "allowed_actual_configuration": false,
+      "evidence_complete": false,
+      "contamination_cleared": false,
+      "full_denominator_score_valid": false,
+      "score": null,
+      "formal_admission": false,
+      "fails": [
+        "not_executed 目录含其他文件（疑似虚造证据/空流）：['Registrations']"
+      ],
+      "record_valid": false
+    }
+  ],
+  "checks": [
+    {
+      "name": "exact registrations positive control valid",
+      "pass": true
+    },
+    {
+      "name": "exact control inventory one real file",
+      "pass": true
+    },
+    {
+      "name": "uppercase Registrations bypass explicitly rejected",
+      "pass": true
+    },
+    {
+      "name": "uppercase bypass record invalid",
+      "pass": true
+    },
+    {
+      "name": "uppercase bypass not accidentally inventoried",
+      "pass": true
+    },
+    {
+      "name": "neither synthetic slot formally admitted",
+      "pass": true
+    },
+    {
+      "name": "not_executed score remains null",
+      "pass": true
+    },
+    {
+      "name": "invalid bypass makes accounting_complete false",
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "model_calls": 0,
+  "network_calls": 0,
+  "live_doc_drift": []
+}

@@ -1,0 +1,93 @@
+{
+  "kind": "self_test",
+  "tool": "receipt_check.py",
+  "at": "2026-10-30T12:33:47+08:00",
+  "counts": {
+    "total": 16,
+    "passed": 16,
+    "failed": 0
+  },
+  "cases": [
+    {
+      "case": "good_doc_ok",
+      "pass": true,
+      "detail": "{\"total\": 1, \"verified_ok\": 1, \"verified_bad\": 0, \"unverified\": 0, \"details\": [{\"line\": 5, \"claimed\": {\"path\": \"payload.txt\", \"sha256_8\": \"36ea43d4\", \"bytes\": 24}, \"verified\": true, \"match\": true, \"actual\": {\"sha256_8\": \"36ea43d4\", \"bytes\": 24}}]}"
+    },
+    {
+      "case": "good_evidence_recomputed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "good_drift_found",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bad_doc_fails",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bad_hash_violations",
+      "pass": true,
+      "detail": "[{'line': None, 'reason': 'live_doc_drift 状态行缺失'}, {'line': 1, 'issues': [{'token': 'ABCDEF123', 'reason': 'hex 记号（含字母）须小写且长度 ∈ {7,8,40,64}'}], 'excerpt': '哈希：ABCDEF123（大写手打）'}]"
+    },
+    {
+      "case": "bad_drift_missing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_drift_require_still_fails_on_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stale_evidence_detected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "json_drift_key_ok",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "missing_file_not_ok",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "cjk_prefixed_64hex_captured",
+      "pass": true,
+      "detail": "{\"scanned\": 1, \"tokens\": 1, \"violations\": []}"
+    },
+    {
+      "case": "cjk_prefixed_short_flagged",
+      "pass": true,
+      "detail": "['deadbeefdead', 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefcafe']"
+    },
+    {
+      "case": "overlong_hex_flagged",
+      "pass": true,
+      "detail": "['deadbeefdead', 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefcafe']"
+    },
+    {
+      "case": "json_drift_string_value_fails",
+      "pass": true,
+      "detail": "[{\"line\": null, \"reason\": \"JSON live_doc_drift 值须为 null 或 list，实测 str\"}]"
+    },
+    {
+      "case": "self_excluded_receipt_ok",
+      "pass": true,
+      "detail": "{\"found\": false, \"keys\": []}"
+    },
+    {
+      "case": "self_referenced_receipt_rejected",
+      "pass": true,
+      "detail": "{\"found\": true, \"keys\": [\"/private/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l6-independent-4sueje6w/tmp/evidence-kit-check-820mjc_u/manifest-receipt-selfref.json\"]}"
+    }
+  ]
+}
+RECEIPT_CHECK_SELFTEST: PASS

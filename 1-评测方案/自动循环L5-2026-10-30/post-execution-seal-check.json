@@ -1,0 +1,134 @@
+{
+  "binding": {
+    "schema_version": 1,
+    "design_commit": "8b1043d05c5b9dd9b3ae5aa5982cea4e9e852825",
+    "preregistration_commit": "d8366da32694713d4f77c740f935229f9e298df4",
+    "execution_seal_commit": "d8366da32694713d4f77c740f935229f9e298df4",
+    "registered_at": "2026-10-30T02:16:07+08:00",
+    "execution_manifest_sha256": "a653eacb06d28d57dc54673f978ed4008b51c0434c1816b2b6d3ad3b63b4b309",
+    "plan_sha256": "469a43df35b6492928f25cac3ed2af1ba0d6411283563aa478aaa16e43fba61a",
+    "contract_sha256": "944093c749fe23e0d6763112e207b733bbbb1e0f8fcc1dc0af55599f570a25c5",
+    "released_for_model_calls": true,
+    "generated_at": "2026-10-30T02:16:08+08:00",
+    "live_doc_drift": []
+  },
+  "binding_sha256": "7ee8b689b002b222e7d8faf15d83f57395ad7b290486287dc3b8f381a9fe446a",
+  "steps": [
+    {
+      "step": "binding-load",
+      "ok": true,
+      "detail": "runtime-binding.json"
+    },
+    {
+      "step": "preregistration-seal-equal",
+      "ok": true,
+      "detail": "prereg=d8366da3 seal=d8366da3"
+    },
+    {
+      "step": "release-gate",
+      "ok": true,
+      "detail": "released=True require=True"
+    },
+    {
+      "step": "plan-disk-sha",
+      "ok": true,
+      "detail": "disk=469a43df binding=469a43df"
+    },
+    {
+      "step": "contract-disk-sha",
+      "ok": true,
+      "detail": "disk=944093c7 binding=944093c7"
+    },
+    {
+      "step": "plan-blob-d-e-identical",
+      "ok": true,
+      "detail": "D:469a43df E:469a43df"
+    },
+    {
+      "step": "plan-blob-e-matches-disk",
+      "ok": true,
+      "detail": "E:469a43df disk:469a43df"
+    },
+    {
+      "step": "contract-blob-d-e-identical",
+      "ok": true,
+      "detail": "D:944093c7 E:944093c7"
+    },
+    {
+      "step": "contract-blob-e-matches-disk",
+      "ok": true,
+      "detail": "E:944093c7 disk:944093c7"
+    },
+    {
+      "step": "registered-at-equals-E-commit-time",
+      "ok": true,
+      "detail": "binding=2026-10-30T02:16:07+08:00 git=2026-10-30T02:16:07+08:00"
+    },
+    {
+      "step": "E-before-verification",
+      "ok": true,
+      "detail": "E=2026-10-30T02:16:07+08:00 now=2026-10-30T02:16:26.143909+08:00"
+    },
+    {
+      "step": "D-clock-not-after-E",
+      "ok": true,
+      "detail": "clock-only, ancestry checked separately"
+    },
+    {
+      "step": "ancestor-D-of-E",
+      "ok": true,
+      "detail": "merge-base --is-ancestor D E"
+    },
+    {
+      "step": "ancestor-E-of-HEAD",
+      "ok": true,
+      "detail": "merge-base --is-ancestor E HEAD"
+    },
+    {
+      "step": "prereg-blob-d-e-identical",
+      "ok": true,
+      "detail": "D:21cabd1e E:21cabd1e"
+    },
+    {
+      "step": "manifest-sha-matches-binding",
+      "ok": true,
+      "detail": "E=a653eacb binding=a653eacb"
+    },
+    {
+      "step": "manifest-design-matches-binding",
+      "ok": true,
+      "detail": "manifest=8b1043d0 binding=8b1043d0"
+    },
+    {
+      "step": "manifest-required-members",
+      "ok": true,
+      "detail": "validate_manifest（required_files 全覆盖，n=23）"
+    },
+    {
+      "step": "manifest-external-required-locked",
+      "ok": true,
+      "detail": "missing-locked=[]"
+    },
+    {
+      "step": "manifest-files-safe-and-consistent",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "step": "manifest-external-files-consistent",
+      "ok": true,
+      "detail": "[]"
+    }
+  ],
+  "ok": true,
+  "release_check": {
+    "require_release": true,
+    "released_for_model_calls": true,
+    "consumable_for_real_calls": true
+  },
+  "manifest_files": 23,
+  "manifest_external_files": 17,
+  "e_commit_time": "2026-10-30T02:16:07+08:00",
+  "verified_at": "2026-10-30T02:16:26+08:00",
+  "live_doc_drift": []
+}
