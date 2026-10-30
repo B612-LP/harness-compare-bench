@@ -1,0 +1,33 @@
+{
+  "kind": "tool_self_test",
+  "category": "self_test",
+  "model_calls": 0,
+  "at": "2026-10-29T13:41:46+08:00",
+  "target": "tools-dsh/lab.py 工程项 a/b（无截断流重建 + 逐调用 usage 提取）",
+  "fixture": "r1027-isolated/runs/dsh__dabstep-payments-10（既有归档双源：agent-session/*.zstd + agent.jsonl）",
+  "results": {
+    "rebuilt_event_types": {
+      "session": 1,
+      "status": 96,
+      "thinking": 47,
+      "tool_call": 51,
+      "tool_result": 51,
+      "text": 1,
+      "final": 1
+    },
+    "raw_event_types_equal": true,
+    "truncated_flags_raw8_full0": true,
+    "tool_result_recovered": "50 identical, 1 longer (8192-capped in raw), 0 shorter",
+    "per_call_usage": {
+      "requests": 47,
+      "input_tokens": 35473,
+      "output_tokens": 61063,
+      "cache_read_tokens": 2272512,
+      "cache_creation_tokens": 0
+    },
+    "cross_check": "47/47 equal vs raw stdout projection; sums match raw step_end totals",
+    "final_answer_recovered": true
+  },
+  "ok": true,
+  "note": "零模型调用；仅验证运行器逻辑，不计入 product_run 分账。"
+}

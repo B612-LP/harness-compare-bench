@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-26",
+  "purpose": "BIRD q26 并入正式合同（v1.1 → v1.2-q26-frpm）新旧文件 SHA-256 对照",
+  "old_v1.1_source": "候选与复核.zip bird-q26/baseline-1.1（源仓 a2234fc 快照，与 git HEAD 该路径逐件一致）",
+  "new_v1.2_source": "2-用例/bird-ca-schools-15（2026-10-26 并入后的正式目录）",
+  "files": {
+    "truth.json": {
+      "old_sha256_v1.1": "748fd14771b3dc440258625cbd6fd87be14cfdaa5b859627901b89423fc1caf7",
+      "new_sha256_v1.2": "c5bb7999079ac8f1711049d81392729edf127a27134d32a905ca39de15b8ea19",
+      "changed": true
+    },
+    "checker.py": {
+      "old_sha256_v1.1": "81c750da2bbfe9b5fb9c459d4af1ee96806e0776993d6d2befee50c06683547e",
+      "new_sha256_v1.2": "01447ab6112af9ee317de448aec39133b048971e8777052c81920da6696b049a",
+      "changed": true
+    },
+    "spec.md": {
+      "old_sha256_v1.1": "9785218c34987f975b0d9d3ffb6e33bc9ca2ae1393c72e6cca40ca66026b9f8e",
+      "new_sha256_v1.2": "e70cc186e1c94e7b007f887ad094e5ffd0881cb0a45bcb54e8a9b116032bd0fd",
+      "changed": true
+    },
+    "instruction.md": {
+      "old_sha256_v1.1": "5f420b8bb806c7353d12f59f602e26e59ce5501b90d3470026484fbf91a9762c",
+      "new_sha256_v1.2": "4af848ac71de686cb839124ab79cc7da87c9139b5820cd312653a9fd273ead91",
+      "changed": true
+    },
+    "case.json": {
+      "old_sha256_v1.1": "6a32370e4a3058152204c14916c17a3fa10995051476d5ca193a56698d1a2a9d",
+      "new_sha256_v1.2": "d8a4856adbc214862c27c0ba86cf316ec8d02bec982abe84b29587b607f71cd7",
+      "changed": true
+    },
+    "task.toml": {
+      "old_sha256_v1.1": "7f59fc93e15de52f0c4e97cb54f9982d3346ebbbc8a52b06802bb0cd4123a055",
+      "new_sha256_v1.2": "43f2b3e5e328c3cd703dea35b943ef19524b99f63e8f749c42ed318ea9a2936a",
+      "changed": true
+    },
+    "inputs/questions.json": {
+      "old_sha256_v1.1": "0cbe99d6419d809f1d6030ec486c340fdf2a709c7854bfbfcd712b587cbe1aa8",
+      "new_sha256_v1.2": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+      "changed": true
+    },
+    "inputs/schema.sql": {
+      "old_sha256_v1.1": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+      "new_sha256_v1.2": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+      "changed": false
+    },
+    "inputs/sample_rows.json": {
+      "old_sha256_v1.1": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+      "new_sha256_v1.2": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+      "changed": false
+    },
+    "inputs/db/california_schools.sqlite": {
+      "old_sha256_v1.1": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+      "new_sha256_v1.2": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+      "changed": false
+    },
+    "solution/answers.jsonl": {
+      "old_sha256_v1.1": "d8ae18f6286feeaa8501d552999dc685132e27c09599509833d3ea75b518564f",
+      "new_sha256_v1.2": "9b63a1846f0955cf2976c1ebb310c30e16eb740c9f09b7a7a45b5fe11b251929",
+      "changed": true
+    }
+  },
+  "oracle_and_negatives": {
+    "new_oracle_v1.2_solution_answers.jsonl": "9b63a1846f0955cf2976c1ebb310c30e16eb740c9f09b7a7a45b5fe11b251929",
+    "old_oracle_v1.1_solution_answers.jsonl(新合同下的q26负例)": "d8ae18f6286feeaa8501d552999dc685132e27c09599509833d3ea75b518564f",
+    "note": "旧 oracle 在新合同下 q26 判错（14/15，reward 1）；q26 漏校/附加/重复负例由 --selftest 第 20-23 项内置覆盖"
+  },
+  "candidate_package_provenance": {
+    "zip": "5-评测报告/补充材料/2026-10-24/候选与复核.zip",
+    "zip_sha256": "8de47cf3017d069e867dcdbec1f62f0e50571da30b6c6422dd6fbd5b3493e559",
+    "candidate_truth_sha256(并入前候选)": "d70bf464bebeac61ae0d95db7194d11e6715d2178fd72e805b0b70731bbaf424",
+    "candidate_checker_sha256(并入前候选)": "fa7b162429660dafca04ce7ef12409c8f8e2e94417f15d8ad2a4544651dcb7f3",
+    "adopted_delta": "并入仅把 contract_status/表述由 candidate-not-adopted 改为 adopted-2026-10-26，判分逻辑与候选逐字一致"
+  }
+}

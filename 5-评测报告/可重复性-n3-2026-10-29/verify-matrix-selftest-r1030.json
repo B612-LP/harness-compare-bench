@@ -1,0 +1,1446 @@
+{
+  "tool": "verify_var_n3.py",
+  "tool_sha256": "e6e9a6e50f8cf0a6f043e6f242bada54842d852ee011885e2b5542a0ec98aab5",
+  "generated_at": "2026-10-29T13:46:22+08:00",
+  "read_only_over_batch": true,
+  "profile": "r1030",
+  "batch_dir": "3-表现现场/r1030-formal-a1",
+  "anchor": {
+    "commit": "213013b",
+    "time": "2026-10-29T02:10:00+08:00",
+    "require_commit_field": false,
+    "preregistration_file": "1-评测方案/自动循环L1-2026-10-29/PREREGISTRATION.md",
+    "preregistration_sha256": "2e408196f61cc4411bddfa795a74b5341ffbd199e9348c9331a516a8170c8bc9"
+  },
+  "scoring_constants": {
+    "source": "3-表现现场/r1030-formal-a1/tools/build_import.py（逐行移植，GUARDS 不计分，分母=全题数）",
+    "totals": {
+      "bird-ca-schools-15": 15,
+      "dabstep-payments-10": 10,
+      "exercism-py-6": 6,
+      "lcb-recent-hard-4": 4,
+      "tb-cargo-plan": 27
+    },
+    "guards": {
+      "bird-ca-schools-15": [
+        "answers_coverage",
+        "answers_file",
+        "answers_schema",
+        "input_integrity"
+      ],
+      "dabstep-payments-10": [
+        "answers_format",
+        "input_integrity"
+      ],
+      "exercism-py-6": [
+        "input_integrity"
+      ],
+      "lcb-recent-hard-4": [
+        "input_integrity"
+      ],
+      "tb-cargo-plan": [
+        "code_rerun",
+        "input_integrity",
+        "plan_structure"
+      ]
+    }
+  },
+  "integrity_constants": {
+    "source": "3-表现现场/r1030-formal-a1/tools/rescan_integrity.py（八类模式移植）",
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ]
+  },
+  "judgment_criteria": {
+    "gap0_main": 0.74,
+    "gap0_main_basis": "AMENDMENT-1 主判据：0.74=|444.81−444.07|（产物可复现值；历史 414.07 为笔误）",
+    "gap0_sensitivity": 30.74,
+    "gap0_sensitivity_basis": "原 PREREGISTRATION 包A 锁定值 30.74，据锚点勘误降为敏感性对照；封印文件 be39fc2 未改写",
+    "amendment_motivation": "历史值勘误，时点先于 judge 对 r1031 的任何聚合分析，与 r1031 结果无关"
+  },
+  "freeze_verification": {
+    "lock_file": "4-打分细则/可信冻结-2026-10-29-v2/freeze.lock.json",
+    "pins_checked": 17,
+    "pins_ok": 17,
+    "mismatches": [],
+    "ok": true,
+    "lock_sha256": "262847272e55eca7808f8816f8d11d6068f4b3bb6466acad54ff0d1f58cf9fa7"
+  },
+  "runs_found": 10,
+  "runs_expected": 10,
+  "runs_count_note": "run 数与预期一致",
+  "runs": [
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/codex__bird-ca-schools-15",
+      "product": "codex",
+      "case": "bird-ca-schools-15",
+      "rep": 1,
+      "event_id": "formal-a1-codex-bird-ca-schools-15-01",
+      "run_id": "r1030-codex-bird-ca-schools-15",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "receipt_sha": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:12:00+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "answers_coverage",
+            "answers_file",
+            "answers_schema",
+            "input_integrity"
+          ],
+          "scored_items": 15,
+          "earned": 14,
+          "expected_denominator": 15,
+          "weighted_recomputed": 93.33,
+          "weighted_stdout": 93.33,
+          "weighted_meta": 93.33,
+          "reward_stdout": 1,
+          "reward_meta": 1,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": 0.8,
+            "expected_reward": 1,
+            "match": true
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "rollout-2026-10-29T02-12-00-01a183b6-3cf5-7931-878f-0ba27dd938b7.jsonl",
+              "bytes": 566528,
+              "zstd": false
+            }
+          ],
+          "lines_scanned": 199,
+          "hits_raw": 0,
+          "hits_benign_runtime_injection": [],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 0,
+            "meta_integrity_verdict": "clean"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 93.33,
+        "reward": 1
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 1
+      },
+      "status": "pass"
+    },
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10",
+      "product": "codex",
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "event_id": "formal-a1-codex-dabstep-payments-10-01",
+      "run_id": "r1030-codex-dabstep-payments-10",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "receipt_sha": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:15:39+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "answers_format",
+            "input_integrity"
+          ],
+          "scored_items": 10,
+          "earned": 7,
+          "expected_denominator": 10,
+          "weighted_recomputed": 70.0,
+          "weighted_stdout": 70.0,
+          "weighted_meta": 70.0,
+          "reward_stdout": 0,
+          "reward_meta": 0,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": 0.8,
+            "expected_reward": 0,
+            "match": true
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "rollout-2026-10-29T02-12-00-01a183b6-3cf5-7931-878f-0ba27dd938b7.jsonl",
+              "bytes": 566528,
+              "zstd": false
+            },
+            {
+              "name": "rollout-2026-10-29T02-15-39-01a183b9-94aa-7e73-9929-5afe43f84d11.jsonl",
+              "bytes": 700286,
+              "zstd": false
+            }
+          ],
+          "lines_scanned": 436,
+          "hits_raw": 0,
+          "hits_benign_runtime_injection": [],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 0,
+            "meta_integrity_verdict": "clean"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 70.0,
+        "reward": 0
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 2
+      },
+      "status": "pass"
+    },
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/codex__exercism-py-6",
+      "product": "codex",
+      "case": "exercism-py-6",
+      "rep": 1,
+      "event_id": "formal-a1-codex-exercism-py-6-01",
+      "run_id": "r1030-codex-exercism-py-6",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "receipt_sha": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:22:56+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "input_integrity"
+          ],
+          "scored_items": 6,
+          "earned": 6,
+          "expected_denominator": 6,
+          "weighted_recomputed": 100.0,
+          "weighted_stdout": 100.0,
+          "weighted_meta": 100.0,
+          "reward_stdout": 1,
+          "reward_meta": 1,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": null,
+            "note": "该题 checker 契约不含 threshold，reward 以冻结 checker 输出为准"
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "rollout-2026-10-29T02-22-56-01a183c0-3e9a-7e31-bdfe-61eded8a8884.jsonl",
+              "bytes": 459843,
+              "zstd": false
+            }
+          ],
+          "lines_scanned": 118,
+          "hits_raw": 0,
+          "hits_benign_runtime_injection": [],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 0,
+            "meta_integrity_verdict": "clean"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 100.0,
+        "reward": 1
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 1
+      },
+      "status": "pass"
+    },
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/codex__lcb-recent-hard-4",
+      "product": "codex",
+      "case": "lcb-recent-hard-4",
+      "rep": 1,
+      "event_id": "formal-a1-codex-lcb-recent-hard-4-01",
+      "run_id": "r1030-codex-lcb-recent-hard-4",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "receipt_sha": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:24:23+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "input_integrity"
+          ],
+          "scored_items": 4,
+          "earned": 4,
+          "expected_denominator": 4,
+          "weighted_recomputed": 100.0,
+          "weighted_stdout": 100.0,
+          "weighted_meta": 100.0,
+          "reward_stdout": 1,
+          "reward_meta": 1,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": 2,
+            "expected_reward": 0,
+            "match": false
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "rollout-2026-10-29T02-22-56-01a183c0-3e9a-7e31-bdfe-61eded8a8884.jsonl",
+              "bytes": 459843,
+              "zstd": false
+            },
+            {
+              "name": "rollout-2026-10-29T02-24-23-01a183c1-918e-7472-b2b1-70d27c448dcf.jsonl",
+              "bytes": 470091,
+              "zstd": false
+            }
+          ],
+          "lines_scanned": 315,
+          "hits_raw": 0,
+          "hits_benign_runtime_injection": [],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 0,
+            "meta_integrity_verdict": "clean"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 100.0,
+        "reward": 1
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 2
+      },
+      "status": "pass"
+    },
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/codex__tb-cargo-plan",
+      "product": "codex",
+      "case": "tb-cargo-plan",
+      "rep": 1,
+      "event_id": "formal-a1-codex-tb-cargo-plan-01",
+      "run_id": "r1030-codex-tb-cargo-plan",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "receipt_sha": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:29:17+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "code_rerun",
+            "input_integrity",
+            "plan_structure"
+          ],
+          "scored_items": 27,
+          "earned": 22,
+          "expected_denominator": 27,
+          "weighted_recomputed": 81.48,
+          "weighted_stdout": 81.48,
+          "weighted_meta": 81.48,
+          "reward_stdout": 0,
+          "reward_meta": 0,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": null,
+            "note": "该题 checker 契约不含 threshold，reward 以冻结 checker 输出为准"
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "rollout-2026-10-29T02-29-17-01a183c6-0e8f-73e0-92b4-24335989789c.jsonl",
+              "bytes": 707278,
+              "zstd": false
+            }
+          ],
+          "lines_scanned": 203,
+          "hits_raw": 0,
+          "hits_benign_runtime_injection": [],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 0,
+            "meta_integrity_verdict": "clean"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 81.48,
+        "reward": 0
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 1
+      },
+      "status": "pass"
+    },
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/dsh__bird-ca-schools-15",
+      "product": "dsh",
+      "case": "bird-ca-schools-15",
+      "rep": 1,
+      "event_id": "formal-a1-dsh-bird-ca-schools-15-01",
+      "run_id": "r1030-dsh-bird-ca-schools-15",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "receipt_sha": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:12:00+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "answers_coverage",
+            "answers_file",
+            "answers_schema",
+            "input_integrity"
+          ],
+          "scored_items": 15,
+          "earned": 15,
+          "expected_denominator": 15,
+          "weighted_recomputed": 100.0,
+          "weighted_stdout": 100.0,
+          "weighted_meta": 100.0,
+          "reward_stdout": 1,
+          "reward_meta": 1,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": 0.8,
+            "expected_reward": 1,
+            "match": true
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "session.v4.jsonl.zstd",
+              "bytes": 218033,
+              "zstd": true
+            }
+          ],
+          "lines_scanned": 211,
+          "hits_raw": 1,
+          "hits_benign_runtime_injection": [
+            {
+              "file": "session.v4.jsonl.zstd",
+              "line": 11,
+              "pattern": "~/Documents",
+              "class": "benign-runtime-injection",
+              "excerpt": "{\"type\": \"user/message\", \"seq\": 9, \"time\": 1793211121483, \"data\": {\"content\": [{\"type\": \"text\", \"text\": \"<system-reminder>\\nThe following workspace instructions may be relevant to your work. Use them as guidance when applicable. More specific instructions take precedence over broader ones. They do n"
+            }
+          ],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 1,
+            "meta_integrity_verdict": "clean-reviewed"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 100.0,
+        "reward": 1
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 1
+      },
+      "status": "pass"
+    },
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/dsh__dabstep-payments-10",
+      "product": "dsh",
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "event_id": "formal-a1-dsh-dabstep-payments-10-01",
+      "run_id": "r1030-dsh-dabstep-payments-10",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "receipt_sha": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:15:39+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "answers_format",
+            "input_integrity"
+          ],
+          "scored_items": 10,
+          "earned": 7,
+          "expected_denominator": 10,
+          "weighted_recomputed": 70.0,
+          "weighted_stdout": 70.0,
+          "weighted_meta": 70.0,
+          "reward_stdout": 0,
+          "reward_meta": 0,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": 0.8,
+            "expected_reward": 0,
+            "match": true
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "session.v4.jsonl.zstd",
+              "bytes": 209880,
+              "zstd": true
+            }
+          ],
+          "lines_scanned": 175,
+          "hits_raw": 1,
+          "hits_benign_runtime_injection": [
+            {
+              "file": "session.v4.jsonl.zstd",
+              "line": 12,
+              "pattern": "~/Documents",
+              "class": "benign-runtime-injection",
+              "excerpt": "{\"type\": \"user/message\", \"seq\": 10, \"time\": 1793211571942, \"data\": {\"content\": [{\"type\": \"text\", \"text\": \"<system-reminder>\\nThe following workspace instructions may be relevant to your work. Use them as guidance when applicable. More specific instructions take precedence over broader ones. They do "
+            }
+          ],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 1,
+            "meta_integrity_verdict": "clean-reviewed"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 70.0,
+        "reward": 0
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 1
+      },
+      "status": "pass"
+    },
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/dsh__exercism-py-6",
+      "product": "dsh",
+      "case": "exercism-py-6",
+      "rep": 1,
+      "event_id": "formal-a1-dsh-exercism-py-6-01",
+      "run_id": "r1030-dsh-exercism-py-6",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "receipt_sha": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:22:56+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "input_integrity"
+          ],
+          "scored_items": 6,
+          "earned": 6,
+          "expected_denominator": 6,
+          "weighted_recomputed": 100.0,
+          "weighted_stdout": 100.0,
+          "weighted_meta": 100.0,
+          "reward_stdout": 1,
+          "reward_meta": 1,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": null,
+            "note": "该题 checker 契约不含 threshold，reward 以冻结 checker 输出为准"
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "session.v4.jsonl.zstd",
+              "bytes": 109170,
+              "zstd": true
+            }
+          ],
+          "lines_scanned": 98,
+          "hits_raw": 1,
+          "hits_benign_runtime_injection": [
+            {
+              "file": "session.v4.jsonl.zstd",
+              "line": 11,
+              "pattern": "~/Documents",
+              "class": "benign-runtime-injection",
+              "excerpt": "{\"type\": \"user/message\", \"seq\": 9, \"time\": 1793211777258, \"data\": {\"content\": [{\"type\": \"text\", \"text\": \"<system-reminder>\\nThe following workspace instructions may be relevant to your work. Use them as guidance when applicable. More specific instructions take precedence over broader ones. They do n"
+            }
+          ],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 1,
+            "meta_integrity_verdict": "clean-reviewed"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 100.0,
+        "reward": 1
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 1
+      },
+      "status": "pass"
+    },
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/dsh__lcb-recent-hard-4",
+      "product": "dsh",
+      "case": "lcb-recent-hard-4",
+      "rep": 1,
+      "event_id": "formal-a1-dsh-lcb-recent-hard-4-01",
+      "run_id": "r1030-dsh-lcb-recent-hard-4",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "receipt_sha": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:24:23+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "input_integrity"
+          ],
+          "scored_items": 4,
+          "earned": 4,
+          "expected_denominator": 4,
+          "weighted_recomputed": 100.0,
+          "weighted_stdout": 100.0,
+          "weighted_meta": 100.0,
+          "reward_stdout": 1,
+          "reward_meta": 1,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": 2,
+            "expected_reward": 0,
+            "match": false
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "session.v4.jsonl.zstd",
+              "bytes": 214098,
+              "zstd": true
+            }
+          ],
+          "lines_scanned": 172,
+          "hits_raw": 1,
+          "hits_benign_runtime_injection": [
+            {
+              "file": "session.v4.jsonl.zstd",
+              "line": 11,
+              "pattern": "~/Documents",
+              "class": "benign-runtime-injection",
+              "excerpt": "{\"type\": \"user/message\", \"seq\": 9, \"time\": 1793211863878, \"data\": {\"content\": [{\"type\": \"text\", \"text\": \"<system-reminder>\\nThe following workspace instructions may be relevant to your work. Use them as guidance when applicable. More specific instructions take precedence over broader ones. They do n"
+            }
+          ],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 1,
+            "meta_integrity_verdict": "clean-reviewed"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 100.0,
+        "reward": 1
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 1
+      },
+      "status": "pass"
+    },
+    {
+      "run_dir": "3-表现现场/r1030-formal-a1/runs/dsh__tb-cargo-plan",
+      "product": "dsh",
+      "case": "tb-cargo-plan",
+      "rep": 1,
+      "event_id": "formal-a1-dsh-tb-cargo-plan-01",
+      "run_id": "r1030-dsh-tb-cargo-plan",
+      "checks": {
+        "a_checker_sha": {
+          "status": "pass",
+          "frozen_config_sha": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "receipt_sha": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "run_dir_checker_copies": [],
+          "meta_rule_version": "freeze-20261029-v2",
+          "freeze_lock_pins_ok": true,
+          "detail": "receipt+config+副本三方一致"
+        },
+        "b_meta_timing": {
+          "status": "pass",
+          "registered_at": "2026-10-29T02:10:00+08:00",
+          "registered_at_source": "registration-plan",
+          "started_at": "2026-10-29T02:29:17+08:00",
+          "anchor_commit": "213013b",
+          "anchor_time": "2026-10-29T02:10:00+08:00",
+          "registered_lt_started": true,
+          "registered_ge_anchor": true,
+          "started_ge_anchor": true,
+          "preregistration_commit": {
+            "value": null,
+            "match": "n/a（r1030 自检模式：该字段自 L1 起才有）"
+          }
+        },
+        "c_weighted_recompute": {
+          "status": "pass",
+          "guards_excluded": [
+            "code_rerun",
+            "input_integrity",
+            "plan_structure"
+          ],
+          "scored_items": 27,
+          "earned": 20,
+          "expected_denominator": 27,
+          "weighted_recomputed": 74.07,
+          "weighted_stdout": 74.07,
+          "weighted_meta": 74.07,
+          "reward_stdout": 0,
+          "reward_meta": 0,
+          "receipt_crosscheck": {
+            "present": true,
+            "earned_match": true,
+            "possible_match": true,
+            "reported_match": true,
+            "reward_match": true,
+            "rule_version_match": true
+          },
+          "threshold_consistency": {
+            "threshold": null,
+            "note": "该题 checker 契约不含 threshold，reward 以冻结 checker 输出为准"
+          },
+          "detail": "分母=全题数，GUARDS 不计分；weighted/双源 reward/收据全部一致"
+        },
+        "d_integrity": {
+          "status": "pass",
+          "scan_note": "ok",
+          "patterns": [
+            "2-用例",
+            "truth.json",
+            "checker.py",
+            "reference/",
+            "solution/",
+            "../",
+            "~/Documents",
+            "harness-compare-bench"
+          ],
+          "session_files": [
+            {
+              "name": "session.v4.jsonl.zstd",
+              "bytes": 202759,
+              "zstd": true
+            }
+          ],
+          "lines_scanned": 190,
+          "hits_raw": 1,
+          "hits_benign_runtime_injection": [
+            {
+              "file": "session.v4.jsonl.zstd",
+              "line": 11,
+              "pattern": "~/Documents",
+              "class": "benign-runtime-injection",
+              "excerpt": "{\"type\": \"user/message\", \"seq\": 9, \"time\": 1793212158223, \"data\": {\"content\": [{\"type\": \"text\", \"text\": \"<system-reminder>\\nThe following workspace instructions may be relevant to your work. Use them as guidance when applicable. More specific instructions take precedence over broader ones. They do n"
+            }
+          ],
+          "violations_strict": [],
+          "benign_basis": "r1030 既有裁定口径：运行时注入的 ~/.dsh/AGENTS.md 文本命中 ~/Documents，非模型访问",
+          "own_artifacts": {
+            "integrity_rescan_violations": 1,
+            "meta_integrity_verdict": "clean-reviewed"
+          },
+          "agreement": true
+        }
+      },
+      "recomputed": {
+        "weighted": 74.07,
+        "reward": 0
+      },
+      "evidence_files": {
+        "meta.json": true,
+        "checker.stdout.json": true,
+        "score-receipt.json": true,
+        "adjudication.json": true,
+        "workspace_TASK_md": true,
+        "agent_session_files": 1
+      },
+      "status": "pass"
+    }
+  ],
+  "aggregate": {
+    "codex": {
+      "1": {
+        "per_case_weighted": {
+          "bird-ca-schools-15": 93.33,
+          "dabstep-payments-10": 70.0,
+          "exercism-py-6": 100.0,
+          "lcb-recent-hard-4": 100.0,
+          "tb-cargo-plan": 81.48
+        },
+        "per_case_reward": {
+          "bird-ca-schools-15": 1,
+          "dabstep-payments-10": 0,
+          "exercism-py-6": 1,
+          "lcb-recent-hard-4": 1,
+          "tb-cargo-plan": 0
+        },
+        "weighted_total": 444.81,
+        "headline": 3
+      },
+      "weighted_spread": null,
+      "headline_by_rep": {
+        "1": 3
+      },
+      "case_reward_flips": {
+        "bird-ca-schools-15": {
+          "reward_seq": [
+            1
+          ],
+          "flips": 0
+        },
+        "dabstep-payments-10": {
+          "reward_seq": [
+            0
+          ],
+          "flips": 0
+        },
+        "exercism-py-6": {
+          "reward_seq": [
+            1
+          ],
+          "flips": 0
+        },
+        "lcb-recent-hard-4": {
+          "reward_seq": [
+            1
+          ],
+          "flips": 0
+        },
+        "tb-cargo-plan": {
+          "reward_seq": [
+            0
+          ],
+          "flips": 0
+        }
+      },
+      "prereg_rule_gap0": {
+        "spread": null,
+        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用",
+        "role": "主判据（AMENDMENT-1：gap₀=0.74，=|444.81−444.07| 产物可复现值）"
+      },
+      "sensitivity_gap0": {
+        "spread": null,
+        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用",
+        "role": "敏感性对照（原预注册锁定值 gap₀=30.74，据锚点勘误降级；见锚点勘误披露）"
+      }
+    },
+    "dsh": {
+      "1": {
+        "per_case_weighted": {
+          "bird-ca-schools-15": 100.0,
+          "dabstep-payments-10": 70.0,
+          "exercism-py-6": 100.0,
+          "lcb-recent-hard-4": 100.0,
+          "tb-cargo-plan": 74.07
+        },
+        "per_case_reward": {
+          "bird-ca-schools-15": 1,
+          "dabstep-payments-10": 0,
+          "exercism-py-6": 1,
+          "lcb-recent-hard-4": 1,
+          "tb-cargo-plan": 0
+        },
+        "weighted_total": 444.07,
+        "headline": 3
+      },
+      "weighted_spread": null,
+      "headline_by_rep": {
+        "1": 3
+      },
+      "case_reward_flips": {
+        "bird-ca-schools-15": {
+          "reward_seq": [
+            1
+          ],
+          "flips": 0
+        },
+        "dabstep-payments-10": {
+          "reward_seq": [
+            0
+          ],
+          "flips": 0
+        },
+        "exercism-py-6": {
+          "reward_seq": [
+            1
+          ],
+          "flips": 0
+        },
+        "lcb-recent-hard-4": {
+          "reward_seq": [
+            1
+          ],
+          "flips": 0
+        },
+        "tb-cargo-plan": {
+          "reward_seq": [
+            0
+          ],
+          "flips": 0
+        }
+      },
+      "prereg_rule_gap0": {
+        "spread": null,
+        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用",
+        "role": "主判据（AMENDMENT-1：gap₀=0.74，=|444.81−444.07| 产物可复现值）"
+      },
+      "sensitivity_gap0": {
+        "spread": null,
+        "evaluation": "n=1 per rep（自检/rep1-only）：spread 不适用",
+        "role": "敏感性对照（原预注册锁定值 gap₀=30.74，据锚点勘误降级；见锚点勘误披露）"
+      }
+    }
+  },
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "failed_runs": [],
+    "check_failures": []
+  },
+  "selftest_expectations_comparison": {
+    "claimed_source": "3-表现现场/r1030-formal-a1/README.md 结果矩阵（headline 双 3/5；weighted 总分 444.81 vs 414.07）；official-main-table.json 无逐行分值（ranking=null）",
+    "items": [
+      {
+        "kind": "per_case_weighted",
+        "key": "codex/bird-ca-schools-15",
+        "claimed": 93.33,
+        "recomputed": 93.33,
+        "match": true
+      },
+      {
+        "kind": "per_case_weighted",
+        "key": "codex/dabstep-payments-10",
+        "claimed": 70.0,
+        "recomputed": 70.0,
+        "match": true
+      },
+      {
+        "kind": "per_case_weighted",
+        "key": "codex/exercism-py-6",
+        "claimed": 100.0,
+        "recomputed": 100.0,
+        "match": true
+      },
+      {
+        "kind": "per_case_weighted",
+        "key": "codex/lcb-recent-hard-4",
+        "claimed": 100.0,
+        "recomputed": 100.0,
+        "match": true
+      },
+      {
+        "kind": "per_case_weighted",
+        "key": "codex/tb-cargo-plan",
+        "claimed": 81.48,
+        "recomputed": 81.48,
+        "match": true
+      },
+      {
+        "kind": "headline",
+        "key": "codex",
+        "claimed": 3,
+        "recomputed": 3,
+        "match": true
+      },
+      {
+        "kind": "weighted_total",
+        "key": "codex",
+        "claimed": 444.81,
+        "recomputed": 444.81,
+        "match": true
+      },
+      {
+        "kind": "per_case_weighted",
+        "key": "dsh/bird-ca-schools-15",
+        "claimed": 100.0,
+        "recomputed": 100.0,
+        "match": true
+      },
+      {
+        "kind": "per_case_weighted",
+        "key": "dsh/dabstep-payments-10",
+        "claimed": 70.0,
+        "recomputed": 70.0,
+        "match": true
+      },
+      {
+        "kind": "per_case_weighted",
+        "key": "dsh/exercism-py-6",
+        "claimed": 100.0,
+        "recomputed": 100.0,
+        "match": true
+      },
+      {
+        "kind": "per_case_weighted",
+        "key": "dsh/lcb-recent-hard-4",
+        "claimed": 100.0,
+        "recomputed": 100.0,
+        "match": true
+      },
+      {
+        "kind": "per_case_weighted",
+        "key": "dsh/tb-cargo-plan",
+        "claimed": 74.07,
+        "recomputed": 74.07,
+        "match": true
+      },
+      {
+        "kind": "headline",
+        "key": "dsh",
+        "claimed": 3,
+        "recomputed": 3,
+        "match": true
+      },
+      {
+        "kind": "weighted_total",
+        "key": "dsh",
+        "claimed": 414.07,
+        "recomputed": 444.07,
+        "match": false
+      }
+    ],
+    "all_match": false,
+    "mismatch_notes": [
+      "dsh: claimed=414.07 recomputed=444.07"
+    ]
+  }
+}

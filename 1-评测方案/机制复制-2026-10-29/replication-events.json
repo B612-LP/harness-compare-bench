@@ -1,0 +1,1138 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "event_id": "repl-repl-dsh-large-bounded-01-239e08cd",
+      "category": "product_run",
+      "product": "dsh",
+      "group": "research",
+      "experiment": true,
+      "case_id": "fixture-v1-replication",
+      "identity": {
+        "state": "supplemented",
+        "value": {
+          "event_id": "repl-repl-dsh-large-bounded-01-239e08cd",
+          "run_id": "repl-dsh-large-bounded-01-239e08cd",
+          "category": "product_run",
+          "product": "dsh",
+          "group": "research",
+          "experiment": true,
+          "case_id": "fixture-v1-replication"
+        },
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/0/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "supplemented",
+          "value": "fixture-v1-replication",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "supplemented",
+          "value": "0.2.0-rc.2",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "supplemented",
+          "value": {
+            "provider": "deepseek-official",
+            "model": "deepseek-flash",
+            "reasoningEffort": "low"
+          },
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "supplemented",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek-official",
+            "wire_protocol": "anthropic-messages",
+            "endpoint": "https://api.deepseek.com/anthropic/v1/messages"
+          },
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "supplemented",
+          "value": [
+            "fixture_output"
+          ],
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "supplemented",
+          "value": "danger-full-access / approval never",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "supplemented",
+          "value": false,
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "supplemented",
+          "value": "2026-10-28T18:39:54.059236+00:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "supplemented",
+          "value": "2026-10-28T18:39:56.005172+00:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "supplemented",
+          "value": "real-api/request-body/raw-SSE(both calls,message_stop)/usage",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "supplemented",
+          "value": "exact-head-tail-pass; research-only; no official score",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0/facts/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "checker_sha256": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "truth_sha256": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "case_sha256": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "case_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "scoring_reviewable": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "evidence_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "contamination_free": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        }
+      },
+      "score": {
+        "state": "unknown",
+        "value": null,
+        "refs": []
+      },
+      "selection": null,
+      "sources": [
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/replication-adapter.json",
+          "sha256": "d4c31cd6d13449b5d900cb7c5dae53913ed475f12ea141c1db02df70b545b9b3"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/run-meta.json",
+          "sha256": "3309b751a921b8edab901b4aea5d2adab6321b031ed044f3e0f0e683b5ad9505"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/01-request.json",
+          "sha256": "202184fa11fbb1e8cb86166622ae39e545df8ae5cc5e8c4afe0dd272166d15ed"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/02-request.json",
+          "sha256": "a51c2be3110c2e885c6b1e6ad53caa031aeedcaee1384fc96cd569f097892be5"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/01-transport.json",
+          "sha256": "a5fa46201d5f49763dd792a6e6630406b18b2e17d95a092c8e9c47775ff38937"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/01-response.sse",
+          "sha256": "d1ac7b6247fb77e048c7885f9e138de402f6611c9006f446803c58948bb2f9b6"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/02-response.sse",
+          "sha256": "9931de688fe86c96d2dec375e91b368777b8088155e68e62681bd8fc11d50563"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/01-capture-status.json",
+          "sha256": "ece140c35a9a60918f9ff5a54a2ec114c7d47c24bd797ee571b65bf3ce458486"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/02-capture-status.json",
+          "sha256": "6114fdda05b63c7234e4576a824e86b9dcbc893b59f7ff4dae093fde981df35b"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/tool-process.json",
+          "sha256": "f624d20199cb75f4e90e72a8bc97a51c8d56167fd8cd01780c565013b1647ba3"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-01-239e08cd/stdout.txt",
+          "sha256": "4966efa9e33cca2780d8d08f39c5025cf19c63994b460e4c301d2f54f9919fde"
+        }
+      ],
+      "collected_at": "2026-10-28T18:44:07.445876+00:00",
+      "original_time": {
+        "state": "supplemented",
+        "value": "2026-10-28T18:39:54.059236+00:00",
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/0/facts/started_at"
+          }
+        ]
+      },
+      "issues": [
+        {
+          "id": "research-non-scored-no-hidden-truth",
+          "unknown_fields": [
+            "facts.rule_version",
+            "facts.checker_sha256",
+            "facts.truth_sha256",
+            "facts.case_sha256",
+            "score",
+            "gates.rules_frozen",
+            "gates.case_valid",
+            "gates.scoring_reviewable",
+            "gates.evidence_valid",
+            "gates.contamination_free"
+          ],
+          "knowledge_status": "accepted_limitation",
+          "investigation_status": "stopped",
+          "confound_status": "not_applicable",
+          "impact": "Research mechanism diagnostic has no official normalized score; synthetic observation inputs use no hidden truth asset. Unknown does not mean failure or full credit.",
+          "next_step": "Use the published usage comparison and raw-SSE evidence; never infer an official score.",
+          "stop_condition": "No official-score conversion is performed for this diagnostic.",
+          "reopen_condition": "Only a separately frozen scoring contract would reopen these fields.",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "repl-repl-dsh-large-bounded-02-adfb64c0",
+      "category": "product_run",
+      "product": "dsh",
+      "group": "research",
+      "experiment": true,
+      "case_id": "fixture-v1-replication",
+      "identity": {
+        "state": "supplemented",
+        "value": {
+          "event_id": "repl-repl-dsh-large-bounded-02-adfb64c0",
+          "run_id": "repl-dsh-large-bounded-02-adfb64c0",
+          "category": "product_run",
+          "product": "dsh",
+          "group": "research",
+          "experiment": true,
+          "case_id": "fixture-v1-replication"
+        },
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/1/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "supplemented",
+          "value": "fixture-v1-replication",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "supplemented",
+          "value": "0.2.0-rc.2",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "supplemented",
+          "value": {
+            "provider": "deepseek-official",
+            "model": "deepseek-flash",
+            "reasoningEffort": "low"
+          },
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "supplemented",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek-official",
+            "wire_protocol": "anthropic-messages",
+            "endpoint": "https://api.deepseek.com/anthropic/v1/messages"
+          },
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "supplemented",
+          "value": [
+            "fixture_output"
+          ],
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "supplemented",
+          "value": "danger-full-access / approval never",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "supplemented",
+          "value": false,
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "supplemented",
+          "value": "2026-10-28T18:39:56.006970+00:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "supplemented",
+          "value": "2026-10-28T18:39:58.026096+00:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "supplemented",
+          "value": "real-api/request-body/raw-SSE(both calls,message_stop)/usage",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "supplemented",
+          "value": "exact-head-tail-pass; research-only; no official score",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1/facts/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "checker_sha256": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "truth_sha256": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "case_sha256": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "case_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "scoring_reviewable": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "evidence_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "contamination_free": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        }
+      },
+      "score": {
+        "state": "unknown",
+        "value": null,
+        "refs": []
+      },
+      "selection": null,
+      "sources": [
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/replication-adapter.json",
+          "sha256": "d4c31cd6d13449b5d900cb7c5dae53913ed475f12ea141c1db02df70b545b9b3"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/run-meta.json",
+          "sha256": "663b758939ef74c8668ac33d6eaefb3bd1988c0c600f747dbe0630784b4dfe83"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/01-request.json",
+          "sha256": "202184fa11fbb1e8cb86166622ae39e545df8ae5cc5e8c4afe0dd272166d15ed"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/02-request.json",
+          "sha256": "4de0790857bb855c935d7f9079e66a58fe8272aeed131278c6ef1cc9b95cd402"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/01-transport.json",
+          "sha256": "91d8152d09a31683223347e9ae66a6509a69a13cc0ba47bedbdfd910c750bd3d"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/01-response.sse",
+          "sha256": "37fbd847e90804f4a1d330d08514d3ca9700e1630490cf896687ad6963f5b533"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/02-response.sse",
+          "sha256": "8c4dcac6e536593a99df7e48308344a865eb9faf3c292f61ef049484628402e4"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/01-capture-status.json",
+          "sha256": "5c1e91ab63100657ee049dbf7aa64fa59490e39f95bfe56392c77796802cb458"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/02-capture-status.json",
+          "sha256": "5462466ea68e7e049aa21f2b6c461e2cd14a2b67b582bb2260b53a7bf5de85b2"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/tool-process.json",
+          "sha256": "f624d20199cb75f4e90e72a8bc97a51c8d56167fd8cd01780c565013b1647ba3"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/repl-dsh-large-bounded-02-adfb64c0/stdout.txt",
+          "sha256": "8b72506202e58cf29d581d71900dbdfce1e891968d119174f2b2d0fa79862d91"
+        }
+      ],
+      "collected_at": "2026-10-28T18:44:07.445876+00:00",
+      "original_time": {
+        "state": "supplemented",
+        "value": "2026-10-28T18:39:56.006970+00:00",
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/1/facts/started_at"
+          }
+        ]
+      },
+      "issues": [
+        {
+          "id": "research-non-scored-no-hidden-truth",
+          "unknown_fields": [
+            "facts.rule_version",
+            "facts.checker_sha256",
+            "facts.truth_sha256",
+            "facts.case_sha256",
+            "score",
+            "gates.rules_frozen",
+            "gates.case_valid",
+            "gates.scoring_reviewable",
+            "gates.evidence_valid",
+            "gates.contamination_free"
+          ],
+          "knowledge_status": "accepted_limitation",
+          "investigation_status": "stopped",
+          "confound_status": "not_applicable",
+          "impact": "Research mechanism diagnostic has no official normalized score; synthetic observation inputs use no hidden truth asset. Unknown does not mean failure or full credit.",
+          "next_step": "Use the published usage comparison and raw-SSE evidence; never infer an official score.",
+          "stop_condition": "No official-score conversion is performed for this diagnostic.",
+          "reopen_condition": "Only a separately frozen scoring contract would reopen these fields.",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "repl-repl-codex-large-01",
+      "category": "product_run",
+      "product": "codex",
+      "group": "research",
+      "experiment": true,
+      "case_id": "fixture-v1-replication",
+      "identity": {
+        "state": "supplemented",
+        "value": {
+          "event_id": "repl-repl-codex-large-01",
+          "run_id": "repl-codex-large-01",
+          "category": "product_run",
+          "product": "codex",
+          "group": "research",
+          "experiment": true,
+          "case_id": "fixture-v1-replication"
+        },
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/2/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "supplemented",
+          "value": "fixture-v1-replication",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "supplemented",
+          "value": "codex-cli 0.163.0",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "supplemented",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "supplemented",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek",
+            "wire_protocol": "responses",
+            "endpoint": "https://api.deepseek.com"
+          },
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "supplemented",
+          "value": [
+            "fixture_output（MCP stdio）"
+          ],
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "supplemented",
+          "value": "sandbox_mode=danger-full-access; approval_policy=never",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "supplemented",
+          "value": "off",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "supplemented",
+          "value": "2026-10-28T18:40:33.695730+00:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "supplemented",
+          "value": "2026-10-28T18:40:37.735180+00:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "supplemented",
+          "value": "real-api/product-reported-usage(rollout token_count); no request-level capture",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "supplemented",
+          "value": "exact-head-tail-pass; research-only; no official score",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2/facts/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "checker_sha256": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "truth_sha256": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "case_sha256": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "case_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "scoring_reviewable": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "evidence_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "contamination_free": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        }
+      },
+      "score": {
+        "state": "unknown",
+        "value": null,
+        "refs": []
+      },
+      "selection": null,
+      "sources": [
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/replication-adapter.json",
+          "sha256": "d4c31cd6d13449b5d900cb7c5dae53913ed475f12ea141c1db02df70b545b9b3"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-codex/repl-codex-large-01-a8e6bc72/run-meta.json",
+          "sha256": "dc676b7cf682284f66a13864c9c94e8ccdc0db9a13401a04425adddb2210e4c4"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-codex/repl-codex-large-01-a8e6bc72/session-rollout.jsonl",
+          "sha256": "5c2f88c53eeaea1bed8be296ebc7ded44f564623962b33962e5c2ed2fa8a3f27"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-codex/repl-codex-large-01-a8e6bc72/codex-config.toml",
+          "sha256": "8f5ee9d26781407198a98c1fbe70bd62b1ea8a991cafd03a7b85481c29956ad0"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-codex/repl-codex-large-01-a8e6bc72/capture/tool-process.json",
+          "sha256": "d363ba7eb25fc979f9c40e79c2ec7704ee5d1f710b15bd8363848026865c3ebb"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-codex/repl-codex-large-01-a8e6bc72/capture/mcp-server-log.jsonl",
+          "sha256": "b7ff6c1a9e04ccac0723284e3347efe420b4c6a471bc2c940a3fe83032c61fc5"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-codex/repl-codex-large-01-a8e6bc72/stdout.txt",
+          "sha256": "0beef8fc68d479df3dd091c114d31f0dfae8f14466661fa20dbb7d72cae2e862"
+        }
+      ],
+      "collected_at": "2026-10-28T18:44:07.445876+00:00",
+      "original_time": {
+        "state": "supplemented",
+        "value": "2026-10-28T18:40:33.695730+00:00",
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/2/facts/started_at"
+          }
+        ]
+      },
+      "issues": [
+        {
+          "id": "research-non-scored-no-hidden-truth",
+          "unknown_fields": [
+            "facts.rule_version",
+            "facts.checker_sha256",
+            "facts.truth_sha256",
+            "facts.case_sha256",
+            "score",
+            "gates.rules_frozen",
+            "gates.case_valid",
+            "gates.scoring_reviewable",
+            "gates.evidence_valid",
+            "gates.contamination_free"
+          ],
+          "knowledge_status": "accepted_limitation",
+          "investigation_status": "stopped",
+          "confound_status": "not_applicable",
+          "impact": "Research mechanism diagnostic has no official normalized score; synthetic observation inputs use no hidden truth asset. Unknown does not mean failure or full credit.",
+          "next_step": "Use the published usage comparison and raw-SSE evidence; never infer an official score.",
+          "stop_condition": "No official-score conversion is performed for this diagnostic.",
+          "reopen_condition": "Only a separately frozen scoring contract would reopen these fields.",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "repl-preflight-preflight-439e8b45",
+      "category": "interface_preflight",
+      "product": "dsh",
+      "group": "research",
+      "experiment": true,
+      "case_id": "mechanism-replication-preflight",
+      "identity": {
+        "state": "supplemented",
+        "value": {
+          "event_id": "repl-preflight-preflight-439e8b45",
+          "run_id": "preflight-439e8b45",
+          "category": "interface_preflight",
+          "product": "dsh",
+          "group": "research",
+          "experiment": true,
+          "case_id": "mechanism-replication-preflight"
+        },
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/3/identity"
+          }
+        ]
+      },
+      "facts": {
+        "started_at": {
+          "state": "supplemented",
+          "value": "2026-10-28T18:39:54.058617+00:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/3/facts/started_at"
+            }
+          ]
+        },
+        "note": {
+          "state": "supplemented",
+          "value": "dump-config preflight receipt time; zero model calls",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/3/facts/note"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "case_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "scoring_reviewable": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "evidence_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "contamination_free": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        }
+      },
+      "score": {
+        "state": "unknown",
+        "value": null,
+        "refs": []
+      },
+      "selection": null,
+      "sources": [
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/replication-adapter.json",
+          "sha256": "d4c31cd6d13449b5d900cb7c5dae53913ed475f12ea141c1db02df70b545b9b3"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/preflight-439e8b45/receipt.json",
+          "sha256": "a2f43fffa9f1fad488d765210144ca0f3d4640df9d271634acf00fe3ce6bc023"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/preflight-439e8b45/stdout.txt",
+          "sha256": "1396bd0210faff060e9d890264d21c65257b55a61511e10dbf930c8ebc0a3c84"
+        }
+      ],
+      "collected_at": "2026-10-28T18:44:07.445876+00:00",
+      "original_time": {
+        "state": "supplemented",
+        "value": "2026-10-28T18:39:54.058617+00:00",
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/3/facts/started_at"
+          }
+        ]
+      },
+      "issues": [
+        {
+          "id": "research-non-scored-no-hidden-truth",
+          "unknown_fields": [
+            "score",
+            "facts.case_version",
+            "facts.model",
+            "facts.tools",
+            "facts.permissions",
+            "facts.skills",
+            "facts.started_at",
+            "facts.finished_at",
+            "facts.evidence_grade",
+            "facts.final_adjudication",
+            "facts.route",
+            "facts.product_version",
+            "gates.rules_frozen",
+            "gates.case_valid",
+            "gates.scoring_reviewable",
+            "gates.evidence_valid",
+            "gates.contamination_free"
+          ],
+          "knowledge_status": "accepted_limitation",
+          "investigation_status": "stopped",
+          "confound_status": "not_applicable",
+          "impact": "Research mechanism diagnostic has no official normalized score; synthetic observation inputs use no hidden truth asset. Unknown does not mean failure or full credit.",
+          "next_step": "Use the published usage comparison and raw-SSE evidence; never infer an official score.",
+          "stop_condition": "No official-score conversion is performed for this diagnostic.",
+          "reopen_condition": "Only a separately frozen scoring contract would reopen these fields.",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "repl-preflight-preflight-f63e215e",
+      "category": "interface_preflight",
+      "product": "dsh",
+      "group": "research",
+      "experiment": true,
+      "case_id": "mechanism-replication-preflight",
+      "identity": {
+        "state": "supplemented",
+        "value": {
+          "event_id": "repl-preflight-preflight-f63e215e",
+          "run_id": "preflight-f63e215e",
+          "category": "interface_preflight",
+          "product": "dsh",
+          "group": "research",
+          "experiment": true,
+          "case_id": "mechanism-replication-preflight"
+        },
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/4/identity"
+          }
+        ]
+      },
+      "facts": {
+        "started_at": {
+          "state": "supplemented",
+          "value": "2026-10-28T18:22:11.741971+00:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/4/facts/started_at"
+            }
+          ]
+        },
+        "note": {
+          "state": "supplemented",
+          "value": "dump-config preflight receipt time; zero model calls",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/4/facts/note"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "case_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "scoring_reviewable": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "evidence_valid": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        },
+        "contamination_free": {
+          "state": "unknown",
+          "value": null,
+          "refs": []
+        }
+      },
+      "score": {
+        "state": "unknown",
+        "value": null,
+        "refs": []
+      },
+      "selection": null,
+      "sources": [
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/replication-adapter.json",
+          "sha256": "d4c31cd6d13449b5d900cb7c5dae53913ed475f12ea141c1db02df70b545b9b3"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/preflight-f63e215e/receipt.json",
+          "sha256": "7feeffbf1c6398741f5808669dad0c6ddee4db9d50d63d22577c5642dc226903"
+        },
+        {
+          "path": "1-评测方案/机制复制-2026-10-29/evidence-dsh/preflight-f63e215e/stdout.txt",
+          "sha256": "1396bd0210faff060e9d890264d21c65257b55a61511e10dbf930c8ebc0a3c84"
+        }
+      ],
+      "collected_at": "2026-10-28T18:44:07.445876+00:00",
+      "original_time": {
+        "state": "supplemented",
+        "value": "2026-10-28T18:22:11.741971+00:00",
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/items/4/facts/started_at"
+          }
+        ]
+      },
+      "issues": [
+        {
+          "id": "research-non-scored-no-hidden-truth",
+          "unknown_fields": [
+            "score",
+            "facts.case_version",
+            "facts.model",
+            "facts.tools",
+            "facts.permissions",
+            "facts.skills",
+            "facts.started_at",
+            "facts.finished_at",
+            "facts.evidence_grade",
+            "facts.final_adjudication",
+            "facts.route",
+            "facts.product_version",
+            "gates.rules_frozen",
+            "gates.case_valid",
+            "gates.scoring_reviewable",
+            "gates.evidence_valid",
+            "gates.contamination_free"
+          ],
+          "knowledge_status": "accepted_limitation",
+          "investigation_status": "stopped",
+          "confound_status": "not_applicable",
+          "impact": "Research mechanism diagnostic has no official normalized score; synthetic observation inputs use no hidden truth asset. Unknown does not mean failure or full credit.",
+          "next_step": "Use the published usage comparison and raw-SSE evidence; never infer an official score.",
+          "stop_condition": "No official-score conversion is performed for this diagnostic.",
+          "reopen_condition": "Only a separately frozen scoring contract would reopen these fields.",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/items/4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

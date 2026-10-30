@@ -1,0 +1,3914 @@
+{
+  "说明": "脱敏派生摘要，非原始收据。逐项真假仅为原记录所载，不代表独立复验；原文件和原始哈希无法通过本公开摘要验证。去除了路径、执行分工和部分上下文；未列出的项目不应推断通过。",
+  "records": [
+    {
+      "source_name": "actual-E-manifest-reviewed.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "actual-E-review-receipt-check.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "author-gate-selftest-v2.json",
+      "predicate_results": [
+        {
+          "case": "verify-positive-full",
+          "pass": true
+        },
+        {
+          "case": "verify-release-gate-raises",
+          "pass": true
+        },
+        {
+          "case": "binding-missing-keys-raises",
+          "pass": true
+        },
+        {
+          "case": "registered-at-mismatch-raises",
+          "pass": true
+        },
+        {
+          "case": "d-e-blob-drift-raises",
+          "pass": true
+        },
+        {
+          "case": "ancestor-false-raises",
+          "pass": true
+        },
+        {
+          "case": "external-file-drift-raises",
+          "pass": true
+        },
+        {
+          "case": "manifest-file-missing-raises",
+          "pass": true
+        },
+        {
+          "case": "unsafe-manifest-path-raises",
+          "pass": true
+        },
+        {
+          "case": "external-empty-locked-missing-raises",
+          "pass": true
+        },
+        {
+          "case": "prereg-ne-seal-raises",
+          "pass": true
+        },
+        {
+          "case": "manifest-design-mismatch-raises",
+          "pass": true
+        },
+        {
+          "case": "manifest-missing-required-member-raises",
+          "pass": true
+        },
+        {
+          "case": "admit-baseline-genuine-timeout",
+          "pass": true
+        },
+        {
+          "case": "admit-baseline-infra-partial",
+          "pass": true
+        },
+        {
+          "case": "admit-baseline-notexec-accounted",
+          "pass": true
+        },
+        {
+          "case": "accounting-complete-distinct-from-formal",
+          "pass": true
+        },
+        {
+          "case": "atk1-ok-exit9-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk2-short-timeout-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk3-wrong-checker-sha-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk4a-wrong-product-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk4b-wrong-rule-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk4c-wrong-order-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk5-raw-score-mismatch-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk6-invalid-notexec-breaks-accounting-complete",
+          "pass": true
+        },
+        {
+          "case": "atk7-wb-observed-full-fields-admitted",
+          "pass": true
+        },
+        {
+          "case": "atk8-wb-unknown-empty-managed-not-formal",
+          "pass": true
+        },
+        {
+          "case": "checker-exit1-lowscore-still-admissible",
+          "pass": true
+        },
+        {
+          "case": "cargo27-2dp-raw-still-admitted",
+          "pass": true
+        },
+        {
+          "case": "tampered-raw-counts-not-formal",
+          "pass": true
+        },
+        {
+          "case": "inputs-verification-missing-not-formal",
+          "pass": true
+        },
+        {
+          "case": "notexec-fabricated-stream-flagged",
+          "pass": true
+        },
+        {
+          "case": "missing-accounting-flagged",
+          "pass": true
+        },
+        {
+          "case": "plan-runid-partial-dupe-raises",
+          "pass": true
+        },
+        {
+          "case": "admission-requires-verify-first",
+          "pass": true
+        }
+      ],
+      "category": "self_test",
+      "exit_code": 0,
+      "reported_counts": [
+        {
+          "total": 36,
+          "passed": 36,
+          "failed": 0
+        }
+      ]
+    },
+    {
+      "source_name": "author-gate-selftest-v3.json",
+      "predicate_results": [
+        {
+          "case": "verify-positive-full",
+          "pass": true
+        },
+        {
+          "case": "verify-release-gate-raises",
+          "pass": true
+        },
+        {
+          "case": "binding-missing-keys-raises",
+          "pass": true
+        },
+        {
+          "case": "registered-at-mismatch-raises",
+          "pass": true
+        },
+        {
+          "case": "d-e-blob-drift-raises",
+          "pass": true
+        },
+        {
+          "case": "ancestor-false-raises",
+          "pass": true
+        },
+        {
+          "case": "external-file-drift-raises",
+          "pass": true
+        },
+        {
+          "case": "manifest-file-missing-raises",
+          "pass": true
+        },
+        {
+          "case": "unsafe-manifest-path-raises",
+          "pass": true
+        },
+        {
+          "case": "external-empty-locked-missing-raises",
+          "pass": true
+        },
+        {
+          "case": "prereg-ne-seal-raises",
+          "pass": true
+        },
+        {
+          "case": "manifest-design-mismatch-raises",
+          "pass": true
+        },
+        {
+          "case": "manifest-missing-required-member-raises",
+          "pass": true
+        },
+        {
+          "case": "admit-baseline-genuine-timeout",
+          "pass": true
+        },
+        {
+          "case": "admit-baseline-infra-partial",
+          "pass": true
+        },
+        {
+          "case": "admit-baseline-notexec-accounted",
+          "pass": true
+        },
+        {
+          "case": "accounting-complete-distinct-from-formal",
+          "pass": true
+        },
+        {
+          "case": "atk1-ok-exit9-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk2-short-timeout-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk3-wrong-checker-sha-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk4a-wrong-product-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk4b-wrong-rule-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk4c-wrong-order-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk5-raw-score-mismatch-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk6-invalid-notexec-breaks-accounting-complete",
+          "pass": true
+        },
+        {
+          "case": "atk7-wb-observed-full-fields-admitted",
+          "pass": true
+        },
+        {
+          "case": "atk8-wb-unknown-empty-managed-not-formal",
+          "pass": true
+        },
+        {
+          "case": "checker-exit1-lowscore-still-admissible",
+          "pass": true
+        },
+        {
+          "case": "cargo27-2dp-raw-still-admitted",
+          "pass": true
+        },
+        {
+          "case": "tampered-raw-counts-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk9-forged-timeout-without-receipt-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk10-termination-sha-tamper-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk11-wb-timeout-cli-receipt-not-accepted",
+          "pass": true
+        },
+        {
+          "case": "atk12-receipt-without-group-confirm-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk13a-wb-effort-unknown-sentinel-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk13b-wb-effort-unknown-managed-admitted",
+          "pass": true
+        },
+        {
+          "case": "atk13c-wb-observed-known-effort-admitted",
+          "pass": true
+        },
+        {
+          "case": "inputs-verification-missing-not-formal",
+          "pass": true
+        },
+        {
+          "case": "notexec-fabricated-stream-flagged",
+          "pass": true
+        },
+        {
+          "case": "missing-accounting-flagged",
+          "pass": true
+        },
+        {
+          "case": "plan-runid-partial-dupe-raises",
+          "pass": true
+        },
+        {
+          "case": "admission-requires-verify-first",
+          "pass": true
+        }
+      ],
+      "category": "self_test",
+      "exit_code": 0,
+      "reported_counts": [
+        {
+          "total": 43,
+          "passed": 43,
+          "failed": 0
+        }
+      ]
+    },
+    {
+      "source_name": "author-gate-selftest-v4.json",
+      "predicate_results": [
+        {
+          "case": "verify-positive-full",
+          "pass": true
+        },
+        {
+          "case": "verify-release-gate-raises",
+          "pass": true
+        },
+        {
+          "case": "binding-missing-keys-raises",
+          "pass": true
+        },
+        {
+          "case": "registered-at-mismatch-raises",
+          "pass": true
+        },
+        {
+          "case": "d-e-blob-drift-raises",
+          "pass": true
+        },
+        {
+          "case": "ancestor-false-raises",
+          "pass": true
+        },
+        {
+          "case": "external-file-drift-raises",
+          "pass": true
+        },
+        {
+          "case": "manifest-file-missing-raises",
+          "pass": true
+        },
+        {
+          "case": "unsafe-manifest-path-raises",
+          "pass": true
+        },
+        {
+          "case": "external-empty-locked-missing-raises",
+          "pass": true
+        },
+        {
+          "case": "prereg-ne-seal-raises",
+          "pass": true
+        },
+        {
+          "case": "manifest-design-mismatch-raises",
+          "pass": true
+        },
+        {
+          "case": "manifest-missing-required-member-raises",
+          "pass": true
+        },
+        {
+          "case": "admit-baseline-genuine-timeout",
+          "pass": true
+        },
+        {
+          "case": "admit-baseline-infra-partial",
+          "pass": true
+        },
+        {
+          "case": "admit-baseline-notexec-accounted",
+          "pass": true
+        },
+        {
+          "case": "accounting-complete-distinct-from-formal",
+          "pass": true
+        },
+        {
+          "case": "atk1-ok-exit9-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk2-short-timeout-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk3-wrong-checker-sha-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk4a-wrong-product-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk4b-wrong-rule-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk4c-wrong-order-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk5-raw-score-mismatch-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk6-invalid-notexec-breaks-accounting-complete",
+          "pass": true
+        },
+        {
+          "case": "atk7-wb-observed-full-fields-admitted",
+          "pass": true
+        },
+        {
+          "case": "atk8-wb-unknown-empty-managed-not-formal",
+          "pass": true
+        },
+        {
+          "case": "checker-exit1-lowscore-still-admissible",
+          "pass": true
+        },
+        {
+          "case": "cargo27-2dp-raw-still-admitted",
+          "pass": true
+        },
+        {
+          "case": "tampered-raw-counts-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk9-forged-timeout-without-receipt-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk10-termination-sha-tamper-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk11-wb-timeout-cli-receipt-not-accepted",
+          "pass": true
+        },
+        {
+          "case": "atk12-receipt-without-group-confirm-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk14-swapped-slot-receipt-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk15-pgid-mismatch-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk16-binding-doc-bool-contradiction-rejected",
+          "pass": true
+        },
+        {
+          "case": "atk13a-wb-effort-unknown-sentinel-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk13b-wb-effort-unknown-managed-admitted",
+          "pass": true
+        },
+        {
+          "case": "atk13c-wb-observed-known-effort-admitted",
+          "pass": true
+        },
+        {
+          "case": "atk17-wb-native-checks-incomplete-not-formal",
+          "pass": true
+        },
+        {
+          "case": "atk18-ok-without-closure-receipt-not-formal",
+          "pass": true
+        },
+        {
+          "case": "w13-wb-completed-none-exitcode-admitted",
+          "pass": true
+        },
+        {
+          "case": "w13-wb-active-state-not-formal",
+          "pass": true
+        },
+        {
+          "case": "w13-wb-error-state-not-formal",
+          "pass": true
+        },
+        {
+          "case": "inputs-verification-missing-not-formal",
+          "pass": true
+        },
+        {
+          "case": "notexec-fabricated-stream-flagged",
+          "pass": true
+        },
+        {
+          "case": "missing-accounting-flagged",
+          "pass": true
+        },
+        {
+          "case": "plan-runid-partial-dupe-raises",
+          "pass": true
+        },
+        {
+          "case": "admission-requires-verify-first",
+          "pass": true
+        }
+      ],
+      "category": "self_test",
+      "exit_code": 0,
+      "reported_counts": [
+        {
+          "total": 51,
+          "passed": 51,
+          "failed": 0
+        }
+      ]
+    },
+    {
+      "source_name": "author-replay-selftest-v3.json",
+      "predicate_results": [],
+      "category": "self_test",
+      "exit_code": 0
+    },
+    {
+      "source_name": "author-seal-selftest-v1.json",
+      "predicate_results": [],
+      "category": "self_test",
+      "exit_code": 0
+    },
+    {
+      "source_name": "author-seal-selftest-v2.json",
+      "predicate_results": [],
+      "category": "self_test",
+      "exit_code": 0
+    },
+    {
+      "source_name": "author-seal-selftest-v3.json",
+      "predicate_results": [],
+      "category": "self_test",
+      "exit_code": 0
+    },
+    {
+      "source_name": "author-seal-selftest-v4.json",
+      "predicate_results": [],
+      "category": "self_test",
+      "exit_code": 0
+    },
+    {
+      "source_name": "author-seal-selftest-v6.json",
+      "predicate_results": [],
+      "category": "self_test",
+      "exit_code": 0
+    },
+    {
+      "source_name": "body-preflight-v6-receipt-check.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "body-preflight-v7-receipt-check.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "design-review-receipt-check.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "design-seal-receipt-check-v3.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "dsh-display-source-snapshot-v7.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "dsh-runtime-adversarial-v4b.json",
+      "predicate_results": [
+        {
+          "case": "timeout-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:valid-first-accounting",
+          "pass": false
+        },
+        {
+          "case": "timeout-unverified:raw-stop-false-recorded",
+          "pass": false
+        },
+        {
+          "case": "normal-exit-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:next-slot-popen-zero",
+          "pass": false
+        },
+        {
+          "case": "normal-exit-unverified:valid-first-accounting",
+          "pass": false
+        },
+        {
+          "case": "normal-exit-unverified:not-fictitious-timeout",
+          "pass": false
+        },
+        {
+          "case": "spawn-failure:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:next-slot-popen-zero",
+          "pass": false
+        },
+        {
+          "case": "spawn-failure:valid-first-accounting",
+          "pass": false
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "dsh-runtime-adversarial-v4c.json",
+      "predicate_results": [
+        {
+          "case": "timeout-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:raw-stop-false-recorded",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:valid-first-accounting",
+          "pass": false
+        },
+        {
+          "case": "normal-exit-unverified:not-fictitious-timeout",
+          "pass": false
+        },
+        {
+          "case": "spawn-failure:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:next-slot-popen-zero",
+          "pass": false
+        },
+        {
+          "case": "spawn-failure:valid-first-accounting",
+          "pass": false
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "dsh-runtime-adversarial-v4d.json",
+      "predicate_results": [
+        {
+          "case": "timeout-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:raw-stop-false-recorded",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:valid-first-accounting",
+          "pass": false
+        },
+        {
+          "case": "normal-exit-unverified:not-fictitious-timeout",
+          "pass": false
+        },
+        {
+          "case": "spawn-failure:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:valid-first-accounting",
+          "pass": false
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "dsh-runtime-adversarial-v5.json",
+      "predicate_results": [
+        {
+          "case": "timeout-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:raw-stop-false-recorded",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:not-fictitious-timeout",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:valid-first-accounting",
+          "pass": true
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "dsh-runtime-adversarial-v6.json",
+      "predicate_results": [
+        {
+          "case": "timeout-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "case": "timeout-unverified:raw-stop-false-recorded",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "case": "normal-exit-unverified:not-fictitious-timeout",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "spawn-failure:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "case": "post-launch-eio:checker-zero",
+          "pass": true
+        },
+        {
+          "case": "post-launch-eio:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "case": "post-launch-eio:next-slot-popen-zero",
+          "pass": true
+        },
+        {
+          "case": "post-launch-eio:valid-first-accounting",
+          "pass": true
+        },
+        {
+          "case": "post-launch-eio:actual-partial-not-never-started",
+          "pass": true
+        },
+        {
+          "case": "post-launch-eio:bounded-cleanup-invoked-once",
+          "pass": true
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "dsh-runtime-preflight-v5-receipt-check.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "dsh-runtime-source-snapshot-v5.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "dsh-runtime-source-snapshot-v6.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "dsh-stop-adversarial-v2.json",
+      "predicate_results": [
+        {
+          "case": "permission-denied-not-already-gone",
+          "pass": false
+        },
+        {
+          "case": "parent-exited-but-term-ignoring-child-must-stop",
+          "pass": false
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "dsh-stop-adversarial-v3.json",
+      "predicate_results": [
+        {
+          "case": "permission-denied-not-already-gone",
+          "pass": true
+        },
+        {
+          "case": "probe-eperm-kill-delivered",
+          "pass": true
+        },
+        {
+          "case": "probe-eperm-kill-esrch",
+          "pass": true
+        },
+        {
+          "case": "parent-exited-but-term-ignoring-child-must-stop",
+          "pass": true
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "gate-dsh-preflight-v2-receipt-check.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "gate-dsh-preflight-v4-receipt-check.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "gate-dsh-source-snapshot-v1.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "gate-dsh-source-snapshot-v2.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "gate-dsh-source-snapshot-v3.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "gate-dsh-source-snapshot-v4.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "late-archive-verification/dab-r1-verification-01.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 36
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/dab-r1-verification-01.public.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 36
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/first-slot-receipt-check.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "late-archive-verification/first-slot-structural-inventory.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "late-archive-verification/observations-source-snapshot-01.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "late-archive-verification/observations-source-snapshot-02.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "late-archive-verification/observations-v2-independent-check-02.json",
+      "predicate_results": [
+        {
+          "case": "binding-preserved-exactly",
+          "pass": true
+        },
+        {
+          "case": "all-seventeen-product-slots-exact-unique",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r2:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r2:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r2:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r2:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r2:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r2:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r3:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r3:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r3:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r3:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r3:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r3:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r2:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r2:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r2:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r2:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r2:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r2:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r3:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r3:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r3:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r3:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r3:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r3:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+          "pass": true
+        },
+        {
+          "case": "notexec-state-and-no-invented-score:l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-dabstep-payments-10-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-dabstep-payments-10-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-dabstep-payments-10-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-exercism-py-6-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-exercism-py-6-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-exercism-py-6-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-lcb-recent-hard-4-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-lcb-recent-hard-4-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-lcb-recent-hard-4-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-tb-cargo-plan-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-tb-cargo-plan-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-tb-cargo-plan-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-zero-recomputed-from-every-row-and-snapshot",
+          "pass": true
+        },
+        {
+          "case": "source-accounting-counts-preserved-as-record-coverage",
+          "pass": true
+        },
+        {
+          "case": "all-rejection-causes-preserved",
+          "pass": true
+        },
+        {
+          "case": "descriptive-range:codex:dabstep-payments-10",
+          "pass": true
+        },
+        {
+          "case": "descriptive-range:codex:tb-cargo-plan",
+          "pass": true
+        },
+        {
+          "case": "descriptive-range:dsh:dabstep-payments-10",
+          "pass": true
+        },
+        {
+          "case": "descriptive-range:dsh:tb-cargo-plan",
+          "pass": true
+        },
+        {
+          "case": "all-eighteen-cache-slots-exact-unique",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:anthropic-messages:1",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:anthropic-messages:2",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:chat-completions:1",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:chat-completions:2",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:responses:1",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:responses:2",
+          "pass": true
+        },
+        {
+          "case": "six-actual-pairs-not-merely-six-labels",
+          "pass": true
+        },
+        {
+          "case": "generated-at-aware-not-future-after-all-finish-records",
+          "pass": true
+        },
+        {
+          "case": "observation-original-retained-exactly",
+          "pass": true
+        },
+        {
+          "case": "generated-at-filesystem-mtime-consistency",
+          "pass": true
+        },
+        {
+          "case": "v1-original-artifact-retained-at-reviewed-SHA",
+          "pass": true
+        },
+        {
+          "case": "same-immutable-judge-snapshot-reference-v1-v2",
+          "pass": true
+        },
+        {
+          "case": "all-other-v1-v2-data-exactly-equal",
+          "pass": true
+        },
+        {
+          "case": "builder-outside-build-AST-identical-v1-v2",
+          "pass": true
+        },
+        {
+          "case": "observed-cache-conclusion-not-hardcoded-as-build-assert",
+          "pass": true
+        },
+        {
+          "case": "all-audit-input-bytes-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "total": 351,
+          "passed": 351,
+          "failed": 0
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/observations-v2-independent-check.json",
+      "predicate_results": [
+        {
+          "case": "binding-preserved-exactly",
+          "pass": true
+        },
+        {
+          "case": "all-seventeen-product-slots-exact-unique",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r2:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r2:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r2:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r2:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r2:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r2:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r3:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r3:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-dabstep-payments-10-r3:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-codex-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r3:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r3:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-codex-tb-cargo-plan-r3:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-tb-cargo-plan-r2",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r2:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r2:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r2:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-dabstep-payments-10-r2",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r2:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r2:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r2:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r3:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r3:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-dabstep-payments-10-r3:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-cli-dsh-tb-cargo-plan-r3",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r3:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r3:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-cli-dsh-tb-cargo-plan-r3:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+          "pass": true
+        },
+        {
+          "case": "notexec-state-and-no-invented-score:l4-20261029-wb-gateway-bird-ca-schools-15-r1",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-wb-gateway-dabstep-payments-10-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-dabstep-payments-10-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-dabstep-payments-10-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-dabstep-payments-10-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-wb-gateway-exercism-py-6-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-exercism-py-6-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-exercism-py-6-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-exercism-py-6-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-wb-gateway-lcb-recent-hard-4-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-lcb-recent-hard-4-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-lcb-recent-hard-4-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-lcb-recent-hard-4-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-source-exact:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "canonical-three-fields-source-exact:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "exactly-one-original-meta-or-notexec:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "producer-score-status-time-values-exact:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "count-diagnostic-not-a-regrade:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "product-time-order-and-duration-rounding:l4-20261029-wb-gateway-tb-cargo-plan-r1",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-tb-cargo-plan-r1:stdout",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-tb-cargo-plan-r1:stderr",
+          "pass": true
+        },
+        {
+          "case": "raw-product-file-SHA:l4-20261029-wb-gateway-tb-cargo-plan-r1:prompt",
+          "pass": true
+        },
+        {
+          "case": "formal-zero-recomputed-from-every-row-and-snapshot",
+          "pass": true
+        },
+        {
+          "case": "source-accounting-counts-preserved-as-record-coverage",
+          "pass": true
+        },
+        {
+          "case": "all-rejection-causes-preserved",
+          "pass": true
+        },
+        {
+          "case": "descriptive-range:codex:dabstep-payments-10",
+          "pass": true
+        },
+        {
+          "case": "descriptive-range:codex:tb-cargo-plan",
+          "pass": true
+        },
+        {
+          "case": "descriptive-range:dsh:dabstep-payments-10",
+          "pass": true
+        },
+        {
+          "case": "descriptive-range:dsh:tb-cargo-plan",
+          "pass": true
+        },
+        {
+          "case": "all-eighteen-cache-slots-exact-unique",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b1-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b1-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b1-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-equality-without-addition:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "chat-alias-observed-flag-source-exact:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-chat-completions-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-anthropic-messages-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-anthropic-messages-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-anthropic-messages-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-anthropic-messages-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b2-fresh",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b2-repeat",
+          "pass": true
+        },
+        {
+          "case": "cache-identity-order-plan-transport-intent:l4-20261029-cache-responses-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-transport-raw-response-request-SHA:l4-20261029-cache-responses-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "selected-usage-path-and-state:l4-20261029-cache-responses-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "cache-real-time-order:l4-20261029-cache-responses-b2-nonce-control",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:anthropic-messages:1",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:anthropic-messages:2",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:chat-completions:1",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:chat-completions:2",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:responses:1",
+          "pass": true
+        },
+        {
+          "case": "fresh-repeat-control-actual-wire-body-pair:responses:2",
+          "pass": true
+        },
+        {
+          "case": "six-actual-pairs-not-merely-six-labels",
+          "pass": true
+        },
+        {
+          "case": "generated-at-aware-not-future-after-all-finish-records",
+          "pass": true
+        },
+        {
+          "case": "observation-original-retained-exactly",
+          "pass": false
+        },
+        {
+          "case": "generated-at-filesystem-mtime-consistency",
+          "pass": false
+        },
+        {
+          "case": "v1-original-artifact-retained-at-reviewed-SHA",
+          "pass": true
+        },
+        {
+          "case": "same-immutable-judge-snapshot-reference-v1-v2",
+          "pass": true
+        },
+        {
+          "case": "all-other-v1-v2-data-exactly-equal",
+          "pass": true
+        },
+        {
+          "case": "builder-outside-build-AST-identical-v1-v2",
+          "pass": true
+        },
+        {
+          "case": "observed-cache-conclusion-not-hardcoded-as-build-assert",
+          "pass": true
+        },
+        {
+          "case": "all-audit-input-bytes-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "total": 351,
+          "passed": 349,
+          "failed": 2
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-dabstep-payments-10-r2-01.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 36
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-dabstep-payments-10-r2-01.public.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 36
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-dabstep-payments-10-r3-01.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 22
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-dabstep-payments-10-r3-01.public.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 22
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-tb-cargo-plan-r1-01.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 22
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-tb-cargo-plan-r1-01.public.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 22
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-tb-cargo-plan-r2-01.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 22
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-tb-cargo-plan-r2-01.public.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": true
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 22
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-tb-cargo-plan-r3-02.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": false
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 21
+        }
+      ]
+    },
+    {
+      "source_name": "late-archive-verification/verification-l4-20261029-cli-dsh-tb-cargo-plan-r3-02.public.json",
+      "predicate_results": [
+        {
+          "case": "recovery-record-identities-match-explicit-slot",
+          "pass": true
+        },
+        {
+          "case": "original-meta-identities-match-frozen-slot",
+          "pass": true
+        },
+        {
+          "case": "original-E-binding-unchanged",
+          "pass": true
+        },
+        {
+          "case": "collected-at-is-truly-later-than-finished",
+          "pass": false
+        },
+        {
+          "case": "original-prompt-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "original-stdout-sha-matches-original-meta",
+          "pass": true
+        },
+        {
+          "case": "record-dir-marker-is-single-DSH-exact-cwd-encoding",
+          "pass": true
+        },
+        {
+          "case": "root-first-user-prompt-byte-exact-original-prompt",
+          "pass": true
+        },
+        {
+          "case": "record-source-stability-claims-present-not-independently-reread",
+          "pass": true
+        },
+        {
+          "case": "all-specified-originals-copies-record-and-source-SHA-unchanged",
+          "pass": true
+        }
+      ],
+      "reported_counts": [
+        {
+          "passed": 21
+        }
+      ]
+    },
+    {
+      "source_name": "old-contract-verification.json",
+      "predicate_results": [],
+      "category": "offline_recompute"
+    },
+    {
+      "source_name": "seal-adversarial-v1.json",
+      "predicate_results": [
+        {
+          "case": "positive",
+          "pass": true
+        },
+        {
+          "case": "empty_files_manifest",
+          "pass": false
+        },
+        {
+          "case": "source_symlink_after_seal",
+          "pass": false
+        },
+        {
+          "case": "missing_clarification",
+          "pass": false
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "seal-adversarial-v3.json",
+      "predicate_results": [
+        {
+          "case": "positive",
+          "pass": true
+        },
+        {
+          "case": "empty_files",
+          "pass": true
+        },
+        {
+          "case": "omitted_clarification",
+          "pass": true
+        },
+        {
+          "case": "same_bytes_source_symlink",
+          "pass": true
+        },
+        {
+          "case": "new_unsealed_py",
+          "pass": true
+        },
+        {
+          "case": "runtime_symlink_directory",
+          "pass": true
+        },
+        {
+          "case": "extensionless_helper",
+          "pass": true
+        },
+        {
+          "case": "generated_workspace_not_source",
+          "pass": true
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "seal-build-adversarial-v4.json",
+      "predicate_results": [
+        {
+          "case": "actual-base-six-path-constants",
+          "pass": true
+        },
+        {
+          "case": "both-cli-build-resolvers-mandatory",
+          "pass": true
+        },
+        {
+          "case": "all-thirteen-synthetic-build-members-selected",
+          "pass": true
+        },
+        {
+          "case": "actual-manifest-generator-explicitly-not-transitive-exhaustive",
+          "pass": true
+        },
+        {
+          "case": "omit:base-0",
+          "pass": true
+        },
+        {
+          "case": "omit:base-1",
+          "pass": true
+        },
+        {
+          "case": "omit:base-2",
+          "pass": true
+        },
+        {
+          "case": "omit:base-3",
+          "pass": true
+        },
+        {
+          "case": "omit:base-4",
+          "pass": true
+        },
+        {
+          "case": "omit:base-5",
+          "pass": true
+        },
+        {
+          "case": "omit:codex-launcher",
+          "pass": true
+        },
+        {
+          "case": "omit:codex-native-payload",
+          "pass": true
+        },
+        {
+          "case": "omit:codex-package-metadata",
+          "pass": true
+        },
+        {
+          "case": "omit:dsh-launcher",
+          "pass": true
+        },
+        {
+          "case": "omit:dsh-own-lib-entry",
+          "pass": true
+        },
+        {
+          "case": "omit:dsh-own-lib-runtime",
+          "pass": true
+        },
+        {
+          "case": "omit:dsh-package-metadata",
+          "pass": true
+        },
+        {
+          "case": "missing-native-is-hard-failure",
+          "pass": true
+        },
+        {
+          "case": "missing-cli-is-hard-failure",
+          "pass": true
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "seal-external-adversarial-v4.json",
+      "predicate_results": [
+        {
+          "case": "actual-path-mandatory-set",
+          "pass": true
+        },
+        {
+          "case": "positive-complete-mandatory-config",
+          "pass": true
+        },
+        {
+          "case": "empty-external",
+          "pass": true
+        },
+        {
+          "case": "omit-external-0",
+          "pass": true
+        },
+        {
+          "case": "omit-external-1",
+          "pass": true
+        },
+        {
+          "case": "omit-external-2",
+          "pass": true
+        },
+        {
+          "case": "omit-external-3",
+          "pass": true
+        }
+      ],
+      "category": "self_test"
+    },
+    {
+      "source_name": "seal-source-snapshot-v1.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "seal-source-snapshot-v2.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "seal-source-snapshot-v3.json",
+      "predicate_results": []
+    },
+    {
+      "source_name": "seal-source-snapshot-v4.json",
+      "predicate_results": []
+    }
+  ]
+}

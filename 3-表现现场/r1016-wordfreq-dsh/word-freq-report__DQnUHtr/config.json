@@ -1,0 +1,26 @@
+{
+    "task": {
+        "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/word-freq-report"
+    },
+    "trial_name": "word-freq-report__DQnUHtr",
+    "trials_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs/r1016-wordfreq-dsh",
+    "timeout_multiplier": 3.0,
+    "agent": {
+        "name": "dsh_agent:Dsh",
+        "model_name": "glm-5.3-flash",
+        "kwargs": {
+            "version": "0.2.0-rc.2",
+            "config": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/dsh-proto/cordis.patch.yml"
+        },
+        "env": {
+            "ZAI_API_KEY": "${ZAI_API_KEY}"
+        }
+    },
+    "environment": {
+        "type": "docker",
+        "extra_docker_compose": [
+            "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+        ]
+    },
+    "job_id": "2a0f2e67-359d-40c0-b1e4-046e040c74da"
+}

@@ -1,0 +1,79 @@
+{
+  "case": "tb-cargo-plan",
+  "agent": "codex",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "started_at": "2026-10-22T20:55:14+08:00",
+  "prompt_sha256": "0a4193363a2caeb9126da6c28a06c9fbb0a91a4791ae19f1f5a5fd36debb657c",
+  "inputs": [
+    {
+      "path": "inputs/app/aircraft.py",
+      "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+      "bytes": 2376
+    },
+    {
+      "path": "inputs/app/data/aircraft.json",
+      "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+      "bytes": 496
+    },
+    {
+      "path": "inputs/app/data/airports.json",
+      "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+      "bytes": 1685
+    },
+    {
+      "path": "inputs/app/data/manifest.json",
+      "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+      "bytes": 1257
+    },
+    {
+      "path": "inputs/app/data/weather.json",
+      "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+      "bytes": 1611
+    },
+    {
+      "path": "inputs/app/dispatch.py",
+      "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+      "bytes": 8504
+    },
+    {
+      "path": "inputs/app/navigation.py",
+      "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+      "bytes": 2482
+    }
+  ],
+  "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/tb-cargo-plan__codex",
+  "status": "ok",
+  "exit_code": 0,
+  "duration_s": 97.0,
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "checker": {
+    "case": "tb-cargo-plan",
+    "reward": 1,
+    "weighted": 100.0,
+    "passed": 27,
+    "total": 27,
+    "critical_ok": true
+  },
+  "usage": {
+    "input_tokens": 706064,
+    "cached_input_tokens": 661760,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 21086,
+    "reasoning_output_tokens": 9764
+  },
+  "tool_calls": 37,
+  "by_tool": {
+    "?": 37
+  },
+  "steps": 37,
+  "integrity": "invalid",
+  "integrity_reason": "agent 读 ../cases/tb-cargo-plan/{checker.py,truth.json,solution/*.py}、直接运行 oracle solution 生成计划并 diff 出补丁，最后自跑 checker 得 27/27",
+  "superseded_by": "r1027-isolated/runs/codex__tb-cargo-plan",
+  "corrected_result": {
+    "reward": 0,
+    "weighted": 70.37
+  }
+}

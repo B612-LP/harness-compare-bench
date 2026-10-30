@@ -1,0 +1,139 @@
+{
+    "id": "2402ca04-cabc-4543-8a74-84532f698de6",
+    "task_name": "word-freq-report",
+    "trial_name": "word-freq-report__o2ueAKp",
+    "trial_uri": "file:///mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs/r1016-wordfreq-codex/word-freq-report__o2ueAKp",
+    "task_id": {
+        "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/word-freq-report"
+    },
+    "source": null,
+    "task_checksum": "905f21968e68bd5a39048758b834efa6b43126791012bbba9af448aff035024f",
+    "config": {
+        "task": {
+            "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/word-freq-report",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "word-freq-report__o2ueAKp",
+        "trials_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs/r1016-wordfreq-codex",
+        "install_only": false,
+        "timeout_multiplier": 3.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "codex",
+            "import_path": null,
+            "model_name": "glm-5.3-flash",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [
+                "open.bigmodel.cn",
+                "172.21.240.1"
+            ],
+            "kwargs": {
+                "version": "0.162.1",
+                "config": "/root/.codex/config.toml",
+                "disable_web_search": true
+            },
+            "env": {
+                "ZAI_API_KEY": "${ZAI_API_KEY}",
+                "OPENAI_API_KEY": "674e****HjN"
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [
+                "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+            ],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "7c2ed405-6d63-48fa-8cc4-e68cb905cd47",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "codex",
+        "version": "0.162.1",
+        "model_info": {
+            "name": "glm-5.3-flash",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 34938,
+        "n_cache_tokens": 21248,
+        "n_output_tokens": 558,
+        "cost_usd": null,
+        "model_usage": {
+            "glm-5.3-flash": {
+                "n_input_tokens": 34938,
+                "n_cache_tokens": 21248,
+                "n_output_tokens": 558,
+                "cost_usd": null
+            }
+        },
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-10-16T09:16:09.544173Z",
+    "finished_at": "2026-10-16T09:20:12.225889Z",
+    "environment_setup": {
+        "started_at": "2026-10-16T09:16:09.569917Z",
+        "finished_at": "2026-10-16T09:16:11.996493Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-16T09:16:11.996530Z",
+        "finished_at": "2026-10-16T09:19:17.464840Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-16T09:19:17.464948Z",
+        "finished_at": "2026-10-16T09:19:49.171101Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-16T09:19:56.544221Z",
+        "finished_at": "2026-10-16T09:19:57.085101Z"
+    },
+    "step_results": null
+}

@@ -1,0 +1,2219 @@
+{
+  "kind": "bare_model_probe",
+  "batch": "l4-20261029-cache",
+  "rule": "l4-20261029-batch-v1",
+  "at": "2026-10-29T23:23:40+08:00",
+  "dry_run": false,
+  "live_doc_drift": [],
+  "design_commit_D": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+  "binding": {
+    "design_commit": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+    "execution_seal_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+    "registered_at": "2026-10-29T23:13:56+08:00"
+  },
+  "slots": [
+    {
+      "slot_id": "l4-20261029-cache-responses-b1-fresh",
+      "protocol": "responses",
+      "block": 1,
+      "condition": "fresh",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:22:48+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:22:47+08:00",
+      "endpoint": "https://api.deepseek.com/responses",
+      "request_sha256": "23ef42e2ee34fd10a7d2ede636b1343ce145463704d4a5fc0759838fe6f2d6fc",
+      "request_bytes": 8456,
+      "nonce": "7e5e73c84a64d39e",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.536,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:22:48 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2287,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 17,
+        "output_tokens_details": {
+          "reasoning_tokens": 15
+        },
+        "total_tokens": 2304
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2287
+          },
+          "input_tokens_details": {
+            "state": "object"
+          },
+          "input_tokens_details.cached_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 17
+          },
+          "output_tokens_details": {
+            "state": "object"
+          },
+          "output_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 15
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2304
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2287
+          },
+          "cache_read_tokens": {
+            "wire_key": "cached_input_tokens",
+            "state": "missing"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_write_input_tokens",
+            "state": "missing"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 17
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2304
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cached/cache_write 为 CLI 侧同名字段；provider 是否回该键由本探针 raw 证据回答",
+      "response_id": "da8d6a33-b02f-4db3-b768-3c146ccdea3a",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b1-repeat",
+      "protocol": "responses",
+      "block": 1,
+      "condition": "repeat",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:22:55+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:22:48+08:00",
+      "endpoint": "https://api.deepseek.com/responses",
+      "request_sha256": "23ef42e2ee34fd10a7d2ede636b1343ce145463704d4a5fc0759838fe6f2d6fc",
+      "request_bytes": 8456,
+      "nonce": "7e5e73c84a64d39e",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.073,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:22:54 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2287,
+        "input_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "output_tokens": 20,
+        "output_tokens_details": {
+          "reasoning_tokens": 18
+        },
+        "total_tokens": 2307
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2287
+          },
+          "input_tokens_details": {
+            "state": "object"
+          },
+          "input_tokens_details.cached_tokens": {
+            "state": "positive",
+            "value": 2048
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 20
+          },
+          "output_tokens_details": {
+            "state": "object"
+          },
+          "output_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 18
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2307
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2287
+          },
+          "cache_read_tokens": {
+            "wire_key": "cached_input_tokens",
+            "state": "missing"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_write_input_tokens",
+            "state": "missing"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 20
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2307
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cached/cache_write 为 CLI 侧同名字段；provider 是否回该键由本探针 raw 证据回答",
+      "response_id": "2b07156a-8795-479e-a5f8-3f98ff53314f",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": true,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b1-nonce-control",
+      "protocol": "responses",
+      "block": 1,
+      "condition": "nonce-control",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:22:56+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:22:55+08:00",
+      "endpoint": "https://api.deepseek.com/responses",
+      "request_sha256": "fad1da1c4e3fda28a3c30f54e6fc2a7466d81780bd02292822234157d07a6169",
+      "request_bytes": 8456,
+      "nonce": "085ac6eb5aca39e9",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.089,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:22:55 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2284,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 13,
+        "output_tokens_details": {
+          "reasoning_tokens": 11
+        },
+        "total_tokens": 2297
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2284
+          },
+          "input_tokens_details": {
+            "state": "object"
+          },
+          "input_tokens_details.cached_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 13
+          },
+          "output_tokens_details": {
+            "state": "object"
+          },
+          "output_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 11
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2297
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2284
+          },
+          "cache_read_tokens": {
+            "wire_key": "cached_input_tokens",
+            "state": "missing"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_write_input_tokens",
+            "state": "missing"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 13
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2297
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cached/cache_write 为 CLI 侧同名字段；provider 是否回该键由本探针 raw 证据回答",
+      "response_id": "3f945ef9-a9b6-403c-bba9-359e65dcdaca",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b1-fresh",
+      "protocol": "anthropic-messages",
+      "block": 1,
+      "condition": "fresh",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:22:57+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:22:56+08:00",
+      "endpoint": "https://api.deepseek.com/anthropic/v1/messages",
+      "request_sha256": "8df82e454e2e14ce9e6cebb63ac2ec9fc55628fec74e1782aef0cffed6bee24c",
+      "request_bytes": 8520,
+      "nonce": "543f633a6d75ed25",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.468,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:22:56 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2284,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 21,
+        "service_tier": "standard"
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2284
+          },
+          "cache_creation_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "cache_read_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 21
+          },
+          "service_tier": {
+            "state": "non-scalar",
+            "value": "standard"
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2284
+          },
+          "cache_read_tokens": {
+            "wire_key": "cache_read_input_tokens",
+            "state": "zero"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_creation_input_tokens",
+            "state": "zero"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 21
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cache_read_input_tokens/cache_creation_input_tokens 为 anthropic 线标准键；dsh 历史 0 = session log 键存在且值 0（map_usage 仅存在才映射）",
+      "response_id": "848264c0-0cb4-4070-9022-64f85c2c68bd",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b1-repeat",
+      "protocol": "anthropic-messages",
+      "block": 1,
+      "condition": "repeat",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:03+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:22:57+08:00",
+      "endpoint": "https://api.deepseek.com/anthropic/v1/messages",
+      "request_sha256": "8df82e454e2e14ce9e6cebb63ac2ec9fc55628fec74e1782aef0cffed6bee24c",
+      "request_bytes": 8520,
+      "nonce": "543f633a6d75ed25",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.217,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:03 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 236,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 2048,
+        "output_tokens": 23,
+        "service_tier": "standard"
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 236
+          },
+          "cache_creation_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "cache_read_input_tokens": {
+            "state": "positive",
+            "value": 2048
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 23
+          },
+          "service_tier": {
+            "state": "non-scalar",
+            "value": "standard"
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 236
+          },
+          "cache_read_tokens": {
+            "wire_key": "cache_read_input_tokens",
+            "state": "positive",
+            "value": 2048
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_creation_input_tokens",
+            "state": "zero"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 23
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cache_read_input_tokens/cache_creation_input_tokens 为 anthropic 线标准键；dsh 历史 0 = session log 键存在且值 0（map_usage 仅存在才映射）",
+      "response_id": "fbe870be-3820-402f-92d3-1761215c18e2",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": true,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b1-nonce-control",
+      "protocol": "anthropic-messages",
+      "block": 1,
+      "condition": "nonce-control",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:05+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:03+08:00",
+      "endpoint": "https://api.deepseek.com/anthropic/v1/messages",
+      "request_sha256": "fe8c10fa152bc6b45bd729a144c9ab485b7bb103bf087d0cd9756503f4474194",
+      "request_bytes": 8520,
+      "nonce": "a106dc202473e694",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.553,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:04 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2281,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 19,
+        "service_tier": "standard"
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2281
+          },
+          "cache_creation_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "cache_read_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 19
+          },
+          "service_tier": {
+            "state": "non-scalar",
+            "value": "standard"
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2281
+          },
+          "cache_read_tokens": {
+            "wire_key": "cache_read_input_tokens",
+            "state": "zero"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_creation_input_tokens",
+            "state": "zero"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 19
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cache_read_input_tokens/cache_creation_input_tokens 为 anthropic 线标准键；dsh 历史 0 = session log 键存在且值 0（map_usage 仅存在才映射）",
+      "response_id": "0c904f63-1b16-47e5-8c04-747899b2a5f0",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b1-fresh",
+      "protocol": "chat-completions",
+      "block": 1,
+      "condition": "fresh",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:06+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:05+08:00",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "request_sha256": "f7454fb78181f6ceee38a0abb987beccea228148dbd664945187ae5a44b526c6",
+      "request_bytes": 8478,
+      "nonce": "db0a37382898fff4",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.227,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:06 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "prompt_tokens": 2283,
+        "completion_tokens": 14,
+        "total_tokens": 2297,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 12
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2283
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "prompt_tokens": {
+            "state": "positive",
+            "value": 2283
+          },
+          "completion_tokens": {
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2297
+          },
+          "prompt_tokens_details": {
+            "state": "object"
+          },
+          "prompt_tokens_details.cached_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "completion_tokens_details": {
+            "state": "object"
+          },
+          "completion_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 12
+          },
+          "prompt_cache_hit_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "prompt_cache_miss_tokens": {
+            "state": "positive",
+            "value": 2283
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "prompt_tokens",
+            "state": "positive",
+            "value": 2283
+          },
+          "output_tokens": {
+            "wire_key": "completion_tokens",
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2297
+          },
+          "cache_read_tokens": {
+            "wire_key": "prompt_tokens_details.cached_tokens",
+            "state": "zero"
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "官方文档语义为 hit/miss（prompt_cache_hit_tokens/miss 或 details.cached_tokens），无 creation 字段——creation 缺失即协议层缺键，不得解释为无写入",
+      "response_id": "42b71859-4f60-4280-876b-e4d146cbad2a",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b1-repeat",
+      "protocol": "chat-completions",
+      "block": 1,
+      "condition": "repeat",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:12+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:06+08:00",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "request_sha256": "f7454fb78181f6ceee38a0abb987beccea228148dbd664945187ae5a44b526c6",
+      "request_bytes": 8478,
+      "nonce": "db0a37382898fff4",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.334,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:12 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "prompt_tokens": 2283,
+        "completion_tokens": 14,
+        "total_tokens": 2297,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 12
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 235
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "prompt_tokens": {
+            "state": "positive",
+            "value": 2283
+          },
+          "completion_tokens": {
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2297
+          },
+          "prompt_tokens_details": {
+            "state": "object"
+          },
+          "prompt_tokens_details.cached_tokens": {
+            "state": "positive",
+            "value": 2048
+          },
+          "completion_tokens_details": {
+            "state": "object"
+          },
+          "completion_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 12
+          },
+          "prompt_cache_hit_tokens": {
+            "state": "positive",
+            "value": 2048
+          },
+          "prompt_cache_miss_tokens": {
+            "state": "positive",
+            "value": 235
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "prompt_tokens",
+            "state": "positive",
+            "value": 2283
+          },
+          "output_tokens": {
+            "wire_key": "completion_tokens",
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2297
+          },
+          "cache_read_tokens": {
+            "wire_key": "prompt_tokens_details.cached_tokens",
+            "state": "positive",
+            "value": 2048
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "官方文档语义为 hit/miss（prompt_cache_hit_tokens/miss 或 details.cached_tokens），无 creation 字段——creation 缺失即协议层缺键，不得解释为无写入",
+      "response_id": "81f5ceb8-1fd6-4ec3-9198-dc6ecf57b5d1",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": true,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b1-nonce-control",
+      "protocol": "chat-completions",
+      "block": 1,
+      "condition": "nonce-control",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:14+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:12+08:00",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "request_sha256": "7de982644b9687adff450f255cdef49d01e0b27084d3b4987afbc1ac5b29f7ed",
+      "request_bytes": 8478,
+      "nonce": "b855c12236e67687",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.5,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:13 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "prompt_tokens": 2282,
+        "completion_tokens": 14,
+        "total_tokens": 2296,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 12
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2282
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "prompt_tokens": {
+            "state": "positive",
+            "value": 2282
+          },
+          "completion_tokens": {
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2296
+          },
+          "prompt_tokens_details": {
+            "state": "object"
+          },
+          "prompt_tokens_details.cached_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "completion_tokens_details": {
+            "state": "object"
+          },
+          "completion_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 12
+          },
+          "prompt_cache_hit_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "prompt_cache_miss_tokens": {
+            "state": "positive",
+            "value": 2282
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "prompt_tokens",
+            "state": "positive",
+            "value": 2282
+          },
+          "output_tokens": {
+            "wire_key": "completion_tokens",
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2296
+          },
+          "cache_read_tokens": {
+            "wire_key": "prompt_tokens_details.cached_tokens",
+            "state": "zero"
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "官方文档语义为 hit/miss（prompt_cache_hit_tokens/miss 或 details.cached_tokens），无 creation 字段——creation 缺失即协议层缺键，不得解释为无写入",
+      "response_id": "08405457-6230-4174-9a16-cef342ce5a83",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b2-fresh",
+      "protocol": "chat-completions",
+      "block": 2,
+      "condition": "fresh",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:16+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:14+08:00",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "request_sha256": "ea194d4e829ffc25efd29bc2a70bd25fea2febaebf9658bb548d0f6683cc08f6",
+      "request_bytes": 8478,
+      "nonce": "f5a4c1ff408b23d0",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.625,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:15 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "prompt_tokens": 2286,
+        "completion_tokens": 17,
+        "total_tokens": 2303,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 15
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2286
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "prompt_tokens": {
+            "state": "positive",
+            "value": 2286
+          },
+          "completion_tokens": {
+            "state": "positive",
+            "value": 17
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2303
+          },
+          "prompt_tokens_details": {
+            "state": "object"
+          },
+          "prompt_tokens_details.cached_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "completion_tokens_details": {
+            "state": "object"
+          },
+          "completion_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 15
+          },
+          "prompt_cache_hit_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "prompt_cache_miss_tokens": {
+            "state": "positive",
+            "value": 2286
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "prompt_tokens",
+            "state": "positive",
+            "value": 2286
+          },
+          "output_tokens": {
+            "wire_key": "completion_tokens",
+            "state": "positive",
+            "value": 17
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2303
+          },
+          "cache_read_tokens": {
+            "wire_key": "prompt_tokens_details.cached_tokens",
+            "state": "zero"
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "官方文档语义为 hit/miss（prompt_cache_hit_tokens/miss 或 details.cached_tokens），无 creation 字段——creation 缺失即协议层缺键，不得解释为无写入",
+      "response_id": "7b855129-25b8-4346-9841-05f71d228965",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b2-repeat",
+      "protocol": "chat-completions",
+      "block": 2,
+      "condition": "repeat",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:22+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:16+08:00",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "request_sha256": "ea194d4e829ffc25efd29bc2a70bd25fea2febaebf9658bb548d0f6683cc08f6",
+      "request_bytes": 8478,
+      "nonce": "f5a4c1ff408b23d0",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.111,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:21 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "prompt_tokens": 2286,
+        "completion_tokens": 14,
+        "total_tokens": 2300,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 12
+        },
+        "prompt_cache_hit_tokens": 2048,
+        "prompt_cache_miss_tokens": 238
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "prompt_tokens": {
+            "state": "positive",
+            "value": 2286
+          },
+          "completion_tokens": {
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2300
+          },
+          "prompt_tokens_details": {
+            "state": "object"
+          },
+          "prompt_tokens_details.cached_tokens": {
+            "state": "positive",
+            "value": 2048
+          },
+          "completion_tokens_details": {
+            "state": "object"
+          },
+          "completion_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 12
+          },
+          "prompt_cache_hit_tokens": {
+            "state": "positive",
+            "value": 2048
+          },
+          "prompt_cache_miss_tokens": {
+            "state": "positive",
+            "value": 238
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "prompt_tokens",
+            "state": "positive",
+            "value": 2286
+          },
+          "output_tokens": {
+            "wire_key": "completion_tokens",
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2300
+          },
+          "cache_read_tokens": {
+            "wire_key": "prompt_tokens_details.cached_tokens",
+            "state": "positive",
+            "value": 2048
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "官方文档语义为 hit/miss（prompt_cache_hit_tokens/miss 或 details.cached_tokens），无 creation 字段——creation 缺失即协议层缺键，不得解释为无写入",
+      "response_id": "263bb751-d754-44c3-ae85-2a664274dd1a",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": true,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-chat-completions-b2-nonce-control",
+      "protocol": "chat-completions",
+      "block": 2,
+      "condition": "nonce-control",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:23+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:22+08:00",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "request_sha256": "b9d458d1626af9167d70192979576f42131c2cd40d5435037e0a4de9e97962e7",
+      "request_bytes": 8478,
+      "nonce": "70aa1e0342aefa0f",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 0.991,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:22 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "prompt_tokens": 2285,
+        "completion_tokens": 13,
+        "total_tokens": 2298,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 11
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2285
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "prompt_tokens": {
+            "state": "positive",
+            "value": 2285
+          },
+          "completion_tokens": {
+            "state": "positive",
+            "value": 13
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2298
+          },
+          "prompt_tokens_details": {
+            "state": "object"
+          },
+          "prompt_tokens_details.cached_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "completion_tokens_details": {
+            "state": "object"
+          },
+          "completion_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 11
+          },
+          "prompt_cache_hit_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "prompt_cache_miss_tokens": {
+            "state": "positive",
+            "value": 2285
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "prompt_tokens",
+            "state": "positive",
+            "value": 2285
+          },
+          "output_tokens": {
+            "wire_key": "completion_tokens",
+            "state": "positive",
+            "value": 13
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2298
+          },
+          "cache_read_tokens": {
+            "wire_key": "prompt_tokens_details.cached_tokens",
+            "state": "zero"
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "官方文档语义为 hit/miss（prompt_cache_hit_tokens/miss 或 details.cached_tokens），无 creation 字段——creation 缺失即协议层缺键，不得解释为无写入",
+      "response_id": "896bf57d-2a7e-4b76-a74d-41037fa9ec88",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b2-fresh",
+      "protocol": "anthropic-messages",
+      "block": 2,
+      "condition": "fresh",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:24+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:23+08:00",
+      "endpoint": "https://api.deepseek.com/anthropic/v1/messages",
+      "request_sha256": "7b18300f42bd54d47276fd770deec1a8d7ba054b273fa2ed6e2b3eeeae603882",
+      "request_bytes": 8520,
+      "nonce": "e7689b820308ebc1",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.535,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:23 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2283,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 13,
+        "service_tier": "standard"
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2283
+          },
+          "cache_creation_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "cache_read_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 13
+          },
+          "service_tier": {
+            "state": "non-scalar",
+            "value": "standard"
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2283
+          },
+          "cache_read_tokens": {
+            "wire_key": "cache_read_input_tokens",
+            "state": "zero"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_creation_input_tokens",
+            "state": "zero"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 13
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cache_read_input_tokens/cache_creation_input_tokens 为 anthropic 线标准键；dsh 历史 0 = session log 键存在且值 0（map_usage 仅存在才映射）",
+      "response_id": "9d82e1f8-ece5-49db-a5ce-d5ecd8a38984",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b2-repeat",
+      "protocol": "anthropic-messages",
+      "block": 2,
+      "condition": "repeat",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:30+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:24+08:00",
+      "endpoint": "https://api.deepseek.com/anthropic/v1/messages",
+      "request_sha256": "7b18300f42bd54d47276fd770deec1a8d7ba054b273fa2ed6e2b3eeeae603882",
+      "request_bytes": 8520,
+      "nonce": "e7689b820308ebc1",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 0.998,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:30 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 235,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 2048,
+        "output_tokens": 14,
+        "service_tier": "standard"
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 235
+          },
+          "cache_creation_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "cache_read_input_tokens": {
+            "state": "positive",
+            "value": 2048
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 14
+          },
+          "service_tier": {
+            "state": "non-scalar",
+            "value": "standard"
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 235
+          },
+          "cache_read_tokens": {
+            "wire_key": "cache_read_input_tokens",
+            "state": "positive",
+            "value": 2048
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_creation_input_tokens",
+            "state": "zero"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 14
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cache_read_input_tokens/cache_creation_input_tokens 为 anthropic 线标准键；dsh 历史 0 = session log 键存在且值 0（map_usage 仅存在才映射）",
+      "response_id": "1ba1cc83-f458-4873-9a21-fc9ac3fc4db3",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": true,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-anthropic-messages-b2-nonce-control",
+      "protocol": "anthropic-messages",
+      "block": 2,
+      "condition": "nonce-control",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:31+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:30+08:00",
+      "endpoint": "https://api.deepseek.com/anthropic/v1/messages",
+      "request_sha256": "9c06867024e9822b792be1f293b6126a578821166325116f9c6a2a35187f2456",
+      "request_bytes": 8520,
+      "nonce": "e237ae6ab6a13c88",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.074,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:31 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2284,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 15,
+        "service_tier": "standard"
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2284
+          },
+          "cache_creation_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "cache_read_input_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 15
+          },
+          "service_tier": {
+            "state": "non-scalar",
+            "value": "standard"
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2284
+          },
+          "cache_read_tokens": {
+            "wire_key": "cache_read_input_tokens",
+            "state": "zero"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_creation_input_tokens",
+            "state": "zero"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 15
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cache_read_input_tokens/cache_creation_input_tokens 为 anthropic 线标准键；dsh 历史 0 = session log 键存在且值 0（map_usage 仅存在才映射）",
+      "response_id": "ab7e0d5e-d4fc-4f44-a127-46974b6f1a8c",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b2-fresh",
+      "protocol": "responses",
+      "block": 2,
+      "condition": "fresh",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:33+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:31+08:00",
+      "endpoint": "https://api.deepseek.com/responses",
+      "request_sha256": "0d74f1ef97eee8808b59cb3de49995349006d6d5d8eb1c935cb0432f58e1a85d",
+      "request_bytes": 8456,
+      "nonce": "fd61db06dbefbd0e",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.543,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:32 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2284,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 16,
+        "output_tokens_details": {
+          "reasoning_tokens": 14
+        },
+        "total_tokens": 2300
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2284
+          },
+          "input_tokens_details": {
+            "state": "object"
+          },
+          "input_tokens_details.cached_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 16
+          },
+          "output_tokens_details": {
+            "state": "object"
+          },
+          "output_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2300
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2284
+          },
+          "cache_read_tokens": {
+            "wire_key": "cached_input_tokens",
+            "state": "missing"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_write_input_tokens",
+            "state": "missing"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 16
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2300
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cached/cache_write 为 CLI 侧同名字段；provider 是否回该键由本探针 raw 证据回答",
+      "response_id": "a6d8c680-9927-418d-baf3-f72ae6ef5d6d",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b2-repeat",
+      "protocol": "responses",
+      "block": 2,
+      "condition": "repeat",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:39+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:33+08:00",
+      "endpoint": "https://api.deepseek.com/responses",
+      "request_sha256": "0d74f1ef97eee8808b59cb3de49995349006d6d5d8eb1c935cb0432f58e1a85d",
+      "request_bytes": 8456,
+      "nonce": "fd61db06dbefbd0e",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.129,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:39 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2284,
+        "input_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 12
+        },
+        "total_tokens": 2298
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2284
+          },
+          "input_tokens_details": {
+            "state": "object"
+          },
+          "input_tokens_details.cached_tokens": {
+            "state": "positive",
+            "value": 2048
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 14
+          },
+          "output_tokens_details": {
+            "state": "object"
+          },
+          "output_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 12
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2298
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2284
+          },
+          "cache_read_tokens": {
+            "wire_key": "cached_input_tokens",
+            "state": "missing"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_write_input_tokens",
+            "state": "missing"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 14
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2298
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cached/cache_write 为 CLI 侧同名字段；provider 是否回该键由本探针 raw 证据回答",
+      "response_id": "3a581baf-4dbc-4f3d-9cd8-11c61d5bf26b",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": true,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    },
+    {
+      "slot_id": "l4-20261029-cache-responses-b2-nonce-control",
+      "protocol": "responses",
+      "block": 2,
+      "condition": "nonce-control",
+      "executed": true,
+      "status": "executed",
+      "at": "2026-10-29T23:23:40+08:00",
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "actual_registered_at": "2026-10-29T23:23:39+08:00",
+      "endpoint": "https://api.deepseek.com/responses",
+      "request_sha256": "eb0e9c3c9012ac489e97922d598d1290bbee75076905af5d587d07390e0efa7d",
+      "request_bytes": 8456,
+      "nonce": "1c26ae5ce582a6ef",
+      "nonce_head_only": true,
+      "http_status": 200,
+      "error": null,
+      "parse_error": null,
+      "latency_s": 1.037,
+      "response_header_names": [
+        "Connection",
+        "Content-Type",
+        "Date",
+        "EO-Cache-Status",
+        "EO-LOG-UUID",
+        "Server",
+        "Strict-Transport-Security",
+        "Transfer-Encoding",
+        "X-Content-Type-Options",
+        "access-control-allow-credentials",
+        "vary",
+        "vary",
+        "x-ds-trace-id"
+      ],
+      "response_header_values": {
+        "x-request-id": "missing",
+        "request-id": "missing",
+        "content-type": "application/json",
+        "date": "Thu, 29 Oct 2026 15:23:40 GMT",
+        "server": "openresty",
+        "cf-ray": "missing",
+        "x-ratelimit-limit-requests": "missing",
+        "x-ratelimit-limit-tokens": "missing",
+        "x-ratelimit-remaining-requests": "missing",
+        "x-ratelimit-remaining-tokens": "missing"
+      },
+      "response_header_values_note": "白名单值；缺失记 missing；request-id 等服务端 ID 不由本地冒充；response.id 另见 raw body",
+      "usage_raw": {
+        "input_tokens": 2285,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 13,
+        "output_tokens_details": {
+          "reasoning_tokens": 11
+        },
+        "total_tokens": 2298
+      },
+      "usage_layers": {
+        "layer_raw_inventory": {
+          "input_tokens": {
+            "state": "positive",
+            "value": 2285
+          },
+          "input_tokens_details": {
+            "state": "object"
+          },
+          "input_tokens_details.cached_tokens": {
+            "state": "zero",
+            "value": 0
+          },
+          "output_tokens": {
+            "state": "positive",
+            "value": 13
+          },
+          "output_tokens_details": {
+            "state": "object"
+          },
+          "output_tokens_details.reasoning_tokens": {
+            "state": "positive",
+            "value": 11
+          },
+          "total_tokens": {
+            "state": "positive",
+            "value": 2298
+          }
+        },
+        "layer_mapping": {
+          "input_tokens": {
+            "wire_key": "input_tokens",
+            "state": "positive",
+            "value": 2285
+          },
+          "cache_read_tokens": {
+            "wire_key": "cached_input_tokens",
+            "state": "missing"
+          },
+          "cache_creation_tokens": {
+            "wire_key": "cache_write_input_tokens",
+            "state": "missing"
+          },
+          "output_tokens": {
+            "wire_key": "output_tokens",
+            "state": "positive",
+            "value": 13
+          },
+          "total_tokens": {
+            "wire_key": "total_tokens",
+            "state": "positive",
+            "value": 2298
+          }
+        },
+        "mapping_note": "presence 不凭预设映射丢字段：raw inventory 保留 provider 回传的一切键；映射层仅作归一化对照，两者不得互相替代"
+      },
+      "usage_fields_remark": "cached/cache_write 为 CLI 侧同名字段；provider 是否回该键由本探针 raw 证据回答",
+      "response_id": "78258f94-f644-4f8d-a43a-bf6ea7818019",
+      "class": "ok",
+      "action": "ok",
+      "paired_with_fresh": false,
+      "protocol_state_after": "alive",
+      "auth": "redacted（仅进程内；headers 只记名字）",
+      "model": "deepseek-flash",
+      "semantics_note": "不把 miss==creation；首次 hit≠由本实验建缓存；无命中≠无缓存；raw 结果不填零；与历史 rollout 非同请求，禁止逐调用对应"
+    }
+  ],
+  "slot_accounting": {
+    "l4-20261029-cache-responses-b1-fresh": "executed",
+    "l4-20261029-cache-responses-b1-repeat": "executed",
+    "l4-20261029-cache-responses-b1-nonce-control": "executed",
+    "l4-20261029-cache-anthropic-messages-b1-fresh": "executed",
+    "l4-20261029-cache-anthropic-messages-b1-repeat": "executed",
+    "l4-20261029-cache-anthropic-messages-b1-nonce-control": "executed",
+    "l4-20261029-cache-chat-completions-b1-fresh": "executed",
+    "l4-20261029-cache-chat-completions-b1-repeat": "executed",
+    "l4-20261029-cache-chat-completions-b1-nonce-control": "executed",
+    "l4-20261029-cache-chat-completions-b2-fresh": "executed",
+    "l4-20261029-cache-chat-completions-b2-repeat": "executed",
+    "l4-20261029-cache-chat-completions-b2-nonce-control": "executed",
+    "l4-20261029-cache-anthropic-messages-b2-fresh": "executed",
+    "l4-20261029-cache-anthropic-messages-b2-repeat": "executed",
+    "l4-20261029-cache-anthropic-messages-b2-nonce-control": "executed",
+    "l4-20261029-cache-responses-b2-fresh": "executed",
+    "l4-20261029-cache-responses-b2-repeat": "executed",
+    "l4-20261029-cache-responses-b2-nonce-control": "executed"
+  },
+  "semantics": "raw usage 原样；缺失/null/0/正值分开；不推计费；不宣称零效应；fresh 不宣称冷；repeat 不保证热命中；与历史 rollout 非同请求"
+}

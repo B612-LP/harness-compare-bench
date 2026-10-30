@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-28T17:21:12.047271+00:00",
+  "category": "self_test",
+  "actual_api_calls": 0,
+  "analyzer_sha256": "c243a805250bde5826e2b6cdd98eaee7bda931e4b8294b6bbce281464db30492",
+  "all_passed": true,
+  "tests": [
+    {
+      "test": "published_complete_six_runs",
+      "expected_exit_success": true,
+      "actual_exit_code": 0,
+      "passed": true,
+      "stdout": "{\"runs\": 6, \"pairs\": [[1, 18188], [2, 18205], [3, -20]], \"total_input\": 46081, \"correct\": 6, \"checks\": {\"six_runs_fixed_order\": true, \"twelve_requests\": true, \"all_http200\": true, \"official_low_route\": true, \"frozen_sources_match\": true, \"three_prespecified_pairs\": true, \"first_requests_identical\": true, \"all_process_exit0\": true, \"within_input_budget\": true, \"raw_sse_all_remaining_calls\": true, \"matches_published_analysis_ignoring_generated_at\": true}, \"validation_passed\": true}\n",
+      "stderr": "",
+      "raw_stdout_sha256": "c958d2f710b8332e1d1fdb470e668bde0663d7893895beed6531fc9764e5a6e5",
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "test": "missing_second_request",
+      "expected_exit_success": false,
+      "actual_exit_code": 1,
+      "passed": true,
+      "stdout": "",
+      "stderr": "Incomplete actual run: <HOME>/bench-workspaces/r20261029-mechanism/offline-validation-8efaee55/missing_second_request/v4/20261028T170952Z-02-large-bounded-0fe26b85\n",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stderr_sha256": "3318afb45388b2ed3e849befd4eedbd2b50f052e543ea4c9f2e2c382328ddfa1"
+    },
+    {
+      "test": "wrong_model_response",
+      "expected_exit_success": false,
+      "actual_exit_code": 1,
+      "passed": true,
+      "stdout": "{\"checks\": {\"six_runs_fixed_order\": true, \"twelve_requests\": true, \"all_http200\": true, \"official_low_route\": false, \"frozen_sources_match\": true, \"three_prespecified_pairs\": true, \"first_requests_identical\": true, \"all_process_exit0\": true, \"within_input_budget\": true, \"raw_sse_all_remaining_calls\": true}, \"validation_passed\": false}\n",
+      "stderr": "",
+      "raw_stdout_sha256": "9adda2351c1ffe3eefd23e603221abdb9bbf2af2b6f13c9b5b74940e19e1b9f1",
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "test": "wrong_http_status",
+      "expected_exit_success": false,
+      "actual_exit_code": 1,
+      "passed": true,
+      "stdout": "{\"checks\": {\"six_runs_fixed_order\": true, \"twelve_requests\": true, \"all_http200\": false, \"official_low_route\": true, \"frozen_sources_match\": true, \"three_prespecified_pairs\": true, \"first_requests_identical\": true, \"all_process_exit0\": true, \"within_input_budget\": true, \"raw_sse_all_remaining_calls\": true}, \"validation_passed\": false}\n",
+      "stderr": "",
+      "raw_stdout_sha256": "e77a52bd558a854eebffaf8036fa1eda2c147e5e640f348f4085b85146b353b6",
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "test": "offline_synthetic_fresh_layout_not_new_online_runs",
+      "expected_exit_success": true,
+      "actual_exit_code": 0,
+      "passed": true,
+      "stdout": "{\"runs\": 6, \"pairs\": [[1, 18188], [2, 18205], [3, -20]], \"total_input\": 46081, \"correct\": 6, \"checks\": {\"six_runs_fixed_order\": true, \"twelve_requests\": true, \"all_http200\": true, \"official_low_route\": true, \"frozen_sources_match\": true, \"three_prespecified_pairs\": true, \"first_requests_identical\": true, \"all_process_exit0\": true, \"within_input_budget\": true, \"raw_sse_all_remaining_calls\": true}, \"validation_passed\": true}\n",
+      "stderr": ""
+    },
+    {
+      "test": "synthetic_fresh_layout_verify_no_mutation",
+      "expected_exit_success": true,
+      "actual_exit_code": 0,
+      "passed": true,
+      "stdout": "{\"runs\": 6, \"pairs\": [[1, 18188], [2, 18205], [3, -20]], \"total_input\": 46081, \"correct\": 6, \"checks\": {\"six_runs_fixed_order\": true, \"twelve_requests\": true, \"all_http200\": true, \"official_low_route\": true, \"frozen_sources_match\": true, \"three_prespecified_pairs\": true, \"first_requests_identical\": true, \"all_process_exit0\": true, \"within_input_budget\": true, \"raw_sse_all_remaining_calls\": true, \"matches_published_analysis_ignoring_generated_at\": true}, \"validation_passed\": true}\n",
+      "stderr": "",
+      "raw_stdout_sha256": "c958d2f710b8332e1d1fdb470e668bde0663d7893895beed6531fc9764e5a6e5",
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

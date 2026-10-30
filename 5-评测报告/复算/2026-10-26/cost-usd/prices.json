@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "purpose": "未知登记.json 条目 cost-usd 的费率取数凭证：DeepSeek 官方 API 价目，用于 5-评测报告/复算/2026-10-26/cost-usd/ 的离线 USD 换算",
+    "fetched_at": {
+      "start": "2026-10-26T23:51+08:00",
+      "end": "2026-10-26T23:53+08:00",
+      "time_zone": "Asia/Shanghai",
+      "method": "web_fetch 直接抓取官方文档页原文"
+    },
+    "source_urls": [
+      "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+      "https://api-docs.deepseek.com/quick_start/pricing/"
+    ],
+    "official_domain": "api-docs.deepseek.com",
+    "page_notes": "两个官方页面均未标注价格的生效日期或最近调价日期；页面声明『产品价格可能发生变动，DeepSeek 保留修改价格的权利』"
+  },
+  "models": {
+    "deepseek-flash": {
+      "model_version": "DeepSeek-V4.1-Flash-1017",
+      "aliases_note": "旧模型名 deepseek-v4-flash / deepseek-v4-flash-vision-exp 已下线，请求由 DeepSeek-V4.1-Flash-1017 服务并按 Flash 价计费（页面脚注 1）",
+      "context_length": "1M",
+      "max_output": "384K",
+      "base_url": {
+        "openai_format": "https://api.deepseek.com",
+        "anthropic_format": "https://api.deepseek.com/anthropic"
+      },
+      "price_usd_per_1m_tokens": {
+        "source": "https://api-docs.deepseek.com/quick_start/pricing/",
+        "input_cache_hit": { "off_peak": 0.003, "peak": 0.006 },
+        "input_cache_miss": { "off_peak": 0.15, "peak": 0.3 },
+        "output": { "off_peak": 0.6, "peak": 1.2 }
+      },
+      "price_cny_per_1m_tokens": {
+        "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+        "input_cache_hit": { "off_peak": 0.02, "peak": 0.04 },
+        "input_cache_miss": { "off_peak": 1.0, "peak": 2.0 },
+        "output": { "off_peak": 4.0, "peak": 8.0 }
+      }
+    },
+    "deepseek-v4-pro": {
+      "model_version": "DeepSeek-V4-Pro-0813",
+      "price_usd_per_1m_tokens": {
+        "input_cache_hit": { "off_peak": 0.022, "peak": 0.044 },
+        "input_cache_miss": { "off_peak": 0.66, "peak": 1.32 },
+        "output": { "off_peak": 1.98, "peak": 3.96 }
+      },
+      "price_cny_per_1m_tokens": {
+        "input_cache_hit": { "off_peak": 0.15, "peak": 0.3 },
+        "input_cache_miss": { "off_peak": 4.5, "peak": 9.0 },
+        "output": { "off_peak": 13.5, "peak": 27.0 }
+      },
+      "note": "本期 A 组未使用该模型，仅留档备查"
+    }
+  },
+  "peak_offpeak_rules": {
+    "zh_page": "北京时间周一至周五（不含中国法定节假日）9:00-12:00、14:00-18:00 为高峰时段；其余时段，包括周末及中国法定节假日全天均为空闲时段",
+    "en_page": "Peak hours are 01:00-04:00 and 06:00-10:00 UTC, Monday through Friday, excluding Chinese public holidays (与中文页北京时间 9-12/14-18 一致)",
+    "off_peak_relation": "空闲时段价格为高峰时段价格的一半（两页面脚注 2）"
+  },
+  "cache_discount_note": {
+    "has_cache_tier_discount": true,
+    "explanation": "官方价目本身区分输入『缓存命中/缓存未命中』两档，命中单价约为未命中的 1/50（flash：$0.003 vs $0.15 空闲档）；本换算对命中部分直接采用官方命中价，即含官方缓存折扣",
+    "other_discounts": "无订阅折扣或其他折扣口径；CLI 场协议为联网关、无 Search/Fetch 调用，且官方 Search/Fetch（各 $0.75/千次成功请求）自北京时间 2026-11-01 00:00 才开始计费，本期换算不含该项",
+    "cache_write": "官方价目无缓存写入计费列；实测 A 组各场 cacheWrite 均为 0，不构成口径问题"
+  },
+  "billing_identity": {
+    "usd": "cost_usd = miss_tokens/1e6 × miss_rate + hit_tokens/1e6 × hit_rate + output_tokens/1e6 × output_rate（按每场所在峰谷档取率）",
+    "currency_choice": "官方同时给出 USD 与 CNY 两套价目；本换算直接采用官方 USD 价目，不引入任何自行汇率假设"
+  }
+}

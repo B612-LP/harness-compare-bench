@@ -1,0 +1,61 @@
+{
+  "kind": "batch_runs_summary",
+  "batch": "l5-20261030",
+  "product": "dsh",
+  "at": "2026-10-30T02:27:40+08:00",
+  "summary": {
+    "planned": 2,
+    "executed": 2,
+    "not_executed": 0,
+    "unaccounted": 0
+  },
+  "slots": [
+    {
+      "slot_id": "l5-20261030-cli-dsh-dabstep-payments-10-r1",
+      "order": 3,
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "accounting": "executed",
+      "status": "ok",
+      "weighted": 70.0,
+      "score_status": "scored",
+      "integrity_verdict": "clean",
+      "usage_requests": 49,
+      "stdout_sha256": "790bbb5bad0b645a2f6140433fdcb28597f44b95875e81365bf0c19eaf89df70"
+    },
+    {
+      "slot_id": "l5-20261030-cli-dsh-tb-cargo-plan-r1",
+      "order": 4,
+      "case": "tb-cargo-plan",
+      "rep": 1,
+      "accounting": "executed",
+      "status": "ok",
+      "weighted": 70.37037037,
+      "score_status": "scored",
+      "integrity_verdict": "clean",
+      "usage_requests": 17,
+      "stdout_sha256": "def8e98cc2e9ca990bce373936b84da6e410a4441ebbea460e6295965f216775"
+    }
+  ],
+  "whole_execution_restarts": 0,
+  "zero_model_claim": "runs 期间每槽恰一次外发（dispatch/ 登记），无重试",
+  "evidence": [
+    {
+      "path": "3-表现现场/l5-20261030-cli/dsh/dispatch/l5-20261030-cli-dsh-dabstep-payments-10-r1.json",
+      "sha256_8": "660ca908",
+      "sha256": "660ca90871697183f387eaeb9187b693eecafb13a50a15ebf44c90a52ca209a4",
+      "bytes": 461,
+      "at": "2026-10-30T02:27:40+08:00",
+      "line": "3-表现现场/l5-20261030-cli/dsh/dispatch/l5-20261030-cli-dsh-dabstep-payments-10-r1.json · 660ca908 · 461 bytes · 2026-10-30T02:27:40+08:00"
+    },
+    {
+      "path": "3-表现现场/l5-20261030-cli/dsh/dispatch/l5-20261030-cli-dsh-tb-cargo-plan-r1.json",
+      "sha256_8": "04042b54",
+      "sha256": "04042b547ddc3832eb0858b3b1598a8443221674703fa4ceb35f12f0f6f903ef",
+      "bytes": 443,
+      "at": "2026-10-30T02:27:40+08:00",
+      "line": "3-表现现场/l5-20261030-cli/dsh/dispatch/l5-20261030-cli-dsh-tb-cargo-plan-r1.json · 04042b54 · 443 bytes · 2026-10-30T02:27:40+08:00"
+    }
+  ],
+  "live_doc_drift": []
+}

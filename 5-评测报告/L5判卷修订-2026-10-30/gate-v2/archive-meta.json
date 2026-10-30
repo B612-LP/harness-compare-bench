@@ -1,0 +1,30 @@
+{
+  "generated_note": "L5 gate v2 (R4/池L5-8) 判卷修订档案:修前=冻结 L4 gate(只读引用,SHA 见下),修后=l5-execution/gate.py;唯一语义改动为 not_executed 白名单(notexecuted.json + 恰名 registrations),详见 patch 与两份验收收据",
+  "before_code": {
+    "path": "1-评测方案/工具链/l4-execution/gate.py",
+    "sha256": "77d8e8b4817e269dc3cf1ed127e4d30ec9bee7bfa161769115d04dc8bb3a6c9f",
+    "frozen": true
+  },
+  "after_code": {
+    "path": "1-评测方案/工具链/l5-execution/gate.py",
+    "sha256": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9"
+  },
+  "patch": "diff-l4-to-l5.patch",
+  "positive_and_nearwrong": {
+    "script": "gate-v2-notexec-acceptance.py",
+    "receipt": "gate-v2-acceptance-receipt.json",
+    "assertions": 8
+  },
+  "builtin_regression": {
+    "command": "python3 -B 1-评测方案/工具链/l5-execution/gate.py --selftest",
+    "result": "GATE_SELFTEST: PASS"
+  },
+  "history_impact": {
+    "script": "gate-v2-history-recompute.py",
+    "receipt": "gate-v2-history-recompute-receipt.json",
+    "result": "17/17 槽;唯一差异=bird 白名单 fail 消失+record_valid True;bird formal 仍 false;L4 formal 0/17 不变"
+  },
+  "independent_acceptance_slot": "预留:independent-reviewer 干净环境复跑上两项脚本并比对收据(lead 不代做)",
+  "live_doc_drift": [],
+  "amendment_20261030": "E 前修正(无任何真实调用前):默认计划目录指向 L5 批 + load_execution_seal 随 plan_dir 取各批 seal 脚本(使同一 gate 可复判历史批次);准入语义零变化,history/acceptance 收据在修正后重跑仍全过"
+}

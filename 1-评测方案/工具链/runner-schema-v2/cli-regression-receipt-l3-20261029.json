@@ -1,0 +1,163 @@
+{
+  "kind": "self_test",
+  "tool": "cli-selftest-l3.py",
+  "spec": "runner-schema-v2",
+  "at": "2026-10-29T18:07:02+08:00",
+  "validator_sha256": "8c81e9a448c16d5d7479dfc8aba357004b77b6221c9b9b24704ed7909ca8fecd",
+  "commit_under_test": "72edb519",
+  "commit_time_under_test": "2026-10-29T17:52:27+08:00",
+  "counts": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0
+  },
+  "tests": {
+    "T1_c1_overwrite_pattern": {
+      "first_run_exit": 0,
+      "second_run_exit": 2,
+      "first_written": true,
+      "bytes_unchanged": true,
+      "first_sha256": "6048ad41aa959fe23758a9184a71db7056adca4eb7b21f228fc8351d481cb9d2",
+      "pass": true,
+      "runs": [
+        {
+          "args": [
+            "--spec",
+            "--fixtures",
+            "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures",
+            "--out",
+            "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/c1-receipt.json"
+          ],
+          "exit": 0,
+          "stdout_tail": "ass\",\n  \"pass\",\n  true\n ],\n \"fixture-verdict-benign-without-corrections.json\": [\n  \"fail:companion\",\n  \"fail:companion\",\n  true\n ],\n \"fixture-wrong-precision.json\": [\n  \"fail:precision\",\n  \"fail:precision\",\n  true\n ],\n \"fixture-wrong-type.json\": [\n  \"fail:type\",\n  \"fail:type\",\n  true\n ]\n}\nSPEC_SELFTEST: PASS receipt=/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/c1-receipt.json\n",
+          "stderr_tail": ""
+        },
+        {
+          "args": [
+            "--spec",
+            "--fixtures",
+            "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures",
+            "--out",
+            "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/c1-receipt.json"
+          ],
+          "exit": 2,
+          "stdout_tail": "{\"refused\": true, \"target\": \"/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/c1-receipt.json\", \"reason\": \"目标已存在，C-1 非破坏化拒绝写入（原字节不动）\", \"all_match\": true}\nSPEC_SELFTEST_WRITE: REFUSED (target exists)\n",
+          "stderr_tail": ""
+        }
+      ]
+    },
+    "T2_b4_default_failclosed": {
+      "exit": 1,
+      "unsealed_classifications": {
+        "fixture-registered-at-before-seal.json": "fail:unsealed",
+        "fixture-valid.json": "fail:unsealed",
+        "fixture-verdict-benign-with-corrections.json": "fail:unsealed"
+      },
+      "pass": true,
+      "run": {
+        "args": [
+          "--spec",
+          "--fixtures",
+          "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/fixtures-noseal",
+          "--out",
+          "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/noseal-receipt.json"
+        ],
+        "exit": 1,
+        "stdout_tail": "unsealed\",\n  false\n ],\n \"fixture-verdict-benign-without-corrections.json\": [\n  \"fail:companion\",\n  \"fail:companion\",\n  true\n ],\n \"fixture-wrong-precision.json\": [\n  \"fail:precision\",\n  \"fail:precision\",\n  true\n ],\n \"fixture-wrong-type.json\": [\n  \"fail:type\",\n  \"fail:type\",\n  true\n ]\n}\nSPEC_SELFTEST: FAIL receipt=/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/noseal-receipt.json\n",
+        "stderr_tail": ""
+      }
+    },
+    "T3_b4_optin_scope": {
+      "spec_allow_unsealed_exit": 2,
+      "retro_allow_unsealed_exit": 0,
+      "retro_seal_block": {
+        "provided": false,
+        "policy": "allow-unsealed-disclosure",
+        "unsealed": true,
+        "note": "B4：unsealed=true 时矩阵为披露口径；classify 语义见 SCHEMA.md §三"
+      },
+      "pass": true,
+      "runs": [
+        {
+          "args": [
+            "--spec",
+            "--allow-unsealed",
+            "--fixtures",
+            "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures"
+          ],
+          "exit": 2,
+          "stdout_tail": "",
+          "stderr_tail": "--allow-unsealed 仅限 --retro 披露模式（B4）；--spec 固定 fail-closed\n"
+        },
+        {
+          "args": [
+            "--retro",
+            "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/retro-runs",
+            "--out",
+            "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/retro-matrix-allow.json",
+            "--allow-unsealed"
+          ],
+          "exit": 0,
+          "stdout_tail": "{\n \"n_runs\": 1,\n \"missing_by_field_by_product\": {},\n \"type_error_by_field_by_product\": {},\n \"precision_receipt_reported_runs\": [],\n \"precision_meta_weighted_runs\": []\n}\nRETRO_MATRIX: /var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/retro-matrix-allow.json\n",
+          "stderr_tail": ""
+        }
+      ]
+    },
+    "T4_b7_reconcile_positive": {
+      "exit": 0,
+      "verdict": "ok",
+      "pass": true,
+      "run": {
+        "args": [
+          "--reconcile",
+          "--ledger",
+          "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures/reconcile/synthetic-ledger.json",
+          "--pointer",
+          "/registered_at",
+          "--commit",
+          "72edb519",
+          "--commit-time-file",
+          "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures/reconcile/commit-time-72edb519.txt",
+          "--out",
+          "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/reconcile-ok.json"
+        ],
+        "exit": 0,
+        "stdout_tail": "{\"verdict\": \"ok\", \"ok\": true, \"receipt\": \"/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/reconcile-ok.json\"}\n",
+        "stderr_tail": ""
+      }
+    },
+    "T5_b7_reconcile_negative": {
+      "exit": 1,
+      "verdict": "violation",
+      "pass": true,
+      "run": {
+        "args": [
+          "--reconcile",
+          "--ledger",
+          "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures/reconcile/synthetic-ledger-early.json",
+          "--pointer",
+          "/registered_at",
+          "--commit",
+          "72edb519",
+          "--commit-time-file",
+          "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures/reconcile/commit-time-72edb519.txt",
+          "--out",
+          "/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/reconcile-early.json"
+        ],
+        "exit": 1,
+        "stdout_tail": "{\"verdict\": \"violation\", \"ok\": false, \"receipt\": \"/var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/l3b-cli-irytc2ov/reconcile-early.json\"}\n",
+        "stderr_tail": ""
+      }
+    },
+    "T6_original_receipts_untouched": {
+      "spec-selftest-receipt.json_sha256": "5c6177fd68a74ab93ef872b48394b185b0f25b884e8b0da6659f718fdbb39492",
+      "receipt-overwrite-evidence-20261029.json_sha256": "223324121592c82f344adc43c0710a7c465c1d95d1868a83645cf365765f241c",
+      "expected_prefixes": {
+        "spec-selftest-receipt.json": "5c6177fd",
+        "receipt-overwrite-evidence-20261029.json": "22332412"
+      },
+      "pass": true
+    }
+  },
+  "all_pass": true
+}

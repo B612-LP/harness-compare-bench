@@ -1,0 +1,215 @@
+{
+  "category": "self_test",
+  "scope": "Independent production run_slot/cmd_run control flow with mandatory in-process Popen stub; no real process/model/checker/network",
+  "generated_at": "2026-10-29T14:18:25.904806+00:00",
+  "live_doc_drift": [],
+  "source_sha256": "2a378846035526ee22d02120757ca56520463c27c9d1dd0b1e167343dcd032a2",
+  "reviewer_script_sha256": "7ccc10f45a7705e994c0c6b00403b3a55aedfac8cf7b55e15c80cb136ac102da",
+  "worlds": [
+    {
+      "phase": "timeout-unverified",
+      "checks": [
+        {
+          "id": "timeout-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "id": "timeout-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "id": "timeout-unverified:next-slot-popen-zero",
+          "pass": false
+        },
+        {
+          "id": "timeout-unverified:valid-first-accounting",
+          "pass": false
+        },
+        {
+          "id": "timeout-unverified:raw-stop-false-recorded",
+          "pass": false
+        }
+      ],
+      "observed": {
+        "first_code": null,
+        "next_code": null,
+        "first_exception": "AttributeError(\"'types.SimpleNamespace' object has no attribute 'PIPE'\")",
+        "next_exception": "AttributeError(\"'types.SimpleNamespace' object has no attribute 'PIPE'\")",
+        "counts_after_first": {
+          "popen": 0,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "counts_final": {
+          "popen": 0,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "stdout": "",
+        "meta": null,
+        "termination_receipt": null,
+        "notexecuted": null,
+        "halt": null
+      }
+    },
+    {
+      "phase": "normal-exit-unverified",
+      "checks": [
+        {
+          "id": "normal-exit-unverified:checker-zero",
+          "pass": true
+        },
+        {
+          "id": "normal-exit-unverified:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "id": "normal-exit-unverified:next-slot-popen-zero",
+          "pass": false
+        },
+        {
+          "id": "normal-exit-unverified:valid-first-accounting",
+          "pass": false
+        },
+        {
+          "id": "normal-exit-unverified:not-fictitious-timeout",
+          "pass": false
+        }
+      ],
+      "observed": {
+        "first_code": null,
+        "next_code": null,
+        "first_exception": "AttributeError(\"'types.SimpleNamespace' object has no attribute 'PIPE'\")",
+        "next_exception": "AttributeError(\"'types.SimpleNamespace' object has no attribute 'PIPE'\")",
+        "counts_after_first": {
+          "popen": 0,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "counts_final": {
+          "popen": 0,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "stdout": "",
+        "meta": null,
+        "termination_receipt": null,
+        "notexecuted": null,
+        "halt": null
+      }
+    },
+    {
+      "phase": "spawn-failure",
+      "checks": [
+        {
+          "id": "spawn-failure:checker-zero",
+          "pass": true
+        },
+        {
+          "id": "spawn-failure:no-post-stop-capture",
+          "pass": true
+        },
+        {
+          "id": "spawn-failure:next-slot-popen-zero",
+          "pass": false
+        },
+        {
+          "id": "spawn-failure:valid-first-accounting",
+          "pass": false
+        }
+      ],
+      "observed": {
+        "first_code": null,
+        "next_code": null,
+        "first_exception": "AttributeError(\"'types.SimpleNamespace' object has no attribute 'PIPE'\")",
+        "next_exception": "AttributeError(\"'types.SimpleNamespace' object has no attribute 'PIPE'\")",
+        "counts_after_first": {
+          "popen": 0,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "counts_final": {
+          "popen": 0,
+          "checker": 0,
+          "capture": 0,
+          "rebuild": 0,
+          "snapshot": 0
+        },
+        "stdout": "",
+        "meta": null,
+        "termination_receipt": null,
+        "notexecuted": null,
+        "halt": null
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "timeout-unverified:checker-zero",
+      "pass": true
+    },
+    {
+      "id": "timeout-unverified:no-post-stop-capture",
+      "pass": true
+    },
+    {
+      "id": "timeout-unverified:next-slot-popen-zero",
+      "pass": false
+    },
+    {
+      "id": "timeout-unverified:valid-first-accounting",
+      "pass": false
+    },
+    {
+      "id": "timeout-unverified:raw-stop-false-recorded",
+      "pass": false
+    },
+    {
+      "id": "normal-exit-unverified:checker-zero",
+      "pass": true
+    },
+    {
+      "id": "normal-exit-unverified:no-post-stop-capture",
+      "pass": true
+    },
+    {
+      "id": "normal-exit-unverified:next-slot-popen-zero",
+      "pass": false
+    },
+    {
+      "id": "normal-exit-unverified:valid-first-accounting",
+      "pass": false
+    },
+    {
+      "id": "normal-exit-unverified:not-fictitious-timeout",
+      "pass": false
+    },
+    {
+      "id": "spawn-failure:checker-zero",
+      "pass": true
+    },
+    {
+      "id": "spawn-failure:no-post-stop-capture",
+      "pass": true
+    },
+    {
+      "id": "spawn-failure:next-slot-popen-zero",
+      "pass": false
+    },
+    {
+      "id": "spawn-failure:valid-first-accounting",
+      "pass": false
+    }
+  ],
+  "passed": false
+}

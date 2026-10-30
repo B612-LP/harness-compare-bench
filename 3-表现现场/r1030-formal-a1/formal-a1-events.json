@@ -1,0 +1,3215 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "event_id": "formal-a1-codex-bird-ca-schools-15-01",
+      "category": "product_run",
+      "product": "codex",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "bird-ca-schools-15",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-codex-bird-ca-schools-15-01",
+          "run_id": "r1030-codex-bird-ca-schools-15",
+          "category": "product_run",
+          "product": "codex",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "bird-ca-schools-15"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "bird-ca-schools-15@sha256:8d24ed6561eb8c80672b863fa32c23f7429dd293ac9733bac0ce4111eee8c80f",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/bird-ca-schools-15/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "codex-cli 0.163.0",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek",
+            "wire_protocol": "responses",
+            "endpoint": "https://api.deepseek.com"
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "shell",
+            "apply_patch",
+            "read_files（web_search=disabled，skills=off）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（[skills] include_instructions=false，bundled disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:12:00+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:15:39+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/bird-ca-schools-15/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "c5bb7999079ac8f1711049d81392729edf127a27134d32a905ca39de15b8ea19",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/bird-ca-schools-15/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "8d24ed6561eb8c80672b863fa32c23f7429dd293ac9733bac0ce4111eee8c80f",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/bird-ca-schools-15/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 14,
+          "possible": 15,
+          "assessed": 15,
+          "reported": 93.33333333,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-codex-bird-ca-schools-15",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/0"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__bird-ca-schools-15/meta.json",
+          "sha256": "f5f64d8dae1b3c83aab012062c69c11c19093499048ba798a65187efd480b6b5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__bird-ca-schools-15/integrity-rescan.json",
+          "sha256": "fd53272263b123e219ccce660be9b5d74825750a160405a6739c7f208cbe1e53"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__bird-ca-schools-15/checker.stdout.json",
+          "sha256": "66533a613c2b6854363ccd988530818a41acab7e2d7026c2181c88a2f3ce1586"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__bird-ca-schools-15/score-receipt.json",
+          "sha256": "f5f17c1f025833c25a787f0bb7787575a28e2ee1e43f613d5ce3e9837040754c"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__bird-ca-schools-15/adjudication.json",
+          "sha256": "78ab2bbd95d54711f9c1b6af85e556ae021e26f3ecac1d9c7e66aeffa6b4a82a"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__bird-ca-schools-15/workspace/TASK.md",
+          "sha256": "c0cc6169ad0b5f19861f4200fdcc20f0d57194ee8deea97b36715c7abd14026c"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__bird-ca-schools-15/agent-session/rollout-2026-10-29T02-12-00-01a183b6-3cf5-7931-878f-0ba27dd938b7.jsonl",
+          "sha256": "1552a332adb04f51cdcc6910385f089ba6a3839e1a09641721c91c125d20d25d"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__bird-ca-schools-15/config-snapshot/codex-config.toml",
+          "sha256": "55aa8dea4f990fa96e43e350c5f84788574c8c4a93f7dbbd9cbc6b52b4f8dcc3"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:12:00+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-a1-codex-dabstep-payments-10-01",
+      "category": "product_run",
+      "product": "codex",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "dabstep-payments-10",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-codex-dabstep-payments-10-01",
+          "run_id": "r1030-codex-dabstep-payments-10",
+          "category": "product_run",
+          "product": "codex",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "dabstep-payments-10"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "dabstep-payments-10@sha256:2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/dabstep-payments-10/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "codex-cli 0.163.0",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek",
+            "wire_protocol": "responses",
+            "endpoint": "https://api.deepseek.com"
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "shell",
+            "apply_patch",
+            "read_files（web_search=disabled，skills=off）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（[skills] include_instructions=false，bundled disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:15:39+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:19:57+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/dabstep-payments-10/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "9e6e395fc7b0e5cf60238b8c3ab30fdaa399422fc047f554f0198488156e46d8",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/dabstep-payments-10/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/dabstep-payments-10/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 7,
+          "possible": 10,
+          "assessed": 10,
+          "reported": 70.0,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-codex-dabstep-payments-10",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/1"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10/meta.json",
+          "sha256": "b494785767bbb77e2139f4b21c2792ee172d4d37fef79513c7edfc1c9f414081"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10/integrity-rescan.json",
+          "sha256": "81556460c007922742987354452268ebf209e70a59d5e78375397c42f0ff0f73"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10/checker.stdout.json",
+          "sha256": "9f040885cd97322be3d1fcdb4fc1d9ac0cb11944c074bb6c8f3b2b9bd908615f"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10/score-receipt.json",
+          "sha256": "deec15c7ec8ecc9c472111c92ced5b0eae3713d42c7832ac4be240a59e23d910"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10/adjudication.json",
+          "sha256": "df05db5066c3a91a8c66eb6888ab7a3d63cf2e4af4881a5ca55530c95e309087"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10/workspace/TASK.md",
+          "sha256": "2bbab140db19ebe04c045db45b0996ae65df2701aa4b86de500241d0570bce14"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10/agent-session/rollout-2026-10-29T02-12-00-01a183b6-3cf5-7931-878f-0ba27dd938b7.jsonl",
+          "sha256": "1552a332adb04f51cdcc6910385f089ba6a3839e1a09641721c91c125d20d25d"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10/config-snapshot/codex-config.toml",
+          "sha256": "55aa8dea4f990fa96e43e350c5f84788574c8c4a93f7dbbd9cbc6b52b4f8dcc3"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:15:39+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-a1-codex-exercism-py-6-01",
+      "category": "product_run",
+      "product": "codex",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "exercism-py-6",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-codex-exercism-py-6-01",
+          "run_id": "r1030-codex-exercism-py-6",
+          "category": "product_run",
+          "product": "codex",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "exercism-py-6"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "exercism-py-6@sha256:7913a1ad769f1f9e002b5473375ea3ddf076bad152e2fed8f50c514ff3e2420c",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/exercism-py-6/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "codex-cli 0.163.0",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek",
+            "wire_protocol": "responses",
+            "endpoint": "https://api.deepseek.com"
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "shell",
+            "apply_patch",
+            "read_files（web_search=disabled，skills=off）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（[skills] include_instructions=false，bundled disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:22:56+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:24:22+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/exercism-py-6/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "6e4a66ad8ca47693d404f769374d55d7fdee457bed376764d5d3a014374c1f55",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/exercism-py-6/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "7913a1ad769f1f9e002b5473375ea3ddf076bad152e2fed8f50c514ff3e2420c",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/exercism-py-6/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 6,
+          "possible": 6,
+          "assessed": 6,
+          "reported": 100.0,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-codex-exercism-py-6",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/2"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__exercism-py-6/meta.json",
+          "sha256": "326376f6c65a21b92a6397dec35dfb905cdfea53785a358e32b3ec3cc2c052f4"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__exercism-py-6/integrity-rescan.json",
+          "sha256": "dff599ac1bb3ac653b1828c4210c1e44c435e7066e9343fc565f1f22fe50dacf"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__exercism-py-6/checker.stdout.json",
+          "sha256": "216bf751bc3eda07f09f7b78fa46d7810f960b2a51e1815d636ec3476524b11a"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__exercism-py-6/score-receipt.json",
+          "sha256": "0af107ea3b85f2db5c76e5d90137ccc5bd51329fbccd2e1ce2b41363a1021b24"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__exercism-py-6/adjudication.json",
+          "sha256": "5bf4213d2ed273a3593cc880ab09b0a14cb4762e60d8b12d35b92ee352885a1f"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__exercism-py-6/workspace/TASK.md",
+          "sha256": "27697d2db8d125c1c1c092cb202e356e44a9038d1ba091fb403e3cff9221ec8b"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__exercism-py-6/agent-session/rollout-2026-10-29T02-22-56-01a183c0-3e9a-7e31-bdfe-61eded8a8884.jsonl",
+          "sha256": "a114142ffb0b3704f1262aa5cccf9519f4b50f7d78232d899fe85263ebfeec4d"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__exercism-py-6/config-snapshot/codex-config.toml",
+          "sha256": "55aa8dea4f990fa96e43e350c5f84788574c8c4a93f7dbbd9cbc6b52b4f8dcc3"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:22:56+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-a1-codex-lcb-recent-hard-4-01",
+      "category": "product_run",
+      "product": "codex",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "lcb-recent-hard-4",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-codex-lcb-recent-hard-4-01",
+          "run_id": "r1030-codex-lcb-recent-hard-4",
+          "category": "product_run",
+          "product": "codex",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "lcb-recent-hard-4"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "lcb-recent-hard-4@sha256:d53d6e9e318c7a84d2103c3c75828a25be67aac645ab027a7b11624941b14a65",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/lcb-recent-hard-4/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "codex-cli 0.163.0",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek",
+            "wire_protocol": "responses",
+            "endpoint": "https://api.deepseek.com"
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "shell",
+            "apply_patch",
+            "read_files（web_search=disabled，skills=off）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（[skills] include_instructions=false，bundled disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:24:23+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:29:04+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/lcb-recent-hard-4/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "8a9ae6deb4d088b011348d5245d18697f5df5b8b65390c7679c6a8d539c90d14",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/lcb-recent-hard-4/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "d53d6e9e318c7a84d2103c3c75828a25be67aac645ab027a7b11624941b14a65",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/lcb-recent-hard-4/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 4,
+          "possible": 4,
+          "assessed": 4,
+          "reported": 100.0,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-codex-lcb-recent-hard-4",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/3"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__lcb-recent-hard-4/meta.json",
+          "sha256": "41f011c44d5f951f8a3bbb6140d2f08228a712e5d334fdb39e991210bbfd0638"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__lcb-recent-hard-4/integrity-rescan.json",
+          "sha256": "81313dbe6653c159af67427ec7763d22124c4c68f545fae2c40eddf7bbd76157"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__lcb-recent-hard-4/checker.stdout.json",
+          "sha256": "b1714a6e159309f8bc744e09091868db6dbd5fd7646b373482598f4acf2a96a3"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__lcb-recent-hard-4/score-receipt.json",
+          "sha256": "67014b21936bd2a90cb7aa8eee714aeef8806cfafd4cab32c82106e19aa4b94e"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__lcb-recent-hard-4/adjudication.json",
+          "sha256": "bf607d676033d093dfa2c5e9ce5b81d3337fa86e17f7442cb211e699c3b75abc"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__lcb-recent-hard-4/workspace/TASK.md",
+          "sha256": "de3c7e63561cce5be6b77da2cd2a0897a67d7deaebd77197366326b4fc96d99f"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__lcb-recent-hard-4/agent-session/rollout-2026-10-29T02-22-56-01a183c0-3e9a-7e31-bdfe-61eded8a8884.jsonl",
+          "sha256": "a114142ffb0b3704f1262aa5cccf9519f4b50f7d78232d899fe85263ebfeec4d"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__lcb-recent-hard-4/config-snapshot/codex-config.toml",
+          "sha256": "55aa8dea4f990fa96e43e350c5f84788574c8c4a93f7dbbd9cbc6b52b4f8dcc3"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:24:23+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-a1-codex-tb-cargo-plan-01",
+      "category": "product_run",
+      "product": "codex",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "tb-cargo-plan",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-codex-tb-cargo-plan-01",
+          "run_id": "r1030-codex-tb-cargo-plan",
+          "category": "product_run",
+          "product": "codex",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "tb-cargo-plan"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "tb-cargo-plan@sha256:fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/tb-cargo-plan/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "codex-cli 0.163.0",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek",
+            "wire_protocol": "responses",
+            "endpoint": "https://api.deepseek.com"
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "shell",
+            "apply_patch",
+            "read_files（web_search=disabled，skills=off）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（[skills] include_instructions=false，bundled disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:29:17+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:34:50+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/tb-cargo-plan/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "982754f17eea923b0abfcfee08c991d7c502b771c5c0c598c5c097fe3460c163",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/tb-cargo-plan/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/tb-cargo-plan/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 22,
+          "possible": 27,
+          "assessed": 27,
+          "reported": 81.48148148,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-codex-tb-cargo-plan",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/4"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__tb-cargo-plan/meta.json",
+          "sha256": "cf1d3d1e2476ff690ba974b3d40993a7654b6bc00eea4ef91cca161c88853d28"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__tb-cargo-plan/integrity-rescan.json",
+          "sha256": "ee91c9cbd0dda7e9948a52906295ba1dac43b8ace0d9730c41ed7efb2426eefc"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__tb-cargo-plan/checker.stdout.json",
+          "sha256": "7c48b156ee91cf11504c4d4324714a669dab1f09c0e97d279c4744cf2c7c8445"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__tb-cargo-plan/score-receipt.json",
+          "sha256": "e2eb9b14733733045638a6dba82781f790da36aecbb2c2c896928aa675552e0c"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__tb-cargo-plan/adjudication.json",
+          "sha256": "913e9b3172a9373fc7811da2651c78b30a8385aa5e577b518904c4834e84c7c6"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__tb-cargo-plan/workspace/TASK.md",
+          "sha256": "859ef48d96f43dbc1217741bd629dd5cecb9bd6608777e7aa219c35d6e079567"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__tb-cargo-plan/agent-session/rollout-2026-10-29T02-29-17-01a183c6-0e8f-73e0-92b4-24335989789c.jsonl",
+          "sha256": "d7bc22d0bbf906a05a77efa4719b0aa1d6067c2e20eeed0543728d2a80654df7"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/codex__tb-cargo-plan/config-snapshot/codex-config.toml",
+          "sha256": "55aa8dea4f990fa96e43e350c5f84788574c8c4a93f7dbbd9cbc6b52b4f8dcc3"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:29:17+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-a1-dsh-bird-ca-schools-15-01",
+      "category": "product_run",
+      "product": "dsh",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "bird-ca-schools-15",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-dsh-bird-ca-schools-15-01",
+          "run_id": "r1030-dsh-bird-ca-schools-15",
+          "category": "product_run",
+          "product": "dsh",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "bird-ca-schools-15"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "bird-ca-schools-15@sha256:8d24ed6561eb8c80672b863fa32c23f7429dd293ac9733bac0ce4111eee8c80f",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/bird-ca-schools-15/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "0.2.0-rc.2",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek-official",
+            "wire_protocol": "anthropic-messages",
+            "endpoint": null
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（tool-skill 与 skill-filesystem 均 disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:12:00+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:15:17+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/bird-ca-schools-15/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "c5bb7999079ac8f1711049d81392729edf127a27134d32a905ca39de15b8ea19",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/bird-ca-schools-15/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "8d24ed6561eb8c80672b863fa32c23f7429dd293ac9733bac0ce4111eee8c80f",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/bird-ca-schools-15/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 15,
+          "possible": 15,
+          "assessed": 15,
+          "reported": 100.0,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-dsh-bird-ca-schools-15",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/5"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__bird-ca-schools-15/meta.json",
+          "sha256": "a8fa671387e245b891b931fb41a5872128da651edb61bb4056513e69b3196d1d"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__bird-ca-schools-15/integrity-rescan.json",
+          "sha256": "5058a3621edfe9ace8c41e7b8bbf6be7af40f04d82f553837fd817acd515be85"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__bird-ca-schools-15/checker.stdout.json",
+          "sha256": "1e2b108af604ae1947b11f289610c82fc22666173a4d4506b24c1291321af6cb"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__bird-ca-schools-15/score-receipt.json",
+          "sha256": "40e410c29958036b2367ccf96e888d73d831c306b1238f9bed47b9e39f74310d"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__bird-ca-schools-15/adjudication.json",
+          "sha256": "052152aca2320119a9c1e213388e644b99ed2db7b0eee2daaf9dd90505a6cf3b"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__bird-ca-schools-15/workspace/TASK.md",
+          "sha256": "dc63632ad541ad481e17ca941b0f362100b11bac9083df96ccfacc5e73a29685"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__bird-ca-schools-15/agent-session/session.v4.jsonl.zstd",
+          "sha256": "de695ea91abeb14d43627a5ce5803beaee72be6c091a9172c6ae035e81c33a07"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__bird-ca-schools-15/config-snapshot/bench-cli-cordis.patch.yml",
+          "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:12:00+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-a1-dsh-dabstep-payments-10-01",
+      "category": "product_run",
+      "product": "dsh",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "dabstep-payments-10",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-dsh-dabstep-payments-10-01",
+          "run_id": "r1030-dsh-dabstep-payments-10",
+          "category": "product_run",
+          "product": "dsh",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "dabstep-payments-10"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "dabstep-payments-10@sha256:2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/dabstep-payments-10/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "0.2.0-rc.2",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek-official",
+            "wire_protocol": "anthropic-messages",
+            "endpoint": null
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（tool-skill 与 skill-filesystem 均 disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:15:39+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:22:56+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/dabstep-payments-10/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "9e6e395fc7b0e5cf60238b8c3ab30fdaa399422fc047f554f0198488156e46d8",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/dabstep-payments-10/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/dabstep-payments-10/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 7,
+          "possible": 10,
+          "assessed": 10,
+          "reported": 70.0,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-dsh-dabstep-payments-10",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/6"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__dabstep-payments-10/meta.json",
+          "sha256": "5a35faa9052afe4f0603a5a701ccaba90254b6f86d1ba5c651632d9a0c7d40b8"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__dabstep-payments-10/integrity-rescan.json",
+          "sha256": "2117d9b2e94fd3e973fee8c6eb5061e8d66c3f33c3b4035e20111198e4846403"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__dabstep-payments-10/checker.stdout.json",
+          "sha256": "59db105115925b433361f07b7d90429bd61c720124a42ba63e2ea8bcec1eef23"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__dabstep-payments-10/score-receipt.json",
+          "sha256": "dfaf7fd8d77a33388e43098c8c5b08db4b858ca9392b49419cb268c3c4b0a77d"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__dabstep-payments-10/adjudication.json",
+          "sha256": "03ee62e0b22c4364935a7c913df031ae817f810263bcf2b64a07028802274fb8"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__dabstep-payments-10/workspace/TASK.md",
+          "sha256": "02c63f2aa6dbc4a690cc7e830809ec9b4ada8eab05f455e76c582fa35a0fc422"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__dabstep-payments-10/agent-session/session.v4.jsonl.zstd",
+          "sha256": "82ed5bc3e0040437c3b611ec1864c75a43c900dc79e70d88804cab2f7eab4410"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__dabstep-payments-10/config-snapshot/bench-cli-cordis.patch.yml",
+          "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:15:39+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-a1-dsh-exercism-py-6-01",
+      "category": "product_run",
+      "product": "dsh",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "exercism-py-6",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-dsh-exercism-py-6-01",
+          "run_id": "r1030-dsh-exercism-py-6",
+          "category": "product_run",
+          "product": "dsh",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "exercism-py-6"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "exercism-py-6@sha256:7913a1ad769f1f9e002b5473375ea3ddf076bad152e2fed8f50c514ff3e2420c",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/exercism-py-6/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "0.2.0-rc.2",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek-official",
+            "wire_protocol": "anthropic-messages",
+            "endpoint": null
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（tool-skill 与 skill-filesystem 均 disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:22:56+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:24:09+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/exercism-py-6/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "6e4a66ad8ca47693d404f769374d55d7fdee457bed376764d5d3a014374c1f55",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/exercism-py-6/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "7913a1ad769f1f9e002b5473375ea3ddf076bad152e2fed8f50c514ff3e2420c",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/exercism-py-6/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 6,
+          "possible": 6,
+          "assessed": 6,
+          "reported": 100.0,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-dsh-exercism-py-6",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/7"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__exercism-py-6/meta.json",
+          "sha256": "4168947df2d0c71b4cfd496a24f0ec806a352432f36f851c0a9a8f04c00dc85b"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__exercism-py-6/integrity-rescan.json",
+          "sha256": "c8c061be6d262da7b67f46eb7d176e04da2c3b89bd76eb8c3820ae989d6bf428"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__exercism-py-6/checker.stdout.json",
+          "sha256": "216bf751bc3eda07f09f7b78fa46d7810f960b2a51e1815d636ec3476524b11a"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__exercism-py-6/score-receipt.json",
+          "sha256": "f2b374b11db93e040eb28f32e6484b89e7f29199e442d670b7b9682f6fb99a86"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__exercism-py-6/adjudication.json",
+          "sha256": "4300f08164574226670e7c2a69bd50cf2d2fb2de44a6828cd8eacc84d7a83d9e"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__exercism-py-6/workspace/TASK.md",
+          "sha256": "c83906130b915403f3bbe25619a0c9ac07fed89a2a0a8c5194e3b9cdb66e102d"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__exercism-py-6/agent-session/session.v4.jsonl.zstd",
+          "sha256": "4780f2b958bb966a1dea4106e8e7d6d41101ee77fe5eb45485b7ef45ce16d5df"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__exercism-py-6/config-snapshot/bench-cli-cordis.patch.yml",
+          "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:22:56+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-a1-dsh-lcb-recent-hard-4-01",
+      "category": "product_run",
+      "product": "dsh",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "lcb-recent-hard-4",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-dsh-lcb-recent-hard-4-01",
+          "run_id": "r1030-dsh-lcb-recent-hard-4",
+          "category": "product_run",
+          "product": "dsh",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "lcb-recent-hard-4"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "lcb-recent-hard-4@sha256:d53d6e9e318c7a84d2103c3c75828a25be67aac645ab027a7b11624941b14a65",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/lcb-recent-hard-4/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "0.2.0-rc.2",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek-official",
+            "wire_protocol": "anthropic-messages",
+            "endpoint": null
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（tool-skill 与 skill-filesystem 均 disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:24:23+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:29:01+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/lcb-recent-hard-4/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "8a9ae6deb4d088b011348d5245d18697f5df5b8b65390c7679c6a8d539c90d14",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/lcb-recent-hard-4/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "d53d6e9e318c7a84d2103c3c75828a25be67aac645ab027a7b11624941b14a65",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/lcb-recent-hard-4/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 4,
+          "possible": 4,
+          "assessed": 4,
+          "reported": 100.0,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-dsh-lcb-recent-hard-4",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/8"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__lcb-recent-hard-4/meta.json",
+          "sha256": "4d77ee6827da89776507ffe11683f1e0b4a3a0e272bd40588411ddca1047bf6c"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__lcb-recent-hard-4/integrity-rescan.json",
+          "sha256": "591c9bda8447dab360be2eda6178e239b8204ad9082a79229b1d255eac2f70e6"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__lcb-recent-hard-4/checker.stdout.json",
+          "sha256": "b1714a6e159309f8bc744e09091868db6dbd5fd7646b373482598f4acf2a96a3"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__lcb-recent-hard-4/score-receipt.json",
+          "sha256": "4172075a6c7350b4a14adde5ed1f2215958b28e870285d10ad4bd822a771c8ce"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__lcb-recent-hard-4/adjudication.json",
+          "sha256": "2e085aa13f43b42f6f8f2ea1751c98bfe28b0d6e7379ea9e7607d1407fa53afe"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__lcb-recent-hard-4/workspace/TASK.md",
+          "sha256": "320b6ca39004d9996e67ef699da0a2c91efb48cda3ff12b4c3073065f1c1e2a4"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__lcb-recent-hard-4/agent-session/session.v4.jsonl.zstd",
+          "sha256": "d25aa494b42f367b88d4554a1c22f8b267ce64dff15b31e7254ef3149a446133"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__lcb-recent-hard-4/config-snapshot/bench-cli-cordis.patch.yml",
+          "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:24:23+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-a1-dsh-tb-cargo-plan-01",
+      "category": "product_run",
+      "product": "dsh",
+      "group": "A_same_model",
+      "experiment": false,
+      "case_id": "tb-cargo-plan",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-a1-dsh-tb-cargo-plan-01",
+          "run_id": "r1030-dsh-tb-cargo-plan",
+          "category": "product_run",
+          "product": "dsh",
+          "group": "A_same_model",
+          "experiment": false,
+          "case_id": "tb-cargo-plan"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "tb-cargo-plan@sha256:fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/tb-cargo-plan/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "0.2.0-rc.2",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "deepseek-flash",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "api.deepseek.com",
+            "provider_id": "deepseek-official",
+            "wire_protocol": "anthropic-messages",
+            "endpoint": null
+          },
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": [
+            "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+          ],
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "off（tool-skill 与 skill-filesystem 均 disabled）",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-29T02:29:17+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-29T02:32:09+08:00",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "original-contemporaneous-full",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v2",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/tb-cargo-plan/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "982754f17eea923b0abfcfee08c991d7c502b771c5c0c598c5c097fe3460c163",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/tb-cargo-plan/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+          "refs": [
+            {
+              "source": 8,
+              "pointer": "/case_snapshots/tb-cargo-plan/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 5,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 20,
+          "possible": 27,
+          "assessed": 27,
+          "reported": 74.07407407,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2",
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677"
+        },
+        "refs": [
+          {
+            "source": 4,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-a1-20261029",
+        "slot_id": "a1-dsh-tb-cargo-plan",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": null,
+        "registered_at": "2026-10-29T02:10:00+08:00",
+        "plan_source": 0,
+        "plan_pointer": "/registrations/9"
+      },
+      "sources": [
+        {
+          "path": "1-评测方案/正式批次-2026-10-29/registration-plan.json",
+          "sha256": "5e4452b55dd92e00420eb91761a1b775dff608237bf8f7a100c7aa25aea2d466"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__tb-cargo-plan/meta.json",
+          "sha256": "31e83be9ad6b268944eb0c3caf784b8268823cf4575b5098063c26375238ee0d"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__tb-cargo-plan/integrity-rescan.json",
+          "sha256": "f7616a2bc192ec8b36a152f5d80bc98c02453224f82df97354ad8c68bb218346"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__tb-cargo-plan/checker.stdout.json",
+          "sha256": "ec203cad79c58aeb416e50354fffedaa059771fec7a54ae1d692208975698c86"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__tb-cargo-plan/score-receipt.json",
+          "sha256": "b9eb20fbba113bc3b75f48d2a364e65da93f2ba3709ecd96fd191d377489b7d2"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__tb-cargo-plan/adjudication.json",
+          "sha256": "c7c323b4bffc9af525b27692b727be1968ff6c3d92a965852110d58ceea31ed6"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__tb-cargo-plan/workspace/TASK.md",
+          "sha256": "3ff694e25e3729bcf69078f4994519135ec254a504b0fc0b0e69b136067f52b4"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__tb-cargo-plan/agent-session/session.v4.jsonl.zstd",
+          "sha256": "48c45b99d2997279b1efc6ac8447ae3bbe73c55e3d7cc30878a360b9036761fc"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v2/config.json",
+          "sha256": "f975766b12df6fc8a6eabc10ce8be38b098bce3a1c7f496cf476ce0a840987c5"
+        },
+        {
+          "path": "3-表现现场/r1030-formal-a1/runs/dsh__tb-cargo-plan/config-snapshot/bench-cli-cordis.patch.yml",
+          "sha256": "48de33885dddae98bb0bd0d30c8954fcd8b29c0d6d283e509b7cb7eb251af238"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-28T18:39:40.641530+00:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-29T02:29:17+08:00",
+        "refs": [
+          {
+            "source": 1,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,334 @@
+[
+  {
+    "case": "corpus-squeeze",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:42:08+08:00",
+    "prompt_sha256": "be2a2e4febe0243d1167f29b227d46beee815ce8d2bcc944e34788bb92af6d5f",
+    "prompt_rewrites": [],
+    "inputs": [
+      {
+        "path": "inputs/corpus.txt",
+        "sha256": "e2305230c5a95d3be863780496d3a839d0b8d7b49dfb30e8a606a090aa7599f5",
+        "bytes": 204180
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/corpus-squeeze__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 39.1,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "input_tokens": 88693,
+      "cached_input_tokens": 83584,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8027,
+      "reasoning_output_tokens": 3864
+    }
+  },
+  {
+    "case": "corpus-squeeze",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:42:47+08:00",
+    "prompt_sha256": "6d0fcd8114502b98fc33a3f9e44b6e54a56a599351d3c0289e6123a64ea1dfb5",
+    "prompt_rewrites": [],
+    "inputs": [
+      {
+        "path": "inputs/corpus.txt",
+        "sha256": "e2305230c5a95d3be863780496d3a839d0b8d7b49dfb30e8a606a090aa7599f5",
+        "bytes": 204180
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/corpus-squeeze__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 36.5,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "inputTokens": 400,
+      "outputTokens": 88,
+      "cacheReadTokens": 15744,
+      "cacheWriteTokens": 0,
+      "totalTokens": 16232
+    }
+  },
+  {
+    "case": "int-sum-sort",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:38:41+08:00",
+    "prompt_sha256": "3d3909aebd43f7090a19e54d743b1269a99ebadb20ca88a3353ee934fbeffcbb",
+    "prompt_rewrites": [
+      "/app/ -> run_dir 绝对路径"
+    ],
+    "inputs": [
+      {
+        "path": "input.txt",
+        "sha256": "3bcc65ec276d1e8a73acba143433b0f1d86202752ad378a58bf79f199846c47c",
+        "bytes": 17
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/int-sum-sort__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 14.5,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "input_tokens": 47511,
+      "cached_input_tokens": 46464,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1451,
+      "reasoning_output_tokens": 284
+    }
+  },
+  {
+    "case": "int-sum-sort",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:43:53+08:00",
+    "prompt_sha256": "38643b71bdf231c90374e00a5a18f97146fa12e42f4ae2a19be91b7ebc50bef0",
+    "prompt_rewrites": [
+      "/app/ -> run_dir 绝对路径"
+    ],
+    "inputs": [
+      {
+        "path": "input.txt",
+        "sha256": "3bcc65ec276d1e8a73acba143433b0f1d86202752ad378a58bf79f199846c47c",
+        "bytes": 17
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/int-sum-sort__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 5.3,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "inputTokens": 243,
+      "outputTokens": 25,
+      "cacheReadTokens": 6656,
+      "cacheWriteTokens": 0,
+      "totalTokens": 6924
+    }
+  },
+  {
+    "case": "jielong-fullchain",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:39:24+08:00",
+    "prompt_sha256": "7161aee1d23cd9190b9b2ec69691a120a5922967edf8fc2e37529d155a66072b",
+    "prompt_rewrites": [],
+    "inputs": [
+      {
+        "path": "environment/jielong.txt",
+        "sha256": "4c586110abd34fa768db600c997e9a9f232d02f20ef6aed36f956071b8c5dc3f",
+        "bytes": 352
+      },
+      {
+        "path": "environment/peers.json",
+        "sha256": "2a7f87e4783e8d29122334b1c5829254d6d0d212d288f8e903daa44e71c09ba6",
+        "bytes": 1141
+      },
+      {
+        "path": "environment/orders.json",
+        "sha256": "8771f59aa44d954012c2d34793e2a3719b3313f5aca921d651d372ef41826a18",
+        "bytes": 1151
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/jielong-fullchain__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 48.5,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "input_tokens": 95570,
+      "cached_input_tokens": 90240,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 10868,
+      "reasoning_output_tokens": 5324
+    }
+  },
+  {
+    "case": "jielong-fullchain",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:40:13+08:00",
+    "prompt_sha256": "117629e523d26b562971f61a31067fe538789861854ddae92ab7c3fa8cae2db6",
+    "prompt_rewrites": [],
+    "inputs": [
+      {
+        "path": "environment/jielong.txt",
+        "sha256": "4c586110abd34fa768db600c997e9a9f232d02f20ef6aed36f956071b8c5dc3f",
+        "bytes": 352
+      },
+      {
+        "path": "environment/peers.json",
+        "sha256": "2a7f87e4783e8d29122334b1c5829254d6d0d212d288f8e903daa44e71c09ba6",
+        "bytes": 1141
+      },
+      {
+        "path": "environment/orders.json",
+        "sha256": "8771f59aa44d954012c2d34793e2a3719b3313f5aca921d651d372ef41826a18",
+        "bytes": 1151
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/jielong-fullchain__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 58.5,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "inputTokens": 1765,
+      "outputTokens": 1265,
+      "cacheReadTokens": 23808,
+      "cacheWriteTokens": 0,
+      "totalTokens": 26838
+    }
+  },
+  {
+    "case": "ledger-replay",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:41:11+08:00",
+    "prompt_sha256": "e9eeb6bd27a65a1195b7c1aa4c4282cdab04805e865792fbbf1d9c299a45864e",
+    "prompt_rewrites": [
+      "/app/ -> run_dir 绝对路径"
+    ],
+    "inputs": [
+      {
+        "path": "events.jsonl",
+        "sha256": "a011ec7fd2d12bc85d0040594040cdb78e1b28c9e6a833ed57bce122ca1f56f4",
+        "bytes": 42519
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/ledger-replay__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 29.7,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "input_tokens": 91525,
+      "cached_input_tokens": 79872,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5481,
+      "reasoning_output_tokens": 2066
+    }
+  },
+  {
+    "case": "ledger-replay",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:41:41+08:00",
+    "prompt_sha256": "02486b8fa270d43bad0feca75d2d505f2be1ab364f237c29127f3edc1c7ba906",
+    "prompt_rewrites": [
+      "/app/ -> run_dir 绝对路径"
+    ],
+    "inputs": [
+      {
+        "path": "events.jsonl",
+        "sha256": "a011ec7fd2d12bc85d0040594040cdb78e1b28c9e6a833ed57bce122ca1f56f4",
+        "bytes": 42519
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/ledger-replay__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 26.9,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "inputTokens": 431,
+      "outputTokens": 19,
+      "cacheReadTokens": 11392,
+      "cacheWriteTokens": 0,
+      "totalTokens": 11842
+    }
+  },
+  {
+    "case": "word-freq-report",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:39:00+08:00",
+    "prompt_sha256": "1d050ae7e7947408da308808911f5e9aba67af95c45752129ae39eae49cd44ce",
+    "prompt_rewrites": [
+      "/app/ -> run_dir 绝对路径"
+    ],
+    "inputs": [
+      {
+        "path": "corpus.txt",
+        "sha256": "b5fc559b18b63445fcb1b3231ccd3c244668a613ad77c02eecb8612b170f5a80",
+        "bytes": 510
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/word-freq-report__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 15.8,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "input_tokens": 49573,
+      "cached_input_tokens": 47872,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1912,
+      "reasoning_output_tokens": 509
+    }
+  },
+  {
+    "case": "word-freq-report",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T17:39:16+08:00",
+    "prompt_sha256": "84b6d17602aebaf6646c56069c464f4ecb9fd7112faa53bc7315e443edac115f",
+    "prompt_rewrites": [
+      "/app/ -> run_dir 绝对路径"
+    ],
+    "inputs": [
+      {
+        "path": "corpus.txt",
+        "sha256": "b5fc559b18b63445fcb1b3231ccd3c244668a613ad77c02eecb8612b170f5a80",
+        "bytes": 510
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1023-cli-dsf-low/word-freq-report__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 8.0,
+    "reward": 1,
+    "weighted": 100,
+    "failed": [],
+    "usage": {
+      "inputTokens": 253,
+      "outputTokens": 12,
+      "cacheReadTokens": 6784,
+      "cacheWriteTokens": 0,
+      "totalTokens": 7049
+    }
+  }
+]

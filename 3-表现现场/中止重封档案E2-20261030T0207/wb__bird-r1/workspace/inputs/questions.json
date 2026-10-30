@@ -1,0 +1,200 @@
+[
+  {
+    "question_id": 28,
+    "difficulty": "challenging",
+    "question_zh": "对「本地拨款」（FundingType = 'Locally funded'）的学校，先计算 K-12 在校生数与 5-17 岁在校生数之差的平均值，再列出该差值高于此平均值的学校的名称与 DOC 类型（按顺序输出两列：School、DOC）。",
+    "evidence_zh": "差值 = `Enrollment (K-12)` - `Enrollment (Ages 5-17)`。",
+    "answer_columns": [
+      "School",
+      "DOC"
+    ],
+    "question_en_original": "Consider the average difference between K-12 enrollment and 15-17 enrollment of schools that are locally funded, list the names and DOC type of schools which has a difference above this average.",
+    "evidence_en_original": "Difference between K-12 enrollment and 15-17 enrollment can be computed by `Enrollment (K-12)` - `Enrollment (Ages 5-17)`",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 36,
+    "difficulty": "challenging",
+    "question_zh": "SAT 中「1500 分及以上」人数（NumGE1500）最多的那所学校，由谁管理？请给出管理者的完整姓名：按顺序输出 6 列 AdmFName1、AdmLName1、AdmFName2、AdmLName2、AdmFName3、AdmLName3（不存在的管理者给 NULL）。",
+    "evidence_zh": "「完整姓名」指名与姓两部分；每所学校最多有 3 位管理者；「1500 分及以上」对应列 NumGE1500。",
+    "answer_columns": [
+      "AdmFName1",
+      "AdmLName1",
+      "AdmFName2",
+      "AdmLName2",
+      "AdmFName3",
+      "AdmLName3"
+    ],
+    "question_en_original": "Under whose administration is the school with the highest number of students scoring 1500 or more on the SAT? Indicate their full names.",
+    "evidence_en_original": "full name means first name, last name; There are at most 3 administrators for each school; SAT Scores are greater or equal to 1500 refers to NumGE1500",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 62,
+    "difficulty": "challenging",
+    "question_zh": "统计洛杉矶县（County = 'Los Angeles'）中「非特许（Charter = 0）」、且 K-12 免费餐资格比例低于 0.18% 的学校总数（输出 1 列：学校数）。",
+    "evidence_zh": "非特许学校 = Charter = 0；K-12 指 1~12 年级；K-12 免费餐资格比例（百分数）= `Free Meal Count (K-12)` * 100 / `Enrollment (K-12)`。",
+    "answer_columns": [
+      "count"
+    ],
+    "question_en_original": "What is the total number of non-chartered schools in the county of Los Angeles with a percent (%) of eligible free meals for grades 1 through 12 that is less than 0.18%?",
+    "evidence_en_original": "non-chartered schools refer to schools whose Charter = 0; K-12 means grades 1 through 12; percent of eligible free rate for K-12 = `Free Meal Count (K-12)` * 100 / `Enrollment (K-12)`",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 83,
+    "difficulty": "challenging",
+    "question_zh": "在开设 Magnet 项目（Magnet = 1）且年级跨度为 K-8 的学校中，统计提供「Multiple Provision Types」（`NSLP Provision Status` = 'Multiple Provision Types'）的学校数量；按城市（City）分组，按顺序输出两列：City、学校数。",
+    "evidence_zh": "K-8 = Kindergarten to 8th grade；开设 Magnet 项目 = Magnet = 1；Multiple Provision Types 指 `NSLP Provision Status` = 'Multiple Provision Types'。",
+    "answer_columns": [
+      "City",
+      "count"
+    ],
+    "question_en_original": "Of the schools that offers a magnet program serving a grade span of Kindergarten to 8th grade, how many offers Multiple Provision Types? List the number of cities that offers a Kindergarten to 8th grade span and indicate how many schools are there serving such grade span for each city.",
+    "evidence_en_original": "Kindergarten to 8th grade refers to K-8; 'Offers a magnet program' means Magnet = 1; Multiple Provision Types refers to `NSLP Provision Status` = 'Multiple Provision Types'",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 87,
+    "difficulty": "challenging",
+    "question_zh": "圣贝纳迪诺县（County = 'San Bernardino'）内、城市为 San Bernardino（City = 'San Bernardino'）、学区类型为 Unified（DOC = 54）、处于 2009-01-01 至 2010-12-31 之间开办、且学校类型为公立 Intermediate/Middle School（SOC = 62）的学校，其管理者的邮箱地址是什么？按顺序输出两列：AdmEmail1、AdmEmail2。",
+    "evidence_zh": "Intermediate/Middle Schools 指 SOC = 62；Unified School 指 DOC = 54；2009 至 2010 年 = OpenDate 在 2009-01-01 到 2010-12-31 之间。",
+    "answer_columns": [
+      "AdmEmail1",
+      "AdmEmail2"
+    ],
+    "question_en_original": "What are the valid e-mail addresses of the administrator of the school located in the San Bernardino county, City of San Bernardino City Unified that opened between 1/1/2009 to 12/31/2010 whose school types are public Intermediate/Middle Schools and Unified Schools?",
+    "evidence_en_original": "Intermediate/Middle Schools refers to SOC = 62; Unified School refers to DOC = 54; years between 2009 and 2010 can refer to 'between 1/1/2009 to 12/31/2010'",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 12,
+    "difficulty": "moderate",
+    "question_zh": "在 SAT 优秀率（NumGE1500 / NumTstTakr）超过 0.3 的学校中，5-17 岁学生的免费餐资格比例最高是多少（输出 1 列：最高比例）？",
+    "evidence_zh": "优秀率 = NumGE1500 / NumTstTakr；5-17 岁免费餐资格比例 = `Free Meal Count (Ages 5-17)` / `Enrollment (Ages 5-17)`。",
+    "answer_columns": [
+      "max_ratio"
+    ],
+    "question_en_original": "Among the schools with an SAT excellence rate of over 0.3, what is the highest eligible free rate for students aged 5-17?",
+    "evidence_en_original": "Excellence rate = NumGE1500 / NumTstTakr; Eligible free rates for students aged 5-17 = `Free Meal Count (Ages 5-17)` / `Enrollment (Ages 5-17)`",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 23,
+    "difficulty": "moderate",
+    "question_zh": "列出 K-12 在校生数与 5-17 岁在校生数之差大于 30 的学校，给出学校名称与完整街道地址（按顺序输出两列：School、Street）。",
+    "evidence_zh": "差值 = `Enrollment (K-12)` - `Enrollment (Ages 5-17)`。",
+    "answer_columns": [
+      "School",
+      "Street"
+    ],
+    "question_en_original": "List the names of schools with more than 30 difference in enrollements between K-12 and ages 5-17? Please also give the full street adress of the schools.",
+    "evidence_en_original": "Diffrence in enrollement = `Enrollment (K-12)` - `Enrollment (Ages 5-17)`",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 24,
+    "difficulty": "moderate",
+    "question_zh": "列出 K-12 免费餐资格比例超过 0.1、且 SAT「1500 分及以上」人数（NumGE1500）大于 0 的学校名称（1 列，取 frpm 表的 `School Name`）。",
+    "evidence_zh": "K-12 免费餐资格比例 = `Free Meal Count (K-12)` / `Enrollment (K-12)`。",
+    "answer_columns": [
+      "School Name"
+    ],
+    "question_en_original": "Give the names of the schools with the percent eligible for free meals in K-12 is more than 0.1 and test takers whose test score is greater than or equal to 1500?",
+    "evidence_en_original": "Percent eligible for free meals = Free Meal Count (K-12) / Total (Enrollment (K-12)",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 25,
+    "difficulty": "moderate",
+    "question_zh": "列出 District Name 以 Riverside 开头的学校中，SAT 数学平均分（各校数学平均分再取平均）大于 400 的学校名称与特许经费类型（按顺序输出两列：sname、`Charter Funding Type`）。",
+    "evidence_zh": "数学平均分的平均 = sum(各校 AvgScrMath) / count(学校)。",
+    "answer_columns": [
+      "sname",
+      "Charter Funding Type"
+    ],
+    "question_en_original": "Name schools in Riverside which the average of average math score for SAT is grater than 400, what is the funding type of these schools?",
+    "evidence_en_original": "Average of average math = sum(average math scores) / count(schools).",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 26,
+    "difficulty": "moderate",
+    "question_zh": "列出 Monterey 县中、5-17 岁免费或减价餐人数超过 800 的公立高中（School Type = 'High Schools (Public)'）的名称与完整通讯地址（按顺序输出 5 列：`School Name`、Street、City、State、Zip）。",
+    "evidence_zh": "免费或减价餐人数使用 frpm.`FRPM Count (Ages 5-17)`，不是 Free Meal Count；严格 >800（800不满足）。本地合同年龄为5-17岁，原英文15-17仅为历史题源原文。完整通讯地址按Street、City、State、Zip输出。",
+    "answer_columns": [
+      "School Name",
+      "Street",
+      "City",
+      "State",
+      "Zip"
+    ],
+    "question_en_original": "State the names and full communication address of high schools in Monterey which has more than 800 free or reduced price meals for ages 15-17?",
+    "evidence_en_original": "Full communication address should include Street, City, State and zip code if any.",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。 候选1.2-q26-frpm明确本地5-17/FRPM口径，并据此改写q26 gold；原英文15-17不作为本地年龄要求。"
+  },
+  {
+    "question_id": 27,
+    "difficulty": "moderate",
+    "question_zh": "对 1991 年之后开办、或 2000 年之前关闭的学校，列出学校名称、SAT 写作平均分与联系电话（有则给），按顺序输出 3 列：School、AvgScrWrite、Phone。",
+    "evidence_zh": "通讯号码指电话（Phone）。",
+    "answer_columns": [
+      "School",
+      "AvgScrWrite",
+      "Phone"
+    ],
+    "question_en_original": "What is the average score in writing for the schools that were opened after 1991 or closed before 2000? List the school names along with the score. Also, list the communication number of the schools if there is any.",
+    "evidence_en_original": "Communication number refers to phone number.",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 31,
+    "difficulty": "moderate",
+    "question_zh": "按 K-12 在校生数从高到低排序，第 10 所与第 11 所学校的 K-12 免费餐资格比例分别是多少（输出 1 列：比例，共 2 行）？",
+    "evidence_zh": "K-12 指 1~12 年级；K-12 免费餐资格比例 = `Free Meal Count (K-12)` / `Enrollment (K-12)`。",
+    "answer_columns": [
+      "ratio"
+    ],
+    "question_en_original": "What is the eligible free rate of the 10th and 11th schools with the highest enrolment for students in grades 1 through 12?",
+    "evidence_en_original": "K-12 refers to students in grades 1 through 12; Eligible free rate for K-12 = `Free Meal Count (K-12)` / `Enrollment (K-12)`",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 5,
+    "difficulty": "simple",
+    "question_zh": "SAT 数学平均分（AvgScrMath）大于 400 的学校中，有多少所是「纯虚拟」学校（输出 1 列：学校数）？",
+    "evidence_zh": "「纯虚拟」指 Virtual = 'F'。",
+    "answer_columns": [
+      "count"
+    ],
+    "question_en_original": "How many schools with an average score in Math greater than 400 in the SAT test are exclusively virtual?",
+    "evidence_en_original": "Exclusively virtual refers to Virtual = 'F'",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 11,
+    "difficulty": "simple",
+    "question_zh": "列出 K-12 在校生数与 5-17 岁在校生数之和超过 500 的学校的 CDSCode（输出 1 列）。",
+    "evidence_zh": "总在校生数 = `Enrollment (K-12)` + `Enrollment (Ages 5-17)`。",
+    "answer_columns": [
+      "CDSCode"
+    ],
+    "question_en_original": "Please list the codes of the schools with a total enrollment of over 500.",
+    "evidence_en_original": "Total enrollment can be represented by `Enrollment (K-12)` + `Enrollment (Ages 5-17)`",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  },
+  {
+    "question_id": 17,
+    "difficulty": "simple",
+    "question_zh": "在 SAT 写作平均分（AvgScrWrite）大于 499 的学校中，按写作平均分从高到低给出排名（RANK），并给出特许学校编号（CharterNum，只保留非空值）与写作平均分。按顺序输出 3 列：CharterNum、AvgScrWrite、写作分排名（列名可用 WritingScoreRank）。",
+    "evidence_zh": "有效特许编号指 CharterNum 不为 NULL；排名用 RANK() OVER (ORDER BY AvgScrWrite DESC)。",
+    "answer_columns": [
+      "CharterNum",
+      "AvgScrWrite",
+      "WritingScoreRank"
+    ],
+    "question_en_original": "Rank schools by their average score in Writing where the score is greater than 499, showing their charter numbers.",
+    "evidence_en_original": "Valid charter number means the number is not null",
+    "source_note": "question_en_original / evidence_en_original 为 BIRD mini_dev 原文，仅作溯源与口径核对；操作口径以 question_zh / evidence_zh 为准。BIRD: https://bird-bench.github.io/ ，CC BY-SA 4.0。"
+  }
+]

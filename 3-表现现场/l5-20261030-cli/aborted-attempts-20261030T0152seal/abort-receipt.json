@@ -1,0 +1,41 @@
+{
+  "kind": "lead_abort_seal_repair",
+  "at": "2026-10-30T01:58:08+08:00",
+  "reason": "E=7474b84 批次启动后发现 WB adapter verify_execution.py 仍 pin l4-execution gate(WB 首槽 fail-closed REFUSED 零调用);gate 逐槽强绑 binding.registered_at/preregistration_commit,中途重封将使在途槽失格——lead 裁决统一重封。",
+  "aborted": "codex/dsh 首槽在途真实运行被 lead kill -9(进程组),证据目录与仓外 ws 原样移入本目录,不删除",
+  "consumption": "有真实模型调用发生(在途数分钟),无 formal 资格;不计 6 计划槽,单列披露",
+  "moved": [
+    "3-表现现场/l5-20261030-cli/aborted-attempts-20261030T0152seal/codex__l5-20261030-cli-codex-dabstep-payments-10-r1",
+    "3-表现现场/l5-20261030-cli/aborted-attempts-20261030T0152seal/dsh__l5-20261030-cli-dsh-dabstep-payments-10-r1"
+  ],
+  "files_sha256": {
+    "codex__l5-20261030-cli-codex-dabstep-payments-10-r1/_live_stderr.txt": "d5ae9fc1416c7c4d20aef2b3f154b829cef9b40d0be56138c1d0bdfae0705e3b",
+    "codex__l5-20261030-cli-codex-dabstep-payments-10-r1/_live_stdout.jsonl": "1ecad7eefc9d4c126c28f73f81ef7b9f23354fe0b8e9ac8b682839c28c074e70",
+    "codex__l5-20261030-cli-codex-dabstep-payments-10-r1/claim.json": "d6872a5171963a6fc189488c90e1f10d694244e5870875e92ba2bf529545b8ee",
+    "codex__l5-20261030-cli-codex-dabstep-payments-10-r1/meta.prepare.json": "60c926aa5a8f7acca4ed56c5b34f8bad3a2c2dcf9651f9a016f5ffd5f3d8336b",
+    "dsh__l5-20261030-cli-dsh-dabstep-payments-10-r1/agent.jsonl": "edac08bd8c4379bf0f7c2a537ffa23b936e9fc67dc228f317eafd45ce713c4fd",
+    "dsh__l5-20261030-cli-dsh-dabstep-payments-10-r1/agent.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "dsh__l5-20261030-cli-dsh-dabstep-payments-10-r1/meta.json": "b5ecc9091bef7b956b1e10cec022bdfa9dfc2f524afd8d5e59fafc7e2f3c181c",
+    "dsh__l5-20261030-cli-dsh-dabstep-payments-10-r1/meta.prepare.json": "fcacace17b3508ef7b78d78ddcedf8c201b0d57d7c440fe754e35a89910b76fe",
+    "dsh__l5-20261030-cli-dsh-dabstep-payments-10-r1/prompt.txt": "cb30421a96253f3926de3563d96e1c9a445ea339e3e5e64b1036f13f8e34ca7c",
+    "ws__l5-20261030-cli-codex-dabstep-payments-10-r1/TASK.md": "900ba60def9854201c32d725475c515e6b7fed7b18234b14a5a6283176f7aa76",
+    "ws__l5-20261030-cli-codex-dabstep-payments-10-r1/inputs/acquirer_countries.csv": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+    "ws__l5-20261030-cli-codex-dabstep-payments-10-r1/inputs/fees.json": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+    "ws__l5-20261030-cli-codex-dabstep-payments-10-r1/inputs/manual.md": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+    "ws__l5-20261030-cli-codex-dabstep-payments-10-r1/inputs/merchant_category_codes.csv": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+    "ws__l5-20261030-cli-codex-dabstep-payments-10-r1/inputs/merchant_data.json": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+    "ws__l5-20261030-cli-codex-dabstep-payments-10-r1/inputs/payments.csv": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+    "ws__l5-20261030-cli-codex-dabstep-payments-10-r1/inputs/questions.jsonl": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/TASK.md": "cb30421a96253f3926de3563d96e1c9a445ea339e3e5e64b1036f13f8e34ca7c",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/answers.jsonl": "1a2333ab0eb1e1df91e3ddfcda2edfc8216bd776eba3fa55386454ba982ce37e",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/inputs/acquirer_countries.csv": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/inputs/fees.json": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/inputs/manual.md": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/inputs/merchant_category_codes.csv": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/inputs/merchant_data.json": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/inputs/payments.csv": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/inputs/questions.jsonl": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+    "ws__l5-20261030-cli-dsh-dabstep-payments-10-r1/solve.py": "a43716f0592722bf79972c898fc6dde5c5e21a968da128a7ebfbb5b475709a33"
+  },
+  "live_doc_drift": []
+}

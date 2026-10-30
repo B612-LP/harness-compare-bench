@@ -1,0 +1,49 @@
+Skipping image OS validation for hb__9a030116e2d0eb46a90ed57a8d01bf3f: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl nodejs npm
+Command outputs captured
+Running command: set -euo pipefail; curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash &&  export NVM_DIR="$HOME/.nvm" &&  \. "$NVM_DIR/nvm.sh" || true &&  command -v nvm &>/dev/null || { echo 'Error: NVM failed to load' >&2; exit 1; } &&  nvm install 24 && nvm alias default 24 && npm -v &&  npm install -g @deepseek-ai/dsh@0.2.0-rc.2;dsh --version
+Command outputs captured
+Running command: for bin in node dsh; do  BIN_PATH="$(which "$bin" 2>/dev/null || true)";  if [ -n "$BIN_PATH" ] && [ "$BIN_PATH" != "/usr/local/bin/$bin" ]; then    ln -sf "$BIN_PATH" "/usr/local/bin/$bin";  fi; done
+Command outputs captured
+Running command: mkdir -p /tmp/dsh-home /logs/agent /tmp/dsh-home/profiles/headless
+Command outputs captured
+Running command: if [ -s ~/.nvm/nvm.sh ]; then . ~/.nvm/nvm.sh; fi; printf %s 'The file /app/corpus.txt contains plain ASCII text.
+
+Define a "word" as follows:
+
+- Split the text into tokens on whitespace.
+- Strip leading and trailing punctuation characters from each token. The
+  punctuation set is exactly these 12 characters: . , ; : ! ? " '"'"' ( ) -
+  Strip repeatedly until both ends are not punctuation. Internal punctuation
+  is kept (e.g. `state-of-the-art` is one single word).
+- If the resulting token is empty, skip it.
+- If the resulting token contains any digit (0-9), skip it.
+- Word matching is case-insensitive: normalize every word to lowercase.
+
+Create the file /app/report.txt with exactly this content:
+
+- Line 1: the total number of word tokens remaining after the rules above,
+  as a decimal integer.
+- Line 2: the number of distinct words (case-insensitive), as a decimal
+  integer.
+- Lines 3-7: the 5 most frequent words, one per line, each line in the
+  format `<word> <count>` (word and count separated by exactly one space).
+  Rank by count descending; when two words have the same count, the word
+  that is smaller in ASCII order ranks first.
+
+Rules for the whole file:
+
+- The file must end with a trailing newline.
+- No other lines, spaces, or blank lines are allowed.
+- Integers must be written in decimal without leading zeros.
+' | dsh headless --json - 2> /logs/agent/dsh-stderr.txt | tee /logs/agent/dsh.txt
+Command outputs captured
+Running command: mkdir -p /logs/agent
+if [ -d "/tmp/dsh-home/sessions" ]; then
+  rm -rf /logs/agent/sessions
+  cp -R "/tmp/dsh-home/sessions" /logs/agent/sessions
+fi
+Command outputs captured
+Running command: rm -rf /tmp/dsh-home
+Command outputs captured
+Collecting main service artifacts

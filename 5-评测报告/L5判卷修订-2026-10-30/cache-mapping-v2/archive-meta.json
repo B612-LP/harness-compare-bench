@@ -1,0 +1,26 @@
+{
+  "generated_note": "L5 cache mapping v2 (R5/池L5-5) 判卷修订档案:修前=L4 冻结 cache_probe.py 的 USAGE_FIELDS 预设(responses 缺嵌套 cached_tokens 路径,见 offline-recompute-erratum.json),修后=l5-execution/cache_mapping_v2.py(按 wire_key 键控+嵌套路径+normalized 不求和);复算对 L4 18 probe raw 只读,零 API",
+  "before_code": {
+    "path": "3-表现现场/l4-20261029-cache/tools/cache_probe.py",
+    "sha256": "80f2343df454cb2aad3e50d954558011abc5322b1c0fa10fa666358c56027f11",
+    "frozen": true,
+    "gap_evidence": "5-评测报告/L4独立验收-2026-10-29/realdata-cache/offline-recompute-erratum.json"
+  },
+  "after_code": {
+    "path": "1-评测方案/工具链/l5-execution/cache_mapping_v2.py",
+    "sha256": "784855402f1b9dbc4fea0556602a1c09988652488f980dbb5588bd0ef515332d"
+  },
+  "positive_and_nearwrong": {
+    "unit_selftest": "parent_missing/parent_non_object/child_missing/zero/positive/alias-no-sum 共 6 例(内嵌)",
+    "receipt": "recompute-receipt.json"
+  },
+  "history_consistency": {
+    "slots": 18,
+    "assertions": 28,
+    "erratum_values": "responses 6 槽逐值一致(fresh/control=0,repeat=2048)",
+    "all_pass": true
+  },
+  "finding_withdrawal": "L4 报告层 finding「responses 协议缺 cache 字段」自本 mapping v2 起撤:raw 一直完整,系映射覆盖缺口;erratum 表与 mapping v2 输出已程序化一致",
+  "independent_acceptance_slot": "预留:independent-reviewer 干净环境复跑 cache_mapping_v2.py 比对收据(lead 不代做)",
+  "live_doc_drift": []
+}

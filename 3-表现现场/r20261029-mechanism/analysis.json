@@ -1,0 +1,723 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T17:10:57.524367+00:00",
+  "usage_semantics": "Anthropic Messages fields are disjoint: uncached input_tokens + cache_read_input_tokens + cache_creation_input_tokens. DSH 0.2.0-rc.2 transport maps fields independently and totalTokens adds all three plus output. Do not equate token reduction with monetary savings. v3 raw fields reconstructed from lossless provider-parsed camelCase usage; not raw SSE.",
+  "runs": [
+    {
+      "run_id": "20261028T170651Z-01-large-full-e0b04d78",
+      "path": "v3/20261028T170651Z-01-large-full-e0b04d78",
+      "size": "large",
+      "arm": "full",
+      "maxInlineTokens": 12500,
+      "exit_code": 0,
+      "start": "2026-10-28T17:06:51.831151+00:00",
+      "end": "2026-10-28T17:06:54.031185+00:00",
+      "calls": [
+        {
+          "number": 1,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 443,
+            "output_tokens": 23,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0
+          },
+          "total_input_including_cache": 443,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "durable_provider_parsed_stream",
+          "raw_sse_available": false,
+          "message_stop_seen": false,
+          "tool_result_bytes": 0,
+          "tool_result_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "spilled": false,
+          "head_visible": false,
+          "tail_visible": false,
+          "middle_noise_visible": false
+        },
+        {
+          "number": 2,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 19313,
+            "output_tokens": 60,
+            "cache_read_input_tokens": 384,
+            "cache_creation_input_tokens": 0
+          },
+          "total_input_including_cache": 19697,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "durable_provider_parsed_stream",
+          "raw_sse_available": false,
+          "message_stop_seen": false,
+          "tool_result_bytes": 35767,
+          "tool_result_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+          "spilled": false,
+          "head_visible": true,
+          "tail_visible": true,
+          "middle_noise_visible": true
+        }
+      ],
+      "answer": {
+        "HEAD_KEY": "AMBER-731",
+        "TAIL_KEY": "COBALT-492"
+      },
+      "correct": true,
+      "original_actual_api_gate": false,
+      "v3_observer_gap": true,
+      "tool_output_bytes": 35767,
+      "tool_output_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "20261028T170952Z-02-large-bounded-0fe26b85",
+      "path": "v4/20261028T170952Z-02-large-bounded-0fe26b85",
+      "size": "large",
+      "arm": "bounded",
+      "maxInlineTokens": 512,
+      "exit_code": 0,
+      "start": "2026-10-28T17:09:52.225998+00:00",
+      "end": "2026-10-28T17:09:55.190782+00:00",
+      "calls": [
+        {
+          "number": 1,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 187,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 256,
+            "output_tokens": 40,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 443,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 0,
+          "tool_result_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "spilled": false,
+          "head_visible": false,
+          "tail_visible": false,
+          "middle_noise_visible": false
+        },
+        {
+          "number": 2,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 1125,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 384,
+            "output_tokens": 45,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 1509,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 1981,
+          "tool_result_sha256": "efb624e576d5648f849daf09eaf7a787484af59981f69f2859627e433f296b15",
+          "spilled": true,
+          "head_visible": true,
+          "tail_visible": true,
+          "middle_noise_visible": false
+        }
+      ],
+      "answer": {
+        "HEAD_KEY": "AMBER-731",
+        "TAIL_KEY": "COBALT-492"
+      },
+      "correct": true,
+      "original_actual_api_gate": true,
+      "v3_observer_gap": false,
+      "tool_output_bytes": 35767,
+      "tool_output_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "20261028T170955Z-03-large-bounded-8f5358a9",
+      "path": "v4/20261028T170955Z-03-large-bounded-8f5358a9",
+      "size": "large",
+      "arm": "bounded",
+      "maxInlineTokens": 512,
+      "exit_code": 0,
+      "start": "2026-10-28T17:09:55.194411+00:00",
+      "end": "2026-10-28T17:09:58.141466+00:00",
+      "calls": [
+        {
+          "number": 1,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 187,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 256,
+            "output_tokens": 23,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 443,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 0,
+          "tool_result_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "spilled": false,
+          "head_visible": false,
+          "tail_visible": false,
+          "middle_noise_visible": false
+        },
+        {
+          "number": 2,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 724,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 768,
+            "output_tokens": 20,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 1492,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 1981,
+          "tool_result_sha256": "19bf8a6dce7bae432627a80c0fb10bf40310ad3c9c650e71ca744e57c4d482ee",
+          "spilled": true,
+          "head_visible": true,
+          "tail_visible": true,
+          "middle_noise_visible": false
+        }
+      ],
+      "answer": {
+        "HEAD_KEY": "AMBER-731",
+        "TAIL_KEY": "COBALT-492"
+      },
+      "correct": true,
+      "original_actual_api_gate": true,
+      "v3_observer_gap": false,
+      "tool_output_bytes": 35767,
+      "tool_output_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "20261028T170958Z-04-large-full-624b8e98",
+      "path": "v4/20261028T170958Z-04-large-full-624b8e98",
+      "size": "large",
+      "arm": "full",
+      "maxInlineTokens": 12500,
+      "exit_code": 0,
+      "start": "2026-10-28T17:09:58.144439+00:00",
+      "end": "2026-10-28T17:10:01.160262+00:00",
+      "calls": [
+        {
+          "number": 1,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 187,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 256,
+            "output_tokens": 23,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 443,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 0,
+          "tool_result_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "spilled": false,
+          "head_visible": false,
+          "tail_visible": false,
+          "middle_noise_visible": false
+        },
+        {
+          "number": 2,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 241,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 19456,
+            "output_tokens": 23,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 19697,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 35767,
+          "tool_result_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+          "spilled": false,
+          "head_visible": true,
+          "tail_visible": true,
+          "middle_noise_visible": true
+        }
+      ],
+      "answer": {
+        "HEAD_KEY": "AMBER-731",
+        "TAIL_KEY": "COBALT-492"
+      },
+      "correct": true,
+      "original_actual_api_gate": true,
+      "v3_observer_gap": false,
+      "tool_output_bytes": 35767,
+      "tool_output_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "20261028T171001Z-05-small-full-0799bc72",
+      "path": "v4/20261028T171001Z-05-small-full-0799bc72",
+      "size": "small",
+      "arm": "full",
+      "maxInlineTokens": 12500,
+      "exit_code": 0,
+      "start": "2026-10-28T17:10:01.163704+00:00",
+      "end": "2026-10-28T17:10:03.916516+00:00",
+      "calls": [
+        {
+          "number": 1,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 187,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 256,
+            "output_tokens": 23,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 443,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 0,
+          "tool_result_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "spilled": false,
+          "head_visible": false,
+          "tail_visible": false,
+          "middle_noise_visible": false
+        },
+        {
+          "number": 2,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 248,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 256,
+            "output_tokens": 20,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 504,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 67,
+          "tool_result_sha256": "1a6a5bde0393f8ba6c7224a8c1740f7381f290bde580765942fefa59aa279c2f",
+          "spilled": false,
+          "head_visible": true,
+          "tail_visible": true,
+          "middle_noise_visible": false
+        }
+      ],
+      "answer": {
+        "HEAD_KEY": "AMBER-731",
+        "TAIL_KEY": "COBALT-492"
+      },
+      "correct": true,
+      "original_actual_api_gate": true,
+      "v3_observer_gap": false,
+      "tool_output_bytes": 67,
+      "tool_output_sha256": "1a6a5bde0393f8ba6c7224a8c1740f7381f290bde580765942fefa59aa279c2f"
+    },
+    {
+      "run_id": "20261028T171003Z-06-small-bounded-e5d016bc",
+      "path": "v4/20261028T171003Z-06-small-bounded-e5d016bc",
+      "size": "small",
+      "arm": "bounded",
+      "maxInlineTokens": 512,
+      "exit_code": 0,
+      "start": "2026-10-28T17:10:03.926607+00:00",
+      "end": "2026-10-28T17:10:07.171142+00:00",
+      "calls": [
+        {
+          "number": 1,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 187,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 256,
+            "output_tokens": 43,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 443,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 0,
+          "tool_result_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "spilled": false,
+          "head_visible": false,
+          "tail_visible": false,
+          "middle_noise_visible": false
+        },
+        {
+          "number": 2,
+          "host": "api.deepseek.com",
+          "status": 200,
+          "request_model": "deepseek-flash",
+          "effort": "low",
+          "max_tokens": 1024,
+          "raw_usage": {
+            "input_tokens": 140,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 384,
+            "output_tokens": 23,
+            "service_tier": "standard"
+          },
+          "total_input_including_cache": 524,
+          "response_models": [
+            "deepseek-flash"
+          ],
+          "usage_source": "raw_response_sse",
+          "raw_sse_available": true,
+          "message_stop_seen": true,
+          "tool_result_bytes": 67,
+          "tool_result_sha256": "1a6a5bde0393f8ba6c7224a8c1740f7381f290bde580765942fefa59aa279c2f",
+          "spilled": false,
+          "head_visible": true,
+          "tail_visible": true,
+          "middle_noise_visible": false
+        }
+      ],
+      "answer": {
+        "HEAD_KEY": "AMBER-731",
+        "TAIL_KEY": "COBALT-492"
+      },
+      "correct": true,
+      "original_actual_api_gate": true,
+      "v3_observer_gap": false,
+      "tool_output_bytes": 67,
+      "tool_output_sha256": "1a6a5bde0393f8ba6c7224a8c1740f7381f290bde580765942fefa59aa279c2f"
+    }
+  ],
+  "pairs": [
+    {
+      "pair": 1,
+      "size": "large",
+      "full_run": "20261028T170651Z-01-large-full-e0b04d78",
+      "bounded_run": "20261028T170952Z-02-large-bounded-0fe26b85",
+      "full_second_input": 19697,
+      "bounded_second_input": 1509,
+      "second_input_difference": 18188,
+      "first_request_exact_differences": [],
+      "second_request_differences_after_dynamic_id_normalization": [
+        "/messages/1/content/0/thinking",
+        "/messages/2/content/0/content/0/text"
+      ],
+      "dynamic_fields_normalized": [
+        "id",
+        "tool_use_id",
+        "signature"
+      ],
+      "tool_result_difference_paths": [
+        "/messages/2/content/0/content/0/text"
+      ],
+      "raw_sse_both": false,
+      "original_tool_stdout_identical": true
+    },
+    {
+      "pair": 2,
+      "size": "large",
+      "full_run": "20261028T170958Z-04-large-full-624b8e98",
+      "bounded_run": "20261028T170955Z-03-large-bounded-8f5358a9",
+      "full_second_input": 19697,
+      "bounded_second_input": 1492,
+      "second_input_difference": 18205,
+      "first_request_exact_differences": [],
+      "second_request_differences_after_dynamic_id_normalization": [
+        "/messages/2/content/0/content/0/text"
+      ],
+      "dynamic_fields_normalized": [
+        "id",
+        "tool_use_id",
+        "signature"
+      ],
+      "tool_result_difference_paths": [
+        "/messages/2/content/0/content/0/text"
+      ],
+      "raw_sse_both": true,
+      "original_tool_stdout_identical": true
+    },
+    {
+      "pair": 3,
+      "size": "small",
+      "full_run": "20261028T171001Z-05-small-full-0799bc72",
+      "bounded_run": "20261028T171003Z-06-small-bounded-e5d016bc",
+      "full_second_input": 504,
+      "bounded_second_input": 524,
+      "second_input_difference": -20,
+      "first_request_exact_differences": [],
+      "second_request_differences_after_dynamic_id_normalization": [
+        "/messages/1/content/0/thinking"
+      ],
+      "dynamic_fields_normalized": [
+        "id",
+        "tool_use_id",
+        "signature"
+      ],
+      "tool_result_difference_paths": [],
+      "raw_sse_both": true,
+      "original_tool_stdout_identical": true
+    }
+  ],
+  "actual_runs": 6,
+  "actual_requests": 12,
+  "total_input_including_cache": 46081,
+  "correct_runs": 6,
+  "frozen_source_checks": [
+    {
+      "freeze": "freeze.json",
+      "frozen_at": "2026-10-28T17:02:33.959933+00:00",
+      "files": [
+        {
+          "path": "PREREGISTRATION.md",
+          "expected_sha256": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+          "actual_sha256": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+          "matches": true
+        },
+        {
+          "path": "run_experiment.py",
+          "expected_sha256": "03d6eea5cf05cf92088433d212486d749c60e063e37f628498baa045bbc51a6e",
+          "actual_sha256": "03d6eea5cf05cf92088433d212486d749c60e063e37f628498baa045bbc51a6e",
+          "matches": true
+        },
+        {
+          "path": "fixture-plugin.mjs",
+          "expected_sha256": "5877791b0594525ad2cc34c1d0bab4e2dd3131fbff8e0f3182cd350ffebbd48e",
+          "actual_sha256": "5877791b0594525ad2cc34c1d0bab4e2dd3131fbff8e0f3182cd350ffebbd48e",
+          "matches": true
+        },
+        {
+          "path": "capture-preload.mjs",
+          "expected_sha256": "9767195dabdc4a5919b952e42df913650dae5181c002b73c6c6bd7f2911661cf",
+          "actual_sha256": "9767195dabdc4a5919b952e42df913650dae5181c002b73c6c6bd7f2911661cf",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "freeze": "v2/freeze.json",
+      "frozen_at": "2026-10-28T17:04:11.626734+00:00",
+      "files": [
+        {
+          "path": "PREREGISTRATION.md",
+          "expected_sha256": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+          "actual_sha256": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+          "matches": true
+        },
+        {
+          "path": "AMENDMENT-v2.md",
+          "expected_sha256": "f5955c5d5e6a95a0c9e43605643838ef77cd851d2b264ee217b02f906a9574f9",
+          "actual_sha256": "f5955c5d5e6a95a0c9e43605643838ef77cd851d2b264ee217b02f906a9574f9",
+          "matches": true
+        },
+        {
+          "path": "run_experiment_v2.py",
+          "expected_sha256": "4533a9d82e7346f83bfdfd457ba65e57e16c1c5fff1bee5233516caa25a21f9d",
+          "actual_sha256": "4533a9d82e7346f83bfdfd457ba65e57e16c1c5fff1bee5233516caa25a21f9d",
+          "matches": true
+        },
+        {
+          "path": "fixture-plugin-v2.mjs",
+          "expected_sha256": "e1cb52be15dc939eaf6be09437263af2e5c9e6440232e9b92a9a7b92be061887",
+          "actual_sha256": "e1cb52be15dc939eaf6be09437263af2e5c9e6440232e9b92a9a7b92be061887",
+          "matches": true
+        },
+        {
+          "path": "capture-preload.mjs",
+          "expected_sha256": "9767195dabdc4a5919b952e42df913650dae5181c002b73c6c6bd7f2911661cf",
+          "actual_sha256": "9767195dabdc4a5919b952e42df913650dae5181c002b73c6c6bd7f2911661cf",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "freeze": "v3/freeze.json",
+      "frozen_at": "2026-10-28T17:06:51.585023+00:00",
+      "files": [
+        {
+          "path": "PREREGISTRATION.md",
+          "expected_sha256": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+          "actual_sha256": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+          "matches": true
+        },
+        {
+          "path": "AMENDMENT-v2.md",
+          "expected_sha256": "f5955c5d5e6a95a0c9e43605643838ef77cd851d2b264ee217b02f906a9574f9",
+          "actual_sha256": "f5955c5d5e6a95a0c9e43605643838ef77cd851d2b264ee217b02f906a9574f9",
+          "matches": true
+        },
+        {
+          "path": "AMENDMENT-v3.md",
+          "expected_sha256": "d9ba6785124311f70caf1bbd545c58846fa338a7df31d039ca3675d3a90c8ab6",
+          "actual_sha256": "d9ba6785124311f70caf1bbd545c58846fa338a7df31d039ca3675d3a90c8ab6",
+          "matches": true
+        },
+        {
+          "path": "run_experiment_v3.py",
+          "expected_sha256": "6abdd538a825f8a72dc106e197dbd2204f7e45fcd1c799183999f71867087ad6",
+          "actual_sha256": "6abdd538a825f8a72dc106e197dbd2204f7e45fcd1c799183999f71867087ad6",
+          "matches": true
+        },
+        {
+          "path": "fixture-plugin-v2.mjs",
+          "expected_sha256": "e1cb52be15dc939eaf6be09437263af2e5c9e6440232e9b92a9a7b92be061887",
+          "actual_sha256": "e1cb52be15dc939eaf6be09437263af2e5c9e6440232e9b92a9a7b92be061887",
+          "matches": true
+        },
+        {
+          "path": "capture-preload.mjs",
+          "expected_sha256": "9767195dabdc4a5919b952e42df913650dae5181c002b73c6c6bd7f2911661cf",
+          "actual_sha256": "9767195dabdc4a5919b952e42df913650dae5181c002b73c6c6bd7f2911661cf",
+          "matches": true
+        },
+        {
+          "path": "runtime_preflight.py",
+          "expected_sha256": "deecc8fa37d981ede29a87d12c19c2c06a240e2d7f46b7de336e64cd12e19a51",
+          "actual_sha256": "deecc8fa37d981ede29a87d12c19c2c06a240e2d7f46b7de336e64cd12e19a51",
+          "matches": true
+        },
+        {
+          "path": "runtime-preflight-preload.mjs",
+          "expected_sha256": "ee317ade1f6657858482103670b909936c66e9c5531e5fb7c134459f6f6489b7",
+          "actual_sha256": "ee317ade1f6657858482103670b909936c66e9c5531e5fb7c134459f6f6489b7",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "freeze": "v4/freeze.json",
+      "frozen_at": "2026-10-28T17:09:51.809643+00:00",
+      "files": [
+        {
+          "path": "PREREGISTRATION.md",
+          "expected_sha256": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+          "actual_sha256": "1d0fe56219c06d760901d528829e098312d06dff2a227ff38d55674ba185a052",
+          "matches": true
+        },
+        {
+          "path": "AMENDMENT-v2.md",
+          "expected_sha256": "f5955c5d5e6a95a0c9e43605643838ef77cd851d2b264ee217b02f906a9574f9",
+          "actual_sha256": "f5955c5d5e6a95a0c9e43605643838ef77cd851d2b264ee217b02f906a9574f9",
+          "matches": true
+        },
+        {
+          "path": "AMENDMENT-v3.md",
+          "expected_sha256": "d9ba6785124311f70caf1bbd545c58846fa338a7df31d039ca3675d3a90c8ab6",
+          "actual_sha256": "d9ba6785124311f70caf1bbd545c58846fa338a7df31d039ca3675d3a90c8ab6",
+          "matches": true
+        },
+        {
+          "path": "AMENDMENT-v4.md",
+          "expected_sha256": "dddaf824b5462c86084224431875deaf466e439dcb9b13cebbe953d4ca9c5fce",
+          "actual_sha256": "dddaf824b5462c86084224431875deaf466e439dcb9b13cebbe953d4ca9c5fce",
+          "matches": true
+        },
+        {
+          "path": "run_experiment_v4.py",
+          "expected_sha256": "ace0f4b870f699436f8b48f47a364ac64ffad33861ff37f29122fed320b29608",
+          "actual_sha256": "ace0f4b870f699436f8b48f47a364ac64ffad33861ff37f29122fed320b29608",
+          "matches": true
+        },
+        {
+          "path": "fixture-plugin-v2.mjs",
+          "expected_sha256": "e1cb52be15dc939eaf6be09437263af2e5c9e6440232e9b92a9a7b92be061887",
+          "actual_sha256": "e1cb52be15dc939eaf6be09437263af2e5c9e6440232e9b92a9a7b92be061887",
+          "matches": true
+        },
+        {
+          "path": "capture-preload-v4.mjs",
+          "expected_sha256": "6e774d8d3e5ffec09919e6ca0fbf60e8e2071959f7f237706024a92844a6bbfd",
+          "actual_sha256": "6e774d8d3e5ffec09919e6ca0fbf60e8e2071959f7f237706024a92844a6bbfd",
+          "matches": true
+        },
+        {
+          "path": "runtime_preflight.py",
+          "expected_sha256": "deecc8fa37d981ede29a87d12c19c2c06a240e2d7f46b7de336e64cd12e19a51",
+          "actual_sha256": "deecc8fa37d981ede29a87d12c19c2c06a240e2d7f46b7de336e64cd12e19a51",
+          "matches": true
+        },
+        {
+          "path": "runtime-preflight-preload.mjs",
+          "expected_sha256": "ee317ade1f6657858482103670b909936c66e9c5531e5fb7c134459f6f6489b7",
+          "actual_sha256": "ee317ade1f6657858482103670b909936c66e9c5531e5fb7c134459f6f6489b7",
+          "matches": true
+        }
+      ]
+    }
+  ]
+}

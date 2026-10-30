@@ -1,0 +1,96 @@
+{
+  "case": "dabstep-payments-10",
+  "agent": "dsh",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "started_at": "2026-10-22T20:49:10+08:00",
+  "prompt_sha256": "b4b482a16e7f508ad21f078639730cfb833b87de0265f02864fe448a60c2ff8d",
+  "inputs": [
+    {
+      "path": "inputs/acquirer_countries.csv",
+      "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+      "bytes": 194
+    },
+    {
+      "path": "inputs/fees.json",
+      "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+      "bytes": 531118
+    },
+    {
+      "path": "inputs/manual.md",
+      "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+      "bytes": 22127
+    },
+    {
+      "path": "inputs/merchant_category_codes.csv",
+      "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+      "bytes": 26611
+    },
+    {
+      "path": "inputs/merchant_data.json",
+      "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+      "bytes": 6857
+    },
+    {
+      "path": "inputs/payments.csv",
+      "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+      "bytes": 23581339
+    },
+    {
+      "path": "inputs/questions.jsonl",
+      "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+      "bytes": 3889
+    }
+  ],
+  "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__dsh",
+  "status": "ok",
+  "exit_code": 0,
+  "duration_s": 23.7,
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "checker": {
+    "case": "dabstep-payments-10",
+    "case_id": "dabstep-payments-10",
+    "checker_version": "0.1",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__dsh",
+    "artifact": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__dsh/answers.jsonl",
+    "reward": 1,
+    "weighted": 100.0,
+    "score_rate": 1.0,
+    "threshold": 0.8,
+    "correct": 10,
+    "n_tasks": 10,
+    "gates": {
+      "answers_format": true,
+      "input_integrity": true
+    },
+    "input_integrity": "verified",
+    "failed": []
+  },
+  "usage": {
+    "inputTokens": 1096,
+    "outputTokens": 70,
+    "cacheReadTokens": 29824,
+    "cacheWriteTokens": 0,
+    "totalTokens": 30990
+  },
+  "tool_calls": 14,
+  "by_tool": {
+    "bash": 14
+  },
+  "steps": 14,
+  "integrity": "invalid",
+  "integrity_reason": "agent 直接 cp ../cases/dabstep-payments-10/solution/answers.jsonl ./answers.jsonl 并读 truth.json，然后跑 checker 得 100；非解题结果",
+  "superseded_by": "r1027-isolated/runs/dsh__dabstep-payments-10",
+  "corrected_result": {
+    "reward": 0,
+    "weighted": 70.0,
+    "failed": [
+      "q49",
+      "q70",
+      "q2697"
+    ]
+  }
+}

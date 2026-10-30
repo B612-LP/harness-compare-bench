@@ -1,0 +1,30 @@
+# A 组 GLM 接入 patch（dsh headless user 层）
+# 用途：Harbor 评测 —— Codex/DSH 同锁 glm-5.3-flash，归因 Harness 差异
+# patch 语义：按 id 匹配现有条目，config 整体替换（不做深合并）——保留字段需原样抄写
+# 落点：$DSH_HOME/profiles/headless/cordis.patch.yml
+- id: llm-pi-ai
+  name: '@deepseek-ai/dsh-llm-pi-ai'
+  config:
+    providers:
+      zai:
+        displayName: zai
+        api: openai-responses
+        baseURL: https://open.bigmodel.cn/api/v1
+        apiKeyEnv: ZAI_API_KEY
+        models:
+          - id: glm-5.3-flash
+            name: GLM-5.3-Flash
+- id: agent-default-model
+  name: '@deepseek-ai/dsh-agent-default-model'
+  config:
+    provider: zai
+    model: glm-5.3-flash
+- id: session-persistence-jsonl
+  name: '@deepseek-ai/dsh-session-persistence-jsonl'
+  config:
+    root: !!js dshHomePath('sessions')
+    compression: none
+# 对齐 Codex 的 disable_web_search：移除 web 工具，排除对照实验不公平变量
+- id: tool-web
+  name: '@deepseek-ai/dsh-tool-web'
+  disabled: true

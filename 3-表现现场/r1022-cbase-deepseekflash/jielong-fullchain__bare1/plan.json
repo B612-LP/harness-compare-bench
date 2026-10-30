@@ -1,0 +1,430 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import os
+import re
+import json
+import shutil
+import unicodedata
+from datetime import datetime
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ENV_DIR = os.path.join(BASE_DIR, "environment")
+OUT_DIR = os.path.join(BASE_DIR, "output")
+os.makedirs(OUT_DIR, exist_ok=True)
+
+
+def read_text(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+def load_json(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+EMOJI_RANGES = (
+    (0x1F600, 0x1F64F), (0x1F300, 0x1F5FF), (0x1F680, 0x1F6FF),
+    (0x1F1E0, 0x1F1FF), (0x2600, 0x26FF), (0x2700, 0x27BF),
+    (0x1F900, 0x1F9FF), (0x1FA70, 0x1FAFF), (0x1F000, 0x1F02F),
+    (0x1F0A0, 0x1F0FF), (0x1F100, 0x1F1FF), (0x1F200, 0x1F2FF),
+    (0x1F300, 0x1F5FF), (0x1F600, 0x1F64F), (0x1F680, 0x1F6FF),
+    (0x1F700, 0x1F77F), (0x1F780, 0x1F7FF), (0x1F800, 0x1F8FF),
+    (0x1F900, 0x1F9FF), (0x1FA00, 0x1FA6F), (0x1FA70, 0x1FAFF),
+    (0xFE00, 0xFE0F), (0x200D, 0x200D), (0x20E3, 0x20E3),
+    (0x1F3FB, 0x1F3FF), (0x1F9B0, 0x1F9B3),
+)
+
+
+def is_emoji_char(ch):
+    cp = ord(ch)
+    if ch in ("\u200d", "\ufe0f"):
+        return True
+    for a, b in EMOJI_RANGES:
+        if a <= cp <= b:
+            return True
+    return False
+
+
+def strip_edge_emoji(s):
+    start, end = 0, len(s)
+    while start < end and is_emoji_char(s[start]):
+        start += 1
+    while end > start and is_emoji_char(s[end - 1]):
+        end -= 1
+    return s[start:end]
+
+
+def normalize_match(s):
+    if s is None:
+        return ""
+    s = strip_edge_emoji(s)
+    s = unicodedata.normalize("NFKC", s)
+    return s.strip()
+
+
+def parse_seq_lines(text):
+    lines = text.splitlines()
+    entries = []
+    for line in lines:
+        line = line.rstrip("\r\n")
+
+        # 排除 M.D 日期行，如 4.18、5.20 等
+        if re.match(r"^\s*\d{1,2}\.\d{1,2}(?:\s|$)", line):
+            continue
+
+        m = re.match(r"^\s*(\d+)\s*[.、)）]\s*(.*)$", line)
+        if not m:
+            continue
+        seq = int(m.group(1))
+        raw = m.group(2)
+        entries.append({"seq": seq, "raw": raw})
+    return entries
+
+
+def extract_nickname(raw):
+    s = raw
+    # 去掉行尾到达时刻
+    s = re.sub(r"\s*\d{1,2}:\d{2}\s*$", "", s)
+    # 去掉场次限定语
+    s = re.sub(r"(?:只|only)?\s*第\s*[12１２一二]\s*场", "", s, flags=re.IGNORECASE)
+    return s.strip()
+
+
+def parse_arrival_time(raw):
+    m = re.search(r"(\d{1,2}):(\d{2})\s*$", raw)
+    if not m:
+        return None
+    h, mi = int(m.group(1)), int(m.group(2))
+    if h < 12:
+        h += 12
+    return h, mi
+
+
+def time_to_slot(h, mi):
+    total = h * 60 + mi
+    # 19:00–20:10 -> 19:00；20:20–21:30 -> 20:20
+    # 对边界/空档做兜底：<=20:10 归第一场，否则第二场
+    if total <= 20 * 60 + 10:
+        return "19:00"
+    return "20:20"
+
+
+def parse_slots(raw):
+    explicit = None
+    m = re.search(r"(?:只|only)?\s*第\s*([12１２一二])\s*场", raw, flags=re.IGNORECASE)
+    if m:
+        n = m.group(1)
+        if n in ("1", "１", "一"):
+            explicit = ["19:00"]
+        elif n in ("2", "２", "二"):
+            explicit = ["20:20"]
+
+    arrival = parse_arrival_time(raw)
+    if arrival is not None:
+        h, mi = arrival
+        slot = time_to_slot(h, mi)
+        return [slot], f"{h:02d}:{mi:02d}"
+
+    if explicit is not None:
+        return explicit, None
+
+    return ["19:00", "20:20"], None
+
+
+def build_resolution(jielong_text, peers_data):
+    self_id = peers_data.get("self_id")
+    peers = peers_data.get("peers", [])
+
+    peer_candidates = []
+    for p in peers:
+        cands = []
+        if "name" in p:
+            cands.append(p["name"])
+        for a in p.get("aliases", []):
+            cands.append(a)
+        peer_candidates.append({
+            "id": p["id"],
+            "cands": cands,
+            "norm_cands": [normalize_match(c) for c in cands],
+        })
+
+    entries = parse_seq_lines(jielong_text)
+    resolution = []
+
+    for e in entries:
+        seq = e["seq"]
+        raw = e["raw"]
+        nickname = extract_nickname(raw)
+        slots, time_str = parse_slots(raw)
+
+        is_friend = "朋友" in nickname
+        matched_ids = set()
+
+        if not is_friend:
+            nick_norm = normalize_match(nickname)
+            for pc in peer_candidates:
+                hit = False
+                for cand, cand_norm in zip(pc["cands"], pc["norm_cands"]):
+                    if cand == nickname or cand_norm == nick_norm:
+                        hit = True
+                        break
+                if hit:
+                    matched_ids.add(pc["id"])
+
+        status = None
+        sid = None
+        note_parts = []
+
+        if is_friend:
+            status = "unmatched"
+            sid = None
+            note_parts.append("泛称（含“朋友”），不赋学号")
+        else:
+            if len(matched_ids) == 0:
+                status = "unmatched"
+                sid = None
+                note_parts.append("未匹配到学号")
+            elif len(matched_ids) == 1:
+                status = "matched"
+                sid = next(iter(matched_ids))
+            else:
+                status = "conflict"
+                sid = None
+                note_parts.append("命中多个候选学号: " + ", ".join(sorted(matched_ids)))
+
+        # 本人行处理
+        if status == "matched" and sid == self_id:
+            slots = []
+            note_parts.append("本人跳过")
+
+        if time_str:
+            note_parts.append(f"到达时刻 {time_str}")
+
+        note = "；".join(note_parts)
+
+        resolution.append({
+            "seq": seq,
+            "raw": raw,
+            "sid": sid,
+            "status": status,
+            "slots": sorted(set(slots)),
+            "note": note,
+        })
+
+    resolution.sort(key=lambda x: x["seq"])
+    return resolution
+
+
+def load_orders(orders_data):
+    if isinstance(orders_data, dict):
+        capacity = orders_data.get("capacity_per_order")
+        orders = orders_data.get("orders", [])
+    else:
+        capacity = None
+        orders = orders_data
+    return capacity, orders
+
+
+def order_slot(order):
+    st = str(order.get("startTime", ""))
+    m = re.search(r"(\d{1,2}):(\d{2})", st)
+    if not m:
+        return None
+    h, mi = int(m.group(1)), int(m.group(2))
+    if h < 12:
+        h += 12
+    total = h * 60 + mi
+    if total <= 20 * 60 + 10:
+        return "19:00"
+    return "20:20"
+
+
+def dedupe_preserve(lst):
+    seen = set()
+    out = []
+    for x in lst:
+        if x not in seen:
+            seen.add(x)
+            out.append(x)
+    return out
+
+
+def build_plan(resolution, orders_data):
+    capacity, orders = load_orders(orders_data)
+    if capacity is None:
+        raise ValueError("capacity_per_order missing")
+
+    plan_map = {}
+    for o in orders:
+        plan_map[o["orderNo"]] = {
+            "orderNo": o["orderNo"],
+            "add": [],
+            "skip": [],
+            "reject": [],
+            "reason": "",
+        }
+
+    slots = ["19:00", "20:20"]
+    for slot in slots:
+        slot_orders = [o for o in orders if order_slot(o) == slot]
+        if not slot_orders:
+            continue
+
+        candidates = [
+            r for r in resolution
+            if r["status"] == "matched"
+            and r["sid"] is not None
+            and slot in r["slots"]
+        ]
+        candidates.sort(key=lambda x: x["seq"])
+
+        # 同场次按 sid 幂等，保留首次出现
+        seen_sids = set()
+        unique_candidates = []
+        for c in candidates:
+            if c["sid"] not in seen_sids:
+                unique_candidates.append(c)
+                seen_sids.add(c["sid"])
+
+        candidate_sids = set(c["sid"] for c in unique_candidates)
+
+        # 先处理已在单内现有同伴中的人
+        existing_sids = set()
+        for o in slot_orders:
+            for sid in o.get("peers", []):
+                existing_sids.add(sid)
+                if sid in candidate_sids:
+                    if sid not in plan_map[o["orderNo"]]["skip"]:
+                        plan_map[o["orderNo"]]["skip"].append(sid)
+
+        remaining = [
+            c for c in unique_candidates
+            if c["sid"] not in existing_sids
+        ]
+
+        # 按订单顺序填充包场单
+        for o in slot_orders:
+            if int(o.get("blockType", 0)) != 2:
+                continue
+
+            cap = capacity - len(o.get("peers", []))
+            if cap <= 0:
+                continue
+
+            take = remaining[:cap]
+            for c in take:
+                plan_map[o["orderNo"]]["add"].append(c["sid"])
+            remaining = remaining[len(take):]
+
+            if not remaining:
+                break
+
+        # 溢出处理
+        if remaining:
+            target = slot_orders[-1]
+            has_block = any(int(o.get("blockType", 0)) == 2 for o in slot_orders)
+            if has_block:
+                cause = "该场次包场单已全部满员，无法加入"
+            else:
+                cause = "该场次仅有散场单（blockType≠2），不可加同伴"
+
+            for c in remaining:
+                plan_map[target["orderNo"]]["reject"].append(c["sid"])
+
+            plan_map[target["orderNo"]]["_reject_cause"] = cause
+
+    plan = []
+    for o in orders:
+        orderNo = o["orderNo"]
+        p = plan_map[orderNo]
+
+        add = dedupe_preserve(p["add"])
+        skip = dedupe_preserve(p["skip"])
+        reject = dedupe_preserve(p["reject"])
+
+        bt = int(o.get("blockType", 0))
+        peers_len = len(o.get("peers", []))
+
+        if bt == 2:
+            reason = (
+                f"包场单（容量{capacity}，现有{peers_len}人）："
+                f"新增{len(add)}人，跳过{len(skip)}人，拒绝{len(reject)}人。"
+            )
+            if reject:
+                cause = p.get("_reject_cause", "包场单已满")
+                reason += f"拒绝原因：{cause}。"
+        else:
+            reason = (
+                f"散场单不可加同伴：新增0人，"
+                f"跳过{len(skip)}人，拒绝{len(reject)}人。"
+            )
+            if reject:
+                cause = p.get("_reject_cause", "散场单不可加同伴")
+                reason += f"拒绝原因：{cause}。"
+
+        plan.append({
+            "orderNo": orderNo,
+            "add": add,
+            "skip": skip,
+            "reject": reject,
+            "reason": reason,
+        })
+
+    return plan
+
+
+def main():
+    jielong_path = os.path.join(ENV_DIR, "jielong.txt")
+    peers_path = os.path.join(ENV_DIR, "peers.json")
+    orders_path = os.path.join(ENV_DIR, "orders.json")
+
+    jielong_text = read_text(jielong_path)
+    peers_data = load_json(peers_path)
+    orders_data = load_json(orders_path)
+
+    resolution = build_resolution(jielong_text, peers_data)
+    plan = build_plan(resolution, orders_data)
+
+    with open(os.path.join(OUT_DIR, "resolution.json"), "w", encoding="utf-8") as f:
+        json.dump(resolution, f, ensure_ascii=False, indent=2)
+
+    with open(os.path.join(OUT_DIR, "plan.json"), "w", encoding="utf-8") as f:
+        json.dump(plan, f, ensure_ascii=False, indent=2)
+
+    for fn in ["jielong.txt", "peers.json", "orders.json"]:
+        shutil.copy2(os.path.join(ENV_DIR, fn), os.path.join(OUT_DIR, fn))
+
+    meta = {
+        "product": "WeChat Jielong Parser",
+        "version": "1.0",
+        "operator": "AI",
+        "date": datetime.now().strftime("%Y-%m-%d"),
+    }
+    with open(os.path.join(OUT_DIR, "meta.json"), "w", encoding="utf-8") as f:
+        json.dump(meta, f, ensure_ascii=False, indent=2)
+
+    matched = sum(1 for r in resolution if r["status"] == "matched")
+    unmatched = sum(1 for r in resolution if r["status"] == "unmatched")
+    conflict = sum(1 for r in resolution if r["status"] == "conflict")
+    total_add = sum(len(p["add"]) for p in plan)
+    total_skip = sum(len(p["skip"]) for p in plan)
+    total_reject = sum(len(p["reject"]) for p in plan)
+
+    print(f"产物位置：{OUT_DIR}")
+    print(f"解析概览：matched={matched}，unmatched={unmatched}，conflict={conflict}")
+    print(f"分单合计：add={total_add}，skip={total_skip}，reject={total_reject}")
+
+    print("\nunmatched / conflict 去向：")
+    for r in resolution:
+        if r["status"] in ("unmatched", "conflict"):
+            print(f"  seq {r['seq']}: {r['raw']} -> {r['status']}, sid={r['sid']}, note={r['note']}")
+
+    print("\nreject 去向：")
+    for p in plan:
+        if p["reject"]:
+            print(f"  order {p['orderNo']} reject={p['reject']}；原因：{p['reason']}")
+
+
+if __name__ == "__main__":
+    main()

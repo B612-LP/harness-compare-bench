@@ -1,0 +1,56 @@
+{
+  "case": "bird-schools15",
+  "agent": "dsh",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "started_at": "2026-10-22T20:06:37+08:00",
+  "prompt_sha256": "d3138924cfa48b36a2f311d36ab33a19ebad5bc31ff9a90c9c84d034af693470",
+  "inputs": [
+    {
+      "path": "inputs/db/california_schools.sqlite",
+      "sha256": "b8f874efb9887b76505c2d039aac6b28934042c23bd5d517f4a270cf973a6ff5",
+      "bytes": 11116544
+    },
+    {
+      "path": "inputs/questions.json",
+      "sha256": "62266f20732df5e442c6548bf8d5488970bda80e18f70a2c672f0eb595366268",
+      "bytes": 5497
+    },
+    {
+      "path": "inputs/sample_rows.json",
+      "sha256": "943173439c8bd905178e5c8bb0dee5efe7618f7277df097752f0f044580d3d9f",
+      "bytes": 7975
+    },
+    {
+      "path": "inputs/schema.sql",
+      "sha256": "f784f363d8810f68f3473e008aa84239605a3909e82105be400a6498362a2897",
+      "bytes": 3940
+    }
+  ],
+  "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/bird-schools15__dsh",
+  "status": "ok",
+  "exit_code": 0,
+  "duration_s": 26.0,
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "checker": {
+    "case": "bird-schools15",
+    "reward": 1,
+    "weighted": 100.0,
+    "accuracy": 1.0,
+    "threshold": 0.8
+  },
+  "usage": {
+    "inputTokens": 2018,
+    "outputTokens": 3,
+    "cacheReadTokens": 36864,
+    "cacheWriteTokens": 0,
+    "totalTokens": 38885
+  },
+  "tool_calls": 11,
+  "by_tool": {
+    "bash": 11
+  },
+  "steps": 11
+}

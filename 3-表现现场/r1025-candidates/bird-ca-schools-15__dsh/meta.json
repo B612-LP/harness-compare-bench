@@ -1,0 +1,69 @@
+{
+  "case": "bird-ca-schools-15",
+  "agent": "dsh",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "started_at": "2026-10-22T20:53:52+08:00",
+  "prompt_sha256": "8bcae898adf5de10147f271069502ad2e248b0d8d1e926aaa04302eb6fbb8867",
+  "inputs": [
+    {
+      "path": "inputs/db/california_schools.sqlite",
+      "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+      "bytes": 11116544
+    },
+    {
+      "path": "inputs/questions.json",
+      "sha256": "0cbe99d6419d809f1d6030ec486c340fdf2a709c7854bfbfcd712b587cbe1aa8",
+      "bytes": 15547
+    },
+    {
+      "path": "inputs/sample_rows.json",
+      "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+      "bytes": 7739
+    },
+    {
+      "path": "inputs/schema.sql",
+      "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+      "bytes": 3993
+    }
+  ],
+  "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__dsh",
+  "status": "ok",
+  "exit_code": 0,
+  "duration_s": 128.5,
+  "reward": 1,
+  "weighted": 86.67,
+  "failed": [
+    "q26",
+    "q27"
+  ],
+  "checker": {
+    "case": "bird-ca-schools-15",
+    "checker_version": "1.0",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__dsh",
+    "reward": 1,
+    "weighted": 86.67,
+    "accuracy": 0.8667,
+    "correct": 13,
+    "n_questions": 15,
+    "threshold": 0.8,
+    "input_integrity": "verified",
+    "failed_questions": [
+      "26",
+      "27"
+    ]
+  },
+  "usage": {
+    "inputTokens": 381,
+    "outputTokens": 75,
+    "cacheReadTokens": 49280,
+    "cacheWriteTokens": 0,
+    "totalTokens": 49736
+  },
+  "tool_calls": 35,
+  "by_tool": {
+    "bash": 35
+  },
+  "steps": 35
+}

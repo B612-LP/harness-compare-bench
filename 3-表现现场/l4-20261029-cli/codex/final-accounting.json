@@ -1,0 +1,670 @@
+{
+  "kind": "product_run_batch_final_accounting",
+  "batch": "l4-20261029-cli-codex",
+  "at": "2026-10-30T00:01:38+08:00",
+  "live_doc_drift": [],
+  "rule_version": "l4-20261029-batch-v1",
+  "design_commit_D": "bb14897a7d1ac26c06697bb80a15d94158cd8ae0",
+  "execution_seal_commit_ref": "runtime-binding.json（canonical，lead 持有完整值）",
+  "counts": {
+    "planned": 6,
+    "executed": 6,
+    "partial": 0,
+    "not_executed": 0,
+    "whole_execution_restarts": 0,
+    "extra_http_or_calls": 0
+  },
+  "rows": [
+    {
+      "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r1",
+      "case": "dabstep-payments-10",
+      "rep": 1,
+      "order": 1,
+      "status": "ok",
+      "exit_code": 0,
+      "duration_s": 322.2,
+      "earned": 7,
+      "possible": 10,
+      "reported_8dp": 70.0,
+      "denominator": 10,
+      "integrity_verdict": "clean",
+      "integrity_hits": [],
+      "termination": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "verified_stop": true,
+        "signal": null
+      },
+      "attempts0": {
+        "n": 1,
+        "started_at": "2026-10-29T23:27:39+08:00",
+        "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r1",
+        "pid": 67286,
+        "pgid": 67286,
+        "duration_s": 322.2,
+        "exit_code": 0,
+        "outcome": "ok"
+      },
+      "runner_formal_eligible": true,
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "started_at": "2026-10-29T23:27:39+08:00"
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+      "case": "tb-cargo-plan",
+      "rep": 1,
+      "order": 2,
+      "status": "ok",
+      "exit_code": 0,
+      "duration_s": 229.2,
+      "earned": 19,
+      "possible": 27,
+      "reported_8dp": 70.37037037,
+      "denominator": 27,
+      "integrity_verdict": "violation",
+      "integrity_hits": [
+        {
+          "file": "agent-session/rollout-2026-10-29T23-34-05-01a1884c-01cf-7771-819c-9fb62d55f8aa.jsonl",
+          "line": 37,
+          "pattern": "harness-compare-bench",
+          "excerpt": "{\"timestamp\": \"2026-10-29T15:34:12.460Z\", \"ordinal\": 36, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a1884c-01cf-7771-819c-9fb62d55f8aa\", \"turn_id\": \"01a1884c-0200-7e31-bc74-73731b2f45dc\", \"item\": {\"type\": \"CommandExecution\", \"id\": \"call_02_NVNYZcY2MoZoeXhsJSm14555\", \""
+        },
+        {
+          "file": "agent-session/rollout-2026-10-29T23-34-05-01a1884c-01cf-7771-819c-9fb62d55f8aa.jsonl",
+          "line": 38,
+          "pattern": "harness-compare-bench",
+          "excerpt": "{\"timestamp\": \"2026-10-29T15:34:12.461Z\", \"ordinal\": 37, \"type\": \"response_item\", \"payload\": {\"type\": \"function_call_output\", \"id\": \"fco_01a1884c-1eed-7183-bcef-b8c9db129f30\", \"call_id\": \"call_02_NVNYZcY2MoZoeXhsJSm14555\", \"output\": \"Chunk ID: 78a42e\\nWall time: 0.0000 seconds\\nProcess exited with c"
+        },
+        {
+          "file": "agent.jsonl",
+          "line": 17,
+          "pattern": "harness-compare-bench",
+          "excerpt": "{\"type\": \"item.completed\", \"item\": {\"id\": \"item_8\", \"type\": \"command_execution\", \"command\": \"/bin/zsh -c \\\"cat TASK.md && printf '\\\\\\\\n-- meta --\\\\\\\\n' && cat meta.json\\\"\", \"aggregated_output\": \"# 本场任务：tb-cargo-plan（Codex CLI）\\n\\n**你的工作目录（绝对路径）：`/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/"
+        }
+      ],
+      "termination": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "verified_stop": true,
+        "signal": null
+      },
+      "attempts0": {
+        "n": 1,
+        "started_at": "2026-10-29T23:34:04+08:00",
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+        "pid": 94044,
+        "pgid": 94044,
+        "duration_s": 229.2,
+        "exit_code": 0,
+        "outcome": "ok"
+      },
+      "runner_formal_eligible": true,
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "started_at": "2026-10-29T23:34:04+08:00"
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r2",
+      "case": "tb-cargo-plan",
+      "rep": 2,
+      "order": 3,
+      "status": "ok",
+      "exit_code": 0,
+      "duration_s": 268.7,
+      "earned": 19,
+      "possible": 27,
+      "reported_8dp": 70.37037037,
+      "denominator": 27,
+      "integrity_verdict": "violation",
+      "integrity_hits": [
+        {
+          "file": "agent-session/rollout-2026-10-29T23-38-28-01a18850-0546-7d22-aec8-49610485ce76.jsonl",
+          "line": 159,
+          "pattern": "reference/",
+          "excerpt": "{\"timestamp\": \"2026-10-29T15:42:19.983Z\", \"ordinal\": 158, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a18850-0546-7d22-aec8-49610485ce76\", \"turn_id\": \"01a18850-056c-7013-b80e-c15444116d4f\", \"item\": {\"type\": \"Reasoning\", \"id\": \"1f550782-5f71-4732-b0d6-2234898d1665\", \"su"
+        },
+        {
+          "file": "agent-session/rollout-2026-10-29T23-38-28-01a18850-0546-7d22-aec8-49610485ce76.jsonl",
+          "line": 160,
+          "pattern": "reference/",
+          "excerpt": "{\"timestamp\": \"2026-10-29T15:42:19.985Z\", \"ordinal\": 159, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"1f550782-5f71-4732-b0d6-2234898d1665\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"Interesting find maxdepth didn't show pycache because earlier rm from rejec"
+        }
+      ],
+      "termination": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "verified_stop": true,
+        "signal": null
+      },
+      "attempts0": {
+        "n": 1,
+        "started_at": "2026-10-29T23:38:27+08:00",
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r2",
+        "pid": 12807,
+        "pgid": 12807,
+        "duration_s": 268.7,
+        "exit_code": 0,
+        "outcome": "ok"
+      },
+      "runner_formal_eligible": true,
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "started_at": "2026-10-29T23:38:27+08:00"
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r2",
+      "case": "dabstep-payments-10",
+      "rep": 2,
+      "order": 4,
+      "status": "ok",
+      "exit_code": 0,
+      "duration_s": 388.5,
+      "earned": 7,
+      "possible": 10,
+      "reported_8dp": 70.0,
+      "denominator": 10,
+      "integrity_verdict": "violation",
+      "integrity_hits": [
+        {
+          "file": "agent-session/rollout-2026-10-29T23-43-15-01a18854-66d6-7302-bd37-218e0627ca5b.jsonl",
+          "line": 249,
+          "pattern": "../",
+          "excerpt": "{\"timestamp\": \"2026-10-29T15:48:16.128Z\", \"ordinal\": 248, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a18854-66d6-7302-bd37-218e0627ca5b\", \"turn_id\": \"01a18854-66fc-7e52-96c4-647ab288d039\", \"item\": {\"type\": \"Reasoning\", \"id\": \"8a5f20d0-9d12-4692-ba94-339783ac0918\", \"su"
+        },
+        {
+          "file": "agent-session/rollout-2026-10-29T23-43-15-01a18854-66d6-7302-bd37-218e0627ca5b.jsonl",
+          "line": 250,
+          "pattern": "../",
+          "excerpt": "{\"timestamp\": \"2026-10-29T15:48:16.130Z\", \"ordinal\": 249, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"8a5f20d0-9d12-4692-ba94-339783ac0918\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"Need validate JSON 10 lines, task IDs, answer strings, formats. Also maybe "
+        }
+      ],
+      "termination": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "verified_stop": true,
+        "signal": null
+      },
+      "attempts0": {
+        "n": 1,
+        "started_at": "2026-10-29T23:43:15+08:00",
+        "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r2",
+        "pid": 36796,
+        "pgid": 36796,
+        "duration_s": 388.5,
+        "exit_code": 0,
+        "outcome": "ok"
+      },
+      "runner_formal_eligible": true,
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "started_at": "2026-10-29T23:43:15+08:00"
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r3",
+      "case": "dabstep-payments-10",
+      "rep": 3,
+      "order": 5,
+      "status": "ok",
+      "exit_code": 0,
+      "duration_s": 240.9,
+      "earned": 7,
+      "possible": 10,
+      "reported_8dp": 70.0,
+      "denominator": 10,
+      "integrity_verdict": "clean",
+      "integrity_hits": [],
+      "termination": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "verified_stop": true,
+        "signal": null
+      },
+      "attempts0": {
+        "n": 1,
+        "started_at": "2026-10-29T23:49:49+08:00",
+        "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r3",
+        "pid": 70362,
+        "pgid": 70362,
+        "duration_s": 240.9,
+        "exit_code": 0,
+        "outcome": "ok"
+      },
+      "runner_formal_eligible": true,
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "started_at": "2026-10-29T23:49:49+08:00"
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r3",
+      "case": "tb-cargo-plan",
+      "rep": 3,
+      "order": 6,
+      "status": "ok",
+      "exit_code": 0,
+      "duration_s": 169.9,
+      "earned": 19,
+      "possible": 27,
+      "reported_8dp": 70.37037037,
+      "denominator": 27,
+      "integrity_verdict": "violation",
+      "integrity_hits": [
+        {
+          "file": "agent-session/rollout-2026-10-29T23-53-56-01a1885e-2ecf-7ad0-860f-db7f7c18ee36.jsonl",
+          "line": 38,
+          "pattern": "harness-compare-bench",
+          "excerpt": "{\"timestamp\": \"2026-10-29T15:54:02.869Z\", \"ordinal\": 37, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a1885e-2ecf-7ad0-860f-db7f7c18ee36\", \"turn_id\": \"01a1885e-2eee-7d72-ba92-cd57e47dd045\", \"item\": {\"type\": \"CommandExecution\", \"id\": \"call_04_ZwYQC8GbWTSSedYh81qQ2440\", \""
+        },
+        {
+          "file": "agent-session/rollout-2026-10-29T23-53-56-01a1885e-2ecf-7ad0-860f-db7f7c18ee36.jsonl",
+          "line": 39,
+          "pattern": "harness-compare-bench",
+          "excerpt": "{\"timestamp\": \"2026-10-29T15:54:02.871Z\", \"ordinal\": 38, \"type\": \"response_item\", \"payload\": {\"type\": \"function_call_output\", \"id\": \"fco_01a1885e-48f7-7fa2-93c3-915700fe91cb\", \"call_id\": \"call_04_ZwYQC8GbWTSSedYh81qQ2440\", \"output\": \"Chunk ID: f24bd5\\nWall time: 0.0000 seconds\\nProcess exited with c"
+        },
+        {
+          "file": "agent.jsonl",
+          "line": 18,
+          "pattern": "harness-compare-bench",
+          "excerpt": "{\"type\": \"item.completed\", \"item\": {\"id\": \"item_8\", \"type\": \"command_execution\", \"command\": \"/bin/zsh -c \\\"cat TASK.md && printf '\\\\\\\\n===== meta.json =====\\\\\\\\n' && cat meta.json\\\"\", \"aggregated_output\": \"# 本场任务：tb-cargo-plan（Codex CLI）\\n\\n**你的工作目录（绝对路径）：`/Users/b612-lp/bench-workspaces/l4-20261029"
+        }
+      ],
+      "termination": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "verified_stop": true,
+        "signal": null
+      },
+      "attempts0": {
+        "n": 1,
+        "started_at": "2026-10-29T23:53:56+08:00",
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r3",
+        "pid": 92598,
+        "pgid": 92598,
+        "duration_s": 169.9,
+        "exit_code": 0,
+        "outcome": "ok"
+      },
+      "runner_formal_eligible": true,
+      "registered_at": "2026-10-29T23:13:56+08:00",
+      "started_at": "2026-10-29T23:53:56+08:00"
+    }
+  ],
+  "evidence_index": [
+    {
+      "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r1",
+      "evidence_dir": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r1",
+      "files": {
+        "prompt.txt": {
+          "sha256": "6e52780a344f5b5152d13dde44e38c2d03487d55899795e22a0654cd7b66f811",
+          "bytes": 4599
+        },
+        "agent.jsonl": {
+          "sha256": "e791b9d9da577de6fcff19d92b83d6565d65f8a748bed26cc87a4a2bf81df779",
+          "bytes": 380030
+        },
+        "agent.stderr.txt": {
+          "sha256": "3aeac8455f918680e828d12185e66bcf42d0e78eaab2809dbe7c1aeb38764cd2",
+          "bytes": 1115
+        },
+        "checker.stdout": {
+          "sha256": "a613bbf68ff18434e83384a952833e324e104f162510b2fd9aefaf1e61830cda",
+          "bytes": 8535
+        },
+        "score-receipt.json": {
+          "sha256": "16d9d7b094bd4d380278b32b0fef1371635f9cbc01a7557289a4c8c0e18d346b",
+          "bytes": 9623
+        },
+        "termination.json": {
+          "sha256": "b30408d0f0210bdd097eea72b1ae3f5765b35fc5909432bd5b4dac93b47bd161",
+          "bytes": 785
+        },
+        "session-capture.json": {
+          "sha256": "b1d290d49dff43fd51717832f0010fdbb44254fa092ff78a21f4048715b0a87c",
+          "bytes": 698
+        },
+        "claim.json": {
+          "sha256": "32843260a1c5f2c71a74f87bfb0e0990506925044b1bf384ae4084b1fb16b1e6",
+          "bytes": 525
+        },
+        "dual-archive.status.json": {
+          "sha256": "39e8763d8d50cf24108fd44d5d3b7de855a1d679ff9507370185165bc9672d32",
+          "bytes": 97
+        },
+        "meta.json": {
+          "sha256": "821c1a64acd5abf615630e08af552aa5ea1a1791049ad02b3de6bb26387bd9d5",
+          "bytes": 41154
+        }
+      },
+      "projections": {
+        "legacy": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r1/projections/legacy",
+        "current": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r1/projections/current"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+      "evidence_dir": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r1",
+      "files": {
+        "prompt.txt": {
+          "sha256": "aaa5b67687dc37c5f0c52d9ae89d73dee3cbdffbc0329c1da0d40a7772560ff3",
+          "bytes": 2963
+        },
+        "agent.jsonl": {
+          "sha256": "7ac64e7590a8388463276077e06ac22f19c50eb6d2485eb4a261572d3432bfb6",
+          "bytes": 119890
+        },
+        "agent.stderr.txt": {
+          "sha256": "e893303264a2ec8da1653f50526b5e43995ba7a7582abb518675e239f8752587",
+          "bytes": 1115
+        },
+        "checker.stdout": {
+          "sha256": "950d097942d22d9fa5140e4c65d2b9ed77ced37181bbc09a6d282e720922e18d",
+          "bytes": 3091
+        },
+        "score-receipt.json": {
+          "sha256": "8fcab0e173cfccac8bcb9f0f528f3bcdd742b38d51f3a1eaa74048472d4a4349",
+          "bytes": 3885
+        },
+        "termination.json": {
+          "sha256": "1ca5641483855833ab41daa3d565ca7474e7f92fe77c8b61fe862a1ebfa60d7d",
+          "bytes": 761
+        },
+        "session-capture.json": {
+          "sha256": "d98285c466ed80a39d1fc7e0f0c454bb3d3f08586f4e1c1152f850e7826a3d89",
+          "bytes": 935
+        },
+        "claim.json": {
+          "sha256": "5fb02ba880ed510fcacb4b0ce915fb9dd021ee915778d100e8354e5805e60e4e",
+          "bytes": 507
+        },
+        "dual-archive.status.json": {
+          "sha256": "39e8763d8d50cf24108fd44d5d3b7de855a1d679ff9507370185165bc9672d32",
+          "bytes": 97
+        },
+        "meta.json": {
+          "sha256": "97609d9615421d855defa6a1ca49245b1ca7908162bb4af187e055e61bc7168a",
+          "bytes": 26868
+        }
+      },
+      "projections": {
+        "legacy": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r1/projections/legacy",
+        "current": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r1/projections/current"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r2",
+      "evidence_dir": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r2",
+      "files": {
+        "prompt.txt": {
+          "sha256": "fcd9b39de78d423137944490288ed84104358a132cfa68742a4eff020460e072",
+          "bytes": 2963
+        },
+        "agent.jsonl": {
+          "sha256": "cb4b6371689456ba3382016138f583eb1ad603d3b8bb32abe3b55021beda1b5e",
+          "bytes": 90439
+        },
+        "agent.stderr.txt": {
+          "sha256": "9c9cad040be8727dac25db9c6be2f39df0919cef36010d663429f3068701e4ee",
+          "bytes": 1696
+        },
+        "checker.stdout": {
+          "sha256": "950d097942d22d9fa5140e4c65d2b9ed77ced37181bbc09a6d282e720922e18d",
+          "bytes": 3091
+        },
+        "score-receipt.json": {
+          "sha256": "aac26b34d31c8dc2a1b48524ff7ef04de561d177527521298be4dfe61e22f73f",
+          "bytes": 3885
+        },
+        "termination.json": {
+          "sha256": "e0ae3423927a236093113517245f1b16858efdccfbea279cfa25d3830ea7fcda",
+          "bytes": 761
+        },
+        "session-capture.json": {
+          "sha256": "2678faf5c0eccbda638b37aca837e060d0edceb80e168b4863ba34bdfe21ed06",
+          "bytes": 1176
+        },
+        "claim.json": {
+          "sha256": "e1917a805e5746cadb71382e3847dadc37522983f40a107e5f6b5b5ef7fd04e1",
+          "bytes": 507
+        },
+        "dual-archive.status.json": {
+          "sha256": "39e8763d8d50cf24108fd44d5d3b7de855a1d679ff9507370185165bc9672d32",
+          "bytes": 97
+        },
+        "meta.json": {
+          "sha256": "55f926f1604a1c11dfa6cd82e5072ddf3f47e9d0fb203d218088690e0f2a4612",
+          "bytes": 28190
+        }
+      },
+      "projections": {
+        "legacy": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r2/projections/legacy",
+        "current": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r2/projections/current"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r2",
+      "evidence_dir": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r2",
+      "files": {
+        "prompt.txt": {
+          "sha256": "5a70fdd2a2090d1a3057339301411a097590f966dfa848cfd804a37a1eda6808",
+          "bytes": 4599
+        },
+        "agent.jsonl": {
+          "sha256": "ea48ead3038266c76b019647e402236a27489917ba749f63aa86d21b8cc73307",
+          "bytes": 261202
+        },
+        "agent.stderr.txt": {
+          "sha256": "26e61d3c39f6a0f1434dee5b5664947481ca306630faea07fbb54c9bc62ca1e5",
+          "bytes": 1324
+        },
+        "checker.stdout": {
+          "sha256": "fce0872279eccbcf1be948961e1d5efe8b491146d3e7334fee4de8b2c9ca9bbc",
+          "bytes": 8522
+        },
+        "score-receipt.json": {
+          "sha256": "c68c1b13f7f499cf839f80dade4ef933111c961a1ec356e6cde4194c51414570",
+          "bytes": 9608
+        },
+        "termination.json": {
+          "sha256": "faef866ada725f71d5467dab3c70f49ffbc64d3cfb311d396574a0cede79def6",
+          "bytes": 785
+        },
+        "session-capture.json": {
+          "sha256": "1083230d41f3488bcd24c2d488495b647f3d16d1be2241c9984401ec62fc4edb",
+          "bytes": 1429
+        },
+        "claim.json": {
+          "sha256": "fc2ddd6b0b8aa5129ea2d84e58eee0905b8a58984cc94f4d11d5369cea00a3bc",
+          "bytes": 525
+        },
+        "dual-archive.status.json": {
+          "sha256": "39e8763d8d50cf24108fd44d5d3b7de855a1d679ff9507370185165bc9672d32",
+          "bytes": 97
+        },
+        "meta.json": {
+          "sha256": "187b55e34024c95710dd5611d69a8cd23522924e501d0ecf6474920d996ff314",
+          "bytes": 51499
+        }
+      },
+      "projections": {
+        "legacy": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r2/projections/legacy",
+        "current": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r2/projections/current"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r3",
+      "evidence_dir": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r3",
+      "files": {
+        "prompt.txt": {
+          "sha256": "fb80df98300eda94a1ce4f4fe136b6dac0a301461acd37d220e37b0bc1738ad5",
+          "bytes": 4599
+        },
+        "agent.jsonl": {
+          "sha256": "e6fe795329e6872fc31127ae6902b817a71f4d57f126456e4dd4461331165d50",
+          "bytes": 195546
+        },
+        "agent.stderr.txt": {
+          "sha256": "e61514fe71ca2b3598b378dc7159ce91f5069690dbbb30ad948d79996234fca1",
+          "bytes": 1115
+        },
+        "checker.stdout": {
+          "sha256": "f8c21197e2c5b4344ac9c3999b1b8ddcca29499943ba5cf2a06a88d81d74455c",
+          "bytes": 8523
+        },
+        "score-receipt.json": {
+          "sha256": "5dc485d23ad3b6c1bb91e86c75281ea5195a384590c50819a1f7644e82656a35",
+          "bytes": 9611
+        },
+        "termination.json": {
+          "sha256": "fa8f720407651327a392c2303fd3478c50195ec7ded842e3b6081434ef96f9d9",
+          "bytes": 785
+        },
+        "session-capture.json": {
+          "sha256": "f1c5644f000d624b0959412a071325c1b1431c443fc83780ceef7c4a3a60ab44",
+          "bytes": 1676
+        },
+        "claim.json": {
+          "sha256": "4e5f8783aba304113692d9f9269a078a08b01ccfaaf2c63dcfe8db465cefc3c9",
+          "bytes": 525
+        },
+        "dual-archive.status.json": {
+          "sha256": "39e8763d8d50cf24108fd44d5d3b7de855a1d679ff9507370185165bc9672d32",
+          "bytes": 97
+        },
+        "meta.json": {
+          "sha256": "69df984526ed52f7bef8728d7df87591302bbe18cb6cd783640683cc0169b888",
+          "bytes": 43897
+        }
+      },
+      "projections": {
+        "legacy": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r3/projections/legacy",
+        "current": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r3/projections/current"
+      }
+    },
+    {
+      "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r3",
+      "evidence_dir": "3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r3",
+      "files": {
+        "prompt.txt": {
+          "sha256": "c152160e8c1df0d6c7515e6c5f36f8d5ac6606ee22fd8a3d4b95d2daea44e561",
+          "bytes": 2963
+        },
+        "agent.jsonl": {
+          "sha256": "e0c280578e047e3c451a2241743584a9256b897368c7c2cae65c4beae424826e",
+          "bytes": 101826
+        },
+        "agent.stderr.txt": {
+          "sha256": "7677b752e405a894d7b013c034ab1181cd34b79b70a9340819eb46203a030409",
+          "bytes": 1787
+        },
+        "checker.stdout": {
+          "sha256": "950d097942d22d9fa5140e4c65d2b9ed77ced37181bbc09a6d282e720922e18d",
+          "bytes": 3091
+        },
+        "score-receipt.json": {
+          "sha256": "011aa0f73126042ba99f211d9bb4abe207c257b72e30c48678c51bf09dfc21af",
+          "bytes": 3885
+        },
+        "termination.json": {
+          "sha256": "e82d2efa630282415127b706c6278dad865edf384f442aff7dca9c8ae50f35fc",
+          "bytes": 761
+        },
+        "session-capture.json": {
+          "sha256": "bce740f131fdc1f51c2ebc0dff5f26b39024a0c42328e9a3ce9f201ed07cf69e",
+          "bytes": 1911
+        },
+        "claim.json": {
+          "sha256": "388bac3917d397b1a48118f0812d232f6604b4bf6ae2382e6c3a6dc15cf3fa1b",
+          "bytes": 507
+        },
+        "dual-archive.status.json": {
+          "sha256": "39e8763d8d50cf24108fd44d5d3b7de855a1d679ff9507370185165bc9672d32",
+          "bytes": 97
+        },
+        "meta.json": {
+          "sha256": "ed855fb387c016b19e2fccf0d9f60e6f4daa2a55767799bc8ecaf55fce4ce2c5",
+          "bytes": 27783
+        }
+      },
+      "projections": {
+        "legacy": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r3/projections/legacy",
+        "current": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-tb-cargo-plan-r3/projections/current"
+      }
+    }
+  ],
+  "lexical_hits": {
+    "total": 10,
+    "entries": [
+      {
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+        "file": "agent-session/rollout-2026-10-29T23-34-05-01a1884c-01cf-7771-819c-9fb62d55f8aa.jsonl",
+        "line": 37,
+        "pattern": "harness-compare-bench",
+        "excerpt": "{\"timestamp\": \"2026-10-29T15:34:12.460Z\", \"ordinal\": 36, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a1884c-01cf-7771-819c-9fb62d55f8aa\", \"turn_id\": \"01a1884c-0200-7e31-bc74-73731b2f45dc\", \"item\": {\"type\": \"CommandExecution\", \"id\": \"call_02_NVNYZcY2MoZoeXhsJSm14555\", \""
+      },
+      {
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+        "file": "agent-session/rollout-2026-10-29T23-34-05-01a1884c-01cf-7771-819c-9fb62d55f8aa.jsonl",
+        "line": 38,
+        "pattern": "harness-compare-bench",
+        "excerpt": "{\"timestamp\": \"2026-10-29T15:34:12.461Z\", \"ordinal\": 37, \"type\": \"response_item\", \"payload\": {\"type\": \"function_call_output\", \"id\": \"fco_01a1884c-1eed-7183-bcef-b8c9db129f30\", \"call_id\": \"call_02_NVNYZcY2MoZoeXhsJSm14555\", \"output\": \"Chunk ID: 78a42e\\nWall time: 0.0000 seconds\\nProcess exited with c"
+      },
+      {
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r1",
+        "file": "agent.jsonl",
+        "line": 17,
+        "pattern": "harness-compare-bench",
+        "excerpt": "{\"type\": \"item.completed\", \"item\": {\"id\": \"item_8\", \"type\": \"command_execution\", \"command\": \"/bin/zsh -c \\\"cat TASK.md && printf '\\\\\\\\n-- meta --\\\\\\\\n' && cat meta.json\\\"\", \"aggregated_output\": \"# 本场任务：tb-cargo-plan（Codex CLI）\\n\\n**你的工作目录（绝对路径）：`/Users/b612-lp/bench-workspaces/l4-20261029-cli/codex/"
+      },
+      {
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r2",
+        "file": "agent-session/rollout-2026-10-29T23-38-28-01a18850-0546-7d22-aec8-49610485ce76.jsonl",
+        "line": 159,
+        "pattern": "reference/",
+        "excerpt": "{\"timestamp\": \"2026-10-29T15:42:19.983Z\", \"ordinal\": 158, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a18850-0546-7d22-aec8-49610485ce76\", \"turn_id\": \"01a18850-056c-7013-b80e-c15444116d4f\", \"item\": {\"type\": \"Reasoning\", \"id\": \"1f550782-5f71-4732-b0d6-2234898d1665\", \"su"
+      },
+      {
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r2",
+        "file": "agent-session/rollout-2026-10-29T23-38-28-01a18850-0546-7d22-aec8-49610485ce76.jsonl",
+        "line": 160,
+        "pattern": "reference/",
+        "excerpt": "{\"timestamp\": \"2026-10-29T15:42:19.985Z\", \"ordinal\": 159, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"1f550782-5f71-4732-b0d6-2234898d1665\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"Interesting find maxdepth didn't show pycache because earlier rm from rejec"
+      },
+      {
+        "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r2",
+        "file": "agent-session/rollout-2026-10-29T23-43-15-01a18854-66d6-7302-bd37-218e0627ca5b.jsonl",
+        "line": 249,
+        "pattern": "../",
+        "excerpt": "{\"timestamp\": \"2026-10-29T15:48:16.128Z\", \"ordinal\": 248, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a18854-66d6-7302-bd37-218e0627ca5b\", \"turn_id\": \"01a18854-66fc-7e52-96c4-647ab288d039\", \"item\": {\"type\": \"Reasoning\", \"id\": \"8a5f20d0-9d12-4692-ba94-339783ac0918\", \"su"
+      },
+      {
+        "slot_id": "l4-20261029-cli-codex-dabstep-payments-10-r2",
+        "file": "agent-session/rollout-2026-10-29T23-43-15-01a18854-66d6-7302-bd37-218e0627ca5b.jsonl",
+        "line": 250,
+        "pattern": "../",
+        "excerpt": "{\"timestamp\": \"2026-10-29T15:48:16.130Z\", \"ordinal\": 249, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"8a5f20d0-9d12-4692-ba94-339783ac0918\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"Need validate JSON 10 lines, task IDs, answer strings, formats. Also maybe "
+      },
+      {
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r3",
+        "file": "agent-session/rollout-2026-10-29T23-53-56-01a1885e-2ecf-7ad0-860f-db7f7c18ee36.jsonl",
+        "line": 38,
+        "pattern": "harness-compare-bench",
+        "excerpt": "{\"timestamp\": \"2026-10-29T15:54:02.869Z\", \"ordinal\": 37, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a1885e-2ecf-7ad0-860f-db7f7c18ee36\", \"turn_id\": \"01a1885e-2eee-7d72-ba92-cd57e47dd045\", \"item\": {\"type\": \"CommandExecution\", \"id\": \"call_04_ZwYQC8GbWTSSedYh81qQ2440\", \""
+      },
+      {
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r3",
+        "file": "agent-session/rollout-2026-10-29T23-53-56-01a1885e-2ecf-7ad0-860f-db7f7c18ee36.jsonl",
+        "line": 39,
+        "pattern": "harness-compare-bench",
+        "excerpt": "{\"timestamp\": \"2026-10-29T15:54:02.871Z\", \"ordinal\": 38, \"type\": \"response_item\", \"payload\": {\"type\": \"function_call_output\", \"id\": \"fco_01a1885e-48f7-7fa2-93c3-915700fe91cb\", \"call_id\": \"call_04_ZwYQC8GbWTSSedYh81qQ2440\", \"output\": \"Chunk ID: f24bd5\\nWall time: 0.0000 seconds\\nProcess exited with c"
+      },
+      {
+        "slot_id": "l4-20261029-cli-codex-tb-cargo-plan-r3",
+        "file": "agent.jsonl",
+        "line": 18,
+        "pattern": "harness-compare-bench",
+        "excerpt": "{\"type\": \"item.completed\", \"item\": {\"id\": \"item_8\", \"type\": \"command_execution\", \"command\": \"/bin/zsh -c \\\"cat TASK.md && printf '\\\\\\\\n===== meta.json =====\\\\\\\\n' && cat meta.json\\\"\", \"aggregated_output\": \"# 本场任务：tb-cargo-plan（Codex CLI）\\n\\n**你的工作目录（绝对路径）：`/Users/b612-lp/bench-workspaces/l4-20261029"
+      }
+    ],
+    "boundary": "lexical hits ≠ actual 越界事实：命中均为字符串模式（harness-compare-bench/reference/../），excerpt 核验显示来自模型 cat 工作区 meta.json/TASK.md/命令文本与答复字样；未发现 truth/solution/凭据访问证据；裁定权在 judge/auditor"
+  },
+  "producer_flag_disclaimer": {
+    "runner_formal_eligible": "生产者局部 flag（仅本 runner 的停止确认门），**不是独立 canonical formal admission**；正式准入由 gate_admission/judge 判定。lead 转达：judge 实际首两行 formal=false（字段发射/原 verdict 原因）——按此如实记录，不作「全通过/全正式」暗示；",
+    "six_of_six": "6/6 正常结束 ≠ 满分通过（dab 70.0 / cargo 70.37037037 均非满分）"
+  },
+  "ledger_note": "无 shared ledger 写、无 git 操作（lead 专属）"
+}

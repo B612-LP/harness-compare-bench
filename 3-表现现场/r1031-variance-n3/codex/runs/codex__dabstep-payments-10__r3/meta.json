@@ -1,0 +1,925 @@
+{
+  "batch": "r1031-variance-n3",
+  "rule_version": "freeze-20261029-v2",
+  "preregistration_commit": "be39fc2",
+  "rep": 3,
+  "product": "codex",
+  "case": "dabstep-payments-10",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/r1031/codex/3/dabstep-payments-10",
+  "created_at": "2026-10-29T14:05:15+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+  "skills": "off（[skills] include_instructions=false，bundled disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "397f5e229a7e65b4981894e77494e44c77f0a2df3c9ad84bcfa852263b31d070",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/acquirer_countries.csv",
+      "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+      "bytes": 194
+    },
+    {
+      "path": "inputs/fees.json",
+      "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+      "bytes": 531118
+    },
+    {
+      "path": "inputs/manual.md",
+      "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+      "bytes": 22127
+    },
+    {
+      "path": "inputs/merchant_category_codes.csv",
+      "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+      "bytes": 26611
+    },
+    {
+      "path": "inputs/merchant_data.json",
+      "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+      "bytes": 6857
+    },
+    {
+      "path": "inputs/payments.csv",
+      "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+      "bytes": 23581339
+    },
+    {
+      "path": "inputs/questions.jsonl",
+      "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+      "bytes": 3889
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "started_at": "2026-10-29T14:05:15+08:00",
+  "finished_at": "2026-10-29T14:13:46+08:00",
+  "duration_s": 510.7,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T14:05:15+08:00",
+      "duration_s": 510.7,
+      "exit_code": 0,
+      "outcome": "ok"
+    }
+  ],
+  "transport_retries": 0,
+  "stdout_bytes": 620069,
+  "stderr_bytes": 1095,
+  "stdout_sha256": "5db742e051d1c00edf264233dfa0694842b5563e9ba6ce9ab49b03f466bdfcef",
+  "stderr_sha256": "1007a39dbc773bb7f5d5aad5439d2c2b001edd9426c9bf451293d46b85dba3d0",
+  "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+  "usage": {
+    "requests": 40,
+    "input_tokens": 2927242,
+    "output_tokens": 79324,
+    "cache_read_tokens": 2878208,
+    "cache_creation_tokens": 0,
+    "reasoning_output_tokens": 49372,
+    "total_tokens": 3006566,
+    "cumulative_thread_final": {
+      "input_tokens": 2927242,
+      "cached_input_tokens": 2878208,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 79324,
+      "reasoning_output_tokens": 49372,
+      "total_tokens": 3006566
+    },
+    "per_call": [
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:05:20.789Z",
+        "response_id": "75b49139-6027-4462-b340-7e6eb7f9c971",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 9325,
+        "cache_read_tokens": 7808,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1034,
+        "reasoning_output_tokens": 53,
+        "total_tokens": 10359
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:05:25.421Z",
+        "response_id": "29135bea-47c0-4056-98a3-40e931c1f293",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 14918,
+        "cache_read_tokens": 10240,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1105,
+        "reasoning_output_tokens": 27,
+        "total_tokens": 16023
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:05:30.676Z",
+        "response_id": "087b8833-6338-42c4-8202-43fb913f513e",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 20823,
+        "cache_read_tokens": 16000,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1168,
+        "reasoning_output_tokens": 194,
+        "total_tokens": 21991
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:05:45.433Z",
+        "response_id": "e3efa547-7d87-46b0-99bd-e78c23ee31d5",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 25377,
+        "cache_read_tokens": 21888,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2544,
+        "reasoning_output_tokens": 1327,
+        "total_tokens": 27921
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:05:50.469Z",
+        "response_id": "64925eef-cd61-46dc-9778-48c137b3cec7",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 32139,
+        "cache_read_tokens": 27904,
+        "cache_creation_tokens": 0,
+        "output_tokens": 858,
+        "reasoning_output_tokens": 126,
+        "total_tokens": 32997
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:06:05.423Z",
+        "response_id": "8c8da61b-0894-4c4a-b636-c3522acdd47c",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 36964,
+        "cache_read_tokens": 32896,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2372,
+        "reasoning_output_tokens": 1331,
+        "total_tokens": 39336
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:06:15.031Z",
+        "response_id": "bb9e1397-03e0-4d38-b07b-277373105bac",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 39865,
+        "cache_read_tokens": 39296,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1585,
+        "reasoning_output_tokens": 517,
+        "total_tokens": 41450
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:06:29.944Z",
+        "response_id": "2e6152ff-375d-40e3-b6c8-6b27cfaabb42",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 45240,
+        "cache_read_tokens": 41344,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2259,
+        "reasoning_output_tokens": 1562,
+        "total_tokens": 47499
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:06:35.916Z",
+        "response_id": "02f0be0a-bea3-4571-bbf0-da3176457d22",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 49049,
+        "cache_read_tokens": 47488,
+        "cache_creation_tokens": 0,
+        "output_tokens": 923,
+        "reasoning_output_tokens": 491,
+        "total_tokens": 49972
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:06:53.443Z",
+        "response_id": "b8706c8b-4c0b-4457-8f39-d5aaa355895e",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 50313,
+        "cache_read_tokens": 49920,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2770,
+        "reasoning_output_tokens": 1835,
+        "total_tokens": 53083
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:07:04.058Z",
+        "response_id": "5a28bb39-fc2c-4998-a37c-91617ed796ac",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 53410,
+        "cache_read_tokens": 52992,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1724,
+        "reasoning_output_tokens": 745,
+        "total_tokens": 55134
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:07:21.392Z",
+        "response_id": "57cfdeca-20ee-4973-8195-b9eff4e7127f",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 56515,
+        "cache_read_tokens": 55040,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2550,
+        "reasoning_output_tokens": 1291,
+        "total_tokens": 59065
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:07:35.574Z",
+        "response_id": "760f0306-dac6-4f7c-94ff-e640b316186a",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 60423,
+        "cache_read_tokens": 59008,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2446,
+        "reasoning_output_tokens": 1230,
+        "total_tokens": 62869
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:07:46.162Z",
+        "response_id": "12bdaa18-4535-4ebc-95a0-765aaec34e10",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 63069,
+        "cache_read_tokens": 62848,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1581,
+        "reasoning_output_tokens": 1064,
+        "total_tokens": 64650
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:07:54.929Z",
+        "response_id": "dc701c0d-f374-4dd6-ab56-353c90211fb6",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 65434,
+        "cache_read_tokens": 64640,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1432,
+        "reasoning_output_tokens": 965,
+        "total_tokens": 66866
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:08:02.639Z",
+        "response_id": "2ac770fe-2847-40cc-857d-7f3bd92110ef",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 66976,
+        "cache_read_tokens": 66816,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1191,
+        "reasoning_output_tokens": 794,
+        "total_tokens": 68167
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:08:06.868Z",
+        "response_id": "3efff0a7-c1a4-45c1-bfc7-e4b3bed8ae01",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 69243,
+        "cache_read_tokens": 68096,
+        "cache_creation_tokens": 0,
+        "output_tokens": 682,
+        "reasoning_output_tokens": 121,
+        "total_tokens": 69925
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:08:10.562Z",
+        "response_id": "6b631ab4-ed6a-40c4-bbf6-cc2f4236d9e8",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 69973,
+        "cache_read_tokens": 69760,
+        "cache_creation_tokens": 0,
+        "output_tokens": 563,
+        "reasoning_output_tokens": 210,
+        "total_tokens": 70536
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:08:16.330Z",
+        "response_id": "1a21c32b-37dd-4ccd-9c4a-d32f9a3a409f",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 70774,
+        "cache_read_tokens": 70528,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1076,
+        "reasoning_output_tokens": 297,
+        "total_tokens": 71850
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:08:30.369Z",
+        "response_id": "6e85d11f-da34-4190-921b-03e8b544883e",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 72217,
+        "cache_read_tokens": 71808,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2248,
+        "reasoning_output_tokens": 1370,
+        "total_tokens": 74465
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:08:51.609Z",
+        "response_id": "4d141153-8aef-47b7-a377-7287c9622ba6",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 75054,
+        "cache_read_tokens": 74368,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2597,
+        "reasoning_output_tokens": 2359,
+        "total_tokens": 77651
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:08:53.984Z",
+        "response_id": "e830d3ae-b8df-4f66-a4dd-3faaa381cd76",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 77878,
+        "cache_read_tokens": 77568,
+        "cache_creation_tokens": 0,
+        "output_tokens": 461,
+        "reasoning_output_tokens": 20,
+        "total_tokens": 78339
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:09:00.622Z",
+        "response_id": "6b387b1b-5575-49c9-a098-66d6291cb0c1",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 80556,
+        "cache_read_tokens": 78336,
+        "cache_creation_tokens": 0,
+        "output_tokens": 978,
+        "reasoning_output_tokens": 656,
+        "total_tokens": 81534
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:09:06.830Z",
+        "response_id": "e4cea683-cdbc-4764-b9cd-55f7fe90a5b9",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 81588,
+        "cache_read_tokens": 81408,
+        "cache_creation_tokens": 0,
+        "output_tokens": 829,
+        "reasoning_output_tokens": 477,
+        "total_tokens": 82417
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:09:11.520Z",
+        "response_id": "3dc73bb1-f13b-4ba8-aeeb-27caf67e8d7a",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 82502,
+        "cache_read_tokens": 82304,
+        "cache_creation_tokens": 0,
+        "output_tokens": 791,
+        "reasoning_output_tokens": 379,
+        "total_tokens": 83293
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:09:24.606Z",
+        "response_id": "a34acccf-db0f-4d5b-8200-8692b2714af0",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 83626,
+        "cache_read_tokens": 83200,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2106,
+        "reasoning_output_tokens": 1361,
+        "total_tokens": 85732
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:09:39.583Z",
+        "response_id": "5f6f7317-2498-4bfc-9673-606024125b15",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 85899,
+        "cache_read_tokens": 85632,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2045,
+        "reasoning_output_tokens": 1586,
+        "total_tokens": 87944
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:09:42.404Z",
+        "response_id": "4e87a26f-d8ca-418d-8544-d1bc0d47f4ea",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 89207,
+        "cache_read_tokens": 87936,
+        "cache_creation_tokens": 0,
+        "output_tokens": 420,
+        "reasoning_output_tokens": 63,
+        "total_tokens": 89627
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:10:05.778Z",
+        "response_id": "54effe29-dccd-4ce7-ac51-c893d1bf19b2",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 90608,
+        "cache_read_tokens": 89600,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3233,
+        "reasoning_output_tokens": 2978,
+        "total_tokens": 93841
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:10:12.444Z",
+        "response_id": "44423af7-717e-4dcd-84b7-0ee098ebeef8",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 94834,
+        "cache_read_tokens": 93824,
+        "cache_creation_tokens": 0,
+        "output_tokens": 1042,
+        "reasoning_output_tokens": 434,
+        "total_tokens": 95876
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:10:19.802Z",
+        "response_id": "54d7387b-592c-4221-a1e5-3aa9b3e6ce68",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 96046,
+        "cache_read_tokens": 95872,
+        "cache_creation_tokens": 0,
+        "output_tokens": 942,
+        "reasoning_output_tokens": 422,
+        "total_tokens": 96988
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:10:41.142Z",
+        "response_id": "1209ab61-a7ab-48f7-8960-65226e5bd54d",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 97133,
+        "cache_read_tokens": 96896,
+        "cache_creation_tokens": 0,
+        "output_tokens": 4170,
+        "reasoning_output_tokens": 1508,
+        "total_tokens": 101303
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:11:06.157Z",
+        "response_id": "da96cad6-f85a-4904-88c2-ac7a8e221438",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 101797,
+        "cache_read_tokens": 101248,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3539,
+        "reasoning_output_tokens": 3193,
+        "total_tokens": 105336
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:11:12.432Z",
+        "response_id": "62aa0ff4-7ab8-4e5c-9950-1013fcb9533a",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 105518,
+        "cache_read_tokens": 105216,
+        "cache_creation_tokens": 0,
+        "output_tokens": 875,
+        "reasoning_output_tokens": 556,
+        "total_tokens": 106393
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:11:53.256Z",
+        "response_id": "96346d30-fff8-4348-a5d1-d38595d9d41b",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 106447,
+        "cache_read_tokens": 106240,
+        "cache_creation_tokens": 0,
+        "output_tokens": 6096,
+        "reasoning_output_tokens": 4993,
+        "total_tokens": 112543
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:12:13.550Z",
+        "response_id": "522ea410-cf38-4a19-86cd-85145ab005ef",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 112643,
+        "cache_read_tokens": 112384,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2911,
+        "reasoning_output_tokens": 2514,
+        "total_tokens": 115554
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:12:43.488Z",
+        "response_id": "124ab3c4-a0df-4de5-a732-8c5d18eef323",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 116091,
+        "cache_read_tokens": 115456,
+        "cache_creation_tokens": 0,
+        "output_tokens": 5419,
+        "reasoning_output_tokens": 2697,
+        "total_tokens": 121510
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:12:59.359Z",
+        "response_id": "6df63562-612c-401c-80e2-d33958f7aae2",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 121896,
+        "cache_read_tokens": 121472,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2307,
+        "reasoning_output_tokens": 1519,
+        "total_tokens": 124203
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:13:16.728Z",
+        "response_id": "2d9d520c-9cce-4c8f-aecf-82d60413865a",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 126353,
+        "cache_read_tokens": 124160,
+        "cache_creation_tokens": 0,
+        "output_tokens": 2467,
+        "reasoning_output_tokens": 2185,
+        "total_tokens": 128820
+      },
+      {
+        "session_file": "rollout-2026-10-29T14-05-15-01a18643-3cd9-74d0-85a1-9208afe6532c.jsonl",
+        "ts": "2026-10-29T06:13:45.672Z",
+        "response_id": "94ddd95a-3df6-4f1e-954c-5e850da0abb7",
+        "turn_id": "01a18643-3d44-7822-9f73-1ca281d90f7d",
+        "input_tokens": 129519,
+        "cache_read_tokens": 128768,
+        "cache_creation_tokens": 0,
+        "output_tokens": 3985,
+        "reasoning_output_tokens": 3922,
+        "total_tokens": 133504
+      }
+    ],
+    "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+  },
+  "reward": 1,
+  "weighted": 80.0,
+  "failed": [
+    "q70",
+    "q2697"
+  ],
+  "judge": {
+    "case": "dabstep-payments-10",
+    "case_id": "dabstep-payments-10",
+    "checker_version": "0.2",
+    "binary": true,
+    "run_dir": "/Users/b612-lp/bench-workspaces/r1031/codex/3/dabstep-payments-10",
+    "artifact": "/Users/b612-lp/bench-workspaces/r1031/codex/3/dabstep-payments-10/answers.jsonl",
+    "scoring_mode": "official-compat",
+    "official_compat": {
+      "scorer_version": "dabstep-official-port-v0.1",
+      "reward": 1,
+      "weighted": 80.0,
+      "score_rate": 0.8,
+      "correct": 8,
+      "checks": [
+        {
+          "id": "answers_format",
+          "pass": true,
+          "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+        },
+        {
+          "id": "input_integrity",
+          "pass": true,
+          "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+        },
+        {
+          "id": "q5",
+          "pass": true,
+          "note": "pred='NL' ｜ gold='NL'",
+          "task_id": "5",
+          "level": "easy"
+        },
+        {
+          "id": "q49",
+          "pass": true,
+          "note": "pred='B. BE' ｜ gold='B. BE'",
+          "task_id": "49",
+          "level": "easy"
+        },
+        {
+          "id": "q70",
+          "pass": false,
+          "note": "pred='yes' ｜ gold='Not Applicable'",
+          "task_id": "70",
+          "level": "easy"
+        },
+        {
+          "id": "q1273",
+          "pass": true,
+          "note": "pred='0.120132' ｜ gold='0.120132'",
+          "task_id": "1273",
+          "level": "hard"
+        },
+        {
+          "id": "q1305",
+          "pass": true,
+          "note": "pred='0.123217' ｜ gold='0.123217'",
+          "task_id": "1305",
+          "level": "hard"
+        },
+        {
+          "id": "q1464",
+          "pass": true,
+          "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+          "task_id": "1464",
+          "level": "hard"
+        },
+        {
+          "id": "q1681",
+          "pass": true,
+          "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+          "task_id": "1681",
+          "level": "hard"
+        },
+        {
+          "id": "q1753",
+          "pass": true,
+          "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+          "task_id": "1753",
+          "level": "hard"
+        },
+        {
+          "id": "q1871",
+          "pass": true,
+          "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+          "task_id": "1871",
+          "level": "hard"
+        },
+        {
+          "id": "q2697",
+          "pass": false,
+          "note": "pred='E:77.68' ｜ gold='E:13.57'",
+          "task_id": "2697",
+          "level": "hard"
+        }
+      ],
+      "failed": [
+        "q70",
+        "q2697"
+      ]
+    },
+    "strict_contract": {
+      "scorer_version": "signed-aci-v1",
+      "scope": [
+        "1871:signed-number",
+        "2697:aci-and-signed-fee"
+      ],
+      "numeric_tolerance": {
+        "rel_tol": 0.0001,
+        "abs_tol": 0.0001
+      },
+      "reward": 1,
+      "weighted": 80.0,
+      "score_rate": 0.8,
+      "correct": 8,
+      "checks": [
+        {
+          "id": "answers_format",
+          "pass": true,
+          "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+        },
+        {
+          "id": "input_integrity",
+          "pass": true,
+          "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+        },
+        {
+          "id": "q5",
+          "pass": true,
+          "note": "pred='NL' ｜ gold='NL'",
+          "task_id": "5",
+          "level": "easy"
+        },
+        {
+          "id": "q49",
+          "pass": true,
+          "note": "pred='B. BE' ｜ gold='B. BE'",
+          "task_id": "49",
+          "level": "easy"
+        },
+        {
+          "id": "q70",
+          "pass": false,
+          "note": "pred='yes' ｜ gold='Not Applicable'",
+          "task_id": "70",
+          "level": "easy"
+        },
+        {
+          "id": "q1273",
+          "pass": true,
+          "note": "pred='0.120132' ｜ gold='0.120132'",
+          "task_id": "1273",
+          "level": "hard"
+        },
+        {
+          "id": "q1305",
+          "pass": true,
+          "note": "pred='0.123217' ｜ gold='0.123217'",
+          "task_id": "1305",
+          "level": "hard"
+        },
+        {
+          "id": "q1464",
+          "pass": true,
+          "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+          "task_id": "1464",
+          "level": "hard"
+        },
+        {
+          "id": "q1681",
+          "pass": true,
+          "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+          "task_id": "1681",
+          "level": "hard"
+        },
+        {
+          "id": "q1753",
+          "pass": true,
+          "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+          "task_id": "1753",
+          "level": "hard"
+        },
+        {
+          "id": "q1871",
+          "pass": true,
+          "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+          "task_id": "1871",
+          "level": "hard"
+        },
+        {
+          "id": "q2697",
+          "pass": false,
+          "note": "pred='E:77.68' ｜ gold='E:13.57'",
+          "task_id": "2697",
+          "level": "hard"
+        }
+      ],
+      "failed": [
+        "q70",
+        "q2697"
+      ]
+    },
+    "reward": 1,
+    "weighted": 80.0,
+    "score_rate": 0.8,
+    "threshold": 0.8,
+    "correct": 8,
+    "n_tasks": 10,
+    "gates": {
+      "answers_format": true,
+      "input_integrity": true
+    },
+    "input_integrity": "verified",
+    "checks": [
+      {
+        "id": "answers_format",
+        "pass": true,
+        "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+      },
+      {
+        "id": "input_integrity",
+        "pass": true,
+        "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+      },
+      {
+        "id": "q5",
+        "pass": true,
+        "note": "pred='NL' ｜ gold='NL'",
+        "task_id": "5",
+        "level": "easy"
+      },
+      {
+        "id": "q49",
+        "pass": true,
+        "note": "pred='B. BE' ｜ gold='B. BE'",
+        "task_id": "49",
+        "level": "easy"
+      },
+      {
+        "id": "q70",
+        "pass": false,
+        "note": "pred='yes' ｜ gold='Not Applicable'",
+        "task_id": "70",
+        "level": "easy"
+      },
+      {
+        "id": "q1273",
+        "pass": true,
+        "note": "pred='0.120132' ｜ gold='0.120132'",
+        "task_id": "1273",
+        "level": "hard"
+      },
+      {
+        "id": "q1305",
+        "pass": true,
+        "note": "pred='0.123217' ｜ gold='0.123217'",
+        "task_id": "1305",
+        "level": "hard"
+      },
+      {
+        "id": "q1464",
+        "pass": true,
+        "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+        "task_id": "1464",
+        "level": "hard"
+      },
+      {
+        "id": "q1681",
+        "pass": true,
+        "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+        "task_id": "1681",
+        "level": "hard"
+      },
+      {
+        "id": "q1753",
+        "pass": true,
+        "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+        "task_id": "1753",
+        "level": "hard"
+      },
+      {
+        "id": "q1871",
+        "pass": true,
+        "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+        "task_id": "1871",
+        "level": "hard"
+      },
+      {
+        "id": "q2697",
+        "pass": false,
+        "note": "pred='E:77.68' ｜ gold='E:13.57'",
+        "task_id": "2697",
+        "level": "hard"
+      }
+    ],
+    "failed": [
+      "q70",
+      "q2697"
+    ]
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+    "evidence": []
+  },
+  "integrity_verdict": "clean",
+  "run_id": "r1031-codex-dabstep-payments-10-r3",
+  "event_id": "var-n3-codex-dabstep-payments-10-r3",
+  "selection": {
+    "plan_id": "var-n3-20261029",
+    "slot_id": "var-n3-codex-dabstep-payments-10-r3",
+    "order": 3,
+    "kind": "rep"
+  }
+}

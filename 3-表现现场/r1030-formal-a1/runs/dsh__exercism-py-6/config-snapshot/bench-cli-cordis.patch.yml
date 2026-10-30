@@ -1,0 +1,38 @@
+# bench-cli：harness-compare-bench 评测专用最小 profile（base + headless，无 mnemon / agent-team）
+# 2026-10-22 A 组 CLI 批次：DeepSeek V4.1-Flash × thinking=low × 关闭联网 / 关闭 SKILL 工具
+- id: agent-default-model
+  name: "@deepseek-ai/dsh-agent-default-model"
+  config:
+    provider: deepseek-official
+    model: deepseek-flash
+    reasoningEffort: low
+
+# 文件写入免批准（评测需要产物落盘）
+- id: permission
+  name: "@deepseek-ai/dsh-permission-presets"
+  config:
+    presets:
+      read-only:
+        sandbox: read-only
+        approval: ask
+      workspace-write:
+        sandbox: workspace-write
+        approval: ask
+      danger-full-access:
+        sandbox: danger-full-access
+        approval: never
+    defaultPreset: danger-full-access
+
+# A 组公平性：统一关闭联网工具（对应 Codex web_search="disabled"）
+- id: tool-web
+  disabled: true
+- id: web-search-deepseek
+  disabled: true
+- id: web-fetch-http
+  disabled: true
+
+# SKILL 层隔离：关闭技能工具（对应 Codex include_instructions=false）
+- id: tool-skill
+  disabled: true
+- id: skill-filesystem
+  disabled: true

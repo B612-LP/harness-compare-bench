@@ -1,0 +1,55 @@
+{
+  "kind": "clean-extracted-package-offline-verification",
+  "passed": true,
+  "payload_files": 53,
+  "payload_sha256_all_match": true,
+  "no_original_repository_or_upstream_paths_required": true,
+  "new_product_runs": 0,
+  "steps": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "bird-q26/candidate-1.2-q26-frpm/checker.py",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "racy=0.800）\n  PASS 等价答案正例（q5 去掉 DISTINCT，结果不变）                    reward=1（期望 1，accuracy=1.000）\n  PASS q26旧Free5行（逐题拒绝，14/15仍过）                       reward=1（期望 1，accuracy=0.933）\n  PASS q26漏North一校（逐题拒绝，14/15仍过）                      reward=1（期望 1，accuracy=0.933）\n  PASS q26附加一校（逐题拒绝，14/15仍过）                          reward=1（期望 1，accuracy=0.933）\n  PASS q26重复一校（多重集拒绝，14/15仍过）                         reward=1（期望 1，accuracy=0.933）\n  守卫自测（期望 ERROR exit 2）：\n  PASS gold SQL 执行失败（truth 注入坏 gold）                  exit=2（期望 2）  ERROR: 用例缺陷：gold SQL 执行失败 q28: no such table: __broken_gold_table__\n  PASS truth 的输入 SHA-256 与实际 inputs 不符                exit=2（期望 2）    actual=33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d\n  PASS threshold 与 checker 常量不一致                      exit=2（期望 2）  ERROR: checker 常量与 truth 不一致：threshold=0.5（期望 0.8）\n  PASS canonical 输入在自测前后未被改动\n自测通过：25/25 项符合预期\n",
+      "stderr_tail": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "dab-q2697/independent_cost.py",
+        "--truth",
+        "dab-q2697/frozen-truth.json"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "sts\nA coverage 0 / 94 cost None partial {'min': 0.0, 'mean': 0.0, 'max': 0.0, 'sum': 0.0} multiplicity {0: 94}\nB coverage 0 / 94 cost None partial {'min': 0.0, 'mean': 0.0, 'max': 0.0, 'sum': 0.0} multiplicity {0: 94}\nC coverage 0 / 94 cost None partial {'min': 0.0, 'mean': 0.0, 'max': 0.0, 'sum': 0.0} multiplicity {0: 94}\nD coverage 0 / 94 cost None partial {'min': 0.0, 'mean': 0.0, 'max': 0.0, 'sum': 0.0} multiplicity {0: 94}\nE coverage 0 / 94 cost None partial {'min': 0.0, 'mean': 0.0, 'max': 0.0, 'sum': 0.0} multiplicity {0: 94}\nF coverage 0 / 94 cost None partial {'min': 0.0, 'mean': 0.0, 'max': 0.0, 'sum': 0.0} multiplicity {0: 94}\nG coverage 0 / 94 cost None partial {'min': 0.0, 'mean': 0.0, 'max': 0.0, 'sum': 0.0} multiplicity {0: 94}\nwinners {'winner_min': None, 'winner_mean': None, 'winner_max': None, 'winner_sum': None}\nPost-compute gold reference E:13.57 hashes all unchanged\n",
+      "stderr_tail": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "dab-q2697/receipt_sensitivity.py",
+        "--results",
+        "dab-q2697/receipt-source.json"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "exclude2697_9': {'correct': 5, 'weighted': 55.56, 'reward': 0}, 'headline_changed': False}, 'strict_contract': {'frozen10': {'correct': 5, 'weighted': 50.0, 'reward': 0}, 'q2697_pass': False, 'q2697_note': \"pred='E:16.63' ｜ gold='E:13.57'\", 'exclude2697_9': {'correct': 5, 'weighted': 55.56, 'reward': 0}, 'headline_changed': False}}\ndsh repeat-3 {'official_compat': {'frozen10': {'correct': 6, 'weighted': 60.0, 'reward': 0}, 'q2697_pass': False, 'q2697_note': \"pred='C:131.20' ｜ gold='E:13.57'\", 'exclude2697_9': {'correct': 6, 'weighted': 66.67, 'reward': 0}, 'headline_changed': False}, 'strict_contract': {'frozen10': {'correct': 5, 'weighted': 50.0, 'reward': 0}, 'q2697_pass': False, 'q2697_note': \"pred='C:131.20' ｜ gold='E:13.57'\", 'exclude2697_9': {'correct': 5, 'weighted': 55.56, 'reward': 0}, 'headline_changed': False}}\nPASS: 8 receipt-derived sensitivities; original records unchanged\n",
+      "stderr_tail": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "lead_dab_probe.py"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "{\n  \"january\": {\n    \"transactions\": 1201,\n    \"volume_eur\": \"113260.42\",\n    \"fraud_transactions\": 94,\n    \"fraud_volume_eur\": \"11680.62\",\n    \"fraud_ratio\": \"0.1031306435204813826401138191\"\n  },\n  \"empty_wildcard_E\": {\n    \"matched_transactions\": 44,\n    \"unmatched_transactions\": 50,\n    \"costs_eur\": {\n      \"sum_all_matches\": \"77.681576\",\n      \"mean_per_matched_transaction\": \"41.6610305\",\n      \"min_per_matched_transaction\": \"16.630562\",\n      \"max_per_matched_transaction\": \"66.691499\"\n    }\n  },\n  \"null_only_E\": {\n    \"matched_transactions\": 0,\n    \"unmatched_transactions\": 94,\n    \"costs_eur\": {\n      \"sum_all_matches\": \"0\",\n      \"mean_per_matched_transaction\": \"0\",\n      \"min_per_matched_transaction\": \"0\",\n      \"max_per_matched_transaction\": \"0\"\n    }\n  }\n}\n",
+      "stderr_tail": ""
+    }
+  ]
+}

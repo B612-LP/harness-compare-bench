@@ -1,0 +1,31 @@
+{
+    "job_name": "r1016x-wordfreq-codex",
+    "jobs_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs",
+    "timeout_multiplier": 3.0,
+    "environment": {
+        "type": "docker",
+        "extra_docker_compose": [
+            "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+        ]
+    },
+    "agents": [
+        {
+            "name": "codex",
+            "model_name": "mimo-v2.6-flash",
+            "kwargs": {
+                "version": "0.162.1",
+                "config": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/config-xiaomi.toml",
+                "disable_web_search": true
+            },
+            "env": {
+                "XIAOMI_API_KEY": "tp-c****3f4",
+                "OPENAI_API_KEY": "tp-c****3f4"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/word-freq-report"
+        }
+    ]
+}

@@ -1,0 +1,121 @@
+{
+  "product": "workbuddy",
+  "product_label": "WorkBuddy 桌面端",
+  "app_version": "5.8.3",
+  "case": "lcb-recent-hard-4",
+  "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/lcb-recent-hard-4",
+  "form": "desktop-GUI",
+  "status": "done",
+  "created_at": "2026-10-22T22:26:55+0800",
+  "method": "manual-gui（并行对话，用户手工粘贴 TASK.md；未用 desk.py run）",
+  "batch_note": "与 bird 之外的另外 2 场同一时段并行运行，耗时不可横比",
+  "started_at": "2026-10-23T15:51:46.101000+08:00",
+  "ended_at": "2026-10-23T16:06:28.128000+08:00",
+  "duration_s": 882.0,
+  "duration_source": "workbuddy-trace",
+  "finish_reason": "manual（用户目视跑完）",
+  "shots": 0,
+  "shot_mode": "none（trace 已归档）",
+  "steps": 51,
+  "steps_source": "workbuddy-trace",
+  "by_tool": {
+    "Bash": 39,
+    "Read": 2,
+    "Write": 5,
+    "Edit": 3,
+    "WebSearch": 1,
+    "present_files": 1
+  },
+  "trace": "trace/d18c269b-9e5f-4f99-8e90-706fe5097f54.jsonl",
+  "trace_summary": "trace/trace-summary.json",
+  "agent_cwd": "/Users/b612-lp/WorkBuddy/2026-10-23-15-51-46",
+  "reward": 1,
+  "weighted": 100.0,
+  "failed": [],
+  "judge": {
+    "case": "lcb-recent-hard-4",
+    "checker_version": "0.1",
+    "reward": 1,
+    "weighted": 100.0,
+    "passed_problems": 4,
+    "total_problems": 4,
+    "threshold": 2,
+    "checks": [
+      {
+        "id": "input_integrity",
+        "item": "输入完整性（守卫）",
+        "weight": 0.0,
+        "pass": true,
+        "note": "附带输入副本与 canonical 一致（inputs/problems.json）",
+        "guard": true
+      },
+      {
+        "id": "abc387_f",
+        "item": "abc387_f Count Arrays",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_f",
+        "item": "abc388_f Dangerous Sugoroku",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc388_g",
+        "item": "abc388_g Simultaneous Kagamimochi 2",
+        "weight": 25.0,
+        "pass": true,
+        "note": "42/42 全过",
+        "passed_tests": 42,
+        "total_tests": 42,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      },
+      {
+        "id": "abc389_g",
+        "item": "abc389_g Odd Even Graph",
+        "weight": 25.0,
+        "pass": true,
+        "note": "43/43 全过",
+        "passed_tests": 43,
+        "total_tests": 43,
+        "first_fail_index": -1,
+        "fail_kind": ""
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "solutions/abc387_f.py",
+      "size": 2114
+    },
+    {
+      "path": "solutions/abc388_f.py",
+      "size": 1515
+    },
+    {
+      "path": "solutions/abc388_g.py",
+      "size": 1470
+    },
+    {
+      "path": "solutions/abc389_g.py",
+      "size": 2443
+    }
+  ],
+  "notes": "并行批次；WorkBuddy 默认工作区为其自身目录，靠 TASK.md 绝对路径读写 run_dir。",
+  "model": "deepseek-v4.1-flash",
+  "integrity": "suspect",
+  "leak_channel": "web",
+  "integrity_reason": "第 21 步 WebSearch「ABC389 G Odd Even Graph 解説 解法」取到 AtCoder 官方 editorial（联网为桌面形态默认放开）；结果为 4/4，含外部题解助力，不能与联网关的 CLI 同口径比较"
+}

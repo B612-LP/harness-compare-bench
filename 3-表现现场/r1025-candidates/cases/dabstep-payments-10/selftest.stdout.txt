@@ -1,0 +1,22 @@
+[dabstep-payments-10] checker v0.1 自测（canonical inputs sha256[payments.csv]=5fbb26210a45…，TASKS=10，THRESHOLD=0.80）
+  PASS  oracle：solution/answers.jsonl 原样                     reward=1（期望 1）
+  PASS  oracle＋canonical 输入副本（运行器拷贝形态）                       reward=1（期望 1）
+  PASS  oracle 等价写法（空白/大小写/列表乱序/数字补零）                        reward=1（期望 1）
+  PASS  容错边界：仅 q49 答错（9/10=0.9 过线）                           reward=1（期望 1）
+  PASS  达标线边界：10 题错 2（8/10=0.8，恰好过线）                         reward=1（期望 1）
+  PASS  nop：空运行目录                                            reward=0（期望 0）
+  PASS  漏答 1 题（9 行，得分率 0.9 但结构否决）                            reward=0（期望 0）
+  PASS  多答 1 题（11 行，出现未知 task_id=9999）                       reward=0（期望 0）
+  PASS  格式错：某行缺 answer 字段                                    reward=0（期望 0）
+  PASS  格式错：answer 为 null（非字符串）                              reward=0（期望 0）
+  PASS  格式错：第 3 行非法 JSON（尾随逗号）                               reward=0（期望 0）
+  PASS  重复 task_id（10 行，q2697 被写成 q1871）                     reward=0（期望 0）
+  PASS  近正确：q49/q1273/q1464 三题答错（0.7 < 0.8）                  reward=0（期望 0）
+  PASS  近正确：N/A 题（q70）硬答 yes 且另 2 题错（0.7）                    reward=0（期望 0）
+  PASS  守卫：附篡改的 inputs/payments.csv（答案全对）                    reward=0（期望 0）
+  PASS  守卫：附篡改的 inputs/questions.jsonl（答案全对）                 reward=0（期望 0）
+  PASS  守卫：canonical inputs/payments.csv 被改                  ERROR=True（期望 ERROR）
+  PASS  守卫：truth.threshold 漂移（0.8→0.9）                       ERROR=True（期望 ERROR）
+  PASS  守卫：truth.input_sha256 漂移                             ERROR=True（期望 ERROR）
+  PASS  守卫：solution oracle 漂移                                ERROR=True（期望 ERROR）
+负控制自测：通过（20 组，含 11 组近正确负例）

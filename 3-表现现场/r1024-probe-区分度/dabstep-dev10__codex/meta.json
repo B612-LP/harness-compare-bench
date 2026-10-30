@@ -1,0 +1,74 @@
+{
+  "case": "dabstep-dev10",
+  "agent": "codex",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "started_at": "2026-10-22T20:05:08+08:00",
+  "prompt_sha256": "89c3f8436c716711781b443efb642164306218dbc110f8bd5eef2602040132ba",
+  "inputs": [
+    {
+      "path": "inputs/acquirer_countries.csv",
+      "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+      "bytes": 194
+    },
+    {
+      "path": "inputs/fees.json",
+      "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+      "bytes": 531118
+    },
+    {
+      "path": "inputs/manual.md",
+      "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+      "bytes": 22127
+    },
+    {
+      "path": "inputs/merchant_category_codes.csv",
+      "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+      "bytes": 26611
+    },
+    {
+      "path": "inputs/merchant_data.json",
+      "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+      "bytes": 6857
+    },
+    {
+      "path": "inputs/payments.csv",
+      "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+      "bytes": 23581339
+    },
+    {
+      "path": "inputs/questions.jsonl",
+      "sha256": "0f7c8ee6934d86142b29f7772224d2f0f82c58ca897d2f6bcc8bff3348f1d6ea",
+      "bytes": 3719
+    }
+  ],
+  "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/dabstep-dev10__codex",
+  "status": "ok",
+  "exit_code": 0,
+  "duration_s": 352.7,
+  "reward": 1,
+  "weighted": 80.0,
+  "failed": [
+    "q70",
+    "q2697"
+  ],
+  "checker": {
+    "case": "dabstep-dev10",
+    "reward": 1,
+    "weighted": 80.0,
+    "accuracy": 0.8,
+    "threshold": 0.8
+  },
+  "usage": {
+    "input_tokens": 3832925,
+    "cached_input_tokens": 3779456,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 69125,
+    "reasoning_output_tokens": 40272
+  },
+  "tool_calls": 62,
+  "by_tool": {
+    "?": 62
+  },
+  "steps": 62
+}

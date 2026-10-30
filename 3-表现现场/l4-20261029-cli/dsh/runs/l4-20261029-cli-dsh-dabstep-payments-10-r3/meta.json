@@ -1,0 +1,256 @@
+{
+  "batch": "l4-20261029",
+  "rule_version": "l4-20261029-batch-v1",
+  "product": "dsh",
+  "case": "dabstep-payments-10",
+  "rep": 3,
+  "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+  "order": 11,
+  "stratum": "cli_current_sentinel",
+  "event_id": "event:l4-20261029-cli-dsh-dabstep-payments-10-r3",
+  "run_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+  "form": "cli",
+  "preregistration_commit": "5674de65c05c632eb20fbd2e30bdeb7e08c6753a",
+  "registered_at": "2026-10-29T23:13:56+08:00",
+  "workspace": "/Users/b612-lp/bench-workspaces/l4-20261029/dsh/l4-20261029-cli-dsh-dabstep-payments-10-r3",
+  "created_at": "2026-10-29T23:53:14+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "0.2.0-rc.2",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek-official",
+    "wire_protocol": "anthropic-messages (dsh-headless --json projection)",
+    "endpoint": null
+  },
+  "tools": [
+    "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+  ],
+  "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+  "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "ffd1bb0aa02d4ce563aab1aae845bf87e8ce1ebdeb1a81a9007a3af9d5db0e58",
+  "isolation": {
+    "ok": true,
+    "problems": [],
+    "mode": "fresh-workspace-per-slot"
+  },
+  "inputs": [
+    {
+      "path": "inputs/acquirer_countries.csv",
+      "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+      "bytes": 194
+    },
+    {
+      "path": "inputs/fees.json",
+      "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+      "bytes": 531118
+    },
+    {
+      "path": "inputs/manual.md",
+      "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+      "bytes": 22127
+    },
+    {
+      "path": "inputs/merchant_category_codes.csv",
+      "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+      "bytes": 26611
+    },
+    {
+      "path": "inputs/merchant_data.json",
+      "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+      "bytes": 6857
+    },
+    {
+      "path": "inputs/payments.csv",
+      "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+      "bytes": 23581339
+    },
+    {
+      "path": "inputs/questions.jsonl",
+      "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+      "bytes": 3889
+    }
+  ],
+  "inputs_verification": {
+    "ok": true,
+    "basis": "prepare-time shipped subset vs contract.case_snapshots.files (hash-only, no truth semantics; input-modifiable cases pinned at dispatch)",
+    "checked": [
+      {
+        "path": "inputs/acquirer_countries.csv",
+        "sha256": "6744cf19",
+        "match": true
+      },
+      {
+        "path": "inputs/fees.json",
+        "sha256": "9a833666",
+        "match": true
+      },
+      {
+        "path": "inputs/manual.md",
+        "sha256": "bb7f4ca6",
+        "match": true
+      },
+      {
+        "path": "inputs/merchant_category_codes.csv",
+        "sha256": "83247d79",
+        "match": true
+      },
+      {
+        "path": "inputs/merchant_data.json",
+        "sha256": "f158e834",
+        "match": true
+      },
+      {
+        "path": "inputs/payments.csv",
+        "sha256": "5fbb2621",
+        "match": true
+      },
+      {
+        "path": "inputs/questions.jsonl",
+        "sha256": "d99d3109",
+        "match": true
+      },
+      {
+        "path": "instruction.md",
+        "sha256": "2d22b2f3",
+        "match": true
+      },
+      {
+        "path": "case.json",
+        "sha256": "8a2f327a",
+        "match": true
+      }
+    ]
+  },
+  "selection": {
+    "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r3",
+    "basis": "plan.json product_slots 固定序"
+  },
+  "attempts": [
+    {
+      "n": 1,
+      "kind": "single-dispatch",
+      "policy": "whole_execution_restarts=0",
+      "pid": 89332,
+      "pgid": 89332,
+      "started_at": "2026-10-29T23:53:14+08:00",
+      "finished_at": "2026-10-29T23:59:21+08:00",
+      "duration_s": 366.9,
+      "exit_code": 0,
+      "outcome": "ok",
+      "closure": {
+        "phase": "normal_exit",
+        "probe": "verified_gone",
+        "signal": null,
+        "verified_stop": true,
+        "group_confirmed_gone": true,
+        "pgid": 89332,
+        "at": "2026-10-29T23:59:21+08:00",
+        "ack_at": "2026-10-29T23:59:21+08:00",
+        "note": "组已确认不存在（ESRCH）；正常退出无需发送信号",
+        "residual_probe": {
+          "still_growing": false,
+          "method": "workspace-growth-two-sample"
+        }
+      }
+    }
+  ],
+  "transport_retries": 0,
+  "app_asar_sha256": null,
+  "managed_unknowns": [],
+  "residual_disclosure": {
+    "group_coverage": "confirmation covers launched pgid only; setsid-escaped descendants not covered by group confirmation",
+    "host_guarantee": "none at whole-host level",
+    "probe": "workspace-growth-two-sample (post-stop)",
+    "policy": "detected ongoing writer => conservative partial (unverified stop)"
+  },
+  "status": "ok",
+  "exit_code": 0,
+  "diagnostic": null,
+  "termination_receipt": {
+    "file": "termination-receipt.json",
+    "sha256": "735508f5d185b8772e4447dff61cd06952bc79aef6578405fd47a772fdd75096"
+  },
+  "timed_out": false,
+  "started_at": "2026-10-29T23:53:14+08:00",
+  "finished_at": "2026-10-29T23:59:21+08:00",
+  "duration_s": 366.9,
+  "stdout_bytes": 311683,
+  "stdout_sha256": "c31f4aefb31bca4c6c06fc9f3ba26ccb24863fc71b3ac25e6c87f350c898a522",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "archived_stdout": {
+    "raw_file": "agent.jsonl",
+    "raw_bytes": 311683,
+    "raw_truncation": "dsh-headless --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no override in this version",
+    "full_file": null,
+    "full_sha256": null,
+    "full_bytes": 0,
+    "full_lines": 0,
+    "full_method": null
+  },
+  "usage": {
+    "requests": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cache_read_tokens": null,
+    "cache_creation_tokens": null,
+    "per_call": [],
+    "cross_check": {
+      "compared": 0,
+      "equal": 0,
+      "mismatch": []
+    },
+    "source": "session log unavailable——usage 全字段如实 null（unknown 不填 0）"
+  },
+  "reward": 0,
+  "weighted": 70.0,
+  "score_status": "scored",
+  "failed": [
+    "q49",
+    "q70",
+    "q2697"
+  ],
+  "judge": {
+    "reward": 0,
+    "weighted": 70.0,
+    "correct": 7,
+    "n_tasks": 10,
+    "guards_used": [
+      "answers_format",
+      "input_integrity"
+    ],
+    "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "exit_code": 1
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [
+      "2-用例",
+      "truth.json",
+      "checker.py",
+      "reference/",
+      "solution/",
+      "../",
+      "~/Documents",
+      "harness-compare-bench"
+    ],
+    "basis": "runner stdout (staging-first, never overwritten) + session-trajectory dual scan",
+    "stdout_scan": {
+      "lines": 273,
+      "violations": 0
+    },
+    "session_scan": {
+      "lines": 0,
+      "violations": 0
+    },
+    "evidence": []
+  },
+  "integrity_verdict": "clean"
+}

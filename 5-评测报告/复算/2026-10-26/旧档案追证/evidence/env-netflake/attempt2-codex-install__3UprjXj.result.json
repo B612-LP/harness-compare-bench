@@ -1,0 +1,116 @@
+{
+    "id": "d338f06c-fb42-44df-9b5a-8ab63c465c2b",
+    "task_name": "word-freq-report",
+    "trial_name": "word-freq-report__3UprjXj",
+    "trial_uri": "file:///mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs/r1016x-wordfreq-codex/word-freq-report__3UprjXj",
+    "task_id": {
+        "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/word-freq-report"
+    },
+    "source": null,
+    "task_checksum": "905f21968e68bd5a39048758b834efa6b43126791012bbba9af448aff035024f",
+    "config": {
+        "task": {
+            "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/word-freq-report",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "word-freq-report__3UprjXj",
+        "trials_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs/r1016x-wordfreq-codex",
+        "install_only": false,
+        "timeout_multiplier": 3.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "codex",
+            "import_path": null,
+            "model_name": "mimo-v2.6-flash",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {
+                "version": "0.162.1",
+                "config": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/config-xiaomi.toml",
+                "disable_web_search": true
+            },
+            "env": {
+                "XIAOMI_API_KEY": "tp-c****3f4",
+                "OPENAI_API_KEY": "tp-c****3f4"
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [
+                "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+            ],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "cb60734f-89e6-4e53-ba25-d4524d0646cf",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "codex",
+        "version": "0.162.1",
+        "model_info": {
+            "name": "mimo-v2.6-flash",
+            "provider": "openai"
+        }
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "verifier_environment_mode": "shared",
+    "exception_info": {
+        "exception_type": "NonZeroAgentExitCodeError",
+        "exception_message": "Command failed (exit 1): set -euo pipefail; if ldd --version 2>&1 | grep -qi musl || [ -f /etc/alpine-release ]; then  npm install -g @openai/codex@0.162.1; else  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash &&  export NVM_DIR=\"$HOME/.nvm\" &&  \\. \"$NVM_DIR/nvm.sh\" || true &&  command -v nvm &>/dev/null || { echo 'Error: NVM failed to load' >&2; exit 1; } &&  nvm install 22 && nvm alias default 22 && npm -v &&  npm install -g @openai/codex@0.162.1; fi && codex --version\nstdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    ... [5072 chars truncated] ... v22.23.3 *)\n10.9.9\n\nadded 1 package in 14m\nfile:///root/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/bin/codex.js:107\n  throw new Error(\n        ^\n\nError: Missing optional dependency @openai/codex-linux-x64. Reinstall Codex: npm install -g @openai/codex@latest\n    at findCodexExecutable (file:///root/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/bin/codex.js:107:9)\n    at file:///root/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/bin/codex.js:112:20\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v22.23.3\n\nstderr: None",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 497, in run\n    await self._prepare()\n  File \"/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 543, in _prepare\n    await self._setup_agent()\n  File \"/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 1720, in _setup_agent\n    await asyncio.wait_for(\n  File \"/usr/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 1087, in setup\n    await self.install(environment)\n  File \"/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/codex.py\", line 427, in install\n    await self.exec_as_agent(\n  File \"/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 1032, in exec_as_agent\n    return await self._exec(\n           ^^^^^^^^^^^^^^^^^\n  File \"/root/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 999, in _exec\n    raise self._classify_exec_error(command, result)\nharbor.agents.installed.base.NonZeroAgentExitCodeError: Command failed (exit 1): set -euo pipefail; if ldd --version 2>&1 | grep -qi musl || [ -f /etc/alpine-release ]; then  npm install -g @openai/codex@0.162.1; else  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash &&  export NVM_DIR=\"$HOME/.nvm\" &&  \\. \"$NVM_DIR/nvm.sh\" || true &&  command -v nvm &>/dev/null || { echo 'Error: NVM failed to load' >&2; exit 1; } &&  nvm install 22 && nvm alias default 22 && npm -v &&  npm install -g @openai/codex@0.162.1; fi && codex --version\nstdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    ... [5072 chars truncated] ... v22.23.3 *)\n10.9.9\n\nadded 1 package in 14m\nfile:///root/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/bin/codex.js:107\n  throw new Error(\n        ^\n\nError: Missing optional dependency @openai/codex-linux-x64. Reinstall Codex: npm install -g @openai/codex@latest\n    at findCodexExecutable (file:///root/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/bin/codex.js:107:9)\n    at file:///root/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/bin/codex.js:112:20\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v22.23.3\n\nstderr: None\n",
+        "occurred_at": "2026-10-16T11:26:07.062079Z"
+    },
+    "started_at": "2026-10-16T11:09:03.333953Z",
+    "finished_at": "2026-10-16T11:26:20.463525Z",
+    "environment_setup": {
+        "started_at": "2026-10-16T11:09:03.363859Z",
+        "finished_at": "2026-10-16T11:09:05.944146Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-16T11:09:05.944176Z",
+        "finished_at": "2026-10-16T11:26:07.058725Z"
+    },
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

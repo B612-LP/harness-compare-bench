@@ -1,0 +1,50 @@
+{
+  "kind": "late_archive_recovery",
+  "accounting": "offline_recompute/late_archive",
+  "run_id": "l4-20261029-cli-dsh-dabstep-payments-10-r2",
+  "slot_id": "l4-20261029-cli-dsh-dabstep-payments-10-r2",
+  "at": "2026-10-30T00:01:23+08:00",
+  "binding": {
+    "run_id": "l4-20261029-cli-dsh-dabstep-payments-10-r2",
+    "expected_dir_name": "--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r2--",
+    "dir_exists": true,
+    "files_found": 2,
+    "files_out_of_time_window": [],
+    "uuid_subdirs_in_raw_stream": {
+      "11031851-05cf-4062-b628-bd516bc6a552": true,
+      "session-176d0231-7b6f-4f74-a366-059ed4b058b3": true
+    },
+    "prompt_check": "not performed on compressed content (zstd) — disclosed"
+  },
+  "source_dir": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r2--",
+  "collected_at": "2026-10-30T00:01:23+08:00",
+  "files": [
+    {
+      "path": "11031851-05cf-4062-b628-bd516bc6a552/session.v4.jsonl.zstd",
+      "source": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r2--/11031851-05cf-4062-b628-bd516bc6a552/session.v4.jsonl.zstd",
+      "sha256": "b2713bc422a13b6eb64e3cb8c20745e4bdfbe362876d36a449a964002f41ae09",
+      "bytes": 227533,
+      "source_stable_after_copy": true,
+      "copy_sha256": "b2713bc422a13b6eb64e3cb8c20745e4bdfbe362876d36a449a964002f41ae09",
+      "copy_bytes": 227533
+    },
+    {
+      "path": "session-176d0231-7b6f-4f74-a366-059ed4b058b3/session.v4.jsonl.zstd",
+      "source": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-dabstep-payments-10-r2--/session-176d0231-7b6f-4f74-a366-059ed4b058b3/session.v4.jsonl.zstd",
+      "sha256": "61c9eca0a8a9af605abd50fff701782769c3aa0a08cee173fa4ad32d18f105a2",
+      "bytes": 430281,
+      "source_stable_after_copy": true,
+      "copy_sha256": "61c9eca0a8a9af605abd50fff701782769c3aa0a08cee173fa4ad32d18f105a2",
+      "copy_bytes": 430281
+    }
+  ],
+  "all_sources_stable": true,
+  "scope_discipline": "read-only collection of THIS batch's finished slot; original capture/meta/verdicts untouched; no backfill; nothing under tools/",
+  "limitations": {
+    "impact": "recovery usability for integrity review decided by judge/auditor under frozen contract",
+    "next_step": "judge verifies binding + compressed integrity",
+    "stop_condition": "no decompression/semantic reading; no other sessions touched"
+  },
+  "zero_model": true,
+  "live_doc_drift": []
+}

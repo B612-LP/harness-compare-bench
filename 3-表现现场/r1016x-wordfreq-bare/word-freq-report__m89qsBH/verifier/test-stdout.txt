@@ -1,0 +1,18 @@
+check output_exists: PASS
+check total_line: FAIL (got '<tool_call><function=Bash><parameter=command>cat << 'EOF' > /tmp/process.py', want '92')
+check distinct_line: FAIL (got 'import sys', want '35')
+check top5_block: FAIL
+--- got ---
+from collections import Counter
+
+PUNCT = set('.,;:!?"\'()-')
+
+with open('/app/corpus.txt', 'r', encoding='ascii') as f:
+--- want (count desc, ASCII tie-break) ---
+the 8
+and 7
+fox 6
+a 5
+dog 5
+check trailing_newline: FAIL (last_byte=3e n_lines=42, want 0a and 7)
+reward=0

@@ -1,0 +1,58 @@
+# Assignment
+- Agent ID: m_0cwRsMN4uVn
+- Role: main
+- Assigned by: user
+- Created: 2026-10-23T08:14:55.724294888Z
+
+> append-only: 每个 turn 的需求按时间戳追加在下方，最新在末尾。
+
+## [2026-10-23T08:14:55.724294888Z] 需求
+# 本场任务：dabstep-payments-10（豆包 办公）
+
+**你的工作目录（绝对路径）：`/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/dabstep-payments-10`**
+
+请在这个目录里工作：输入都在该目录的 `inputs/` 下，产物按题目要求写到该目录里（题目里的相对路径都相对这个目录）。除题目明确要求修改的代码外，不要改动 `inputs/` 下的文件。
+
+---
+
+# dabstep-payments-10：支付流水多步问答
+
+## 任务
+
+你是一名支付数据分析师。运行目录下的 `inputs/` 里有一份商户支付分析资料包，以及 10 个问题（`inputs/questions.jsonl`）。请阅读资料与口径文档后逐题作答，在**运行目录根下**交付答案文件 `answers.jsonl`。
+
+## 输入
+
+| 文件 | 说明 |
+|---|---|
+| `inputs/manual.md` | 支付处理手册：账户类型、MCC、ACI、费用规则各字段含义、费用公式、月份与「国内交易」等口径定义。**一切定义以本文件为准。** |
+| `inputs/payments.csv` | 交易流水，138,236 行、23.5 MB。列为 `psp_reference, merchant, card_scheme, year, hour_of_day, minute_of_hour, day_of_year, is_credit, eur_amount, ip_country, issuing_country, device_type, ip_address, email_address, card_number, shopper_interaction, card_bin, has_fraudulent_dispute, is_refused_by_adyen, aci, acquirer_country`。布尔列为 `True`/`False` 文本；`day_of_year` 是当年第几天（数据年份为 2023）。 |
+| `inputs/fees.json` | 1000 条费用规则。字段：`ID, card_scheme, account_type, capture_delay, monthly_fraud_level, monthly_volume, merchant_category_code, is_credit, aci, fixed_amount, rate, intracountry`。字段为 `null` 表示该规则适用于该字段的所有取值。单笔费用 = `fixed_amount + rate × 交易金额 / 10000`（欧元）。 |
+| `inputs/merchant_data.json` | 30 个商户的画像：`merchant, capture_delay, acquirer, merchant_category_code, account_type`。 |
+| `inputs/merchant_category_codes.csv` | MCC 码 → 行业描述。 |
+| `inputs/acquirer_countries.csv` | 收单机构 → 国家码。 |
+| `inputs/questions.jsonl` | 10 个问题，每行 `{"task_id", "question", "guidelines", "level"}`；`guidelines` 规定该题答案的书写格式。 |
+
+## 交付：`answers.jsonl`
+
+在运行目录根下写 `answers.jsonl`（UTF-8，一行一个 JSON 对象，共 **10** 行），例如：
+
+```json
+{"task_id": "5", "answer": "你的答案"}
+```
+
+硬性要求：
+
+- 每题**恰好一行**，10 道题全覆盖，不得重复、不得多写其它 `task_id`；
+- `task_id` 必须是 `inputs/questions.jsonl` 中的原值（**字符串**，如 `"1273"`）；
+- `answer` 必须是**单个 JSON 字符串**——即使答案是数字、列表或选项，也要写成字符串（例如 `"42"`、`"A. XX"`、`"1.234567"`、`"a, b, c"`、`"Not Applicable"`）；
+- 答案内容严格遵循该题 `guidelines` 规定的格式：只要国家码、只要 `X. Y` 形式的选项、保留指定小数位的数字、逗号分隔的取值列表，或 `Not Applicable`；
+- 不需要解释文字，不要写入文件路径、日志或额外字段。
+
+## 环境与流程建议
+
+- 环境只承诺 `python3`（3.9，**仅标准库**；没有 pandas/numpy）。可以写脚本计算，也可以直接推理后手写产物——判分只看 `answers.jsonl` 的内容。
+- **禁止联网**；所有答案必须能从 `inputs/` 推导。
+- 不要修改 `inputs/` 下的任何文件：判分会核对输入文件的 SHA-256，副本被改则本次成绩无效。
+- 建议流程：先通读 `manual.md` 的账户类型 / MCC / ACI / 费用规则 / 月份与国内交易定义 → 逐题确定所需的表与规则 → 聚合计算或推理 → 写 `answers.jsonl` → 自查（题数、`task_id`、格式、小数位与四舍五入）→ 交付。
+- 建议 30 分钟内完成；`payments.csv` 较大，用逐行流式处理即可（例如先按维度聚合再回答问题）。

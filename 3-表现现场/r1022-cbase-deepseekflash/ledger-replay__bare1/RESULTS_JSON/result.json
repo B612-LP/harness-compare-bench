@@ -1,0 +1,77 @@
+{
+  "case_id": "ledger-replay",
+  "checker_version": "0.1",
+  "binary": true,
+  "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/ledger-replay__bare1",
+  "artifacts": {
+    "final_state.json": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/ledger-replay__bare1/final_state.json",
+    "anomalies.json": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/ledger-replay__bare1/anomalies.json"
+  },
+  "items": [
+    {
+      "id": "artifacts_exist",
+      "title": "产物存在",
+      "weight": 10,
+      "status": "pass",
+      "detail": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/ledger-replay__bare1/final_state.json、/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1022-cbase-deepseekflash/ledger-replay__bare1/anomalies.json"
+    },
+    {
+      "id": "input_integrity",
+      "title": "输入完整性（守卫）",
+      "weight": 10,
+      "status": "pass",
+      "detail": "输入副本与 canonical 字节一致"
+    },
+    {
+      "id": "final_state_format",
+      "title": "final_state 结构（数组/字段/整数分/升序）",
+      "weight": 10,
+      "status": "fail",
+      "detail": "非法 JSON：Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "id": "final_state_exact",
+      "title": "final_state 逐订单逐字段一致",
+      "weight": 30,
+      "status": "fail",
+      "detail": "结构非法，无法比对"
+    },
+    {
+      "id": "anomalies_format",
+      "title": "anomalies 结构（字段/类型枚举/seq 升序）",
+      "weight": 5,
+      "status": "fail",
+      "detail": "非法 JSON：Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "id": "anomalies_exact",
+      "title": "anomalies 集合与顺序完全一致",
+      "weight": 30,
+      "status": "fail",
+      "detail": "结构非法，无法比对"
+    },
+    {
+      "id": "money_conservation",
+      "title": "金额守恒（Σpaid−Σrefund == 有效 pay−refund）",
+      "weight": 5,
+      "status": "fail",
+      "detail": "final_state 不可用，无法复核守恒"
+    }
+  ],
+  "failed": [
+    "final_state_format",
+    "final_state_exact",
+    "anomalies_format",
+    "anomalies_exact",
+    "money_conservation"
+  ],
+  "reward": 0,
+  "weighted": 20,
+  "max_weight": 100,
+  "input_integrity": "verified",
+  "input_sha256": "a011ec7fd2d12bc85d0040594040cdb78e1b28c9e6a833ed57bce122ca1f56f4",
+  "expected_money": {
+    "pay": 5972707,
+    "refund": 2691762
+  }
+}

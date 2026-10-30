@@ -1,0 +1,3011 @@
+{
+  "tool": "4-打分细则/判卷回归/replay_all.py",
+  "schema_version": 1,
+  "generated_at": "2026-10-27T19:56:24+08:00",
+  "plan_only": false,
+  "ledger": "/Users/b612-lp/Documents/harness-compare-bench/5-评测报告/运行总账-2026-10-24.json",
+  "protocol": "只读全量重判：判分在 /tmp 临时副本（canonical inputs + 历史产物重组，先例 bird-q26-并入/replay_2026_10_26.py 与收紧批 replay_2026_10_27.py）；历史 run_dir 零写入；known-offset 仅认 bird-q26 收据 §5 对照表",
+  "checkers": {
+    "bird-ca-schools-15": {
+      "path": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+      "sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54"
+    },
+    "dabstep-payments-10": {
+      "path": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+      "sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94"
+    },
+    "exercism-py-6": {
+      "path": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/exercism-py-6/checker.py",
+      "sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30"
+    },
+    "lcb-recent-hard-4": {
+      "path": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+      "sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9"
+    },
+    "tb-cargo-plan": {
+      "path": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+      "sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677"
+    }
+  },
+  "summary": {
+    "n_rows_total": 95,
+    "n_rejudged": 57,
+    "n_match": 47,
+    "n_known_offset": 10,
+    "n_mismatch": 0,
+    "n_unexplained_mismatch": 0,
+    "n_error": 0,
+    "n_skip": 38,
+    "skip_by_reason": {
+      "archived-case": 23,
+      "adjudication-X": 11,
+      "artifact-missing": 4
+    },
+    "mismatch_run_ids": [],
+    "unexplained_mismatch_run_ids": [],
+    "error_run_ids": []
+  },
+  "rows": [
+    {
+      "run_id": "r1021-intsum-workbuddy/run1",
+      "case": "int-sum-sort",
+      "batch": "r1021-intsum-workbuddy",
+      "product": "workbuddy",
+      "role": "desktop-pilot-old-case",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 int-sum-sort 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1022-cbase-deepseekflash/corpus-squeeze__bare1",
+      "case": "corpus-squeeze",
+      "batch": "r1022-cbase-deepseekflash",
+      "product": "bare",
+      "role": "C-baseline",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 corpus-squeeze 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1022-cbase-deepseekflash/int-sum-sort__bare1",
+      "case": "int-sum-sort",
+      "batch": "r1022-cbase-deepseekflash",
+      "product": "bare",
+      "role": "C-baseline",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 int-sum-sort 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1022-cbase-deepseekflash/jielong-fullchain__bare1",
+      "case": "jielong-fullchain",
+      "batch": "r1022-cbase-deepseekflash",
+      "product": "bare",
+      "role": "C-baseline",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 jielong-fullchain 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1022-cbase-deepseekflash/ledger-replay__bare1",
+      "case": "ledger-replay",
+      "batch": "r1022-cbase-deepseekflash",
+      "product": "bare",
+      "role": "C-baseline",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 ledger-replay 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1022-cbase-deepseekflash/word-freq-report__bare1",
+      "case": "word-freq-report",
+      "batch": "r1022-cbase-deepseekflash",
+      "product": "bare",
+      "role": "C-baseline",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 word-freq-report 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/corpus-squeeze__codex",
+      "case": "corpus-squeeze",
+      "batch": "r1023-cli-dsf-low",
+      "product": "codex",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 corpus-squeeze 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/corpus-squeeze__dsh",
+      "case": "corpus-squeeze",
+      "batch": "r1023-cli-dsf-low",
+      "product": "dsh",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 corpus-squeeze 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/int-sum-sort__codex",
+      "case": "int-sum-sort",
+      "batch": "r1023-cli-dsf-low",
+      "product": "codex",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 int-sum-sort 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/int-sum-sort__dsh",
+      "case": "int-sum-sort",
+      "batch": "r1023-cli-dsf-low",
+      "product": "dsh",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 int-sum-sort 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/jielong-fullchain__codex",
+      "case": "jielong-fullchain",
+      "batch": "r1023-cli-dsf-low",
+      "product": "codex",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 jielong-fullchain 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/jielong-fullchain__dsh",
+      "case": "jielong-fullchain",
+      "batch": "r1023-cli-dsf-low",
+      "product": "dsh",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 jielong-fullchain 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/ledger-replay__codex",
+      "case": "ledger-replay",
+      "batch": "r1023-cli-dsf-low",
+      "product": "codex",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 ledger-replay 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/ledger-replay__dsh",
+      "case": "ledger-replay",
+      "batch": "r1023-cli-dsf-low",
+      "product": "dsh",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 ledger-replay 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/word-freq-report__codex",
+      "case": "word-freq-report",
+      "batch": "r1023-cli-dsf-low",
+      "product": "codex",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 word-freq-report 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1023-cli-dsf-low/word-freq-report__dsh",
+      "case": "word-freq-report",
+      "batch": "r1023-cli-dsf-low",
+      "product": "dsh",
+      "role": "legacy-case-cli",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 word-freq-report 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1024-probe-区分度/bird-schools15__codex",
+      "case": "bird-schools15",
+      "batch": "r1024-probe-区分度",
+      "product": "codex",
+      "role": "exploratory-probe",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1024-probe-区分度/bird-schools15__dsh",
+      "case": "bird-schools15",
+      "batch": "r1024-probe-区分度",
+      "product": "dsh",
+      "role": "exploratory-probe",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1024-probe-区分度/dabstep-dev10__codex",
+      "case": "dabstep-dev10",
+      "batch": "r1024-probe-区分度",
+      "product": "codex",
+      "role": "exploratory-probe",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 dabstep-dev10 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1024-probe-区分度/dabstep-dev10__dsh",
+      "case": "dabstep-dev10",
+      "batch": "r1024-probe-区分度",
+      "product": "dsh",
+      "role": "exploratory-probe",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1024-probe-区分度/lcb-hard3__codex",
+      "case": "lcb-hard3",
+      "batch": "r1024-probe-区分度",
+      "product": "codex",
+      "role": "exploratory-probe",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 lcb-hard3 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1024-probe-区分度/lcb-hard3__dsh",
+      "case": "lcb-hard3",
+      "batch": "r1024-probe-区分度",
+      "product": "dsh",
+      "role": "exploratory-probe",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 lcb-hard3 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1024-probe-区分度/lcb-v6-hard4__codex",
+      "case": "lcb-v6-hard4",
+      "batch": "r1024-probe-区分度",
+      "product": "codex",
+      "role": "exploratory-probe",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 lcb-v6-hard4 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1024-probe-区分度/lcb-v6-hard4__dsh",
+      "case": "lcb-v6-hard4",
+      "batch": "r1024-probe-区分度",
+      "product": "dsh",
+      "role": "exploratory-probe",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 lcb-v6-hard4 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1024-probe-区分度/polyglot-py3__codex",
+      "case": "polyglot-py3",
+      "batch": "r1024-probe-区分度",
+      "product": "codex",
+      "role": "exploratory-probe",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 polyglot-py3 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1024-probe-区分度/polyglot-py3__dsh",
+      "case": "polyglot-py3",
+      "batch": "r1024-probe-区分度",
+      "product": "dsh",
+      "role": "exploratory-probe",
+      "adjudication": "V",
+      "main_table_eligible": false,
+      "scoring_status": "historical-checker-output",
+      "status": "skipped",
+      "skip_reason": "archived-case",
+      "skip_note": "历史用例 polyglot-py3 已归档（2-用例/_归档-v1），无现行 checker"
+    },
+    {
+      "run_id": "r1025-candidates/bird-ca-schools-15__codex",
+      "case": "bird-ca-schools-15",
+      "batch": "r1025-candidates",
+      "product": "codex",
+      "role": "candidate-cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__codex",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__codex",
+      "run_dir_how": "sources 路径推断(repo 相对)",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__codex",
+      "artifact_sha256": {
+        "answers.jsonl": "f686960103fff95acacfb4bc584f442dee9390f9197037e09c929ee1ff13c063"
+      },
+      "duration_ms": 126,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1025-candidates/bird-ca-schools-15__dsh",
+      "case": "bird-ca-schools-15",
+      "batch": "r1025-candidates",
+      "product": "dsh",
+      "role": "candidate-cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__dsh",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__dsh",
+      "run_dir_how": "sources 路径推断(repo 相对)",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/bird-ca-schools-15__dsh",
+      "artifact_sha256": {
+        "answers.jsonl": "57e8389992dc341a1414a7a299dcc58f5bea36f486346d306fefcb1fe3d390f1"
+      },
+      "duration_ms": 121,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1025-candidates/dabstep-payments-10__codex",
+      "case": "dabstep-payments-10",
+      "batch": "r1025-candidates",
+      "product": "codex",
+      "role": "candidate-cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__codex",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__codex",
+      "run_dir_how": "sources 路径推断(repo 相对)",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/dabstep-payments-10__codex",
+      "artifact_sha256": {
+        "answers.jsonl": "c21455ef8cf09de17291df08d3b411865aa4232dc786b66b273341194b7f3486"
+      },
+      "duration_ms": 51,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1025-candidates/dabstep-payments-10__dsh",
+      "case": "dabstep-payments-10",
+      "batch": "r1025-candidates",
+      "product": "dsh",
+      "role": "candidate-cli",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "pending-fixed-checker-independent-recompute",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1025-candidates/exercism-py-6__codex",
+      "case": "exercism-py-6",
+      "batch": "r1025-candidates",
+      "product": "codex",
+      "role": "candidate-cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/exercism-py-6__codex",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/exercism-py-6__codex",
+      "run_dir_how": "sources 路径推断(repo 相对)",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/exercism-py-6__codex/inputs/exercises/forth",
+      "artifact_sha256": {
+        "forth.py": "0ea90353a0baed5cb2e39515bd30e503f61aeb3f0018fa0033e0a6fe11eeb38d",
+        "poker.py": "8c77ab4910cc9b8a9190e8741cdabdb4262a73f4b06c9482eacafede4979393d",
+        "dominoes.py": "20f11140616af89b5556139a769ec8de66263c96474e226c33e17fc69ec17305",
+        "bowling.py": "35c75cdf31940720432329d59d69cf7ec05bc7c702ae4c69b8646d69d40398f9",
+        "zipper.py": "12acf171a00954ecc2d2063fd7d11617169520a0ce111ba21dca5f81d385c761",
+        "pov.py": "0e234ad17a4b21a85f97d995e40525b0fea801077b87a38d5c755f3996784754"
+      },
+      "duration_ms": 540,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/exercism-py-6/checker.py",
+        "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+        "checker_version": "1.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1025-candidates/exercism-py-6__dsh",
+      "case": "exercism-py-6",
+      "batch": "r1025-candidates",
+      "product": "dsh",
+      "role": "candidate-cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/exercism-py-6__dsh",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/exercism-py-6__dsh",
+      "run_dir_how": "sources 路径推断(repo 相对)",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/exercism-py-6__dsh/inputs/exercises/forth",
+      "artifact_sha256": {
+        "forth.py": "a36051e6093a6f2a986b9de70cb80f72de60049702f900a2f5dcb2b0f34f3a4a",
+        "poker.py": "fc669e334c60312f51ea3102b6fa43de7922aad4e2f260978849371f4e8ca536",
+        "dominoes.py": "1ce9f72de694c7586a053747a90b391631b6a3a3f5631471515add9b85fa60af",
+        "bowling.py": "7873287e87389b28364a3f07b7a6ef137fdf4fbd6a12610ab72cc5b8b09b4959",
+        "zipper.py": "f2ca9982ce32894c260bc1a057daeeda43bb105f0bd6c49b683f8afdcf552c8c",
+        "pov.py": "b4957c31e745b1caea77e0555a0373dbab9b51b82f84fab08c267caa62495820"
+      },
+      "duration_ms": 536,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/exercism-py-6/checker.py",
+        "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+        "checker_version": "1.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1025-candidates/lcb-recent-hard-4__codex",
+      "case": "lcb-recent-hard-4",
+      "batch": "r1025-candidates",
+      "product": "codex",
+      "role": "candidate-cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/lcb-recent-hard-4__codex",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/lcb-recent-hard-4__codex",
+      "run_dir_how": "sources 路径推断(repo 相对)",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/lcb-recent-hard-4__codex/solutions",
+      "artifact_sha256": {
+        "abc387_f.py": "641ba0bcefd97dc1c52d81c6fe0d86598c30c22c6b8878b2f320865b5770a39c",
+        "abc388_f.py": "9ff0b98c63970c073406d0190940343cf0119861321e8e4320ea7e7f465618b6",
+        "abc388_g.py": "09ab5bdd4b8fd8b469e5badeb58561e6f2b51e61e7e597cf8295458907eb65c5",
+        "abc389_g.py": "d3c6538e19b962e5df10a8ec9fec1368c579704b1329bf2703ef6d636782411a"
+      },
+      "duration_ms": 6385,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1025-candidates/lcb-recent-hard-4__dsh",
+      "case": "lcb-recent-hard-4",
+      "batch": "r1025-candidates",
+      "product": "dsh",
+      "role": "candidate-cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/lcb-recent-hard-4__dsh",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/lcb-recent-hard-4__dsh",
+      "run_dir_how": "sources 路径推断(repo 相对)",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/lcb-recent-hard-4__dsh/solutions",
+      "artifact_sha256": {
+        "abc387_f.py": "99b5b13367e6f3d81bf3390dd9c05e6878ef66a01030db213a603fdd1570e7e0",
+        "abc388_f.py": "25a0ec61f14f708c11daf200585478daa765a5bb043671920ff1a52b7a97b76d",
+        "abc388_g.py": "2ea568911e7352dd6b2c708591036d85bf130e21c2936849edaaa6ca3e17314c",
+        "abc389_g.py": "a957ad3bf86badf1c3450a848fdae90dd413b06e14210962794a7ac67cfce2de"
+      },
+      "duration_ms": 8289,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1025-candidates/tb-cargo-plan__codex",
+      "case": "tb-cargo-plan",
+      "batch": "r1025-candidates",
+      "product": "codex",
+      "role": "candidate-cli",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "pending-fixed-checker-independent-recompute",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1025-candidates/tb-cargo-plan__dsh",
+      "case": "tb-cargo-plan",
+      "batch": "r1025-candidates",
+      "product": "dsh",
+      "role": "candidate-cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/tb-cargo-plan__dsh",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/tb-cargo-plan__dsh",
+      "run_dir_how": "sources 路径推断(repo 相对)",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1025-candidates/tb-cargo-plan__dsh/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "5a14226ed2ba1276f875940beb7bd302b1edfe4df4c70b506ab53bc529cae6f0",
+        "dispatch.py": "296993370d956af5691bfcc1ebbdf27854d393d61b43a7a9a49eb87814cfba64",
+        "navigation.py": "5e2d949261bdfd3a93f5ce2224b6c4a388f6574141a86ff6b0e9d2fc5f70024f"
+      },
+      "duration_ms": 72,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/doubao/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "batch": "r1026-desktop-15",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/bird-ca-schools-15",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/bird-ca-schools-15",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/bird-ca-schools-15",
+      "artifact_sha256": {
+        "answers.jsonl": "0a40b5535520e0d988e5e8d85d111fa63c4b6d129198dbd1e440986cba01fbcf"
+      },
+      "duration_ms": 155,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 60.0,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 0,
+        "weighted": 66.67
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/doubao/dabstep-payments-10",
+      "case": "dabstep-payments-10",
+      "batch": "r1026-desktop-15",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/dabstep-payments-10",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/dabstep-payments-10",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/dabstep-payments-10",
+      "artifact_sha256": {
+        "answers.jsonl": "4ec5948f34b66d767c7a1552a52e9eeac84ad4e6064d1bc8c8841a816cf3a656"
+      },
+      "duration_ms": 64,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/doubao/exercism-py-6",
+      "case": "exercism-py-6",
+      "batch": "r1026-desktop-15",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/exercism-py-6",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/exercism-py-6",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/exercism-py-6/inputs/exercises/forth",
+      "artifact_sha256": {
+        "forth.py": "c3a4c262a9e81ed3f3d6ccefd1f8811bd8d168501041f1a1b5c568e7ce087fb4",
+        "poker.py": "91f44a3eb459c557e99825a3e70fb7c4ab2d31e2e7295ec6e02581458437cfdc",
+        "dominoes.py": "3d7d5dc7f2d6c29bc470bf5b64646a30dfab1add98514fe99ade139b1e3e5358",
+        "bowling.py": "7ef7f066a91b59b8a552af46d2a83578eac0f16a1ee87cceaa981b72de3400db",
+        "zipper.py": "d7f26ef0d7495f7506037fbd012b161b9eb6bde0c18d7476798f701473c7bc32",
+        "pov.py": "e3deaaf34b13563bc81ec993f4ec1119309d1c952f8c2abfdda8f4579df341b8"
+      },
+      "duration_ms": 680,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/exercism-py-6/checker.py",
+        "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+        "checker_version": "1.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/doubao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "batch": "r1026-desktop-15",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/lcb-recent-hard-4",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/lcb-recent-hard-4",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/lcb-recent-hard-4/solutions",
+      "artifact_sha256": {
+        "abc387_f.py": "777f8edee8c46b78df724bfdb8d016c5487e1c3c58c15261574ed08dcc96b04d",
+        "abc388_f.py": "5c961df60622a391710811f9e5869db4eaa0b247557e6536e8ea9de2413d8984",
+        "abc388_g.py": "665d81b3e314ad5b2cfacc108d0c4a72ad97cc4c19f46f7338d1f3c018c5c7d4",
+        "abc389_g.py": "5f9a15d0a80bc9091b04ad3f677fa0107896383c459aa8ed012202c69ac1d34f"
+      },
+      "duration_ms": 14639,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/doubao/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "batch": "r1026-desktop-15",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "b40796f759bc2e9687f340b9d0558b939ca552ebc66ccfb7d202d3eec289b608",
+        "dispatch.py": "7d1105cf89110f0ceea78c9fe921207d723b971adeb2a141a3fe1ca74d54a951",
+        "navigation.py": "ba2c27f71a102bda36d0c465e9d7a41ec414873b84c0071dde23a48f73b49796"
+      },
+      "duration_ms": 80,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 81.48,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 81.48
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/workbuddy/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "batch": "r1026-desktop-15",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/bird-ca-schools-15",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/bird-ca-schools-15",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/bird-ca-schools-15",
+      "artifact_sha256": {
+        "answers.jsonl": "94d07cc3880ca6696c74c136a75c17ef81d904e785e71083490ea6ad51e273d2"
+      },
+      "duration_ms": 158,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/workbuddy/dabstep-payments-10",
+      "case": "dabstep-payments-10",
+      "batch": "r1026-desktop-15",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "pending-fixed-checker-independent-recompute",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/workbuddy/exercism-py-6",
+      "case": "exercism-py-6",
+      "batch": "r1026-desktop-15",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/exercism-py-6",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/exercism-py-6",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/exercism-py-6/inputs/exercises/forth",
+      "artifact_sha256": {
+        "forth.py": "e1fc1cd56a8373b05c161cb1d46f99a4953924c8cf82a010c25d2754db3e1090",
+        "poker.py": "8ddbe1c123ea801dfd4c99066ba2919bb33f57e2a0080ad3ca50546d8b9ae590",
+        "dominoes.py": "9a06ede6fe16b0a8b64689ac1e3c180ce346d620addacad6106c163ddc09d6a7",
+        "bowling.py": "b9bcd4ed7582c280cf7eabefd1f8b85238d362b4c96ac26172d46d4867edadcd",
+        "zipper.py": "01fc10306302014133d74ef20aa63dbdcc28e4c5b65e32f25f58cfc2bdbcc606",
+        "pov.py": "f7ed9c4b3a632e56d4e79291b9885899b620d8810598805563f3173753592482"
+      },
+      "duration_ms": 683,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/exercism-py-6/checker.py",
+        "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+        "checker_version": "1.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/workbuddy/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "batch": "r1026-desktop-15",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "excluded-not-regraded",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/workbuddy/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "batch": "r1026-desktop-15",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "pending-fixed-checker-independent-recompute",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1027-isolated/runs/codex__tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "batch": "r1027-isolated",
+      "product": "codex",
+      "role": "isolated-replacement",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1027-isolated/runs/codex__tb-cargo-plan",
+          "exists": true
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1027-isolated/runs/codex__tb-cargo-plan/meta.json",
+          "exists": false
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1027-isolated/runs/codex__tb-cargo-plan/agent.jsonl",
+          "exists": false
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r1027/codex)",
+          "path": "/Users/b612-lp/bench-workspaces/r1027/codex/tb-cargo-plan",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1027/codex/tb-cargo-plan",
+      "run_dir_how": "工作区映射(bench-workspaces/r1027/codex)",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 工作区映射(bench-workspaces/r1027/codex) 为判分对象：/Users/b612-lp/bench-workspaces/r1027/codex/tb-cargo-plan",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1027/codex/tb-cargo-plan/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "8975e96d2ed778f4972b6ad5ebad35e962fcff0fdd5596b5b600727bb8740c4c",
+        "dispatch.py": "971d3fd047f204c7e3567c8a4b746da4b4433827480cfd026bd291862ab5ea86",
+        "navigation.py": "f9d92f76179477c7385c0971f389ff364571dc2b3fa9cbcdec924be771ef74a8"
+      },
+      "duration_ms": 73,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1027-isolated/runs/dsh__dabstep-payments-10",
+      "case": "dabstep-payments-10",
+      "batch": "r1027-isolated",
+      "product": "dsh",
+      "role": "isolated-replacement",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1027/dsh/dabstep-payments-10",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1027/dsh/dabstep-payments-10",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1027/dsh/dabstep-payments-10",
+      "artifact_sha256": {
+        "answers.jsonl": "89f958068618099780112503a7d7cd0e4a64ab9638c4854db74b3555d6665e09"
+      },
+      "duration_ms": 75,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1027-isolated/runs/workbuddy__dabstep-payments-10",
+      "case": "dabstep-payments-10",
+      "batch": "r1027-isolated",
+      "product": "workbuddy",
+      "role": "isolated-replacement",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1027/workbuddy/dabstep-payments-10",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1027/workbuddy/dabstep-payments-10",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1027/workbuddy/dabstep-payments-10",
+      "artifact_sha256": {
+        "answers.jsonl": "28cdbde2315a900b3ee8e5f5064c2d2527baaaf278e5f6ecf6bf7951e86cebc1"
+      },
+      "duration_ms": 60,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1027-isolated/runs/workbuddy__tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "batch": "r1027-isolated",
+      "product": "workbuddy",
+      "role": "isolated-replacement",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1027-isolated/runs/workbuddy__tb-cargo-plan",
+          "exists": true
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1027-isolated/runs/workbuddy__tb-cargo-plan/meta.json",
+          "exists": false
+        },
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1027-isolated/runs/workbuddy__tb-cargo-plan/trace",
+          "exists": true
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1027-isolated/runs/workbuddy__tb-cargo-plan/trace/a522a773-2fde-4f29-8c7e-454ba4b55a97.jsonl",
+          "exists": false
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r1027/workbuddy)",
+          "path": "/Users/b612-lp/bench-workspaces/r1027/workbuddy/tb-cargo-plan",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1027/workbuddy/tb-cargo-plan",
+      "run_dir_how": "工作区映射(bench-workspaces/r1027/workbuddy)",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 工作区映射(bench-workspaces/r1027/workbuddy) 为判分对象：/Users/b612-lp/bench-workspaces/r1027/workbuddy/tb-cargo-plan",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1027/workbuddy/tb-cargo-plan/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "83e9dc6903412f2900e7a97306e9e7ad58690d7d24818ad3cb36aa1dfa337a4a",
+        "dispatch.py": "848d91bc6810c6505d27879d4ae2245826c0574c403a89fe71be47c2c72adbd7",
+        "navigation.py": "55ddf9cbe4feef382104dda6cca4335ae7403e9d0f49c0047eb229fc41c0f10f"
+      },
+      "duration_ms": 73,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__bird-ca-schools-15__r2",
+      "case": "bird-ca-schools-15",
+      "batch": "r1028-repeats",
+      "product": "codex",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r2",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r2",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r2",
+      "artifact_sha256": {
+        "answers.jsonl": "324e24f3bfb4c2b6db89edf9094976d8ab6965574a307bcc22900538224492b8"
+      },
+      "duration_ms": 167,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__bird-ca-schools-15__r3",
+      "case": "bird-ca-schools-15",
+      "batch": "r1028-repeats",
+      "product": "codex",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r3",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r3",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r3",
+      "artifact_sha256": {
+        "answers.jsonl": "1eab0606acad9fa426e147ab76700da6cfca84c7eda6f07e798b01502648280c"
+      },
+      "duration_ms": 173,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 80.0,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 86.67
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__dabstep-payments-10__r2",
+      "case": "dabstep-payments-10",
+      "batch": "r1028-repeats",
+      "product": "codex",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1028/codex/dabstep-payments-10__r2",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1028/codex/dabstep-payments-10__r2",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/codex/dabstep-payments-10__r2",
+      "artifact_sha256": {
+        "answers.jsonl": "9e222258bcc52f49c286c1325964a5bc84d6d10ac72cd83ca758d8bd36ad4afa"
+      },
+      "duration_ms": 65,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__dabstep-payments-10__r3",
+      "case": "dabstep-payments-10",
+      "batch": "r1028-repeats",
+      "product": "codex",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1028/codex/dabstep-payments-10__r3",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1028/codex/dabstep-payments-10__r3",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/codex/dabstep-payments-10__r3",
+      "artifact_sha256": {
+        "answers.jsonl": "86274225291254248e9de58f07a8bce302c3d1259262b467aacd5c6591b7c8da"
+      },
+      "duration_ms": 64,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__tb-cargo-plan__r2",
+      "case": "tb-cargo-plan",
+      "batch": "r1028-repeats",
+      "product": "codex",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "skipped",
+      "skip_reason": "artifact-missing",
+      "skip_note": "候选目录存在但判分产物不齐（尝试 4 个候选）",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1028-repeats/runs/codex__tb-cargo-plan__r2",
+          "exists": true
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1028-repeats/runs/codex__tb-cargo-plan__r2/meta.json",
+          "exists": false
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1028-repeats/runs/codex__tb-cargo-plan__r2/agent.jsonl",
+          "exists": false
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r1028-repeats/codex)",
+          "path": "/Users/b612-lp/bench-workspaces/r1028-repeats/codex/tb-cargo-plan",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__tb-cargo-plan__r3",
+      "case": "tb-cargo-plan",
+      "batch": "r1028-repeats",
+      "product": "codex",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "skipped",
+      "skip_reason": "artifact-missing",
+      "skip_note": "候选目录存在但判分产物不齐（尝试 4 个候选）",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1028-repeats/runs/codex__tb-cargo-plan__r3",
+          "exists": true
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1028-repeats/runs/codex__tb-cargo-plan__r3/meta.json",
+          "exists": false
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1028-repeats/runs/codex__tb-cargo-plan__r3/agent.jsonl",
+          "exists": false
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r1028-repeats/codex)",
+          "path": "/Users/b612-lp/bench-workspaces/r1028-repeats/codex/tb-cargo-plan",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__bird-ca-schools-15__r2",
+      "case": "bird-ca-schools-15",
+      "batch": "r1028-repeats",
+      "product": "dsh",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r2",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r2",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r2",
+      "artifact_sha256": {
+        "answers.jsonl": "eca72cc5dbe6bf1a141f9b87e8d44d24cab9743359256ff4fda3074ca22bc737"
+      },
+      "duration_ms": 154,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__bird-ca-schools-15__r3",
+      "case": "bird-ca-schools-15",
+      "batch": "r1028-repeats",
+      "product": "dsh",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r3",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r3",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r3",
+      "artifact_sha256": {
+        "answers.jsonl": "2a45a83f9bf6c89741a546cd2578e187a4b74107923d5cd706bdcac92c3ef81e"
+      },
+      "duration_ms": 159,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67,
+        "historical_checker_version": "regrade_2026_10_24: 1.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__dabstep-payments-10__r2",
+      "case": "dabstep-payments-10",
+      "batch": "r1028-repeats",
+      "product": "dsh",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1028/dsh/dabstep-payments-10__r2",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1028/dsh/dabstep-payments-10__r2",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/dsh/dabstep-payments-10__r2",
+      "artifact_sha256": {
+        "answers.jsonl": "c4c5681a16c2c29916cdf77edc218450190713c105a3174933d49f8fc8044da7"
+      },
+      "duration_ms": 66,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 50.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 50.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__dabstep-payments-10__r3",
+      "case": "dabstep-payments-10",
+      "batch": "r1028-repeats",
+      "product": "dsh",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.judge.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r1028/dsh/dabstep-payments-10__r3",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r1028/dsh/dabstep-payments-10__r3",
+      "run_dir_how": "original_fields.judge.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/dsh/dabstep-payments-10__r3",
+      "artifact_sha256": {
+        "answers.jsonl": "2ffa8ccf14e9326fc0489961b3a27bc5cde24307e5d2aaea5bcef78043746916"
+      },
+      "duration_ms": 64,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 60.0,
+        "historical_checker_version": "regrade_2026_10_24: 0.2"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 60.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__tb-cargo-plan__r2",
+      "case": "tb-cargo-plan",
+      "batch": "r1028-repeats",
+      "product": "dsh",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "skipped",
+      "skip_reason": "artifact-missing",
+      "skip_note": "候选目录存在但判分产物不齐（尝试 4 个候选）",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1028-repeats/runs/dsh__tb-cargo-plan__r2",
+          "exists": true
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1028-repeats/runs/dsh__tb-cargo-plan__r2/meta.json",
+          "exists": false
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1028-repeats/runs/dsh__tb-cargo-plan__r2/agent.jsonl",
+          "exists": false
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r1028-repeats/dsh)",
+          "path": "/Users/b612-lp/bench-workspaces/r1028-repeats/dsh/tb-cargo-plan",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__tb-cargo-plan__r3",
+      "case": "tb-cargo-plan",
+      "batch": "r1028-repeats",
+      "product": "dsh",
+      "role": "cli-repeat",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "skipped",
+      "skip_reason": "artifact-missing",
+      "skip_note": "候选目录存在但判分产物不齐（尝试 4 个候选）",
+      "run_dir_candidates": [
+        {
+          "how": "sources 路径推断(repo 相对)",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1028-repeats/runs/dsh__tb-cargo-plan__r3",
+          "exists": true
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1028-repeats/runs/dsh__tb-cargo-plan__r3/meta.json",
+          "exists": false
+        },
+        {
+          "how": "sources 路径推断(home 相对)",
+          "path": "/Users/b612-lp/3-表现现场/r1028-repeats/runs/dsh__tb-cargo-plan__r3/agent.jsonl",
+          "exists": false
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r1028-repeats/dsh)",
+          "path": "/Users/b612-lp/bench-workspaces/r1028-repeats/dsh/tb-cargo-plan",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/doubao/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "batch": "r1029-desktop-auto",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/bird-ca-schools-15",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/bird-ca-schools-15",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/bird-ca-schools-15/workspace",
+      "artifact_sha256": {
+        "answers.jsonl": "8a1e02137e24c0d69b47f2ccf1fbb61abcd106d722bb3969f15e4ad6dec2ea93"
+      },
+      "duration_ms": 2671,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 66.67
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 0,
+        "weighted": 73.33
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/doubao/dabstep-payments-10",
+      "case": "dabstep-payments-10",
+      "batch": "r1029-desktop-auto",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/dabstep-payments-10",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/dabstep-payments-10",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/dabstep-payments-10/workspace",
+      "artifact_sha256": {
+        "answers.jsonl": "0c60dd8af8e98d65758e422281e85789ea16e651d4b6532fa838d1230707ba5a"
+      },
+      "duration_ms": 68,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/doubao/exercism-py-6",
+      "case": "exercism-py-6",
+      "batch": "r1029-desktop-auto",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/exercism-py-6",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/exercism-py-6",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/exercism-py-6/workspace/inputs/exercises/forth",
+      "artifact_sha256": {
+        "forth.py": "5d2ce94a40ea674062ee2b59eae4dbbed49ad0e64057be8faf44972a9a873236",
+        "poker.py": "e73e338ffaa66aa56defd8aa5a2c07700ddce466fecd2f417e0abe9846e1b3c0",
+        "dominoes.py": "a9eac3ad12e27632a53bb8168f977daee6f3f971f683be1bd1dd5b09cb01a792",
+        "bowling.py": "c479bafb85af8c6b9c2726bd270a7f805d636bf92dc5e2008ba641938a05b4d3",
+        "zipper.py": "2f5fe8aa1ceda73370ddcb48aefd1b89987c1b8f42db68f43854988282af7b70",
+        "pov.py": "054e56f6b9a8ecbcbf5259cee09ebc2ac2464f425e507932c7f16b2672b80a35"
+      },
+      "duration_ms": 687,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/exercism-py-6/checker.py",
+        "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+        "checker_version": "1.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/doubao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "batch": "r1029-desktop-auto",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/lcb-recent-hard-4",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/lcb-recent-hard-4",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/lcb-recent-hard-4/workspace/solutions",
+      "artifact_sha256": {
+        "abc387_f.py": "d9782f9ede48a440f4ad870f36e309b0a12d2ede5aea055afd4909894f97e870",
+        "abc388_f.py": "a10512b9feaf45a4dfd09063fae6f52096d7f1ffd497b707617e417b558cf5c4",
+        "abc388_g.py": "ebc9268c817823eded2cdd9742ab38358d82a41a8687e2af54bc2731a96d6369",
+        "abc389_g.py": "4d19a45061a3d6e7200b72bf5f8487bf489ab45cba2cb066cb06380a5a104baf"
+      },
+      "duration_ms": 34800,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/doubao/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "batch": "r1029-desktop-auto",
+      "product": "doubao",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/tb-cargo-plan",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/tb-cargo-plan",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/tb-cargo-plan/workspace/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "856cf548ca6900795a152dfad38c61a08ad0acb02ccf1db7caf6688c4e8211eb",
+        "dispatch.py": "c203b0b7fcbe2cc3e2df4cc30c6216771c9ca08576351db7b4368866b9cd7b30",
+        "navigation.py": "ebf873538ef32ca0daf771db31e172e40badba82550f1c54ffad5b27f8ce8bda"
+      },
+      "duration_ms": 91,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/workbuddy/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "batch": "r1029-desktop-auto",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/bird-ca-schools-15",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/bird-ca-schools-15",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/bird-ca-schools-15/workspace",
+      "artifact_sha256": {
+        "answers.jsonl": "5efc980754a1835904f6f79f4c4c8d382975f2d14b7a23d8903ec9a777f3af77"
+      },
+      "duration_ms": 170,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 93.33
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 86.67
+      },
+      "verdict": "known-offset",
+      "known_offset_basis": "判卷审计-2026-10-26/bird-q26-并入/README.md §5：q26 金标 v1.1→v1.2 （Free Meal→FRPM）迁移的逐场旧→新分对照；总账 raw 仍记旧合同分，重判按现行 v1.2 合同得出新分，差异≠翻转"
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/workbuddy/dabstep-payments-10",
+      "case": "dabstep-payments-10",
+      "batch": "r1029-desktop-auto",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/dabstep-payments-10",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/dabstep-payments-10",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/dabstep-payments-10/workspace",
+      "artifact_sha256": {
+        "answers.jsonl": "33707b2542b0208e9347749909650785ab3176bb2e13f0df937f4bd9294e896d"
+      },
+      "duration_ms": 67,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/workbuddy/exercism-py-6",
+      "case": "exercism-py-6",
+      "batch": "r1029-desktop-auto",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/exercism-py-6",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/exercism-py-6",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/exercism-py-6/workspace/inputs/exercises/forth",
+      "artifact_sha256": {
+        "forth.py": "59af41a405ff45da9961ba795e3832324612b9e7c6c237074739434a2e19e970",
+        "poker.py": "be1924074b25986d5325d1f062572ac4d299a28cb6cf6e92a0016cf62dfc4aa4",
+        "dominoes.py": "35abd10a21e41b0d88665ff31c22d147c54b67b225d2ba3ec0d096a4826dce05",
+        "bowling.py": "65183e5f53cc521d4cab00418a7de9424ccf8c4fdca16a3486f435e8e4a6fc56",
+        "zipper.py": "9e30fd8b933c98e2159efc88800f4a11e0607225a0d818d47964b5244dfda01e",
+        "pov.py": "95c8bb860ed7b50e2cb20dd3b634f5e939ba2903fa72520eea79f83e83c9a54c"
+      },
+      "duration_ms": 686,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/exercism-py-6/checker.py",
+        "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+        "checker_version": "1.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/workbuddy/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "batch": "r1029-desktop-auto",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/workbuddy/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "batch": "r1029-desktop-auto",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/tb-cargo-plan",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/tb-cargo-plan",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/tb-cargo-plan/workspace/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "7284058b7bd90246803a5ef4ce8ae3d5e31225a51e8d761c65d2009dfd17563e",
+        "dispatch.py": "6733b137e9eb9226de4ad779ad43d698b8796879d19edb6d0c328a061f7febbf",
+        "navigation.py": "542f08bf5e65797a6cb97d2a17398a843f45dd35fa6bae3c5b236d085d43cd79"
+      },
+      "duration_ms": 71,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r1030/yuanbao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "batch": "r1030",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "excluded-not-regraded",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r1031/yuanbao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "batch": "r1031",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r1031/yuanbao/lcb-recent-hard-4",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-automation/runs/r1031/yuanbao/lcb-recent-hard-4",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-automation/runs/r1031/yuanbao/lcb-recent-hard-4/solutions",
+      "artifact_sha256": {
+        "abc387_f.py": "e4078ba2127bc5191e4c7a4f798fb30611d2581fba20902fe81e4389f94b6647",
+        "abc388_f.py": "658f96e6520bc9bb4093200383ffea9c5703846cfc7275c44d85e50be8391b34",
+        "abc388_g.py": "b0b7d75d66fdf4e05c5a69e21587c7b19b522b4a7b4825b4bf2ed96eb5822496",
+        "abc389_g.py": "52b54f0b064909f4f116b8eda1ae73142b0a42ceb39f7e63a7b66c02dbc916a6"
+      },
+      "duration_ms": 5750,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 50.0,
+        "historical_checker_version": "original_fields.judge: 0.1"
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 50.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261026-yuanbao-cases4/yuanbao/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "batch": "r20261026-yuanbao-cases4",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r20261026-yuanbao-cases4/yuanbao/bird-ca-schools-15",
+          "exists": true
+        },
+        {
+          "how": "judge_result.json run_dir 指针",
+          "path": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/bird-ca-schools-15",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/bird-ca-schools-15",
+      "run_dir_how": "judge_result.json run_dir 指针",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 judge_result.json run_dir 指针 为判分对象：/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/bird-ca-schools-15",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/bird-ca-schools-15",
+      "artifact_sha256": {
+        "answers.jsonl": "1a40d2cb182ea63039677c25e39a1edda658814826c9f55e06e3fa75e779b4cc"
+      },
+      "duration_ms": 175,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 86.67
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261026-yuanbao-cases4/yuanbao/exercism-py-6",
+      "case": "exercism-py-6",
+      "batch": "r20261026-yuanbao-cases4",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r20261026-yuanbao-cases4/yuanbao/exercism-py-6",
+          "exists": true
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r20261026-yuanbao-cases4/yuanbao)",
+          "path": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/exercism-py-6",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/exercism-py-6",
+      "run_dir_how": "工作区映射(bench-workspaces/r20261026-yuanbao-cases4/yuanbao)",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 工作区映射(bench-workspaces/r20261026-yuanbao-cases4/yuanbao) 为判分对象：/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/exercism-py-6",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/exercism-py-6/inputs/exercises/forth",
+      "artifact_sha256": {
+        "forth.py": "6fd40c44361070def0dd4d51b77ce56e9901792b2131e70e1332848b20aaae9b",
+        "poker.py": "a8d13e9e2b363767c1fbf657352095304e10b02d63eacd81e7a5faf38f51538f",
+        "dominoes.py": "baf2bf3c99d5062e5f614e7077067c05646f8f70a0540ed908b4b74abd8865b9",
+        "bowling.py": "9a3f8283259555d32e3abf35f20bbb73cffa88b00dab58ce6a6d50afdca7187a",
+        "zipper.py": "7cd3fd584d9cf50e0e36845c781991bd71460a3f7dae39111d571e9bd3a2f970",
+        "pov.py": "917c3589ebb866c0613ea912cc70dbbedb924c3faba1631f4dbeb507d5424886"
+      },
+      "duration_ms": 713,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 83.33
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/exercism-py-6/checker.py",
+        "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+        "checker_version": "1.1",
+        "reward": 1,
+        "weighted": 83.33
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261026-yuanbao-cases4/yuanbao/dabstep-payments-10",
+      "case": "dabstep-payments-10",
+      "batch": "r20261026-yuanbao-cases4",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r20261026-yuanbao-cases4/yuanbao/dabstep-payments-10",
+          "exists": true
+        },
+        {
+          "how": "judge_result.json run_dir 指针",
+          "path": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/dabstep-payments-10",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/dabstep-payments-10",
+      "run_dir_how": "judge_result.json run_dir 指针",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 judge_result.json run_dir 指针 为判分对象：/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/dabstep-payments-10",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/dabstep-payments-10",
+      "artifact_sha256": {
+        "answers.jsonl": "a434421425157fd56915a379a7673d378f592f595153d8b0b931dc16f445ab5c"
+      },
+      "duration_ms": 65,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 10.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 10.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "batch": "r20261026-yuanbao-cases4",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan",
+          "exists": true
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r20261026-yuanbao-cases4/yuanbao)",
+          "path": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan",
+      "run_dir_how": "工作区映射(bench-workspaces/r20261026-yuanbao-cases4/yuanbao)",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 工作区映射(bench-workspaces/r20261026-yuanbao-cases4/yuanbao) 为判分对象：/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "432444a4b6256a0b237890b0730e709ff9ad94a8f1990c12d2d954e8dc51bcc0",
+        "dispatch.py": "c4b5015392f613772e69990541012f8c73ccd7073b34ec7d7e979edb067bd1f7",
+        "navigation.py": "3b212e5c700fef7154fcc0b2698d136dd3b6f6f8227ec8e0cf4e42ff20babe30"
+      },
+      "duration_ms": 77,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 48.15
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 48.15
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-yuanbao-4cases/yuanbao/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "batch": "r20261027-yuanbao-4cases",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/bird-ca-schools-15",
+          "exists": true
+        },
+        {
+          "how": "judge_result.json run_dir 指针",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/bird-ca-schools-15",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/bird-ca-schools-15",
+      "run_dir_how": "judge_result.json run_dir 指针",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 judge_result.json run_dir 指针 为判分对象：/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/bird-ca-schools-15",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/bird-ca-schools-15",
+      "artifact_sha256": {
+        "answers.jsonl": "a37f20776eb8e9c17b0ed5939c4f2275cbe555cc47a0ff221f2c9c0af4cb6791"
+      },
+      "duration_ms": 180,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 93.33
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-yuanbao-4cases/yuanbao/dabstep-payments-10",
+      "case": "dabstep-payments-10",
+      "batch": "r20261027-yuanbao-4cases",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/dabstep-payments-10",
+          "exists": true
+        },
+        {
+          "how": "judge_result.json run_dir 指针",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/dabstep-payments-10",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/dabstep-payments-10",
+      "run_dir_how": "judge_result.json run_dir 指针",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 judge_result.json run_dir 指针 为判分对象：/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/dabstep-payments-10",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/dabstep-payments-10",
+      "artifact_sha256": {
+        "answers.jsonl": "6f91fc587b9d10872517ba5888ca69fb7195160985072b99416731e998eb3f91"
+      },
+      "duration_ms": 66,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 40.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 40.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-yuanbao-4cases/yuanbao/exercism-py-6",
+      "case": "exercism-py-6",
+      "batch": "r20261027-yuanbao-4cases",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/exercism-py-6",
+          "exists": true
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r20261027-yuanbao-4cases/yuanbao)",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/exercism-py-6",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/exercism-py-6",
+      "run_dir_how": "工作区映射(bench-workspaces/r20261027-yuanbao-4cases/yuanbao)",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 工作区映射(bench-workspaces/r20261027-yuanbao-4cases/yuanbao) 为判分对象：/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/exercism-py-6",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/exercism-py-6/inputs/exercises/forth",
+      "artifact_sha256": {
+        "forth.py": "750513565dec0ba3236e19f9b80f9f7a9da1a963169a0303a6739c535a968642",
+        "poker.py": "cf841e0ddfe22319959156c97cca5caba280e3a119f451f3109ae6d610bdf859",
+        "dominoes.py": "5c8b81afd9532ba4165a6ca4c26994df32f0a08f9d6b4e724de311f8d253da4e",
+        "bowling.py": "5d0b5933100dc7e34a511aedcedbe7e707c19e42b3a12fa6b0a78e9d13c88044",
+        "zipper.py": "66276107d448f53a12509da6f503280e0dca4a6bbd9d690a774fb0972a55f926",
+        "pov.py": "c8b3e955d1a13a8649eec7d9f4489c85ce3c75a8f6409b7904eafd6ca86df022"
+      },
+      "duration_ms": 730,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 83.33
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/exercism-py-6/checker.py",
+        "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+        "checker_version": "1.1",
+        "reward": 1,
+        "weighted": 83.33
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "batch": "r20261027-yuanbao-4cases",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan",
+          "exists": true
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r20261027-yuanbao-4cases/yuanbao)",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan",
+      "run_dir_how": "工作区映射(bench-workspaces/r20261027-yuanbao-4cases/yuanbao)",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 工作区映射(bench-workspaces/r20261027-yuanbao-4cases/yuanbao) 为判分对象：/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "b0027d74459ddfb5c40a7ce0d10beafa991650a8abb718c90092e75d3d1d54a3",
+        "dispatch.py": "8188a8da4354f3864600761e1d519638e34b8055bd05d6947bf5f1e704369efc",
+        "navigation.py": "fb558779d37ccd1a89d7371d050094f5a8681a8277bd6f46dcf57ce4d6b5436e"
+      },
+      "duration_ms": 78,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 40.74
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 40.74
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-yuanbao-4cases/yuanbao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "batch": "r20261027-yuanbao-4cases",
+      "product": "yuanbao",
+      "role": "desktop-web",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/lcb-recent-hard-4",
+          "exists": true
+        },
+        {
+          "how": "工作区映射(bench-workspaces/r20261027-yuanbao-4cases/yuanbao)",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/lcb-recent-hard-4",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/lcb-recent-hard-4",
+      "run_dir_how": "工作区映射(bench-workspaces/r20261027-yuanbao-4cases/yuanbao)",
+      "artifact_tier": "full",
+      "artifact_note": "总账首选候选无完整判分产物，改以 工作区映射(bench-workspaces/r20261027-yuanbao-4cases/yuanbao) 为判分对象：/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/lcb-recent-hard-4",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/lcb-recent-hard-4/solutions",
+      "artifact_sha256": {
+        "abc387_f.py": "9eac4f5397be3d34a3643c04075f0a95d6aed7861f6d4db43c107d945a6be7fc",
+        "abc388_f.py": "b888edbfd5ad8ad6a6ab6c1a22b7880b5fd6f79a9d70eb4d61bf69e9cc5790a5",
+        "abc388_g.py": "c453f960db15d41f8c0a98c4334d4d8dcec694255bdcc7775612712f97708e68",
+        "abc389_g.py": "9eac4f5397be3d34a3643c04075f0a95d6aed7861f6d4db43c107d945a6be7fc"
+      },
+      "duration_ms": 10412,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 0.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 0,
+        "weighted": 0.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-workbuddy-lcb-clean2/workbuddy/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "batch": "r20261027-workbuddy-lcb-clean2",
+      "product": "workbuddy",
+      "role": "desktop",
+      "adjudication": "X",
+      "main_table_eligible": false,
+      "scoring_status": "excluded-not-regraded",
+      "status": "skipped",
+      "skip_reason": "adjudication-X",
+      "skip_note": "判定 X（excluded/pending-fixed 等无效行），按口径默认跳过、重判无意义"
+    },
+    {
+      "run_id": "r20261027-ablation/dabstep-payments-10__codex-base",
+      "case": "dabstep-payments-10",
+      "batch": "r20261027-ablation",
+      "product": "codex",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__codex-base",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__codex-base",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__codex-base",
+      "artifact_sha256": {
+        "answers.jsonl": "0c60dd8af8e98d65758e422281e85789ea16e651d4b6532fa838d1230707ba5a"
+      },
+      "duration_ms": 67,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-ablation/dabstep-payments-10__codex-skill",
+      "case": "dabstep-payments-10",
+      "batch": "r20261027-ablation",
+      "product": "codex",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__codex-skill",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__codex-skill",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__codex-skill",
+      "artifact_sha256": {
+        "answers.jsonl": "524a555f2f4bfdf45fcffa5a7c2873bf6e2b4e1fc2d38a0060a5e29cab7e7e34"
+      },
+      "duration_ms": 65,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-ablation/dabstep-payments-10__codex-gpt",
+      "case": "dabstep-payments-10",
+      "batch": "r20261027-ablation",
+      "product": "codex",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__codex-gpt",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__codex-gpt",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__codex-gpt",
+      "artifact_sha256": {
+        "answers.jsonl": "6e674be0c13db6ec51a79f853f74edf5b0bcadf4de0b691ece6c2fdd1d2110bf"
+      },
+      "duration_ms": 69,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-ablation/dabstep-payments-10__dsh-base",
+      "case": "dabstep-payments-10",
+      "batch": "r20261027-ablation",
+      "product": "dsh",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__dsh-base",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__dsh-base",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__dsh-base",
+      "artifact_sha256": {
+        "answers.jsonl": "e25bfb80e977467e6be8d4d299ddb4bc5182baf28783a2871f868c9fc7433937"
+      },
+      "duration_ms": 68,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-ablation/dabstep-payments-10__dsh-skill",
+      "case": "dabstep-payments-10",
+      "batch": "r20261027-ablation",
+      "product": "dsh",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__dsh-skill",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__dsh-skill",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/dabstep-payments-10__dsh-skill",
+      "artifact_sha256": {
+        "answers.jsonl": "cc7051a58c7f188537333ec2a44353dc0622d8fa13be051294fc48969d7a0f08"
+      },
+      "duration_ms": 63,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.0
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__codex-base",
+      "case": "tb-cargo-plan",
+      "batch": "r20261027-ablation",
+      "product": "codex",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-base",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-base",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-base/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "8975e96d2ed778f4972b6ad5ebad35e962fcff0fdd5596b5b600727bb8740c4c",
+        "dispatch.py": "ad991826a4eb04996e15a64b017e52d9a07f326162723b9991edd15437ab40fb",
+        "navigation.py": "55e36e52bf8d04f1bffaa3e60238c0f49c481dfd81589571decc127ebe092c4e"
+      },
+      "duration_ms": 76,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__codex-skill",
+      "case": "tb-cargo-plan",
+      "batch": "r20261027-ablation",
+      "product": "codex",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-skill",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-skill",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-skill/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "8975e96d2ed778f4972b6ad5ebad35e962fcff0fdd5596b5b600727bb8740c4c",
+        "dispatch.py": "7397a35ec45e672e30fada22afacb416ff3d45c9f3b1ee4fe7f56f12ddbc1260",
+        "navigation.py": "c57806ee7a360876e75d4ee7f191d1f3f14d5fc14a365abe1bf77d0a4c7e4d3b"
+      },
+      "duration_ms": 72,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__codex-gpt",
+      "case": "tb-cargo-plan",
+      "batch": "r20261027-ablation",
+      "product": "codex",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-gpt",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-gpt",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-gpt/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "8975e96d2ed778f4972b6ad5ebad35e962fcff0fdd5596b5b600727bb8740c4c",
+        "dispatch.py": "6b3dc44a5b39c31a0e99097c0c14b48a8035cc561e96b9cf70613d6fde9f9bb9",
+        "navigation.py": "1adf757a7a6a45c1d5a4a692bf08150bb2fff3587570eb38f0c0df4d0da374db"
+      },
+      "duration_ms": 73,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__dsh-base",
+      "case": "tb-cargo-plan",
+      "batch": "r20261027-ablation",
+      "product": "dsh",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-base",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-base",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-base/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "5431bcfd97aa72255e1941b8edc93dc6e47c3bec10d1d7b66cd5c4dcaa89fe50",
+        "dispatch.py": "1b16d59449fdc1d733eb59810b8076bd559c59abce5671a5a1ac50a9f0009faa",
+        "navigation.py": "4cde716440a2a74d7393ef098831b4c4538e8bd2f572993db05c7ae329365b93"
+      },
+      "duration_ms": 74,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 74.07
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 74.07
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__dsh-skill",
+      "case": "tb-cargo-plan",
+      "batch": "r20261027-ablation",
+      "product": "dsh",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-skill",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-skill",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-skill/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "8975e96d2ed778f4972b6ad5ebad35e962fcff0fdd5596b5b600727bb8740c4c",
+        "dispatch.py": "a3d9a5cc9fa638961fc7b8ae6e4eead70685f7905ed18659c25b19a9bb705bfe",
+        "navigation.py": "4cde716440a2a74d7393ef098831b4c4538e8bd2f572993db05c7ae329365b93"
+      },
+      "duration_ms": 72,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "verdict": "match"
+    },
+    {
+      "run_id": "r20261027-work01/dabstep-payments-10__dsh-base",
+      "case": "dabstep-payments-10",
+      "batch": "r20261027-work01",
+      "product": "dsh",
+      "role": "cli",
+      "adjudication": "V",
+      "main_table_eligible": true,
+      "scoring_status": "versioned-regrade-complete-known-defects-only",
+      "status": "rejudged",
+      "run_dir_candidates": [
+        {
+          "how": "original_fields.run_dir",
+          "path": "/Users/b612-lp/bench-workspaces/work01-validation/r20261027-work01/dabstep-payments-10__dsh-base",
+          "exists": true
+        }
+      ],
+      "run_dir_resolved": "/Users/b612-lp/bench-workspaces/work01-validation/r20261027-work01/dabstep-payments-10__dsh-base",
+      "run_dir_how": "original_fields.run_dir",
+      "artifact_tier": "full",
+      "artifact_source": "/Users/b612-lp/bench-workspaces/work01-validation/r20261027-work01/dabstep-payments-10__dsh-base",
+      "artifact_sha256": {
+        "answers.jsonl": "adc950e2562242fff46c0067a9e17beee59295d8b891d4099cebcebfdfedf26e"
+      },
+      "duration_ms": 64,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 80.0
+      },
+      "replay": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/dabstep-payments-10/checker.py",
+        "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+        "checker_version": "0.2",
+        "reward": 1,
+        "weighted": 80.0
+      },
+      "verdict": "match"
+    }
+  ]
+}

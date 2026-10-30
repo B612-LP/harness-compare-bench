@@ -1,0 +1,111 @@
+{
+  "case_id": "bird-ca-schools-15",
+  "checker_version": "1.2-q26-frpm",
+  "binary": true,
+  "n_questions": 15,
+  "threshold": 0.8,
+  "difficulty_mix": {
+    "challenging": 5,
+    "moderate": 7,
+    "simple": 3
+  },
+  "db": "inputs/db/california_schools.sqlite",
+  "normalization": "结果集按行多重集比较：单元格 None→\"<NULL>\"、float 四舍五入保留 6 位小数、字符串去首尾空白；单元格按列序成组；行排序后逐行比对（行顺序不敏感）。",
+  "input_sha256": {
+    "inputs/db/california_schools.sqlite": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+    "inputs/schema.sql": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+    "inputs/sample_rows.json": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+    "inputs/questions.json": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e"
+  },
+  "input_bytes": {
+    "inputs/db/california_schools.sqlite": 11116544,
+    "inputs/schema.sql": 3993,
+    "inputs/sample_rows.json": 7739,
+    "inputs/questions.json": 15842
+  },
+  "source": {
+    "benchmark": "BIRD (BIg Bench for LaRge-scale Database Grounded Text-to-SQL Evaluation), mini_dev split",
+    "db_id": "california_schools",
+    "official_url": "https://bird-bench.github.io/",
+    "paper_url": "https://arxiv.org/abs/2305.03111",
+    "license": "CC BY-SA 4.0",
+    "read_date": "2026-10-22",
+    "selection": "mini_dev 中 db_id=california_schools 共 30 题，取 15 题：5 challenging (28/36/62/83/87) + 7 moderate (12/23/24/25/26/27/31) + 3 simple (5/11/17)",
+    "modification": "候选1.2-q26-frpm：仅q26将Free Meal Count改为FRPM Count，中文明确本地5-17岁及严格>800；原英文15-17保留为来源差异。其余14题gold和数据库不变；非官方原样gold全集。",
+    "gold_sql_unmodified": false,
+    "modified_gold_question_ids": [
+      26
+    ],
+    "parent_repository_commit": "a2234fccad1a437ae83b2989d2769d8881f81ba5"
+  },
+  "answers": {
+    "28": {
+      "difficulty": "challenging",
+      "sql": "SELECT T2.School, T2.DOC FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.FundingType = 'Locally funded' AND (T1.`Enrollment (K-12)` - T1.`Enrollment (Ages 5-17)`) > (SELECT AVG(T3.`Enrollment (K-12)` - T3.`Enrollment (Ages 5-17)`) FROM frpm AS T3 INNER JOIN schools AS T4 ON T3.CDSCode = T4.CDSCode WHERE T4.FundingType = 'Locally funded')"
+    },
+    "36": {
+      "difficulty": "challenging",
+      "sql": "SELECT T2.AdmFName1, T2.AdmLName1, T2.AdmFName2, T2.AdmLName2, T2.AdmFName3, T2.AdmLName3 FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode ORDER BY T1.NumGE1500 DESC LIMIT 1"
+    },
+    "62": {
+      "difficulty": "challenging",
+      "sql": "SELECT COUNT(T2.School) FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.County = 'Los Angeles' AND T2.Charter = 0 AND CAST(T1.`Free Meal Count (K-12)` AS REAL) * 100 / T1.`Enrollment (K-12)` < 0.18"
+    },
+    "83": {
+      "difficulty": "challenging",
+      "sql": "SELECT T2.City, COUNT(T2.CDSCode) FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.Magnet = 1 AND T2.GSoffered = 'K-8' AND T1.`NSLP Provision Status` = 'Multiple Provision Types' GROUP BY T2.City"
+    },
+    "87": {
+      "difficulty": "challenging",
+      "sql": "SELECT T2.AdmEmail1, T2.AdmEmail2 FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.County = 'San Bernardino' AND T2.City = 'San Bernardino' AND T2.DOC = 54 AND strftime('%Y', T2.OpenDate) BETWEEN '2009' AND '2010' AND T2.SOC = 62"
+    },
+    "12": {
+      "difficulty": "moderate",
+      "sql": "SELECT MAX(CAST(T1.`Free Meal Count (Ages 5-17)` AS REAL) / T1.`Enrollment (Ages 5-17)`) FROM frpm AS T1 INNER JOIN satscores AS T2 ON T1.CDSCode = T2.cds WHERE CAST(T2.NumGE1500 AS REAL) / T2.NumTstTakr > 0.3"
+    },
+    "23": {
+      "difficulty": "moderate",
+      "sql": "SELECT T1.School, T1.Street FROM schools AS T1 INNER JOIN frpm AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.`Enrollment (K-12)` - T2.`Enrollment (Ages 5-17)` > 30"
+    },
+    "24": {
+      "difficulty": "moderate",
+      "sql": "SELECT T2.`School Name` FROM satscores AS T1 INNER JOIN frpm AS T2 ON T1.cds = T2.CDSCode WHERE CAST(T2.`Free Meal Count (K-12)` AS REAL) / T2.`Enrollment (K-12)` > 0.1 AND T1.NumGE1500 > 0"
+    },
+    "25": {
+      "difficulty": "moderate",
+      "sql": "SELECT T1.sname, T2.`Charter Funding Type` FROM satscores AS T1 INNER JOIN frpm AS T2 ON T1.cds = T2.CDSCode WHERE T2.`District Name` LIKE 'Riverside%' GROUP BY T1.sname, T2.`Charter Funding Type` HAVING CAST(SUM(T1.AvgScrMath) AS REAL) / COUNT(T1.cds) > 400"
+    },
+    "26": {
+      "difficulty": "moderate",
+      "sql": "SELECT T1.`School Name`, T2.Street, T2.City, T2.State, T2.Zip FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.County = 'Monterey' AND T1.`FRPM Count (Ages 5-17)` > 800 AND T1.`School Type` = 'High Schools (Public)'"
+    },
+    "27": {
+      "difficulty": "moderate",
+      "sql": "SELECT T2.School, T1.AvgScrWrite, T2.Phone FROM schools AS T2 LEFT JOIN satscores AS T1 ON T2.CDSCode = T1.cds WHERE strftime('%Y', T2.OpenDate) > '1991' OR strftime('%Y', T2.ClosedDate) < '2000'"
+    },
+    "31": {
+      "difficulty": "moderate",
+      "sql": "SELECT CAST(`Free Meal Count (K-12)` AS REAL) / `Enrollment (K-12)` FROM frpm ORDER BY `Enrollment (K-12)` DESC LIMIT 9, 2"
+    },
+    "5": {
+      "difficulty": "simple",
+      "sql": "SELECT COUNT(DISTINCT T2.School) FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode WHERE T2.Virtual = 'F' AND T1.AvgScrMath > 400"
+    },
+    "11": {
+      "difficulty": "simple",
+      "sql": "SELECT T2.CDSCode FROM schools AS T1 INNER JOIN frpm AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.`Enrollment (K-12)` + T2.`Enrollment (Ages 5-17)` > 500"
+    },
+    "17": {
+      "difficulty": "simple",
+      "sql": "SELECT CharterNum, AvgScrWrite, RANK() OVER (ORDER BY AvgScrWrite DESC) AS WritingScoreRank FROM schools AS T1  INNER JOIN satscores AS T2 ON T1.CDSCode = T2.cds WHERE T2.AvgScrWrite > 499 AND CharterNum is not null"
+    }
+  },
+  "notes": "checker 启动时校验 input_sha256 / threshold / n_questions / question_id 集合四处一致性，任一漂移 → ERROR 退出码 2；gold SQL 执行失败同样视为用例缺陷 → ERROR 退出码 2。",
+  "contract_status": "adopted-2026-10-26",
+  "adopted_date": "2026-10-26",
+  "adoption_receipt": "4-打分细则/判卷审计-2026-10-26/bird-q26-并入/",
+  "parent_checker_version": "1.1",
+  "changed_questions": [
+    "26"
+  ]
+}

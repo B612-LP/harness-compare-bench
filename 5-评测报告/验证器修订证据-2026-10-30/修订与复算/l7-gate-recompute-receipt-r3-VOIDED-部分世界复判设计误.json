@@ -1,0 +1,106 @@
+{
+  "kind": "l7-gate-explicitization-acceptance",
+  "tool": "l7_gate_recompute.py (r3)",
+  "at": "2026-10-30T13:22:43+08:00",
+  "pre_gate_sha256": "38b42a87c30c87d277f0a8984c4300919da3867826790a01fd24af6766b05ce9",
+  "post_gate_sha256": "25dbf52e46404014609b76324750452ce5f680bb770e1e0fbe4d6c57908ea6c9",
+  "counts": {
+    "total": 18,
+    "passed": 8,
+    "failed": 10
+  },
+  "assertions": [
+    {
+      "assert": "N1a CLI 缺两参被拒",
+      "pass": true,
+      "detail": "an-dir PLAN_DIR]\n               [--no-require-release] [--out OUT] [--selftest]\ngate.py: error: --binding 与 --plan-dir 均必填（L7-A：不再有隐式默认批目录）\n"
+    },
+    {
+      "assert": "N1b CLI 缺 --plan-dir 被拒",
+      "pass": true,
+      "detail": "an-dir PLAN_DIR]\n               [--no-require-release] [--out OUT] [--selftest]\ngate.py: error: --binding 与 --plan-dir 均必填（L7-A：不再有隐式默认批目录）\n"
+    },
+    {
+      "assert": "N2 API plan_dir=None → GateError（非 TypeError）",
+      "pass": true,
+      "detail": "GATEERROR: plan_dir 须显式传参（L7-A：不再有隐式默认批目录）\n"
+    },
+    {
+      "assert": "N3 load_execution_seal(None) → GateError",
+      "pass": true,
+      "detail": "GATEERROR: plan_dir 须显式传参（L7-A：不再有隐式默认批目录）\n"
+    },
+    {
+      "assert": "N4 不存在 plan-dir fail-closed",
+      "pass": true,
+      "detail": "tent-l7-probe' is not in the subpath of '/Users/b612-lp/Documents/harness-compare-bench' OR one path is relative and the other is absolute.\n"
+    },
+    {
+      "assert": "S0 修订版 gate selftest PASS",
+      "pass": true,
+      "detail": "etail\": \"verify_execution 失败于 manifest-sha-matches-binding：E=416f1bf2 binding=00000000\"\n    }\n  ]\n}\nGATE_SELFTEST: PASS\n"
+    },
+    {
+      "assert": "P0 修前提取字节 == 封印钉值",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "assert": "P:l4 admission dsh exit0",
+      "pass": false,
+      "detail": " 失败于 manifest-files-safe-and-consistent：[{\\\"path\\\": \\\"1-评测方案/工具链/evidence-kit/receipt_check.py\\\", \\\"reason\\\": \\\"sha-mismatch\\\", \\\"want\\\": \\\"effda0ed\\\", \\\"e\\\": \\\"effda0ed\\\", \\\"disk\\\": \\\"1a1770c1\\\"}]\"}\n"
+    },
+    {
+      "assert": "P:l4 admission codex exit0",
+      "pass": false,
+      "detail": " 失败于 manifest-files-safe-and-consistent：[{\\\"path\\\": \\\"1-评测方案/工具链/evidence-kit/receipt_check.py\\\", \\\"reason\\\": \\\"sha-mismatch\\\", \\\"want\\\": \\\"effda0ed\\\", \\\"e\\\": \\\"effda0ed\\\", \\\"disk\\\": \\\"1a1770c1\\\"}]\"}\n"
+    },
+    {
+      "assert": "P:l4 admission workbuddy exit0",
+      "pass": false,
+      "detail": " 失败于 manifest-files-safe-and-consistent：[{\\\"path\\\": \\\"1-评测方案/工具链/evidence-kit/receipt_check.py\\\", \\\"reason\\\": \\\"sha-mismatch\\\", \\\"want\\\": \\\"effda0ed\\\", \\\"e\\\": \\\"effda0ed\\\", \\\"disk\\\": \\\"1a1770c1\\\"}]\"}\n"
+    },
+    {
+      "assert": "P:l4 基线复现 formal=0/0（期望 0/17）",
+      "pass": false,
+      "detail": "got 0/0"
+    },
+    {
+      "assert": "P:l5 admission dsh exit0",
+      "pass": false,
+      "detail": "{\"ok\": false, \"error\": \"manifest 违反必需成员/结构（防漏封）：Manifest missing required sources: ['1-评测方案/工具链/l5-execution/gate-pinned-l7-check.py']\"}\n"
+    },
+    {
+      "assert": "P:l5 admission codex exit0",
+      "pass": false,
+      "detail": "{\"ok\": false, \"error\": \"manifest 违反必需成员/结构（防漏封）：Manifest missing required sources: ['1-评测方案/工具链/l5-execution/gate-pinned-l7-check.py']\"}\n"
+    },
+    {
+      "assert": "P:l5 admission workbuddy exit0",
+      "pass": false,
+      "detail": "{\"ok\": false, \"error\": \"manifest 违反必需成员/结构（防漏封）：Manifest missing required sources: ['1-评测方案/工具链/l5-execution/gate-pinned-l7-check.py']\"}\n"
+    },
+    {
+      "assert": "P:l5 基线复现 formal=0/0（期望 5/6）",
+      "pass": false,
+      "detail": "got 0/0"
+    },
+    {
+      "assert": "P:l6 admission workbuddy exit0",
+      "pass": false,
+      "detail": "{\"ok\": false, \"error\": \"manifest 违反必需成员/结构（防漏封）：Manifest missing required sources: ['1-评测方案/工具链/l5-execution/gate-pinned-l7-check.py']\"}\n"
+    },
+    {
+      "assert": "P:l6 基线复现 formal=0/0（期望 1/1）",
+      "pass": false,
+      "detail": "got 0/0"
+    },
+    {
+      "assert": "P4 修订版复判 L6 恰因封印 pin 拒（gate.py want=38b42a87）",
+      "pass": true,
+      "detail": "{\"ok\": false, \"error\": \"verify_execution 失败于 manifest-files-safe-and-consistent：[{\\\"path\\\": \\\"1-评测方案/工具链/l5-execution/gate.py\\\", \\\"reason\\\": \\\"sha-mismatch\\\", \\\"want\\\": \\\"38b42a87\\\", \\\"e\\\": \\\"38b42a87\\\", \\\"disk\\\": \\\"25dbf52e\\\"}]\"}\n"
+    }
+  ],
+  "all_ok": false,
+  "live_doc_drift": []
+}

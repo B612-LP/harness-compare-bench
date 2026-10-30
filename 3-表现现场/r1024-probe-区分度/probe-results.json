@@ -1,0 +1,731 @@
+[
+  {
+    "case": "bird-schools15",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:11:00+08:00",
+    "prompt_sha256": "1c21b50b92a778a2d0790921dcf581b9e7a5157fd23a2d0d1fc4cd45175910b4",
+    "inputs": [
+      {
+        "path": "inputs/db/california_schools.sqlite",
+        "sha256": "b8f874efb9887b76505c2d039aac6b28934042c23bd5d517f4a270cf973a6ff5",
+        "bytes": 11116544
+      },
+      {
+        "path": "inputs/db/california_schools.sqlite-shm",
+        "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+        "bytes": 32768
+      },
+      {
+        "path": "inputs/db/california_schools.sqlite-wal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "inputs/questions.json",
+        "sha256": "62266f20732df5e442c6548bf8d5488970bda80e18f70a2c672f0eb595366268",
+        "bytes": 5497
+      },
+      {
+        "path": "inputs/sample_rows.json",
+        "sha256": "943173439c8bd905178e5c8bb0dee5efe7618f7277df097752f0f044580d3d9f",
+        "bytes": 7975
+      },
+      {
+        "path": "inputs/schema.sql",
+        "sha256": "f784f363d8810f68f3473e008aa84239605a3909e82105be400a6498362a2897",
+        "bytes": 3940
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/bird-schools15__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 68.0,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "bird-schools15",
+      "reward": 1,
+      "weighted": 100.0,
+      "accuracy": 1.0,
+      "threshold": 0.8
+    },
+    "usage": {
+      "input_tokens": 330224,
+      "cached_input_tokens": 305408,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 14189,
+      "reasoning_output_tokens": 2564
+    },
+    "tool_calls": 33,
+    "by_tool": {
+      "?": 33
+    },
+    "steps": 33
+  },
+  {
+    "case": "bird-schools15",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:06:37+08:00",
+    "prompt_sha256": "d3138924cfa48b36a2f311d36ab33a19ebad5bc31ff9a90c9c84d034af693470",
+    "inputs": [
+      {
+        "path": "inputs/db/california_schools.sqlite",
+        "sha256": "b8f874efb9887b76505c2d039aac6b28934042c23bd5d517f4a270cf973a6ff5",
+        "bytes": 11116544
+      },
+      {
+        "path": "inputs/questions.json",
+        "sha256": "62266f20732df5e442c6548bf8d5488970bda80e18f70a2c672f0eb595366268",
+        "bytes": 5497
+      },
+      {
+        "path": "inputs/sample_rows.json",
+        "sha256": "943173439c8bd905178e5c8bb0dee5efe7618f7277df097752f0f044580d3d9f",
+        "bytes": 7975
+      },
+      {
+        "path": "inputs/schema.sql",
+        "sha256": "f784f363d8810f68f3473e008aa84239605a3909e82105be400a6498362a2897",
+        "bytes": 3940
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/bird-schools15__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 26.0,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "bird-schools15",
+      "reward": 1,
+      "weighted": 100.0,
+      "accuracy": 1.0,
+      "threshold": 0.8
+    },
+    "usage": {
+      "inputTokens": 2018,
+      "outputTokens": 3,
+      "cacheReadTokens": 36864,
+      "cacheWriteTokens": 0,
+      "totalTokens": 38885
+    },
+    "tool_calls": 11,
+    "by_tool": {
+      "bash": 11
+    },
+    "steps": 11
+  },
+  {
+    "case": "dabstep-dev10",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:05:08+08:00",
+    "prompt_sha256": "89c3f8436c716711781b443efb642164306218dbc110f8bd5eef2602040132ba",
+    "inputs": [
+      {
+        "path": "inputs/acquirer_countries.csv",
+        "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+        "bytes": 194
+      },
+      {
+        "path": "inputs/fees.json",
+        "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+        "bytes": 531118
+      },
+      {
+        "path": "inputs/manual.md",
+        "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+        "bytes": 22127
+      },
+      {
+        "path": "inputs/merchant_category_codes.csv",
+        "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+        "bytes": 26611
+      },
+      {
+        "path": "inputs/merchant_data.json",
+        "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+        "bytes": 6857
+      },
+      {
+        "path": "inputs/payments.csv",
+        "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+        "bytes": 23581339
+      },
+      {
+        "path": "inputs/questions.jsonl",
+        "sha256": "0f7c8ee6934d86142b29f7772224d2f0f82c58ca897d2f6bcc8bff3348f1d6ea",
+        "bytes": 3719
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/dabstep-dev10__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 352.7,
+    "reward": 1,
+    "weighted": 80.0,
+    "failed": [
+      "q70",
+      "q2697"
+    ],
+    "checker": {
+      "case": "dabstep-dev10",
+      "reward": 1,
+      "weighted": 80.0,
+      "accuracy": 0.8,
+      "threshold": 0.8
+    },
+    "usage": {
+      "input_tokens": 3832925,
+      "cached_input_tokens": 3779456,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 69125,
+      "reasoning_output_tokens": 40272
+    },
+    "tool_calls": 62,
+    "by_tool": {
+      "?": 62
+    },
+    "steps": 62
+  },
+  {
+    "case": "dabstep-dev10",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:05:08+08:00",
+    "prompt_sha256": "196e3178687da4d4dd7ea241ab7aa6ef721e71243c03b4a1054e886179997c29",
+    "inputs": [
+      {
+        "path": "inputs/acquirer_countries.csv",
+        "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+        "bytes": 194
+      },
+      {
+        "path": "inputs/fees.json",
+        "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+        "bytes": 531118
+      },
+      {
+        "path": "inputs/manual.md",
+        "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+        "bytes": 22127
+      },
+      {
+        "path": "inputs/merchant_category_codes.csv",
+        "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+        "bytes": 26611
+      },
+      {
+        "path": "inputs/merchant_data.json",
+        "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+        "bytes": 6857
+      },
+      {
+        "path": "inputs/payments.csv",
+        "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+        "bytes": 23581339
+      },
+      {
+        "path": "inputs/questions.jsonl",
+        "sha256": "0f7c8ee6934d86142b29f7772224d2f0f82c58ca897d2f6bcc8bff3348f1d6ea",
+        "bytes": 3719
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/dabstep-dev10__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 89.4,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "dabstep-dev10",
+      "reward": 1,
+      "weighted": 100.0,
+      "accuracy": 1.0,
+      "threshold": 0.8
+    },
+    "usage": {
+      "inputTokens": 424,
+      "outputTokens": 449,
+      "cacheReadTokens": 121088,
+      "cacheWriteTokens": 0,
+      "totalTokens": 121961
+    },
+    "tool_calls": 30,
+    "by_tool": {
+      "bash": 29,
+      "read": 1
+    },
+    "steps": 30
+  },
+  {
+    "case": "lcb-hard3",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:14:18+08:00",
+    "prompt_sha256": "42566758d0b3b2e6d2f235a876a7618e4d9bb481679ccf7955a71ec4bade5b3f",
+    "inputs": [
+      {
+        "path": "inputs/problems.json",
+        "sha256": "e4c22e907eadca5e6a11a1be15333d48b60c0dc93fba56f061e4afda612f1a70",
+        "bytes": 5143
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/lcb-hard3__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 46.9,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "lcb-hard3",
+      "reward": 1,
+      "weighted": 100.0,
+      "problems_passed": 3
+    },
+    "usage": {
+      "input_tokens": 108315,
+      "cached_input_tokens": 104448,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 9968,
+      "reasoning_output_tokens": 5416
+    },
+    "tool_calls": 8,
+    "by_tool": {
+      "?": 8
+    },
+    "steps": 8
+  },
+  {
+    "case": "lcb-hard3",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:15:05+08:00",
+    "prompt_sha256": "4a4a27fa039ff11c491e5ecc21a5c7993d777b0ab7e3bd7808ee364a3cba54d4",
+    "inputs": [
+      {
+        "path": "inputs/problems.json",
+        "sha256": "e4c22e907eadca5e6a11a1be15333d48b60c0dc93fba56f061e4afda612f1a70",
+        "bytes": 5143
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/lcb-hard3__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 33.2,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "lcb-hard3",
+      "reward": 1,
+      "weighted": 100.0,
+      "problems_passed": 3
+    },
+    "usage": {
+      "inputTokens": 210,
+      "outputTokens": 627,
+      "cacheReadTokens": 14592,
+      "cacheWriteTokens": 0,
+      "totalTokens": 15429
+    },
+    "tool_calls": 6,
+    "by_tool": {
+      "bash": 6
+    },
+    "steps": 6
+  },
+  {
+    "case": "lcb-v6-hard4",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:18:29+08:00",
+    "prompt_sha256": "9a0c68792cd1508c2f69f229c7409ee2fe70acba4d2372bd28b89f167b2a0d14",
+    "inputs": [
+      {
+        "path": "inputs/problems.json",
+        "sha256": "428ba73cb3bd4bc6e6ec2f965017c6afa22bbe898fee6f181337e4daad579516",
+        "bytes": 7047
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/lcb-v6-hard4__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 414.4,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "lcb-v6-hard4",
+      "reward": 1,
+      "weighted": 100.0,
+      "problems_passed": 4
+    },
+    "usage": {
+      "input_tokens": 1881266,
+      "cached_input_tokens": 1864448,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 48341,
+      "reasoning_output_tokens": 28493
+    },
+    "tool_calls": 43,
+    "by_tool": {
+      "?": 43
+    },
+    "steps": 43
+  },
+  {
+    "case": "lcb-v6-hard4",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:25:23+08:00",
+    "prompt_sha256": "a47192ef9865b76116ee5a369fb7ab2c533ce6d739e8d1b2233cc37fe1848129",
+    "inputs": [
+      {
+        "path": "inputs/problems.json",
+        "sha256": "428ba73cb3bd4bc6e6ec2f965017c6afa22bbe898fee6f181337e4daad579516",
+        "bytes": 7047
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/lcb-v6-hard4__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 303.2,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "lcb-v6-hard4",
+      "reward": 1,
+      "weighted": 100.0,
+      "problems_passed": 4
+    },
+    "usage": {
+      "inputTokens": 218,
+      "outputTokens": 376,
+      "cacheReadTokens": 59008,
+      "cacheWriteTokens": 0,
+      "totalTokens": 59602
+    },
+    "tool_calls": 29,
+    "by_tool": {
+      "bash": 28,
+      "read": 1
+    },
+    "steps": 29
+  },
+  {
+    "case": "polyglot-py3",
+    "agent": "codex",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:12:08+08:00",
+    "prompt_sha256": "1e440bc7e341095f3686ce50bb10e0eeaf8dbf7585455a0ab0ae9f25691f37fe",
+    "inputs": [
+      {
+        "path": "inputs/README.md",
+        "sha256": "0b5e14c3ddcfc2f53e6f29f1dc137892f49d0fcb32d14739e86596ab0bceb2aa",
+        "bytes": 386
+      },
+      {
+        "path": "inputs/exercises/dominoes/.docs/instructions.md",
+        "sha256": "4d0e12e178b83a18ea3e4cdc2b108e0a2ae01ae7e66625887d2895672db7fece",
+        "bytes": 819
+      },
+      {
+        "path": "inputs/exercises/dominoes/.meta/config.json",
+        "sha256": "bf0397ea82d0056d19d9fce44dd919e1234e07491109a756f63e0bf8aec82fd4",
+        "bytes": 350
+      },
+      {
+        "path": "inputs/exercises/dominoes/.meta/example.py",
+        "sha256": "4a51af33d2fed21b11146fb6ef03179771481f27f4c59d53fe442218fc9e2d6a",
+        "bytes": 838
+      },
+      {
+        "path": "inputs/exercises/dominoes/.meta/template.j2",
+        "sha256": "58d94811ced77e0d02d34d693ec1028d108254253dd69d239955d39cfab85ae4",
+        "bytes": 2731
+      },
+      {
+        "path": "inputs/exercises/dominoes/.meta/tests.toml",
+        "sha256": "e5d5cd58afa739db9984223b45906d233c64c66639dd919add4164d72e446526",
+        "bytes": 1529
+      },
+      {
+        "path": "inputs/exercises/dominoes/dominoes.py",
+        "sha256": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b",
+        "bytes": 34
+      },
+      {
+        "path": "inputs/exercises/dominoes/dominoes_test.py",
+        "sha256": "9645efc873738b9247ced09ccdce782fe2124646d24588d52c23df59e23ab140",
+        "bytes": 5099
+      },
+      {
+        "path": "inputs/exercises/forth/.docs/instructions.append.md",
+        "sha256": "ec3a69fad548faa5f17b2ef73cebfdd06759225c1b0f4ed805c7e0a630cdcd77",
+        "bytes": 2213
+      },
+      {
+        "path": "inputs/exercises/forth/.docs/instructions.md",
+        "sha256": "06875da79159e3783cde3d006e405f8329e16837b09b0b4b8225efc3d27a6d9c",
+        "bytes": 937
+      },
+      {
+        "path": "inputs/exercises/forth/.meta/config.json",
+        "sha256": "f732bc7caeee8d59cc1dfb133f15c79c7f5b45a92539d67688718dc2e3eb1912",
+        "bytes": 411
+      },
+      {
+        "path": "inputs/exercises/forth/.meta/example.py",
+        "sha256": "a90f6134d4f24b5abee77880c8eb4f8adf7a88d925c0cd3d9bbfcfba895a320b",
+        "bytes": 2097
+      },
+      {
+        "path": "inputs/exercises/forth/.meta/template.j2",
+        "sha256": "dfc44342abd6e8192457a254a5024514684e1078254c896b7a07053597eea4c0",
+        "bytes": 1768
+      },
+      {
+        "path": "inputs/exercises/forth/.meta/tests.toml",
+        "sha256": "b36c9c2a0726f1f4ca795c41fb4383cf208e06cc78664bdb2eaa757dc052b642",
+        "bytes": 6506
+      },
+      {
+        "path": "inputs/exercises/forth/forth.py",
+        "sha256": "9acd281e02feff4fc5ae766063a1ce1290b625bb930cc8f54c15a0109610e562",
+        "bytes": 84
+      },
+      {
+        "path": "inputs/exercises/forth/forth_test.py",
+        "sha256": "05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c",
+        "bytes": 11264
+      },
+      {
+        "path": "inputs/exercises/poker/.docs/instructions.md",
+        "sha256": "62427ba25c07f8c57519f93cbfc293dd3eb9e8b74a33aae3645281433b8941ea",
+        "bytes": 194
+      },
+      {
+        "path": "inputs/exercises/poker/.meta/config.json",
+        "sha256": "4f909ffbc55d536e4e6d42831a64009a981e652b9e03c745e07701bc3fed55af",
+        "bytes": 599
+      },
+      {
+        "path": "inputs/exercises/poker/.meta/example.py",
+        "sha256": "9627361e2566290218239ed64ea4edf610f826e94ae7044d9eef9316d241ec43",
+        "bytes": 1185
+      },
+      {
+        "path": "inputs/exercises/poker/.meta/template.j2",
+        "sha256": "e12cc76ab70e0d274f342c8c888e8eb62480831df07a49a98a34d710aed28e5b",
+        "bytes": 430
+      },
+      {
+        "path": "inputs/exercises/poker/.meta/tests.toml",
+        "sha256": "bd73d721b8dab8c6a99f8f96e8489d61ba67973941f60c9cf99ca9b24eff6be1",
+        "bytes": 5001
+      },
+      {
+        "path": "inputs/exercises/poker/poker.py",
+        "sha256": "6a4b5adab3ba9261fb4f9e2b09abc549b9ea37bf0774edc3c7759cec9a8b41fe",
+        "bytes": 32
+      },
+      {
+        "path": "inputs/exercises/poker/poker_test.py",
+        "sha256": "b39f023208318973e18a341449aa076f7595ff98f07174082a2a1b05c84ad8fd",
+        "bytes": 7690
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/polyglot-py3__codex",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 47.1,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "polyglot-py3",
+      "reward": 1,
+      "weighted": 100.0
+    },
+    "usage": {
+      "input_tokens": 236332,
+      "cached_input_tokens": 222336,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 10189,
+      "reasoning_output_tokens": 3571
+    },
+    "tool_calls": 18,
+    "by_tool": {
+      "?": 18
+    },
+    "steps": 18
+  },
+  {
+    "case": "polyglot-py3",
+    "agent": "dsh",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low",
+    "started_at": "2026-10-22T20:07:03+08:00",
+    "prompt_sha256": "f13b9a2043f18dd990873c020b0dd89c1be157d5a9081a8425990b39b032a9c1",
+    "inputs": [
+      {
+        "path": "inputs/README.md",
+        "sha256": "0b5e14c3ddcfc2f53e6f29f1dc137892f49d0fcb32d14739e86596ab0bceb2aa",
+        "bytes": 386
+      },
+      {
+        "path": "inputs/exercises/dominoes/.docs/instructions.md",
+        "sha256": "4d0e12e178b83a18ea3e4cdc2b108e0a2ae01ae7e66625887d2895672db7fece",
+        "bytes": 819
+      },
+      {
+        "path": "inputs/exercises/dominoes/.meta/config.json",
+        "sha256": "bf0397ea82d0056d19d9fce44dd919e1234e07491109a756f63e0bf8aec82fd4",
+        "bytes": 350
+      },
+      {
+        "path": "inputs/exercises/dominoes/.meta/example.py",
+        "sha256": "4a51af33d2fed21b11146fb6ef03179771481f27f4c59d53fe442218fc9e2d6a",
+        "bytes": 838
+      },
+      {
+        "path": "inputs/exercises/dominoes/.meta/template.j2",
+        "sha256": "58d94811ced77e0d02d34d693ec1028d108254253dd69d239955d39cfab85ae4",
+        "bytes": 2731
+      },
+      {
+        "path": "inputs/exercises/dominoes/.meta/tests.toml",
+        "sha256": "e5d5cd58afa739db9984223b45906d233c64c66639dd919add4164d72e446526",
+        "bytes": 1529
+      },
+      {
+        "path": "inputs/exercises/dominoes/dominoes.py",
+        "sha256": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b",
+        "bytes": 34
+      },
+      {
+        "path": "inputs/exercises/dominoes/dominoes_test.py",
+        "sha256": "9645efc873738b9247ced09ccdce782fe2124646d24588d52c23df59e23ab140",
+        "bytes": 5099
+      },
+      {
+        "path": "inputs/exercises/forth/.docs/instructions.append.md",
+        "sha256": "ec3a69fad548faa5f17b2ef73cebfdd06759225c1b0f4ed805c7e0a630cdcd77",
+        "bytes": 2213
+      },
+      {
+        "path": "inputs/exercises/forth/.docs/instructions.md",
+        "sha256": "06875da79159e3783cde3d006e405f8329e16837b09b0b4b8225efc3d27a6d9c",
+        "bytes": 937
+      },
+      {
+        "path": "inputs/exercises/forth/.meta/config.json",
+        "sha256": "f732bc7caeee8d59cc1dfb133f15c79c7f5b45a92539d67688718dc2e3eb1912",
+        "bytes": 411
+      },
+      {
+        "path": "inputs/exercises/forth/.meta/example.py",
+        "sha256": "a90f6134d4f24b5abee77880c8eb4f8adf7a88d925c0cd3d9bbfcfba895a320b",
+        "bytes": 2097
+      },
+      {
+        "path": "inputs/exercises/forth/.meta/template.j2",
+        "sha256": "dfc44342abd6e8192457a254a5024514684e1078254c896b7a07053597eea4c0",
+        "bytes": 1768
+      },
+      {
+        "path": "inputs/exercises/forth/.meta/tests.toml",
+        "sha256": "b36c9c2a0726f1f4ca795c41fb4383cf208e06cc78664bdb2eaa757dc052b642",
+        "bytes": 6506
+      },
+      {
+        "path": "inputs/exercises/forth/forth.py",
+        "sha256": "9acd281e02feff4fc5ae766063a1ce1290b625bb930cc8f54c15a0109610e562",
+        "bytes": 84
+      },
+      {
+        "path": "inputs/exercises/forth/forth_test.py",
+        "sha256": "05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c",
+        "bytes": 11264
+      },
+      {
+        "path": "inputs/exercises/poker/.docs/instructions.md",
+        "sha256": "62427ba25c07f8c57519f93cbfc293dd3eb9e8b74a33aae3645281433b8941ea",
+        "bytes": 194
+      },
+      {
+        "path": "inputs/exercises/poker/.meta/config.json",
+        "sha256": "4f909ffbc55d536e4e6d42831a64009a981e652b9e03c745e07701bc3fed55af",
+        "bytes": 599
+      },
+      {
+        "path": "inputs/exercises/poker/.meta/example.py",
+        "sha256": "9627361e2566290218239ed64ea4edf610f826e94ae7044d9eef9316d241ec43",
+        "bytes": 1185
+      },
+      {
+        "path": "inputs/exercises/poker/.meta/template.j2",
+        "sha256": "e12cc76ab70e0d274f342c8c888e8eb62480831df07a49a98a34d710aed28e5b",
+        "bytes": 430
+      },
+      {
+        "path": "inputs/exercises/poker/.meta/tests.toml",
+        "sha256": "bd73d721b8dab8c6a99f8f96e8489d61ba67973941f60c9cf99ca9b24eff6be1",
+        "bytes": 5001
+      },
+      {
+        "path": "inputs/exercises/poker/poker.py",
+        "sha256": "6a4b5adab3ba9261fb4f9e2b09abc549b9ea37bf0774edc3c7759cec9a8b41fe",
+        "bytes": 32
+      },
+      {
+        "path": "inputs/exercises/poker/poker_test.py",
+        "sha256": "b39f023208318973e18a341449aa076f7595ff98f07174082a2a1b05c84ad8fd",
+        "bytes": 7690
+      }
+    ],
+    "cwd": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1024-probe-区分度/polyglot-py3__dsh",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_s": 26.6,
+    "reward": 1,
+    "weighted": 100.0,
+    "failed": [],
+    "checker": {
+      "case": "polyglot-py3",
+      "reward": 1,
+      "weighted": 100.0
+    },
+    "usage": {
+      "inputTokens": 173,
+      "outputTokens": 73,
+      "cacheReadTokens": 23040,
+      "cacheWriteTokens": 0,
+      "totalTokens": 23286
+    },
+    "tool_calls": 18,
+    "by_tool": {
+      "bash": 3,
+      "read": 9,
+      "write": 6
+    },
+    "steps": 18
+  }
+]

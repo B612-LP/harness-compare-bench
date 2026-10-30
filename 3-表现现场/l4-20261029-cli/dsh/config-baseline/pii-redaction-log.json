@@ -1,0 +1,27 @@
+{
+  "kind": "pii_redaction_log",
+  "spec": "l4-20261029-dsh-config-baseline",
+  "at": "2026-10-29T22:42:28+08:00",
+  "file": "3-表现现场/l4-20261029-cli/dsh/config-baseline/config-snapshot/AGENTS.md",
+  "raw_source_sha256": "d343bcc367bce1b4c4a7dff7d91a033421cfd5ef2b8fa3b17b5e30ba3b3bf05c",
+  "raw_source_bytes": 1900,
+  "raw_source_provenance": "deterministic in-memory re-derivation (credential-rules-only) of global ~/.dsh/AGENTS.md; the PII-bearing derivative was destroyed after redaction and is not kept in repo; global original remains local-only",
+  "public_redacted_sha256": "5786a0efda172afbf11c54720f5f4aef26e0bda91d76e766f05bdc2eeb59d3d7",
+  "public_redacted_bytes": 1477,
+  "redaction": {
+    "rules": "SECRET_LINE_RE + SK_RE + PII_LABEL_RES (line-level label-tagged replacement over identity fields: name/student-id/class/affiliation)",
+    "placeholder_counts": {
+      "name-line": 2,
+      "affiliation-line": 0
+    },
+    "changed": true,
+    "description": "identity lines replaced by ASCII placeholders in public derivative only; external global file and its hash untouched; model-input hashes unaffected; over-redaction direction (label to end-of-line) disclosed"
+  },
+  "external_source_untouched": {
+    "path": "/Users/b612-lp/.dsh/AGENTS.md",
+    "sha256": "d343bcc367bce1b4c4a7dff7d91a033421cfd5ef2b8fa3b17b5e30ba3b3bf05c"
+  },
+  "synthetic_selftest_ok": true,
+  "zero_model": true,
+  "live_doc_drift": []
+}

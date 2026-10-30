@@ -1,0 +1,35 @@
+{
+    "job_name": "r1016-intsum-codex",
+    "jobs_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs",
+    "timeout_multiplier": 3.0,
+    "environment": {
+        "type": "docker",
+        "extra_docker_compose": [
+            "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+        ]
+    },
+    "agents": [
+        {
+            "name": "codex",
+            "model_name": "glm-5.3-flash",
+            "extra_allowed_hosts": [
+                "open.bigmodel.cn",
+                "172.21.240.1"
+            ],
+            "kwargs": {
+                "version": "0.162.1",
+                "config": "/root/.codex/config.toml",
+                "disable_web_search": true
+            },
+            "env": {
+                "ZAI_API_KEY": "${ZAI_API_KEY}",
+                "OPENAI_API_KEY": "674e****HjN"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/int-sum-sort"
+        }
+    ]
+}

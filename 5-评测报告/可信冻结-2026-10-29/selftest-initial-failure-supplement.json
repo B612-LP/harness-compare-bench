@@ -1,0 +1,18 @@
+{
+  "event_id": "work:freeze-engine-selftest-initial-failure",
+  "category": "self_test",
+  "provenance": "supplemented after observed tool result, not a contemporaneous raw process log",
+  "command": [
+    "python3",
+    "-B",
+    "4-打分细则/可信冻结-2026-10-29/test_freeze.py"
+  ],
+  "original_started_at": null,
+  "collected_at": "2026-10-28T17:07:30.423610+00:00",
+  "observed_exit_code": 1,
+  "observed_tests": 32,
+  "observed_errors": 1,
+  "observed_failure": "test_full_inputs_manifest_drift: pathlib relative_to raised ValueError because macOS /var and /private/var temp root spellings differed",
+  "fix": "snapshot_case resolves root before manifest path normalization",
+  "limitations": "full original stdout/stderr were not archived for this first invocation; this locatable supplemented event is counted once, not as a product failure; later complete raw receipt is a different self_test invocation"
+}

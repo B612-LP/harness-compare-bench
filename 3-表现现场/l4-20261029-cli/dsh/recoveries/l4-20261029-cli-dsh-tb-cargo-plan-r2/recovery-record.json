@@ -1,0 +1,40 @@
+{
+  "kind": "late_archive_recovery",
+  "accounting": "offline_recompute/late_archive",
+  "run_id": "l4-20261029-cli-dsh-tb-cargo-plan-r2",
+  "slot_id": "l4-20261029-cli-dsh-tb-cargo-plan-r2",
+  "at": "2026-10-30T00:01:23+08:00",
+  "binding": {
+    "run_id": "l4-20261029-cli-dsh-tb-cargo-plan-r2",
+    "expected_dir_name": "--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-tb-cargo-plan-r2--",
+    "dir_exists": true,
+    "files_found": 1,
+    "files_out_of_time_window": [],
+    "uuid_subdirs_in_raw_stream": {
+      "session-37d96195-16f0-4cfe-8ff1-eb130e1eab3c": true
+    },
+    "prompt_check": "not performed on compressed content (zstd) — disclosed"
+  },
+  "source_dir": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-tb-cargo-plan-r2--",
+  "collected_at": "2026-10-30T00:01:23+08:00",
+  "files": [
+    {
+      "path": "session-37d96195-16f0-4cfe-8ff1-eb130e1eab3c/session.v4.jsonl.zstd",
+      "source": "/Users/b612-lp/.dsh/sessions/--Users-b612-lp-bench-workspaces-l4-20261029-dsh-l4-20261029-cli-dsh-tb-cargo-plan-r2--/session-37d96195-16f0-4cfe-8ff1-eb130e1eab3c/session.v4.jsonl.zstd",
+      "sha256": "de31673d1ce34acf04a0a747104112ad747b9b6c558f236f66e37ee73a5e8c35",
+      "bytes": 241208,
+      "source_stable_after_copy": true,
+      "copy_sha256": "de31673d1ce34acf04a0a747104112ad747b9b6c558f236f66e37ee73a5e8c35",
+      "copy_bytes": 241208
+    }
+  ],
+  "all_sources_stable": true,
+  "scope_discipline": "read-only collection of THIS batch's finished slot; original capture/meta/verdicts untouched; no backfill; nothing under tools/",
+  "limitations": {
+    "impact": "recovery usability for integrity review decided by judge/auditor under frozen contract",
+    "next_step": "judge verifies binding + compressed integrity",
+    "stop_condition": "no decompression/semantic reading; no other sessions touched"
+  },
+  "zero_model": true,
+  "live_doc_drift": []
+}

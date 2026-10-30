@@ -1,0 +1,143 @@
+{
+    "id": "7045afb6-7310-4b77-bce7-3d569dd7a013",
+    "task_name": "gpt2-codegolf",
+    "trial_name": "gpt2-codegolf__9twujcB",
+    "trial_uri": "file:///mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs/codex-glm-demo/gpt2-codegolf__9twujcB",
+    "task_id": {
+        "git_url": "https://github.com/laude-institute/terminal-bench-2.git",
+        "git_commit_id": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+        "path": "gpt2-codegolf"
+    },
+    "source": "terminal-bench",
+    "task_checksum": "c3dfea370953fe9b6cb53d368f1f242af2833cf1af623849bdaee8fe026b1cf1",
+    "config": {
+        "task": {
+            "path": "gpt2-codegolf",
+            "git_url": "https://github.com/laude-institute/terminal-bench-2.git",
+            "git_commit_id": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench"
+        },
+        "trial_name": "gpt2-codegolf__9twujcB",
+        "trials_dir": "jobs/codex-glm-demo",
+        "install_only": false,
+        "timeout_multiplier": 3.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "codex",
+            "import_path": null,
+            "model_name": "glm-5.3-flash",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [
+                "open.bigmodel.cn",
+                "172.21.240.1",
+                "registry.npmjs.org",
+                "nodejs.org"
+            ],
+            "kwargs": {
+                "version": "0.162.1",
+                "config": "/root/.codex/config.toml"
+            },
+            "env": {
+                "ZAI_API_KEY": "${ZAI_API_KEY}",
+                "OPENAI_API_KEY": "${OPENAI_API_KEY}",
+                "HTTPS_PROXY": "http://172.21.240.1:7891",
+                "HTTP_PROXY": "http://172.21.240.1:7891",
+                "NO_PROXY": "localhost,127.0.0.1"
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "515191e9-8874-497b-b809-d9793d0754d7",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "codex",
+        "version": "0.162.1",
+        "model_info": {
+            "name": "glm-5.3-flash",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 863275,
+        "n_cache_tokens": 809920,
+        "n_output_tokens": 6958,
+        "cost_usd": null,
+        "model_usage": {
+            "glm-5.3-flash": {
+                "n_input_tokens": 863275,
+                "n_cache_tokens": 809920,
+                "n_output_tokens": 6958,
+                "cost_usd": null
+            }
+        },
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-10-13T04:42:52.537979Z",
+    "finished_at": "2026-10-13T04:53:34.151972Z",
+    "environment_setup": {
+        "started_at": "2026-10-13T04:42:52.588693Z",
+        "finished_at": "2026-10-13T04:42:54.143676Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-13T04:42:54.143705Z",
+        "finished_at": "2026-10-13T04:45:09.205072Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-13T04:45:09.205174Z",
+        "finished_at": "2026-10-13T04:51:43.348051Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-13T04:51:46.446596Z",
+        "finished_at": "2026-10-13T04:53:19.283145Z"
+    },
+    "step_results": null
+}

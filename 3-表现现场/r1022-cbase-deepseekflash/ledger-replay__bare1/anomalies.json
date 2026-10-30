@@ -1,0 +1,85 @@
+```python
+import json
+
+with open('/app/events.jsonl', encoding='utf-8') as f:
+    events = [json.loads(line) for line in f if line.strip()]
+
+events.sort(key=lambda e: (e['seq'], e['msg_id']))
+
+orders = {}
+seen = set()
+anomalies = []
+
+def add_anomaly(t, e):
+    anomalies.append({
+        'type': t,
+        'msg_id': e['msg_id'],
+        'order_id': e['order_id'],
+        'seq': e['seq']
+    })
+
+for e in events:
+    mid = e['msg_id']
+
+    if mid in seen:
+        add_anomaly('duplicate_msg_id', e)
+        continue
+    seen.add(mid)
+
+    amt = e['amount']
+    if amt < 0:
+        add_anomaly('negative_amount', e)
+        continue
+
+    oid = e['order_id']
+    op = e['op']
+    o = orders.get(oid)
+    late_cancel = False
+
+    if op == 'create':
+        if o is None:
+            orders[oid] = {
+                'order_id': oid,
+                'state': 'created',
+                'paid_total': 0,
+                'refunded_total': 0
+            }
+    elif op == 'pay':
+        if o is not None and o['state'] in ('created', 'paid'):
+            o['paid_total'] += amt
+            o['state'] = 'paid'
+    elif op == 'cancel':
+        if o is not None:
+            if o['state'] == 'created':
+                o['state'] = 'cancelled'
+            elif o['state'] in ('paid', 'refunded'):
+                late_cancel = True
+    elif op == 'refund':
+        if o is not None and o['state'] in ('paid', 'refunded'):
+            o['refunded_total'] += amt
+            if o['refunded_total'] >= o['paid_total']:
+                o['state'] = 'refunded'
+
+    if not e.get('ack', True):
+        add_anomaly('unacked', e)
+    elif late_cancel:
+        add_anomaly('late_cancel', e)
+
+anomalies.sort(key=lambda a: (a['seq'], a['msg_id']))
+
+final_state = []
+for oid in sorted(orders):
+    o = orders[oid]
+    final_state.append({
+        'order_id': oid,
+        'state': o['state'],
+        'paid_total': int(o['paid_total']),
+        'refunded_total': int(o['refunded_total'])
+    })
+
+with open('/app/final_state.json', 'w', encoding='utf-8') as f:
+    json.dump(final_state, f, ensure_ascii=False, indent=2)
+
+with open('/app/anomalies.json', 'w', encoding='utf-8') as f:
+    json.dump(anomalies, f, ensure_ascii=False, indent=2)
+```

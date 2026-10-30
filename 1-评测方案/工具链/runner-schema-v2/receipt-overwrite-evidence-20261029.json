@@ -1,0 +1,123 @@
+{
+  "evidence_id": "pkgc-receipt-overwrite-evidence-20261029",
+  "captured_at": "2026-10-29T16:14:33+08:00",
+  "note": "lead 抽查发现 spec-selftest-receipt.json 为裸 --spec 输出时的原样字节存证；bare 'at' 字段可用于钉定覆盖发生的运行",
+  "bare_file_sha256": "0f62d42a69b9399f1ed75d9b9d2d91170431c9c4837c10b34d7294e98dfe1be5",
+  "bare_content": {
+    "kind": "self_test",
+    "tool": "validate_runner_meta.py --spec",
+    "spec": "runner-schema-v2",
+    "at": "2026-10-29T16:11:16+08:00",
+    "seal_at_used": "2026-10-29T13:22:39+08:00",
+    "fixtures_dir": "/Users/b612-lp/Documents/harness-compare-bench/1-评测方案/工具链/runner-schema-v2/fixtures",
+    "results": {
+      "fixture-missing-fields.json": {
+        "expect": "fail:missing",
+        "got": "fail:missing",
+        "match": true,
+        "issues": [
+          {
+            "field": "registered_at",
+            "class": "missing",
+            "detail": "required field absent"
+          },
+          {
+            "field": "selection",
+            "class": "missing",
+            "detail": "required field absent"
+          },
+          {
+            "field": "attempts",
+            "class": "missing",
+            "detail": "required field absent"
+          },
+          {
+            "field": "stdout_bytes",
+            "class": "missing",
+            "detail": "required field absent"
+          },
+          {
+            "field": "stdout_sha256",
+            "class": "missing",
+            "detail": "required field absent"
+          },
+          {
+            "field": "stderr_bytes",
+            "class": "missing",
+            "detail": "required field absent"
+          },
+          {
+            "field": "stderr_sha256",
+            "class": "missing",
+            "detail": "required field absent"
+          }
+        ]
+      },
+      "fixture-registered-at-after-start.json": {
+        "expect": "fail:temporal-order",
+        "got": "fail:temporal-order",
+        "match": true,
+        "issues": [
+          {
+            "field": "registered_at",
+            "class": "temporal-order",
+            "detail": "registered_at 2026-10-29T16:30:00+08:00 >= started_at 2026-10-29T16:06:00+08:00"
+          }
+        ]
+      },
+      "fixture-registered-at-before-seal.json": {
+        "expect": "fail:temporal-seal",
+        "got": "fail:temporal-seal",
+        "match": true,
+        "issues": [
+          {
+            "field": "registered_at",
+            "class": "temporal-seal",
+            "detail": "registered_at 2026-10-29T13:00:00+08:00 < seal_at 2026-10-29T13:22:39+08:00"
+          }
+        ]
+      },
+      "fixture-valid.json": {
+        "expect": "pass",
+        "got": "pass",
+        "match": true,
+        "issues": []
+      },
+      "fixture-wrong-precision.json": {
+        "expect": "fail:precision",
+        "got": "fail:precision",
+        "match": true,
+        "issues": [
+          {
+            "field": "weighted",
+            "class": "precision",
+            "detail": "value=81.48 expected 8dp=81.48148148"
+          }
+        ]
+      },
+      "fixture-wrong-type.json": {
+        "expect": "fail:type",
+        "got": "fail:type",
+        "match": true,
+        "issues": [
+          {
+            "field": "attempts",
+            "class": "type",
+            "detail": "expect list got int"
+          },
+          {
+            "field": "transport_retries",
+            "class": "type",
+            "detail": "expect int got list"
+          },
+          {
+            "field": "stdout_bytes",
+            "class": "type",
+            "detail": "expect int_nonneg got str"
+          }
+        ]
+      }
+    },
+    "all_match": true
+  }
+}

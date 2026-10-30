@@ -1,0 +1,29 @@
+{
+  "kind": "self_test",
+  "batch": "l4-20261029-cache",
+  "at": "2026-10-29T21:04:05+08:00",
+  "model_calls": 0,
+  "network": "socket 哨兵禁网；fake-HTTP 为内存桩",
+  "credentials_read": false,
+  "live_doc_drift": [],
+  "counts": {
+    "pass": 32,
+    "fail": 0,
+    "total": 32
+  },
+  "verdict_line": "SELFTEST: PASS",
+  "covers": [
+    "prefix/nonce 规范",
+    "fresh/repeat 逐字节一致",
+    "usage 双层（嵌套三态+无偏 inventory）",
+    "R4 失败分类全家族",
+    "fake-HTTP 18 槽全链（200×18/auth-stop/429 停协议/5xx×2/rerun 零外发）",
+    "响应头白名单值（x-request-id 等；缺失记 missing）",
+    "gate fail-closed",
+    "dry-run 独立树"
+  ],
+  "runtime_sources_sha256": {
+    "tools/cache_probe.py": "80f2343df454cb2aad3e50d954558011abc5322b1c0fa10fa666358c56027f11",
+    "config/probe-config.json": "c2131e969ca40c90442a18cdbe7db000de5d358a99675a5e00142179d25d6a82"
+  }
+}

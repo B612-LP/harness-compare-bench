@@ -1,0 +1,18 @@
+Skipping image OS validation for hb__9a030116e2d0eb46a90ed57a8d01bf3f: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl nodejs npm ripgrep
+Command outputs captured
+Running command: set -euo pipefail; if ldd --version 2>&1 | grep -qi musl || [ -f /etc/alpine-release ]; then  npm install -g @openai/codex@0.162.1; else  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash &&  export NVM_DIR="$HOME/.nvm" &&  \. "$NVM_DIR/nvm.sh" || true &&  command -v nvm &>/dev/null || { echo 'Error: NVM failed to load' >&2; exit 1; } &&  nvm install 22 && nvm alias default 22 && npm -v &&  npm install -g @openai/codex@0.162.1; fi && codex --version
+Command failed
+Classified failed command as NetworkConnectionError (pattern: 'curl: \\(\\d+\\)')
+Trial word-freq-report__MvXwWec failed: Command failed (exit 127): set -euo pipefail; if ldd --version 2>&1 | grep -qi musl || [ -f /etc/alpine-release ]; then  npm install -g @openai/codex@0.162.1; else  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash &&  export NVM_DIR="$HOME/.nvm" &&  \. "$NVM_DIR/nvm.sh" || true &&  command -v nvm &>/dev/null || { echo 'Error: NVM failed to load' >&2; exit 1; } &&  nvm install 22 && nvm alias default 22 && npm -v &&  npm install -g @openai/codex@0.162.1; fi && codex --version
+stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 16631  1 ... [3131 chars truncated] ...              85.1%#############################################################             85.2%#############################################################             85.4%##################################################################        92.7%######################################################################    97.3%curl: (56) OpenSSL SSL_read: OpenSSL/3.0.13: error:0A000119:SSL routines::decryption failed or bad record mac, errno 0
+
+download from https://nodejs.org/dist/v22.23.3/node-v22.23.3-linux-x64.tar.xz failed
+grep: /root/.nvm/.cache/bin/node-v22.23.3-linux-x64/node-v22.23.3-linux-x64.tar.xz: No such file or directory
+Provided file to checksum does not exist.
+/root/.nvm/nvm.sh: line 2308: TMPDIR: unbound variable
+
+stderr: None
+Collecting main service artifacts

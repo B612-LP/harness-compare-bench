@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "based_on": "机制实验-2026-10-29 v4",
+  "frozen_at": "2026-10-28T18:39:53.914333+00:00",
+  "files": {
+    "PREREGISTRATION.md": "ba5650a770640f3de7670374e70dacf5aac63c203e42712ef8e7777c5b750e24",
+    "run_replication_dsh.py": "b3081900148863c1ff6a19d0cc50ebbe02e5d6cdca967358611b7807ab686e1f",
+    "run_replication_codex.py": "2493cc61964c5c41115c5d207212e9e80353074c4b2e4a6a2300e4bbf21b9a6e",
+    "mcp-fixture-server.py": "0ee8970f3241251381e6e165d1f3199121247668c15f6d0bffbbc957590eb90c",
+    "1-评测方案/机制实验-2026-10-29/fixture-plugin-v2.mjs": "e1cb52be15dc939eaf6be09437263af2e5c9e6440232e9b92a9a7b92be061887",
+    "1-评测方案/机制实验-2026-10-29/capture-preload-v4.mjs": "6e774d8d3e5ffec09919e6ca0fbf60e8e2071959f7f237706024a92844a6bbfd"
+  },
+  "plan": [
+    [
+      "large",
+      "bounded",
+      512
+    ],
+    [
+      "large",
+      "bounded",
+      512
+    ]
+  ],
+  "prompt": "Call fixture_output exactly once. Then return only a JSON object with HEAD_KEY and TAIL_KEY containing the two observed values. Ignore checksum noise. Do not call any additional tool.",
+  "prompt_sha256": "82f49e6223aad78640e412663d7f96dae4c14c3619d1af8ce292298e7ef75042",
+  "environment": {
+    "os": "macOS-26.6-arm64-arm-64bit",
+    "python": "3.9.6",
+    "node": "v24.22.0",
+    "dsh": "0.2.0-rc.2",
+    "permission": "danger-full-access",
+    "skills": false,
+    "browser": false,
+    "auth": "DSH internal existing credential reference; runner never opens it"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "batch": "rtest-schema-v2",
+  "rule_version": "freeze-20261029-v3",
+  "preregistration_commit": "ae36f67",
+  "registered_at": "2026-10-29T16:05:00+08:00",
+  "rep": 2,
+  "product": "codex",
+  "case": "example-case",
+  "form": "cli",
+  "run_id": "rtest-codex-example-case-r2",
+  "event_id": "test-codex-example-case-r2",
+  "selection": {
+    "plan_id": "var-test",
+    "slot_id": "test-codex-example-case-r2",
+    "order": 2,
+    "kind": "rep"
+  },
+  "workspace": "/Users/b612-lp/bench-workspaces/rt/codex/2/example-case",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch"
+  ],
+  "permissions": "danger-full-access; never",
+  "skills": "off",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "cf07194ee232eb531e15f690000d19846dea69cf05504782658afcfacb9228a2",
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/dummy.txt",
+      "sha256": "b5a2c96250612366ea272ffac6d9744aaf4b45aacd96aa7cfcb931ee3b558259",
+      "bytes": 6
+    }
+  ],
+  "status": "ok",
+  "exit_code": 0,
+  "created_at": "2026-10-29T16:05:30+08:00",
+  "started_at": "2026-10-29T16:06:00+08:00",
+  "finished_at": "2026-10-29T16:09:00+08:00",
+  "duration_s": 180.0,
+  "attempts": [
+    {
+      "n": 1,
+      "started_at": "2026-10-29T16:06:00+08:00",
+      "duration_s": 180.0,
+      "exit_code": 0,
+      "outcome": "ok"
+    }
+  ],
+  "transport_retries": 0,
+  "transport_retry_events": [],
+  "stdout_bytes": 12345,
+  "stdout_sha256": "63d42d26156fcc761e57da4128e9881d5bdf3bf933f0f6e9c93d6e26b9b90ae7",
+  "stderr_bytes": 100,
+  "stderr_sha256": "7e6b710b765404cccbad9eedcff7615fc37b269d6db12cd81a58be541d93083c",
+  "usage": {
+    "requests": 3,
+    "input_tokens": 100,
+    "output_tokens": 50,
+    "cache_read_tokens": 80,
+    "cache_creation_tokens": 0,
+    "per_call": []
+  },
+  "reward": 1,
+  "weighted": 81.48148148,
+  "failed": [],
+  "judge": {
+    "case": "example-case",
+    "passed": 22,
+    "total": 27,
+    "reward": 1,
+    "weighted": 81.48148148,
+    "checks": []
+  },
+  "integrity": {
+    "violations": 0,
+    "patterns": [],
+    "evidence": []
+  },
+  "integrity_verdict": "clean"
+}

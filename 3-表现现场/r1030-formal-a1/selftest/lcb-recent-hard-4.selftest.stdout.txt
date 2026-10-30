@@ -1,0 +1,15 @@
+[PASS] nop（空 run_dir）                     expect=0 got=0  passed=0
+[PASS] oracle（solution/ 四题）               expect=1 got=1  passed=4 weighted=100.0
+[PASS] 边界：恰好 2/4 通过                       expect=1 got=1  passed=2 weighted=50.0
+[PASS] 负例：只交 1 题正确解                       expect=0 got=0  passed=1 weighted=25.0
+[PASS] 负例：四题空文件                           expect=0 got=0  abc387_f:0/43 首个失败 #0 输出不符（期望 '6'，实际 ''） | abc388_f:0/43 首个失败 #0 输出不符（期望 'Yes'，实际 ''） | abc388_g:0/42 首个失败 #0 输出不符（期望 '2\n3\n1\n0\n5'，实际 ''） | abc389_g:0/43 首个失败 #0 输出不符（期望 '12 9 3 0'，实际 ''）
+[PASS] 负例：四题 print(0)                     expect=0 got=0  abc387_f:0/43 首个失败 #0 输出不符（期望 '6'，实际 '0'） | abc388_f:0/43 首个失败 #0 输出不符（期望 'Yes'，实际 '0'） | abc388_g:0/42 首个失败 #0 输出不符（期望 '2\n3\n1\n0\n5'，实际 '0'） | abc389_g:0/43 首个失败 #0 输出不符（期望 '12 9 3 0'，实际 '0'）
+[PASS] 负例：只过公开样例不过私有                      expect=0 got=0  reward=0 每题首个失败点=公开测试数? True（abc387_f:3/3 | abc388_f:3/3 | abc388_g:2/2 | abc389_g:3/3）
+[PASS] 负例：超时死循环                           expect=0 got=0  abc387_f fail_kind=timeout（timeout? True）
+[PASS] 负例：输出格式多空格                         expect=0 got=0  四题均为输出不符? True（abc387_f:wrong | abc388_f:wrong | abc388_g:wrong | abc389_g:wrong）
+[PASS] 负例：run_dir 输入副本被篡改                 expect=0 got=0  四题全过但守卫拦截? True（integrity=False, passed=4）
+[PASS] 披露项：stderr 伪造标记不影响分值               expect=1 got=1  四题全过? True（abc389_g stdout 与 oracle 一致、stderr 带 'OK passed all tests' 仍判全过——stderr 不参与输出比较，与上游 AtCoder 官方判定一致）
+[PASS] 守卫：truth SHA-256 漂移 → ERROR exit 2 expect=2 got=2  stderr=['  actual=0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673']
+----------------------------------------------------------------------------------------------------
+自测：12/12 项通过（正例 3、负例 8、守卫/ERROR 项 1）；输入 SHA-256=0ce2f9c1eee0039f
+SELFTEST OK

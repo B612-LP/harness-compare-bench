@@ -1,0 +1,100 @@
+{
+  "batch": "l5-20261030-cli",
+  "rule_version": "l5-20261030-batch-v1",
+  "design_commit_D": "8b1043d05c5b9dd9b3ae5aa5982cea4e9e852825",
+  "preregistration_commit": null,
+  "registered_at": null,
+  "slot_id": "l5-20261030-cli-codex-tb-cargo-plan-r1",
+  "run_id": "l5-20261030-cli-codex-tb-cargo-plan-r1",
+  "event_id": "event:l5-20261030-cli-codex-tb-cargo-plan-r1",
+  "rep": 1,
+  "order": 2,
+  "stratum": "cli_current_sentinel",
+  "product": "codex",
+  "case": "tb-cargo-plan",
+  "form": "cli",
+  "workspace": "/Users/b612-lp/bench-workspaces/l5-20261030-cli/codex/l5-20261030-cli-codex-tb-cargo-plan-r1",
+  "created_at": "2026-10-30T02:24:39+08:00",
+  "model": "deepseek-flash",
+  "reasoning_effort": "low",
+  "product_version": "codex-cli 0.163.0",
+  "timeout_s": 2400,
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "tools": [
+    "shell",
+    "apply_patch",
+    "read_files（web_search=disabled，skills=off）"
+  ],
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME）",
+  "skills": "off",
+  "web_search": "disabled",
+  "soft_constraints": [
+    "stay-in-workspace",
+    "no-oracle-hunt",
+    "offline"
+  ],
+  "prompt_sha256": "780ba520e8b79caf688eb17df0d2bf350f7d1c57b18642447ea53d92fbeb03ee",
+  "prompt_path_confound": "workspace 绝对路径内嵌于 prompt；跨槽路径不同为设计内显式保留混杂",
+  "whole_execution_restarts": 0,
+  "replacements": 0,
+  "isolation": {
+    "ok": true,
+    "problems": []
+  },
+  "inputs": [
+    {
+      "path": "inputs/app/aircraft.py",
+      "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+      "bytes": 2376
+    },
+    {
+      "path": "inputs/app/data/aircraft.json",
+      "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+      "bytes": 496
+    },
+    {
+      "path": "inputs/app/data/airports.json",
+      "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+      "bytes": 1685
+    },
+    {
+      "path": "inputs/app/data/manifest.json",
+      "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+      "bytes": 1257
+    },
+    {
+      "path": "inputs/app/data/weather.json",
+      "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+      "bytes": 1611
+    },
+    {
+      "path": "inputs/app/dispatch.py",
+      "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+      "bytes": 8504
+    },
+    {
+      "path": "inputs/app/navigation.py",
+      "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+      "bytes": 2482
+    }
+  ],
+  "inputs_verification": {
+    "ok": true,
+    "checked": 7,
+    "mismatches": [],
+    "unexpected": [],
+    "method": "sha256 ws/inputs vs contract.case_snapshots.files[inputs/*]"
+  },
+  "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+  "config_ref": {
+    "path": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l5-20261030-cli/codex/config/codex-config.toml",
+    "sha256": "bc70bc913a6bd4fdd87548d4db77bbea077d75caf8114b3982ac4dece98a28ae",
+    "compare_at_run": "CODEX_HOME/config.toml 必须与该快照逐字节一致；不一致=配置漂移停槽",
+    "contains_key": false
+  }
+}

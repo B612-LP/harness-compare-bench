@@ -1,0 +1,971 @@
+{
+  "date": "2026-10-29",
+  "protocol": "只读回放：判分在 /tmp 临时副本（canonical inputs + 历史产物重组）；历史 run_dir 零写入（先例 bird-q26-并入/replay_2026_10_26.py，协议完整继承 replay_2026_10_27.py）。after 轨=现行 2-用例/<case>/checker.py 字节（含 B13a），before 轨=本目录 before/<case>/checker.py（与 2026-10-27 收据逐字节相同）。行集冻结=2026-10-27 19:28 收据 replay-results.json 的 41 行全集（24 replayed + 17 skipped）；排除其后入账行：当前唯一实例 run_id=r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4（eligible 且 run_dir 本机存在，但 10-27 19:28 后才入总账，不在旧收据 41 行内）；锚点=AUDIT.md D3 下一步原文「用 d84b1111 对同一 24 场重跑」",
+  "rowset_freeze": {
+    "rule": "行集冻结=2026-10-27 19:28 收据 replay-results.json 的 41 行全集（24 replayed + 17 skipped）；排除其后入账行：当前唯一实例 run_id=r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4（eligible 且 run_dir 本机存在，但 10-27 19:28 后才入总账，不在旧收据 41 行内）；锚点=AUDIT.md D3 下一步原文「用 d84b1111 对同一 24 场重跑」",
+    "old_receipt": "replay-results.json (2026-10-27 19:28)",
+    "frozen_rows": 41,
+    "replayed": 24,
+    "skipped": 17,
+    "excluded_current_ledger_rows": [
+      "r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4"
+    ],
+    "current_ledger_same_criteria_targets": 25
+  },
+  "before_contract": {
+    "bird-ca-schools-15": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+    "lcb-recent-hard-4": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/lcb-recent-hard-4/checker.py",
+    "tb-cargo-plan": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py"
+  },
+  "after_contract": {
+    "bird-ca-schools-15": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+    "lcb-recent-hard-4": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+    "tb-cargo-plan": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py"
+  },
+  "after_track_selfcheck": {
+    "sha256": {
+      "bird-ca-schools-15": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+      "lcb-recent-hard-4": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+      "tb-cargo-plan": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677"
+    },
+    "expected_prefix": {
+      "bird-ca-schools-15": "994be0b3",
+      "lcb-recent-hard-4": "63845361",
+      "tb-cargo-plan": "d84b1111"
+    },
+    "prefix_match": {
+      "bird-ca-schools-15": true,
+      "lcb-recent-hard-4": true,
+      "tb-cargo-plan": true
+    },
+    "note": "after 轨=现行合同字节自证（盲审 D3 要求）；before 轨见 2026-10-27 收据 §7"
+  },
+  "n_replayed": 24,
+  "n_skip": 17,
+  "n_ledger_match": 15,
+  "n_flipped": 0,
+  "skipped_rows": [
+    {
+      "run_id": "r1025-candidates/bird-ca-schools-15__codex",
+      "case": "bird-ca-schools-15",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67
+      }
+    },
+    {
+      "run_id": "r1025-candidates/bird-ca-schools-15__dsh",
+      "case": "bird-ca-schools-15",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67
+      }
+    },
+    {
+      "run_id": "r1025-candidates/lcb-recent-hard-4__codex",
+      "case": "lcb-recent-hard-4",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      }
+    },
+    {
+      "run_id": "r1025-candidates/lcb-recent-hard-4__dsh",
+      "case": "lcb-recent-hard-4",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      }
+    },
+    {
+      "run_id": "r1025-candidates/tb-cargo-plan__codex",
+      "case": "tb-cargo-plan",
+      "run_dir": null,
+      "main_table_eligible": false,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      }
+    },
+    {
+      "run_id": "r1025-candidates/tb-cargo-plan__dsh",
+      "case": "tb-cargo-plan",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      }
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/workbuddy/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/lcb-recent-hard-4",
+      "main_table_eligible": false,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      }
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/workbuddy/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/tb-cargo-plan",
+      "main_table_eligible": false,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      }
+    },
+    {
+      "run_id": "r1027-isolated/runs/codex__tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      }
+    },
+    {
+      "run_id": "r1027-isolated/runs/workbuddy__tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      }
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__tb-cargo-plan__r2",
+      "case": "tb-cargo-plan",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 74.07
+      }
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__tb-cargo-plan__r3",
+      "case": "tb-cargo-plan",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      }
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__tb-cargo-plan__r2",
+      "case": "tb-cargo-plan",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 74.07
+      }
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__tb-cargo-plan__r3",
+      "case": "tb-cargo-plan",
+      "run_dir": null,
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 92.59
+      }
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/workbuddy/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/lcb-recent-hard-4",
+      "main_table_eligible": false,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 75.0
+      }
+    },
+    {
+      "run_id": "r1030/yuanbao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "run_dir": "/Users/b612-lp/bench-automation/runs/r1030/yuanbao/lcb-recent-hard-4",
+      "main_table_eligible": false,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 75.0
+      }
+    },
+    {
+      "run_id": "r20261027-workbuddy-lcb-clean2/workbuddy/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "run_dir": "/Users/b612-lp/bench-automation/runs/r20261027-workbuddy-lcb-clean2",
+      "main_table_eligible": false,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      }
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "r1026-desktop-15/runs/doubao/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/bird-ca-schools-15",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 60.0
+      },
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/bird-ca-schools-15",
+      "artifact_sha256": {
+        "answers.jsonl": "0a40b5535520e0d988e5e8d85d111fa63c4b6d129198dbd1e440986cba01fbcf"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 0,
+        "weighted": 66.67
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 0,
+        "weighted": 66.67
+      },
+      "flipped": false,
+      "ledger_match": false
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/doubao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/lcb-recent-hard-4",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      },
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/lcb-recent-hard-4/solutions",
+      "artifact_sha256": {
+        "abc387_f.py": "777f8edee8c46b78df724bfdb8d016c5487e1c3c58c15261574ed08dcc96b04d",
+        "abc388_f.py": "5c961df60622a391710811f9e5869db4eaa0b247557e6536e8ea9de2413d8984",
+        "abc388_g.py": "665d81b3e314ad5b2cfacc108d0c4a72ad97cc4c19f46f7338d1f3c018c5c7d4",
+        "abc389_g.py": "5f9a15d0a80bc9091b04ad3f677fa0107896383c459aa8ed012202c69ac1d34f"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/lcb-recent-hard-4/checker.py",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 100.0
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/doubao/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 81.48
+      },
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/doubao/tb-cargo-plan/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "b40796f759bc2e9687f340b9d0558b939ca552ebc66ccfb7d202d3eec289b608",
+        "dispatch.py": "7d1105cf89110f0ceea78c9fe921207d723b971adeb2a141a3fe1ca74d54a951",
+        "navigation.py": "ba2c27f71a102bda36d0c465e9d7a41ec414873b84c0071dde23a48f73b49796"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 81.48
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 81.48
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r1026-desktop-15/runs/workbuddy/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/bird-ca-schools-15",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67
+      },
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1026-desktop-15/runs/workbuddy/bird-ca-schools-15",
+      "artifact_sha256": {
+        "answers.jsonl": "94d07cc3880ca6696c74c136a75c17ef81d904e785e71083490ea6ad51e273d2"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "flipped": false,
+      "ledger_match": false
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__bird-ca-schools-15__r2",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r2",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r2",
+      "artifact_sha256": {
+        "answers.jsonl": "324e24f3bfb4c2b6db89edf9094976d8ab6965574a307bcc22900538224492b8"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "flipped": false,
+      "ledger_match": false
+    },
+    {
+      "run_id": "r1028-repeats/runs/codex__bird-ca-schools-15__r3",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r3",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 80.0
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/codex/bird-ca-schools-15__r3",
+      "artifact_sha256": {
+        "answers.jsonl": "1eab0606acad9fa426e147ab76700da6cfca84c7eda6f07e798b01502648280c"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 86.67
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 86.67
+      },
+      "flipped": false,
+      "ledger_match": false
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__bird-ca-schools-15__r2",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r2",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r2",
+      "artifact_sha256": {
+        "answers.jsonl": "eca72cc5dbe6bf1a141f9b87e8d44d24cab9743359256ff4fda3074ca22bc737"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "flipped": false,
+      "ledger_match": false
+    },
+    {
+      "run_id": "r1028-repeats/runs/dsh__bird-ca-schools-15__r3",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r3",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r1028/dsh/bird-ca-schools-15__r3",
+      "artifact_sha256": {
+        "answers.jsonl": "2a45a83f9bf6c89741a546cd2578e187a4b74107923d5cd706bdcac92c3ef81e"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "flipped": false,
+      "ledger_match": false
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/doubao/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/bird-ca-schools-15",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 66.67
+      },
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/bird-ca-schools-15/workspace",
+      "artifact_sha256": {
+        "answers.jsonl": "8a1e02137e24c0d69b47f2ccf1fbb61abcd106d722bb3969f15e4ad6dec2ea93"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 0,
+        "weighted": 73.33
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 0,
+        "weighted": 73.33
+      },
+      "flipped": false,
+      "ledger_match": false
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/doubao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/lcb-recent-hard-4",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 100.0
+      },
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/lcb-recent-hard-4/workspace/solutions",
+      "artifact_sha256": {
+        "abc387_f.py": "d9782f9ede48a440f4ad870f36e309b0a12d2ede5aea055afd4909894f97e870",
+        "abc388_f.py": "a10512b9feaf45a4dfd09063fae6f52096d7f1ffd497b707617e417b558cf5c4",
+        "abc388_g.py": "ebc9268c817823eded2cdd9742ab38358d82a41a8687e2af54bc2731a96d6369",
+        "abc389_g.py": "4d19a45061a3d6e7200b72bf5f8487bf489ab45cba2cb066cb06380a5a104baf"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/lcb-recent-hard-4/checker.py",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 75.0
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 75.0
+      },
+      "flipped": false,
+      "ledger_match": false
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/doubao/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/tb-cargo-plan",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/doubao/tb-cargo-plan/workspace/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "856cf548ca6900795a152dfad38c61a08ad0acb02ccf1db7caf6688c4e8211eb",
+        "dispatch.py": "c203b0b7fcbe2cc3e2df4cc30c6216771c9ca08576351db7b4368866b9cd7b30",
+        "navigation.py": "ebf873538ef32ca0daf771db31e172e40badba82550f1c54ffad5b27f8ce8bda"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/workbuddy/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/bird-ca-schools-15",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 93.33
+      },
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/bird-ca-schools-15/workspace",
+      "artifact_sha256": {
+        "answers.jsonl": "5efc980754a1835904f6f79f4c4c8d382975f2d14b7a23d8903ec9a777f3af77"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 86.67
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 86.67
+      },
+      "flipped": false,
+      "ledger_match": false
+    },
+    {
+      "run_id": "r1029-desktop-auto/runs/workbuddy/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/tb-cargo-plan",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "artifact_source": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/r1029-desktop-auto/runs/workbuddy/tb-cargo-plan/workspace/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "7284058b7bd90246803a5ef4ce8ae3d5e31225a51e8d761c65d2009dfd17563e",
+        "dispatch.py": "6733b137e9eb9226de4ad779ad43d698b8796879d19edb6d0c328a061f7febbf",
+        "navigation.py": "542f08bf5e65797a6cb97d2a17398a843f45dd35fa6bae3c5b236d085d43cd79"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r1031/yuanbao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "run_dir": "/Users/b612-lp/bench-automation/runs/r1031/yuanbao/lcb-recent-hard-4",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 50.0
+      },
+      "artifact_source": "/Users/b612-lp/bench-automation/runs/r1031/yuanbao/lcb-recent-hard-4/solutions",
+      "artifact_sha256": {
+        "abc387_f.py": "e4078ba2127bc5191e4c7a4f798fb30611d2581fba20902fe81e4389f94b6647",
+        "abc388_f.py": "658f96e6520bc9bb4093200383ffea9c5703846cfc7275c44d85e50be8391b34",
+        "abc388_g.py": "b0b7d75d66fdf4e05c5a69e21587c7b19b522b4a7b4825b4bf2ed96eb5822496",
+        "abc389_g.py": "52b54f0b064909f4f116b8eda1ae73142b0a42ceb39f7e63a7b66c02dbc916a6"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/lcb-recent-hard-4/checker.py",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 50.0
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 1,
+        "weighted": 50.0
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261026-yuanbao-cases4/yuanbao/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/bench-automation/runs/r20261026-yuanbao-cases4/yuanbao/bird-ca-schools-15",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 86.67
+      },
+      "artifact_source": "/Users/b612-lp/bench-automation/runs/r20261026-yuanbao-cases4/yuanbao/bird-ca-schools-15/artifacts",
+      "artifact_sha256": {
+        "0RYKKpbZmpE.answers.jsonl": "1a40d2cb182ea63039677c25e39a1edda658814826c9f55e06e3fa75e779b4cc"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 86.67
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 86.67
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/bench-automation/runs/r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 48.15
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "432444a4b6256a0b237890b0730e709ff9ad94a8f1990c12d2d954e8dc51bcc0",
+        "dispatch.py": "c4b5015392f613772e69990541012f8c73ccd7073b34ec7d7e979edb067bd1f7",
+        "navigation.py": "3b212e5c700fef7154fcc0b2698d136dd3b6f6f8227ec8e0cf4e42ff20babe30"
+      },
+      "artifact_note": "ledger run_dir 仅带证据包（artifacts/ 为导出快照），改以同批次工作区为判分对象（历史判分的实际对象，复算与总账一致）：/Users/b612-lp/bench-workspaces/r20261026-yuanbao-cases4/yuanbao/tb-cargo-plan",
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 48.15
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 48.15
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261027-yuanbao-4cases/yuanbao/bird-ca-schools-15",
+      "case": "bird-ca-schools-15",
+      "run_dir": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/bird-ca-schools-15",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 1,
+        "raw_weighted": 93.33
+      },
+      "artifact_source": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/bird-ca-schools-15/artifacts",
+      "artifact_sha256": {
+        "0RZ4TmtTZZo.answers.jsonl": "a37f20776eb8e9c17b0ed5939c4f2275cbe555cc47a0ff221f2c9c0af4cb6791"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/bird-ca-schools-15/checker.py",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/bird-ca-schools-15/checker.py",
+        "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+        "checker_version": "1.2-q26-frpm",
+        "reward": 1,
+        "weighted": 93.33
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 40.74
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "b0027d74459ddfb5c40a7ce0d10beafa991650a8abb718c90092e75d3d1d54a3",
+        "dispatch.py": "8188a8da4354f3864600761e1d519638e34b8055bd05d6947bf5f1e704369efc",
+        "navigation.py": "fb558779d37ccd1a89d7371d050094f5a8681a8277bd6f46dcf57ce4d6b5436e"
+      },
+      "artifact_note": "ledger run_dir 仅带证据包（artifacts/ 为导出快照），改以同批次工作区为判分对象（历史判分的实际对象，复算与总账一致）：/Users/b612-lp/bench-workspaces/r20261027-yuanbao-4cases/yuanbao/tb-cargo-plan",
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 40.74
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 40.74
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261027-yuanbao-4cases/yuanbao/lcb-recent-hard-4",
+      "case": "lcb-recent-hard-4",
+      "run_dir": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/lcb-recent-hard-4",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 0.0
+      },
+      "artifact_source": "/Users/b612-lp/bench-automation/runs/r20261027-yuanbao-4cases/yuanbao/lcb-recent-hard-4/artifacts",
+      "artifact_sha256": {
+        "0RZ4jO9cUKG.abc387_f.py": "9eac4f5397be3d34a3643c04075f0a95d6aed7861f6d4db43c107d945a6be7fc",
+        "0RZ4jO9cUKG.abc388_f.py": "b888edbfd5ad8ad6a6ab6c1a22b7880b5fd6f79a9d70eb4d61bf69e9cc5790a5",
+        "0RZ4jO9cUKG.abc388_g.py": "c453f960db15d41f8c0a98c4334d4d8dcec694255bdcc7775612712f97708e68",
+        "0RZ4jO9cUKG.abc389_g.py": "9eac4f5397be3d34a3643c04075f0a95d6aed7861f6d4db43c107d945a6be7fc"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/lcb-recent-hard-4/checker.py",
+        "checker_version": "0.1",
+        "reward": 0,
+        "weighted": 0.0
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/lcb-recent-hard-4/checker.py",
+        "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+        "checker_version": "0.1",
+        "reward": 0,
+        "weighted": 0.0
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__codex-base",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-base",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-base/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "8975e96d2ed778f4972b6ad5ebad35e962fcff0fdd5596b5b600727bb8740c4c",
+        "dispatch.py": "ad991826a4eb04996e15a64b017e52d9a07f326162723b9991edd15437ab40fb",
+        "navigation.py": "55e36e52bf8d04f1bffaa3e60238c0f49c481dfd81589571decc127ebe092c4e"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__codex-skill",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-skill",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-skill/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "8975e96d2ed778f4972b6ad5ebad35e962fcff0fdd5596b5b600727bb8740c4c",
+        "dispatch.py": "7397a35ec45e672e30fada22afacb416ff3d45c9f3b1ee4fe7f56f12ddbc1260",
+        "navigation.py": "c57806ee7a360876e75d4ee7f191d1f3f14d5fc14a365abe1bf77d0a4c7e4d3b"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__codex-gpt",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-gpt",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__codex-gpt/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "8975e96d2ed778f4972b6ad5ebad35e962fcff0fdd5596b5b600727bb8740c4c",
+        "dispatch.py": "6b3dc44a5b39c31a0e99097c0c14b48a8035cc561e96b9cf70613d6fde9f9bb9",
+        "navigation.py": "1adf757a7a6a45c1d5a4a692bf08150bb2fff3587570eb38f0c0df4d0da374db"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__dsh-base",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-base",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 74.07
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-base/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "5431bcfd97aa72255e1941b8edc93dc6e47c3bec10d1d7b66cd5c4dcaa89fe50",
+        "dispatch.py": "1b16d59449fdc1d733eb59810b8076bd559c59abce5671a5a1ac50a9f0009faa",
+        "navigation.py": "4cde716440a2a74d7393ef098831b4c4538e8bd2f572993db05c7ae329365b93"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 74.07
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 74.07
+      },
+      "flipped": false,
+      "ledger_match": true
+    },
+    {
+      "run_id": "r20261027-ablation/tb-cargo-plan__dsh-skill",
+      "case": "tb-cargo-plan",
+      "run_dir": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-skill",
+      "main_table_eligible": true,
+      "ledger_recorded": {
+        "raw_reward": 0,
+        "raw_weighted": 70.37
+      },
+      "artifact_source": "/Users/b612-lp/bench-workspaces/r20261027-ablation/tb-cargo-plan__dsh-skill/inputs/app",
+      "artifact_sha256": {
+        "aircraft.py": "8975e96d2ed778f4972b6ad5ebad35e962fcff0fdd5596b5b600727bb8740c4c",
+        "dispatch.py": "a3d9a5cc9fa638961fc7b8ae6e4eead70685f7905ed18659c25b19a9bb705bfe",
+        "navigation.py": "4cde716440a2a74d7393ef098831b4c4538e8bd2f572993db05c7ae329365b93"
+      },
+      "before": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/4-打分细则/判卷审计-2026-10-27/checker-tightening-B2-B8-B12-13-14/before/tb-cargo-plan/checker.py",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "after": {
+        "checker": "/Users/b612-lp/Documents/harness-compare-bench/2-用例/tb-cargo-plan/checker.py",
+        "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+        "checker_version": "0.2",
+        "reward": 0,
+        "weighted": 70.37
+      },
+      "flipped": false,
+      "ledger_match": true
+    }
+  ],
+  "corrections": [
+    {
+      "id": "b13a-replay-rowset-freeze",
+      "at": "2026-10-29T16:05:22+08:00",
+      "note": "行集分歧与裁决：按绑定规范同口径核对现行总账，合格回放对象=25（bird 10 / lcb 5 / cargo 10），与验收预期 n_replayed=24 冲突；diff 定位为 ['r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4'] 于 2026-10-27 19:28 收据刷新后入总账。builder 停手问 lead，lead 裁决 B：行集冻结为旧收据 41 行口径（本收据执行口径），排除该行且不做第 25 场补充运行（范围纪律）；锚点=AUDIT.md D3 下一步原文「用 d84b1111 对同一 24 场重跑」。",
+      "excluded_rows": [
+        "r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4"
+      ],
+      "exclusion_rule": "行集冻结=2026-10-27 19:28 收据 replay-results.json 的 41 行全集（24 replayed + 17 skipped）；排除其后入账行：当前唯一实例 run_id=r20261027-wb-lcb-sandbox/workbuddy/lcb-recent-hard-4（eligible 且 run_dir 本机存在，但 10-27 19:28 后才入总账，不在旧收据 41 行内）；锚点=AUDIT.md D3 下一步原文「用 d84b1111 对同一 24 场重跑」"
+    }
+  ],
+  "generated_at": "2026-10-29T16:05:22+08:00",
+  "post_run_annotations": [
+    {
+      "at": "2026-10-29T16:06:45+08:00",
+      "kind": "post-run factual annotation (no run entry altered)",
+      "note": "与 2026-10-27 收据逐行对照：24 场中 23 场 before/after 分数逐字节一致；唯一差异行 r1029-desktop-auto/runs/doubao/lcb-recent-hard-4 = README §1 已登记的既有负载超时抖动（abc389_g #3 组 >10s 判 timeout 口径）：本收据 before=after=75.0（旧收据当日为 100.0），reward 均 1，before=after 故 flipped=False 不触发硬闸门；ledger_match 据实记 False（旧收据该行为 True 系当日侥幸满分与登记分巧合一致）。该抖动为既有边界，本批不处理、不重跑。",
+      "comparator": "replay-results.json (2026-10-27 19:28) vs 本收据 runs[]"
+    }
+  ]
+}

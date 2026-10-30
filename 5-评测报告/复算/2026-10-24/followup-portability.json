@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-24",
+  "tested_git_tree": "92841af6303b4a03839adf71d00eb3c4d15c11b0",
+  "scope": "Clean git archive, no external workspaces or tmp upstream dataset; this receipt is added after testing and is not in its own tested tree.",
+  "passed": true,
+  "steps": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "5-评测报告/复算/2026-10-24/bird-semantic-review/review.py"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "': 14, 'weighted': 92.86, 'reward': 1, 'threshold': 0.8} FRPM26={'correct': 14, 'n_questions': 15, 'weighted': 93.33, 'reward': 1, 'threshold': 0.8}\ndsh first: frozen={'correct': 13, 'n_questions': 15, 'weighted': 86.67, 'reward': 1, 'threshold': 0.8} exclude26={'correct': 13, 'n_questions': 14, 'weighted': 92.86, 'reward': 1, 'threshold': 0.8} FRPM26={'correct': 14, 'n_questions': 15, 'weighted': 93.33, 'reward': 1, 'threshold': 0.8}\nworkbuddy first: frozen={'correct': 13, 'n_questions': 15, 'weighted': 86.67, 'reward': 1, 'threshold': 0.8} exclude26={'correct': 13, 'n_questions': 14, 'weighted': 92.86, 'reward': 1, 'threshold': 0.8} FRPM26={'correct': 14, 'n_questions': 15, 'weighted': 93.33, 'reward': 1, 'threshold': 0.8}\ndoubao first: frozen={'correct': 9, 'n_questions': 15, 'weighted': 60.0, 'reward': 0, 'threshold': 0.8} exclude26={'correct': 9, 'n_questions': 14, 'weighted': 64.29, 'reward': 0, 'threshold': 0.8} FRPM26={'correct': 10, 'n_questions': 15, 'weighted': 66.67, 'reward': 0, 'threshold': 0.8}\ncodex repeat-2: frozen={'correct': 13, 'n_questions': 15, 'weighted': 86.67, 'reward': 1, 'threshold': 0.8} exclude26={'correct': 13, 'n_questions': 14, 'weighted': 92.86, 'reward': 1, 'threshold': 0.8} FRPM26={'correct': 14, 'n_questions': 15, 'weighted': 93.33, 'reward': 1, 'threshold': 0.8}\ncodex repeat-3: frozen={'correct': 12, 'n_questions': 15, 'weighted': 80.0, 'reward': 1, 'threshold': 0.8} exclude26={'correct': 12, 'n_questions': 14, 'weighted': 85.71, 'reward': 1, 'threshold': 0.8} FRPM26={'correct': 13, 'n_questions': 15, 'weighted': 86.67, 'reward': 1, 'threshold': 0.8}\ndsh repeat-2: frozen={'correct': 13, 'n_questions': 15, 'weighted': 86.67, 'reward': 1, 'threshold': 0.8} exclude26={'correct': 13, 'n_questions': 14, 'weighted': 92.86, 'reward': 1, 'threshold': 0.8} FRPM26={'correct': 14, 'n_questions': 15, 'weighted': 93.33, 'reward': 1, 'threshold': 0.8}\ndsh repeat-3: frozen={'correct': 13, 'n_questions': 15, 'weighted': 86.67, 'reward': 1, 'threshold': 0.8} exclude26={'correct': 13, 'n_questions': 14, 'weighted': 92.86, 'reward': 1, 'threshold': 0.8} FRPM26={'correct': 14, 'n_questions': 15, 'weighted': 93.33, 'reward': 1, 'threshold': 0.8}\n",
+      "stderr_tail": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "5-评测报告/复算/2026-10-24/bird-semantic-review/independent-review.py"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "codex first {'correct': 13, 'denominator': 15, 'weighted': 86.67, 'reward': 1} exclude26 {'correct': 13, 'denominator': 14, 'weighted': 92.86, 'reward': 1} FRPM26 {'correct': 14, 'denominator': 15, 'weighted': 93.33, 'reward': 1} q27 749 749\ndsh first {'correct': 13, 'denominator': 15, 'weighted': 86.67, 'reward': 1} exclude26 {'correct': 13, 'denominator': 14, 'weighted': 92.86, 'reward': 1} FRPM26 {'correct': 14, 'denominator': 15, 'weighted': 93.33, 'reward': 1} q27 749 749\nworkbuddy first {'correct': 13, 'denominator': 15, 'weighted': 86.67, 'reward': 1} exclude26 {'correct': 13, 'denominator': 14, 'weighted': 92.86, 'reward': 1} FRPM26 {'correct': 14, 'denominator': 15, 'weighted': 93.33, 'reward': 1} q27 749 749\ndoubao first {'correct': 9, 'denominator': 15, 'weighted': 60.0, 'reward': 0} exclude26 {'correct': 9, 'denominator': 14, 'weighted': 64.29, 'reward': 0} FRPM26 {'correct': 10, 'denominator': 15, 'weighted': 66.67, 'reward': 0} q27 813 813\ncodex repeat-2 {'correct': 13, 'denominator': 15, 'weighted': 86.67, 'reward': 1} exclude26 {'correct': 13, 'denominator': 14, 'weighted': 92.86, 'reward': 1} FRPM26 {'correct': 14, 'denominator': 15, 'weighted': 93.33, 'reward': 1} q27 749 749\ncodex repeat-3 {'correct': 12, 'denominator': 15, 'weighted': 80.0, 'reward': 1} exclude26 {'correct': 12, 'denominator': 14, 'weighted': 85.71, 'reward': 1} FRPM26 {'correct': 13, 'denominator': 15, 'weighted': 86.67, 'reward': 1} q27 749 749\ndsh repeat-2 {'correct': 13, 'denominator': 15, 'weighted': 86.67, 'reward': 1} exclude26 {'correct': 13, 'denominator': 14, 'weighted': 92.86, 'reward': 1} FRPM26 {'correct': 14, 'denominator': 15, 'weighted': 93.33, 'reward': 1} q27 749 749\ndsh repeat-3 {'correct': 13, 'denominator': 15, 'weighted': 86.67, 'reward': 1} exclude26 {'correct': 13, 'denominator': 14, 'weighted': 92.86, 'reward': 1} FRPM26 {'correct': 14, 'denominator': 15, 'weighted': 93.33, 'reward': 1} q27 749 749\nq26 5 6 q27 8574 8217 read-only= True\nPASS: independent recompute matches all 8 receipts; headline changes {'exclude_q26': 0, 'replace_q26_frpm': 0}\n",
+      "stderr_tail": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "5-评测报告/复算/2026-10-24/review_acceptance.py"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "PASS semantic_assertions_11\nPASS q26_independent_base_rows\nPASS q27_projection_not_join_fanout\nPASS q27_inner_null_populations\nPASS same_eight_archived_runs\nPASS two_independent_methods_agree_all_tracks\nPASS q26_all_eight_match_frpm_only\nPASS q27_dedup_cannot_explain_current_failures\nPASS eight_headlines_unchanged_in_two_sensitivities\nPASS semantic_protected_hashes_match\nPASS historical_374_files_unchanged\nPASS checker_and_truth_versions_unchanged\nPASS two_trace_backed_cases\nPASS dab_submitted_sign/codex\nPASS dab_submitted_sign/dsh\nPASS case_frozen_scores_match\nPASS cargo_plan/dsh\nPASS cargo_plan/doubao\nPASS cargo_four_gains_one_loss\nPASS structured_case_references_exist\nPASS followup_links_and_anchors\nPASS unknown_transition_not_fake_closure\nPASS no_new_product_runs_or_formal_regrade\n{\"passed\": 23, \"total\": 23, \"issues\": []}\n",
+      "stderr_tail": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "5-评测报告/复算/2026-10-24/verify.py"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "PASS regrade_counts\nPASS unique_selected_runs\nPASS excluded_is_null_not_zero\nPASS recorded_historical_immutability\nPASS historical_snapshots_still_unchanged\nPASS frozen_version/bird-ca-schools-15\nPASS frozen_version/exercism-py-6\nPASS frozen_version/dabstep-payments-10\nPASS frozen_version/lcb-recent-hard-4\nPASS frozen_version/tb-cargo-plan\nPASS six_recovered_source_sets\nPASS supplement_sha256_matches\nPASS eight_cargo_replay_checks_and_plans_agree\nPASS dab_official_compat_preserves_historical\nPASS only_known_sign_corrections_change_scores\nPASS selftest/2-用例/bird-ca-schools-15/checker.py\nPASS selftest/2-用例/exercism-py-6/checker.py\nPASS selftest/2-用例/dabstep-payments-10/checker.py\nPASS selftest/2-用例/lcb-recent-hard-4/checker.py\nPASS selftest/2-用例/tb-cargo-plan/checker.py\nPASS selftest/2-用例/_归档-v1/int-sum-sort/checker.py\nPASS selftest/2-用例/_归档-v1/word-freq-report/checker.py\nPASS selftest/4-打分细则/轻量判卷/validate_run.py\nPASS selftest/5-评测报告/复算/token-recompute.py\nPASS bird_oracle\nPASS bird_appended_invalid_line_denied\nPASS dab_compat_and_strict_explicitly_diverge_on_sign_and_aci\nPASS exercism_early_exit_cannot_pass\nPASS exercism_oracle_with_completion\nPASS cargo_truth_drift_fails_closed\nPASS historical_snapshots_unchanged_after_independent_tests\nLEAD ACCEPTANCE 31/31\n",
+      "stderr_tail": ""
+    }
+  ],
+  "semantic_assertions": 11,
+  "followup_acceptance": {
+    "passed": 23,
+    "total": 23
+  },
+  "original_acceptance": {
+    "passed": 31,
+    "total": 31
+  },
+  "new_product_runs": 0
+}

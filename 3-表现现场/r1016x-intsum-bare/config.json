@@ -1,0 +1,28 @@
+{
+    "job_name": "r1016x-intsum-bare",
+    "jobs_dir": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/jobs",
+    "timeout_multiplier": 3.0,
+    "environment": {
+        "type": "docker",
+        "extra_docker_compose": [
+            "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/infra/compose-proxy-overlay-v2.yml"
+        ]
+    },
+    "agents": [
+        {
+            "name": "bare_model:BareModel",
+            "model_name": "mimo-v2.6-flash",
+            "kwargs": {
+                "output_path": "/app/output.txt"
+            },
+            "env": {
+                "XIAOMI_API_KEY": "tp-c****3f4"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "path": "/mnt/c/Users/Administrator/Desktop/harness-compare-bench/cases/int-sum-sort"
+        }
+    ]
+}

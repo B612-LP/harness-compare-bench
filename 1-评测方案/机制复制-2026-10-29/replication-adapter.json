@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-28T18:44:07.445876+00:00",
+  "provenance": "Replication events; research-only, never official. Original receipts untouched.",
+  "items": [
+    {
+      "kind": "product_run",
+      "run_id": "repl-dsh-large-bounded-01-239e08cd",
+      "product": "dsh",
+      "case_id": "fixture-v1-replication",
+      "facts": {
+        "case_version": "fixture-v1-replication",
+        "product_version": "0.2.0-rc.2",
+        "model": {
+          "provider": "deepseek-official",
+          "model": "deepseek-flash",
+          "reasoningEffort": "low"
+        },
+        "route": {
+          "host": "api.deepseek.com",
+          "provider_id": "deepseek-official",
+          "wire_protocol": "anthropic-messages",
+          "endpoint": "https://api.deepseek.com/anthropic/v1/messages"
+        },
+        "tools": [
+          "fixture_output"
+        ],
+        "permissions": "danger-full-access / approval never",
+        "skills": false,
+        "started_at": "2026-10-28T18:39:54.059236+00:00",
+        "finished_at": "2026-10-28T18:39:56.005172+00:00",
+        "evidence_grade": "real-api/request-body/raw-SSE(both calls,message_stop)/usage",
+        "final_adjudication": "exact-head-tail-pass; research-only; no official score"
+      },
+      "identity": {
+        "event_id": "repl-repl-dsh-large-bounded-01-239e08cd",
+        "run_id": "repl-dsh-large-bounded-01-239e08cd",
+        "category": "product_run",
+        "product": "dsh",
+        "group": "research",
+        "experiment": true,
+        "case_id": "fixture-v1-replication"
+      }
+    },
+    {
+      "kind": "product_run",
+      "run_id": "repl-dsh-large-bounded-02-adfb64c0",
+      "product": "dsh",
+      "case_id": "fixture-v1-replication",
+      "facts": {
+        "case_version": "fixture-v1-replication",
+        "product_version": "0.2.0-rc.2",
+        "model": {
+          "provider": "deepseek-official",
+          "model": "deepseek-flash",
+          "reasoningEffort": "low"
+        },
+        "route": {
+          "host": "api.deepseek.com",
+          "provider_id": "deepseek-official",
+          "wire_protocol": "anthropic-messages",
+          "endpoint": "https://api.deepseek.com/anthropic/v1/messages"
+        },
+        "tools": [
+          "fixture_output"
+        ],
+        "permissions": "danger-full-access / approval never",
+        "skills": false,
+        "started_at": "2026-10-28T18:39:56.006970+00:00",
+        "finished_at": "2026-10-28T18:39:58.026096+00:00",
+        "evidence_grade": "real-api/request-body/raw-SSE(both calls,message_stop)/usage",
+        "final_adjudication": "exact-head-tail-pass; research-only; no official score"
+      },
+      "identity": {
+        "event_id": "repl-repl-dsh-large-bounded-02-adfb64c0",
+        "run_id": "repl-dsh-large-bounded-02-adfb64c0",
+        "category": "product_run",
+        "product": "dsh",
+        "group": "research",
+        "experiment": true,
+        "case_id": "fixture-v1-replication"
+      }
+    },
+    {
+      "kind": "product_run",
+      "run_id": "repl-codex-large-01",
+      "product": "codex",
+      "case_id": "fixture-v1-replication",
+      "facts": {
+        "case_version": "fixture-v1-replication",
+        "product_version": "codex-cli 0.163.0",
+        "model": "deepseek-flash",
+        "route": {
+          "host": "api.deepseek.com",
+          "provider_id": "deepseek",
+          "wire_protocol": "responses",
+          "endpoint": "https://api.deepseek.com"
+        },
+        "tools": [
+          "fixture_output（MCP stdio）"
+        ],
+        "permissions": "sandbox_mode=danger-full-access; approval_policy=never",
+        "skills": "off",
+        "started_at": "2026-10-28T18:40:33.695730+00:00",
+        "finished_at": "2026-10-28T18:40:37.735180+00:00",
+        "evidence_grade": "real-api/product-reported-usage(rollout token_count); no request-level capture",
+        "final_adjudication": "exact-head-tail-pass; research-only; no official score"
+      },
+      "identity": {
+        "event_id": "repl-repl-codex-large-01",
+        "run_id": "repl-codex-large-01",
+        "category": "product_run",
+        "product": "codex",
+        "group": "research",
+        "experiment": true,
+        "case_id": "fixture-v1-replication"
+      }
+    },
+    {
+      "kind": "interface_preflight",
+      "run_id": "preflight-439e8b45",
+      "product": "dsh",
+      "case_id": "mechanism-replication-preflight",
+      "facts": {
+        "started_at": "2026-10-28T18:39:54.058617+00:00",
+        "note": "dump-config preflight receipt time; zero model calls"
+      },
+      "identity": {
+        "event_id": "repl-preflight-preflight-439e8b45",
+        "run_id": "preflight-439e8b45",
+        "category": "interface_preflight",
+        "product": "dsh",
+        "group": "research",
+        "experiment": true,
+        "case_id": "mechanism-replication-preflight"
+      }
+    },
+    {
+      "kind": "interface_preflight",
+      "run_id": "preflight-f63e215e",
+      "product": "dsh",
+      "case_id": "mechanism-replication-preflight",
+      "facts": {
+        "started_at": "2026-10-28T18:22:11.741971+00:00",
+        "note": "dump-config preflight receipt time; zero model calls"
+      },
+      "identity": {
+        "event_id": "repl-preflight-preflight-f63e215e",
+        "run_id": "preflight-f63e215e",
+        "category": "interface_preflight",
+        "product": "dsh",
+        "group": "research",
+        "experiment": true,
+        "case_id": "mechanism-replication-preflight"
+      }
+    }
+  ]
+}

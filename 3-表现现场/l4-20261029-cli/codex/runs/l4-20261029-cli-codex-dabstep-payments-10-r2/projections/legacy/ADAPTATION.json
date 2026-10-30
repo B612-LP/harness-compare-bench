@@ -1,0 +1,38 @@
+{
+  "projection": "legacy",
+  "equivalent_simulation": true,
+  "master_evidence_dir": "/Users/b612-lp/Documents/harness-compare-bench/3-表现现场/l4-20261029-cli/codex/runs/l4-20261029-cli-codex-dabstep-payments-10-r2",
+  "master_input_mapping": {
+    "meta.json": "identity",
+    "workspace/": "identity",
+    "config-snapshot/": "identity",
+    "prompt.txt": "identity",
+    "checker.stdout": "identity",
+    "score-receipt.json": "identity",
+    "agent.jsonl": "identity (current projection); absent in legacy (r1030#1)",
+    "agent.stderr.txt": "identity (current projection); absent in legacy",
+    "agent-session/": "usage extraction source"
+  },
+  "historical_sources": [
+    {
+      "role": "legacy archive implementation (defective r1030#1 as-published)",
+      "path": "3-表现现场/r1030-formal-a1/tools/lab.py",
+      "sha256": "7d237c982db45acb1225f40114050622085bb47ad5d848591133bcd262d718de",
+      "commit": "53be2c31e62229094b907bc9e00b2f0809a44570"
+    },
+    {
+      "role": "legacy rescan correction record",
+      "path": "3-表现现场/r1030-formal-a1/tools/rescan_integrity.py",
+      "sha256": "5cefa42d63fbddc103d663dcc6971a3ae0ff5b575580fce1718cd5e0d61cb974",
+      "commit": "53be2c31e62229094b907bc9e00b2f0809a44570"
+    }
+  ],
+  "adaptation_diff": [
+    "legacy projection keeps L4 slot/run/event identity (historical ids would collide with r1030 sealed rows)",
+    "legacy integrity field carried over from master rescan instead of the historical vacuous scan+post-hoc fix",
+    "checker/judge output identical bytes (same frozen checker invocation contract)",
+    "r1030#1 defect reproduced in sandbox copy only: agent.jsonl/agent.stderr.txt absent from legacy projection (historically lost by archive rmtree); master stream files remain untouched"
+  ],
+  "live_doc_drift": [],
+  "note": "离线反事实投影：只识别归档测量语义差异，不声称历史 runner 因果贡献；母本 write-once 未被触碰"
+}

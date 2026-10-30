@@ -1,0 +1,40 @@
+{
+  "run_id": "repl-codex-large-01",
+  "start": "2026-10-28T18:40:33.695730+00:00",
+  "case_version": "fixture-v1-mcp",
+  "size": "large",
+  "arm": "no-spill-policy",
+  "model": {
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "reasoning_effort": "low"
+  },
+  "product": "Codex CLI",
+  "product_version": "codex-cli 0.163.0",
+  "group": "research",
+  "experiment": true,
+  "category": "product_run",
+  "route": {
+    "host": "api.deepseek.com",
+    "provider_id": "deepseek",
+    "wire_protocol": "responses",
+    "endpoint": "https://api.deepseek.com"
+  },
+  "permissions": "sandbox_mode=danger-full-access; approval_policy=never",
+  "skills": "off",
+  "tool_channel": "MCP stdio server（字节级相同夹具文本，tool-output.txt+tool-process.json 同约定）",
+  "usage_evidence_grade": "product-reported（agent.jsonl/会话 rollout），无请求级抓取",
+  "workspace": "<WORKSPACE>/agent-workspace",
+  "codex_home": "<WORKSPACE>/codex-home",
+  "end": "2026-10-28T18:40:37.735180+00:00",
+  "duration_seconds": 3.969460584,
+  "exit_code": 0,
+  "captured_files": [
+    "capture",
+    "codex-config.toml",
+    "run-meta.json",
+    "session-rollout.jsonl",
+    "stderr.txt",
+    "stdout.txt"
+  ]
+}
