@@ -1,0 +1,76 @@
+{
+ "kind": "l9_audit_mech_receipt",
+ "tool": "inline-verifier",
+ "at": "2026-10-30T15:13:11+08:00",
+ "results": [
+  {
+   "check": "S1_timing_D_correction_D2",
+   "status": "PASS",
+   "detail": "2026-10-30 14:53:56 +0800 < 2026-10-30 14:56:17 +0800 < 2026-10-30 15:04:42 +0800"
+  },
+  {
+   "check": "S2_correction_append_only",
+   "status": "PASS",
+   "detail": "1-评测方案/自动循环L9-2026-10-30/PREREGISTRATION.md | 19 +++++++++++++++++++\n 1 file changed, 19 insertions("
+  },
+  {
+   "check": "S3_no_commits_between_D_and_correction",
+   "status": "PASS",
+   "detail": "['5fcd3f2 L9 D 补正一（实现前 append-only）：F-1 作废——预检哈希体系混用（blob sha1 冒比 content sha256）；内容 sha256 重考=f73e2dc3 可考@8edc58f 且 27cd39d^==8edc58f，L6 locator 声明核可为真；L9-B 修后预期改 20 FRESH+1 HISTORICAL/0 UNRESOLVED、allowlist 初始空、考古口径钉死内容 sha256；sidecar 制度保留']"
+  },
+  {
+   "check": "S4_content_sha256_f73e2dc3_at_8edc58f",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "S5_27cd39d_parent_is_8edc58f",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "S6_reconcile_20FRESH_1HIST_0UNRESOLVED",
+   "status": "PASS",
+   "detail": "{\"total\": 21, \"FRESH\": 20, \"HISTORICAL\": 1, \"UNRESOLVED\": 0, \"waived\": 0}"
+  },
+  {
+   "check": "S7_l9a_root_guard_present",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "S8_no_field_AB_identical",
+   "status": "PASS",
+   "detail": "function-level strip-supersession 对照全同（深度坑规避详见 adversarial_findings）"
+  },
+  {
+   "check": "S9_redline_historical_zero_write",
+   "status": "PASS",
+   "detail": "extra=[]"
+  },
+  {
+   "check": "S10_registry_unchanged_since_D2",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "S11_test_freeze_additions_only",
+   "status": "PASS",
+   "detail": "deletions=0"
+  },
+  {
+   "check": "S12_startup_git_dir_check",
+   "status": "PASS",
+   "detail": ""
+  }
+ ],
+ "counts": {
+  "PASS": 12,
+  "FAIL": 0
+ },
+ "adversarial_findings": [
+  "L9-A 第5守卫（resolved∈--root）关闭 L8-O1；symlink/归一化由 resolve() 覆盖；大小写=文件系统原生语义（resolve 返回真实路径，同文件不构成旁路）",
+  "无字段 A/B 采用函数级 check_doc 对照（ac36ab7 版置于两级深审计目录会触发 REPO=parents[2] 深度坑——lead 预警属实，故未用文件级整工具对照）"
+ ],
+ "live_doc_drift": []
+}

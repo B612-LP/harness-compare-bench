@@ -1,0 +1,82 @@
+{
+ "kind": "judge_l9_ledger_root_constraint_independent_acceptance_receipt",
+ "generated_at": "2026-10-30T15:14:27+08:00",
+ "task": "L9 循环独立验收（lead 指令）",
+ "zero_model_calls": true,
+ "no_git_writes": true,
+ "live_doc_drift": [],
+ "timing": {
+  "main_base": "ac36ab769fa035ae104c6f77fb74e340646a7dda @ 2026-10-30T14:47:40+08:00",
+  "D": "cda92f5aecaaa490b5b9d873a961c1f98c7bfa03 @ 2026-10-30T14:53:56+08:00",
+  "D_correction_1": "5fcd3f2872bf04d290d544b1a91921b226fbcf47 @ 2026-10-30T14:56:17+08:00",
+  "D2": "295f2c7bd121ea2aeaa795b31e5ad0608dc8c803 @ 2026-10-30T15:04:42+08:00",
+  "chain": "D→补正一→D2 全祖先关系成立（merge-base 两次）"
+ },
+ "assertions": [
+  {
+   "name": "① receipt_check --selftest",
+   "pass": true,
+   "detail": "29/29（grep pass:true 计数=29）；ledger_reconcile --selftest 10/10 PASS"
+  },
+  {
+   "name": "② L9-A 负例自构",
+   "pass": true,
+   "detail": "root 归一化穿越../、根外绝对路径、多级 symlink 链出根、NFC/NFD unicode 变体——4/4 REJECTED 且文案带 (L9-A)；仓内兄弟目录合法 0 violations（in-repo scratch 实测）；L8 demo 默认根复验 6/6 entries/0 violations（validate_supersession 与 check_doc 双路径）"
+  },
+  {
+   "name": "③ 无字段 A/B",
+   "pass": true,
+   "detail": "ac36ab7 修前版置仓内同级深度 .l9-ab-pre（REPO 推导成立），无 supersedes 文档两版输出逐字段一致（supersession 键两侧均无）；脚手架已清理"
+  },
+  {
+   "name": "④ L9-B 独立复算",
+   "pass": true,
+   "detail": "内容 sha256 考古（git cat-file blob | sha256，零 blob sha1）：@8edc58f work-registry-live.json = f73e2dc3… 实测吻合 want_sha8；27cd39d^==8edc58f 实测；judge 自构临时 git 夹具三态 FRESH/HISTORICAL/UNRESOLVED 独立复现正确；--repo 非 git 根 CLI exit=2 带 HERE.parents 防错文案"
+  },
+  {
+   "name": "⑤ test_freeze",
+   "pass": true,
+   "detail": "49/49 OK（48→49，test_live_ledger_account_reality_l9b 在套）"
+  },
+  {
+   "name": "⑥ 补正一纪律",
+   "pass": true,
+   "detail": "git diff cda92f5 5fcd3f2 = 19 insertions/0 deletions（append-only，唯一 ^- 行为 diff 头）；补正(14:56:17)先于 D2(15:04:42)；动机链透明完整：预检假发现 F-1 → 方法学证伪（blob sha1 vs 内容 sha256 两体系混比）→ 内容 sha256 重考 f73e2dc3 可考 → L6 locator 声明核可为真 → 修后预期与 allowlist 相应修订，全部 append-only 留痕"
+  },
+  {
+   "name": "⑦ v2 模板自食",
+   "pass": true,
+   "detail": "§0 老师反馈对照 8 行逐条指认（#1-#7+覆盖声明，含『非回避，结构性不适用』）；七要素齐（修前/修后/异常类如实申报/正例/近似错误例/影响面/独立验收——独立验收自构逃逸要求在 PREREG L53/L85）；字段 1/2/4 齐"
+  },
+  {
+   "name": "⑧ 时序与身份",
+   "pass": true,
+   "detail": "见 timing 键；D1/D2 内容与交付物声明一致"
+  }
+ ],
+ "observations": [
+  {
+   "id": "O-1",
+   "item": "L8 O-1（supersedes 无 root 约束）经 L9-A 第 5 守卫闭项",
+   "impact": "无残留",
+   "next": "无",
+   "stop": "无"
+  },
+  {
+   "id": "O-2",
+   "item": "真成环哈希不动点（L8 O-2）与 L9-A root 约束叠加后，逃逸面收窄至『根内 VOIDED 文件+正确 sha』",
+   "impact": "无",
+   "next": "无",
+   "stop": "无"
+  }
+ ],
+ "referenced_sha256": {
+  "PREREGISTRATION_l9": "2a53cc1dcb02e7c471233c80f38bdfd5fc93cd3abf2bc905d1c84f3148fc6918",
+  "receipt_check": "ecfc07de7bdd9f3b7b372723a00558c638c4297257b424d19d38e73d16426574",
+  "ledger_reconcile": "55ae51538b386cdbb35c9e25e730c6772656b2fbab16152d82baf6a06843052d",
+  "ledger_reconcile_receipt": "1694e3e01c2d9161bd18d5b0423ae0c6145e08fafa65d2e6ae913e1eb6116fc2",
+  "work_registry_live": "6382ce5f068c64f63f8a1835c46cbff0ba0f742545d012ecd3ebf5cdcd570719",
+  "PREREG_template": "7950ae2787ebc1514386820e35f04ac7146c22111efa8e7f984a5faaa2f41957"
+ },
+ "verdict": "PASS — 8 项验收全过；2 observations 均为闭项记录，无新阻塞"
+}
