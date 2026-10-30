@@ -101,3 +101,19 @@ L5 现场。
   停止条件=external_files 齐三键且 verify 全绿。
 - **SUMS**：verify_execution 终态 f0612ba6 已定稿入 SHA256SUMS.txt。
 - 状态：待 seal 侧修 F1 重封 E3 → 我 verify 全绿 → 执行 wb-bird-r1。零调用不变。
+
+
+---
+
+## v6.4 真实槽执行记录（2026-10-30T12:27:17+08:00）：E3=aae5edac wb-bird-r1
+
+- verify-execution 对 E3 binding **全绿**（reasons=[]；含 plan-disk-sha 与
+  manifest-external-required-locked 两历史拒点）。
+- 槽 l6-20261030-wb-gateway-bird-ca-schools-15-r1：**status=ok**，148s/1800s（1 槽 1 attempt）；
+  会话 d9e8f477；earned=1、weighted=100.0（checker 原发射 8dp）；
+  **judge.checker_sha256=ffa7389a**（=L6 contract pin）、**guards_used 四 id 表**
+  ['input_integrity','answers_file','answers_schema','answers_coverage']、correct=15/n_tasks=15
+  （L6-A 修订 checker 元数据完备落地）；inputs_verification checked=4/ok；
+  native-terminal.json=completed/terminal:true；R6 renderer_ready ready=true 0.001s/1poll；
+  原生 DB model=deepseek-v4.1-flash（=声明别名）；asar 无漂移；integrity=clean；ws 仅 inputs+TASK。
+- formal 判定归 lead/gate；本报告仅记事实。
