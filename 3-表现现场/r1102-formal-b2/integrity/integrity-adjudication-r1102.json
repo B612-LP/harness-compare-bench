@@ -1,0 +1,15 @@
+{
+  "scanner": "integrity_scan-v1 + 人工终审 + 桌面工作区边界判定线终审",
+  "at": "2026-10-31T02:25:19+08:00",
+  "batch": "r1102-formal-b2",
+  "policy": "机器只产候选，人工终审；实证 clean 记 V、实证命中记 X（整场排除、不按子题豁免）；题面自带来源标注豁免；工作区外评测相关内容访问即 X（判定线-2026-10-31，不追溯历史批）",
+  "adjudications": [
+    {
+      "run": "doubao/exercism-py-6",
+      "findings": 3,
+      "adjudication": "误报×3：trajectory L39/L48/L57 URL 均为题面测试文件自带来源注释（# These tests are auto-generated with test data from: github.com/exercism/problem-specifications/...），读本地 inputs 文件时原样回声，非检索行为（豁免口径同 r1101 bird 裁定）。全轨迹无网络抓取/浏览器步骤，0 检索步骤、0 题解接触。边界判定线终审：工作区外路径 0 命中，find/ls 类命令均限于工作区内；MEMORY.md 0 字节。",
+      "verdict": "V",
+      "integrity": "clean"
+    }
+  ]
+}

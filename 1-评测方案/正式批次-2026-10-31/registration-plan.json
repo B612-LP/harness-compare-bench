@@ -1,0 +1,38 @@
+{
+  "plan_id": "formal-b2-20261031",
+  "rule_version": "freeze-20261029-v5",
+  "created_at": "2026-10-31T01:22:59+08:00",
+  "note": "formal-b1 唯一非合规终局槽位（豆包×exercism 发射期 infrastructure_invalid，零模型暴露）的配额制作废重跑（L12 环，用户 2026-10-31 放行「继续下一轮」）。本文件在任何真实运行开始之前定稿并由 freeze-20261029-v5 封印（plan_sha256 绑定 config.official_slots）；先注册、后运行、全量导入，不按结果增删。前置预检：run_batch probe --product doubao 已于注册前实测通过（probe-ok-1793380669）。本批为运行记录模板 schema v2 的首个执行批（十字段强制），并前置执行桌面工作区边界判定线（1-评测方案/正式批次-2026-10-31/判定线-2026-10-31-桌面工作区边界.md：任务书硬条款+越界即 X+终审加查 find/ls）。豆包检索三件套同 formal-b1（任务书禁网条款+轨迹披露+integrity_scan 兜底）。B_native 语义与policy.mixed_group_ranking=false 同 v4。配额制：本 slot 仅 1 次发射（kind=first，parent_id=null 为队列机械语义），发射失败即停不重试不补跑；probe 绿但会话无效仍按 infrastructure_invalid 合规拒绝，三条终局（准入/X/infra）均为合规终局，不预设结果。",
+  "batch": "r1102-formal-b2",
+  "design": {
+    "group": "B_native",
+    "products": [
+      "doubao"
+    ],
+    "cases": [
+      "exercism-py-6"
+    ],
+    "samples_per_slot": 1,
+    "policy": {
+      "first": "first_registered",
+      "repeat": "all_registered_no_best",
+      "retry": "infrastructure_only_max_1",
+      "replacement": "invalid_only_next_registered_max_1"
+    },
+    "provenance_template": "运行记录模板 schema v2（2026-10-30 十字段强制；桌面封闭字段=披露值+承载位置）+ 桌面工作区边界判定线（2026-10-31 预注册）",
+    "predecessor": "formal-b1-doubao-exercism-py-6-01 于 freeze-20261029-v4 以 infrastructure_invalid 合规拒绝（发射期，无会话），本批为其作废重跑，不构成对已准入行的替换",
+    "workspace": "~/bench-workspaces/r1102/<product>/<case>/（仓库外，仅 inputs+TASK.md）"
+  },
+  "registrations": [
+    {
+      "event_id": "formal-b2-doubao-exercism-py-6-01",
+      "plan_id": "formal-b2-20261031",
+      "slot_id": "b2-doubao-exercism-py-6",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "predecessor formal-b1-doubao-exercism-py-6-01 infrastructure_invalid（发射期作废，零模型暴露）；跨批作废重跑=本批新 plan 新 slot 的 first（队列机械语义：parent_id 须为 null），非同批重试；先承关系由 design.predecessor 与本 reason 叙述承载",
+      "registered_at": "2026-10-31T01:22:59+08:00"
+    }
+  ]
+}
