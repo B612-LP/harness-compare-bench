@@ -3,7 +3,8 @@
   "updated": "2026-10-31",
   "policy": "未知不补 0、不补满分、不折算；每项写影响 / 下一步 / 停止追查条件 / 复核日期。状态只允许 open / closed / accepted。",
   "counts": {
-    "open": 1,
+    "open": 0,
+    "accepted_limitation": 1,
     "closed": 14
   },
   "unknowns": [
@@ -208,14 +209,16 @@
       "id": "desktop-agent-full-disk-wander",
       "item": "桌面 B 组 agent 具备全盘文件访问，工作区隔离不构成行为边界：r1101 豆包×cargo 出工作区检索评测材料并读私档 truth/oracle/checker（X 坐实）",
       "impact": "桌面正式批的单场有效性依赖批后 integrity 终审兜底；同类越界可在任何桌面场复发，且机器扫描对「读后未留痕」形态可能漏报（本例有轨迹留痕才坐实）",
-      "next_step": "2026-10-31 已按判定纪律处置（X 整场排除）；后续桌面批（含 WB 若开网关中介轨）前置收敛：任务书追加「仅限工作目录」硬条款 + workspace 外文件访问即 X 的预注册判定线 + 终审加查 find/ls 类越界命令\n2026-10-31 判定线已前置成文并生效（1-评测方案/正式批次-2026-10-31/判定线-2026-10-31-桌面工作区边界.md）；首个适用批 r1102-formal-b2 零越界命中、终审无漏报（连续两批条件的第 1 批）\n2026-10-31 r1103-b3 预检三败停批（发射层产品侧故障，签名谱系与处置矩阵见 1-评测方案/正式批次-2026-10-31/桌面发射预检纪律-2026-10-31.md；恢复判据=probe 连续双绿后新环重走注册→封印→运行）——第 2 个干净批暂不可得，维持 1/2，不降级",
+      "next_step": "2026-10-31 已按判定纪律处置（X 整场排除）；后续桌面批（含 WB 若开网关中介轨）前置收敛：任务书追加「仅限工作目录」硬条款 + workspace 外文件访问即 X 的预注册判定线 + 终审加查 find/ls 类越界命令\n2026-10-31 判定线已前置成文并生效（1-评测方案/正式批次-2026-10-31/判定线-2026-10-31-桌面工作区边界.md）；首个适用批 r1102-formal-b2 零越界命中、终审无漏报（连续两批条件的第 1 批）\n2026-10-31 r1103-b3 预检三败停批（发射层产品侧故障，签名谱系与处置矩阵见 1-评测方案/正式批次-2026-10-31/桌面发射预检纪律-2026-10-31.md；恢复判据=probe 连续双绿后新环重走注册→封印→运行）——第 2 个干净批暂不可得，维持 1/2，不降级\n2026-10-31 r1104-b3 额度门恢复后合规完成重跑（probe 双绿 11m49s → D 封印 9d080e8 → 运行 386s 自然收敛）：判定线终审 4 类路径模式 0 命中、find/ls 类越界命令 0 条、MEMORY.md 0 字节、全轨迹 distinct URL=0——第 2 个干净批成立，连续两批（b2+b3）零越界且终审无漏报，停止条件原文满足 → 按预注册处置降级为 accepted_limitation（接受的结构性局限，非 closed：全盘访问能力仍在，「读后未留痕」漏报不可穷尽，桌面批继续按判定线终审兜底）",
       "stop_condition": "连续两个桌面批零越界命中且终审无漏报，可降级为 accepted_limitation",
       "review_date": "2026-10-31",
-      "status": "open",
+      "status": "accepted_limitation",
       "evidence": [
         "3-表现现场/r1101-formal-b1/integrity/integrity-adjudication-r1101.json",
         "3-表现现场/r1101-formal-b1/integrity/doubao-integrity-scan.json",
-        "3-表现现场/r1101-formal-b1/README.md"
+        "3-表现现场/r1101-formal-b1/README.md",
+        "3-表现现场/r1104-formal-b3/integrity/integrity-adjudication-r1104.json",
+        "3-表现现场/r1104-formal-b3/README.md"
       ]
     }
   ]

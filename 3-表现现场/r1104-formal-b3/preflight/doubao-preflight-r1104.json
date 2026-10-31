@@ -1,0 +1,51 @@
+{
+  "kind": "interface_preflight",
+  "product": "doubao",
+  "batch": "r1104-formal-b3",
+  "at": "2026-10-31T12:25:30+08:00",
+  "model_calls": 1,
+  "model_call_note": "probe 冒烟=1 次微型 agent 往返（answer.txt=probe-ok-1793420739），非正式运行",
+  "checks": [
+    {
+      "check": "probe-double-green",
+      "ok": true,
+      "detail": "额度门恢复后连续双绿：#1 12:05:19 completed（会话 38450436197330690，probe-ok-1793419456）、#2 12:13:41 completed（会话 38450401937899266，probe-ok-1793419971）；#2→间隔确认发 #3 12:25:30 起跑（间隔 11 分 49 秒 ≥10 分钟立制判据）completed（会话 38450549358980610，probe-ok-1793420739）。另有计划外绿一次 ~12:18:54（job 取消竞争，answer=probe-ok-1793420334）如实披露不计入双绿对"
+    },
+    {
+      "check": "quota-gate-clear",
+      "ok": true,
+      "detail": "r1103 三败根因=豆包时段额度耗尽（回复体明示 04:38 恢复，用户截图实证）；本批已过恢复时刻，发射链路无故障（L13「运行时未启动」归因已更正，纪律文档 v1.2）"
+    },
+    {
+      "check": "permission-mode",
+      "ok": true,
+      "detail": "v2.34 权限模式批前设「全部允许」（与 v2.33 时代 b1/b2 行为面等价，driver ensure_permission_mode 固化+在途确认卡兜底）；正式场实测 permission_changed=false、mode=全部允许"
+    },
+    {
+      "check": "workspace-prep",
+      "ok": true,
+      "detail": "1 工作区 ~/bench-workspaces/r1104/doubao/tb-cargo-plan/，TASK.md 含边界硬条款（r1102 模板）+禁网附则（同文追加，b2 逐字 diff 一致）"
+    },
+    {
+      "check": "collect",
+      "ok": true,
+      "detail": "session/ trajectory.jsonl + briefing + board + memory 等七类文件收齐（trajectory 运行中流式可见，46 records）"
+    },
+    {
+      "check": "version",
+      "ok": true,
+      "detail": "probe 时 app v2.34.11；正式场实测 v2.34.12（第三跳自动更新，run_meta 实测；披露见 v6 README 更正注与运行记录）"
+    }
+  ],
+  "verdict": "PASS",
+  "score_unassessed": "interface_preflight 无评分概念,score 字段按 unknown+受管 issue 登记",
+  "identity_value": {
+    "event_id": "formal-b3-doubao-preflight-01",
+    "run_id": "r1104-doubao-preflight",
+    "category": "interface_preflight",
+    "product": "doubao",
+    "group": "not_applicable",
+    "experiment": false,
+    "case_id": "not_applicable"
+  }
+}
