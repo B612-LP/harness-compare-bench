@@ -1,0 +1,106 @@
+{
+  "plan_id": "r20261031-wb-replacement",
+  "rule_version": "freeze-20261031-wb-v2",
+  "created_at": "2026-10-31T20:08:37+08:00",
+  "batch": "r20261031-wb-replacement",
+  "design": {
+    "group": "W_gateway",
+    "products": [
+      "workbuddy"
+    ],
+    "cases": [
+      "dabstep-payments-10",
+      "lcb-recent-hard-4",
+      "tb-cargo-plan"
+    ],
+    "samples_per_slot": 1,
+    "semantic_kind": "invalid_only_replacement",
+    "predecessor_plan": "r20261031-wb-formal",
+    "max_replacements_per_parent": 1,
+    "no_valid_low_score_replacement": true,
+    "launch_budget_per_slot": 1,
+    "automatic_retry": false,
+    "automatic_replacement": false,
+    "execution": "sequential",
+    "model_label": "DeepSeek V4.1-Flash",
+    "model_id_label": "deepseek-v4.1-flash",
+    "thought_level": "low",
+    "permission_mode": "fullAccess",
+    "mode": "craft",
+    "prompt_pins": {
+      "dabstep-payments-10": {
+        "path": "1-评测方案/正式批次-2026-10-31-WB-replacement/prompts/dabstep-payments-10.md",
+        "sha256": "0878e5582126dd92fa7bcf4e80be74266c84981d197948ec04b0cda99d00a752"
+      },
+      "lcb-recent-hard-4": {
+        "path": "1-评测方案/正式批次-2026-10-31-WB-replacement/prompts/lcb-recent-hard-4.md",
+        "sha256": "08adc23c92ae3f0759b6a15adc7184eccf8cab990701bc9a84b69089e062c60e"
+      },
+      "tb-cargo-plan": {
+        "path": "1-评测方案/正式批次-2026-10-31-WB-replacement/prompts/tb-cargo-plan.md",
+        "sha256": "38400e194e9a9b692a04dbd21111aa02e745e3a90c3a295c999c743aea9d9156"
+      }
+    },
+    "prompt_revision": "1-评测方案/正式批次-2026-10-31-WB-replacement/prompt-revision.json",
+    "case_changes": false,
+    "mixed_group_ranking": false,
+    "unknown": "no_zero_no_rescale",
+    "completion": "Same as parent: DB terminal + stable 5s OR terminal assistant without pending tools + stable 60s; fixed case timeout freezes artifacts",
+    "mechanical_first_note": "New plan/slot queue starts first/order1/parentnull, as b3 precedent. Semantic replacement lineage is separately pinned and validated in predecessors; this is not an unparented new sample."
+  },
+  "predecessors": {
+    "dabstep-payments-10": {
+      "parent_event_id": "r20261031-wb-formal:workbuddy:dabstep-payments-10",
+      "semantic_kind": "replacement",
+      "reason": "contamination",
+      "replacement_index": 1,
+      "evidence": "3-表现现场/r20261031-wb-formal/runs/dabstep-payments-10/adjudication.json"
+    },
+    "lcb-recent-hard-4": {
+      "parent_event_id": "r20261031-wb-formal:workbuddy:lcb-recent-hard-4",
+      "semantic_kind": "replacement",
+      "reason": "contamination",
+      "replacement_index": 1,
+      "evidence": "3-表现现场/r20261031-wb-formal/runs/lcb-recent-hard-4/adjudication.json"
+    },
+    "tb-cargo-plan": {
+      "parent_event_id": "r20261031-wb-formal:workbuddy:tb-cargo-plan",
+      "semantic_kind": "replacement",
+      "reason": "contamination",
+      "replacement_index": 1,
+      "evidence": "3-表现现场/r20261031-wb-formal/runs/tb-cargo-plan/adjudication.json"
+    }
+  },
+  "registrations": [
+    {
+      "event_id": "r20261031-wb-replacement:workbuddy:dabstep-payments-10",
+      "plan_id": "r20261031-wb-replacement",
+      "slot_id": "workbuddy|dabstep-payments-10",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "fixed_first",
+      "registered_at": "2026-10-31T20:08:37+08:00"
+    },
+    {
+      "event_id": "r20261031-wb-replacement:workbuddy:lcb-recent-hard-4",
+      "plan_id": "r20261031-wb-replacement",
+      "slot_id": "workbuddy|lcb-recent-hard-4",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "fixed_first",
+      "registered_at": "2026-10-31T20:08:37+08:00"
+    },
+    {
+      "event_id": "r20261031-wb-replacement:workbuddy:tb-cargo-plan",
+      "plan_id": "r20261031-wb-replacement",
+      "slot_id": "workbuddy|tb-cargo-plan",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "fixed_first",
+      "registered_at": "2026-10-31T20:08:37+08:00"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "kind": "prospective_prompt_boundary_clarification",
+  "added_boundary_text": "**临时文件边界的明确说明**：本任务的临时脚本、测试数据、性能测试输入、日志与中间结果，也只能在上面指定的本工作目录内创建、读取、执行或删除。`/tmp`、`/private/tmp`、`/var/folders` 等系统临时目录，以及任何其他工作目录，均在允许范围之外；不能因为内容只是自己生成的临时数据就使用这些路径。需要临时目录时，请在当前工作目录创建 `.tmp/`，所有临时文件放入其中；如调用会使用临时目录的程序，请将其临时路径设置为本工作目录内的绝对路径。不要访问任何先前会话、历史运行或评测资产。发现误操作也不要通过删除目录外文件尝试“清理痕迹”，应停止并如实说明。",
+  "case_bytes_unchanged": true,
+  "header_change": "Replace private absolute path in task header with current session-bound cwd; real workspace remains external and unique.",
+  "scope": "Clarifies original hard working-directory boundary for temporary scripts/data/logs and deletion/execution. No answers, original scores or checker feedback supplied.",
+  "causal_limit": "Cross-batch prompt differs; replacement result cannot prove boundary clarification alone improved capability."
+}
