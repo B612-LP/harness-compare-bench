@@ -1,0 +1,92 @@
+{
+  "identity": {
+    "event_id": "r20261031-wb-replacement:workbuddy:dabstep-payments-10",
+    "run_id": "r20261031-wb-replacement:workbuddy:dabstep-payments-10:f4d812a3-7714-4ff9-8977-6163f2e7a02d",
+    "category": "product_run",
+    "product": "workbuddy",
+    "group": "W_gateway",
+    "experiment": false,
+    "case_id": "dabstep-payments-10"
+  },
+  "case_version": "dabstep-payments-10@sha256:2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+  "product_version": "5.9.3",
+  "model": {
+    "ui_label": "DeepSeek V4.1-Flash",
+    "ui_model_id": "deepseek-v4.1-flash",
+    "reasoning_effort": "low",
+    "attribution_scope": "ui_selection_only"
+  },
+  "route": {
+    "host": "www.workbuddy.cn",
+    "provider_id": "workbuddy-product-gateway",
+    "wire_protocol": "product-log-declared-chat-completions",
+    "endpoint": "https://www.workbuddy.cn/v2/chat/completions"
+  },
+  "tools": {
+    "available_tool_names": null,
+    "capture_status": "not_captured",
+    "limitation": "Observed calls are known; no exhaustive available-menu capture. Do not infer precise tool-control causality or reuse parent menu.",
+    "observed_call_counts": {
+      "Read": 2,
+      "Bash": 20,
+      "Write": 1
+    }
+  },
+  "permissions": {
+    "permission_mode": "fullAccess",
+    "use_sandbox_cli": 0,
+    "mode": "craft"
+  },
+  "skills": {
+    "evaluator_extra_injection": false,
+    "session_settings_observed": null,
+    "disabled_tools_observed": null,
+    "native_skill_call_names": [],
+    "limitation": "No evaluator skill injection; null settings and no observed skill call do not prove globally disabled skills."
+  },
+  "started_at": "2026-10-31T20:24:29+08:00",
+  "finished_at": "2026-10-31T20:27:16+08:00",
+  "artifact_frozen_at": "2026-10-31T20:27:16+08:00",
+  "duration_s": 167.0,
+  "product_completion": "completed",
+  "completion_method": "database_terminal_and_stable_5s",
+  "evidence_grade": "explicit-public-derived-trajectory+byte-identical-submissions;private-original-hash-bound",
+  "final_adjudication": "valid",
+  "rule_version": "freeze-20261031-wb-v2",
+  "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+  "truth_sha256": "9e6e395fc7b0e5cf60238b8c3ab30fdaa399422fc047f554f0198488156e46d8",
+  "case_sha256": "2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+  "raw_metadata_sha256": {
+    "before.json": "f77129eca51bb03e8d4a4709f1112adcdd4bbfab2b2167793136a8d3253072a8",
+    "new-task.json": "51811f65ec8a1b110eb1bd44b28e0979d21b0e2465736294854cc605600c37b0",
+    "wait.json": "6c31f8a3ea32828ee6373a0f5f26a08c8ba23e14366bb4e4dc47bafde3841a41",
+    "after.json": "c3402a608554dc69ee1ee910ba81ef65141a80079e7f75fa09993e8a2e039247",
+    "trace/session-row.json": "16e2ab8b682eaf248de455d9082c3f926e0ddd890f46541019a93339c0ca0ab7"
+  },
+  "model_observation": {
+    "observed_model_id": "deepseek-v4.1-flash",
+    "observed_thought_level": "low",
+    "scope": "ui_selection_only; not backend identity"
+  },
+  "route_limitation": "Current product-log-declared endpoint tied to exact session/pid/time and trace message ids. Not independent TLS capture, not gateway downstream identity proof; see request-route-evidence.json.",
+  "semantic_kind": "replacement",
+  "predecessor": {
+    "parent_event_id": "r20261031-wb-formal:workbuddy:dabstep-payments-10",
+    "child_event_id": "r20261031-wb-replacement:workbuddy:dabstep-payments-10",
+    "child_slot_id": "workbuddy|dabstep-payments-10",
+    "reason": "contamination",
+    "semantic_kind": "replacement",
+    "replacement_index": 1,
+    "max_replacements": 1
+  },
+  "prompt_binding": {
+    "task_sha256": "0878e5582126dd92fa7bcf4e80be74266c84981d197948ec04b0cda99d00a752",
+    "task_source": "1-评测方案/正式批次-2026-10-31-WB-replacement/prompts/dabstep-payments-10.md",
+    "prompt_revision": {
+      "path": "1-评测方案/正式批次-2026-10-31-WB-replacement/prompt-revision.json",
+      "sha256": "49b8189f168171b835d924a21974151a83f32cc8262787af59182607333da15d"
+    },
+    "proof_sha256": "8146f32a36360dc5f60acb69a91196321e71b4dc09d48ecda1071e84cc5c8e54",
+    "TASK_byte_identity": true
+  }
+}

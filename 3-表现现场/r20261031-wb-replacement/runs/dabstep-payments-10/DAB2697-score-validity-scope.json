@@ -1,0 +1,37 @@
+{
+  "ruling_id": "ADJ-DAB-2697-20261026-r1",
+  "status": "生效",
+  "ruling_source": {
+    "path": "4-打分细则/裁定-2026-10-26-dab-q2697.md",
+    "sha256": "7a163a5bd803712acc237f0d5da8c71f18218ea558c51999b6f6b0b11362d152"
+  },
+  "effect": "Only official-compat-score-validity for descriptive product scoring; ambiguity unresolved/not excluded, q2697 forbidden for capability attribution. Full denominator10 and both scoring tracks retained.",
+  "ambiguity_axes": [
+    "output field",
+    "coverage of unmatched transactions",
+    "multiple-rule aggregation"
+  ],
+  "gold_status": "Not uniquely reproduced; no claim gold disproved or ambiguity solved.",
+  "reopen_triggers": [
+    "Official complete reasoning uniquely reproduces gold with field/coverage/aggregation specified",
+    "Official corrected question/guidelines remove ACI versus card_scheme contradiction",
+    "New independent evidence uniquely reproduces or disproves frozen gold"
+  ],
+  "excerpts": [
+    {
+      "source_line_start": 7,
+      "source_line_end": 13,
+      "verbatim": "## 0. 裁定要点（速览）\n\n1. q2697 **维持官方兼容分口径**（official-compat，scorer `dabstep-official-port-v0.1`），不强制精确匹配冻结金标 `E:13.57`，也不为该题加严阈值。\n2. q2697 及其两轨分差**不用于产品能力归因**：不得因该题失分判定任何产品/模型/Harness 能力弱，也不得因通过判定能力强。\n3. 输出字段按 **ACI**（Authorization Characteristics Indicator，A–G 枚举）理解；guidelines 中 `{card_scheme}` 为题面笔误占位。\n4. 无匹配费率交易**不得静默按 0 计**；须显式披露覆盖率并标注未定价。\n5. 多规则聚合 min/mean/max/sum 四种**显式声明**的口径等价可接受；不得为凑金标反向选择聚合。历史分数影响为零，历史批次不重判（§4）。"
+    },
+    {
+      "source_line_start": 31,
+      "source_line_end": 46,
+      "verbatim": "## 2. 原因线索（各附当时验证证据）\n\n**线索一：输出字段歧义。** 题干 ACI vs guidelines `{card_scheme}` 是两个不同字段；豆包实际提交了 `NexPay:3.45`，说明该歧义可被真实运行踩中（[E1][E3]）。兼容 scorer 只抽取答案中第一个数值，字段维度完全不参与判定（§3.1、§6）。\n\n**线索二：50 笔欺诈交易无匹配费率。** 独立计算（不导入产品脚本/checker，协议先行固定，[E3] protocol.md）：Belles_cookbook_store 2023-01 共 1201 笔 / €113,260.42，欺诈 94 笔 / €11,680.62（月欺诈金额率 10.313064%）。逐笔只替换 ACI 后：**E 仅 44/94 笔有适用费用规则，50 笔未定价**（D 44/94，F/G 30/94，A/B/C 94/94）。E 已覆盖部分的 min=16.630562、mean=41.6610305、max=66.691499、sum=77.681576——历史预测 `E:41.66` 恰为 covered mean、`E:16.63` 恰为 covered min 的数值解释（数值吻合不证明作者采用同一算法，[E3]）。manual 对**空列表是否通配**（fees.json 含 112 条 `aci:[]` 规则）无明确契约；把缺失当 0 计会系统性低估成本（[E8][E3]）。\n\n**线索三：多规则聚合方式不唯一。** manual 未定义一笔交易同时匹配多条规则时的优先级/合并规则（[E8] 无 precedence/combination 表述）。完整覆盖 94 笔的 A/B/C 在四种显式聚合下总值（[E3] results.json）：\n\n| 聚合（每笔取…后求总） | A | B | C | 最优 |\n|---|---:|---:|---:|---|\n| min | 81.810213 | **54.208933** | 81.044602 | B |\n| mean | 89.82079225 | **77.87079725** | 88.70913825 | B |\n| max | 95.809080 | 99.144012 | **93.833023** | C |\n| sum | 132.005593 | 202.972264 | **131.197293** | C |\n\n**最优 ACI 随聚合口径改变**；所测各口径（含排除 refused、按笔数欺诈率、按 scheme 分区、空列表不通配等敏感性）均未得到 `E:13.57`。结论边界：这仅说明**冻结金标未被唯一复现**，不证明 gold 已证错，也不构造替代金标（[E3][E5]）。"
+    },
+    {
+      "source_line_start": 85,
+      "source_line_end": 93,
+      "verbatim": "## 5. 停止追查条件与下一步\n\n本裁定生效后，q2697 调查**关闭为「受控未知」**，不投入无限假设穷举，不为凑答案选算法（对齐 [E10]「未知需要管理：说明下一步及停止追查条件」）。满足任一条件时重新打开：\n\n1. **官方口径到手**：Adyen/Hugging Face 发布数据字典、题解或评分口径说明，能唯一复现 `E:13.57` 的完整推导（字段定义 + 未匹配处理 + 聚合规则三要素齐备）；\n2. **官方修正题面**：questions/guidelines 更新，消除 ACI vs `{card_scheme}` 矛盾；\n3. **新独立证据**：出现能唯一复现或证错冻结金标的新证据。\n\n下一步（有限动作）：向官方公开渠道求证上述口径；期间该题分数照常按 §3.1 记录、按 §3.2 隔离于能力归因。若重新打开后金标变更，按 §4「未来版本约束」走版本化修订，历史批次处理另行裁定。"
+    }
+  ]
+}

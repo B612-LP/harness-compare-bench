@@ -1,0 +1,137 @@
+{
+  "identity": {
+    "event_id": "r20261031-wb-replacement:workbuddy:tb-cargo-plan",
+    "run_id": "r20261031-wb-replacement:workbuddy:tb-cargo-plan:a3202743-0604-47b7-ae54-2791939fca0e",
+    "category": "product_run",
+    "product": "workbuddy",
+    "group": "W_gateway",
+    "experiment": false,
+    "case_id": "tb-cargo-plan"
+  },
+  "case_version": "tb-cargo-plan@sha256:fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+  "product_version": "5.9.3",
+  "model": {
+    "ui_label": "DeepSeek V4.1-Flash",
+    "ui_model_id": "deepseek-v4.1-flash",
+    "reasoning_effort": "low",
+    "attribution_scope": "ui_selection_only"
+  },
+  "route": {
+    "host": "www.workbuddy.cn",
+    "provider_id": "workbuddy-product-gateway",
+    "wire_protocol": "product-log-declared-chat-completions",
+    "endpoint": "https://www.workbuddy.cn/v2/chat/completions"
+  },
+  "tools": {
+    "available_tool_names": [
+      "A2ACancelTask",
+      "A2AGetAgentCard",
+      "A2AGetTask",
+      "A2ASendMessage",
+      "Agent",
+      "AskUserQuestion",
+      "Bash",
+      "Defer(AudioTranscribe)",
+      "Defer(ImageGen)",
+      "Defer(LSP)",
+      "Defer(LibraryUpload)",
+      "Defer(TeamCreate)",
+      "Defer(TeamDelete)",
+      "Defer(VideoGen)",
+      "Defer(workbuddy_cloud_service)",
+      "Defer(workbuddy_sites_deploy)",
+      "DeferExecuteTool",
+      "Edit",
+      "Glob",
+      "Grep",
+      "ListMcpResources",
+      "MultiEdit",
+      "PowerShell",
+      "Read",
+      "ReadMcpResource",
+      "SendMessage",
+      "Skill",
+      "SkillManage",
+      "TaskCreate",
+      "TaskGet",
+      "TaskList",
+      "TaskOutput",
+      "TaskStop",
+      "TaskUpdate",
+      "ToolSearch",
+      "ViewImage",
+      "WebFetch",
+      "WebSearch",
+      "Write",
+      "automation_update",
+      "present_files",
+      "show_widget",
+      "widget_guidelines"
+    ],
+    "observed_call_counts": {
+      "Bash": 19,
+      "Read": 11,
+      "Write": 3,
+      "Edit": 8
+    },
+    "capture_status": "captured",
+    "limitation": "Observed calls are known; available menu capture may be incomplete. Do not infer precise tool-control causality or reuse parent menu."
+  },
+  "permissions": {
+    "permission_mode": "fullAccess",
+    "use_sandbox_cli": 0,
+    "mode": "craft"
+  },
+  "skills": {
+    "evaluator_extra_injection": false,
+    "session_settings_observed": null,
+    "disabled_tools_observed": null,
+    "native_skill_call_names": [],
+    "limitation": "No evaluator skill injection; null settings and no observed skill call do not prove globally disabled skills."
+  },
+  "started_at": "2026-10-31T20:35:48+08:00",
+  "finished_at": "2026-10-31T20:40:33+08:00",
+  "artifact_frozen_at": "2026-10-31T20:40:33+08:00",
+  "duration_s": 285.0,
+  "product_completion": "completed",
+  "completion_method": "database_terminal_and_stable_5s",
+  "evidence_grade": "explicit-public-derived-trajectory+byte-identical-submissions;private-original-hash-bound",
+  "final_adjudication": "valid",
+  "rule_version": "freeze-20261031-wb-v2",
+  "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+  "truth_sha256": "982754f17eea923b0abfcfee08c991d7c502b771c5c0c598c5c097fe3460c163",
+  "case_sha256": "fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+  "raw_metadata_sha256": {
+    "before.json": "9377cbb1e97f8df5d1da88a3b655d54f9ff55ac9a5f75ff158b70cbf42bf3059",
+    "new-task.json": "7a907a2642e70d14a33c0a830284d7fa72530354bc00cd4e4ea5b64f6200795e",
+    "wait.json": "0e79483fa8a09ec188504535fe8872f35ff27644ea7dffe6a7c1b326e99eb4a9",
+    "after.json": "c39c0f0367cc6806691931eca7767e79f2e4d8d8dc62fe89eb18868d1c25e60a",
+    "trace/session-row.json": "83fc732512708886d6e7796ac522aeb2079e512f3e2fc7f19a0296900ef26a12"
+  },
+  "model_observation": {
+    "observed_model_id": "deepseek-v4.1-flash",
+    "observed_thought_level": "low",
+    "scope": "ui_selection_only; not backend identity"
+  },
+  "route_limitation": "Current product-log-declared endpoint tied to exact session/pid/time and trace message ids. Not independent TLS capture, not gateway downstream identity proof; see request-route-evidence.json.",
+  "semantic_kind": "replacement",
+  "predecessor": {
+    "parent_event_id": "r20261031-wb-formal:workbuddy:tb-cargo-plan",
+    "child_event_id": "r20261031-wb-replacement:workbuddy:tb-cargo-plan",
+    "child_slot_id": "workbuddy|tb-cargo-plan",
+    "reason": "contamination",
+    "semantic_kind": "replacement",
+    "replacement_index": 1,
+    "max_replacements": 1
+  },
+  "prompt_binding": {
+    "task_sha256": "38400e194e9a9b692a04dbd21111aa02e745e3a90c3a295c999c743aea9d9156",
+    "task_source": "1-评测方案/正式批次-2026-10-31-WB-replacement/prompts/tb-cargo-plan.md",
+    "prompt_revision": {
+      "path": "1-评测方案/正式批次-2026-10-31-WB-replacement/prompt-revision.json",
+      "sha256": "49b8189f168171b835d924a21974151a83f32cc8262787af59182607333da15d"
+    },
+    "proof_sha256": "1ffc5a8e648bca426fec13478e53d496ff9fb96b730cdb6b85b040446c8a9833",
+    "TASK_byte_identity": true
+  }
+}

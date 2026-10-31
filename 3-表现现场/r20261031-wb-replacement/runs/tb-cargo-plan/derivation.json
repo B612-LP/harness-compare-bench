@@ -1,0 +1,2715 @@
+{
+  "schema_version": 1,
+  "label": "explicit-public-derived-not-complete-original",
+  "original_trace_sha256": "678a0e010e152dc9e07d8d9c88afde6b36a4e01477ce0b67026096c0dc07ee53",
+  "derived_trace_sha256": "5faf731fde01413ad358e70f355938684d4cdfe697df7ae45ec2457906cc7dbd",
+  "line_count": 125,
+  "rules": [
+    "Remove only identity_context body, preserving explicit marker",
+    "Remove _meta internal telemetry recursively",
+    "Replace exact workspace absolute prefix with /workspace/<case>",
+    "Replace remaining local home prefix with <LOCAL_HOME>; outside-workspace suffix remains reviewable",
+    "JSON serialization normalized, all original lines retained one-to-one",
+    "Replace remaining local username tokens with <LOCAL_USER>"
+  ],
+  "limitations": [
+    "Not original/full raw trajectory; private identity injection not publicly recoverable",
+    "Hashes bind bytes, not trusted timestamps or truth of product metadata",
+    "No automatic clean or final adjudication; manual boundary review required"
+  ],
+  "line_mapping": [
+    {
+      "original_line": 1,
+      "derived_line": 1,
+      "original_line_sha256": "74746c77a34bd9f3709527f7724f033ffdeb6c87e7cb03ba0814c7ce473a048d",
+      "derived_line_sha256": "74746c77a34bd9f3709527f7724f033ffdeb6c87e7cb03ba0814c7ce473a048d",
+      "changes": []
+    },
+    {
+      "original_line": 2,
+      "derived_line": 2,
+      "original_line_sha256": "7d7bfedf733c2496313d58769d313513cda708fc4d1e64a2c83137b6705686ba",
+      "derived_line_sha256": "7d7bfedf733c2496313d58769d313513cda708fc4d1e64a2c83137b6705686ba",
+      "changes": []
+    },
+    {
+      "original_line": 3,
+      "derived_line": 3,
+      "original_line_sha256": "2c475e5b1f9c41dcc9c7dd960305cf597ba21c7fbdd2bbd9d1ed13926e413324",
+      "derived_line_sha256": "f672f793a0c697ce0e9bfc47dfed5eaa35d2adfefa0a683894ef050f13ff0138",
+      "changes": [
+        {
+          "pointer": "/content/0/text",
+          "rule": "remove-private-identity-context"
+        },
+        {
+          "pointer": "/content/0/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 4,
+      "derived_line": 4,
+      "original_line_sha256": "5248901c8184423a56c7ea46d9eb6347b251d7007a9c04b83985d9255402ca64",
+      "derived_line_sha256": "cd9ac1fcd1543b17eac88ce5f5dcdd2006d78a9e4d0dca7bc2918a4f2a3df9a0",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 5,
+      "derived_line": 5,
+      "original_line_sha256": "73f24a7e0664bc537c5ae601308a4266876e3db2cf2ac1e26d2f8fb29cc47365",
+      "derived_line_sha256": "da9fe48baccd30d67e9674198aa3c9db51139154ca264122072fca286b82e6a0",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 6,
+      "derived_line": 6,
+      "original_line_sha256": "4ec7efe344bd6829a30860bb10ebe4fcc1a5b596ab06627e8ea51d2aa84a90fe",
+      "derived_line_sha256": "3ba4e428375bdb50c46629312eb594ae941f609f79540e865f93259dcce7f2a6",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 7,
+      "derived_line": 7,
+      "original_line_sha256": "6c96c10a8bc4b10f773758ab7a3addc06ce575bb4d6bce4875c5269d36e509f0",
+      "derived_line_sha256": "9e149636217c43c285ed803e0b1fab69383bd12748bb3b08bcd575a4f9e4ff6f",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 8,
+      "derived_line": 8,
+      "original_line_sha256": "6cd5c06d5e15e9858194b48edd51983fd4ae56e88c258b30036be918cea358a6",
+      "derived_line_sha256": "98e1da0c31500c0c30f582715b5ff4995e45416c028bdbef45a8f8cc697dea1e",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/renderer/value",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 9,
+      "derived_line": 9,
+      "original_line_sha256": "29f9330de4552876e5adc81d1825ca64eff4db2b5ed5371ee82721910232d058",
+      "derived_line_sha256": "f3cbfc9ed06729765ce2fdf0512711a760ad7c6933dd506affcfe1dcadf9d33d",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 10,
+      "derived_line": 10,
+      "original_line_sha256": "8ecabb6926657b3915aaee8e3b8cc4c87f94ea75e7a676a31f77489880cc4f84",
+      "derived_line_sha256": "e76eb7e3aafad70a8f6af069815e28a011b0c6db35c7a98457bfb7f06ff3af0d",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 11,
+      "derived_line": 11,
+      "original_line_sha256": "44dc5765779318aaf754c5753a5ed16ded09a08b440916e14e0273762d9761e2",
+      "derived_line_sha256": "a3b09dafb774668db8c0271ea4b853504fdc4292f403a17ee6981d9a556a324c",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 12,
+      "derived_line": 12,
+      "original_line_sha256": "11c8ebf7c09ff1e2ca2c793b0522feec03ad4dba978161e95df147671c011303",
+      "derived_line_sha256": "d849be80e12e7fdc7b2987883f2018f6ea761a788aca431214e9fc46a95895a3",
+      "changes": [
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/renderer/value",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 13,
+      "derived_line": 13,
+      "original_line_sha256": "5caf4083392484c70a35de971109a5c8cd7bcb3be27b9a3dfb3c93f08472f9cf",
+      "derived_line_sha256": "90458744587832bc41298b0cc5d9016ca9fbf9985b6ade2ea033a88b495e46ea",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 14,
+      "derived_line": 14,
+      "original_line_sha256": "eafd1435a4c8c27a28ee5107a71a860e4e1ded724027e69342eb7d990f69cf64",
+      "derived_line_sha256": "aabc003aff7a5a152522c704ac0a58e584e4de0c132baa8409ecad07047ed990",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 15,
+      "derived_line": 15,
+      "original_line_sha256": "55a851d62fb70c3d882b9668a64b4b27d07777699f7697f0416c18f6d505088f",
+      "derived_line_sha256": "da6724c8548493a6b49dd8bd9b12474f82a146e4dbe110c9c176efd65b6e1172",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 16,
+      "derived_line": 16,
+      "original_line_sha256": "9bd2b2f0340524a8c1b74ab294607ed535bd27e0dde182a92b82b5bc60430b7a",
+      "derived_line_sha256": "870fa7dc16d572f8276bf09a56c69efee167cf4a61262f6cc3eae4a99d72aab4",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 17,
+      "derived_line": 17,
+      "original_line_sha256": "14d3a0dfea4a2c00259051d424b27a0ed805f2af81c6621fade45c6d87b17418",
+      "derived_line_sha256": "9a9df8c30417c52799ddd919bf5853aa6b0d1c43d8c37a9d3bc9c579050f01ab",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 18,
+      "derived_line": 18,
+      "original_line_sha256": "0cfb80b83012a43dee07b272e1342ad31287431f68886b497255e5645035eff5",
+      "derived_line_sha256": "1fa09edbac89ef5fe134d2bec1536f1813f7b4ac60dc42b4bc26e5c801eb2e0a",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 19,
+      "derived_line": 19,
+      "original_line_sha256": "53a9f2ac3af6f039d44b11e95970124b30e6fbd28ac15461d430b479db0e9ecc",
+      "derived_line_sha256": "ef5521e995b42488f98939d7f66871486cc5754c9f890367ba5e6994296e0591",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 20,
+      "derived_line": 20,
+      "original_line_sha256": "958ae2eaba91c0f4ce01c07e18b911b899edde0c855eb3f0264338bca4f036a8",
+      "derived_line_sha256": "58b68a03f6fbd46c2d291110e4841e2be6399ff09c96b30f47d11f50f72929bb",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 21,
+      "derived_line": 21,
+      "original_line_sha256": "626da7c8bb24a6a724860e976f920e3b6d6057333799712d20be4c80e9e5b812",
+      "derived_line_sha256": "eeea61f91cbb0005b703bdfc24cf1f0b08ce12d5e73d7cdb5ab4800b2d3ccbfd",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 22,
+      "derived_line": 22,
+      "original_line_sha256": "2a7b374432c7cfa99a001aa231c6faa0f8cb1d2a8beefa25d58e1f15a4e3a056",
+      "derived_line_sha256": "249ed965b155b702b5400dbec82a86fa7cc8f4304c64069490af94d03ca685c2",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 23,
+      "derived_line": 23,
+      "original_line_sha256": "9d2ab5ad1a4bfff8084b4d01b2a19a91fa6cacd49969f9634eb8aedcf154ee5b",
+      "derived_line_sha256": "971f5d87ccc5dbfdd044dabb511679d8e424446a2ff6089f2f611285a9297653",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 24,
+      "derived_line": 24,
+      "original_line_sha256": "9a972f3a1d3874aa44a9bebaa464c27a08cf976536755667424dcedbc05a9780",
+      "derived_line_sha256": "e5f89a429e70479471ad8d3583de0d03b8c621fb3ab267f14ccc025757407b58",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 25,
+      "derived_line": 25,
+      "original_line_sha256": "d0c08ace6d1ac942f657d8c2a3a2d1693d6a24c0b90da68fbcc811c3e1688fe7",
+      "derived_line_sha256": "ea07905f80c4333ce4348c26e22cc69818b6b5582effff6ac2321f53c84c6f6c",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 26,
+      "derived_line": 26,
+      "original_line_sha256": "00e1c2ef28f7e214f1fcd7dd2c75ce4bf90c5036c7260886ae3f12a624b24796",
+      "derived_line_sha256": "ea8997064824104a81c010e5da3e8726503c43d4c71993b5dc32c9a4ffa01867",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 27,
+      "derived_line": 27,
+      "original_line_sha256": "fc46ad8625ac75706671c5f3055802b4e408e7c0ab1080b71ae63d982aaa21cf",
+      "derived_line_sha256": "d4172ffa4c4fc667bcd7375be8daae347ead2d88a8263d05d166be6f66faad48",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 28,
+      "derived_line": 28,
+      "original_line_sha256": "1c5bdf0787731446e622c48d88dacb6ddea347de199981d25f384595e7b3c892",
+      "derived_line_sha256": "ffd6cb255230c3e3f5ee2593dc24fd1174af5f3328bb49f97f24513318338a68",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 29,
+      "derived_line": 29,
+      "original_line_sha256": "edc2f7e87837023289df7caba49e4f1689836caa03a86df1afe8926071e615b4",
+      "derived_line_sha256": "288b302b38aa412c5ed065c3014457092abc2a9acac847f762166251e1fb53f9",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 30,
+      "derived_line": 30,
+      "original_line_sha256": "3f67cf44ec1a040d4a0247e0ff7042725cb60e402d4b385b81f421742f62d376",
+      "derived_line_sha256": "4b8546f114b86891a8ea650313a748d356f35e557a70984b94b22484a6734025",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 31,
+      "derived_line": 31,
+      "original_line_sha256": "a9e2dfc73d056479912b9f8b1f7a9617b133c8a55910922fe2ba0adb413ec9af",
+      "derived_line_sha256": "30b010882beee4af4f6be105625dfb4ee76b92f5b37ec129dc3cefa067ebb16f",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 32,
+      "derived_line": 32,
+      "original_line_sha256": "fe72ee6269e9f338ca7b71e064088c3e99612791098020a2efe0a6ffbffb9b39",
+      "derived_line_sha256": "8e7c4f6c081108ba0980e8cc03aa322b8a186a03fa462537671719a0523886a6",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 33,
+      "derived_line": 33,
+      "original_line_sha256": "c89692bc69126d886f94190ff43b170b23cde93622379f1c9f34b52a3c057794",
+      "derived_line_sha256": "9554a7fff67cec9ac47ef0c85387303c533c79ece83cf8bb10d63ed1e666e400",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 34,
+      "derived_line": 34,
+      "original_line_sha256": "1a88321ae2f8416b5c0c78b7cf3e1d1dcdfb65a4c5a37c530c1176baf4505efe",
+      "derived_line_sha256": "424880050622f3858ae0a374c79dee658665204a089b160c1778d08e7238e545",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 35,
+      "derived_line": 35,
+      "original_line_sha256": "fc27df7df6cf448eca1c3251b00b68946e9cd22b4fbba5735ffc4be2975b82df",
+      "derived_line_sha256": "480cf31bd09963b52a6f979869b0220a882c5b8ff45e5e80a6c3e63ce51e21c9",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 36,
+      "derived_line": 36,
+      "original_line_sha256": "a706ca9ca74baee91cf507f25c96270372e6416e2e3427d58e8bcd192b2de3bc",
+      "derived_line_sha256": "fc7721fc85bdfe1a155e5f1bc4304208a5d90354aa1111604652643687cee2da",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 37,
+      "derived_line": 37,
+      "original_line_sha256": "07cb26fcd89fc9c0bdc4d4e9f7099059cb377b2fc037a5f800457cf2bf6e0a4e",
+      "derived_line_sha256": "f0c4a58dc2ff1f892df3ab17591d960588df97a7938e42bfc6e5050c5d66e70e",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 38,
+      "derived_line": 38,
+      "original_line_sha256": "b73815fdb8198b71a083c837633547afb2ddead8802a10aa62e790b41d7ddf1c",
+      "derived_line_sha256": "cd43e4bd05d9551802da4d26800399846ab5c3bf6ecb2eddc1e225ebcc0a8ae2",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 39,
+      "derived_line": 39,
+      "original_line_sha256": "9423c709897f8abca332b13a495d5798bc6165eafc66f2d0f84884ac599cca42",
+      "derived_line_sha256": "b0c9b8ceb007557df9865550e0a1d0a24ab373f04b2211ddbc07ebfed9b67a84",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 40,
+      "derived_line": 40,
+      "original_line_sha256": "7624a0eafc3c1ff257d6d2998f401d243d9b8cf673f35d7e510d3284b513182f",
+      "derived_line_sha256": "b14803d56a2aa10a51c4e01198938c333c802829476439b12897480f29966e76",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 41,
+      "derived_line": 41,
+      "original_line_sha256": "bf3537f30d8e5918d2faff04602dc6869253428ca1a291d784b0e4895c22ae96",
+      "derived_line_sha256": "7ba2f14744869365f66b7c807cf10f782c06d47726d8f417b4ba9653f795814b",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 42,
+      "derived_line": 42,
+      "original_line_sha256": "fa5ede4c96bb09492f979f21539f5c36722c52d835469f9359eeee61bba35a1a",
+      "derived_line_sha256": "76c065c3160a05fca2b34b72269b499131e4ec8b3acce68d7efe2d1270ea8532",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 43,
+      "derived_line": 43,
+      "original_line_sha256": "9975e34083cf8b501845158b347e11df058777341642e25fccf7a5249e8aef05",
+      "derived_line_sha256": "81aee63e5a3e9697eb7ec9df3c01c6822175bf9eea7e2b4608f70267c2f8cc2f",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 44,
+      "derived_line": 44,
+      "original_line_sha256": "f72db0b9a9736857f3845ffbb6120836170c58a27f65cde8957851500e464698",
+      "derived_line_sha256": "6f1df7d3ace4d32a94c14df58b2e5ec7624ba25a9a0084d04e39bdceb32bc54c",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 45,
+      "derived_line": 45,
+      "original_line_sha256": "3be937b97bfc1667c4d3adf3f07f3871c02ff74b3ca57461b945f356403a28e5",
+      "derived_line_sha256": "b4ba824314f4600bbdb0b87c87539f197b993687c73f223e6dd18deacf3c1c71",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 46,
+      "derived_line": 46,
+      "original_line_sha256": "52dcecd616298d958c0f8d2e87ab864e2ed146ce4c210ffc03ac375aee6063ab",
+      "derived_line_sha256": "fd82e27a00299c5398b39da94cc4a9792f722e1d590d6a29ae27cc5148639c17",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 47,
+      "derived_line": 47,
+      "original_line_sha256": "9107ebfdd7951f7bbb15abcdbed2c5ed5ece29b8ab150d5d5557dfb8cb6e6cc6",
+      "derived_line_sha256": "7014fa7e445c68a8563c5a3ce84be3e26c1f94078e8dbdd9fbec4d9a80442dc0",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/renderer/value",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 48,
+      "derived_line": 48,
+      "original_line_sha256": "8c98130e4413c027cc5dc1c6b33063c86ce18223e9b94b7e61e215195ac13721",
+      "derived_line_sha256": "34d3fe5b3d4a9af762437039f0a9c8f418e78229ac33be391f4ce88792cb9db0",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 49,
+      "derived_line": 49,
+      "original_line_sha256": "6d0fc8fd9a7d7af75b4f22a572b61e8ecdd6982ba45e6c9e0329d5aea8e1a658",
+      "derived_line_sha256": "d2ad4befe6d0fc8e01f73f692e540066503906687b292df82158060cce55a2d3",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 50,
+      "derived_line": 50,
+      "original_line_sha256": "cdd2f1d5e3d9b0a3c853c02f1a62e4be1cd4cc02b13bbe3adee28865d7c7755d",
+      "derived_line_sha256": "91e1b9ada6b4115cff539f637aea29aa92a56a7b96067f363f4bc0995af55c0b",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 51,
+      "derived_line": 51,
+      "original_line_sha256": "89479b338467e214845c933706b170f9a6231b8ef9afd57c55c7806c5941ba01",
+      "derived_line_sha256": "76aaad8cf58558edc92db4d7942b271423bb18ecc31e9fabba1336529db927cf",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 52,
+      "derived_line": 52,
+      "original_line_sha256": "1a6c36c6c7e58833f0ac4c99e634301a626e88d3241b647e4e66ad464e4d983f",
+      "derived_line_sha256": "1cdbba5a65f5056c7597595e2a3ddd174cb772275757ab2d5118e446f6e7e1ba",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 53,
+      "derived_line": 53,
+      "original_line_sha256": "473e805c5aaf4ab1f9fba9608fe5476b671a30532fe9527ae3f69c6286026c92",
+      "derived_line_sha256": "df28a4db5cff5b24714d76f345714132530ac50a2a2d0628bf851b1e1221ab77",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 54,
+      "derived_line": 54,
+      "original_line_sha256": "4ef346813fac4c53e5e962d84a08544f4fdea3f65b5c34b8fbbf44bf58b0a85a",
+      "derived_line_sha256": "fa01b3d31c4e375059fddcbe6f19c7e71173ba324d3ed76608685158d8b6fd35",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 55,
+      "derived_line": 55,
+      "original_line_sha256": "1fb49022adc65b1849d0d5e1da67ecf95b3461ac7080cdf8ad0004ff431d6437",
+      "derived_line_sha256": "f32a7809fa27bd26c61b4eb14950d524181b5a8cce0dad6aa0f2c37900cbabc6",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 56,
+      "derived_line": 56,
+      "original_line_sha256": "6338b26d57a1277d808aaaff35f8e7c7525edb33f52f8b5d3f5b38fe1ee0f87b",
+      "derived_line_sha256": "00330a00054e1cf24c29efe8da986c7a0a7904d3ed2742b3eeff8e98b3242465",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 57,
+      "derived_line": 57,
+      "original_line_sha256": "bfbf58dd42e7492644818d6c2b7a97a01c43fad3e0618ba34aea7350a780a21e",
+      "derived_line_sha256": "095cb55135410eb8a2a844cf16dfca7ba51b45c14388cad0c2f1c04a4472bf9a",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 58,
+      "derived_line": 58,
+      "original_line_sha256": "6c04e0489778348f43c269204646e4fcedc696afaad2cc7f2ad9c735f362a025",
+      "derived_line_sha256": "a7195473c784055f075b40dfbec4cbec7e706ca958035edf574976b266cef171",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 59,
+      "derived_line": 59,
+      "original_line_sha256": "aea314a31d2a6a88cac11e07f4fb750bb0c45876648825b6723ad562062d35a4",
+      "derived_line_sha256": "1c636efe51f82a5d2f36fa208e80b05600943373c4695622167007dc918c314e",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 60,
+      "derived_line": 60,
+      "original_line_sha256": "0853ea65b452290570bcb68ec65bae97829cc7a1393054628f665413df09e1f9",
+      "derived_line_sha256": "7133cd46a847077b6a24a1bde8f86b644a7705833e6139b10b2b75ae434b8725",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 61,
+      "derived_line": 61,
+      "original_line_sha256": "0f79e510be801170e0cf5509ccf5c158b4ca872680d5986a17bc84e33532fa30",
+      "derived_line_sha256": "4de01f98af80a95f1a4546cacf9fe89c138761fd6efe744a5fa540bca263792b",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 62,
+      "derived_line": 62,
+      "original_line_sha256": "cc9624ec9e14582684b0df60f9410bcff80ed2f4db82a00b32a6aff36e50db90",
+      "derived_line_sha256": "8b08acc92295c20f336a6e5c1f5644a87a26bb698135d4aea9b11fac0fa9abca",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 63,
+      "derived_line": 63,
+      "original_line_sha256": "35c35a013d38ba27c16488c487175e8388760401aa86c2696212870dde8542e2",
+      "derived_line_sha256": "44940dc0e7f7ad18e2307d5e6174444f94fcbaf15545210b64f88b39ded5d41a",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 64,
+      "derived_line": 64,
+      "original_line_sha256": "1be9777c30a71f11a29003b190a4b3491218cf9139655f8fe7439592843b4716",
+      "derived_line_sha256": "0370cd289c106f65ec5b52ebe888412b35ee39ff7241ff94663b7c1b0264a81d",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 65,
+      "derived_line": 65,
+      "original_line_sha256": "44ac5d0f4a07bd981cb8f9e77b5afb069027bd6e844d3d0453b617faf7a737cb",
+      "derived_line_sha256": "8e724258732259fe140d375578034558be0952f9fe3180553789ed03720a4ea8",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 66,
+      "derived_line": 66,
+      "original_line_sha256": "ba7e2416e71abdb3ad7dffff4279a317909fb560f2622dcfdb2f57f92560a09f",
+      "derived_line_sha256": "68c8dddc75e80ad5a31fc8bdb97eec9cc4f4e7b18d11f74376441008681bfea6",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 67,
+      "derived_line": 67,
+      "original_line_sha256": "16d6d3836b044719f00a58dc748e01cb5b5bfdf4c1c61e4b4422c2f31eb73585",
+      "derived_line_sha256": "f25f9ad1b6edbed49c850ff4530084f0be66640fa03328e98e6f4fb5bee95293",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 68,
+      "derived_line": 68,
+      "original_line_sha256": "335a234d12446f6714335cda0b8ad44d2753342e49e1d0b116bc87093bb613d9",
+      "derived_line_sha256": "35c2a4da3cac5e20bf2b9534cfae853ed59f7be2bbf5ee70fe98a3533a4df120",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 69,
+      "derived_line": 69,
+      "original_line_sha256": "5b8a26ce1613e26751b5a66cf409e256b6110521a3a8f306245ab2df935bf3ad",
+      "derived_line_sha256": "b234d81bc00f8c0ac4c9298edade11ac6e75669a3f6782fe8cbf2a2c7167724d",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 70,
+      "derived_line": 70,
+      "original_line_sha256": "f1f705d50a65b894373ebb65c2b04ba5a94a8888d3e05d242f557f81ac85d843",
+      "derived_line_sha256": "d3318436a29bbae065a6392d3ae7eec01fe2e8bddacab14c886641c747ba974a",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 71,
+      "derived_line": 71,
+      "original_line_sha256": "7d1a4343a8a616a7d7ba44f88672f04a943d73eed6b8d57a6d100cdfb4ca9ff3",
+      "derived_line_sha256": "ffa339c57216c75f7cd0bbc287d44a6e90ba234dd338ae2e03229bcc30892a84",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 72,
+      "derived_line": 72,
+      "original_line_sha256": "db65a40f27e8b6e7dd930fcba3746aa1a513e11f31a18e88275de5c0e598c0cd",
+      "derived_line_sha256": "a03507f36f9585f330c3f5b5afe74720c973b9388ccb138f3eab9f4bc1c10009",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 73,
+      "derived_line": 73,
+      "original_line_sha256": "6f47fc4ee16b8c90286430f2d34026b3e03e9d6ca93ba6d29c5f74958d641774",
+      "derived_line_sha256": "235b837e6a548704bd49c44466f3e551f0b6cd7b6b3d85fd9849c135087c4018",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 74,
+      "derived_line": 74,
+      "original_line_sha256": "2134531fffbbb5dd1be85f04c770fc0824765aab5336113b6949136b62249ca4",
+      "derived_line_sha256": "d4b52f4d6d78804a06185da92f793a144ff5440e927335ba5e1dd498b5a2f909",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 75,
+      "derived_line": 75,
+      "original_line_sha256": "dbabd4c71bf692035138725bb1af460282d4152ab75893166f6e7a0ca309ce90",
+      "derived_line_sha256": "c564c45a669683b921ec000f43d2657bb8e2a73582aa2538aead17ed3c59a6f8",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 76,
+      "derived_line": 76,
+      "original_line_sha256": "b190a4ab834abf8bb4d89da7e970a92e452b1245784c54676e3d9cf39495802f",
+      "derived_line_sha256": "61930caed587381bac9fee55893e4d9fc271705d92bbde52b9725f932ca7a941",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 77,
+      "derived_line": 77,
+      "original_line_sha256": "c26c0d4751f75e8902db1343d9caefbe378332435175d7eaa3ea8f653cbd923d",
+      "derived_line_sha256": "e3ab9f238a488d9e7d05d2d1b30e10bbd34011dbf6b64d043bed0e68ba48cd01",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 78,
+      "derived_line": 78,
+      "original_line_sha256": "82a2ef0991726bb2bd59e2426d0b91a53caf64571cf282952654370a8ba5a13a",
+      "derived_line_sha256": "3239672ef8dfe36a0cd60d9f298954e10bc905c07bad3fe767df2c0b7179920b",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 79,
+      "derived_line": 79,
+      "original_line_sha256": "bb269b0b45ca4be362425853132580e43261ca814095e24597f598c6218c2e7e",
+      "derived_line_sha256": "5fa492cc4d6dbc883475552dc33ced18c00e48ed184949d9be3917b6cf2824f5",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 80,
+      "derived_line": 80,
+      "original_line_sha256": "58ef73ebdfad970e472ccce150307d2dba8baf3af8d6ea4681a1af2ac143776e",
+      "derived_line_sha256": "051cc2269018fc4a1cb894068712692fdbb608eb69c6965a8c19d037ed0f307a",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 81,
+      "derived_line": 81,
+      "original_line_sha256": "20f59e0fae242b0832d09766c75d52ea5797d04857465b0b60117779653bde0b",
+      "derived_line_sha256": "bb25aebb481ad483115b8d18e0702f9740749084c7dda7c298d4bc5f627fb2cd",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 82,
+      "derived_line": 82,
+      "original_line_sha256": "ee754bdf74d2b05433ed3155e1c3daeb369d5107575e05f38920f8d58a6a1771",
+      "derived_line_sha256": "063b35b8f1ae3c55f395d5c3966dfee0c58581869bea7d73e6b6f68c9ab782cc",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 83,
+      "derived_line": 83,
+      "original_line_sha256": "03719ce279f840ad1425ebb4711badf4e1ae832fd3caad62173c99fe63dd650b",
+      "derived_line_sha256": "a7bdd95a9b6316a6880df12990d18ae65ed20a253f13b139f1c4f9fec8b320d9",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 84,
+      "derived_line": 84,
+      "original_line_sha256": "c65936ba89c66ca28571f79f5e647a17c791745fd446fc87d2bc3967618a6a53",
+      "derived_line_sha256": "682d7cbf0f5501c3ffbe52af8a740c0439f1f020f2f9ffd0c5416067ffae40d8",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 85,
+      "derived_line": 85,
+      "original_line_sha256": "b1bb400882ef582efd09bf4043719371abe4c634c66b6548f7883227a7867932",
+      "derived_line_sha256": "56f22721ef875c8614fd70438069a754322c9dc8df3b377b727c9f4a2222b4d3",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 86,
+      "derived_line": 86,
+      "original_line_sha256": "6f5f93cf1e1e3a390dd74d7cfbd25ef23b539f9ecbf908209a2e3e69331a5c57",
+      "derived_line_sha256": "93a659e8a1e741c00b55d5eaf11d3fb04e4e440dacf44bad7609aa173977b785",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 87,
+      "derived_line": 87,
+      "original_line_sha256": "2bf22028148f6dc8d876e8049b3a029344fe4572104fd273c11736bd9c45193d",
+      "derived_line_sha256": "bbdd676e665c5a1b04074b581c8d9b59f77f14f6a7b4229eef4dad20d432beb4",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 88,
+      "derived_line": 88,
+      "original_line_sha256": "6ca7428e2880275ba0f5e0b6bf824ed93330dea205112ebe823c3ac66e79b4fe",
+      "derived_line_sha256": "4aeec62727f7f6a75376ecae1df4f471d011615598b9ea960bb26ae8839a685d",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 89,
+      "derived_line": 89,
+      "original_line_sha256": "897660549a896465f4eea75c3b78fde12120301d46906ba86250adfe52257753",
+      "derived_line_sha256": "a35b6cc69e156bc2edd42ad8449ecb7132ddc9ffa017eaadfbdf1c9ec795379e",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 90,
+      "derived_line": 90,
+      "original_line_sha256": "8201f49a8268dd098b21928d3a749cad861434fa11c734019896e4532ed2ca78",
+      "derived_line_sha256": "d20d08734cb9bdd96668928d2d982f3ad050ee91068e4de45242498bdbee6dd6",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 91,
+      "derived_line": 91,
+      "original_line_sha256": "b036ab5fee3e7daad0899cfb5ca8d9238be29689d1a30a4e4a60f4e40ee000e7",
+      "derived_line_sha256": "a990e3f1925568d56c2d721249590a1c6b85efaaa6f88e3123d188bc6678fa1b",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 92,
+      "derived_line": 92,
+      "original_line_sha256": "9d2999e2c5bd33d529cdcdb64d121617ea1a55243cacdafe18c250a623fdf539",
+      "derived_line_sha256": "c438e08b71dd987609a9219a2f9cb97f6a8bca00229f7c7e8207670a5d934609",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 93,
+      "derived_line": 93,
+      "original_line_sha256": "70e5404761b6c4d9173d1fc2c0a52ddbced91e13cf6620cb66321d2c1753e1ca",
+      "derived_line_sha256": "b981bde32cbcf98f343921f6043e796d5bf9b39704ce3d7f87277155244b2286",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 94,
+      "derived_line": 94,
+      "original_line_sha256": "41db1cae16cd9057fb5419d32a206122abfa4bf19f5f21055d3d5c057d038c37",
+      "derived_line_sha256": "b4b8f34eaecbbe9dd0ad76a7da47d5043bb0f70dacdf640af8e21edb27ce5d95",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 95,
+      "derived_line": 95,
+      "original_line_sha256": "86684bc88bbf5fb7b7f5be57ed6a40b2ec2331f4c1d6f14da7abd7fb265f11bc",
+      "derived_line_sha256": "597c4b83782817de1f9e636390e6527bb48cd5d74d8dfa46698d69f7f8b091b7",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 96,
+      "derived_line": 96,
+      "original_line_sha256": "716a178321c5619be0724e9e377c601c4faa5c36b6a713694d9cd1f86a777c17",
+      "derived_line_sha256": "29f1486c80ce6c27e45feb894f7e3d623dc56f428e7f0086c822b08d39ec27fe",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 97,
+      "derived_line": 97,
+      "original_line_sha256": "2d9b9c7922e16038dcff04057ccb3adf73a5d89cf373e51056694000dab5bccd",
+      "derived_line_sha256": "898b9ea5b1bd540fb80c80b89f51c0ce4f5cd0be70ea19f600b59e11a44fd0d8",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 98,
+      "derived_line": 98,
+      "original_line_sha256": "30af7b65e4f1a803ff5a9ec477e4ca469234d89e92801a99e067164dd8c325f8",
+      "derived_line_sha256": "4572280236a4eff8fcd39039a31e99af6cc3ea1aee4a967f7b88143d3c73b787",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 99,
+      "derived_line": 99,
+      "original_line_sha256": "84bea5bdb77c2c8db0548b36e5168dd1e1b07914114c8938ae703b0e20f537a6",
+      "derived_line_sha256": "fe684da37e96be3d58cc632816d9097effadd6df268ed11fbe16809a1f1273e5",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 100,
+      "derived_line": 100,
+      "original_line_sha256": "b408621ff4b40a0381542e0a78f6fd151ec2c60c7fdb78928e8ea02d760b7af7",
+      "derived_line_sha256": "dd72457ae9adf6102f939807abf6ecce21fc5084f40c2c08b7569f0a2c8fc139",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 101,
+      "derived_line": 101,
+      "original_line_sha256": "4296cf8b194b008f6d5aab3c023f856d3cd1942310ae4844b59b385197e3c33b",
+      "derived_line_sha256": "b9055205e77977b03b65bb1caa37337e9b1d875b0bfdb7095e3b84371bb2e549",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 102,
+      "derived_line": 102,
+      "original_line_sha256": "29a1e61653ca2e0d1862f02332703b88a15781725253ad661997c2cb3954b0b5",
+      "derived_line_sha256": "a9518fa1af86cca0cab7fd4f1dcdabac199e7ebc1e1b144f510bc11a05e632a7",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/renderer/value",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/rawResponse/error",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 103,
+      "derived_line": 103,
+      "original_line_sha256": "ab02f79616fe0225d3c392fcbeb2cf45a365e72693e703716132733688ae58e0",
+      "derived_line_sha256": "2115ac71ce1983d073f54902da75e4b61c6bf20fcada7221cd2e7d049169c2b1",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 104,
+      "derived_line": 104,
+      "original_line_sha256": "b3f94dc8e055f92da1034add54d7bf8a925ef8fcc2e8014496bc10932073c3cf",
+      "derived_line_sha256": "433b7cbf15d51183b7ccb2c227778e2bcde42aed705458a9c0f9ee10a67fcab1",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 105,
+      "derived_line": 105,
+      "original_line_sha256": "018533dbb9a0e09fa31c334dbe4a674429ceaa592be803da14bf3fddfa204f76",
+      "derived_line_sha256": "f16a56cb856ed9229f52d878488577a6df6071f754dfecc3f54bc77364f59f2b",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 106,
+      "derived_line": 106,
+      "original_line_sha256": "1d54b27e855fca3c78b8ffadcbbb0a00a5722ed0512e5b68649208d098b10ec0",
+      "derived_line_sha256": "0876bfb0320f00ad116d574533451239ab5ae6e0ba46a4bc79859fb927fd5a0d",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 107,
+      "derived_line": 107,
+      "original_line_sha256": "ba5b38c003aecd00bbcd6ccdca54c1faf0edb885a7250422f3bc93954c74d545",
+      "derived_line_sha256": "6d139358900ca02ca6db12b708b85c2831e3606665a8e13b7a51f0a66240e5e5",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 108,
+      "derived_line": 108,
+      "original_line_sha256": "4381d8261fb920dcb20ff2fc291a1f5348805d5a13b36c65b467d67dc828001e",
+      "derived_line_sha256": "ed8b90a013a4b49946135a6e4a91faac56eb74b15a8258f3029494fc6d7f9ff2",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 109,
+      "derived_line": 109,
+      "original_line_sha256": "6a565337baee10f282925633ff24969d927ddb1e6ecf0f9f5d9bb2c85082ebfa",
+      "derived_line_sha256": "907d5dc8267bf95814ce1aa6347f61b44fd61823cfda6d4a06cd2fa2510f3d4d",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 110,
+      "derived_line": 110,
+      "original_line_sha256": "e85970630de31883b339081d76f4db977a24e6190ada98c6ef9fccf0e0b101ec",
+      "derived_line_sha256": "1e8c5cbf4c214d93b32f2b326ebf96b82649fe56c8f47fd400300af780a558ab",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 111,
+      "derived_line": 111,
+      "original_line_sha256": "e20a828c6942410ba3a03df6a023dec4f8557b3549f52c8459ebc693c6e8fd94",
+      "derived_line_sha256": "6e5d79b6865a530fc640db8cd5c0e746ede4eb77d06974c881adbb2e2be6b3cd",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 112,
+      "derived_line": 112,
+      "original_line_sha256": "d254f4a6e445982d61f6c0d01e978393ac02400c7d77dfc2d50e0bb9241f73bb",
+      "derived_line_sha256": "caa3b955a38c6ded37f199d03598fbd93435abdd46fc2f92362d0512eea1cf35",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 113,
+      "derived_line": 113,
+      "original_line_sha256": "8caf2f23a00a49ac50fade1487fe085edaf5f78b3a5f49de989eb03c7aeeeb19",
+      "derived_line_sha256": "8748b2b528c10377f31ae77c033ada980322460eb53d3e52d8a4346bb123814b",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 114,
+      "derived_line": 114,
+      "original_line_sha256": "9ed7c6a16939e0b557f7b704068e4729ece52db9f976c294c112c484a5be6a2f",
+      "derived_line_sha256": "d565d1a07692a7b41b4e82f98d2ddef5e86d35d7ca45d4a316e7ea15c5e1b56b",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 115,
+      "derived_line": 115,
+      "original_line_sha256": "40ba3d3e8a4af734def06bfffcb2088cc7c5afd54e3d39866b454d3010d6530b",
+      "derived_line_sha256": "69e7ed3f0969493c51281eb35cf7d43efdfb8f8c9d548e2872dd777626c4534c",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 116,
+      "derived_line": 116,
+      "original_line_sha256": "529f216fd2734caaf5f63c3ffeb81ad2533f3d322b63c7565d9aa7d661f60998",
+      "derived_line_sha256": "e85e7bb47c1e98b721687f5606fe039667e7299071a73988f447ec01e6726d5a",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 117,
+      "derived_line": 117,
+      "original_line_sha256": "841f95e8c432134c452d41080e304db9218e5d59ffffc4bd6642cb81102188f8",
+      "derived_line_sha256": "4d99b6e5d59b60546b9d115244fdaccbb45b4213ed82c75f57f3357884173dbb",
+      "changes": [
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 118,
+      "derived_line": 118,
+      "original_line_sha256": "0c10c4f5adc61cd7d7ad5cf6ea85d0f7073fb58cd7d0f2d144180831a487fce1",
+      "derived_line_sha256": "34220f2447ebe3d9c23a3fcaba60f5132e27de422f107cb1ecd327290aae6a33",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 119,
+      "derived_line": 119,
+      "original_line_sha256": "b4371b4fc4ccfdbfc834ed03c226a20015c298a5b74b78cb1eb4c6fc7eec1e71",
+      "derived_line_sha256": "3d71aa54edd838a04bb86f76bacc8a2768634bd5b7b2bb875fca64c099e06459",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 120,
+      "derived_line": 120,
+      "original_line_sha256": "ed06ad8890255120b9e76a0cb75dfa7aaaa228029238da692525a889caf23077",
+      "derived_line_sha256": "1ba135460869522f91951d3a76710bac589ba9f8909408f15f1a8e7f95030661",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 121,
+      "derived_line": 121,
+      "original_line_sha256": "bdcabff77919b5d4f2e314ccd2cffd36ca544322ca08c668a55295a1da044679",
+      "derived_line_sha256": "650b895f377a7ddba8129b233e6871a778dc4284a6a7bc31a73856ff1023bc6a",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/renderer/value",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/rawResponse/safeDeleteEvents/0/path",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/rawResponse/safeDeleteEvents/1/path",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 122,
+      "derived_line": 122,
+      "original_line_sha256": "e9e47fc3b2406f2075be90ab500ae2d0ffb61626f46ed8a39c8022a65cca5329",
+      "derived_line_sha256": "7f25842e9b5f76c5c6c478de1a762522892ba8fd50096df70f18ca7d83fb2a02",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 123,
+      "derived_line": 123,
+      "original_line_sha256": "6aec8a90ad18e885cde792b79e9567174d36e2b86fb26560b681022dd7233fd8",
+      "derived_line_sha256": "e72ffcd789cf407f1af9c9140f2ad55346f53199d84870b49df128dd6d47e2f5",
+      "changes": [
+        {
+          "pointer": "/providerData/argumentsDisplayText",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/arguments",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 124,
+      "derived_line": 124,
+      "original_line_sha256": "8326f353698c12efeac1571dc80ece822404a5377d5f205f4a666c0853dfa284",
+      "derived_line_sha256": "9b627455a5ed58f0306776fd4fb754a0b600bb3799883fea2c6c59bb7ad79435",
+      "changes": [
+        {
+          "pointer": "/output/text",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/providerData/toolResult/content",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    },
+    {
+      "original_line": 125,
+      "derived_line": 125,
+      "original_line_sha256": "4f65d7e4ac6c1ff364434ef861e665d9cab0fbd0b114edabcb8caf231dd878d8",
+      "derived_line_sha256": "830cbb3fd533faddbab57577e72df0b9d68cb377794fa6bf177f91fd92422980",
+      "changes": [
+        {
+          "pointer": "/cwd",
+          "rule": "canonicalize-local-path"
+        },
+        {
+          "pointer": "/_meta",
+          "rule": "remove-internal-telemetry"
+        }
+      ]
+    }
+  ],
+  "task": {
+    "original_sha256": "38400e194e9a9b692a04dbd21111aa02e745e3a90c3a295c999c743aea9d9156",
+    "derived_sha256": "38400e194e9a9b692a04dbd21111aa02e745e3a90c3a295c999c743aea9d9156",
+    "rule": "Replace exact workspace prefix only; no task semantics rewritten",
+    "line_mapping": [
+      {
+        "original_line": 1,
+        "derived_line": 1
+      },
+      {
+        "original_line": 2,
+        "derived_line": 2
+      },
+      {
+        "original_line": 3,
+        "derived_line": 3
+      },
+      {
+        "original_line": 4,
+        "derived_line": 4
+      },
+      {
+        "original_line": 5,
+        "derived_line": 5
+      },
+      {
+        "original_line": 6,
+        "derived_line": 6
+      },
+      {
+        "original_line": 7,
+        "derived_line": 7
+      },
+      {
+        "original_line": 8,
+        "derived_line": 8
+      },
+      {
+        "original_line": 9,
+        "derived_line": 9
+      },
+      {
+        "original_line": 10,
+        "derived_line": 10
+      },
+      {
+        "original_line": 11,
+        "derived_line": 11
+      },
+      {
+        "original_line": 12,
+        "derived_line": 12
+      },
+      {
+        "original_line": 13,
+        "derived_line": 13
+      },
+      {
+        "original_line": 14,
+        "derived_line": 14
+      },
+      {
+        "original_line": 15,
+        "derived_line": 15
+      },
+      {
+        "original_line": 16,
+        "derived_line": 16
+      },
+      {
+        "original_line": 17,
+        "derived_line": 17
+      },
+      {
+        "original_line": 18,
+        "derived_line": 18
+      },
+      {
+        "original_line": 19,
+        "derived_line": 19
+      },
+      {
+        "original_line": 20,
+        "derived_line": 20
+      },
+      {
+        "original_line": 21,
+        "derived_line": 21
+      },
+      {
+        "original_line": 22,
+        "derived_line": 22
+      },
+      {
+        "original_line": 23,
+        "derived_line": 23
+      },
+      {
+        "original_line": 24,
+        "derived_line": 24
+      },
+      {
+        "original_line": 25,
+        "derived_line": 25
+      },
+      {
+        "original_line": 26,
+        "derived_line": 26
+      },
+      {
+        "original_line": 27,
+        "derived_line": 27
+      },
+      {
+        "original_line": 28,
+        "derived_line": 28
+      },
+      {
+        "original_line": 29,
+        "derived_line": 29
+      },
+      {
+        "original_line": 30,
+        "derived_line": 30
+      },
+      {
+        "original_line": 31,
+        "derived_line": 31
+      },
+      {
+        "original_line": 32,
+        "derived_line": 32
+      },
+      {
+        "original_line": 33,
+        "derived_line": 33
+      },
+      {
+        "original_line": 34,
+        "derived_line": 34
+      },
+      {
+        "original_line": 35,
+        "derived_line": 35
+      },
+      {
+        "original_line": 36,
+        "derived_line": 36
+      },
+      {
+        "original_line": 37,
+        "derived_line": 37
+      },
+      {
+        "original_line": 38,
+        "derived_line": 38
+      },
+      {
+        "original_line": 39,
+        "derived_line": 39
+      },
+      {
+        "original_line": 40,
+        "derived_line": 40
+      },
+      {
+        "original_line": 41,
+        "derived_line": 41
+      },
+      {
+        "original_line": 42,
+        "derived_line": 42
+      },
+      {
+        "original_line": 43,
+        "derived_line": 43
+      },
+      {
+        "original_line": 44,
+        "derived_line": 44
+      },
+      {
+        "original_line": 45,
+        "derived_line": 45
+      }
+    ]
+  }
+}

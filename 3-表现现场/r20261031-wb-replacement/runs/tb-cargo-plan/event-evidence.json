@@ -1,0 +1,34 @@
+{
+  "case": "tb-cargo-plan",
+  "identity": {
+    "event_id": "r20261031-wb-replacement:workbuddy:tb-cargo-plan",
+    "run_id": "r20261031-wb-replacement:workbuddy:tb-cargo-plan:a3202743-0604-47b7-ae54-2791939fca0e",
+    "category": "product_run",
+    "product": "workbuddy",
+    "group": "W_gateway",
+    "experiment": false,
+    "case_id": "tb-cargo-plan"
+  },
+  "gates": {
+    "rules_frozen": true,
+    "case_valid": true,
+    "scoring_reviewable": true,
+    "evidence_valid": true,
+    "contamination_free": true
+  },
+  "final_adjudication": "valid",
+  "semantic_kind": "replacement",
+  "predecessor": {
+    "parent_event_id": "r20261031-wb-formal:workbuddy:tb-cargo-plan",
+    "child_event_id": "r20261031-wb-replacement:workbuddy:tb-cargo-plan",
+    "child_slot_id": "workbuddy|tb-cargo-plan",
+    "reason": "contamination",
+    "semantic_kind": "replacement",
+    "replacement_index": 1,
+    "max_replacements": 1
+  },
+  "status": "review-confirmed",
+  "backend_uncertainty": "Current product request endpoint is observed; gateway downstream model identity and parameter mapping remain unknown.",
+  "prompt_protocol_difference": "Actual sent TASK has neutral cwd header and explicit system-temp exclusion. This cross-batch protocol difference precludes single-variable causal improvement claims.",
+  "DAB2697_limitation": "Official-compatible observed product score only; q2697 must not support capability attribution."
+}

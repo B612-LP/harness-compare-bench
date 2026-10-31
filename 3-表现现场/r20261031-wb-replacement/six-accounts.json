@@ -1,0 +1,93 @@
+{
+  "batch": "r20261031-wb-replacement",
+  "accounts": {
+    "product_run": [
+      {
+        "case": "dabstep-payments-10",
+        "event_id": "r20261031-wb-replacement:workbuddy:dabstep-payments-10",
+        "semantic_kind": "replacement",
+        "meta": "3-表现现场/r20261031-wb-replacement/runs/dabstep-payments-10/meta.json",
+        "one_actual_product_attempt": true
+      },
+      {
+        "case": "lcb-recent-hard-4",
+        "event_id": "r20261031-wb-replacement:workbuddy:lcb-recent-hard-4",
+        "semantic_kind": "replacement",
+        "meta": "3-表现现场/r20261031-wb-replacement/runs/lcb-recent-hard-4/meta.json",
+        "one_actual_product_attempt": true
+      },
+      {
+        "case": "tb-cargo-plan",
+        "event_id": "r20261031-wb-replacement:workbuddy:tb-cargo-plan",
+        "semantic_kind": "replacement",
+        "meta": "3-表现现场/r20261031-wb-replacement/runs/tb-cargo-plan/meta.json",
+        "one_actual_product_attempt": true
+      }
+    ],
+    "self_test": [
+      {
+        "subject": "OS isolation safety validation",
+        "status": "pass",
+        "original_receipt_sha256": "2420fe3b5a4c17317a9aae27fe35f078f11b613f924b13c2c47b78c5f211e30f",
+        "model_roundtrip": false,
+        "counts_as_product_run": false
+      },
+      {
+        "subject": "freeze-marker access guard validation",
+        "status": "pass",
+        "original_receipt_sha256": "5b9954f739348b3555c95dc8fc07c0a72a74fecaf464a69e3b3d4bc13816f615",
+        "model_roundtrip": false,
+        "counts_as_product_run": false
+      }
+    ],
+    "offline_recompute": [
+      {
+        "case": "dabstep-payments-10",
+        "status": "scored",
+        "returncode": 1,
+        "started_at": "2026-10-31T12:31:07.347857+00:00",
+        "finished_at": "2026-10-31T12:31:07.458582+00:00",
+        "original_execution_receipt_sha256": "9bed9885445dcce9d9530ea25ea133e1e8516cfb7c028de6c115fbe8f5b25f43",
+        "score_source": "3-表现现场/r20261031-wb-replacement/runs/dabstep-payments-10/score-receipt.json",
+        "product_attempt_repeated": false
+      },
+      {
+        "case": "lcb-recent-hard-4",
+        "status": "scored",
+        "returncode": 0,
+        "started_at": "2026-10-31T12:40:19.488713+00:00",
+        "finished_at": "2026-10-31T12:40:28.389531+00:00",
+        "original_execution_receipt_sha256": "a7ee1eae460560dca34ceb0561e807c861fc7917ab07c82d89b596ba119d75ee",
+        "score_source": "3-表现现场/r20261031-wb-replacement/runs/lcb-recent-hard-4/score-receipt.json",
+        "product_attempt_repeated": false
+      },
+      {
+        "case": "tb-cargo-plan",
+        "status": "scored",
+        "returncode": 0,
+        "started_at": "2026-10-31T12:47:08.967778+00:00",
+        "finished_at": "2026-10-31T12:47:09.136795+00:00",
+        "original_execution_receipt_sha256": "c87d8e46c0523c414fa3dbea3994160d59ab6fa067a08fe6db3d6c1778a47830",
+        "score_source": "3-表现现场/r20261031-wb-replacement/runs/tb-cargo-plan/score-receipt.json",
+        "product_attempt_repeated": false
+      }
+    ],
+    "grading_regression": [],
+    "bare_model_probe": [],
+    "interface_preflight": []
+  },
+  "counts": {
+    "product_run": 3,
+    "self_test": 2,
+    "offline_recompute": 3,
+    "grading_regression": 0,
+    "bare_model_probe": 0,
+    "interface_preflight": 0
+  },
+  "limitations": [
+    "Only actual located replacement-sub-batch call receipts, not all-time project totals.",
+    "No new model interface preflight or naked-model probe; parent interface preflight is not re-counted.",
+    "Internal validation details remain private; these selftests are not checker score runs.",
+    "Native wb-lite auxiliary requests are disclosed per run, not extra benchmark task attempts."
+  ]
+}

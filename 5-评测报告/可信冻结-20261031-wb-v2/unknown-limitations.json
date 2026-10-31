@@ -1,3 +1,110 @@
 {
-  "events": []
+  "events": [
+    {
+      "event_id": "r20261031-wb-replacement:workbuddy:dabstep-payments-10",
+      "issues": [
+        {
+          "id": "backend-model-unverified",
+          "knowledge_status": "unknown",
+          "investigation_status": "stopped",
+          "confound_status": "not_excluded",
+          "attribution_scope": "same_model_attribution",
+          "unknown_fields": [],
+          "impact": "Only same-model/backend identity/parameter attribution unsupported; no other gate waiver.",
+          "next_step": "Obtain independently reviewable gateway backend request/model/parameter mapping evidence.",
+          "stop_condition": "No new backend evidence: retain product-level observation only.",
+          "reopen_condition": "New independently reviewable downstream evidence available.",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/backend_uncertainty"
+            },
+            {
+              "source": 4,
+              "pointer": "/limitations"
+            }
+          ]
+        },
+        {
+          "id": "DAB2697-official-compat-score-validity",
+          "knowledge_status": "accepted_limitation",
+          "investigation_status": "stopped",
+          "confound_status": "not_applicable",
+          "unknown_fields": [],
+          "impact": "official-compat-score-validity only: field/coverage/aggregation remain non-unique; frozen gold not uniquely reproduced, ambiguity unresolved and not excluded. not_applicable means this does not prevent recording the prespecified descriptive official-compatible product score; it does not establish capability validity. Keep full denominator10, both scoring tracks; q2697 forbidden for capability attribution. Other unknowns/contamination still block.",
+          "next_step": "Finite action per effective ruling: await official complete field+coverage+aggregation derivation, official corrected question, or new independent evidence. No gold-targeted assumption search.",
+          "stop_condition": "Keep controlled unknown and stop exhaustive investigation without new authoritative evidence; never infer capability from q2697.",
+          "reopen_condition": "Any of: official complete reasoning uniquely reproduces gold; official question/guidelines corrected; new independent evidence uniquely reproduces or disproves frozen gold.",
+          "refs": [
+            {
+              "source": 28,
+              "pointer": "/ruling_source"
+            },
+            {
+              "source": 28,
+              "pointer": "/effect"
+            },
+            {
+              "source": 28,
+              "pointer": "/excerpts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "r20261031-wb-replacement:workbuddy:lcb-recent-hard-4",
+      "issues": [
+        {
+          "id": "backend-model-unverified",
+          "knowledge_status": "unknown",
+          "investigation_status": "stopped",
+          "confound_status": "not_excluded",
+          "attribution_scope": "same_model_attribution",
+          "unknown_fields": [],
+          "impact": "Only same-model/backend identity/parameter attribution unsupported; no other gate waiver.",
+          "next_step": "Obtain independently reviewable gateway backend request/model/parameter mapping evidence.",
+          "stop_condition": "No new backend evidence: retain product-level observation only.",
+          "reopen_condition": "New independently reviewable downstream evidence available.",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/backend_uncertainty"
+            },
+            {
+              "source": 4,
+              "pointer": "/limitations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "r20261031-wb-replacement:workbuddy:tb-cargo-plan",
+      "issues": [
+        {
+          "id": "backend-model-unverified",
+          "knowledge_status": "unknown",
+          "investigation_status": "stopped",
+          "confound_status": "not_excluded",
+          "attribution_scope": "same_model_attribution",
+          "unknown_fields": [],
+          "impact": "Only same-model/backend identity/parameter attribution unsupported; no other gate waiver.",
+          "next_step": "Obtain independently reviewable gateway backend request/model/parameter mapping evidence.",
+          "stop_condition": "No new backend evidence: retain product-level observation only.",
+          "reopen_condition": "New independently reviewable downstream evidence available.",
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/backend_uncertainty"
+            },
+            {
+              "source": 4,
+              "pointer": "/limitations"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
