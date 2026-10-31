@@ -1,0 +1,38 @@
+{
+  "plan_id": "formal-b3-20261031",
+  "rule_version": "freeze-20261029-v6",
+  "created_at": "2026-10-31T12:29:42+08:00",
+  "note": "formal-b1 唯一残留非合规终局槽位（豆包×tb-cargo-plan 污染 X：轨迹实证越界读判卷物料，原分 100 留档不采用）的配额制作废重跑（L14 环，承 L13 PREREG §3 事项①经其 §0.5 修正后形态 + L14 PREREG §0.5/§0.6 承前声明；用户 2026-10-31 11:26 实证额度恢复后放行）。本文件在任何真实运行开始之前定稿并由 freeze-20261029-v6 封印（plan_sha256 绑定 config.official_slots）；先注册、后运行、全量导入，不按结果增删。前置预检：run_batch probe --product doubao 双绿（#1 12:05:19 completed，answer probe-ok-1793419456，app v2.34.11 权限模式=全部允许；#2 见 preflight-b3-probe2 收据）后执行。产品侧重大环境披露：b1 前承跑于 v2.33.7，本批 app 已自动更新至 v2.34.11（01:28/10:55 两连跳，用户已关闭自动更新）；v2.34 新增权限模式门与 saman 沙箱，driver 批前设「全部允许」（与 v2.33 实际行为面等价）并在运行记录披露版本与模式；trajectory 改为任务结束一次性落盘（判定逻辑兼容）。本批前置桌面工作区边界判定线与豆包检索三件套（同 formal-b1/b2），TASK 边界硬条款为 r1102 模板自带，工作区 ~/bench-workspaces/r1104/（仓库外，仅 inputs+TASK.md）。B_native 语义与 policy.mixed_group_ranking=false 同 v4/v5。配额制：本 slot 仅 1 次发射（kind=first，parent_id=null 为队列机械语义），发射失败即停不重试不补跑；完成判定 timeout 收敛形态按 b2 「有效运行、冻结前产物可判」先例处置；probe 绿但会话无效仍按 infrastructure_invalid 合规拒绝；三条终局（准入/X/infra）均为合规终局，不预设结果。",
+  "batch": "r1104-formal-b3",
+  "design": {
+    "group": "B_native",
+    "products": [
+      "doubao"
+    ],
+    "cases": [
+      "tb-cargo-plan"
+    ],
+    "samples_per_slot": 1,
+    "policy": {
+      "first": "first_registered",
+      "repeat": "all_registered_no_best",
+      "retry": "infrastructure_only_max_1",
+      "replacement": "invalid_only_next_registered_max_1"
+    },
+    "provenance_template": "运行记录模板 schema v2（2026-10-30 十字段强制；桌面封闭字段=披露值+承载位置）+ 桌面工作区边界判定线（2026-10-31 预注册）",
+    "predecessor": "formal-b1-doubao-tb-cargo-plan-01 于 freeze-20261029-v4 以污染 X 合规拒绝（轨迹实证越界读判卷物料，原分 100 留档不采用），本批为其作废重跑，不构成对已准入行的替换",
+    "workspace": "~/bench-workspaces/r1104/<product>/<case>/（仓库外，仅 inputs+TASK.md）"
+  },
+  "registrations": [
+    {
+      "event_id": "formal-b3-doubao-tb-cargo-plan-01",
+      "plan_id": "formal-b3-20261031",
+      "slot_id": "b3-doubao-tb-cargo-plan",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "predecessor formal-b1-doubao-tb-cargo-plan-01 污染 X（越界读判卷物料，原分 100 留档不采用）；跨批作废重跑=本批新 plan 新 slot 的 first（队列机械语义：parent_id 须为 null），非同批重试；SAFE_POLICY invalid_only_next_registered_max_1 政策层兑现（1 次 invalid 前承恰 1 次重跑、不择优）；先承关系由 design.predecessor 与本 reason 叙述承载",
+      "registered_at": "2026-10-31T12:29:42+08:00"
+    }
+  ]
+}
