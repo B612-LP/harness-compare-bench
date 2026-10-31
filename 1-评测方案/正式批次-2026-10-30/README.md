@@ -6,7 +6,7 @@
 
 - **组**: B_native（元宝专家模式 yuanbao-expert-web + 豆包办公 doubao），各 5 题 × n=1/格，共 10 slot，每 slot 仅 1 次 kind=first 发射（配额制，发射失败即停不重试）。
 - **B_native 语义**: 产品开箱交付路径、模型封闭不可同模型归因；正式行不与 A_same_model 排名（policy.mixed_group_ranking=false）。
-- **检索口径**: 元宝三件套（任务书禁检索条款 + 逐会话 `speechesV2[].internetSearch` 实值披露 + 批后 integrity_scan 与人工终审）；豆包三件套（任务书禁网条款 + 轨迹披露 + integrity_scan 兜底）——均按[检索口径-2026-10-27-落表](<../4-打分细则/检索口径-2026-10-27-落表.md>)。实证 clean 记 V、实证命中记 X。
+- **检索口径**: 元宝三件套（任务书禁检索条款 + 逐会话 `speechesV2[].internetSearch` 实值披露 + 批后 integrity_scan 与人工终审）；豆包三件套（任务书禁网条款 + 轨迹披露 + integrity_scan 兜底）——均按[检索口径-2026-10-27-落表](<../../4-打分细则/检索口径-2026-10-27-落表.md>)。实证 clean 记 V、实证命中记 X。
 - **留痕**: 运行记录模板 schema v2 十字段强制（2026-10-30；桌面封闭字段=披露值+承载位置）。工作区 `~/bench-workspaces/r1101/<product>/<case>/`（仓库外，仅 inputs+TASK.md）。
 - **判分**: 冻结 checker（SHA 见 config.case_snapshots）只读判分，产物目录判分 + 负例自测收据。
 
