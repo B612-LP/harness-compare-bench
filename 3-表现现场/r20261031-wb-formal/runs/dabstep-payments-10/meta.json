@@ -1,0 +1,113 @@
+{
+  "identity": {
+    "event_id": "r20261031-wb-formal:workbuddy:dabstep-payments-10",
+    "run_id": "r20261031-wb-formal:workbuddy:dabstep-payments-10:c29c7cd4-b617-40ba-81e0-6bd2e9e5db6b",
+    "category": "product_run",
+    "product": "workbuddy",
+    "group": "W_gateway",
+    "experiment": false,
+    "case_id": "dabstep-payments-10"
+  },
+  "case_version": "dabstep-payments-10@sha256:2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+  "product_version": "5.9.3",
+  "model": {
+    "ui_label": "DeepSeek V4.1-Flash",
+    "ui_model_id": "deepseek-v4.1-flash",
+    "reasoning_effort": "low",
+    "attribution_scope": "ui_selection_only"
+  },
+  "route": {
+    "host": "www.workbuddy.cn",
+    "provider_id": "workbuddy-product-gateway",
+    "wire_protocol": "product-log-declared-chat-completions",
+    "endpoint": "https://www.workbuddy.cn/v2/chat/completions"
+  },
+  "tools": {
+    "available_tool_names": [
+      "A2ACancelTask",
+      "A2AGetAgentCard",
+      "A2AGetTask",
+      "A2ASendMessage",
+      "Agent",
+      "AskUserQuestion",
+      "Bash",
+      "Defer(AudioTranscribe)",
+      "Defer(ImageGen)",
+      "Defer(LSP)",
+      "Defer(LibraryUpload)",
+      "Defer(TeamCreate)",
+      "Defer(TeamDelete)",
+      "Defer(VideoGen)",
+      "Defer(workbuddy_cloud_service)",
+      "Defer(workbuddy_sites_deploy)",
+      "DeferExecuteTool",
+      "Edit",
+      "Glob",
+      "Grep",
+      "ListMcpResources",
+      "MultiEdit",
+      "PowerShell",
+      "Read",
+      "ReadMcpResource",
+      "SendMessage",
+      "Skill",
+      "SkillManage",
+      "TaskCreate",
+      "TaskGet",
+      "TaskList",
+      "TaskOutput",
+      "TaskStop",
+      "TaskUpdate",
+      "ToolSearch",
+      "ViewImage",
+      "WebFetch",
+      "WebSearch",
+      "Write",
+      "automation_update",
+      "present_files",
+      "show_widget",
+      "widget_guidelines"
+    ],
+    "observed_call_counts": {
+      "Bash": 24,
+      "Read": 2
+    }
+  },
+  "permissions": {
+    "permission_mode": "fullAccess",
+    "use_sandbox_cli": 0,
+    "mode": "craft"
+  },
+  "skills": {
+    "evaluator_extra_injection": false,
+    "session_settings_observed": null,
+    "disabled_tools_observed": null,
+    "native_skill_call_names": [],
+    "limitation": "No evaluator skill injection; null settings and no observed skill call do not prove globally disabled skills."
+  },
+  "started_at": "2026-10-31T19:47:06+08:00",
+  "finished_at": "2026-10-31T19:50:17+08:00",
+  "artifact_frozen_at": "2026-10-31T19:50:17+08:00",
+  "duration_s": 191.0,
+  "product_completion": "completed",
+  "completion_method": "database_terminal_and_stable_5s",
+  "evidence_grade": "explicit-public-derived-trajectory+byte-identical-submissions;private-original-hash-bound",
+  "final_adjudication": "invalid",
+  "rule_version": "freeze-20261031-wb-v1",
+  "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+  "truth_sha256": "9e6e395fc7b0e5cf60238b8c3ab30fdaa399422fc047f554f0198488156e46d8",
+  "case_sha256": "2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+  "raw_metadata_sha256": {
+    "before.json": "f0e9f4cfa3e2d73cef0415ef7a9d3f083d47a3a7e40284b4e8cfdb83c378c316",
+    "new-task.json": "09ffb3f59d91cac2e7963dcafc16681689a3eef2c2bbf0be9b2d269f075fd3f8",
+    "wait.json": "4c1fdd92dbd5f01e642addb858b2e57c5f3966b245e2580b67b766b4d65b615c",
+    "after.json": "477e0e833eb5f3bfec857a55e3d272d76dfb9e04d0fcc19699bd70ab111ce9b2",
+    "trace/session-row.json": "1acaf4334fd482183934d268d81cf3cbc0576ae8935e4ff4c241f6eb25bcc9ee"
+  },
+  "model_observation": {
+    "observed_model_id": "deepseek-v4.1-flash",
+    "observed_thought_level": "low",
+    "scope": "ui_selection_only; not backend identity"
+  },
+  "route_limitation": "Current product-log-declared endpoint tied to exact session/pid/time and trace message ids. Not independent TLS capture, not gateway downstream identity proof; see request-route-evidence.json."
+}

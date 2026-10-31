@@ -1,0 +1,35 @@
+{
+  "case": "exercism-py-6",
+  "identity": {
+    "event_id": "r20261031-wb-formal:workbuddy:exercism-py-6",
+    "run_id": "r20261031-wb-formal:workbuddy:exercism-py-6:e8cee56f-1072-4b73-8059-cb17e6e8ecdf",
+    "category": "product_run",
+    "product": "workbuddy",
+    "group": "W_gateway",
+    "experiment": false,
+    "case_id": "exercism-py-6"
+  },
+  "gates": {
+    "rules_frozen": true,
+    "case_valid": true,
+    "scoring_reviewable": true,
+    "evidence_valid": true,
+    "contamination_free": true
+  },
+  "final_adjudication": "valid",
+  "status": "review-confirmed",
+  "basis": {
+    "rules_frozen": "verify_seal checked unchanged contract+all case pins; metadata lock hash retained",
+    "case_valid": "Frozen case assets unchanged, trusted checker returned full case result",
+    "scoring_reviewable": "Real checker JSON, original raw log hash, exact frozen checker hash, immutable artifact manifest",
+    "evidence_valid": "Public derived trace preserves model/tool/results and mapping; removed context reviewed privately; final review confirmed",
+    "contamination_free": "Manual every-tool review with explicit outside-workspace violations; no automatic clean"
+  },
+  "limitations": [
+    "UI and product request logs cannot identify gateway backend",
+    "Native Skill is available; zero observed calls does not mean disabled",
+    "No network-tool call observed does not establish absence of all infrastructure network traffic",
+    "Public benchmark pretraining memory remains unexcluded for causal/generalization claims, not proof of protocol boundary breach"
+  ],
+  "backend_uncertainty": "Product request endpoint is observed from this run log; downstream backend model identity and parameter mapping remain unknown."
+}

@@ -1,0 +1,52 @@
+{
+  "status": "scored",
+  "category": "offline_recompute",
+  "score": {
+    "earned": 4,
+    "possible": 4,
+    "assessed": 4,
+    "reported": 100.0,
+    "reward": 1,
+    "rule_version": "freeze-20261031-wb-v1",
+    "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9"
+  },
+  "checker_exit": 0,
+  "started_at": "2026-10-31T12:04:09.349140+00:00",
+  "finished_at": "2026-10-31T12:04:20.039517+00:00",
+  "original_stdout_sha256": "3b3be8ff43800bdf91389361afb3ac70cf0a96e0e8a4727e6405daa8e39b935f",
+  "original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "parsed_json_path": "checker.stdout.json",
+  "log_derivation": "Private local checker paths replaced by /frozen-workspace/<case> or <LOCAL_HOME>; scoring fields unchanged. Raw logs retained privately.",
+  "execution_isolation": {
+    "mechanism": "macOS sandbox-exec",
+    "profile_sha256": "0841c85cfc90088b2a0f60d9e8399da3c1d64d25e86d468be5db0f10275e146f",
+    "network": "deny network*",
+    "writes": "only dedicated checker temporary directory",
+    "reads": "deny user home and user temporary trees except exact frozen workspace and case; system runtime reads available",
+    "limitations": "not a VM, not a defense against kernel vulnerabilities; trusted checker itself can see truth, candidate code manually reviewed first"
+  },
+  "code_review": {
+    "reviewer_role": "offline-code-safety-review",
+    "manual_review_sha256": "08373970ee8044c2784d57e9fcf04918f157b68439fe9c74773f27ebfec30175",
+    "safe_to_execute_checker": true
+  },
+  "log_bindings": {
+    "stdout": {
+      "original_sha256": "3b3be8ff43800bdf91389361afb3ac70cf0a96e0e8a4727e6405daa8e39b935f",
+      "derived_sha256": "3b3be8ff43800bdf91389361afb3ac70cf0a96e0e8a4727e6405daa8e39b935f",
+      "line_mapping": [
+        {
+          "original_line": 1,
+          "derived_line": 1,
+          "original_line_sha256": "c544583c26d862d46e5d8d7a6cde24002192148d09b603f35ec41d71232f7ecc",
+          "derived_line_sha256": "c544583c26d862d46e5d8d7a6cde24002192148d09b603f35ec41d71232f7ecc"
+        }
+      ]
+    },
+    "stderr": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "derived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "line_mapping": []
+    }
+  }
+}

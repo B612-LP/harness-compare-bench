@@ -1,0 +1,769 @@
+{
+  "case": "lcb-recent-hard-4",
+  "label": "whitelisted-public-derived-product-request-log",
+  "original_log_sha256": "b9d2181140f596df70a3e40d8d6b9c9bfe26fe49063964c22b110b6223975c61",
+  "captured_at": "2026-10-31T12:03:15.752193+00:00",
+  "source_log_not_public": true,
+  "time_scope": {
+    "started_at": "2026-10-31T19:52:59+08:00",
+    "frozen_at": "2026-10-31T20:02:27+08:00",
+    "timezone": "Asia/Shanghai"
+  },
+  "session_bindings": [
+    {
+      "raw_line": 28,
+      "raw_line_sha256": "345d6d6201041a8defcc3eea3f0a3fd249c0ddd7a1c864e91f516b100058e113",
+      "pid": 59958,
+      "session_id": "ae719f44-7334-4e7c-beb1-5b0d4613a022",
+      "timestamp": "2026-10-31T19:53:00.196000+08:00",
+      "workspace": "/workspace/lcb-recent-hard-4"
+    }
+  ],
+  "available_tool_names": [
+    "A2ACancelTask",
+    "A2AGetAgentCard",
+    "A2AGetTask",
+    "A2ASendMessage",
+    "Agent",
+    "AskUserQuestion",
+    "Bash",
+    "Defer(AudioTranscribe)",
+    "Defer(ImageGen)",
+    "Defer(LSP)",
+    "Defer(LibraryUpload)",
+    "Defer(TeamCreate)",
+    "Defer(TeamDelete)",
+    "Defer(VideoGen)",
+    "Defer(workbuddy_cloud_service)",
+    "Defer(workbuddy_sites_deploy)",
+    "DeferExecuteTool",
+    "Edit",
+    "Glob",
+    "Grep",
+    "ListMcpResources",
+    "MultiEdit",
+    "PowerShell",
+    "Read",
+    "ReadMcpResource",
+    "SendMessage",
+    "Skill",
+    "SkillManage",
+    "TaskCreate",
+    "TaskGet",
+    "TaskList",
+    "TaskOutput",
+    "TaskStop",
+    "TaskUpdate",
+    "ToolSearch",
+    "ViewImage",
+    "WebFetch",
+    "WebSearch",
+    "Write",
+    "automation_update",
+    "present_files",
+    "show_widget",
+    "widget_guidelines"
+  ],
+  "plugin_summary": {
+    "total_registered": 17,
+    "enabled_count": 11,
+    "builtin_registered_count": 13,
+    "other_registered_count": 4,
+    "private_plugin_identifiers_disclosed": false,
+    "limitation": "Counts do not establish which plugin definitions were loaded into every model request."
+  },
+  "requests": [
+    {
+      "raw_line": 1857,
+      "raw_line_sha256": "2513290efb4e66c8b7134a056fca7577c00bbb688308a565b109d9d43c4bc386",
+      "timestamp": "2026-10-31T19:53:02.224000+08:00",
+      "pid": 59958,
+      "agent": "unknown",
+      "model": "wb-lite",
+      "request_id": "01a191ce5a0b7ceaa8194d40df56128a",
+      "reasoning_effort": null,
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": false,
+      "role": "auxiliary_product_call"
+    },
+    {
+      "raw_line": 1910,
+      "raw_line_sha256": "a72ad4128a2ecffd583ff1ab4d34fbb81351f7ffae8c23978889a98e8d895c3a",
+      "timestamp": "2026-10-31T19:53:02.275000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191ce5a3d7710a029e7e4d08b4709",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 1957,
+      "raw_line_sha256": "80244f4de0b78f18cd137b71deb3ce575034c196c0e5b6d865c3756ab0a502d6",
+      "timestamp": "2026-10-31T19:53:03.941000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191ce60bd76f98ceb84e729d59e2b",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2050,
+      "raw_line_sha256": "3d9b4a976c6262e692a5d2628e3546e22eead2630ed4138e75ff16284bbc12d1",
+      "timestamp": "2026-10-31T19:56:56.589000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d1ed7a7e6293a33144793c1665",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2096,
+      "raw_line_sha256": "6abc3bf959bb35ec85fe7d2230f283e09c64a44ae86146a292d5928e98656843",
+      "timestamp": "2026-10-31T19:57:01.209000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d1ff8a75e3aeac16660ad61c70",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2141,
+      "raw_line_sha256": "ac2835cb533600621dbb04f9b95ab9230e1785731915254e6ac04f12c1e44b27",
+      "timestamp": "2026-10-31T19:57:04.866000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d20dd3716cac421ed972412e14",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2186,
+      "raw_line_sha256": "9b58a2ba99abbf9b5e7adcd3138bc26c2fa0f86f404521e2e94073e48bb3b849",
+      "timestamp": "2026-10-31T19:57:08.925000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d21db073848d0c966089e57bd0",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2231,
+      "raw_line_sha256": "5b316f3ec797919db6b4e5a90d4c550b5c629ed39c91b9840a105a3fb4adb3ce",
+      "timestamp": "2026-10-31T19:57:17.503000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d23f297190becb59331c74f265",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2274,
+      "raw_line_sha256": "f204c5ee3a69029515ec997b726c5eb1a1fa27ad4564e39459bc643da105bda9",
+      "timestamp": "2026-10-31T19:57:20.985000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d24cc979d384c7ea7a041f1c2d",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2386,
+      "raw_line_sha256": "d38cc261e2406b53d441944b5087d9624c2f080c59aa14410700c7311081ea0a",
+      "timestamp": "2026-10-31T19:57:24.389000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d25a1a7b1ea849ef9c389b46e4",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2450,
+      "raw_line_sha256": "9d08484a7055a2d03bf494554ade0fc29ad513b7070d524fd085ed2f0a2033e5",
+      "timestamp": "2026-10-31T19:57:28.407000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d269c27f6eb5f7d919acb9121f",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2735,
+      "raw_line_sha256": "f531a2ec4318f6c478e5750df4a0d64cc5e01ae2aea3f9082573aa1f05555e8a",
+      "timestamp": "2026-10-31T19:57:52.713000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d2c8bd7e6c9f01584d37795f31",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2782,
+      "raw_line_sha256": "c6c232249fe02de3b7f4d3d4bd9ab3452f3ed15d6515f68b6eb33c5fd5d94e42",
+      "timestamp": "2026-10-31T19:58:29.549000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d358967f30bbb7e1f4fddbb643",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 2962,
+      "raw_line_sha256": "83b037ae0892190e0a8563773e1562754de8b79ba385db96174e2b38e5cb8547",
+      "timestamp": "2026-10-31T19:58:44.125000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d3919071eb8d078b08958946c6",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 3008,
+      "raw_line_sha256": "b3a11356983f135bdbf24ff1f7520b79c8cd4bc86575a803c8685cf013d7445f",
+      "timestamp": "2026-10-31T19:59:07.409000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d3ec797c079e23ea636ad94af7",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 3522,
+      "raw_line_sha256": "8c15d2a160a5b9e68c4011d5f590b07e0497a4ae3c6f1263d489195a676722ae",
+      "timestamp": "2026-10-31T20:01:10.838000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d5cea570c8bff62be886ea33d4",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 3613,
+      "raw_line_sha256": "6331d07140d57ffad312dbe04de6bad93022b26addd60ae48f32105c67326739",
+      "timestamp": "2026-10-31T20:01:13.533000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d5d92e7db49d30f04ff26b2ef4",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 3691,
+      "raw_line_sha256": "21197154a9317450cbadcfeb27613ff7e49db5ffe4e68a69c5779664e2c378b5",
+      "timestamp": "2026-10-31T20:01:18.815000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d5edd17a26ad386d0f49ba9595",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 3726,
+      "raw_line_sha256": "b6a313f250dd696410cd37bb19a1fe7ca43748afcd7b30ab5581baf59a662ae7",
+      "timestamp": "2026-10-31T20:01:20.443000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d5f428711783939e5012c9c7a5",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 3896,
+      "raw_line_sha256": "60a7babb4879ce67a75912e5b6a45168eda354ccb7fc25ab8d205b606060603c",
+      "timestamp": "2026-10-31T20:01:25.668000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d60897771695de73c8423e51be",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 4067,
+      "raw_line_sha256": "530d645da09cf30f080d56470c215e0895d4fba6a8cb872b97b3cc12080acc34",
+      "timestamp": "2026-10-31T20:01:30.802000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d61ca5762ab2b4ab0361dd2ce6",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 4321,
+      "raw_line_sha256": "47561efeda931c0061ad54e398b4f7129f7d3f7352c09a50078aae0e1581e8ef",
+      "timestamp": "2026-10-31T20:01:47.874000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d65f4f7c68a8922460ab75be7a",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 4386,
+      "raw_line_sha256": "5731946e89fb1e985439aa6fbd9cccfd29461d04101dbe73a90bc85cbcdf9d76",
+      "timestamp": "2026-10-31T20:01:55.685000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d67dd778ae98e239a8e439ab3a",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 4476,
+      "raw_line_sha256": "ff20793ec19ca957692db17cf32aa1263824c478a448b974cec64efd36a51fbd",
+      "timestamp": "2026-10-31T20:02:01.035000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d692bd73d7a7d1102d8ce55bb0",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 4560,
+      "raw_line_sha256": "eddafa9757b1239c92f50dd2c87fc229f5e6263e8a06d2fd60692b0528b0b757",
+      "timestamp": "2026-10-31T20:02:04.069000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d69e96792d9eee3370551426bb",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 4667,
+      "raw_line_sha256": "cb7cc7fc217418ce1382b9951c980f370bdd01f12db61b3310d2cf4f0bf63843",
+      "timestamp": "2026-10-31T20:02:07.201000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d6aad3783888aa72692458dd21",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    },
+    {
+      "raw_line": 4781,
+      "raw_line_sha256": "da13682057a513887a73b9cf4f79c7a108d2104e42a8a40c381647ba72062a57",
+      "timestamp": "2026-10-31T20:02:10.776000+08:00",
+      "pid": 59958,
+      "agent": "cli",
+      "model": "deepseek-v4.1-flash",
+      "request_id": "01a191d6b8ca78d58732e749012c888d",
+      "reasoning_effort": "low",
+      "url": "https://www.workbuddy.cn/v2/chat/completions",
+      "trace_message_id_matched": true,
+      "role": "task_model"
+    }
+  ],
+  "task_request_count": 26,
+  "auxiliary_request_count": 1,
+  "route": {
+    "host": "www.workbuddy.cn",
+    "provider_id": "workbuddy-product-gateway",
+    "wire_protocol": "product-log-declared-chat-completions",
+    "endpoint": "https://www.workbuddy.cn/v2/chat/completions"
+  },
+  "limitations": [
+    "Product log declaration tied to run pid/session/time; not independent TLS/wire capture",
+    "Gateway downstream model identity and parameter mapping remain unverified",
+    "Auxiliary product calls separately disclosed; no claim of a single model for the whole product",
+    "Other raw log lines may contain local bearer tokens or personal ids and are deliberately not published"
+  ],
+  "derivation_rules": [
+    "Extract only exact MODEL_REQUEST sending fields within actual run interval",
+    "Retain only session UUID/pid/time/canonical workspace from matching activation line",
+    "Retain raw line numbers and per-line SHA; no raw log body published"
+  ],
+  "line_mapping": {
+    "original_line_count": 4865,
+    "retained": [
+      {
+        "original_line": 28,
+        "original_line_sha256": "345d6d6201041a8defcc3eea3f0a3fd249c0ddd7a1c864e91f516b100058e113",
+        "derived_pointer": "/session_bindings/0"
+      },
+      {
+        "original_line": 1857,
+        "original_line_sha256": "2513290efb4e66c8b7134a056fca7577c00bbb688308a565b109d9d43c4bc386",
+        "derived_pointer": "/requests/0"
+      },
+      {
+        "original_line": 1910,
+        "original_line_sha256": "a72ad4128a2ecffd583ff1ab4d34fbb81351f7ffae8c23978889a98e8d895c3a",
+        "derived_pointer": "/requests/1"
+      },
+      {
+        "original_line": 1957,
+        "original_line_sha256": "80244f4de0b78f18cd137b71deb3ce575034c196c0e5b6d865c3756ab0a502d6",
+        "derived_pointer": "/requests/2"
+      },
+      {
+        "original_line": 2050,
+        "original_line_sha256": "3d9b4a976c6262e692a5d2628e3546e22eead2630ed4138e75ff16284bbc12d1",
+        "derived_pointer": "/requests/3"
+      },
+      {
+        "original_line": 2096,
+        "original_line_sha256": "6abc3bf959bb35ec85fe7d2230f283e09c64a44ae86146a292d5928e98656843",
+        "derived_pointer": "/requests/4"
+      },
+      {
+        "original_line": 2141,
+        "original_line_sha256": "ac2835cb533600621dbb04f9b95ab9230e1785731915254e6ac04f12c1e44b27",
+        "derived_pointer": "/requests/5"
+      },
+      {
+        "original_line": 2186,
+        "original_line_sha256": "9b58a2ba99abbf9b5e7adcd3138bc26c2fa0f86f404521e2e94073e48bb3b849",
+        "derived_pointer": "/requests/6"
+      },
+      {
+        "original_line": 2231,
+        "original_line_sha256": "5b316f3ec797919db6b4e5a90d4c550b5c629ed39c91b9840a105a3fb4adb3ce",
+        "derived_pointer": "/requests/7"
+      },
+      {
+        "original_line": 2274,
+        "original_line_sha256": "f204c5ee3a69029515ec997b726c5eb1a1fa27ad4564e39459bc643da105bda9",
+        "derived_pointer": "/requests/8"
+      },
+      {
+        "original_line": 2386,
+        "original_line_sha256": "d38cc261e2406b53d441944b5087d9624c2f080c59aa14410700c7311081ea0a",
+        "derived_pointer": "/requests/9"
+      },
+      {
+        "original_line": 2450,
+        "original_line_sha256": "9d08484a7055a2d03bf494554ade0fc29ad513b7070d524fd085ed2f0a2033e5",
+        "derived_pointer": "/requests/10"
+      },
+      {
+        "original_line": 2735,
+        "original_line_sha256": "f531a2ec4318f6c478e5750df4a0d64cc5e01ae2aea3f9082573aa1f05555e8a",
+        "derived_pointer": "/requests/11"
+      },
+      {
+        "original_line": 2782,
+        "original_line_sha256": "c6c232249fe02de3b7f4d3d4bd9ab3452f3ed15d6515f68b6eb33c5fd5d94e42",
+        "derived_pointer": "/requests/12"
+      },
+      {
+        "original_line": 2962,
+        "original_line_sha256": "83b037ae0892190e0a8563773e1562754de8b79ba385db96174e2b38e5cb8547",
+        "derived_pointer": "/requests/13"
+      },
+      {
+        "original_line": 3008,
+        "original_line_sha256": "b3a11356983f135bdbf24ff1f7520b79c8cd4bc86575a803c8685cf013d7445f",
+        "derived_pointer": "/requests/14"
+      },
+      {
+        "original_line": 3522,
+        "original_line_sha256": "8c15d2a160a5b9e68c4011d5f590b07e0497a4ae3c6f1263d489195a676722ae",
+        "derived_pointer": "/requests/15"
+      },
+      {
+        "original_line": 3613,
+        "original_line_sha256": "6331d07140d57ffad312dbe04de6bad93022b26addd60ae48f32105c67326739",
+        "derived_pointer": "/requests/16"
+      },
+      {
+        "original_line": 3691,
+        "original_line_sha256": "21197154a9317450cbadcfeb27613ff7e49db5ffe4e68a69c5779664e2c378b5",
+        "derived_pointer": "/requests/17"
+      },
+      {
+        "original_line": 3726,
+        "original_line_sha256": "b6a313f250dd696410cd37bb19a1fe7ca43748afcd7b30ab5581baf59a662ae7",
+        "derived_pointer": "/requests/18"
+      },
+      {
+        "original_line": 3896,
+        "original_line_sha256": "60a7babb4879ce67a75912e5b6a45168eda354ccb7fc25ab8d205b606060603c",
+        "derived_pointer": "/requests/19"
+      },
+      {
+        "original_line": 4067,
+        "original_line_sha256": "530d645da09cf30f080d56470c215e0895d4fba6a8cb872b97b3cc12080acc34",
+        "derived_pointer": "/requests/20"
+      },
+      {
+        "original_line": 4321,
+        "original_line_sha256": "47561efeda931c0061ad54e398b4f7129f7d3f7352c09a50078aae0e1581e8ef",
+        "derived_pointer": "/requests/21"
+      },
+      {
+        "original_line": 4386,
+        "original_line_sha256": "5731946e89fb1e985439aa6fbd9cccfd29461d04101dbe73a90bc85cbcdf9d76",
+        "derived_pointer": "/requests/22"
+      },
+      {
+        "original_line": 4476,
+        "original_line_sha256": "ff20793ec19ca957692db17cf32aa1263824c478a448b974cec64efd36a51fbd",
+        "derived_pointer": "/requests/23"
+      },
+      {
+        "original_line": 4560,
+        "original_line_sha256": "eddafa9757b1239c92f50dd2c87fc229f5e6263e8a06d2fd60692b0528b0b757",
+        "derived_pointer": "/requests/24"
+      },
+      {
+        "original_line": 4667,
+        "original_line_sha256": "cb7cc7fc217418ce1382b9951c980f370bdd01f12db61b3310d2cf4f0bf63843",
+        "derived_pointer": "/requests/25"
+      },
+      {
+        "original_line": 4781,
+        "original_line_sha256": "da13682057a513887a73b9cf4f79c7a108d2104e42a8a40c381647ba72062a57",
+        "derived_pointer": "/requests/26"
+      }
+    ],
+    "omitted_ranges": [
+      {
+        "original_line_start": 1,
+        "original_line_end": 27,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 29,
+        "original_line_end": 1856,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 1858,
+        "original_line_end": 1909,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 1911,
+        "original_line_end": 1956,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 1958,
+        "original_line_end": 2049,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2051,
+        "original_line_end": 2095,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2097,
+        "original_line_end": 2140,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2142,
+        "original_line_end": 2185,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2187,
+        "original_line_end": 2230,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2232,
+        "original_line_end": 2273,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2275,
+        "original_line_end": 2385,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2387,
+        "original_line_end": 2449,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2451,
+        "original_line_end": 2734,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2736,
+        "original_line_end": 2781,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2783,
+        "original_line_end": 2961,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 2963,
+        "original_line_end": 3007,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 3009,
+        "original_line_end": 3521,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 3523,
+        "original_line_end": 3612,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 3614,
+        "original_line_end": 3690,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 3692,
+        "original_line_end": 3725,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 3727,
+        "original_line_end": 3895,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 3897,
+        "original_line_end": 4066,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 4068,
+        "original_line_end": 4320,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 4322,
+        "original_line_end": 4385,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 4387,
+        "original_line_end": 4475,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 4477,
+        "original_line_end": 4559,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 4561,
+        "original_line_end": 4666,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 4668,
+        "original_line_end": 4780,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      },
+      {
+        "original_line_start": 4782,
+        "original_line_end": 4865,
+        "derived_target": null,
+        "rule": "omit-non-whitelisted-private-or-infrastructure-log-line"
+      }
+    ],
+    "coverage": "Every original log line is either explicitly retained or in an omitted interval. Not a complete raw log."
+  }
+}

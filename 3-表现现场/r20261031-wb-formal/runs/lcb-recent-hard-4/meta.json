@@ -1,0 +1,116 @@
+{
+  "identity": {
+    "event_id": "r20261031-wb-formal:workbuddy:lcb-recent-hard-4",
+    "run_id": "r20261031-wb-formal:workbuddy:lcb-recent-hard-4:ae719f44-7334-4e7c-beb1-5b0d4613a022",
+    "category": "product_run",
+    "product": "workbuddy",
+    "group": "W_gateway",
+    "experiment": false,
+    "case_id": "lcb-recent-hard-4"
+  },
+  "case_version": "lcb-recent-hard-4@sha256:d53d6e9e318c7a84d2103c3c75828a25be67aac645ab027a7b11624941b14a65",
+  "product_version": "5.9.3",
+  "model": {
+    "ui_label": "DeepSeek V4.1-Flash",
+    "ui_model_id": "deepseek-v4.1-flash",
+    "reasoning_effort": "low",
+    "attribution_scope": "ui_selection_only"
+  },
+  "route": {
+    "host": "www.workbuddy.cn",
+    "provider_id": "workbuddy-product-gateway",
+    "wire_protocol": "product-log-declared-chat-completions",
+    "endpoint": "https://www.workbuddy.cn/v2/chat/completions"
+  },
+  "tools": {
+    "available_tool_names": [
+      "A2ACancelTask",
+      "A2AGetAgentCard",
+      "A2AGetTask",
+      "A2ASendMessage",
+      "Agent",
+      "AskUserQuestion",
+      "Bash",
+      "Defer(AudioTranscribe)",
+      "Defer(ImageGen)",
+      "Defer(LSP)",
+      "Defer(LibraryUpload)",
+      "Defer(TeamCreate)",
+      "Defer(TeamDelete)",
+      "Defer(VideoGen)",
+      "Defer(workbuddy_cloud_service)",
+      "Defer(workbuddy_sites_deploy)",
+      "DeferExecuteTool",
+      "Edit",
+      "Glob",
+      "Grep",
+      "ListMcpResources",
+      "MultiEdit",
+      "PowerShell",
+      "Read",
+      "ReadMcpResource",
+      "SendMessage",
+      "Skill",
+      "SkillManage",
+      "TaskCreate",
+      "TaskGet",
+      "TaskList",
+      "TaskOutput",
+      "TaskStop",
+      "TaskUpdate",
+      "ToolSearch",
+      "ViewImage",
+      "WebFetch",
+      "WebSearch",
+      "Write",
+      "automation_update",
+      "present_files",
+      "show_widget",
+      "widget_guidelines"
+    ],
+    "observed_call_counts": {
+      "Read": 1,
+      "Bash": 16,
+      "Write": 6,
+      "Edit": 1,
+      "TaskOutput": 1
+    }
+  },
+  "permissions": {
+    "permission_mode": "fullAccess",
+    "use_sandbox_cli": 0,
+    "mode": "craft"
+  },
+  "skills": {
+    "evaluator_extra_injection": false,
+    "session_settings_observed": null,
+    "disabled_tools_observed": null,
+    "native_skill_call_names": [],
+    "limitation": "No evaluator skill injection; null settings and no observed skill call do not prove globally disabled skills."
+  },
+  "started_at": "2026-10-31T19:52:59+08:00",
+  "finished_at": "2026-10-31T20:02:27+08:00",
+  "artifact_frozen_at": "2026-10-31T20:02:27+08:00",
+  "duration_s": 568.0,
+  "product_completion": "completed",
+  "completion_method": "database_terminal_and_stable_5s",
+  "evidence_grade": "explicit-public-derived-trajectory+byte-identical-submissions;private-original-hash-bound",
+  "final_adjudication": "invalid",
+  "rule_version": "freeze-20261031-wb-v1",
+  "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+  "truth_sha256": "8a9ae6deb4d088b011348d5245d18697f5df5b8b65390c7679c6a8d539c90d14",
+  "case_sha256": "d53d6e9e318c7a84d2103c3c75828a25be67aac645ab027a7b11624941b14a65",
+  "raw_metadata_sha256": {
+    "before.json": "92c5d2f2556632a06fcb082e893f51ca6ade48b8c948580e2f09a01dd4e6c95f",
+    "new-task.json": "9a82081f1c7791e37e9d33ab1e05cc06726bf1000a166d7d705c7639fa0fe7b5",
+    "wait.json": "40e1c8826935014f7c347282d0e5caeabacd3e93f748a803b284e47b4d21c1ba",
+    "after.json": "1c626c575cf74618afc420fa5ad7f7f1405c5b9a08e20de03d6eb1cc796e0978",
+    "trace/session-row.json": "dd8524db7b39db0146fa98ef2060d321d44142b672d2ddf8b5e747b634ec3ac5"
+  },
+  "model_observation": {
+    "observed_model_id": "deepseek-v4.1-flash",
+    "observed_thought_level": "low",
+    "scope": "ui_selection_only; not backend identity"
+  },
+  "route_limitation": "Current product-log-declared endpoint tied to exact session/pid/time and trace message ids. Not independent TLS capture, not gateway downstream identity proof; see request-route-evidence.json."
+}
