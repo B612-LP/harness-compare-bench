@@ -1,0 +1,481 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "event_id": "formal-b3-doubao-tb-cargo-plan-01",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-b3-doubao-tb-cargo-plan-01",
+          "run_id": "38450558017236994",
+          "category": "product_run",
+          "product": "doubao",
+          "group": "B_native",
+          "experiment": false,
+          "case_id": "tb-cargo-plan"
+        },
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/identity"
+          }
+        ]
+      },
+      "category": "product_run",
+      "product": "doubao",
+      "group": "B_native",
+      "experiment": false,
+      "case_id": "tb-cargo-plan",
+      "facts": {
+        "case_version": {
+          "state": "known",
+          "value": "tb-cargo-plan@sha256:fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+          "refs": [
+            {
+              "source": 3,
+              "pointer": "/case_snapshots/tb-cargo-plan/case_version"
+            }
+          ]
+        },
+        "product_version": {
+          "state": "known",
+          "value": "2.34.12",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/product_version"
+            }
+          ]
+        },
+        "model": {
+          "state": "known",
+          "value": "closed-desktop-product;label=豆包工作(本地电脑runtime);model_id=不可证(封闭)",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/model"
+            }
+          ]
+        },
+        "route": {
+          "state": "known",
+          "value": {
+            "host": "doubao-desktop-session(closed)",
+            "provider_id": null,
+            "wire_protocol": null,
+            "endpoint": null
+          },
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/route"
+            }
+          ]
+        },
+        "tools": {
+          "state": "known",
+          "value": "desktop-agent managed(Bash/Read/Edit);本机文件访问=产品全盘能力(v2.34 权限模式=全部允许,批前设置)",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/tools"
+            }
+          ]
+        },
+        "permissions": {
+          "state": "known",
+          "value": "desktop full local file access(产品默认,不可配置);v2.34 权限模式=全部允许(批前设置,与 v2.33 行为面等价)",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/permissions"
+            }
+          ]
+        },
+        "skills": {
+          "state": "known",
+          "value": "product-closed(产品内置能力,无外挂技能,不适用 SKILL 开关)",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/skills"
+            }
+          ]
+        },
+        "started_at": {
+          "state": "known",
+          "value": "2026-10-31T12:31:04+08:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/started_at"
+            }
+          ]
+        },
+        "finished_at": {
+          "state": "known",
+          "value": "2026-10-31T12:37:30+08:00",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/finished_at"
+            }
+          ]
+        },
+        "evidence_grade": {
+          "state": "known",
+          "value": "conversation-trajectory-and-artifacts",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/evidence_grade"
+            }
+          ]
+        },
+        "final_adjudication": {
+          "state": "known",
+          "value": "valid",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/final_adjudication"
+            }
+          ]
+        },
+        "rule_version": {
+          "state": "known",
+          "value": "freeze-20261029-v6",
+          "refs": [
+            {
+              "source": 3,
+              "pointer": "/rule_version"
+            }
+          ]
+        },
+        "checker_sha256": {
+          "state": "known",
+          "value": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "refs": [
+            {
+              "source": 3,
+              "pointer": "/case_snapshots/tb-cargo-plan/checker.py"
+            }
+          ]
+        },
+        "truth_sha256": {
+          "state": "known",
+          "value": "982754f17eea923b0abfcfee08c991d7c502b771c5c0c598c5c097fe3460c163",
+          "refs": [
+            {
+              "source": 3,
+              "pointer": "/case_snapshots/tb-cargo-plan/truth.json"
+            }
+          ]
+        },
+        "case_sha256": {
+          "state": "known",
+          "value": "fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+          "refs": [
+            {
+              "source": 3,
+              "pointer": "/case_snapshots/tb-cargo-plan/manifest_sha256"
+            }
+          ]
+        }
+      },
+      "gates": {
+        "rules_frozen": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/gates/rules_frozen"
+            }
+          ]
+        },
+        "case_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/gates/case_valid"
+            }
+          ]
+        },
+        "scoring_reviewable": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/gates/scoring_reviewable"
+            }
+          ]
+        },
+        "evidence_valid": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/gates/evidence_valid"
+            }
+          ]
+        },
+        "contamination_free": {
+          "state": "known",
+          "value": true,
+          "refs": [
+            {
+              "source": 1,
+              "pointer": "/gates/contamination_free"
+            }
+          ]
+        }
+      },
+      "score": {
+        "state": "known",
+        "value": {
+          "earned": 23,
+          "possible": 27,
+          "assessed": 27,
+          "reported": 85.18518519,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v6",
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677"
+        },
+        "refs": [
+          {
+            "source": 5,
+            "pointer": "/score"
+          }
+        ]
+      },
+      "selection": {
+        "plan_id": "formal-b3-20261031",
+        "slot_id": "b3-doubao-tb-cargo-plan",
+        "order": 1,
+        "kind": "first",
+        "parent_id": null,
+        "reason": "predecessor formal-b1-doubao-tb-cargo-plan-01 污染 X（越界读判卷物料，原分 100 留档不采用）；跨批作废重跑=本批新 plan 新 slot 的 first（队列机械语义：parent_id 须为 null），非同批重试；SAFE_POLICY invalid_only_next_registered_max_1 政策层兑现（1 次 invalid 前承恰 1 次重跑、不择优）；先承关系由 design.predecessor 与本 reason 叙述承载",
+        "registered_at": "2026-10-31T12:29:42+08:00",
+        "plan_source": 2,
+        "plan_pointer": "/registrations/0"
+      },
+      "sources": [
+        {
+          "path": "3-表现现场/r1104-formal-b3/runs/doubao__tb-cargo-plan/meta.json",
+          "sha256": "b8727bb4d7b64ec1a27623a34b347b011a7d44e3c7f8f888c59453a09abcc8c1"
+        },
+        {
+          "path": "3-表现现场/r1104-formal-b3/runs/doubao__tb-cargo-plan/adjudication.json",
+          "sha256": "63ae03a9f45932775fc0feab8a778a40c4da0497c20f31d23bbd0994a4552630"
+        },
+        {
+          "path": "1-评测方案/正式批次-2026-10-31/registration-plan-b3-20261031.json",
+          "sha256": "d7ac43d443cc581e924ea5c595146cb08c78251e4f21d59297d2ecb2dce383c2"
+        },
+        {
+          "path": "4-打分细则/可信冻结-2026-10-29-v6/config.json",
+          "sha256": "a3cb5b03527b80bbd84c9771d735e7f9b8fcf53934968fd8085a93e6ccbd13c3"
+        },
+        {
+          "path": "3-表现现场/r1104-formal-b3/runs/doubao__tb-cargo-plan/checker.stdout.json",
+          "sha256": "096aa0f622038fb95b47aede5db5a6352182aa835d12fa69c795bf777a2a2f6b"
+        },
+        {
+          "path": "3-表现现场/r1104-formal-b3/runs/doubao__tb-cargo-plan/score-receipt.json",
+          "sha256": "bd0f6638e94722f009cfcf1d8d06be0843444c7b8dd2fa2dbef91108e59fb32c"
+        },
+        {
+          "path": "3-表现现场/r1104-formal-b3/runs/doubao__tb-cargo-plan/TASK.md",
+          "sha256": "aadca3371a1d32d2634a380d18215c41010a53fb908da6fec83f647211619220"
+        },
+        {
+          "path": "3-表现现场/r1104-formal-b3/integrity/integrity-adjudication-r1104.json",
+          "sha256": "ffe324f9ef6cbf752377a9b4f18bc0aae1821775dea3157162f8ab3ed4f1f3f2"
+        },
+        {
+          "path": "3-表现现场/r1104-formal-b3/runs/doubao-tb-cargo-plan-run_meta.json",
+          "sha256": "43e0d7b96fbf4bc11786aae119716529222c8412bd827db0aa3da394815a5c8e"
+        }
+      ],
+      "issues": [],
+      "collected_at": "2026-10-31T12:49:29+08:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-31T12:31:04+08:00",
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/started_at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-b3-doubao-preflight-01",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-b3-doubao-preflight-01",
+          "run_id": "r1104-doubao-preflight",
+          "category": "interface_preflight",
+          "product": "doubao",
+          "group": "not_applicable",
+          "experiment": false,
+          "case_id": "not_applicable"
+        },
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/identity_value"
+          }
+        ]
+      },
+      "category": "interface_preflight",
+      "product": "doubao",
+      "group": "not_applicable",
+      "experiment": false,
+      "case_id": "not_applicable",
+      "facts": {
+        "verdict": {
+          "state": "known",
+          "value": "PASS",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/verdict"
+            }
+          ]
+        }
+      },
+      "gates": {},
+      "score": {
+        "state": "unknown",
+        "value": null,
+        "refs": []
+      },
+      "selection": null,
+      "sources": [
+        {
+          "path": "3-表现现场/r1104-formal-b3/preflight/doubao-preflight-r1104.json",
+          "sha256": "fdae7ac228e4485b2cddd791a91bdddb4e5154ac5932148a1933d48adeee5d78"
+        }
+      ],
+      "issues": [
+        {
+          "id": "score-unassessed:preflight",
+          "unknown_fields": [
+            "score"
+          ],
+          "knowledge_status": "unknown",
+          "investigation_status": "stopped",
+          "confound_status": "not_applicable",
+          "impact": "接口预检无评分概念,score 按 unknown 登记",
+          "next_step": "无需调查",
+          "stop_condition": "类别语义决定,恒停止",
+          "reopen_condition": "不适用(类别语义)",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/score_unassessed"
+            }
+          ]
+        }
+      ],
+      "collected_at": "2026-10-31T12:49:29+08:00",
+      "original_time": {
+        "state": "known",
+        "value": "2026-10-31T12:25:30+08:00",
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/at"
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "formal-b3-checker-selftest-01",
+      "identity": {
+        "state": "known",
+        "value": {
+          "event_id": "formal-b3-checker-selftest-01",
+          "run_id": "r1104-checker-selftest",
+          "category": "self_test",
+          "product": "not_applicable",
+          "group": "not_applicable",
+          "experiment": false,
+          "case_id": "not_applicable"
+        },
+        "refs": [
+          {
+            "source": 0,
+            "pointer": "/identity_value"
+          }
+        ]
+      },
+      "category": "self_test",
+      "product": "not_applicable",
+      "group": "not_applicable",
+      "experiment": false,
+      "case_id": "not_applicable",
+      "facts": {
+        "selftest_passes": {
+          "state": "known",
+          "value": "ALL PASS（nop=0 / oracle=1 / 9 负例=0 或逐项拦截）exit=0",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/selftest_passes"
+            }
+          ]
+        }
+      },
+      "gates": {},
+      "score": {
+        "state": "unknown",
+        "value": null,
+        "refs": []
+      },
+      "selection": null,
+      "sources": [
+        {
+          "path": "3-表现现场/r1104-formal-b3/selftest/tb-cargo-plan.selftest.r1104.json",
+          "sha256": "3eccaa7aecf7e3d297c885ae53525427827051fe027890dcb17bb96b0db5af57"
+        }
+      ],
+      "issues": [
+        {
+          "id": "score-unassessed:self-test",
+          "unknown_fields": [
+            "score",
+            "original_time"
+          ],
+          "knowledge_status": "unknown",
+          "investigation_status": "stopped",
+          "confound_status": "not_applicable",
+          "impact": "self_test 无评分概念;登记时间以收据批次为准",
+          "next_step": "无需调查",
+          "stop_condition": "类别语义决定,恒停止",
+          "reopen_condition": "不适用(类别语义)",
+          "refs": [
+            {
+              "source": 0,
+              "pointer": "/score_unassessed"
+            }
+          ]
+        }
+      ],
+      "collected_at": "2026-10-31T12:49:29+08:00",
+      "original_time": {
+        "state": "unknown",
+        "value": null,
+        "refs": []
+      }
+    }
+  ]
+}
