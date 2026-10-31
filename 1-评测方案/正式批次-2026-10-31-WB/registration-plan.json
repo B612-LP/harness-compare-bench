@@ -1,0 +1,104 @@
+{
+  "plan_id": "r20261031-wb-formal",
+  "rule_version": "freeze-20261031-wb-v1",
+  "created_at": "2026-10-31T19:43:04+08:00",
+  "batch": "r20261031-wb-formal",
+  "design": {
+    "group": "W_gateway",
+    "products": [
+      "workbuddy"
+    ],
+    "cases": [
+      "bird-ca-schools-15",
+      "dabstep-payments-10",
+      "exercism-py-6",
+      "lcb-recent-hard-4",
+      "tb-cargo-plan"
+    ],
+    "samples_per_slot": 1,
+    "launch_budget_per_slot": 1,
+    "automatic_retry": false,
+    "automatic_replacement": false,
+    "execution": "sequential",
+    "model_label": "DeepSeek V4.1-Flash",
+    "model_id_label": "deepseek-v4.1-flash",
+    "thought_level": "low",
+    "permission_mode": "fullAccess",
+    "mode": "craft",
+    "custom_skills": "no evaluator injection; product native context/tools/skills disclosed from actual trace",
+    "timeouts_s": {
+      "bird-ca-schools-15": 1800,
+      "dabstep-payments-10": 1800,
+      "exercism-py-6": 2400,
+      "lcb-recent-hard-4": 3000,
+      "tb-cargo-plan": 2400
+    },
+    "selection": "first_registered_no_best",
+    "unknown": "no_zero_no_rescale",
+    "mixed_group_ranking": false,
+    "completion": "DB terminal + stable 5s OR terminal assistant without pending tool calls + stable 60s; fixed timeout freezes artifacts",
+    "case_changes": false,
+    "scope": "whole-product descriptive assessment; no same-model causal attribution"
+  },
+  "preflight": {
+    "category": "interface_preflight",
+    "id": "3c9ae7ff-976f-4ac5-b6ac-530bfdb47e7c",
+    "passed": true,
+    "app_version": "5.9.3",
+    "model_roundtrip": true,
+    "started_at": "2026-10-31T19:41:22+08:00",
+    "finished_at": "2026-10-31T19:41:42+08:00"
+  },
+  "registrations": [
+    {
+      "event_id": "r20261031-wb-formal:workbuddy:bird-ca-schools-15",
+      "plan_id": "r20261031-wb-formal",
+      "slot_id": "workbuddy|bird-ca-schools-15",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "fixed_first",
+      "registered_at": "2026-10-31T19:43:04+08:00"
+    },
+    {
+      "event_id": "r20261031-wb-formal:workbuddy:dabstep-payments-10",
+      "plan_id": "r20261031-wb-formal",
+      "slot_id": "workbuddy|dabstep-payments-10",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "fixed_first",
+      "registered_at": "2026-10-31T19:43:04+08:00"
+    },
+    {
+      "event_id": "r20261031-wb-formal:workbuddy:exercism-py-6",
+      "plan_id": "r20261031-wb-formal",
+      "slot_id": "workbuddy|exercism-py-6",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "fixed_first",
+      "registered_at": "2026-10-31T19:43:04+08:00"
+    },
+    {
+      "event_id": "r20261031-wb-formal:workbuddy:lcb-recent-hard-4",
+      "plan_id": "r20261031-wb-formal",
+      "slot_id": "workbuddy|lcb-recent-hard-4",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "fixed_first",
+      "registered_at": "2026-10-31T19:43:04+08:00"
+    },
+    {
+      "event_id": "r20261031-wb-formal:workbuddy:tb-cargo-plan",
+      "plan_id": "r20261031-wb-formal",
+      "slot_id": "workbuddy|tb-cargo-plan",
+      "order": 1,
+      "kind": "first",
+      "parent_id": null,
+      "reason": "fixed_first",
+      "registered_at": "2026-10-31T19:43:04+08:00"
+    }
+  ]
+}

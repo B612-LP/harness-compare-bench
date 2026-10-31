@@ -1,0 +1,442 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "freeze-20261031-wb-v1/import",
+  "title": "Public event envelope; normative semantic checks in freeze.py",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    }
+  },
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "pointer"
+      ],
+      "properties": {
+        "source": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pointer": {
+          "type": "string"
+        }
+      }
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "value",
+        "refs"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "known",
+            "supplemented",
+            "unknown"
+          ]
+        },
+        "value": {},
+        "refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "knowledge_status",
+        "investigation_status",
+        "confound_status",
+        "impact",
+        "next_step",
+        "stop_condition",
+        "refs",
+        "reopen_condition"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "knowledge_status": {
+          "enum": [
+            "unknown",
+            "accepted_limitation",
+            "resolved"
+          ]
+        },
+        "investigation_status": {
+          "enum": [
+            "open",
+            "stopped",
+            "closed"
+          ]
+        },
+        "confound_status": {
+          "enum": [
+            "not_excluded",
+            "excluded",
+            "not_applicable"
+          ]
+        },
+        "impact": {
+          "type": "string"
+        },
+        "next_step": {
+          "type": "string"
+        },
+        "stop_condition": {
+          "type": "string"
+        },
+        "refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "reopen_condition": {
+          "type": "string"
+        },
+        "unknown_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attribution_scope": {
+          "const": "same_model_attribution"
+        }
+      }
+    },
+    "selection": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "plan_id",
+        "slot_id",
+        "order",
+        "kind",
+        "parent_id",
+        "reason",
+        "registered_at",
+        "plan_source",
+        "plan_pointer"
+      ],
+      "properties": {
+        "plan_id": {
+          "type": "string"
+        },
+        "slot_id": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kind": {
+          "enum": [
+            "first",
+            "replacement",
+            "repeat",
+            "retry"
+          ]
+        },
+        "parent_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "registered_at": {
+          "type": "string"
+        },
+        "plan_source": {
+          "type": "integer"
+        },
+        "plan_pointer": {
+          "type": "string"
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_id",
+        "category",
+        "product",
+        "group",
+        "experiment",
+        "case_id",
+        "facts",
+        "gates",
+        "score",
+        "selection",
+        "sources",
+        "issues",
+        "collected_at",
+        "original_time",
+        "identity"
+      ],
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "enum": [
+            "product_run",
+            "self_test",
+            "offline_recompute",
+            "grading_regression",
+            "bare_model_probe",
+            "interface_preflight"
+          ]
+        },
+        "product": {
+          "type": "string"
+        },
+        "group": {
+          "enum": [
+            "A_same_model",
+            "B_native",
+            "research",
+            "not_applicable",
+            "W_gateway"
+          ]
+        },
+        "experiment": {
+          "type": "boolean"
+        },
+        "case_id": {
+          "type": "string"
+        },
+        "facts": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/fact"
+          }
+        },
+        "gates": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/fact"
+          }
+        },
+        "score": {
+          "$ref": "#/$defs/fact"
+        },
+        "selection": {
+          "$ref": "#/$defs/selection"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/issue"
+          }
+        },
+        "collected_at": {
+          "type": "string"
+        },
+        "original_time": {
+          "$ref": "#/$defs/fact"
+        },
+        "identity": {
+          "$ref": "#/$defs/fact"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "category": {
+                "const": "product_run"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "facts": {
+                "$ref": "#/$defs/productFacts"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "host",
+        "provider_id",
+        "wire_protocol",
+        "endpoint"
+      ],
+      "properties": {
+        "host": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "wire_protocol": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "endpoint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "productFacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_version",
+        "product_version",
+        "model",
+        "route",
+        "tools",
+        "permissions",
+        "skills",
+        "started_at",
+        "finished_at",
+        "evidence_grade",
+        "final_adjudication",
+        "rule_version",
+        "checker_sha256",
+        "truth_sha256",
+        "case_sha256"
+      ],
+      "properties": {
+        "case_version": {
+          "$ref": "#/$defs/fact"
+        },
+        "product_version": {
+          "$ref": "#/$defs/fact"
+        },
+        "model": {
+          "$ref": "#/$defs/fact"
+        },
+        "route": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/fact"
+            },
+            {
+              "properties": {
+                "value": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "$ref": "#/$defs/route"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "tools": {
+          "$ref": "#/$defs/fact"
+        },
+        "permissions": {
+          "$ref": "#/$defs/fact"
+        },
+        "skills": {
+          "$ref": "#/$defs/fact"
+        },
+        "started_at": {
+          "$ref": "#/$defs/fact"
+        },
+        "finished_at": {
+          "$ref": "#/$defs/fact"
+        },
+        "evidence_grade": {
+          "$ref": "#/$defs/fact"
+        },
+        "final_adjudication": {
+          "$ref": "#/$defs/fact"
+        },
+        "rule_version": {
+          "$ref": "#/$defs/fact"
+        },
+        "checker_sha256": {
+          "$ref": "#/$defs/fact"
+        },
+        "truth_sha256": {
+          "$ref": "#/$defs/fact"
+        },
+        "case_sha256": {
+          "$ref": "#/$defs/fact"
+        }
+      }
+    }
+  }
+}
