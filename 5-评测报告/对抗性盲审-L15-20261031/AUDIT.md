@@ -10,7 +10,7 @@
 - **B4 链接完整性 PASS**：45 链接 44 通；唯一断链=盲审-L15（×2，本审计落盘闭合）；v1.0 旧名残留仅 L13 AUDIT.md:3 历史承载表述，68e51ee 实有该文件。
 - **B5 隐私边界 PASS**：新增内容对 /Users/b612-lp、bench-private、loop-records、PREREG 零命中；「自动更新不可关闭」归因「用户实证」无内部细节。
 - **B6 歧义与偏差 PASS（带 Note）**：§5.4「披露表不含结论」兑现；b1/b2 同版本披露充分；遗留歧义 N6/N7。
-- **B7 公告符合性 PASS**：19 正式行分数=events 收据；444.81/444.07 复算相符；B_native 8/1/1=10、rejected 101/98、总账 96/85/42/0/11、六账 101/13/5/3/5/5 全对；verify v4/v5/v6 exit 0、validate_run selftest exit 0。
+- **B7 公告符合性 PASS**：19 正式行分数=events 收据（**更正（L15 验收期，auditor）：正式准入行应为 20=A 组 10+B 组 10；原文 19 为盲审员计数口径误差，实质分数声明已由 auditor 独立对 events 22 条 product_run 与官方表另行验证成立**）；444.81/444.07 复算相符；B_native 8/1/1=10、rejected 101/98、总账 96/85/42/0/11、六账 101/13/5/3/5/5 全对；verify v4/v5/v6 exit 0、validate_run selftest exit 0。
 
 ## Must-fix（3）/ Should-fix（3）/ Note（4）
 

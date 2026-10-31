@@ -10,7 +10,7 @@
 
 | # | 级 | Finding（摘要） | 处置 |
 |---|---|---|---|
-| M1 | Must | §10 行 v4 `verify` 在 HEAD 实测 exit 2——v4 产物内嵌活登记 build 时 pin，登记演进后漂移（字节级定位：archive.json 等内嵌 sha=fdb61f19 vs 登记 8bffbcb6） | **已修**：按确定性 build 重建 v4 OUT（对拍实证：5 文件全部变更行均为 sha 字段，判定数字零变化，official 表不在变更集）；v4 verify 恢复 exit 0；[v4 README 输出重建披露-1](<../4-打分细则/可信冻结-2026-10-29-v4/README.md>) 落笔维护规则（登记变更后同 commit 重建）；§10 v4 行加前提链接 |
+| M1 | Must | §10 行 v4 `verify` 在 HEAD 实测 exit 2——v4 产物内嵌活登记 build 时 pin，登记演进后漂移（字节级定位：archive.json 等内嵌 sha=fdb61f19 vs 登记 8bffbcb6） | **已修**：按确定性 build 重建 v4 OUT（对拍实证：5 文件全部变更行均为 sha 字段，判定数字零变化，official 表不在变更集）；v4 verify 恢复 exit 0；[v4 README 输出重建披露-1](<../../4-打分细则/可信冻结-2026-10-29-v4/README.md>) 落笔维护规则（登记变更后同 commit 重建）；§10 v4 行加前提链接 |
 | M2 | Must | A 组合同代 v2 verify 同败（lock 钉活登记→sealed file drift）且 §10 回避；陌生复核者对结论一证据源跑不通 verify | **已修（披露路线）**：§10 增 v2/v3 行如实标注「不通过属已知」+ 机理；§9 信任边界增「合同 verify 结构性已知项」段；不重建不改钉（历史代以当时字节解释，v3 缺 pin 先例）；数字复核入口改指 events 收据 |
 | M3 | Must | 结论三「五臂 reward、weighted、失败项完全一致」与机器账矛盾——tb 五臂 weighted=dsh-base 74.07 vs 其余 70.37（差一条非关键断言） | **已修**：结论三改写为「二值零改变 + dabstep weighted 零改变 + tb weighted n=1 断言级波动（74.07/70.37）」，标题改「二值结果零改变」；lead 独立重算机器账十行逐行核实后落笔 |
 | S1 | Should | §10 分数对账入口指错：官方表无分数（仅准入集合+拒绝理由），分数在 events 收据 | **已修**：§10 新「正式行分数对账」行指向三个 events 文件的 `score.value`，并注明官方表职能 |
