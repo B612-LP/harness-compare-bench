@@ -1,3 +1,54 @@
 {
-  "final_adjudication": "V"
+  "run_id": "r1105/inline-low/bird-ca-schools-15__rr3",
+  "batch": "r1105-bare-matrix",
+  "arm": "inline-low",
+  "case": "bird-ca-schools-15",
+  "case_version": "1.2-q26-frpm",
+  "contract_revision": null,
+  "product": "bare-deepseek-flash",
+  "product_version": "bare-protocol-v2（r1 时点脚本 sha 未留档；当前修复版 tools sha256 55478bb10397）",
+  "model": "deepseek-flash",
+  "tools": [],
+  "permissions": {
+    "filesystem": "none",
+    "network": "none",
+    "single_turn": true
+  },
+  "skills": "none（裸模型无技能注入）",
+  "duration_s": null,
+  "duration_s_note": "unknown——r1 抽取器事故未采集，如实不虚构",
+  "started_at": null,
+  "started_at_note": "unknown——同上",
+  "evidence_grade": "original-contemporaneous-full（raw request/response + 产物 + checker 收据）",
+  "integrity_verdict": "valid",
+  "final_adjudication": "V",
+  "reasoning_param": "reasoning.effort=low（预检钉死）",
+  "prompt_sha256": "cde28bbedd301b100ed275b822422c0a5ee9d1af7927d2760ebb7e844da22b53",
+  "prompt_bytes": 32388,
+  "usage": {
+    "input_tokens": 9052,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 13910,
+    "output_tokens_details": {
+      "reasoning_tokens": 12677
+    },
+    "total_tokens": 22962
+  },
+  "protocol": {
+    "instruction_verbatim": true,
+    "inline_manifest": [
+      "inputs/schema.sql",
+      "inputs/questions.json",
+      "inputs/sample_rows.json"
+    ],
+    "inline_missing": [],
+    "floor_note": null,
+    "answer_to_artifacts": {
+      "answers.jsonl": "fenced#0 逐行可解析 ×15"
+    },
+    "workspace": "<WORKSPACE>/r1105-bare-matrix/inline-low/bird-ca-schools-15__r3"
+  },
+  "postmortem": "r1 抽取器签名 bug（KeyError path）致 meta.json 未落盘；本文件为事故后依据 bare-request/response 原文重建（prompt SHA/内联清单可确定性重算；duration/started_at 无法恢复，如实置 unknown）。原始响应未重发。"
 }

@@ -1,3 +1,56 @@
 {
-  "final_adjudication": "F"
+  "run_id": "r1105/inline-low/dabstep-payments-10__rr3",
+  "batch": "r1105-bare-matrix",
+  "arm": "inline-low",
+  "case": "dabstep-payments-10",
+  "case_version": "0.2",
+  "contract_revision": null,
+  "product": "bare-deepseek-flash",
+  "product_version": "bare-protocol-v2（r1 时点脚本 sha 未留档；当前修复版 tools sha256 55478bb10397）",
+  "model": "deepseek-flash",
+  "tools": [],
+  "permissions": {
+    "filesystem": "none",
+    "network": "none",
+    "single_turn": true
+  },
+  "skills": "none（裸模型无技能注入）",
+  "duration_s": null,
+  "duration_s_note": "unknown——r1 抽取器事故未采集，如实不虚构",
+  "started_at": null,
+  "started_at_note": "unknown——同上",
+  "evidence_grade": "original-contemporaneous-full（raw request/response + 产物 + checker 收据）",
+  "integrity_verdict": "valid",
+  "final_adjudication": "F",
+  "reasoning_param": "reasoning.effort=low（预检钉死）",
+  "prompt_sha256": "a3d080be20f1520118e20cad2ed87bf30dd50c7f2bf30c619b2f8583c03577c0",
+  "prompt_bytes": 63971,
+  "usage": {
+    "input_tokens": 17905,
+    "input_tokens_details": {
+      "cached_tokens": 17664
+    },
+    "output_tokens": 4015,
+    "output_tokens_details": {
+      "reasoning_tokens": 3846
+    },
+    "total_tokens": 21920
+  },
+  "protocol": {
+    "instruction_verbatim": true,
+    "inline_manifest": [
+      "inputs/manual.md",
+      "inputs/questions.jsonl",
+      "inputs/merchant_data.json",
+      "inputs/merchant_category_codes.csv",
+      "inputs/acquirer_countries.csv"
+    ],
+    "inline_missing": [],
+    "floor_note": "payments.csv(23.5MB)/fees.json(531KB) 超上下文未内联——预注册地板题",
+    "answer_to_artifacts": {
+      "answers.jsonl": "fenced#0 逐行可解析 ×10"
+    },
+    "workspace": "<WORKSPACE>/r1105-bare-matrix/inline-low/dabstep-payments-10__r3"
+  },
+  "postmortem": "r1 抽取器签名 bug（KeyError path）致 meta.json 未落盘；本文件为事故后依据 bare-request/response 原文重建（prompt SHA/内联清单可确定性重算；duration/started_at 无法恢复，如实置 unknown）。原始响应未重发。"
 }

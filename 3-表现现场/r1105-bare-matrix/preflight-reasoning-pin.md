@@ -1,6 +1,6 @@
 # 预检收据：reasoning 档位参数钉死（2026-11-01 11:47–11:52）
 
-PREREG l18-20261101 事项①声明的预检程序执行记录。端点 `https://api.deepseek.com/responses`，模型 `deepseek-flash`，key 仅进程环境（sk-8f95…，35 字符）。
+PREREG l18-20261101 事项①声明的预检程序执行记录。端点 `https://api.deepseek.com/responses`，模型 `deepseek-flash`，key 仅进程环境（sk-...4285 (tail-only)…，35 字符）。
 
 ## 探针 1（平凡题，验证候选参数被接受且不炸）
 

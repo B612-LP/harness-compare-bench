@@ -1,55 +1,55 @@
 {
-  "run_id": "r1105/inline-low/tb-cargo-plan__r1",
-  "batch": "r1105-bare-matrix",
-  "arm": "inline-low",
-  "case": "tb-cargo-plan",
-  "case_version": "0.2",
-  "contract_revision": null,
-  "product": "bare-deepseek-flash",
-  "product_version": "bare-protocol-v2 (tools sha256 7d4e0713746b)",
-  "model": "deepseek-flash",
-  "tools": [],
-  "permissions": {
-    "filesystem": "none",
-    "network": "none",
-    "single_turn": true
+ "run_id": "r1105/inline-low/tb-cargo-plan__r1",
+ "batch": "r1105-bare-matrix",
+ "arm": "inline-low",
+ "case": "tb-cargo-plan",
+ "case_version": "0.2",
+ "contract_revision": null,
+ "product": "bare-deepseek-flash",
+ "product_version": "bare-protocol-v2 (tools sha256 7d4e0713746b)",
+ "model": "deepseek-flash",
+ "tools": [],
+ "permissions": {
+  "filesystem": "none",
+  "network": "none",
+  "single_turn": true
+ },
+ "skills": "none（裸模型无技能注入）",
+ "duration_s": 202.3,
+ "started_at": "2026-11-01T12:06:51+08:00",
+ "evidence_grade": "original-contemporaneous-full（raw request/response + 产物 + checker 收据）",
+ "integrity_verdict": "valid",
+ "final_adjudication": "F",
+ "reasoning_param": "reasoning.effort=low（预检钉死）",
+ "prompt_sha256": "8fb732c64e24e7a710f79dceb9fa5f22f13410230063c35b630856f3481bdf29",
+ "prompt_bytes": 23204,
+ "usage": {
+  "input_tokens": 7170,
+  "input_tokens_details": {
+   "cached_tokens": 0
   },
-  "skills": "none（裸模型无技能注入）",
-  "duration_s": 202.3,
-  "started_at": "2026-11-01T12:06:51+08:00",
-  "evidence_grade": "original-contemporaneous-full（raw request/response + 产物 + checker 收据）",
-  "integrity_verdict": "valid",
-  "final_adjudication": "F",
-  "reasoning_param": "reasoning.effort=low（预检钉死）",
-  "prompt_sha256": "8fb732c64e24e7a710f79dceb9fa5f22f13410230063c35b630856f3481bdf29",
-  "prompt_bytes": 23204,
-  "usage": {
-    "input_tokens": 7170,
-    "input_tokens_details": {
-      "cached_tokens": 0
-    },
-    "output_tokens": 37129,
-    "output_tokens_details": {
-      "reasoning_tokens": 32721
-    },
-    "total_tokens": 44299
+  "output_tokens": 37129,
+  "output_tokens_details": {
+   "reasoning_tokens": 32721
   },
-  "protocol": {
-    "instruction_verbatim": true,
-    "inline_manifest": [
-      "instruction.md",
-      "inputs/app/dispatch.py",
-      "inputs/app/aircraft.py",
-      "inputs/app/navigation.py",
-      "inputs/app/data/airports.json"
-    ],
-    "inline_missing": [],
-    "floor_note": null,
-    "answer_to_artifacts": {
-      "inputs/app/dispatch.py": "FILE 标记精确配对（fenced@29）",
-      "inputs/app/aircraft.py": "FILE 标记精确配对（fenced@9517）",
-      "inputs/app/navigation.py": "FILE 标记精确配对（fenced@12242）"
-    },
-    "workspace": "/Users/b612-lp/bench-workspaces/r1105-bare-matrix/inline-low/tb-cargo-plan__r1"
-  }
+  "total_tokens": 44299
+ },
+ "protocol": {
+  "instruction_verbatim": true,
+  "inline_manifest": [
+   "instruction.md",
+   "inputs/app/dispatch.py",
+   "inputs/app/aircraft.py",
+   "inputs/app/navigation.py",
+   "inputs/app/data/airports.json"
+  ],
+  "inline_missing": [],
+  "floor_note": null,
+  "answer_to_artifacts": {
+   "inputs/app/dispatch.py": "FILE 标记精确配对（fenced@29）",
+   "inputs/app/aircraft.py": "FILE 标记精确配对（fenced@9517）",
+   "inputs/app/navigation.py": "FILE 标记精确配对（fenced@12242）"
+  },
+  "workspace": "<WORKSPACE>/r1105-bare-matrix/inline-low/tb-cargo-plan__r1"
+ }
 }
