@@ -39,7 +39,7 @@
       "knowledge_status": "unknown",
       "investigation_status": "mitigation_in_progress",
       "confound_status": "disclosed_not_excluded",
-      "summary": "桌面浏览器自动更新不可关闭（批内实测 Edg/156.0.4314.50→.58 跨两跳）；且元宝驱动逐 run 产品/浏览器版本采集在改版后失效（runs/*/after.json app_version_after=null，仅 L21 补槽 bird r3 起在台账逐槽记录 Edge 版本）。",
+      "summary": "桌面浏览器自动更新不可关闭（批末实测 Edg/156.0.4314.58，批初浏览器版本无逐槽采集收据）；且元宝驱动逐 run 产品/浏览器版本采集在改版后失效（runs/*/after.json app_version_after=null，仅 L21 补槽 bird r3 起在台账逐槽记录 Edge 版本）。",
       "impact": "元宝批 22 个历史槽无逐 run 浏览器版本（批级以「Edge 桌面交付+会话时点」披露，主报告 §5.1 同）；跨批环境精确复现不可能，只能披露到日/时点粒度。",
       "next_step": "修复 yuanbao_driver 版本采集（改为 CDP /json/version 实时读取，不依赖页面内探测）；修复后的批从首槽起逐 run 记录。历史 22 槽不可回补（write-once），以本登记与批 README 披露为准。",
       "stop_condition": "修复后连续一批逐 run 版本字段非空即视为工具缺陷关闭；浏览器自动更新本身不可关闭，长期以披露为准。"

@@ -8,7 +8,7 @@
 
 ## 五段结论
 
-**观察**：12 个有效运行中非零分四场：bird r1=73.33（reward 0，未达 80% 达标线）、bird r2c=86.67（reward 1，更正后）、bird r3=86.67（reward 1，L21 补发射槽，文件卡片交付）、dabstep r1c=20.0（reward 0，更正后）；其余八场（dabstep r2/r3、exercism ×3、lcb ×3）全部 0 分。bird 列补齐后 n=3：73.33（F）/ 86.67（V）/ 86.67（V），reward 二值 1/3 场达标，与 A 组 CLI bird 全 V 的差异主要在 r1 交付质量（13/15 对 14/15）。tb 列 0 个有效运行——其任务书被产品侧内容门静默拦截（判别探针收据见 [runs/_diagnosis/](<runs/_diagnosis/probe-tb-content-gate.json>)）。发射失败 11 槽全部记 launch_invalid，未筛除。
+**观察**：12 个有效运行中非零分四场：bird r1=73.33（reward 0，未达 80% 达标线）、bird r2c=86.67（reward 1，更正后）、bird r3=86.67（reward 1，L21 补发射槽，文件卡片交付）、dabstep r1c=20.0（reward 0，更正后）；其余八场（dabstep r2/r3、exercism ×3、lcb ×3）全部 0 分。bird 列补齐后 n=3：73.33（F，11/15）/ 86.67（V，13/15）/ 86.67（V，13/15），reward 二值 2/3 场达标；A 组 CLI bird 全 V（14/15），元宝 r1 的 11/15 为主要落差。tb 列 0 个有效运行——其任务书被产品侧内容门静默拦截（判别探针收据见 [runs/_diagnosis/](<runs/_diagnosis/probe-tb-content-gate.json>)）。发射失败 11 槽全部记 launch_invalid，未筛除。
 
 **证据**：[批次收据](<batch-summary.json>)（23 行逐槽记录）；每槽 JSON 见 [runs/](<runs/>)。关键证据链：①tb 列 r1b/r2b 两槽发送点击在 900 秒窗口内被静默吞掉（Quill 已同步、发送钮启用），同时段其他题面发射正常；②判别探针（中性文本 + tb 同一附件）3 秒建成会话 → 门控跟随题面文本，非附件、非基础设施；③exercism r1b 会话在产品 UI 中可见「本次会话已达到最大调用轮次」的产品自述；④bird r3 会话全程 detail API 快照留档（api-dump-00..07），speech 级 internetFlag=0（autoInternetSearch 档位开启但零实际检索，外部 URL 均为题面自带链接回显）。
 
@@ -32,4 +32,4 @@
 - 元宝网页版无本地工具轨迹（产品形态如此），交付面以 detail API 快照 + 交付物文件 + 判分收据为证；UI 页面核对仅用于个案定性（exercism r1b 最大轮次自述），不作一般证据形态。
 - 判分在 OS 隔离中执行冻结 checker（禁网络、禁题库与冻结工作区写入）；bird r2c / dabstep r1c 使用更正装配后的工作区（更正收据私档留档，公开记录含 correction 链）。
 - 技能状态：B 组为产品原生能力，本批无外置技能/评测者提示词工程注入（协议=正式批 b1 复刻）。
-- 执行环境：Edge 桌面交付（共享 9334 实例），批内跨 Edg/156.0.4314.50→.58 自动更新，产品无可实测客户端版本号；逐 run 浏览器版本采集在改版后失效（22 个历史槽 app_version_after=null），L21 补槽 bird r3 起改在台账逐槽记录。版本漂移、内容门、交付通道与额度窗口未知详见[未知登记 r3](<../../5-评测报告/未知登记-2026-11-02-r3.json>)。
+- 执行环境：Edge 桌面交付（共享 9334 实例），产品无可实测客户端版本号；批末实测 Edg/156.0.4314.58（L21 补槽台账），批初浏览器版本无逐槽采集收据；逐 run 版本采集在改版后失效（11 个有效槽 after.json 值为 null、11 个 launch_invalid 槽无 after.json——22 槽无一有版本值），bird r3 起改在台账逐槽记录。版本漂移、内容门、交付通道与额度窗口未知详见[未知登记 r3](<../../5-评测报告/未知登记-2026-11-02-r3.json>)。
