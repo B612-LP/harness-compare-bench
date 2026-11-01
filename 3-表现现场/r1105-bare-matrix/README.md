@@ -1,0 +1,10 @@
+# r1105-bare-matrix —— 现行五题 × 裸模型探针矩阵（2026-11-01）
+
+> **定位**：C 组裸模型底数（现行定案五题版）。单轮 `/responses`、无系统提示、无工具、prompt = instruction.md 原文 + 声明内联输入包 + 交付约定；模型 `deepseek-flash`（官方端点），arm `inline-low` 钉 `reasoning.effort=low`（[预检收据](<preflight-reasoning-pin.md>)），arm `inline-default` 默认档敏感性对照。**本批不入正式表；不改变报告 v1.2 任何数字。**
+> 命名沿用 r1030–r1104 的流水号延续（README 索引声明的日期制自 r1030 起被事实延续所覆盖，如实注记）。
+
+- **结果**：[RESULTS.md](<RESULTS.md>)（五段结构 4 条结论）——bare headline 3/5，达标/未达标题集与 A 组双 CLI 正式账完全重合；tb weighted 70.37 与 CLI 逐字一致。
+- **逐场证据**：runs/<arm>/<case>__r<rep>/ 内 bare-request.json（含 prompt 原文与 SHA）、bare-response.json（原文）、meta.json（十字段 + 内联清单 + 抽取映射）、RESULTS_JSON/result.json（原字节 checker 判分）。
+- **分账**：[bare-matrix-events.json](<bare-matrix-events.json>)（17 场，category=bare_model_probe）+ [six-accounts.json](<six-accounts.json>)（产品运行 0、裸探针 17、预检 1——与产品运行严格分账）。
+- **执行期如实披露**：首轮 7 场 JSONL 题因抽取器签名 bug 未落产物，API 响应原样在案、零重发，修复后离线重抽取（[run1 存档](<batch-results.run1-extractor-bug.json>)，meta.postmortem 逐场标注）；buggy 版脚本未留版本副本（第二次违反版本化纪律，已在 RESULTS 如实披露）。
+- **工作区纪律**：发射工作区在仓外 `~/bench-workspaces/r1105-bare-matrix/`；本目录只收证据集，不含 23MB 级原始输入拷贝。
