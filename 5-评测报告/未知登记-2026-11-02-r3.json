@@ -1,0 +1,48 @@
+{
+  "registered_at": "2026-11-02",
+  "registered_in": "闭环 L21（PREREG l21-20261102，私档）P3 七条合规审计",
+  "supersedes": null,
+  "note": "承接 未知登记.json（15 项）与 未知登记-2026-10-29-r2.json（6 项）；本批登记 2026-10-31~11-02 桌面/Web 批执行期新知未知，逐项三件套（影响/下一步/停止条件）。证据均在公开批目录与私档收据，不在此重复。",
+  "items": [
+    {
+      "id": "yuanbao-tb-content-gate",
+      "knowledge_status": "unknown",
+      "investigation_status": "partially_investigated",
+      "confound_status": "not_excluded",
+      "summary": "元宝产品侧内容门按任务书文本静默拦截发射（判别探针：中性文本+同附件 3 秒建会话 vs 原 tb 题面 900 秒全吞，收据 runs/_diagnosis/probe-tb-content-gate.json）。",
+      "impact": "元宝批 tb 列 0 个有效运行，B 组元宝 tb 格无产品成绩；不影响其他题列，也不影响豆包/WorkBuddy tb 行。",
+      "next_step": "可选的产品侧对照：由用户手动在产品 UI 粘贴同题面发射一次，验证门控对人工操作是否同样生效（自动化与人工路径差异可定性）；项目侧不改题面绕行（守住题面冻结）。",
+      "stop_condition": "两轮独立判别（自动+人工）结论一致，或产品方公开风控说明；任一达成即停止，不再消耗发射额度。"
+    },
+    {
+      "id": "yuanbao-revamp-delivery-and-swallow-gate",
+      "knowledge_status": "unknown",
+      "investigation_status": "observed_not_explained",
+      "confound_status": "not_excluded",
+      "summary": "2026-11-01 远端前端改版（Quill 编辑器+新发送组件）后出现两类间歇性产品侧行为：交付通道间歇性（12 个有效运行中 3 场交付文件卡片：bird r2c、dabstep r1c、bird r3；其余以围栏/贴文交付）与发送吞没门（内容已同步、点击 3 秒~15 分钟不定被吞，与附件大小无关）。",
+      "impact": "元宝 B 组结果面波动的一部分（8 场 0 分中多数与交付形式直接相关）；跨轮可比性受限；豆包/CLI 轨不受影响。",
+      "next_step": "后续元宝批批前执行内容/交付双探针定性当日产品行为；驱动逐 run 版本采集修复（见 edge-driver-version 条）后，把交付通道状态与版本对齐记录。",
+      "stop_condition": "连续两批交付行为稳定（全卡片或全围栏）且吞没门不再复现，可降级为 accepted_limitation。"
+    },
+    {
+      "id": "desktop-quota-window-volatility",
+      "knowledge_status": "unknown",
+      "investigation_status": "protocol_managed",
+      "confound_status": "disclosed_not_controlled",
+      "summary": "豆包/元宝产品时段额度由产品侧控制，恢复时间仅产品文案明示（如「预计今日 21:42 恢复」），实际恢复时点有波动。",
+      "impact": "额度改期引入 4~6 小时不等的时间间隔，未作为变量控制；豆包批两次改期槽（exercism r2b、tb r3b）结果落在对应题历史波动带内，未见异常，但样本不足以断言零影响。",
+      "next_step": "沿用既定协议：额度文案先读再归因、改期一次、如实披露间隔；不在恢复时间上做任何推测性补跑。",
+      "stop_condition": "产品提供正式配额文档或配额事件不再发生；协议本身长期有效。"
+    },
+    {
+      "id": "edge-auto-update-and-driver-version-gap",
+      "knowledge_status": "unknown",
+      "investigation_status": "mitigation_in_progress",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "桌面浏览器自动更新不可关闭（批内实测 Edg/156.0.4314.50→.58 跨两跳）；且元宝驱动逐 run 产品/浏览器版本采集在改版后失效（runs/*/after.json app_version_after=null，仅 L21 补槽 bird r3 起在台账逐槽记录 Edge 版本）。",
+      "impact": "元宝批 22 个历史槽无逐 run 浏览器版本（批级以「Edge 桌面交付+会话时点」披露，主报告 §5.1 同）；跨批环境精确复现不可能，只能披露到日/时点粒度。",
+      "next_step": "修复 yuanbao_driver 版本采集（改为 CDP /json/version 实时读取，不依赖页面内探测）；修复后的批从首槽起逐 run 记录。历史 22 槽不可回补（write-once），以本登记与批 README 披露为准。",
+      "stop_condition": "修复后连续一批逐 run 版本字段非空即视为工具缺陷关闭；浏览器自动更新本身不可关闭，长期以披露为准。"
+    }
+  ]
+}
