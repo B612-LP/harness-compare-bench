@@ -1,0 +1,37 @@
+{
+ "run_id": "r20261102-mechdesk:workbuddy:spill35k:r1",
+ "analysis_version": 2,
+ "v1_correction": "v1 误读 providerData.arguments 判 probe_invalid；v2 改顶层 name/arguments（痕迹零改动，确定性重放）",
+ "trace": "d49d4f3b-34a5-4f76-bd65-6e27dc8f6301.jsonl",
+ "requests_with_usage": 2,
+ "usage_sequence": [
+  {
+   "line": 6,
+   "prompt_tokens": 29810,
+   "output_tokens": null,
+   "call": "Read"
+  },
+  {
+   "line": 8,
+   "prompt_tokens": 50387,
+   "output_tokens": null,
+   "call": "Write"
+  }
+ ],
+ "read_call": {
+  "line": 6,
+  "prompt_tokens": 29810
+ },
+ "write_call": {
+  "line": 8,
+  "prompt_tokens": 50387
+ },
+ "delta_prompt_tokens": 20577,
+ "thresholds": {
+  "inline_ge": 6000,
+  "spill_lt": 3000,
+  "basis": "PREREG l22-20261102; 存量376轮间增量 median1205/p90 4009; payload≈8-10K tok"
+ },
+ "classification": "inline_like",
+ "answer_exact_match": true
+}

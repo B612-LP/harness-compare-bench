@@ -1,0 +1,63 @@
+{
+ "schema_version": 2,
+ "run_id": "r20261102-mechdesk:workbuddy:spill35k:r1",
+ "event_id": "r20261102-mechdesk:workbuddy:spill35k:r1",
+ "category": "experiment",
+ "case": "mechdesk-spill35k",
+ "rep": 1,
+ "slot_suffix": "",
+ "case_version": "mechdesk-fixture@fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+ "product": {
+  "name": "WorkBuddy",
+  "version": "5.9.3",
+  "form": "GUI-desktop",
+  "group": "W_gateway"
+ },
+ "model": {
+  "ui_model_id": "deepseek-v4.1-flash",
+  "observed_model": "DeepSeek V4.1-Flash",
+  "thought_level": "low",
+  "scope": "ui_selection_only; backend identity unverified"
+ },
+ "tools": {
+  "observed": [
+   "file read (payload_large.txt)",
+   "file write (answer.txt)"
+  ],
+  "note": "native product tools; single-session two-call fixture task"
+ },
+ "permissions": {
+  "permission_mode": "fullAccess",
+  "note": "native session metadata, not an isolation guarantee"
+ },
+ "skills": {
+  "evaluator_extra_injection": false,
+  "note": "no evaluator injection; absence of observed skill call does not prove global disable"
+ },
+ "runtime": {
+  "started_at": "2026-11-02T13:58:45+08:00",
+  "ended_at": "2026-11-02T13:58:56+08:00",
+  "completion_status": "completed",
+  "completion_method": "database_terminal_and_stable_5s (driver default)"
+ },
+ "evidence_grade": "product-reported-usage+sanitized-derived;raw-session-trace-private",
+ "final_adjudication": "V",
+ "fixture": {
+  "bytes": 35767,
+  "sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+  "byte_identical_to_r20261029_mechanism": true
+ },
+ "answer_exact_match": true,
+ "classification": "inline_like",
+ "delta_prompt_tokens": 20577,
+ "anchors": {
+  "dsh_spill512_repl01_delta": 1071,
+  "dsh_spill512_repl02_delta": 1052,
+  "codex_repl01_delta": 6483,
+  "supplementary_r20261029_dsh_large_fixture": {
+   "full_arm_deltas": [19254, 19254],
+   "bounded512_arm_deltas": [1066, 1049]
+  },
+  "source": "1-评测方案/机制复制-2026-10-29/RESULTS.md repl 表（公开）；补充项出自 3-表现现场/r20261029-mechanism/analysis.json 逐请求差分（公开可复算）"
+ }
+}

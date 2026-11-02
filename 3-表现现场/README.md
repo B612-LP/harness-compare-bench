@@ -19,6 +19,7 @@
 | [r1029](<r1029-desktop-auto/README.md>) | 桌面全自动批（WB/豆包×新五题） | 2026-10-25 新增：CDP/RPC 零打扰自动跑批原场，含 [PRIVATE-HOST-OMITTED] 隔离判卷与复核结论 |
 | [r1105](<r1105-bare-matrix/README.md>) | 现行五题×裸模型探针矩阵（2026-11-01） | C 组底数：bare headline 3/5，达标/未达标题集与双 CLI 正式账重合，但同题分数与失败断言集互异（tb bare 70.37 对 codex 81.48/dsh 74.07，失败集两两互异）；不入正式表，只作 A−C 归因对照 |
 | [r20261101-wb-n3](<r20261101-wb-n3/README.md>) | WorkBuddy n=3 重复性批（2026-11-01） | W 组观察账：结果面逐题零翻转（headline 3/5 重合）、加权分有真实波动带；零正式表准入 |
+| [r20261102-mechdesk](<r20261102-mechdesk/README.md>) | 机制面桌面复制 W 臂（2026-11-02，experiment） | 机制夹具单槽探针（n=1）：桌面 W 无「外溢→骤降」，Δ=+20,577 判 inline_like，与 DSH spill 侧/Codex inline 侧三形态对照；experiment 账不入正式表 |
 | [r20261101-doubao-n3](<r20261101-doubao-n3/README.md>) | 豆包 n=3 重复性批（2026-11-01） | B 组观察账：bird/dabstep/exercism 三重零翻转、lcb/tb 真实波动带、两额度事件改期闭环；零正式表准入 |
 | [r20261101-yuanbao-n3](<r20261101-yuanbao-n3/README.md>) | 元宝 n=3 重复性批（2026-11-01） | B 组观察账：11 valid+11 launch_invalid、tb 内容门判别探针、交付通道间歇性主导；零正式表准入 |
 
