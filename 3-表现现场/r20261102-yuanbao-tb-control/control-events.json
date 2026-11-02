@@ -1,0 +1,73 @@
+{
+ "schema_version": 2,
+ "batch": "r20261102-yuanbao-tb-control",
+ "note": "元宝 tb 内容门两轮判别（diagnosis probe，零正式表准入）：两臂各一次发送、单发协议不重试。product_run 计数承机制探针先例（真实产品发送、判废/诊断≠非产品运行）。",
+ "events": [
+  {
+   "event_id": "r20261102-yuanbao-tb-control:preflight",
+   "category": "interface_preflight",
+   "at": "2026-11-02T17:20:27+08:00",
+   "app_version": "Edg/156.0.4314.58",
+   "cookie_ok": true,
+   "expert_mode_selected": true,
+   "note": "零产品消息发送；仅页面/档位/凭据可达性（bench Edge 9334 专用 profile）"
+  },
+  {
+   "event_id": "r20261102-yuanbao-tb-control:yuanbao:tb-cargo-plan:ctl1",
+   "category": "product_run",
+   "at": "2026-11-02T17:23:12+08:00",
+   "kind": "content_gate_probe",
+   "arm": "automated_bench_edge9334",
+   "case": "tb-cargo-plan",
+   "rep": "ctl1",
+   "rule_frozen_ref": "freeze-20261031-wb-v2",
+   "protocol": "b1-replica:expert-mode+inputs_as.txt-upload+v3-completion（与被吞 r1b/r2b 同机同驱动）",
+   "prompt_sha256": "d276f59a40f2e0bc2ac96cf0540336772946f819b28077434c45c867b78c415f",
+   "inputs_as_sha256": "35515de4568da048cd2df1fe573a419ff505e5ed696ae0df5ba45e4efa3392f7",
+   "payload_identical_to": [
+    "r20261101-yuanbao-n3:yuanbao:tb-cargo-plan:r1b",
+    "r20261101-yuanbao-n3:yuanbao:tb-cargo-plan:r2b"
+   ],
+   "result": "send_swallowed_no_conversation",
+   "conversation_created": false,
+   "midflight_diagnostic": {
+    "at": "2026-11-02T17:33:00+08:00",
+    "composer_synced_chars": 1488,
+    "attachment_chip": 1,
+    "url": "/chat/naQivTmsDa（无新会话）",
+    "generating_state": false
+   },
+   "failed_at": "2026-11-02T17:38:26+08:00",
+   "failure_string": "发送失败:Enter+900s 重试窗内均未生效(Quill 已同步)",
+   "failure_string_byte_identical_to": [
+    "r20261101-yuanbao-n3:yuanbao:tb-cargo-plan:r1b",
+    "r20261101-yuanbao-n3:yuanbao:tb-cargo-plan:r2b"
+   ],
+   "app_version": "Edg/156.0.4314.58",
+   "model": {
+    "exposure": "B组开箱默认，产品未暴露模型 id"
+   },
+   "zero_official_admission": true,
+   "probe_outcome": "swallow_reproduced"
+  },
+  {
+   "event_id": "r20261102-yuanbao-tb-control:yuanbao:tb-cargo-plan:manual",
+   "category": "product_run",
+   "at": "2026-11-02T17:22:00+08:00",
+   "kind": "content_gate_probe",
+   "arm": "manual_user_browser",
+   "case": "tb-cargo-plan",
+   "protocol": "用户本人浏览器手动上传附件+原样粘贴题面发送（与自动臂同载荷，SHA 逐位一致）",
+   "prompt_sha256": "d276f59a40f2e0bc2ac96cf0540336772946f819b28077434c45c867b78c415f",
+   "inputs_as_sha256": "35515de4568da048cd2df1fe573a419ff505e5ed696ae0df5ba45e4efa3392f7",
+   "result": "text_delivered_attachment_stripped",
+   "conversation_created": true,
+   "conversation_title": "货运航班计划器排障长程调试",
+   "assistant_reply_transcript": "The attachment inputs_as.txt was not uploaded to the sandbox — only the task description text came through",
+   "assistant_followup": "请求重传附件并列出重传后 4 步计划；按单发协议未重传、不再发送",
+   "evidence_grade": "operator-transcribed（截图存私档，公开层只引转写）",
+   "zero_official_admission": true,
+   "probe_outcome": "attachment_strip_observed"
+  }
+ ]
+}

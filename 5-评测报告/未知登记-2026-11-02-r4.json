@@ -1,0 +1,67 @@
+{
+  "registered_at": "2026-11-02",
+  "registered_in": "元宝 tb 内容门两轮判别收口（判别现场 3-表现现场/r20261102-yuanbao-tb-control/；私档 yuanbao-tb-control-20261102/）",
+  "supersedes": "未知登记-2026-11-02-r3.json",
+  "note": "承 r3 四项。变更：①yuanbao-tb-content-gate 按两轮独立判别结果结清（r3 停止条件「两轮独立判别结论一致」达成）；②证据指针修正为公开仓根相对路径（r3 中「runs/_diagnosis/probe-tb-content-gate.json」缺目录前缀属指针缺陷，r3 为 dated snapshot 原样保留不改）；③edge 项补记同日工具修复事实，关闭条件不变。逐项三件套（影响/下一步/停止条件）；证据路径均为公开仓根相对路径。",
+  "items": [
+    {
+      "id": "yuanbao-tb-content-gate",
+      "resolution": "closed (2026-11-02，停止条件达成)",
+      "knowledge_status": "known",
+      "investigation_status": "closed_two_round_discrimination",
+      "confound_status": "partially_excluded (产品侧门控成立；门控内部机制仍黑盒)",
+      "summary": "两轮独立判别（2026-11-02）：自动臂（bench Edge 9334，与失败槽 r1b/r2b 同机同驱动）原题面+附件发射被整体吞没（编辑器已同步 1488 字符、附件 chip=1，900 秒窗无会话创建，报错串与 r1b/r2b 逐字节相同）；人工臂（用户本人浏览器手动上传+粘贴）文本送达建会话、智能体正常回复但自述附件未进入沙箱并请求重传。tb 载荷两条通路都无法完成任务；失败形态随通路变化（自动化=整体吞没、人工=附件剥离）。单发协议，未重试未重传。",
+      "impact": "元宝批 tb 列 0 个有效运行（不变），B 组元宝 tb 格无产品成绩；不影响其他题列与其他产品行。判别将该失败明确归位为产品侧内容门控（非评测系统、驱动或基础设施问题）。额度消耗：自动臂 1 次发送（未建会话）+人工臂 1 次发送。",
+      "next_step": "不再发射、不再消耗额度（停止条件已达成）。若产品方公开风控说明或修复，可用同载荷（SHA 随判别现场事件收据）单次复评；评测侧不改题面绕行（守住题面冻结）。",
+      "stop_condition": "已达成：两轮独立判别（自动+人工）结论一致（2026-11-02）。备选条件（产品方公开风控说明）未发生；结清后仅在产品方公开说明/修复触发单次复评。",
+      "evidence": [
+        "3-表现现场/r20261102-yuanbao-tb-control/control-events.json",
+        "3-表现现场/r20261102-yuanbao-tb-control/README.md",
+        "3-表现现场/r20261101-yuanbao-n3/runs/_diagnosis/probe-tb-content-gate.json",
+        "3-表现现场/r20261101-yuanbao-n3/batch-summary.json"
+      ]
+    },
+    {
+      "id": "yuanbao-revamp-delivery-and-swallow-gate",
+      "knowledge_status": "unknown",
+      "investigation_status": "observed_not_explained",
+      "confound_status": "not_excluded",
+      "summary": "2026-11-01 远端前端改版（Quill 编辑器+新发送组件）后出现两类间歇性产品侧行为：交付通道间歇性（12 个有效运行中 3 场交付文件卡片：bird r2c、dabstep r1c、bird r3；其余以围栏/贴文交付）与发送吞没门（内容已同步、点击 3 秒~15 分钟不定被吞，与附件大小无关）。",
+      "impact": "元宝 B 组结果面波动的一部分（8 场 0 分中多数与交付形式直接相关）；跨轮可比性受限；豆包/CLI 轨不受影响。",
+      "next_step": "后续元宝批批前执行内容/交付双探针定性当日产品行为；逐 run 版本采集修复已完成（见 edge 项），修复后批次的交付通道状态与版本可对齐记录。",
+      "stop_condition": "连续两批交付行为稳定（全卡片或全围栏）且吞没门不再复现，可降级为 accepted_limitation。",
+      "evidence": [
+        "3-表现现场/r20261101-yuanbao-n3/README.md",
+        "3-表现现场/r20261101-yuanbao-n3/batch-summary.json"
+      ]
+    },
+    {
+      "id": "desktop-quota-window-volatility",
+      "knowledge_status": "unknown",
+      "investigation_status": "protocol_managed",
+      "confound_status": "disclosed_not_controlled",
+      "summary": "豆包/元宝产品时段额度由产品侧控制，恢复时间仅产品文案明示（如「预计今日 21:42 恢复」），实际恢复时点有波动。",
+      "impact": "额度改期引入 4~6 小时不等的时间间隔，未作为变量控制；豆包批两次改期槽（exercism r2b、tb r3b）结果落在对应题历史波动带内，未见异常，但样本不足以断言零影响。",
+      "next_step": "沿用既定协议：额度文案先读再归因、改期一次、如实披露间隔；不在恢复时间上做任何推测性补跑。",
+      "stop_condition": "产品提供正式配额文档或配额事件不再发生；协议本身长期有效。",
+      "evidence": [
+        "3-表现现场/r20261101-doubao-n3/README.md"
+      ]
+    },
+    {
+      "id": "edge-auto-update-and-driver-version-gap",
+      "knowledge_status": "unknown",
+      "investigation_status": "mitigation_in_progress",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "桌面浏览器自动更新不可关闭（批末实测 Edg/156.0.4314.58，批初浏览器版本无逐槽采集收据）；且元宝驱动逐 run 产品/浏览器版本采集在改版后失效（runs/*/after.json app_version_after=null，仅 L21 补槽 bird r3 起在台账逐槽记录 Edge 版本）。",
+      "impact": "元宝批 22 个历史槽无逐 run 浏览器版本（批级以「Edge 桌面交付+会话时点」披露，主报告 §5.1 同）；跨批环境精确复现不可能，只能披露到日/时点粒度。",
+      "next_step": "版本采集修复已于 2026-11-02 实施（CDP /json/version 实时读取，拒连/异常体降级 unknown 不伪造；三例验证收据存私档），2026-11-02 判别现场预检已产出非空版本；关闭条件仍待修复后连续一批逐 run 版本非空。历史 22 槽不可回补（write-once），以本登记与批 README 披露为准。",
+      "stop_condition": "修复后连续一批逐 run 版本字段非空即视为工具缺陷关闭；浏览器自动更新本身不可关闭，长期以披露为准。",
+      "evidence_note": "edge 项第一指针注记：preflight 事件 app_version 非空（Edg/156.0.4314.58）",
+      "evidence": [
+        "3-表现现场/r20261102-yuanbao-tb-control/control-events.json",
+        "3-表现现场/r20261101-yuanbao-n3/README.md"
+      ]
+    }
+  ]
+}
