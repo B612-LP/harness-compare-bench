@@ -1,6 +1,6 @@
 # r1105-bare-matrix 结果（2026-11-01）
 
-> 协议：PREREG l18-20261101（SHA `8856759c…`，先于实现）；裸模型 = deepseek-flash @ `/responses` 单轮、无系统提示、无工具；prompt = instruction.md 原文 + 声明内联包 + 交付约定（逐场 prompt SHA-256 与字节数在 meta.json）；arm `inline-low` 钉 `reasoning.effort=low`（[预检收据](<preflight-reasoning-pin.md>)），arm `inline-default` 不传参。**bare 行不入正式表（PREREG 预声明）；本批结果不改变报告 v1.2 任何数字。**
+> 协议：PREREG l18-20261101（SHA `8856759c…`，先于实现）；裸模型 = deepseek-flash @ `/responses` 单轮、无系统提示、无工具；prompt = instruction.md 原文 + 声明内联包 + 交付约定（逐场 prompt SHA-256 与字节数在 meta.json）；arm `inline-low` 钉 `reasoning.effort=low`（[预检收据](<preflight-reasoning-pin.md>)），arm `inline-default` 不传参。**bare 行不入正式表（PREREG 预声明）；本批结果不改变报告 v1.2 任何数字。**（2026-11-03 注：本句写作时现行报告为 v1.2，现已演进至 v1.3；本批不入正式表的事实状态不变。）
 
 ## 结果矩阵
 

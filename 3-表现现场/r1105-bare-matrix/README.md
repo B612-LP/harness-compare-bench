@@ -1,6 +1,6 @@
 # r1105-bare-matrix —— 现行五题 × 裸模型探针矩阵（2026-11-01）
 
-> **定位**：C 组裸模型底数（现行定案五题版）。单轮 `/responses`、无系统提示、无工具、prompt = instruction.md 原文 + 声明内联输入包 + 交付约定；模型 `deepseek-flash`（官方端点），arm `inline-low` 钉 `reasoning.effort=low`（[预检收据](<preflight-reasoning-pin.md>)），arm `inline-default` 默认档敏感性对照。**本批不入正式表；不改变报告 v1.2 任何数字。**
+> **定位**：C 组裸模型底数（现行定案五题版）。单轮 `/responses`、无系统提示、无工具、prompt = instruction.md 原文 + 声明内联输入包 + 交付约定；模型 `deepseek-flash`（官方端点），arm `inline-low` 钉 `reasoning.effort=low`（[预检收据](<preflight-reasoning-pin.md>)），arm `inline-default` 默认档敏感性对照。**本批不入正式表；不改变报告 v1.2 任何数字。**（2026-11-03 注：本句写作时现行报告为 v1.2，现已演进至 v1.3；本批不入正式表的事实状态不变。）
 > 命名沿用 r1030–r1104 的流水号延续（README 索引声明的日期制自 r1030 起被事实延续所覆盖，如实注记）。
 
 - **结果**：[RESULTS.md](<RESULTS.md>)（五段结构 4 条结论）——bare headline 3/5，达标/未达标题集与 A 组双 CLI 正式账重合；同题分数与失败断言集互异（tb 裸 70.37/19 项对正式账 codex 81.48、dsh 74.07；bird 同分不同错题），不构成「同构」——详见结论一/四的修正口径。
