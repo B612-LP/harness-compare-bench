@@ -17,6 +17,12 @@
 | [r1027](<r1027-isolated/README.md>) | 四场仓外工作区+软约束重跑 | 组合干预，不能归为隔离单因素效果；Cargo归档代码补录须披露来源/时间边界 |
 | [r1028](<r1028-repeats/README.md>) | 十二场CLI重复样本 | 每格n=3仅为观察；不能证明无噪声、打平写死或模型上限 |
 | [r1029](<r1029-desktop-auto/README.md>) | 桌面全自动批（WB/豆包×新五题） | 2026-10-25 新增：CDP/RPC 零打扰自动跑批原场，含 [PRIVATE-HOST-OMITTED] 隔离判卷与复核结论 |
+| [r20261029-mechanism](<r20261029-mechanism/README.md>) | 机制实验证据索引（2026-10-29） | 机制研究场证据入口（固定六场，未挑样），详见 [机制实验方案与五段结果](<../1-评测方案/机制实验-2026-10-29/README.md>)；报告机制面对照的出处索引 |
+| [r1030-formal-a1](<r1030-formal-a1/README.md>) | 首批正式准入批 A 组（CLI×现行五题，freeze-20261029-v2） | A 组正式表来源；DSH 轨迹公开侧为脱敏派生件，公开复算 5 pass/0 fail/5 incomplete、分值不变 |
+| [r1031-variance-n3](<r1031-variance-n3/README.md>) | CLI n=3 可重复性批（2026-10-29，rep1=r1030） | A 组稳定性观察；验收结论见[可重复性 n=3 RESULTS](<../5-评测报告/可重复性-n3-2026-10-29/RESULTS.md>) |
+| [r1101-formal-b1](<r1101-formal-b1/README.md>) | B 组首批正式准入批（元宝/豆包×现行五题，freeze-20261029-v4） | B 组正式表来源；含豆包桌面越界污染场按判定纪律 X 整场排除的裁定留档 |
+| [r1102-formal-b2](<r1102-formal-b2/README.md>) | 豆包×exercism 作废重跑批（freeze-20261029-v5） | B_native=1 准入（weighted 83.33）；运行记录模板 v2 首个执行批 |
+| [r1104-formal-b3](<r1104-formal-b3/README.md>) | 豆包×tb 作废重跑批（freeze-20261029-v6） | b1 污染 X 排除后的配额制重跑，B 组 tb 格来源 |
 | [r1105](<r1105-bare-matrix/README.md>) | 现行五题×裸模型探针矩阵（2026-11-01） | C 组底数：bare headline 3/5，达标/未达标题集与双 CLI 正式账重合，但同题分数与失败断言集互异（tb bare 70.37 对 codex 81.48/dsh 74.07，失败集两两互异）；不入正式表，只作 A−C 归因对照 |
 | [r20261101-wb-n3](<r20261101-wb-n3/README.md>) | WorkBuddy n=3 重复性批（2026-11-01） | W 组观察账：结果面逐题零翻转（headline 3/5 重合）、加权分有真实波动带；零正式表准入 |
 | [r20261102-mechdesk](<r20261102-mechdesk/README.md>) | 机制面桌面复制 W 臂（2026-11-02，experiment） | 机制夹具单槽探针（n=1）：桌面 W 无「外溢→骤降」，Δ=+20,577 判 inline_like，与 DSH spill 侧/Codex inline 侧三形态对照；experiment 账不入正式表 |
