@@ -1,0 +1,87 @@
+{
+ "schema_version": 2,
+ "run_id": "r20261101-wb-n3:workbuddy:exercism-py-6:r3",
+ "event_id": "r20261101-wb-n3:workbuddy:exercism-py-6:r3",
+ "category": "product_run",
+ "rep": 3,
+ "case": "exercism-py-6",
+ "case_version": "exercism-py-6@sha256:7913a1ad769f1f9e002b5473375ea3ddf076bad152e2fed8f50c514ff3e2420c",
+ "product": {
+  "name": "WorkBuddy",
+  "version_before": "5.9.3",
+  "version_after": "5.9.3",
+  "form": "GUI",
+  "group": "W_gateway"
+ },
+ "model": {
+  "ui_model_id": "deepseek-v4.1-flash",
+  "observed_model": "deepseek-v4.1-flash",
+  "thought_level": "low",
+  "scope": "ui_selection_only; backend identity unverified, no same-model attribution"
+ },
+ "tools": {
+  "observed_call_counts": {
+   "Bash": 14,
+   "Read": 12,
+   "Write": 7,
+   "Edit": 4
+  },
+  "network_tools_observed": 0,
+  "note": "native product tools; every call reviewed offline"
+ },
+ "permissions": {
+  "permission_mode": "fullAccess",
+  "use_sandbox_cli": 0,
+  "mode": "craft",
+  "note": "native session metadata, not an isolation guarantee"
+ },
+ "skills": {
+  "evaluator_extra_injection": false,
+  "native_skill_calls": [],
+  "note": "no evaluator injection; absence of observed skill call does not prove global disable"
+ },
+ "runtime": {
+  "started_at": "2026-11-01T14:19:20+08:00",
+  "ended_at": "2026-11-01T14:22:12+08:00",
+  "duration_s": 168.3,
+  "completion_status": "completed",
+  "completion_method": "database_terminal_and_stable_5s",
+  "timeout_s": 2400
+ },
+ "evidence_grade": "private-originals+frozen-checker-sandbox-grade;receipts write-once",
+ "final_adjudication": "V",
+ "rule_ref": {
+  "contract": "freeze-20261031-wb-v2",
+  "lock_sha256": "e2f52839c444f9e7430110ddae26e719e0c59a89d57fd432901801bff2bc36d7",
+  "config_sha256": "8a9ad1b826ccff104bc8fb5c9d4c9fc3c86b4cd9592fc4a09662eebf9cf18c00"
+ },
+ "session": {
+  "id": "6cebf349-4795-4387-81b4-f74f8d085c94",
+  "prompt_sha256": "f0ad64c24a3368fbad58a550371b8b1fb974478cd3cd19f513affb5a08a7cb23",
+  "workspace": "<local-path>/r20261101-wb-n3/exercism-py-6__r3/workbuddy/exercism-py-6"
+ },
+ "grade": {
+  "category": "offline_recompute",
+  "returncode": 0,
+  "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+  "profile_sha256": "e723c0c6ceb36a4b539560c7139eba8df43d163152172b33b5977a07b269e6ce",
+  "reward": 1,
+  "weighted": 100.0,
+  "passed": null,
+  "total": null,
+  "review_sha256": "4fb253544156e33fe0f0d8622a66217978dca9a726b29e988534bf111a5dcad9"
+ },
+ "unknowns": [
+  {
+   "item": "后端模型身份/参数映射",
+   "impact": "仅限制同模型归因；非其他闸门豁免",
+   "next_step": "等待可独立核验的后端请求证据",
+   "stop_condition": "无新增证据保持 unknown，不推断同模型控制"
+  }
+ ],
+ "batch": {
+  "id": "r20261101-wb-n3",
+  "nature": "repeatability;zero-admission;never-official-table"
+ },
+ "grading_execution_receipt_sha256": "815a00840dfded2c5762f8321b91f74db7166353a40bcfaed20b977637f18a7b"
+}

@@ -1,0 +1,86 @@
+{
+ "schema_version": 2,
+ "run_id": "r20261101-wb-n3:workbuddy:dabstep-payments-10:r3",
+ "event_id": "r20261101-wb-n3:workbuddy:dabstep-payments-10:r3",
+ "category": "product_run",
+ "rep": 3,
+ "case": "dabstep-payments-10",
+ "case_version": "dabstep-payments-10@sha256:2ad97f7f19a9e4f257798a4cd944682d15caaf2aa42c946db1b56a291c524cd3",
+ "product": {
+  "name": "WorkBuddy",
+  "version_before": "5.9.3",
+  "version_after": "5.9.3",
+  "form": "GUI",
+  "group": "W_gateway"
+ },
+ "model": {
+  "ui_model_id": "deepseek-v4.1-flash",
+  "observed_model": "deepseek-v4.1-flash",
+  "thought_level": "low",
+  "scope": "ui_selection_only; backend identity unverified, no same-model attribution"
+ },
+ "tools": {
+  "observed_call_counts": {
+   "Read": 2,
+   "Bash": 21,
+   "present_files": 1
+  },
+  "network_tools_observed": 0,
+  "note": "native product tools; every call reviewed offline"
+ },
+ "permissions": {
+  "permission_mode": "fullAccess",
+  "use_sandbox_cli": 0,
+  "mode": "craft",
+  "note": "native session metadata, not an isolation guarantee"
+ },
+ "skills": {
+  "evaluator_extra_injection": false,
+  "native_skill_calls": [],
+  "note": "no evaluator injection; absence of observed skill call does not prove global disable"
+ },
+ "runtime": {
+  "started_at": "2026-11-01T14:16:02+08:00",
+  "ended_at": "2026-11-01T14:19:19+08:00",
+  "duration_s": 195.5,
+  "completion_status": "completed",
+  "completion_method": "database_terminal_and_stable_5s",
+  "timeout_s": 1800
+ },
+ "evidence_grade": "private-originals+frozen-checker-sandbox-grade;receipts write-once",
+ "final_adjudication": "F",
+ "rule_ref": {
+  "contract": "freeze-20261031-wb-v2",
+  "lock_sha256": "e2f52839c444f9e7430110ddae26e719e0c59a89d57fd432901801bff2bc36d7",
+  "config_sha256": "8a9ad1b826ccff104bc8fb5c9d4c9fc3c86b4cd9592fc4a09662eebf9cf18c00"
+ },
+ "session": {
+  "id": "0c66d24a-8f07-4a6b-8943-f9338ff78d0a",
+  "prompt_sha256": "fc31f0a25b08f5ad4582aae333899253edebb653f9ba418446b62fb19298ef6d",
+  "workspace": "<local-path>/r20261101-wb-n3/dabstep-payments-10__r3/workbuddy/dabstep-payments-10"
+ },
+ "grade": {
+  "category": "offline_recompute",
+  "returncode": 1,
+  "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+  "profile_sha256": "d68764d228021e90f9f94533a6dd6d62260acd3d965337070ec56476bb7b4cf9",
+  "reward": 0,
+  "weighted": 70.0,
+  "passed": null,
+  "total": null,
+  "review_sha256": "71c43c58e541067411731d6bfad465e55ecefbd3fa6699fcc55925dc99398e01"
+ },
+ "unknowns": [
+  {
+   "item": "后端模型身份/参数映射",
+   "impact": "仅限制同模型归因；非其他闸门豁免",
+   "next_step": "等待可独立核验的后端请求证据",
+   "stop_condition": "无新增证据保持 unknown，不推断同模型控制"
+  }
+ ],
+ "batch": {
+  "id": "r20261101-wb-n3",
+  "nature": "repeatability;zero-admission;never-official-table"
+ },
+ "grading_execution_receipt_sha256": "e494560abfe8fabc0186205f426206a46970344c4a57541a4ba98f8effc27f02"
+}

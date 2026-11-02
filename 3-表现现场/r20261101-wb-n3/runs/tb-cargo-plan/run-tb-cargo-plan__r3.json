@@ -1,0 +1,87 @@
+{
+ "schema_version": 2,
+ "run_id": "r20261101-wb-n3:workbuddy:tb-cargo-plan:r3",
+ "event_id": "r20261101-wb-n3:workbuddy:tb-cargo-plan:r3",
+ "category": "product_run",
+ "rep": 3,
+ "case": "tb-cargo-plan",
+ "case_version": "tb-cargo-plan@sha256:fa0165237440b614ec13bd196ae03135fdd43fecb2d40ab90442fe91a340a5c5",
+ "product": {
+  "name": "WorkBuddy",
+  "version_before": "5.9.3",
+  "version_after": "5.9.3",
+  "form": "GUI",
+  "group": "W_gateway"
+ },
+ "model": {
+  "ui_model_id": "deepseek-v4.1-flash",
+  "observed_model": "deepseek-v4.1-flash",
+  "thought_level": "low",
+  "scope": "ui_selection_only; backend identity unverified, no same-model attribution"
+ },
+ "tools": {
+  "observed_call_counts": {
+   "Bash": 11,
+   "Read": 5,
+   "Write": 3,
+   "Edit": 2
+  },
+  "network_tools_observed": 0,
+  "note": "native product tools; every call reviewed offline"
+ },
+ "permissions": {
+  "permission_mode": "fullAccess",
+  "use_sandbox_cli": 0,
+  "mode": "craft",
+  "note": "native session metadata, not an isolation guarantee"
+ },
+ "skills": {
+  "evaluator_extra_injection": false,
+  "native_skill_calls": [],
+  "note": "no evaluator injection; absence of observed skill call does not prove global disable"
+ },
+ "runtime": {
+  "started_at": "2026-11-01T14:37:14+08:00",
+  "ended_at": "2026-11-01T14:40:35+08:00",
+  "duration_s": 198.3,
+  "completion_status": "completed",
+  "completion_method": "database_terminal_and_stable_5s",
+  "timeout_s": 2400
+ },
+ "evidence_grade": "private-originals+frozen-checker-sandbox-grade;receipts write-once",
+ "final_adjudication": "F",
+ "rule_ref": {
+  "contract": "freeze-20261031-wb-v2",
+  "lock_sha256": "e2f52839c444f9e7430110ddae26e719e0c59a89d57fd432901801bff2bc36d7",
+  "config_sha256": "8a9ad1b826ccff104bc8fb5c9d4c9fc3c86b4cd9592fc4a09662eebf9cf18c00"
+ },
+ "session": {
+  "id": "397645eb-ac67-4555-b491-25d04a2d0aaa",
+  "prompt_sha256": "6d41bb4e9b84ac14e74d9c3682ae3786111c6b612e54ab8d37e5c2afe8ba2733",
+  "workspace": "<local-path>/r20261101-wb-n3/tb-cargo-plan__r3/workbuddy/tb-cargo-plan"
+ },
+ "grade": {
+  "category": "offline_recompute",
+  "returncode": 0,
+  "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+  "profile_sha256": "b126e51e19173684077ce5873e2404c3b950cf5fbbf60023742f1b3e8ba64566",
+  "reward": 0,
+  "weighted": 74.07,
+  "passed": 20,
+  "total": 27,
+  "review_sha256": "d298e304d1654cdca5f73b8716b10ba3e616db3fa744ee7a9590a065ad019c2a"
+ },
+ "unknowns": [
+  {
+   "item": "后端模型身份/参数映射",
+   "impact": "仅限制同模型归因；非其他闸门豁免",
+   "next_step": "等待可独立核验的后端请求证据",
+   "stop_condition": "无新增证据保持 unknown，不推断同模型控制"
+  }
+ ],
+ "batch": {
+  "id": "r20261101-wb-n3",
+  "nature": "repeatability;zero-admission;never-official-table"
+ },
+ "grading_execution_receipt_sha256": "1fe5b93c033a950ae68236ad7f4663230a6e34caaa769cf8ee74e5d78ca7d7af"
+}

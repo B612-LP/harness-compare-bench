@@ -1,0 +1,88 @@
+{
+ "schema_version": 2,
+ "run_id": "r20261101-wb-n3:workbuddy:lcb-recent-hard-4:r1",
+ "event_id": "r20261101-wb-n3:workbuddy:lcb-recent-hard-4:r1",
+ "category": "product_run",
+ "rep": 1,
+ "case": "lcb-recent-hard-4",
+ "case_version": "lcb-recent-hard-4@sha256:d53d6e9e318c7a84d2103c3c75828a25be67aac645ab027a7b11624941b14a65",
+ "product": {
+  "name": "WorkBuddy",
+  "version_before": "5.9.3",
+  "version_after": "5.9.3",
+  "form": "GUI",
+  "group": "W_gateway"
+ },
+ "model": {
+  "ui_model_id": "deepseek-v4.1-flash",
+  "observed_model": "deepseek-v4.1-flash",
+  "thought_level": "low",
+  "scope": "ui_selection_only; backend identity unverified, no same-model attribution"
+ },
+ "tools": {
+  "observed_call_counts": {
+   "Read": 2,
+   "Bash": 25,
+   "Write": 9,
+   "Edit": 4,
+   "TaskOutput": 3
+  },
+  "network_tools_observed": 0,
+  "note": "native product tools; every call reviewed offline"
+ },
+ "permissions": {
+  "permission_mode": "fullAccess",
+  "use_sandbox_cli": 1,
+  "mode": "craft",
+  "note": "native session metadata, not an isolation guarantee"
+ },
+ "skills": {
+  "evaluator_extra_injection": false,
+  "native_skill_calls": [],
+  "note": "no evaluator injection; absence of observed skill call does not prove global disable"
+ },
+ "runtime": {
+  "started_at": "2026-11-01T13:26:17+08:00",
+  "ended_at": "2026-11-01T13:47:42+08:00",
+  "duration_s": 1280.7,
+  "completion_status": "completed",
+  "completion_method": "database_terminal_and_stable_5s",
+  "timeout_s": 3000
+ },
+ "evidence_grade": "private-originals+frozen-checker-sandbox-grade;receipts write-once",
+ "final_adjudication": "V",
+ "rule_ref": {
+  "contract": "freeze-20261031-wb-v2",
+  "lock_sha256": "e2f52839c444f9e7430110ddae26e719e0c59a89d57fd432901801bff2bc36d7",
+  "config_sha256": "8a9ad1b826ccff104bc8fb5c9d4c9fc3c86b4cd9592fc4a09662eebf9cf18c00"
+ },
+ "session": {
+  "id": "952a88e2-623c-403c-8edb-3dc59eb04156",
+  "prompt_sha256": "5d67cff8ccd4027eda24ab057f7404eea849950759b122be2a75b0d574568294",
+  "workspace": "<local-path>/r20261101-wb-n3/lcb-recent-hard-4__r1/workbuddy/lcb-recent-hard-4"
+ },
+ "grade": {
+  "category": "offline_recompute",
+  "returncode": 0,
+  "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+  "profile_sha256": "93de3cc4f0daf7c5827894e88b11dc5b28cc36fd2655b4b017a0b03258c9697e",
+  "reward": 1,
+  "weighted": 100.0,
+  "passed": null,
+  "total": null,
+  "review_sha256": "6d59d6ce149c248704111e66e8eb0b00f2e795a2409bfec2c659408df15d3ead"
+ },
+ "unknowns": [
+  {
+   "item": "后端模型身份/参数映射",
+   "impact": "仅限制同模型归因；非其他闸门豁免",
+   "next_step": "等待可独立核验的后端请求证据",
+   "stop_condition": "无新增证据保持 unknown，不推断同模型控制"
+  }
+ ],
+ "batch": {
+  "id": "r20261101-wb-n3",
+  "nature": "repeatability;zero-admission;never-official-table"
+ },
+ "grading_execution_receipt_sha256": "f1f7564473b70586b2ea4373f34c462f6dbc935953eaba6e515a2c5b9fa00ba2"
+}
