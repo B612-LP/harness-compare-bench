@@ -41,8 +41,8 @@
 
 ## 六、工具与自测（已完成，零发射）
 
-- [tools-judge-agreement.py](<tools-judge-agreement.py>) v1（sha256 b4ab33ede3f6f425bfb02bc06755f8e4145a249a8acb60485866e132588048db）：Cohen/Fleiss/百分一致/混淆矩阵/invalid 披露；write-once content-addressed 收据；退出码 0/1/2/3（PREREG 记 0/1/2，3=收据已存在拒写为实现加性补充，从严不减）。
-- 自测：合成解析解套件 T1–T7 共 12 断言全过（κ=1.0、κ=0、κ=−0.6、三 rater Fleiss=−1/3、invalid 剔除、空表拒绝、非法标签拒绝）；首跑 T6 缺陷（空表未拒绝）已修复，首跑收据 VOIDED 留档（judge-agreement-selftest-v1.json.v1-buggy-T6-VOIDED）。
+- [tools-judge-agreement.py](<tools-judge-agreement.py>) v1.1（sha256 ab64b47ea463c715d768b2dd32503dd26ab3d0099b275184c33345dfcbff7c87；v1=L38 `49974dae…`→docstring 修正 `b4ab33ed…`，修订史见私档 RESULTS）：Cohen/Fleiss/百分一致/混淆矩阵/invalid 披露；write-once content-addressed 收据；退出码 0/1/2/3（PREREG 记 0/1/2，3=收据已存在拒写为实现加性补充，从严不减）。**v1.1（L39）：validate() 强制每条 item 非空字符串 item_id，缺失/空→校验错误拒算（修 L38 验收 issue 5 静默剔除路径，修订五要素见私档 RESULTS-L39）；自测扩至 T1–T8 14 断言。**
+- 自测：合成解析解套件 v1.1 起为 T1–T8 共 14 断言全过（κ=1.0、κ=0、κ=−0.6、三 rater Fleiss=−1/3、invalid 剔除、空表拒绝、非法标签拒绝、缺 item_id 拒绝）；v1 期首跑 T6 缺陷（空表未拒绝）已修复，首跑收据 VOIDED 留档（judge-agreement-selftest-v1.json.v1-buggy-T6-VOIDED）。
 
 ## 七、未排除因素（如实）
 
@@ -61,3 +61,13 @@
 ## 九、收口路径
 
 协议+语料盘点+工具自测收据公开登记（4-打分细则/判卷器可信度协议-2026-11-03/）；环末向用户提案发射阶段（L39 预案）；未放行则协议挂起登记，不作任何 judge 调用。
+
+## 十、测项池（主项 B+C，L39 环 2026-11-03，零发射）
+
+- 机器账与人读版：[judgment-test-pool.json](<judgment-test-pool.json>)（sha256 58e37b8fd2da8e74ac135f3a390aa98c9e2ee2ab4b4313bf7916e3aea04096cb）与 [judgment-test-pool.md](<judgment-test-pool.md>)（sha256 2cd42318659c94cbdf4a69facfdead7ad012e270e784a1e88e6e8994414a5cb1）。验收后窄修（auditor I-1/I-2 各补一条口径声明，修前版本 ecf1bfc2…/659da999… 经双验收全过，修订记录见私档 RESULTS-L39）。
+- 池规模 **60 条**（P-001..P-060）= direct 17（HJ-049..063,070,071）+ 拆槽 21（HJ-069 十一槽逐槽 P-018..P-028、HJ-006 十探针逐探针 P-029..P-038，两源零缩减，gold=裁定内逐槽/逐探针判定原文）+ 构造 22（ruling×16+final_adjudication×1+correction_chain×5，裁定前视角三元组，结论只进 gold_provenance）。
+- gold 分布：pass 47 / fail 13 / uncertain 0（既有人工裁定均为二值，无 uncertain 设计位，如实披露）。
+- 池达 60 的实现路径与 §八预案一致（拆槽扩池+构造补足），构造条数 22 未超 PREREG 上限；不可忠实构造剔除 0、拆槽缩减 0；correction_chain 其余 8 条证据可构造但类型配额满未入池（宁少不凑，如实登记于 md）。
+- 每条 evidence[].path 仓根相对且 SHA-256 实测覆盖 60/60；quote 逐字回溯与独立复核 17 项见 md 自检段；转写声明 3 条（P-004/P-057..060/P-016）。
+- 判读力注记：HJ-069 逐槽 verdict 无成文判别口径、gold 全 pass（判别力弱，系忠实覆盖逐槽裁定的设计取舍）；本池发射阶段对这两项弱判别源保持披露。quote 分「行引逐字」与「声明转写」两类口径，发射组装 prompt 时转写类不得作逐字原文引用（口径判定见池 md §七）。
+- 发射（judge-DS/judge-GLM×60 测项≈120 调用）仍待用户单独放行，本环零模型调用。

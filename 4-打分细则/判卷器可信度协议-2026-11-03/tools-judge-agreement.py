@@ -81,7 +81,10 @@ def validate(table):
         if not isinstance(it, dict) or "ratings" not in it or not isinstance(it["ratings"], dict):
             errors.append(f"items[{idx}] 缺 item_id/ratings 或形态非法")
             continue
-        iid = it.get("item_id", f"item-{idx}")
+        iid = it.get("item_id")
+        if not isinstance(iid, str) or not iid.strip():
+            errors.append(f"items[{idx}] item_id 缺失或非非空字符串（v1.1 强制，防计算层静默剔除）")
+            continue
         if iid in seen_ids:
             errors.append(f"item_id 重复: {iid}")
         seen_ids.add(iid)
@@ -262,11 +265,18 @@ def selftest():
     r7, c7 = compute(mk([("maybe", "pass")], labels=("pass", "fail")))
     check("T7 exit bad-label", c7, 1)
 
+    # T8 缺 item_id → exit 1（v1.1 强制，防静默剔除）
+    t8 = {"raters": ["A", "B"], "labels": ["pass", "fail"],
+          "items": [{"ratings": {"A": "pass", "B": "pass"}}]}
+    r8, c8 = compute(t8)
+    check("T8 exit no-item_id", c8, 1)
+    check("T8 error mentions item_id", int(any("item_id" in e for e in r8.get("errors", []))), 1)
+
     fails = [c for c in checks if not c["ok"]]
     payload = {
         "tool": "tools-judge-agreement.py --selftest",
         "schema_version": SCHEMA_VERSION,
-        "fixture": "synthetic analytic-solution suite (T1-T7)",
+        "fixture": "synthetic analytic-solution suite (T1-T8; T8=v1.1 item_id enforcement)",
         "checks_total": len(checks),
         "fail_count": len(fails),
         "fails": fails,
