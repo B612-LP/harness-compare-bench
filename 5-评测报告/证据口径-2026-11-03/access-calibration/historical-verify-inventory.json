@@ -1,0 +1,101 @@
+{
+  "schema": "historical-verify-disclosure-inventory-v1",
+  "generated_at": "2026-11-03T11:46:32.572447+00:00",
+  "observation": "Documentation inventory only; no historical verify command reexecuted in this calibration.",
+  "source_id": "REPORT-DOC-001",
+  "records": [
+    {
+      "contract": "v2",
+      "documented_status": "current_public_tree_fails",
+      "reason": "Historical lock pins changed live registration.",
+      "scope": "Scores can be cross-checked through events; not a full seal success.",
+      "actual_exit_code_this_work": null,
+      "original_availability": "not_individually_checked",
+      "restore_condition": "Approved isolated original historical tree and correct contemporaneous dependencies.",
+      "current_documentation_baseline": "25ca6ea6d5ac5f085346a8014dad2b10a829df34",
+      "documented_command_template": "python3 -B 4-打分细则/可信冻结-2026-10-29-v2/freeze.py verify",
+      "command_executed_this_work": false,
+      "expected_exit_current_tree": "nonzero",
+      "tool_and_dependency_versions_this_work": "not_executed_not_fingerprinted; documentation inventory only",
+      "documentation_refs": [
+        "REPORT-DOC-001 section 9/10",
+        "TOOLS-INDEX-001 historical verification notes"
+      ]
+    },
+    {
+      "contract": "v3",
+      "documented_status": "current_public_tree_fails",
+      "reason": "Three pinned files moved to private archive.",
+      "scope": "Public derivative is not byte-identical original.",
+      "actual_exit_code_this_work": null,
+      "original_availability": "archive_index_claims_present_not_rechecked",
+      "restore_condition": "Approved isolated historical tree plus original private pins; never reseal current derivatives.",
+      "current_documentation_baseline": "25ca6ea6d5ac5f085346a8014dad2b10a829df34",
+      "documented_command_template": "python3 -B 4-打分细则/可信冻结-2026-10-29-v3/freeze.py verify",
+      "command_executed_this_work": false,
+      "expected_exit_current_tree": "nonzero",
+      "tool_and_dependency_versions_this_work": "not_executed_not_fingerprinted; documentation inventory only",
+      "documentation_refs": [
+        "REPORT-DOC-001 section 9/10",
+        "TOOLS-INDEX-001 historical verification notes"
+      ]
+    },
+    {
+      "contract": "v4",
+      "documented_status": "conditional_rebuild_required",
+      "reason": "Official output embeds live-registration build-time pin.",
+      "scope": "Do not label a fresh current-tree verify passed without a current receipt.",
+      "actual_exit_code_this_work": null,
+      "original_availability": "not_individually_checked",
+      "restore_condition": "Use documented deterministic rebuild in a separately authorized isolated copy.",
+      "current_documentation_baseline": "25ca6ea6d5ac5f085346a8014dad2b10a829df34",
+      "documented_command_template": "python3 -B 4-打分细则/可信冻结-2026-10-29-v4/freeze.py verify",
+      "command_executed_this_work": false,
+      "expected_exit_current_tree": "conditional_or_not_rechecked",
+      "tool_and_dependency_versions_this_work": "not_executed_not_fingerprinted; documentation inventory only",
+      "documentation_refs": [
+        "REPORT-DOC-001 section 9/10",
+        "TOOLS-INDEX-001 historical verification notes"
+      ]
+    },
+    {
+      "contract": "wb-v1/wb-v2",
+      "documented_status": "current_tree_readme_pin_drift_historical_baseline_exit0",
+      "reason": "Later authorized README link repair d1f0215 changed pinned README bytes.",
+      "target_baseline": "3ba8058",
+      "historical_exit_code_documented": 0,
+      "current_exit_code_documented": 2,
+      "actual_exit_code_this_work": null,
+      "scope": "No full new seal verification; historical success does not transfer to current tree.",
+      "original_availability": "not_individually_checked",
+      "restore_condition": "Approved isolated historical baseline with original dependencies and --imports input.",
+      "current_documentation_baseline": "25ca6ea6d5ac5f085346a8014dad2b10a829df34",
+      "documented_command_template": "python3 -B 4-打分细则/可信冻结-20261031-wb-{v1,v2}/freeze.py verify --imports <matching-events.json>; expand one version at a time",
+      "command_executed_this_work": false,
+      "expected_exit_current_tree": "nonzero",
+      "tool_and_dependency_versions_this_work": "not_executed_not_fingerprinted; documentation inventory only",
+      "documentation_refs": [
+        "REPORT-DOC-001 section 9/10",
+        "TOOLS-INDEX-001 historical verification notes"
+      ]
+    },
+    {
+      "contract": "v5/v6",
+      "documented_status": "report_lists_exit0",
+      "reason": "Report has separate verify entries; no new execution here.",
+      "actual_exit_code_this_work": null,
+      "original_availability": "not_individually_checked",
+      "restore_condition": "Obtain a current separately authorized verification receipt before stronger statement.",
+      "current_documentation_baseline": "25ca6ea6d5ac5f085346a8014dad2b10a829df34",
+      "documented_command_template": "python3 -B 4-打分细则/可信冻结-2026-10-29-{v5,v6}/freeze.py verify; expand one version at a time",
+      "command_executed_this_work": false,
+      "expected_exit_current_tree": "conditional_or_not_rechecked",
+      "tool_and_dependency_versions_this_work": "not_executed_not_fingerprinted; documentation inventory only",
+      "documentation_refs": [
+        "REPORT-DOC-001 section 9/10",
+        "TOOLS-INDEX-001 historical verification notes"
+      ]
+    }
+  ],
+  "shared_boundary": "SHA hashes are not signatures. Private ledger narrow checks are not all-archive narrative verification."
+}

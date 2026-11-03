@@ -1,0 +1,1224 @@
+{
+  "schema_version": 1,
+  "scope": "instrumented client-side assembly; one fixture and version; not formal A/B/W",
+  "serialization": "UTF-8 JSON ensure_ascii=False sort_keys=True separators=(comma,colon); selected input fields only; tool content decoded without wrapper",
+  "rows": [
+    {
+      "run_id": "confirm-b01-bounded",
+      "logical_slot_id": "confirm-b01-bounded",
+      "attempt_id": "confirm-b01-bounded-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "bounded",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 512,
+      "source_dir": "runs/confirm-b01-bounded",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 3506,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 3042,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 2382,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "6864ae3a62713c99bdfe5ee646dfb23011bb87e1d3fed0c7bbc405621ca47e86"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 2382,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        3626
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "67c44ad5c0e8213b1c5a171d87b7093edc61da3c3d9bc04ec76b66d380201817"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_WCY8rlCBJXPj957pPYDG0339",
+      "B_tool_returned": 1981,
+      "returned_tool_sha256": "b345d7588ab6a404c807998117cdb33343335f380eacbae1bfeddf9301dd4584",
+      "final_text": "{\"HEAD_KEY\":\"AMBER-731\",\"TAIL_KEY\":\"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b01-inline",
+      "logical_slot_id": "confirm-b01-inline",
+      "attempt_id": "confirm-b01-inline-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "inline",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 1000000,
+      "source_dir": "runs/confirm-b01-inline",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 37687,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 37223,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 36563,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "94c3ef2ddd5ce1caea514941cfcf17a0c894feb3d9bdef5e124c398e3eecb01c"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 36563,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        37807
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "94eccbf40c4129f936eb964996026e0e8da50c6a996001108901480ec6c1366d"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_ri4DvR3iR4WnOm5yqTTb5228",
+      "B_tool_returned": 35767,
+      "returned_tool_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+      "final_text": "{\"HEAD_KEY\":\"AMBER-731\",\"TAIL_KEY\":\"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b02-bounded",
+      "logical_slot_id": "confirm-b02-bounded",
+      "attempt_id": "confirm-b02-bounded-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "bounded",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 512,
+      "source_dir": "runs/confirm-b02-bounded",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 3506,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 3042,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 2382,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "707a3e45c3932e61c15e64cacffe7d545afac059ebfa4071f22e7c77dd5d3abc"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 2382,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        3626
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "0dfd349d1bc83be6cbbc4b92c470e347696a92ad8a5cd328378fa8c2979e76c4"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_XzqvhDRsffZtAfDgQmP53760",
+      "B_tool_returned": 1981,
+      "returned_tool_sha256": "b345d7588ab6a404c807998117cdb33343335f380eacbae1bfeddf9301dd4584",
+      "final_text": "{\"HEAD_KEY\": \"AMBER-731\", \"TAIL_KEY\": \"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b02-inline",
+      "logical_slot_id": "confirm-b02-inline",
+      "attempt_id": "confirm-b02-inline-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "inline",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 1000000,
+      "source_dir": "runs/confirm-b02-inline",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 37700,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 37236,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 36576,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "7000cdc2d82863e6a42863338a611c533c4cb9067421b2d336fc9055a88f059c"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 36576,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        37820
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "22a85be7de0c66b348397b45a5bdd6fc854a4dc51e534161a053853f869ded49"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_X99ooV7HfLQWrlzNtZiH7188",
+      "B_tool_returned": 35767,
+      "returned_tool_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+      "final_text": "{\"HEAD_KEY\": \"AMBER-731\", \"TAIL_KEY\": \"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b03-bounded",
+      "logical_slot_id": "confirm-b03-bounded",
+      "attempt_id": "confirm-b03-bounded-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "bounded",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 512,
+      "source_dir": "runs/confirm-b03-bounded",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 3506,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 3042,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 2382,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "2790f5fc9151a8fb42a90884c90312d415c8fc7a4f751a5970a1b10651cee55e"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 2382,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        3626
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "60de8fa248b4b7e294f73c85849ced20bc632d3b91aefe42c0ff49964f679219"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_d4WwTWJK78OQ5QpvHRIO8227",
+      "B_tool_returned": 1981,
+      "returned_tool_sha256": "b345d7588ab6a404c807998117cdb33343335f380eacbae1bfeddf9301dd4584",
+      "final_text": "{\"HEAD_KEY\":\"AMBER-731\",\"TAIL_KEY\":\"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b03-inline",
+      "logical_slot_id": "confirm-b03-inline",
+      "attempt_id": "confirm-b03-inline-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "inline",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 1000000,
+      "source_dir": "runs/confirm-b03-inline",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 37700,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 37236,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 36576,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "418c5d6d7307c24f963d96ab0c337697b4df0c7c37cedd82a20392584474e281"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 36576,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        37820
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "5693dbe6590555c06dfa345ece5ac1fcc7daebbf3bded256cfb89a7d35236eb3"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_T8uHeOvk5yiLlVfnztRE2942",
+      "B_tool_returned": 35767,
+      "returned_tool_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+      "final_text": "{\"HEAD_KEY\":\"AMBER-731\",\"TAIL_KEY\":\"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b04-bounded",
+      "logical_slot_id": "confirm-b04-bounded",
+      "attempt_id": "confirm-b04-bounded-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "bounded",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 512,
+      "source_dir": "runs/confirm-b04-bounded",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 3506,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 3042,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 2382,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "c5a24095ed0c80e67faf6e87af89007bc71da6a997dedc07320c6991f3997f78"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 2382,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        3626
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "26ef39d51971c19d695713003d4b5d656b241b8b1824fc7ac3cd9eedb114354d"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_mHyJAbOaAeCx2jq0AF7y3662",
+      "B_tool_returned": 1981,
+      "returned_tool_sha256": "b345d7588ab6a404c807998117cdb33343335f380eacbae1bfeddf9301dd4584",
+      "final_text": "{\"HEAD_KEY\":\"AMBER-731\",\"TAIL_KEY\":\"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b04-inline",
+      "logical_slot_id": "confirm-b04-inline",
+      "attempt_id": "confirm-b04-inline-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "inline",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 1000000,
+      "source_dir": "runs/confirm-b04-inline",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 37687,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 37223,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 36563,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "046e0c184644d5064e00515071c01ce8827dc75293473979be03be340a28ed72"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 36563,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        37807
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "c486ebf35fb53c8ca69904902ba6ba9ee12c0f8bc392baada0c9309b258e44ac"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_sYQTbqfL0TRICzRrLm8H5363",
+      "B_tool_returned": 35767,
+      "returned_tool_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+      "final_text": "{\"HEAD_KEY\":\"AMBER-731\",\"TAIL_KEY\":\"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b05-bounded",
+      "logical_slot_id": "confirm-b05-bounded",
+      "attempt_id": "confirm-b05-bounded-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "bounded",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 512,
+      "source_dir": "runs/confirm-b05-bounded",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 3506,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 3042,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 2382,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "8158d8fbe083d763ec28b2580de6a002f95840dc1d0b3aa8643cf72929b1aaa9"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 2382,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        3626
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "70048ada24243e6579cc1d956931886c83bcf7f017cd104648e933fed7d3817a"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_saXaSuHg4XiEpypddboL9278",
+      "B_tool_returned": 1981,
+      "returned_tool_sha256": "b345d7588ab6a404c807998117cdb33343335f380eacbae1bfeddf9301dd4584",
+      "final_text": "{\"HEAD_KEY\": \"AMBER-731\", \"TAIL_KEY\": \"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b05-inline",
+      "logical_slot_id": "confirm-b05-inline",
+      "attempt_id": "confirm-b05-inline-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "inline",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 1000000,
+      "source_dir": "runs/confirm-b05-inline",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 37687,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 37223,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 36563,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "f8891b90b5e709a169fa14cf8305b6753b031b35c21e257c02d1d6ac0041e59e"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 36563,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        37807
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "1730c462f650273ef9101253df9c1ead83e78af3593803d6edf0c4d8c9182216"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_6j4ismWHOL4jQPZ4GmIM5908",
+      "B_tool_returned": 35767,
+      "returned_tool_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+      "final_text": "{\"HEAD_KEY\":\"AMBER-731\",\"TAIL_KEY\":\"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b06-bounded",
+      "logical_slot_id": "confirm-b06-bounded",
+      "attempt_id": "confirm-b06-bounded-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "bounded",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 512,
+      "source_dir": "runs/confirm-b06-bounded",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 3506,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 3042,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 2382,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "1ef0e7a8faf092f5d6e2421f37f587ed330bdbc6c870ee31fd6ad087955a01aa"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 2382,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        3626
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "27ac65a1719b639ac77e2f9af0dfbf3495689b31b5c6e62ee93cadf12aa3f84d"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_7qiKba2nW5MXDfQGUeYT3929",
+      "B_tool_returned": 1981,
+      "returned_tool_sha256": "b345d7588ab6a404c807998117cdb33343335f380eacbae1bfeddf9301dd4584",
+      "final_text": "{\"HEAD_KEY\": \"AMBER-731\", \"TAIL_KEY\": \"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "confirm-b06-inline",
+      "logical_slot_id": "confirm-b06-inline",
+      "attempt_id": "confirm-b06-inline-attempt-1",
+      "product": "dsh",
+      "phase": "confirmation",
+      "arm": "inline",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 1000000,
+      "source_dir": "runs/confirm-b06-inline",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 37861,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 37397,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 36737,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "c951526cba9502a98e0ac73d6fc3333dd03d109867f2cc2c00ede3def456aad2"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 36737,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        37981
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "8533eeefaedd36e590c4187538988a35b3221e7589f9c9f228e04d3ac8f3dc08"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ehf3mREiDEgA6rNMgVd60952",
+      "B_tool_returned": 35767,
+      "returned_tool_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+      "final_text": "{\"HEAD_KEY\":\"AMBER-731\",\"TAIL_KEY\":\"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    },
+    {
+      "run_id": "pilot-dsh",
+      "logical_slot_id": "pilot-dsh",
+      "attempt_id": "pilot-dsh-attempt-1",
+      "product": "dsh",
+      "phase": "pilot",
+      "arm": "bounded",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 512,
+      "source_dir": "runs/pilot-dsh",
+      "process_exit_code": 1,
+      "timeout": false,
+      "primary_valid": false,
+      "invalid_reasons": [
+        "need_exactly_two_requests"
+      ],
+      "request_count": 1
+    },
+    {
+      "run_id": "pilot-dsh-v2",
+      "logical_slot_id": "pilot-dsh-v2",
+      "attempt_id": "pilot-dsh-v2-attempt-1",
+      "product": "dsh",
+      "phase": "pilot",
+      "arm": "bounded",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 512,
+      "source_dir": "runs/pilot-dsh-v2",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 3506,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 3042,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 2382,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "a69d963a135f7d37d49aea1f8d8b281374ccebb78e5826796b17976b310573d2"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 2382,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        3626
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "43e6e3270c26eb718dfaa307c2133a845ec0c80e4a7a41c75c1d2b6b646b8172"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "call_00_ET_Lt5eDf7ETGbONgkW2DnP5139",
+      "B_tool_returned": 1981,
+      "returned_tool_sha256": "b345d7588ab6a404c807998117cdb33343335f380eacbae1bfeddf9301dd4584",
+      "final_text": "{\"HEAD_KEY\":\"AMBER-731\",\"TAIL_KEY\":\"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2"
+    }
+  ],
+  "paired_dsh": [
+    {
+      "block": 1,
+      "valid": true,
+      "inline_run": "confirm-b01-inline",
+      "bounded_run": "confirm-b01-bounded",
+      "reduction_bytes": 34181,
+      "bounded_information_retained": true,
+      "inline_information_retained": true,
+      "first_request_input_equal": true
+    },
+    {
+      "block": 2,
+      "valid": true,
+      "inline_run": "confirm-b02-inline",
+      "bounded_run": "confirm-b02-bounded",
+      "reduction_bytes": 34194,
+      "bounded_information_retained": true,
+      "inline_information_retained": true,
+      "first_request_input_equal": true
+    },
+    {
+      "block": 3,
+      "valid": true,
+      "inline_run": "confirm-b03-inline",
+      "bounded_run": "confirm-b03-bounded",
+      "reduction_bytes": 34194,
+      "bounded_information_retained": true,
+      "inline_information_retained": true,
+      "first_request_input_equal": true
+    },
+    {
+      "block": 4,
+      "valid": true,
+      "inline_run": "confirm-b04-inline",
+      "bounded_run": "confirm-b04-bounded",
+      "reduction_bytes": 34181,
+      "bounded_information_retained": true,
+      "inline_information_retained": true,
+      "first_request_input_equal": true
+    },
+    {
+      "block": 5,
+      "valid": true,
+      "inline_run": "confirm-b05-inline",
+      "bounded_run": "confirm-b05-bounded",
+      "reduction_bytes": 34181,
+      "bounded_information_retained": true,
+      "inline_information_retained": true,
+      "first_request_input_equal": true
+    },
+    {
+      "block": 6,
+      "valid": true,
+      "inline_run": "confirm-b06-inline",
+      "bounded_run": "confirm-b06-bounded",
+      "reduction_bytes": 34355,
+      "bounded_information_retained": true,
+      "inline_information_retained": true,
+      "first_request_input_equal": true
+    }
+  ],
+  "confirmation_attempts": 12,
+  "valid_pairs": 6,
+  "decision_branch": "repeated_direction_information_retained",
+  "reduction_summary": {
+    "median": 34187.5,
+    "mean": 34214.333333333336,
+    "min": 34181,
+    "max": 34355
+  },
+  "positive_direction_wilson95": [
+    0.6096657120978346,
+    1
+  ],
+  "positive_direction_sign_test_two_sided": 0.03125,
+  "sign_test_note": "Descriptive paired sign calculation, not a multi-task population or equivalence claim",
+  "third_party_verification": "pending"
+}

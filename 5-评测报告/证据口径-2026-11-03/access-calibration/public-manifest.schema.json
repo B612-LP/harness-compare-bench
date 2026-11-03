@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Public evidence manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "generated_at",
+    "records"
+  ],
+  "properties": {
+    "schema": {
+      "const": "public-evidence-manifest-v1"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "file_id",
+          "public_name",
+          "identity",
+          "bytes",
+          "sha256",
+          "source_ids",
+          "public_fields",
+          "withheld_fields",
+          "derivation"
+        ],
+        "properties": {
+          "file_id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9-]+$"
+          },
+          "public_name": {
+            "type": "string",
+            "pattern": "^(?!\\.{1,2}$)[A-Za-z0-9._-]+$(?![\\s\\S])"
+          },
+          "identity": {
+            "enum": [
+              "original",
+              "derived",
+              "template"
+            ]
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "public_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "withheld_fields": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "derivation": {
+            "type": "object",
+            "required": [
+              "at",
+              "tool_version",
+              "tool_sha256",
+              "changes"
+            ],
+            "properties": {
+              "at": {
+                "type": "string"
+              },
+              "tool_version": {
+                "type": "string"
+              },
+              "tool_sha256": {
+                "type": "string"
+              },
+              "changes": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

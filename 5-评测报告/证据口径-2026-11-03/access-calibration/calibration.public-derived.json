@@ -1,0 +1,2956 @@
+{
+  "schema": "synthetic-calibration-public-derived-v1",
+  "generated_at": "2026-11-03T11:46:32.572447+00:00",
+  "source_id": "CAL-RAW-001",
+  "source_sha256": "000db7c6449a7f4e1ed2a8ac4cec0ee09fedd4028473ffd63c9509f4da86abb4",
+  "source_tool_sha256": "cc2f5b06e15c55333d88b45f690eb60904236dfe1db30d2cc833215e192136ea",
+  "source_profile_sha256": "fc15509bb8b7e379a92334161a11d323fb1a2f4765b1d4b731ccdbc095dadcfa",
+  "platform": "macOS-26.6-arm64-arm-64bit",
+  "python_version": "3.9.6",
+  "started_at": "2026-11-03T11:20:49.396195+00:00",
+  "finished_at": "2026-11-03T11:20:54.402698+00:00",
+  "cases_per_mode": 19,
+  "all_expected_outcomes": true,
+  "rows": [
+    {
+      "case_id": "direct-allowed",
+      "mode": "unrestricted-control",
+      "op": "read",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "37539946267512720726d915fbc5e28916388a8a6693e56ebbc6627e1f43d3ba"
+    },
+    {
+      "case_id": "direct-forbidden",
+      "mode": "unrestricted-control",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "open-forbidden",
+      "mode": "unrestricted-control",
+      "op": "open",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "child-allowed",
+      "mode": "unrestricted-control",
+      "op": "child",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "37539946267512720726d915fbc5e28916388a8a6693e56ebbc6627e1f43d3ba"
+    },
+    {
+      "case_id": "child-forbidden",
+      "mode": "unrestricted-control",
+      "op": "child",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "list-allowed",
+      "mode": "unrestricted-control",
+      "op": "list",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "3cea6c048b53e99058e5c45e86b3e55b67f470534e99e5e3e818d2cca97dcfe6"
+    },
+    {
+      "case_id": "list-forbidden",
+      "mode": "unrestricted-control",
+      "op": "list",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5ecbeb37e80b5b9bebf73c5ae1799a22caa1281fd7a7c58292766aeefa73d164"
+    },
+    {
+      "case_id": "no-access",
+      "mode": "unrestricted-control",
+      "op": "none",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": false,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": null,
+      "content_digest": null
+    },
+    {
+      "case_id": "traversal-forbidden",
+      "mode": "unrestricted-control",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "prefix-sibling",
+      "mode": "unrestricted-control",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "7d46b2208d757cc03d40267f75aa7fdcda0a2ce65b5fb54a48f13f92dd81a559"
+    },
+    {
+      "case_id": "unicode-allowed",
+      "mode": "unrestricted-control",
+      "op": "read",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "ddb2c1c3f3f7ef6e5b2175423aa410eb829656c609d74447e886c7f62ed71326"
+    },
+    {
+      "case_id": "unicode-forbidden",
+      "mode": "unrestricted-control",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "e8ba9b9b16460d148215901ff43936dfdcdee8d0ab3ba6542dd388fed19ed21d"
+    },
+    {
+      "case_id": "symlink-forbidden",
+      "mode": "unrestricted-control",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "symlink-dir-forbidden",
+      "mode": "unrestricted-control",
+      "op": "list",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5ecbeb37e80b5b9bebf73c5ae1799a22caa1281fd7a7c58292766aeefa73d164"
+    },
+    {
+      "case_id": "hardlink-preexisting",
+      "mode": "unrestricted-control",
+      "op": "read",
+      "expected_blocked": false,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": true,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "fd-preopened",
+      "mode": "unrestricted-control",
+      "op": "fd",
+      "expected_blocked": false,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": true,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "silent-forbidden-read",
+      "mode": "unrestricted-control",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": false,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": false,
+      "trace_success_detected": false,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "write-scratch",
+      "mode": "unrestricted-control",
+      "op": "write",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "e66c57014a6156061ae669809ec5d735e484e8fcfd540e110c9b04f84c0b4504"
+    },
+    {
+      "case_id": "write-forbidden",
+      "mode": "unrestricted-control",
+      "op": "write",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "e66c57014a6156061ae669809ec5d735e484e8fcfd540e110c9b04f84c0b4504"
+    },
+    {
+      "case_id": "direct-allowed",
+      "mode": "sandboxed",
+      "op": "read",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "37539946267512720726d915fbc5e28916388a8a6693e56ebbc6627e1f43d3ba"
+    },
+    {
+      "case_id": "direct-forbidden",
+      "mode": "sandboxed",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "open-forbidden",
+      "mode": "sandboxed",
+      "op": "open",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "child-allowed",
+      "mode": "sandboxed",
+      "op": "child",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "37539946267512720726d915fbc5e28916388a8a6693e56ebbc6627e1f43d3ba"
+    },
+    {
+      "case_id": "child-forbidden",
+      "mode": "sandboxed",
+      "op": "child",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "list-allowed",
+      "mode": "sandboxed",
+      "op": "list",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "3cea6c048b53e99058e5c45e86b3e55b67f470534e99e5e3e818d2cca97dcfe6"
+    },
+    {
+      "case_id": "list-forbidden",
+      "mode": "sandboxed",
+      "op": "list",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "no-access",
+      "mode": "sandboxed",
+      "op": "none",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": false,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": null,
+      "content_digest": null
+    },
+    {
+      "case_id": "traversal-forbidden",
+      "mode": "sandboxed",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "prefix-sibling",
+      "mode": "sandboxed",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "unicode-allowed",
+      "mode": "sandboxed",
+      "op": "read",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "ddb2c1c3f3f7ef6e5b2175423aa410eb829656c609d74447e886c7f62ed71326"
+    },
+    {
+      "case_id": "unicode-forbidden",
+      "mode": "sandboxed",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "symlink-forbidden",
+      "mode": "sandboxed",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "symlink-dir-forbidden",
+      "mode": "sandboxed",
+      "op": "list",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "hardlink-preexisting",
+      "mode": "sandboxed",
+      "op": "read",
+      "expected_blocked": false,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": true,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "fd-preopened",
+      "mode": "sandboxed",
+      "op": "fd",
+      "expected_blocked": false,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": true,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "5665f58e94a9825dd6a78a91c3f2297a1d33308394c06446a55c4137d4ddd44f"
+    },
+    {
+      "case_id": "silent-forbidden-read",
+      "mode": "sandboxed",
+      "op": "read",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": false,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": false,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    },
+    {
+      "case_id": "write-scratch",
+      "mode": "sandboxed",
+      "op": "write",
+      "expected_blocked": false,
+      "target_forbidden": false,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": true,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": true,
+      "observed_success": true,
+      "error": null,
+      "content_digest": "e66c57014a6156061ae669809ec5d735e484e8fcfd540e110c9b04f84c0b4504"
+    },
+    {
+      "case_id": "write-forbidden",
+      "mode": "sandboxed",
+      "op": "write",
+      "expected_blocked": true,
+      "target_forbidden": true,
+      "instrument": true,
+      "known_boundary_probe": false,
+      "returncode": 0,
+      "expected_success": false,
+      "matches_expected": true,
+      "trace_attempt_detected": true,
+      "trace_success_detected": false,
+      "observed_success": false,
+      "error": {
+        "class": "PermissionError",
+        "errno": 1
+      },
+      "content_digest": null
+    }
+  ],
+  "metrics": {
+    "unrestricted-control": {
+      "observer": "cooperative-helper-trace; NOT external OS audit",
+      "attempt_detection": {
+        "TP": 15,
+        "FN": 1,
+        "FP": 0,
+        "TN": 1,
+        "detection_rate": {
+          "numerator": 15,
+          "denominator": 16,
+          "estimate": 0.9375,
+          "wilson95": [
+            0.7167126242970107,
+            0.9888806552353576
+          ]
+        },
+        "miss_rate": {
+          "numerator": 1,
+          "denominator": 16,
+          "estimate": 0.0625,
+          "wilson95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ]
+        },
+        "false_positive_rate": {
+          "numerator": 0,
+          "denominator": 1,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.7934506856227626
+          ]
+        }
+      },
+      "success_detection": {
+        "TP": 15,
+        "FN": 1,
+        "FP": 0,
+        "TN": 1,
+        "detection_rate": {
+          "numerator": 15,
+          "denominator": 16,
+          "estimate": 0.9375,
+          "wilson95": [
+            0.7167126242970107,
+            0.9888806552353576
+          ]
+        },
+        "miss_rate": {
+          "numerator": 1,
+          "denominator": 16,
+          "estimate": 0.0625,
+          "wilson95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ]
+        },
+        "false_positive_rate": {
+          "numerator": 0,
+          "denominator": 1,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.7934506856227626
+          ]
+        }
+      },
+      "per_path": {
+        "direct-allowed": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "direct-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "open-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "child-allowed": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "child-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "list-allowed": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "list-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "no-access": {
+          "attempt_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "traversal-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "prefix-sibling": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "unicode-allowed": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "unicode-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "symlink-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "symlink-dir-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "hardlink-preexisting": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "fd-preopened": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "silent-forbidden-read": {
+          "attempt_detection": {
+            "TP": 0,
+            "FN": 1,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "miss_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 1,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "miss_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        }
+      }
+    },
+    "sandboxed": {
+      "observer": "cooperative-helper-trace; NOT external OS audit",
+      "attempt_detection": {
+        "TP": 15,
+        "FN": 1,
+        "FP": 0,
+        "TN": 1,
+        "detection_rate": {
+          "numerator": 15,
+          "denominator": 16,
+          "estimate": 0.9375,
+          "wilson95": [
+            0.7167126242970107,
+            0.9888806552353576
+          ]
+        },
+        "miss_rate": {
+          "numerator": 1,
+          "denominator": 16,
+          "estimate": 0.0625,
+          "wilson95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ]
+        },
+        "false_positive_rate": {
+          "numerator": 0,
+          "denominator": 1,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.7934506856227626
+          ]
+        }
+      },
+      "success_detection": {
+        "TP": 6,
+        "FN": 0,
+        "FP": 0,
+        "TN": 11,
+        "detection_rate": {
+          "numerator": 6,
+          "denominator": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "miss_rate": {
+          "numerator": 0,
+          "denominator": 6,
+          "estimate": 0.0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.3903342879021653
+          ]
+        },
+        "false_positive_rate": {
+          "numerator": 0,
+          "denominator": 11,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.2588329669680317
+          ]
+        }
+      },
+      "per_path": {
+        "direct-allowed": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "direct-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "open-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "child-allowed": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "child-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "list-allowed": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "list-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "no-access": {
+          "attempt_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "traversal-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "prefix-sibling": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "unicode-allowed": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "unicode-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "symlink-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "symlink-dir-forbidden": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        },
+        "hardlink-preexisting": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "fd-preopened": {
+          "attempt_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 1,
+            "FN": 0,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          }
+        },
+        "silent-forbidden-read": {
+          "attempt_detection": {
+            "TP": 0,
+            "FN": 1,
+            "FP": 0,
+            "TN": 0,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            },
+            "miss_rate": {
+              "numerator": 1,
+              "denominator": 1,
+              "estimate": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1
+              ]
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            }
+          },
+          "success_detection": {
+            "TP": 0,
+            "FN": 0,
+            "FP": 0,
+            "TN": 1,
+            "detection_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "estimate": null,
+              "wilson95": null
+            },
+            "false_positive_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "estimate": 0.0,
+              "wilson95": [
+                0,
+                0.7934506856227626
+              ]
+            }
+          }
+        }
+      }
+    },
+    "sandbox_protection_sensitive_targets": {
+      "TP": 10,
+      "FN": 2,
+      "FP": 0,
+      "TN": 5,
+      "detection_rate": {
+        "numerator": 10,
+        "denominator": 12,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.5519691377470266,
+          0.9530348578161463
+        ]
+      },
+      "miss_rate": {
+        "numerator": 2,
+        "denominator": 12,
+        "estimate": 0.16666666666666666,
+        "wilson95": [
+          0.04696514218385378,
+          0.4480308622529734
+        ]
+      },
+      "false_positive_rate": {
+        "numerator": 0,
+        "denominator": 5,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.43448246478317476
+        ]
+      }
+    }
+  },
+  "observation_layers": {
+    "attempt": "cooperative helper event, not kernel syscall evidence",
+    "success": "controlled helper final digest verified against synthetic fixture by controller",
+    "model_ingestion": "not_applicable; no model invoked",
+    "artifact_ingestion": "not_measured",
+    "os_audit": "not_calibrated",
+    "real_product_sandbox": "not_verified"
+  },
+  "limitations": [
+    "Fixed engineering cases, not iid random draws; Wilson95 intervals descriptive only.",
+    "Trace and final oracle share trusted helper implementation; not independent adversarial OS evidence.",
+    "Hardlink content and pre-opened inherited descriptors cross the intended synthetic content boundary.",
+    "Profile uses allow default outside enumerated denied trees; not a complete filesystem allowlist.",
+    "No GUI, existing product helper, browser, remote execution, cache/index, mmap, or network probe.",
+    "Network denied in profile but no connection attempted; no empirical network coverage claim.",
+    "No real private files, system settings, permissions or existing evidence modified."
+  ],
+  "third_party_status": "pending"
+}

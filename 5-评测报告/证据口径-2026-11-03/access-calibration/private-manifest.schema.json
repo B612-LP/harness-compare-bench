@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Private evidence manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "generated_at",
+    "records"
+  ],
+  "properties": {
+    "schema": {
+      "const": "private-evidence-manifest-v1"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "file_id",
+          "custody_ref",
+          "identity",
+          "bytes",
+          "sha256",
+          "availability",
+          "disclosure"
+        ],
+        "properties": {
+          "file_id": {
+            "type": "string"
+          },
+          "custody_ref": {
+            "type": "string"
+          },
+          "identity": {
+            "enum": [
+              "original",
+              "derived",
+              "documentation"
+            ]
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "availability": {
+            "enum": [
+              "present",
+              "unavailable",
+              "not_checked"
+            ]
+          },
+          "disclosure": {
+            "type": "object",
+            "required": [
+              "public_fields",
+              "withheld_fields",
+              "reason"
+            ],
+            "properties": {
+              "public_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "withheld_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

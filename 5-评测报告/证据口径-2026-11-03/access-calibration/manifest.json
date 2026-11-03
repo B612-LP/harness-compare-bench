@@ -1,0 +1,139 @@
+{
+  "schema": "public-evidence-manifest-v1",
+  "generated_at": "2026-11-03T11:46:32.572447+00:00",
+  "records": [
+    {
+      "file_id": "PUBLIC-001",
+      "public_name": "calibration.public-derived.json",
+      "identity": "derived",
+      "bytes": 79419,
+      "sha256": "90b9153ffb3c2eb9c7f730c4c6f0adf1f4478c3825ca89c675d08be3f295d2a8",
+      "source_ids": [
+        "CAL-RAW-001"
+      ],
+      "public_fields": [
+        "all fields of this derived/template object"
+      ],
+      "withheld_fields": [
+        {
+          "field": "rows[].path",
+          "reason": "private absolute locations"
+        },
+        {
+          "field": "rows[].stdout/stderr",
+          "reason": "host-specific raw helper streams"
+        },
+        {
+          "field": "python_executable",
+          "reason": "host-specific runtime location"
+        }
+      ],
+      "derivation": {
+        "at": "2026-11-03T11:46:32.572447+00:00",
+        "tool_version": "1.2",
+        "tool_sha256": "7eb8aa58bd902e70cb9d91ed14a4e36b7957493fc3ebf2dbdc297ac2f34f4337",
+        "changes": [
+          {
+            "source_field": "rows[].oracle",
+            "operation": "select digest/success/errno; remove raw streams"
+          },
+          {
+            "source_field": "rows[].path",
+            "operation": "drop; replace with non-sensitive case_id"
+          }
+        ]
+      }
+    },
+    {
+      "file_id": "PUBLIC-002",
+      "public_name": "third-party-handoff.json",
+      "identity": "template",
+      "bytes": 1841,
+      "sha256": "61f9e81ecb44ae7793bb34b72c141f489bff939521809e2ae23a6beb6a7a31d1",
+      "source_ids": [],
+      "public_fields": [
+        "all fields of this derived/template object"
+      ],
+      "withheld_fields": [],
+      "derivation": {
+        "at": "2026-11-03T11:46:32.572447+00:00",
+        "tool_version": "1.2",
+        "tool_sha256": "7eb8aa58bd902e70cb9d91ed14a4e36b7957493fc3ebf2dbdc297ac2f34f4337",
+        "changes": [
+          {
+            "operation": "new template or documentation-only inventory; no historical test claim"
+          }
+        ]
+      }
+    },
+    {
+      "file_id": "PUBLIC-003",
+      "public_name": "historical-verify-inventory.json",
+      "identity": "derived",
+      "bytes": 5654,
+      "sha256": "3065419d1f79892ffceab07b914e2c091e5d0e4cd82abc5422eee115016d6c1c",
+      "source_ids": [
+        "REPORT-DOC-001",
+        "TOOLS-INDEX-001"
+      ],
+      "public_fields": [
+        "all fields of this derived/template object"
+      ],
+      "withheld_fields": [],
+      "derivation": {
+        "at": "2026-11-03T11:46:32.572447+00:00",
+        "tool_version": "1.2",
+        "tool_sha256": "7eb8aa58bd902e70cb9d91ed14a4e36b7957493fc3ebf2dbdc297ac2f34f4337",
+        "changes": [
+          {
+            "operation": "new template or documentation-only inventory; no historical test claim"
+          }
+        ]
+      }
+    },
+    {
+      "file_id": "PUBLIC-004",
+      "public_name": "public-manifest.schema.json",
+      "identity": "template",
+      "bytes": 2460,
+      "sha256": "5caf4988ea5d9e940ceb18ad774aed6b1ac7f81be24cc5cb7b219af80a3eaff8",
+      "source_ids": [],
+      "public_fields": [
+        "all fields of this derived/template object"
+      ],
+      "withheld_fields": [],
+      "derivation": {
+        "at": "2026-11-03T11:46:32.572447+00:00",
+        "tool_version": "1.2",
+        "tool_sha256": "7eb8aa58bd902e70cb9d91ed14a4e36b7957493fc3ebf2dbdc297ac2f34f4337",
+        "changes": [
+          {
+            "operation": "new template or documentation-only inventory; no historical test claim"
+          }
+        ]
+      }
+    },
+    {
+      "file_id": "PUBLIC-005",
+      "public_name": "private-manifest.schema.json",
+      "identity": "template",
+      "bytes": 2015,
+      "sha256": "3c5288ad2c26ea9a8883328c8602c7cccb75a7cb7dffcdb8681e16203abf1cff",
+      "source_ids": [],
+      "public_fields": [
+        "all fields of this derived/template object"
+      ],
+      "withheld_fields": [],
+      "derivation": {
+        "at": "2026-11-03T11:46:32.572447+00:00",
+        "tool_version": "1.2",
+        "tool_sha256": "7eb8aa58bd902e70cb9d91ed14a4e36b7957493fc3ebf2dbdc297ac2f34f4337",
+        "changes": [
+          {
+            "operation": "new template or documentation-only inventory; no historical test claim"
+          }
+        ]
+      }
+    }
+  ]
+}
