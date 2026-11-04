@@ -8,6 +8,7 @@
 
 | 批次 | 用途 | 本轮如何使用 |
 |---|---|---|
+| [r20261104-desktop-observation](<r20261104-desktop-observation/README.md>) | 原生桌面有界文件观察 | WB1提交/窗内完成0、豆包按条件未启动；1124 FD无命中不等于无读，0判卷/分数null，零正式准入 |
 | [r20261104-native-provenance](<r20261104-native-provenance/README.md>) | 原生配置客户端输入研究 | 8live/16上游，6确认=3有效配对，中位差10351B；双键6/6，原生菜单/预算/思考混杂披露，零正式准入 |
 | [r20261104-read-detection](<r20261104-read-detection/README.md>) | 合成OS视图检测校准 | 28场=20read+8nonread，309 samples，FD与vnode矩阵分列；产品0/null，不能当隔离成功 |
 | [r20261103-native-input-gated](<r20261103-native-input-gated/README.md>) | 原生先导技术账 | 1live/1上游，Req2转发前拒、0确认；4mock与1桌面启动预检另账；仪器兼容失败不判产品能力，零正式准入 |
