@@ -1,0 +1,141 @@
+{
+  "schema": "workbuddy-isolation-feasibility-public-v1",
+  "observed_at": "2026-11-03T14:48:18.046528+00:00",
+  "product": "WorkBuddy",
+  "installed_version": "5.9.3",
+  "app_sandbox_entitlement_present": false,
+  "static_profile_routing": "distribution code contains distinct userData, sessionData and config path controls; not runtime profile-isolation proof",
+  "product_attempts": 1,
+  "startup": {
+    "mode": "direct_binary_under_deny_default_policy",
+    "exit_code": -6,
+    "signal": "SIGABRT",
+    "timeout": false,
+    "duration_seconds": 0.28141,
+    "main_process_observed": true,
+    "product_helpers_observed": false,
+    "stdout_present": false,
+    "stderr_present": false,
+    "specific_abort_cause": "unknown; no independent OS trace"
+  },
+  "product_sandbox": "not_verified",
+  "product_actual_fixture_read": "not_verified",
+  "os_audit": "not_calibrated",
+  "third_party": "pending",
+  "model_tasks_submitted": 0,
+  "new_formal_rows": 0,
+  "controller_network_requests": 0,
+  "product_network_attempts": "not_observed",
+  "network_policy": "deny all network declared; no packet test or service-proxy audit",
+  "synthetic_preflight": {
+    "expected_outcomes_matched": 12,
+    "total": 12,
+    "includes_two_successful_content_boundary_bypasses": true,
+    "rows": [
+      {
+        "id": "direct-allowed",
+        "success": true,
+        "expected_success": true,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "direct-forbidden",
+        "success": false,
+        "expected_success": false,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "child-allowed",
+        "success": true,
+        "expected_success": true,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "child-forbidden",
+        "success": false,
+        "expected_success": false,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "list-allowed",
+        "success": true,
+        "expected_success": true,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "list-forbidden",
+        "success": false,
+        "expected_success": false,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "write-allowed",
+        "success": true,
+        "expected_success": true,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "write-forbidden",
+        "success": false,
+        "expected_success": false,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "symlink-forbidden",
+        "success": false,
+        "expected_success": false,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "hardlink-content-bypass",
+        "success": true,
+        "expected_success": true,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "no-read",
+        "success": false,
+        "expected_success": false,
+        "scope": "synthetic_helper_only"
+      },
+      {
+        "id": "preopened-fd-content-bypass",
+        "success": true,
+        "expected_success": true,
+        "scope": "synthetic_helper_only"
+      }
+    ],
+    "native_bootstrap_controls": {
+      "no_op_exit": 0,
+      "allowed_read_exit": 0,
+      "forbidden_read_exit": 1
+    },
+    "not_product_results": true
+  },
+  "product_file_access_detection": {
+    "TP": null,
+    "FN": null,
+    "FP": null,
+    "TN": null,
+    "denominator": 0,
+    "detection_rate": null,
+    "miss_rate": null,
+    "reason": "No effective product fixture operation or independent OS read collector"
+  },
+  "independent_audit_capability": {
+    "file_usage": "privilege_required",
+    "endpoint_security": "privilege_required",
+    "dtrace": "privilege_required",
+    "no_privileges_changed": true
+  },
+  "limits": [
+    "Only a single restricted bootstrap; not a general impossibility proof.",
+    "Synthetic child inheritance is not evidence of product helper inheritance.",
+    "Existing services, inherited Mach rights, cached/indexed content, and remote reads remain unaudited.",
+    "Hardlink and explicitly preopened descriptor succeeded in synthetic probes; product receives no explicit fixture descriptor.",
+    "Process snapshots can miss fast or detached descendants and are not an OS event audit.",
+    "No GUI operation, model ingestion, product file task, login/profile reuse, or unrestricted fallback.",
+    "The abort has no observed reason; attributing it to a named service would be speculation."
+  ],
+  "source_receipt_sha256": "d4a14f9fbdc69a908feb58f27b15f58c876ebcdaca58eb2c5e48edddbf4d193b"
+}

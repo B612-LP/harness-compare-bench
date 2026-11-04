@@ -1,0 +1,312 @@
+{
+  "model": "deepseek-flash",
+  "stream": true,
+  "input": [
+    {
+      "type": "message",
+      "id": "msg_da396f2c-a0c9-5f66-85e3-a8d73332c84c",
+      "role": "developer",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "You are a coding agent running in the Codex CLI, a terminal-based coding assistant. Codex CLI is an open source project led by OpenAI. You are expected to be precise, safe, and helpful.\n\nYour capabilities:\n\n- Receive user prompts and other context provided by the harness, such as files in the workspace.\n- Communicate with the user by streaming thinking & responses, and by making & updating plans.\n- Emit function calls to run terminal commands and apply patches. Depending on how this specific run is configured, you can request that these function calls be escalated to the user for approval before running. More on this in the \"Sandbox and approvals\" section.\n\nWithin this context, Codex refers to the open-source agentic coding interface (not the old Codex language model built by OpenAI).\n\n# How you work\n\n## Personality\n\nYour default personality and tone is concise, direct, and friendly. You communicate efficiently, always keeping the user clearly informed about ongoing actions without unnecessary detail. You always prioritize actionable guidance, clearly stating assumptions, environment prerequisites, and next steps. Unless explicitly asked, you avoid excessively verbose explanations about your work.\n\n# AGENTS.md spec\n- Repos often contain AGENTS.md files. These files can appear anywhere within the repository.\n- These files are a way for humans to give you (the agent) instructions or tips for working within the container.\n- Some examples might be: coding conventions, info about how code is organized, or instructions for how to run or test code.\n- Instructions in AGENTS.md files:\n    - The scope of an AGENTS.md file is the entire directory tree rooted at the folder that contains it.\n    - For every file you touch in the final patch, you must obey instructions in any AGENTS.md file whose scope includes that file.\n    - Instructions about code style, structure, naming, etc. apply only to code within the AGENTS.md file's scope, unless the file states otherwise.\n    - More-deeply-nested AGENTS.md files take precedence in the case of conflicting instructions.\n    - Direct system/developer/user instructions (as part of a prompt) take precedence over AGENTS.md instructions.\n- The contents of the AGENTS.md file at the root of the repo and any directories from the CWD up to the root are included with the developer message and don't need to be re-read. When working in a subdirectory of CWD, or a directory outside the CWD, check for any AGENTS.md files that may be applicable.\n\n## Responsiveness\n\n### Preamble messages\n\nBefore making tool calls, send a brief preamble to the user explaining what you’re about to do. When sending preamble messages, follow these principles and examples:\n\n- **Logically group related actions**: if you’re about to run several related commands, describe them together in one preamble rather than sending a separate note for each.\n- **Keep it concise**: be no more than 1-2 sentences, focused on immediate, tangible next steps. (8–12 words for quick updates).\n- **Build on prior context**: if this is not your first tool call, use the preamble message to connect the dots with what’s been done so far and create a sense of momentum and clarity for the user to understand your next actions.\n- **Keep your tone light, friendly and curious**: add small touches of personality in preambles feel collaborative and engaging.\n- **Exception**: Avoid adding a preamble for every trivial read (e.g., `cat` a single file) unless it’s part of a larger grouped action.\n\n**Examples:**\n\n- “I’ve explored the repo; now checking the API route definitions.”\n- “Next, I’ll patch the config and update the related tests.”\n- “I’m about to scaffold the CLI commands and helper functions.”\n- “Ok cool, so I’ve wrapped my head around the repo. Now digging into the API routes.”\n- “Config’s looking tidy. Next up is patching helpers to keep things in sync.”\n- “Finished poking at the DB gateway. I will now chase down error handling.”\n- “Alright, build pipeline order is interesting. Checking how it reports failures.”\n- “Spotted a clever caching util; now hunting where it gets used.”\n\n## Task execution\n\nYou are a coding agent. Please keep going until the query is completely resolved, before ending your turn and yielding back to the user. Only terminate your turn when you are sure that the problem is solved. Autonomously resolve the query to the best of your ability, using the tools available to you, before coming back to the user. Do NOT guess or make up an answer.\n\nYou MUST adhere to the following criteria when solving queries:\n\n- Working on the repo(s) in the current environment is allowed, even if they are proprietary.\n- Analyzing code for vulnerabilities is allowed.\n- Showing user code and tool call details is allowed.\n- Use the `apply_patch` tool to edit files (NEVER try `applypatch` or `apply-patch`, only `apply_patch`): {\"command\":[\"apply_patch\",\"*** Begin Patch\\\\n*** Update File: path/to/file.py\\\\n@@ def example():\\\\n- pass\\\\n+ return 123\\\\n*** End Patch\"]}\n\nIf completing the user's task requires writing or modifying files, your code and final answer should follow these coding guidelines, though user instructions (i.e. AGENTS.md) may override these guidelines:\n\n- Fix the problem at the root cause rather than applying surface-level patches, when possible.\n- Avoid unneeded complexity in your solution.\n- Do not attempt to fix unrelated bugs or broken tests. It is not your responsibility to fix them. (You may mention them to the user in your final message though.)\n- Update documentation as necessary.\n- Keep changes consistent with the style of the existing codebase. Changes should be minimal and focused on the task.\n- Use `git log` and `git blame` to search the history of the codebase if additional context is required.\n- NEVER add copyright or license headers unless specifically requested.\n- Do not waste tokens by re-reading files after calling `apply_patch` on them. The tool call will fail if it didn't work. The same goes for making folders, deleting folders, etc.\n- Do not `git commit` your changes or create new git branches unless explicitly requested.\n- Do not add inline comments within code unless explicitly requested.\n- Do not use one-letter variable names unless explicitly requested.\n- NEVER output inline citations like \"【F:README.md†L5-L14】\" in your outputs. The CLI is not able to render these so they will just be broken in the UI. Instead, if you output valid filepaths, users will be able to click on them to open the files in their editor.\n\n## Validating your work\n\nIf the codebase has tests or the ability to build or run, consider using them to verify that your work is complete. \n\nWhen testing, your philosophy should be to start as specific as possible to the code you changed so that you can catch issues efficiently, then make your way to broader tests as you build confidence. If there's no test for the code you changed, and if the adjacent patterns in the codebases show that there's a logical place for you to add a test, you may do so. However, do not add tests to codebases with no tests.\n\nSimilarly, once you're confident in correctness, you can suggest or use formatting commands to ensure that your code is well formatted. If there are issues you can iterate up to 3 times to get formatting right, but if you still can't manage it's better to save the user time and present them a correct solution where you call out the formatting in your final message. If the codebase does not have a formatter configured, do not add one.\n\nFor all of testing, running, building, and formatting, do not attempt to fix unrelated bugs. It is not your responsibility to fix them. (You may mention them to the user in your final message though.)\n\nBe mindful of whether to run validation commands proactively. In the absence of behavioral guidance:\n\n- When running in the non-interactive approval mode **never**, proactively run tests, lint and do whatever you need to ensure you've completed the task.\n- When working in interactive approval modes like **untrusted**, or **on-request**, hold off on running tests or lint commands until the user is ready for you to finalize your output, because these commands take time to run and slow down iteration. Instead suggest what you want to do next, and let the user confirm first.\n- When working on test-related tasks, such as adding tests, fixing tests, or reproducing a bug to verify behavior, you may proactively run tests regardless of approval mode. Use your judgement to decide whether this is a test-related task.\n\n## Ambition vs. precision\n\nFor tasks that have no prior context (i.e. the user is starting something brand new), you should feel free to be ambitious and demonstrate creativity with your implementation.\n\nIf you're operating in an existing codebase, you should make sure you do exactly what the user asks with surgical precision. Treat the surrounding codebase with respect, and don't overstep (i.e. changing filenames or variables unnecessarily). You should balance being sufficiently ambitious and proactive when completing tasks of this nature.\n\nYou should use judicious initiative to decide on the right level of detail and complexity to deliver based on the user's needs. This means showing good judgment that you're capable of doing the right extras without gold-plating. This might be demonstrated by high-value, creative touches when scope of the task is vague; while being surgical and targeted when scope is tightly specified.\n\n## Sharing progress updates\n\nFor especially longer tasks that you work on (i.e. requiring many tool calls, or a plan with multiple steps), you should provide progress updates back to the user at reasonable intervals. These updates should be structured as a concise sentence or two (no more than 8-10 words long) recapping progress so far in plain language: this update demonstrates your understanding of what needs to be done, progress so far (i.e. files explores, subtasks complete), and where you're going next.\n\nBefore doing large chunks of work that may incur latency as experienced by the user (i.e. writing a new file), you should send a concise message to the user with an update indicating what you're about to do to ensure they know what you're spending time on. Don't start editing or writing large files before informing the user what you are doing and why.\n\nThe messages you send before tool calls should describe what is immediately about to be done next in very concise language. If there was previous work done, this preamble message should also include a note about the work done so far to bring the user along.\n\n## Presenting your work and final message\n\nYour final message should read naturally, like an update from a concise teammate. For casual conversation, brainstorming tasks, or quick questions from the user, respond in a friendly, conversational tone. You should ask questions, suggest ideas, and adapt to the user’s style. If you've finished a large amount of work, when describing what you've done to the user, you should follow the final answer formatting guidelines to communicate substantive changes. You don't need to add structured formatting for one-word answers, greetings, or purely conversational exchanges.\n\nYou can skip heavy formatting for single, simple actions or confirmations. In these cases, respond in plain sentences with any relevant next step or quick option. Reserve multi-section structured responses for results that need grouping or explanation.\n\nThe user is working on the same computer as you, and has access to your work. As such there's no need to show the full contents of large files you have already written unless the user explicitly asks for them. Similarly, if you've created or modified files using `apply_patch`, there's no need to tell users to \"save the file\" or \"copy the code into a file\"—just reference the file path.\n\nIf there's something that you think you could help with as a logical next step, concisely ask the user if they want you to do so. Good examples of this are running tests, committing changes, or building out the next logical component. If there’s something that you couldn't do (even with approval) but that the user might want to do (such as verifying changes by running the app), include those instructions succinctly.\n\nBrevity is very important as a default. You should be very concise (i.e. no more than 10 lines), but can relax this requirement for tasks where additional detail and comprehensiveness is important for the user's understanding.\n\n### Final answer structure and style guidelines\n\nYou are producing plain text that will later be styled by the CLI. Follow these rules exactly. Formatting should make results easy to scan, but not feel mechanical. Use judgment to decide how much structure adds value.\n\n**Section Headers**\n\n- Use only when they improve clarity — they are not mandatory for every answer.\n- Choose descriptive names that fit the content\n- Keep headers short (1–3 words) and in `**Title Case**`. Always start headers with `**` and end with `**`\n- Leave no blank line before the first bullet under a header.\n- Section headers should only be used where they genuinely improve scanability; avoid fragmenting the answer.\n\n**Bullets**\n\n- Use `-` followed by a space for every bullet.\n- Merge related points when possible; avoid a bullet for every trivial detail.\n- Keep bullets to one line unless breaking for clarity is unavoidable.\n- Group into short lists (4–6 bullets) ordered by importance.\n- Use consistent keyword phrasing and formatting across sections.\n\n**Monospace**\n\n- Wrap all commands, file paths, env vars, and code identifiers in backticks (`` `...` ``).\n- Apply to inline examples and to bullet keywords if the keyword itself is a literal file/command.\n- Never mix monospace and bold markers; choose one based on whether it’s a keyword (`**`) or inline code/path (`` ` ``).\n\n**File References**\nWhen referencing files in your response, make sure to include the relevant start line and always follow the below rules:\n  * Use inline code to make file paths clickable.\n  * Each reference should have a stand alone path. Even if it's the same file.\n  * Accepted: absolute, workspace‑relative, a/ or b/ diff prefixes, or bare filename/suffix.\n  * Line/column (1‑based, optional): :line[:column] or #Lline[Ccolumn] (column defaults to 1).\n  * Do not use URIs like file://, vscode://, or https://.\n  * Do not provide range of lines\n  * Examples: src/app.ts, src/app.ts:42, b/server/index.js#L10, C:\\repo\\project\\main.rs:12:5\n\n**Structure**\n\n- Place related bullets together; don’t mix unrelated concepts in the same section.\n- Order sections from general → specific → supporting info.\n- For subsections (e.g., “Binaries” under “Rust Workspace”), introduce with a bolded keyword bullet, then list items under it.\n- Match structure to complexity:\n  - Multi-part or detailed results → use clear headers and grouped bullets.\n  - Simple results → minimal headers, possibly just a short list or paragraph.\n\n**Tone**\n\n- Keep the voice collaborative and natural, like a coding partner handing off work.\n- Be concise and factual — no filler or conversational commentary and avoid unnecessary repetition\n- Use present tense and active voice (e.g., “Runs tests” not “This will run tests”).\n- Keep descriptions self-contained; don’t refer to “above” or “below”.\n- Use parallel structure in lists for consistency.\n\n**Don’t**\n\n- Don’t use literal words “bold” or “monospace” in the content.\n- Don’t nest bullets or create deep hierarchies.\n- Don’t output ANSI escape codes directly — the CLI renderer applies them.\n- Don’t cram unrelated keywords into a single bullet; split for clarity.\n- Don’t let keyword lists run long — wrap or reformat for scanability.\n\nGenerally, ensure your final answers adapt their shape and depth to the request. For example, answers to code explanations should have a precise, structured explanation with code references that answer the question directly. For tasks with a simple implementation, lead with the outcome and supplement only with what’s needed for clarity. Larger changes can be presented as a logical walkthrough of your approach, grouping related steps, explaining rationale where it adds value, and highlighting next actions to accelerate the user. Your answers should provide the right level of detail while being easily scannable.\n\nFor casual greetings, acknowledgements, or other one-off conversational messages that are not delivering substantive information or structured results, respond naturally without section headers or bullet formatting.\n\n# Tool Guidelines\n\n## Shell commands\n\nWhen using the shell, you must adhere to the following guidelines:\n\n- When searching for text or files, prefer using `rg` or `rg --files` respectively because `rg` is much faster than alternatives like `grep`. (If the `rg` command is not found, then use alternatives.)\n- Do not use python scripts to attempt to output larger chunks of a file.\n\n"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "id": "msg_01a1a217-ad51-7612-ad35-9a0accdf0f26",
+      "role": "developer",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "<permissions instructions>\nFilesystem sandboxing defines which files can be read or written. `sandbox_mode` is `read-only`: The sandbox only permits reading files. Network access is restricted.\nApproval policy is currently never. Do not provide the `sandbox_permissions` for any reason, commands will be rejected.\n</permissions instructions>"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "id": "msg_01a1a217-ad51-7612-ad35-9a15c080b8a2",
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "<environment_context>\n  <cwd>PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP</cwd>\n  <shell>zsh</shell>\n  <current_date>2026-11-03</current_date>\n  <timezone>Asia/Shanghai</timezone>\n  <filesystem><workspace_roots><root>PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP<PPPPP></workspace_roots><permission_profile type=\"managed\"><file_system type=\"restricted\"><entry access=\"read\"><special>:root</special></entry></file_system></permission_profile></filesystem>\n</environment_context>"
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "id": "msg_01a1a217-ad5c-7aa2-a4f3-a2d73a4c1b62",
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Call fixture_output exactly once. Then return only a JSON object with HEAD_KEY and TAIL_KEY containing the two observed values. Ignore checksum noise. Do not call any additional tool."
+        }
+      ]
+    },
+    {
+      "type": "reasoning",
+      "summary": [],
+      "content": [
+        {
+          "type": "reasoning_text",
+          "text": "We need comply. Call fixture once, then only JSON object. Need ensure no preamble? User says return only JSON object; tool call then final only JSON. Call tool."
+        }
+      ],
+      "encrypted_content": "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"
+    },
+    {
+      "type": "function_call",
+      "status": "completed",
+      "name": "fixture_output",
+      "namespace": "mcp__fixture",
+      "arguments": "{}",
+      "call_id": "call_00_NE39y9DNTiTrRYIWym2u1093"
+    },
+    {
+      "type": "function_call_output",
+      "id": "fco_01a1a217-b31b-7102-9792-6a077262462a",
+      "call_id": "call_00_NE39y9DNTiTrRYIWym2u1093",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Wall time: 0.0056 seconds\nOutput:"
+        },
+        {
+          "type": "input_text",
+          "text": "OBSERVATION HEAD_KEY = AMBER-731\nnoise-0000 checksum=cc37c889010d73e665b91458f367b4f35963a7bb2fbdc13c70b9757e404b81e2\nnoise-0001 checksum=f84a4f4f30786b515f54139a22a6b8138b7b8e8487ce1096dde638f43566c113\nnoise-0002 checksum=d8423ca136bcd05855be564bcf30a7c4f4036cf5bebd196de0f63717438e421a\nnoise-0003 checksum=b8eedf3fbca1238f4813a17c8466de83599df83c23b488c8df31748c137f5259\nnoise-0004 checksum=01baded9eb554a3d23eb99a155c6dec60255c26a8097da7e01456cbff17767c7\nnoise-0005 checksum=44edf2f6cf701e2412805689851a42f614e300b7011cc11ab4a82e0abcaed832\nnoise-0006 checksum=e95863ba0f635ac13c052c2bb7d5b06820bc4df5504bdce00fdde7a028a04a79\nnoise-0007 checksum=353112d3b460771a18d3072d30bbf4b3c2461da17d053ea8658f67f7cdb80113\nnoise-0008 checksum=e0d1674a0ede9afc749b65797c7b8a8790f6d67716159d986f82ec9acab47c9f\nnoise-0009 checksum=38e9eceb0c4ace2084c5e05ab4d326f3d7c6ec2034fa26383d75ee031c00beea\nnoise-0010 checksum=1bcf95dc2cc22ad93cc1f4398988f4d8619837512bd2b41c3f721b8ad4f1cb78\nnoise-0011 checksum=ca74a307db5d9c6be6b419ed599533a0cd98c263a9b60f0381582d181cc288b6\nnoise-0012 checksum=288ea2a9aa298a7f366da4508f9228328f4c615f862ca90e9c8d85738a658a59\nnoise-0013 checksum=c4004ab6766d5d5071622b6078c78aace34445b3141d013687b925b80c5a655c\nnoise-0014 checksum=7f88266926e205ed9cf777875ea3ec53b28701497824a0375f038832518d700f\nnoise-0015 checksum=98a56fa5613c835053665793f578e5ad6fa3406ed86f792cbd7e731ff19bfd5f\nnoise-0016 checksum=7e6210d30cd071bc2f0270f60e748ddc32354ac83a43c439828e7b0ae0b78694\nnoise-0017 checksum=e02615e91bf2604dea7499066b4c35eef5b97604b3599061784608cea13b5b19\nnoise-0018 checksum=faf9b75951ab67f714159abbdedcd5361622e8b7780c1b58ab9f25a3a6a5378d\nnoise-0019 checksum=b987e3536b89acf7518a4df82445dcdd93f12cf3f85d0485ab288a01aa1ea15d\nnoise-0020 checksum=68251424ae0981f3791887f0bfbb8f950d0cd315a4537e9c1e588c0a0fce959c\nnoise-0021 checksum=eecddfbcfb6fe50b5dc43a41a66010436f29c9402b309980cf3b753d6099a4b4\nnoise-0022 checksum=2352d291b53cc1fe98ec72519b4a6bac1b53c05861172bd76e3768ab722ff525\nnoise-0023 checksum=4177da42c8d892454815a40115c91a90689d8c5e23a711490c94614c48a1f86a\nnoise-0024 checksum=290c600bcb13717e1b9e04771d348ed9723bc64076651c1be9980093e86bc65c\nnoise-0025 checksum=2638e37e12055ebe3e27e0358ec9b33732005d9a9dde2ff28b8bc0d32215c99b\nnoise-0026 checksum=e8afec83cd247d70b73bbc745fcc875afb6fae9a3a2eb2eb027e6806e28a68e9\nnoise-0027 checksum=4335f2707a8cca3a09cde97e14347fa8499eb04496d5a8c528b2f87b92bbf018\nnoise-0028 checksum=b1df9ba1aeb38a1bca1dbcce54d26b847d1deeeaad337c80f90e61ec2b15d8b9\nnoise-0029 checksum=101cfd2c71e069ff1b9442c53a02f96fa97f246e19a13fc0a2004c676b850eda\nnoise-0030 checksum=2d4feb92f19441bee1c7e948123a2f595e8c099929a1593c0dc3a40632354409\nnoise-0031 checksum=ed8e30ebdd4378abb7a3132f3026a58c03ad1fbc8cf3a7f5e396f4422923b9c8\nnoise-0032 checksum=bf336fb19ad565310e9613ecacb0730035146e3ad9351493522392261cf719f1\nnoise-0033 checksum=dc4d6a0ea723278b1e0c0c1288f464b279392dd6d806ba1017c3e3c5187447d5\nnoise-0034 checksum=4b9353f9454d2e7e4675a184dcd54441162d90de9f6220ab5276e6033b489afa\nnoise-0035 checksum=362db37068ee63d9ee48f61f1defa2a15a91b9cbf6aa4dbf251bbdb70dc5bb22\nnoise-0036 checksum=98d40f61d0723b7875baf63c5f0f4d8658530941759a52cdbc7ce524a7fe38e4\nnoise-0037 checksum=717cb7d4486152de4447e2b995dc49d6e70c32e3c2adb09e3548abd07af036e1\nnoise-0038 checksum=d177a46d4bef5e93de28121986b6ee42e88fd78186d89fa80071488606351b68\nnoise-0039 checksum=4f5cf1a715a890fe20fc209859f57c88036f7075cdb1111925d070b68559d8af\nnoise-0040 checksum=9ca633d693973508f80363f41f9b0f6ddcf88013cd32d57c5e27eef438c7f857\nnoise-0041 checksum=feff1ca80eadb5500d1ec456960788188c371d286ef51d95ec604c2f0f8f30cf\nnoise-0042 checksum=94093f9ee30e2f43f751a9c78981d18e43ffaf446277bfe35dad37d29e6c8fec\nnoise-0043 checksum=8e534a0cc6bb57839e42a6a202331f38e56cfd529725874f17286caccf3bc8bf\nnoise-0044 checksum=46f94862408c413e17be41835045d9f2a208ef004180e2db7df3ec7bcd51d1d7\nnoise-0045 checksum=f74d9c8ff025be777f8b46214195002287c0e15acf7b2ba505b7f78d76919ca2\nnoise-0046 checksum=6548b95aa597fccffe80f7e6ed84428bb021203e7bf392b07f2476035eed3d95\nnoise-0047 checksum=2fc63eec46f125a9a6aebde331b16d5b369e04718cc779a52390a0f257b358d2\nnoise-0048 checksum=b29c221876d307b00b32dcd1465e672b06440ed07f33d5142e8ad02ca11a4f18\nnoise-0049 checksum=e50abea9a36dc4f77e0b2fa171b92a534b7157d6e40b94591cbd3a92c2f5e9b8\nnoise-0050 checksum=a1385c412b0a381a0fac8b1f3ef2899d2ff20a707e54ded14748acad2c7d14c6\nnoise-0051 checksum=181e37681135c8b82495ee747e9d65b2ba2b885cc805b206e82ca6545aebae63\nnoise-0052 checksum=c2244a64fe720c2b003e54d4f4a1260fbda4158a85b0cfbef696fa6697dcd0cf\nnoise-0053 checksum=e67adead370e0959f144819996225bb41cd715f322c0fa8ba908b12c71afd4d3\nnoise-0054 checksum=eed759167a98e63ff6314b40410d8075baffbe29157fa461249a810efe503ead\nnoise-0055 checksum=7b4dcd252ca837d4b807b81ab92fa6b4b0815a8ef3dd770d67e8be208eeafc83\nnoise-0056 checksum=fcecf860bed30f5228c80022a51aa4e7a944f93660a9acfadf3e841956da8ec9\nnoise-0057 checksum=a6c8cace243a20114824add3f8cb81f09428665c8ae356fbaef849e116a14db4\nnoise-0058 checksum=7789d9ae58f07a7dce6a56f59d560605deaa0dcd276849e64f7df941b2fb142f\nnoise-0059 checksum=8a953ddc2e21536d622d28a122c684d6578fed9a9daf8d56f22259c73034d548\nnoise-0060 checksum=1ed6577d756efa49b4be92bbe4e8a683f847dcec16da362a1a9d86a0619235d0\nnoise-0061 checksum=32cb8f4d93d53946569a0931271707ac40e57130a287c1e8355859a01884a7c9\nnoise-0062 checksum=641b682620afb3eec78fb2b9b7f924ccf102f3c38e86ddba94bf8809065dc3d0\nnoise-0063 checksum=2b3327f503a63b3ec83fbc09bdc26c5298752ffd6c19f4522154cc9c5720a423\nnoise-0064 checksum=26442c606b5a91bfb0cddfaa7278f7d28d66c0c9b969cb92476ede46583a7482\nnoise-0065 checksum=c8436369874c6ba7acc6effcd4069aa9d2b939182bd51c2ee4046e60e4298323\nnoise-0066 checksum=25cdada6a7cdcdb07cf225db07ae7292b57a1dae54ee566b844ea59d7c62e26b\nnoise-0067 checksum=61ba050c7730e36eccb3e1741a602bca54655335d474fbb3a24a00519e8680cb\nnoise-0068 checksum=272b6f6d33b378aa500beafd5cf94fd9a62033e6200f546aeae9f8e7748fb527\nnoise-0069 checksum=a3faf873ef4a769ab363dd0015e26fd97f34f151a60d2e3e48da6a0daa78e382…8 tokens truncated…ise-0350 checksum=ad3d12b3e1a4a7176e2db9736288aa160c3e6c814f4f232512c3eb46b15b413a\nnoise-0351 checksum=4c57a9aa46be4827c143a61877af9f4f44759ee22bf595de2e6c3729564189d1\nnoise-0352 checksum=910c9a94b085c7475244fc652f07c954241032ca355417ea4e675cf7ff9aa9d6\nnoise-0353 checksum=a9af546b8df51f2a62dff3b4f36d0bb22efc5b686036309d210e851d0ae0f341\nnoise-0354 checksum=2ee60a9c5d006d89e8f349bdbeae4b1d589a3ccb3f9ad71468968533e9fee94e\nnoise-0355 checksum=eb9cde60edcdd4cf018287c306d73d2db3c472dac0f4d2c04c631365366675d6\nnoise-0356 checksum=8ba8ecdab2da1c3acb1bdb588742348f4436a703f651f2a0e0f2e611f233a183\nnoise-0357 checksum=02e44fec88579e843b4b42a62fca50f09b3b92ce6537dbd1834f9f20bcb0c908\nnoise-0358 checksum=819fb20fe88009e82cbf08b198a0bb9eadd6f3a9615606139238f10ecb5ad0ea\nnoise-0359 checksum=c375872a5ff20b82ea6de8f127962466d7015ffb3485d439811f02e1593eb748\nnoise-0360 checksum=941f44a883405540b4e13c650924ab88be3ab22a5578efe1589a981c9a9b5893\nnoise-0361 checksum=d777d450ed6ce07fa6992f8875f1b935ce5861edb92c45a2e862108dbf1aaec5\nnoise-0362 checksum=339aa19fa6ae034a1f847bc3b0eedb7adc33713bd6d3af31f4cc73ca6426cedf\nnoise-0363 checksum=5638c538c316b6c93a7836e783fd4ec9d234fa568ca83ae13a535f67698a77e6\nnoise-0364 checksum=641fd70c8aed14682d88324dd4d1291d4403242561b363bfdf6d75cf61820fd9\nnoise-0365 checksum=b8622170f3592f332b659a4615d2b896d6278d8748fdcb0a063c6a356e869eb3\nnoise-0366 checksum=3a920db26ea776d98eee3f6271ce89ba85a39b3443be7dc518dfa00346161034\nnoise-0367 checksum=c84b67601d042abb8719902e7d8751dbc8aa9bb1dd2d037be4c4ae559cb7ebde\nnoise-0368 checksum=dd3c9fc3ad36ec8e5095f398cfaf164a333758f40aae6f2a764fb09577deec82\nnoise-0369 checksum=9b9bbb77b06adf81389adadb546c068ce721a69b22bbddb9a792a12057d1e13c\nnoise-0370 checksum=f1a77b8da84a8d637d3571cf3eaebbfbfbb34e1496b35e8bd9c6444421bef155\nnoise-0371 checksum=424564266751265f38fe95bb8ca9ae652593eb55eeface9a1a6a416a8540ae98\nnoise-0372 checksum=054024f356bf036a238dd3e6cd11b7f0fbde89edb463c7f80ad8b93d686ddb3e\nnoise-0373 checksum=7c92184180342b37e5f8e9fae3f001285e62432c2fb19cc810a699788dc1c263\nnoise-0374 checksum=d0dc33cd338b4f4f289df4337e74b0a72b9d7737dd021ee67a283443d6f09e5b\nnoise-0375 checksum=c3486244753d036eec5af3bd18e194279c3cf568a39b0956eaf3929f73cff5e5\nnoise-0376 checksum=59fa8d820f0a03919452e6769190d910823880b4e360db6fae9d18dafe41e119\nnoise-0377 checksum=556a2f0555cc1048d82e47d31355c8559bfdf8de0ad31f997423a90c14bad8c0\nnoise-0378 checksum=754e4d5c3a19625858b1cec53aaaf010265dab215d0480ba89d723422d49f1b4\nnoise-0379 checksum=2de037749834c85b7ab1367e16e1fd62a25b6c0926e0ca78ffa6ca9756832474\nnoise-0380 checksum=17028bd145f87baf961f1cc9c04e2a7d605743f0b1b7625751367c625e21cecb\nnoise-0381 checksum=3255c86c015c0973df5221aa2aaced8e28bf28b227be875f87c1cb454bc0892c\nnoise-0382 checksum=a625a73e925128209734eff5d8382933f0db5e141090b49c2561689b10d766e5\nnoise-0383 checksum=823eadc5f2357d33ba0ffdf117f0d528be94633049ca7af9193f1d1a9d88d7f9\nnoise-0384 checksum=041fb0e04b9b2cf5e2b293b155525e8131bc49c4e261d99278f17bbfaceb10d1\nnoise-0385 checksum=02c74aee95a3072480cc41dd13bbe7ff43a822e053c5c87a5855fb1333af44d2\nnoise-0386 checksum=cff74c94a27f3fb8753f00e00384892d212647835254509671df3598a5b808d9\nnoise-0387 checksum=a0667d68a25d579eb497bbf96b4f4041efb6e3fd92f9e4e25939d447370c8145\nnoise-0388 checksum=9a7f6c017daea7922a91a78c06bb961704bc6b61a27a5fb2fb7273d49342dba3\nnoise-0389 checksum=6d2d71e64f201bcc6276a6c23e858a3747f692c3313bd2393c01cd3a23a3eaaf\nnoise-0390 checksum=673098687b950976fe86f97bc29bb00b81a030e8a9fbc6797213decfb4db5e95\nnoise-0391 checksum=88d266d144fadccbeafc8f1c6b1f5fbd02bc66bea5500ea9199df60ef8d2406b\nnoise-0392 checksum=c873e939d65f5596ab8091e5e88cc4b817e961ca58f6ea20ad5035d6552aaed0\nnoise-0393 checksum=c4f68fdb8d82ea417708cbf8bf86cc2bf980c45863d591b59691a9c9c4ec3d3f\nnoise-0394 checksum=0662d732bdd17cf754e3ec7162b7647d5e279cf7f3c0f9829e77a465bdbf81fb\nnoise-0395 checksum=3d01411c03e80ce601d80b575aab16cb783184cd53ea7e4b95029eaa84592ffa\nnoise-0396 checksum=80f30c6dbd0a84f54821e724b8fd2260e72dad368b588e07013c3e72d0b1aa11\nnoise-0397 checksum=23c743554e46125ae65178978bcd307001a3d7c90fd10e99e4e871a5b7195efb\nnoise-0398 checksum=b50daf842b7483f4fd7348f96a0166713ed73aee63d074e429648aa60a96fe9e\nnoise-0399 checksum=05f6c7dfd4e8d6b23bd039b6bddc72ca64e330383339faf3ffbb5bf4d9af8412\nnoise-0400 checksum=38173e2e25f4df26152530a020ff430aa8399908d97d5128bd9a1dd596369fe9\nnoise-0401 checksum=89fa534a0ac7476c9282b59d7becee237f4547e8491deaedfe476241bed91d91\nnoise-0402 checksum=876312de8bf1b27b834340ff7f302f5dc5a33ca29af17dc0fbab44aebca4acb3\nnoise-0403 checksum=c295b13c5c206a1d091e7bf33b6ad4f6ed8ad2bf9efb79e974a7b3066037aa03\nnoise-0404 checksum=6638654daf2c468050f3d410493085cd98201f42ceddd0b031ad2f576bf524bd\nnoise-0405 checksum=1deffb306b069e5bc54ef42792b853fdeb87e90acd54ad021c4129e64becb139\nnoise-0406 checksum=76e4f57e93ad11659ea0c5e87bb5ac74cb6abf4e83676edc352eafe82ff19114\nnoise-0407 checksum=aa86e8f8edad4c2590d2ef80ae8930cd5274d0a6f55403fdc195f83f59c38c31\nnoise-0408 checksum=33082fac294b0debd9aa5bf1636facdc11e7066b5b784e32fd97ddb933b43439\nnoise-0409 checksum=2220f321da5399bed6dc65e96410b491815a0cd8734f7200609847325eea1e99\nnoise-0410 checksum=13a54383e33bc470912cb16d9bcf74593597764cad7af5ccb233670f5dcc6057\nnoise-0411 checksum=249c097cd62297a1c71542a78038c4d0d2f54cad2690f6625c9fd0a17b22eb43\nnoise-0412 checksum=0d7fbab76bf4229aba1bb8ca20fe8b01ff8158ddbf972648417f929fdb76ce4c\nnoise-0413 checksum=00be4b903c6303abb4c1395a5cee60bee3534d95f42b4737f09c39aa6db4c621\nnoise-0414 checksum=6ef2cb7f39a250fc155f23c96b223347cedaeafab9edbbcff48b15e039f22e80\nnoise-0415 checksum=323c9738abdbe289453b23e8b575e9782d5c49de827eb1c94c0eb5a71dcae6ee\nnoise-0416 checksum=a3ce9fd11c6e20518d0dd6e3fca43b6f8221c46d3cb98b5bd63dd30f6c1539be\nnoise-0417 checksum=2bdc7d9ee6e5707b0ee6f3678d90f3153be04972bfca060fe2a1d591edaa5b9a\nnoise-0418 checksum=acbce228c6a9c829c78a61c374870b9e457d9830262b4960402670da840de7b8\nnoise-0419 checksum=1017f1099d5667c7ddd970807e512471ed67b5fb6184f37b4ba55c2af64cf91e\nOBSERVATION TAIL_KEY = COBALT-492\n"
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "name": "list_mcp_resources",
+      "description": "Lists resources provided by MCP servers. Resources allow servers to share data that provides context to language models, such as files, database schemas, or application-specific information. Prefer resources over web search when possible.",
+      "strict": false,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "description": "Opaque cursor from a previous list_mcp_resources call; omit for the first page."
+          },
+          "server": {
+            "type": "string",
+            "description": "MCP server name. Omit to list resources from every configured server."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "list_mcp_resource_templates",
+      "description": "Lists resource templates provided by MCP servers. Parameterized resource templates allow servers to share data that takes parameters and provides context to language models, such as files, database schemas, or application-specific information. Prefer resource templates over web search when possible.",
+      "strict": false,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "description": "Opaque cursor from a previous list_mcp_resource_templates call; omit for the first page."
+          },
+          "server": {
+            "type": "string",
+            "description": "MCP server name. Omit to list resource templates from every configured server."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "read_mcp_resource",
+      "description": "Read a specific resource from an MCP server given the server name and resource URI.",
+      "strict": false,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "MCP server name exactly as configured. Must match the 'server' field returned by list_mcp_resources."
+          },
+          "uri": {
+            "type": "string",
+            "description": "Resource URI to read. Must be one of the URIs returned by list_mcp_resources."
+          }
+        },
+        "required": [
+          "server",
+          "uri"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "request_user_input",
+      "description": "Request user input for one to three short questions and wait for the response. This tool is only available in Plan mode.",
+      "strict": false,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "questions": {
+            "type": "array",
+            "description": "Questions to show the user. Prefer 1 and do not exceed 3",
+            "items": {
+              "type": "object",
+              "properties": {
+                "header": {
+                  "type": "string",
+                  "description": "Short header label shown in the UI (12 or fewer chars)."
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Stable identifier for mapping answers (snake_case)."
+                },
+                "options": {
+                  "type": "array",
+                  "description": "Provide 2-3 mutually exclusive choices. Put the recommended option first and suffix its label with \"(Recommended)\". Do not include an \"Other\" option in this list; the client will add a free-form \"Other\" option automatically.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "description": {
+                        "type": "string",
+                        "description": "One short sentence explaining impact/tradeoff if selected."
+                      },
+                      "label": {
+                        "type": "string",
+                        "description": "User-facing label (1-5 words)."
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "description"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "question": {
+                  "type": "string",
+                  "description": "Single-sentence prompt shown to the user."
+                }
+              },
+              "required": [
+                "id",
+                "header",
+                "question",
+                "options"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "questions"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "namespace",
+      "name": "mcp__fixture",
+      "description": "Tools in the mcp__fixture namespace.",
+      "tools": [
+        {
+          "type": "function",
+          "name": "fixture_output",
+          "description": "Return the current instrument observation: HEAD_KEY and TAIL_KEY with optional irrelevant checksum noise. Call once, then report both observed values.",
+          "strict": false,
+          "parameters": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "get_goal",
+      "description": "Get the current goal for this thread, including status, budgets, token and elapsed-time usage, and remaining token budget.",
+      "strict": false,
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "create_goal",
+      "description": "Create a goal only when explicitly requested by the user or system/developer instructions; do not infer goals from ordinary tasks.\nSet token_budget only when an explicit token budget is requested. Fails if an unfinished goal exists; use update_goal only for status.",
+      "strict": false,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "objective": {
+            "type": "string",
+            "description": "Required. The concrete objective to start pursuing. This starts a new active goal when no goal exists or replaces the current goal when it is complete."
+          },
+          "token_budget": {
+            "type": "integer",
+            "description": "Positive token budget for the new goal. Omit unless explicitly requested."
+          }
+        },
+        "required": [
+          "objective"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "type": "function",
+      "name": "update_goal",
+      "description": "Update the existing goal.\nSet status to `paused` only at the user's explicit request to pause this goal, never on your own initiative. Ask if unclear; a later resume revokes that request. Report the returned status and stop goal work. Budget limits take precedence over pausing.\nSet status to `complete` only when the objective has actually been achieved and no required work remains.\nSet status to `blocked` only when the same blocking condition has repeated for at least three consecutive goal turns, counting the original/user-triggered turn and any automatic continuations, and the agent cannot make meaningful progress without user input or an external-state change.\nIf the user resumes a goal that was previously marked `blocked`, treat the resumed run as a fresh blocked audit. If the same blocking condition then repeats for at least three consecutive resumed goal turns, set status to `blocked` again.\nOnce the blocked threshold is satisfied, do not keep reporting that you are still blocked while leaving the goal active; set status to `blocked`.\nDo not use `blocked` merely because the work is hard, slow, uncertain, incomplete, or would benefit from clarification.\nDo not mark a goal complete merely because its budget is nearly exhausted or because you are stopping work.\nYou cannot use this tool to resume, budget-limit, or usage-limit a goal; those status changes are controlled by the user or system.\nWhen marking a budgeted goal achieved with status `complete`, report the final token usage from the tool result to the user.",
+      "strict": false,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Required. `paused` requires an explicit user request. Set to `complete` only when the objective is achieved and no required work remains. Set to `blocked` only after the same blocking condition has recurred for at least three consecutive goal turns and the agent is at an impasse. After a previously blocked goal is resumed, the resumed run starts a fresh blocked audit.",
+            "enum": [
+              "complete",
+              "blocked",
+              "paused"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ],
+  "tool_choice": "auto",
+  "parallel_tool_calls": true,
+  "reasoning": {
+    "effort": "low",
+    "summary": "auto"
+  },
+  "store": false,
+  "include": [
+    "reasoning.encrypted_content"
+  ],
+  "prompt_cache_key": "01a1a217-accf-7381-a1f7-d041cac465a3",
+  "client_metadata": {
+    "thread_id": "01a1a217-accf-7381-a1f7-d041cac465a3",
+    "x-codex-installation-id": "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII",
+    "session_id": "01a1a217-accf-7381-a1f7-d041cac465a3",
+    "x-codex-window-id": "01a1a217-accf-7381-a1f7-d041cac465a3:0",
+    "turn_id": "01a1a217-ad22-7723-85aa-1b613184ed76",
+    "root_turn_id": "01a1a217-ad22-7723-85aa-1b613184ed76",
+    "x-codex-turn-metadata": "{\"installation_id\":\"IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII\",\"session_id\":\"01a1a217-accf-7381-a1f7-d041cac465a3\",\"thread_id\":\"01a1a217-accf-7381-a1f7-d041cac465a3\",\"agent_name\":\"PPPPP\",\"turn_id\":\"01a1a217-ad22-7723-85aa-1b613184ed76\",\"window_id\":\"01a1a217-accf-7381-a1f7-d041cac465a3:0\",\"window_number\":0,\"context_window_id\":\"01a1a217-acd8-72a1-aa4f-d0333227d7b0\",\"request_kind\":\"turn\",\"history_initialization\":\"new\",\"root_turn_id\":\"01a1a217-ad22-7723-85aa-1b613184ed76\",\"thread_source\":\"user\",\"turn_trigger\":\"exec\",\"sandbox\":\"seatbelt\",\"sandbox_mode\":\"read-only\",\"auto_review_enabled\":false,\"node_repl_auto_review_required\":false,\"node_repl_disabled\":false,\"turn_started_at_unix_ms\":1793720823083,\"analytics_enabled\":true,\"model\":\"deepseek-flash\",\"reasoning_effort\":\"low\"}"
+  }
+}

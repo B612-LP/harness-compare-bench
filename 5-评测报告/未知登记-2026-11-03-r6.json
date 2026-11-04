@@ -1,0 +1,229 @@
+{
+  "registered_at": "2026-11-04",
+  "registered_in": "报告 v1.6 有限原生技术先导停止交付",
+  "supersedes": "未知登记-2026-11-03-r5.json",
+  "note": "事件/研究目录日期2026-11-03保留，交付登记2026-11-04。items前11项逐字段继承r5历史快照，旧登记不覆盖；当前变化见scope_updates，不能将历史Codex未live读作本阶段未发生真实上游。新增gate早退计数误读风险。有限阶段已停止，整体研究Spec仍incomplete，正式25行/n1与DSH六对不变；无新正式行。证据路径相对公开仓根。",
+  "items": [
+    {
+      "id": "yuanbao-tb-content-gate",
+      "resolution": "closed (2026-11-02，停止条件达成)",
+      "knowledge_status": "known",
+      "investigation_status": "closed_two_round_discrimination",
+      "confound_status": "partially_excluded (产品侧门控成立；门控内部机制仍黑盒)",
+      "summary": "两轮独立判别（2026-11-02）：自动臂（bench Edge 9334，与失败槽 r1b/r2b 同机同驱动）原题面+附件发射被整体吞没（编辑器已同步 1488 字符、附件 chip=1，900 秒窗无会话创建，报错串与 r1b/r2b 逐字节相同）；人工臂（用户本人浏览器手动上传+粘贴）文本送达建会话、智能体正常回复但自述附件未进入沙箱并请求重传。tb 载荷两条通路都无法完成任务；失败形态随通路变化（自动化=整体吞没、人工=附件剥离）。单发协议，未重试未重传。",
+      "impact": "元宝批 tb 列 0 个有效运行（不变），B 组元宝 tb 格无产品成绩；不影响其他题列与其他产品行。判别将该失败明确归位为产品侧内容门控（非评测系统、驱动或基础设施问题）。额度消耗：自动臂 1 次发送（未建会话）+人工臂 1 次发送。",
+      "next_step": "不再发射、不再消耗额度（停止条件已达成）。若产品方公开风控说明或修复，可用同载荷（SHA 随判别现场事件收据）单次复评；评测侧不改题面绕行（守住题面冻结）。",
+      "stop_condition": "已达成：两轮独立判别（自动+人工）结论一致（2026-11-02）。备选条件（产品方公开风控说明）未发生；结清后仅在产品方公开说明/修复触发单次复评。",
+      "evidence": [
+        "3-表现现场/r20261102-yuanbao-tb-control/control-events.json",
+        "3-表现现场/r20261102-yuanbao-tb-control/README.md",
+        "3-表现现场/r20261101-yuanbao-n3/runs/_diagnosis/probe-tb-content-gate.json",
+        "3-表现现场/r20261101-yuanbao-n3/batch-summary.json"
+      ]
+    },
+    {
+      "id": "yuanbao-revamp-delivery-and-swallow-gate",
+      "knowledge_status": "unknown",
+      "investigation_status": "observed_not_explained",
+      "confound_status": "not_excluded",
+      "summary": "2026-11-01 远端前端改版（Quill 编辑器+新发送组件）后出现两类间歇性产品侧行为：交付通道间歇性（12 个有效运行中 3 场交付文件卡片：bird r2c、dabstep r1c、bird r3；其余以围栏/贴文交付）与发送吞没门（内容已同步、点击 3 秒~15 分钟不定被吞，与附件大小无关）。",
+      "impact": "元宝 B 组结果面波动的一部分（8 场 0 分中多数与交付形式直接相关）；跨轮可比性受限；豆包/CLI 轨不受影响。",
+      "next_step": "后续元宝批批前执行内容/交付双探针定性当日产品行为；逐 run 版本采集修复已完成（见 edge 项），修复后批次的交付通道状态与版本可对齐记录。",
+      "stop_condition": "连续两批交付行为稳定（全卡片或全围栏）且吞没门不再复现，可降级为 accepted_limitation。",
+      "evidence": [
+        "3-表现现场/r20261101-yuanbao-n3/README.md",
+        "3-表现现场/r20261101-yuanbao-n3/batch-summary.json"
+      ]
+    },
+    {
+      "id": "desktop-quota-window-volatility",
+      "knowledge_status": "unknown",
+      "investigation_status": "protocol_managed",
+      "confound_status": "disclosed_not_controlled",
+      "summary": "豆包/元宝产品时段额度由产品侧控制，恢复时间仅产品文案明示（如「预计今日 21:42 恢复」），实际恢复时点有波动。",
+      "impact": "额度改期引入 4~6 小时不等的时间间隔，未作为变量控制；豆包批两次改期槽（exercism r2b、tb r3b）结果落在对应题历史波动带内，未见异常，但样本不足以断言零影响。",
+      "next_step": "沿用既定协议：额度文案先读再归因、改期一次、如实披露间隔；不在恢复时间上做任何推测性补跑。",
+      "stop_condition": "产品提供正式配额文档或配额事件不再发生；协议本身长期有效。",
+      "evidence": [
+        "3-表现现场/r20261101-doubao-n3/README.md"
+      ]
+    },
+    {
+      "id": "edge-auto-update-and-driver-version-gap",
+      "knowledge_status": "unknown",
+      "investigation_status": "mitigation_in_progress",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "桌面浏览器自动更新不可关闭（批末实测 Edg/156.0.4314.58，批初浏览器版本无逐槽采集收据）；且元宝驱动逐 run 产品/浏览器版本采集在改版后失效（runs/*/after.json app_version_after=null，仅 L21 补槽 bird r3 起在台账逐槽记录 Edge 版本）。",
+      "impact": "元宝批 22 个历史槽无逐 run 浏览器版本（批级以「Edge 桌面交付+会话时点」披露，主报告 §5.1 同）；跨批环境精确复现不可能，只能披露到日/时点粒度。",
+      "next_step": "版本采集修复已于 2026-11-02 实施（CDP /json/version 实时读取，拒连/异常体降级 unknown 不伪造；三例验证收据存私档），2026-11-02 判别现场预检已产出非空版本；关闭条件仍待修复后连续一批逐 run 版本非空。历史 22 槽不可回补（write-once），以本登记与批 README 披露为准。",
+      "stop_condition": "修复后连续一批逐 run 版本字段非空即视为工具缺陷关闭；浏览器自动更新本身不可关闭，长期以披露为准。",
+      "evidence_note": "edge 项第一指针注记：preflight 事件 app_version 非空（Edg/156.0.4314.58）",
+      "evidence": [
+        "3-表现现场/r20261102-yuanbao-tb-control/control-events.json",
+        "3-表现现场/r20261101-yuanbao-n3/README.md"
+      ]
+    },
+    {
+      "id": "input-bytes-reasoning-cache-server-input",
+      "knowledge_status": "unknown",
+      "investigation_status": "pending_external_condition",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "同DSH只固定low档而非actual reasoning tokens；原生cache自报场间不等，服务端最终输入不可直接观察。",
+      "impact": "仅支持客户端UTF-8组装方向及指定双键；不推tokens/成本/服务端因果。",
+      "next_step": "保留请求侧指标和原生usage辅助；只有可信服务端/推理量观测条件满足才另立预注册新合同，不追加本批。",
+      "stop_condition": "取得可独立核验的实际推理/缓存/服务端输入控制证据，或明确限定的研究问题不再需要该因果断言；不得以low设置替代。",
+      "evidence": [
+        "3-表现现场/r20261103-input-bytes/README.md",
+        "1-评测方案/请求侧输入字节-2026-11-03/README.md"
+      ]
+    },
+    {
+      "id": "codex-live-direct-comparison-incomplete",
+      "knowledge_status": "unknown",
+      "investigation_status": "pending_external_condition",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "Codex0.163.0的namespace工具格式只完成mock校准；剩余pilot预算改用于修订DSH仪器，Codex未发live。",
+      "impact": "本批无Codex直接请求字节实测，不是双产品受控复制成功。",
+      "next_step": "若需要跨产品直接比较，先评估native协议/API兼容和冻结可比边界，另经授权和新预算执行；本批不补跑。",
+      "stop_condition": "在新合同下完成双方可直接观测、条件审计和独立重复；否则保持incomplete。",
+      "evidence": [
+        "3-表现现场/r20261103-input-bytes/batch-events.json",
+        "1-评测方案/请求侧输入字节-2026-11-03/README.md"
+      ]
+    },
+    {
+      "id": "desktop-product-isolation-and-os-audit",
+      "knowledge_status": "unknown",
+      "investigation_status": "pending_external_condition",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "helper工程样本38次：禁区内容10阻止/2漏阻（硬链接、继承预开FD）；协作trace静默读取漏检。真实产品GUI与独立OS审计未校准。",
+      "impact": "不能将helper成功率、提示词边界或判卷沙箱宣称为桌面产品隔离/审计覆盖率。",
+      "next_step": "在用户允许且产品可运行的隔离环境，做真实产品路径/进程/IPC/继承FD/硬链接与独立审计校准；无授权不改系统权限。",
+      "stop_condition": "实际产品边界和独立审计覆盖完成且盲区定量披露；不以helper自测通过结清。",
+      "evidence": [
+        "5-评测报告/证据口径-2026-11-03/access-calibration/calibration.public-derived.json",
+        "5-评测报告/证据口径-2026-11-03/README.md"
+      ]
+    },
+    {
+      "id": "genuine-third-party-verification-pending",
+      "knowledge_status": "unknown",
+      "investigation_status": "pending_external_condition",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "真实核验人、时间、访问范围和签名记录均未取得；公开派生和私档原件分开列，内部复算不是人类第三方。",
+      "impact": "公开主指标可重算不等于私档原封印/全部历史verify通过。",
+      "next_step": "需用户指定并获得核验人同意及资料访问授权，再逐文件核对清单、大小、哈希、可公开字段与历史不可核验项。",
+      "stop_condition": "完成真实核验记录；不能以代理身份、空身份、哈希或内部审核代签。",
+      "evidence": [
+        "5-评测报告/证据口径-2026-11-03/access-calibration/third-party-handoff.json",
+        "5-评测报告/证据口径-2026-11-03/access-calibration/historical-verify-inventory.json"
+      ]
+    },
+    {
+      "id": "external-public-only-reading-pending",
+      "knowledge_status": "unknown",
+      "investigation_status": "pending_external_condition",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "尚无真实首次阅读者仅使用公开材料的耗时、误读与追证路径实测。",
+      "impact": "入口已经整理，但不能声称外部可读性已实证通过或R-N04完成。",
+      "next_step": "在用户同意后邀请非项目执行者，仅给公开入口，真实记录身份/授权范围、耗时、错误与无法追证项。",
+      "stop_condition": "真实记录完成并核对关键结论→证据路径，必要时迭代；不能虚构人/时间。",
+      "evidence": [
+        "5-评测报告/证据口径-2026-11-03/README.md",
+        "README.md"
+      ]
+    },
+    {
+      "id": "historical-source-five-missing-and-version-gaps",
+      "knowledge_status": "unknown",
+      "investigation_status": "pending_external_condition",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "机器来源账331旧pin中326 match/5 missing（DSH压缩会话原文件），另40个B观察版本字段unknown；不是45个新增失败运行。",
+      "impact": "部分历史原件和逐run版本不可独立补复核，不得反推或回填未知。",
+      "next_step": "保留缺失路径、旧hash与语境；仅在原件/真实历史版本收据找到时另留新增证据，不修改旧样本。",
+      "stop_condition": "找到与旧pin一致的真实原件及可溯源版本凭据；找不到则维持披露，不制造通过。",
+      "evidence": [
+        "5-评测报告/证据口径-2026-11-03/source-ledger.public-derived.json",
+        "5-评测报告/证据口径-2026-11-03/source-ledger.md"
+      ]
+    },
+    {
+      "id": "v2-runner-failfast-coverage-incomplete",
+      "knowledge_status": "unknown",
+      "investigation_status": "identified_not_triggered_in_this_batch",
+      "confound_status": "disclosed_not_excluded",
+      "summary": "冻结v2执行器实时检查第一请求控制，不在每槽继续前完整验证第二请求model/low/schema/fixturehash；本批全部24确认请求已全量复核无实际漂移。",
+      "impact": "本批主值仍有效；不能声称所有预设停止条件均有完备机械守卫，v2不可直接复用发新批。",
+      "next_step": "保留冻结历史；未来新版本在每槽继续前调用完整measure验证并做第二请求漂移反例，重新冻结后才允许新live。",
+      "stop_condition": "未来新版本覆盖全部漂移/不完整条件且反例拒绝通过；本批不重封、不重跑。",
+      "evidence": [
+        "1-评测方案/请求侧输入字节-2026-11-03/README.md",
+        "3-表现现场/r20261103-input-bytes/computed/metrics.json"
+      ]
+    },
+    {
+      "id": "gate-early-return-upstream-accounting",
+      "knowledge_status": "known_risk",
+      "investigation_status": "reconciled_not_retroactively_modified",
+      "confound_status": "disclosed_reconciled_for_this_stage",
+      "summary": "原session-gate因捕获文件形态条件早退，upstream_attempts=0为默认未统计，不能当实测零。Req1capture=1，Req2=0；完成收据/账本对账实际1。原gate不改，独立reconciled-accounting保留来源差异。",
+      "impact": "若使用早退默认值会少记真实请求并误读预算；不能据该0称无模型调用，也不能把客户端第二请求当第二次上游。",
+      "next_step": "本批使用逐请求metadata+闭合收据+机器账独立对账；未来接口以null/unknown表未统计并做早退负例，需新冻结，不覆盖旧收据。",
+      "stop_condition": "后续新代所有早退都区分未统计与实测0且计数来源对账通过；本批已另立对账但不宣称旧输出已修复。",
+      "evidence": [
+        "3-表现现场/r20261103-native-input-gated/runs/pilot-codex-native-v3/session-gate.json",
+        "3-表现现场/r20261103-native-input-gated/runs/pilot-codex-native-v3/capture/01-meta.json",
+        "3-表现现场/r20261103-native-input-gated/runs/pilot-codex-native-v3/capture/02-meta.json",
+        "3-表现现场/r20261103-native-input-gated/reconciled-accounting.json",
+        "3-表现现场/r20261103-native-input-gated/batch-events.json"
+      ]
+    }
+  ],
+  "scope_updates": [
+    {
+      "id": "codex-live-direct-comparison-incomplete",
+      "historical_item_preserved": true,
+      "current_status": "direct_observation_incomplete",
+      "summary": "新有限阶段实际有1 Codex live/1上游尝试，首请求200且fixture真实调用；第二输入prefix4原样、suffix3含reasoning，被仅支持suffix2的仪器在第二转发前拒绝（客户端409，上游0）。不是Codex/模型能力失败。DSH桥接先导未尝试，六会话条件确认未启动，有效比较0。",
+      "impact": "覆盖r5历史未live原因的当前scope更新，不回写旧批；客户端Req2差12825 B为拒绝转发诊断，不能作为有效两次模型输入/跨产品效应。",
+      "next_step": "保持停止，不补槽、不放宽本批；未来若另获授权修改原生响应子集，保留失败、另立前瞻合同并重新校准，actual reasoning/cache/输出预算边界仍需披露。",
+      "stop_condition": "只有新合同下双方技术通过、可比条件审计和独立重复成立，才可另作有效原生观察；本批保持incomplete。",
+      "evidence": [
+        "3-表现现场/r20261103-native-input-gated/README.md",
+        "3-表现现场/r20261103-native-input-gated/computed/metrics.json",
+        "3-表现现场/r20261103-native-input-gated/reconciled-accounting.json",
+        "3-表现现场/r20261103-native-input-gated/pilot-stop-diagnosis.json"
+      ]
+    },
+    {
+      "id": "v2-runner-failfast-coverage-incomplete",
+      "historical_item_preserved": true,
+      "current_status": "new_generation_forward_guards_not_retroactive_closure",
+      "summary": "新代增加转发前及整槽继续前完整技术门，53工具/18控制工程校准，并在真实先导触发second_suffix_invalid；只支持声明协议子集。旧v2源码与历史收据冻结，仍不可直接复用发新批，旧实时覆盖不足不追认关闭。",
+      "evidence": [
+        "1-评测方案/原生请求技术门-2026-11-03/README.md",
+        "3-表现现场/r20261103-native-input-gated/README.md"
+      ]
+    },
+    {
+      "id": "desktop-product-isolation-and-os-audit",
+      "historical_item_preserved": true,
+      "current_status": "not_verified",
+      "summary": "WorkBuddy5.9.3一次直接二进制启动-6/SIGABRT、0.28141秒，无产品模型任务，产品文件操作分母0，矩阵/率null；controller网络0不能推出产品网络0（后者not_observed）。12 synthetic预检包含hardlink/preopenedFD成功内容旁路，不是真实产品隔离12/12。GUI/helper/IPC/OS audit仍未校准。",
+      "evidence": [
+        "3-表现现场/r20261103-native-input-gated/workbuddy-isolation/isolation-feasibility.json",
+        "3-表现现场/r20261103-native-input-gated/README.md"
+      ]
+    },
+    {
+      "id": "genuine-third-party-verification-pending",
+      "historical_item_preserved": true,
+      "current_status": "pending_external_condition",
+      "summary": "已准备先公开盲读、再经同意的最小私有哈希/脱敏见证流程，43项内部准备检查不等于真人核验。真实参与者、身份/时间/签名仍null，外部首读仍未执行。",
+      "evidence": [
+        "5-评测报告/证据口径-2026-11-03/access-calibration/third-party-handoff.json",
+        "3-表现现场/r20261103-native-input-gated/README.md"
+      ]
+    }
+  ]
+}

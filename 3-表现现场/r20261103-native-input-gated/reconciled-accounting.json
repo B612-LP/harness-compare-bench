@@ -1,0 +1,64 @@
+{
+  "schema": "native-pilot-reconciled-accounting-v1",
+  "pilot_sessions_observed": 1,
+  "relay_forwarding_attempts": 1,
+  "per_request_upstream_attempts": [
+    1,
+    0
+  ],
+  "first_upstream_http": 200,
+  "second_client_http": 409,
+  "native_first_input_items": 4,
+  "native_second_input_items": 7,
+  "actual_appended_types": [
+    "reasoning",
+    "function_call",
+    "function_call_output"
+  ],
+  "instrument_supported_suffix_items": 2,
+  "guard_reason": "second_suffix_invalid",
+  "technical_gate_ok": false,
+  "valid_comparison_blocks": 0,
+  "native_dsh_bridge_attempted": false,
+  "confirmation_sessions_observed": 0,
+  "confirmation_slots_conditional_not_launched": 6,
+  "pilot_slots_unattempted": 1,
+  "branch": "direct_observation_incomplete",
+  "frozen_gate_early_return_upstream_field": 0,
+  "frozen_gate_field_is_observed_count": false,
+  "counter_authority": "sum strictly typed capture meta upstream_attempts, corroborated by pilot-completion and independent batch ledger",
+  "budget": {
+    "sessions": 1,
+    "upstream_attempts": 1,
+    "pilot": 1,
+    "confirmation": 0,
+    "unresolved_sessions": []
+  },
+  "source_payload_diagnostics": [
+    {
+      "request": 1,
+      "forwarded": true,
+      "original_body_bytes": 27345,
+      "public_body_bytes": 27345,
+      "body_length_preserved": true,
+      "original_selected_input_bytes": 25873,
+      "public_selected_input_bytes": 25873,
+      "selected_input_length_preserved": true
+    },
+    {
+      "request": 2,
+      "forwarded": false,
+      "original_body_bytes": 40170,
+      "public_body_bytes": 40170,
+      "body_length_preserved": true,
+      "original_selected_input_bytes": 38698,
+      "public_selected_input_bytes": 38698,
+      "selected_input_length_preserved": true
+    }
+  ],
+  "diagnostic_not_primary_result": true,
+  "readiness_scope": "declared protocol subset plus offline CLI mocks; not successful native comparison",
+  "research_overall": "incomplete",
+  "third_party_witness": "pending",
+  "external_public_first_read": "pending"
+}

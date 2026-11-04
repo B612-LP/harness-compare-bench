@@ -1,0 +1,65 @@
+{
+  "recorded_at": "2026-11-03T15:49:01.152269+00:00",
+  "actual_forwarding_attempts_from_capture_meta": 1,
+  "per_request": [
+    {
+      "attempt": 1,
+      "upstream_attempts": 1,
+      "outcome": "forwarded",
+      "request_guard_approved": true,
+      "client_status": 200,
+      "upstream_status": 200,
+      "rejection_reason": null
+    },
+    {
+      "attempt": 2,
+      "upstream_attempts": 0,
+      "outcome": "rejected",
+      "request_guard_approved": null,
+      "client_status": 409,
+      "upstream_status": null,
+      "rejection_reason": null
+    }
+  ],
+  "first_input_items": 4,
+  "second_input_items": 7,
+  "appended_item_types": [
+    "reasoning",
+    "function_call",
+    "function_call_output"
+  ],
+  "appended_item_keys": [
+    [
+      "content",
+      "encrypted_content",
+      "summary",
+      "type"
+    ],
+    [
+      "arguments",
+      "call_id",
+      "name",
+      "namespace",
+      "status",
+      "type"
+    ],
+    [
+      "call_id",
+      "id",
+      "output",
+      "type"
+    ]
+  ],
+  "second_input_prefix_exactly_preserved": true,
+  "policy_subset_requires_two_appended_items": true,
+  "valid_confirmation_sessions": 0,
+  "bridge_or_confirmation_launched": false,
+  "reporting_caveat": "session-gate.upstream_attempts=0 is an early-validation default, not observed forwarding; use actual capture meta and pilot-completion budget. Frozen artifacts are not changed.",
+  "sources_sha256": {
+    "runs/pilot-codex-native-v3/capture/01-meta.json": "594612316de5e01b13f5b1700232e8d49cc1f527deae03b8c9421cc396dc654a",
+    "runs/pilot-codex-native-v3/capture/02-meta.json": "82f3ad8a9c8dba2b898b32a7d504aca8a3a137d37179ad1b38c3462d16978ddf",
+    "runs/pilot-codex-native-v3/session-gate.json": "809c67e85fd1923ee8e7d903d89c365291ef9801edddf1f7a2a0add0241b9e4e",
+    "pilot-completion.json": "36f7e505da8cc0725c1ae512eb40d652e718171b7a8a4e5fd5cb28085efa49d3"
+  },
+  "guard_reason": "second_suffix_invalid"
+}

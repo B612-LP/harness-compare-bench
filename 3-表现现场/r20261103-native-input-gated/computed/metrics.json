@@ -1,0 +1,417 @@
+{
+  "generated_at": "2026-11-03T15:50:41.197129+00:00",
+  "schema": "native-input-observation-analysis-v1",
+  "scientific_scope": "native client selected-input observation, not same-schema/output-budget causal comparison, not formal evaluation",
+  "live_sessions": 1,
+  "live_upstream_attempts": 1,
+  "strict_mock_sessions": 2,
+  "confirmation_planned": 0,
+  "confirmation_observed": 0,
+  "valid_blocks": 0,
+  "block_differences_bytes": [],
+  "median_difference_bytes": null,
+  "range_difference_bytes": null,
+  "branch": "direct_observation_incomplete",
+  "formal_new_rows": 0,
+  "blocks": [
+    {
+      "block": 1,
+      "technical_valid": false,
+      "reason": "unattempted_or_unplanned"
+    },
+    {
+      "block": 2,
+      "technical_valid": false,
+      "reason": "unattempted_or_unplanned"
+    },
+    {
+      "block": 3,
+      "technical_valid": false,
+      "reason": "unattempted_or_unplanned"
+    }
+  ],
+  "rows": [
+    {
+      "run_id": "offline-strict-codex-01",
+      "logical_slot_id": "offline-strict-codex-01",
+      "attempt_id": "offline-strict-codex-01-attempt-1",
+      "product": "codex",
+      "phase": "calibration",
+      "arm": "native",
+      "track": "research",
+      "category": "non_product_reference",
+      "mode": "mock",
+      "reasoning_setting": "low",
+      "max_inline_tokens": null,
+      "source_dir": "runs/offline-strict-codex-01",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "input",
+        "tools"
+      ],
+      "B_input_before": 25877,
+      "B_input_after": 38383,
+      "component_bytes_before": {
+        "input": 19003,
+        "tools": 6855
+      },
+      "component_bytes_after": {
+        "input": 31509,
+        "tools": 6855
+      },
+      "component_delta": {
+        "tools": 0,
+        "input": 12506
+      },
+      "before_input_sha256": "8264b33efc39979db4dec3ee883e4b77688fe5d6de2cb173900dfde74238308b",
+      "request_json_sha256": [
+        "bf6b30f9da91a6be2acbdc335cfdc07e3013df5a78e3f2ab6fd24e7dad38cc7d",
+        "4fa664ac45ffa06a2a3e432427aeaa2a8fb791d292af7d4ffe3c1c003d2a5771"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 12506,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "reasoning": {
+          "effort": "low",
+          "summary": "auto"
+        },
+        "tool_choice": "auto"
+      },
+      "B_body_wire": [
+        27349,
+        39855
+      ],
+      "body_wire_sha256": [
+        "ab322a63fd506f47af96c1db158208422ddb5af3dd212dc26c6add8ee58739b1",
+        "b63a938f8f53109c76a72fb11a41e14206e2a70a583e3f89d74409c5aa61cf27"
+      ],
+      "tool_schema_names": [
+        "list_mcp_resources",
+        "list_mcp_resource_templates",
+        "read_mcp_resource",
+        "request_user_input",
+        "mcp__fixture",
+        "get_goal",
+        "create_goal",
+        "update_goal"
+      ],
+      "tool_call_id": "fixture-call-1",
+      "B_tool_returned": 12021,
+      "returned_tool_sha256": "49812c0b03d2d4cebd8269c3f286c928b1b3190fd78e63b1d6fb0f5f0546cfb5",
+      "final_text": "{\"HEAD_KEY\": \"AMBER-731\", \"TAIL_KEY\": \"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+      "strict_gate_ok": true,
+      "strict_gate_reasons": [],
+      "guard_halted": false,
+      "actual_upstream_attempts": 0,
+      "technical_valid": true,
+      "source_receipts": {
+        "capture/tool-process.json": "ed029244dca18cf3ddb4ff3e254247f0b1ed01b4b074f074215504c6627eede7",
+        "end.json": "3efd79a14ddb43d38da50317743d3afeb37022e512ad64f379ac5b7d5d5defe7",
+        "metrics.json": "19ddc696ed5ff6fe71090ab0ea9e69ae8e327ed0c8fd03c71ddbca54c7acce49",
+        "run-meta.json": "932f19c04c4e89f93e9f08ea55c97f2163ff9f3312d1f4276a3c47c5f63e70b4",
+        "session-gate.json": "2f67b1dc690380ef78020b51b827fc90408851692022a411890985634cdb7021"
+      },
+      "usage_auxiliary_events_not_summed_or_deduplicated": [
+        {
+          "capture": "01-response.sse",
+          "event": "response.completed",
+          "source": "response",
+          "reported_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "total_tokens": 0
+          }
+        },
+        {
+          "capture": "02-response.sse",
+          "event": "response.completed",
+          "source": "response",
+          "reported_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "offline-strict-dsh-01",
+      "logical_slot_id": "offline-strict-dsh-01",
+      "attempt_id": "offline-strict-dsh-01-attempt-1",
+      "product": "dsh",
+      "phase": "calibration",
+      "arm": "bounded",
+      "track": "research",
+      "category": "non_product_reference",
+      "mode": "mock",
+      "reasoning_setting": "low",
+      "max_inline_tokens": 512,
+      "source_dir": "runs/offline-strict-dsh-01",
+      "process_exit_code": 0,
+      "timeout": false,
+      "primary_valid": true,
+      "invalid_reasons": [],
+      "request_count": 2,
+      "input_field_names": [
+        "system",
+        "messages",
+        "tools"
+      ],
+      "B_input_before": 1124,
+      "B_input_after": 3379,
+      "component_bytes_before": {
+        "system": 160,
+        "messages": 660,
+        "tools": 272
+      },
+      "component_bytes_after": {
+        "system": 160,
+        "messages": 2915,
+        "tools": 272
+      },
+      "component_delta": {
+        "system": 0,
+        "messages": 2255,
+        "tools": 0
+      },
+      "before_input_sha256": "3e8386588fcc4a612b8803134e4caacd6e7dbcaa352741528f94d37433be50bb",
+      "request_json_sha256": [
+        "ed1637202429b7885458be1f439884e93bb00475b7ad92fbe85cfbe63db73b03",
+        "9799ef07b590cc3147eac51e3d2f480617321e4fa47a7e496d7b6ec7bb8f6a4d"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 2255,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 1024
+      },
+      "B_body_wire": [
+        1244,
+        3499
+      ],
+      "body_wire_sha256": [
+        "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5",
+        "6e6b718b06398d6e7c8853014bc36f1f391a1faf7b23e6491a325f6c07b84aaf"
+      ],
+      "tool_schema_names": [
+        "fixture_output"
+      ],
+      "tool_call_id": "fixture-call-1",
+      "B_tool_returned": 1981,
+      "returned_tool_sha256": "7e72d319da787d830bf6bcb5c5a5b3567a1be4fe196e57b72e5fae0b820ee93c",
+      "final_text": "{\"HEAD_KEY\": \"AMBER-731\", \"TAIL_KEY\": \"COBALT-492\"}",
+      "key_hits": {
+        "HEAD_KEY": true,
+        "TAIL_KEY": true
+      },
+      "json_object_only": true,
+      "information_retained": true,
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+      "strict_gate_ok": true,
+      "strict_gate_reasons": [],
+      "guard_halted": false,
+      "actual_upstream_attempts": 0,
+      "technical_valid": true,
+      "source_receipts": {
+        "capture/tool-process.json": "0a36aba5af71c133af114543802ba0ec10b209ca57116cc03da6173b9f694280",
+        "end.json": "04b329908473783a514ece8731e51b3315b9fd8aec3ec7fb42afc73e5427b5c9",
+        "metrics.json": "ad557efe37c0c2b24683a041560897b66cd0e9eb4c19ff36b687d1da6a978d6d",
+        "run-meta.json": "bac653868f8882e562cbf107c296129b8ead4cc6bf489778cfaa603b1ad0be62",
+        "session-gate.json": "e62dbbb914b2857eae83f9516b5266992a0739a6d5a214f9b1ab2507f2a28e9e"
+      },
+      "usage_auxiliary_events_not_summed_or_deduplicated": [
+        {
+          "capture": "01-response.sse",
+          "event": "message_start",
+          "source": "message",
+          "reported_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0
+          }
+        },
+        {
+          "capture": "01-response.sse",
+          "event": "message_delta",
+          "source": "event",
+          "reported_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0
+          }
+        },
+        {
+          "capture": "02-response.sse",
+          "event": "message_start",
+          "source": "message",
+          "reported_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0
+          }
+        },
+        {
+          "capture": "02-response.sse",
+          "event": "message_delta",
+          "source": "event",
+          "reported_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "pilot-codex-native-v3",
+      "logical_slot_id": "pilot-codex-native-v3",
+      "attempt_id": "pilot-codex-native-v3-attempt-1",
+      "product": "codex",
+      "phase": "pilot",
+      "arm": "native",
+      "track": "research",
+      "category": "product_run",
+      "mode": "live",
+      "reasoning_setting": "low",
+      "max_inline_tokens": null,
+      "source_dir": "runs/pilot-codex-native-v3",
+      "process_exit_code": 1,
+      "timeout": false,
+      "primary_valid": false,
+      "invalid_reasons": [
+        "tool_or_response_link:FileNotFoundError",
+        "process_failed_or_timed_out"
+      ],
+      "request_count": 2,
+      "input_field_names": [
+        "input",
+        "tools"
+      ],
+      "B_input_before": 25873,
+      "B_input_after": 38698,
+      "component_bytes_before": {
+        "input": 18999,
+        "tools": 6855
+      },
+      "component_bytes_after": {
+        "input": 31824,
+        "tools": 6855
+      },
+      "component_delta": {
+        "tools": 0,
+        "input": 12825
+      },
+      "before_input_sha256": "38e15cbe2953928a2fa4d59d46a93b119f8d108c3fa130e9f406175b66db946b",
+      "request_json_sha256": [
+        "469bad0634012e56a55a2da6029fbecbf0ba5bdf6108b110baa7474a0904da4e",
+        "c1890062d10e61baec4276254f8fc0f93cb326f1f20d0da4edd7436d56666f48"
+      ],
+      "model_before": "deepseek-flash",
+      "model_after": "deepseek-flash",
+      "actual_reasoning_controlled": false,
+      "server_final_input_observed": false,
+      "opaque_server_reference_present": false,
+      "delta_B_input": 12825,
+      "serialization_wrapper_delta": 0,
+      "request_control": {
+        "model": "deepseek-flash",
+        "reasoning": {
+          "effort": "low",
+          "summary": "auto"
+        },
+        "tool_choice": "auto"
+      },
+      "B_body_wire": [
+        27345,
+        40170
+      ],
+      "body_wire_sha256": [
+        "3c3a27523dff335537aa60aabae003359e808a9e598649842e48be1551af1aa2",
+        "08eaf9e1dbb163d3d9bb535fd0f117bb2524742e3fefce3e4cea455188d46aa1"
+      ],
+      "tool_schema_names": [
+        "list_mcp_resources",
+        "list_mcp_resource_templates",
+        "read_mcp_resource",
+        "request_user_input",
+        "mcp__fixture",
+        "get_goal",
+        "create_goal",
+        "update_goal"
+      ],
+      "tool_call_id": "call_00_NE39y9DNTiTrRYIWym2u1093",
+      "B_tool_returned": 12021,
+      "returned_tool_sha256": "0cf29c4117a6efc4b6adef803119217c20bcd7e1d77ff553350521b0e2944acc",
+      "B_fixture": 35767,
+      "fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+      "strict_gate_ok": false,
+      "strict_gate_reasons": [
+        "capture_file_count_invalid"
+      ],
+      "guard_halted": true,
+      "actual_upstream_attempts": 1,
+      "technical_valid": false,
+      "source_receipts": {
+        "capture/tool-process.json": "ed029244dca18cf3ddb4ff3e254247f0b1ed01b4b074f074215504c6627eede7",
+        "end.json": "b66ab5ba19addefa02e612b02e9f1e191298114b5afef070bcbf5b935e7b1537",
+        "metrics.json": "a238e10d2ac86266d663c2fa0c0d18a4c05d5d91da1c183ad3178c086bdf8fa5",
+        "run-meta.json": "355abdeb382695f8c482f5c99b8c3ebf36d1d58b7fa44a5d8d89b405c9ebd731",
+        "session-gate.json": "809c67e85fd1923ee8e7d903d89c365291ef9801edddf1f7a2a0add0241b9e4e"
+      },
+      "usage_auxiliary_events_not_summed_or_deduplicated": [
+        {
+          "capture": "01-response.sse",
+          "event": "response.completed",
+          "source": "response",
+          "reported_usage": {
+            "input_tokens": 5628,
+            "input_tokens_details": {
+              "cached_tokens": 3584
+            },
+            "output_tokens": 64,
+            "output_tokens_details": {
+              "reasoning_tokens": 35
+            },
+            "total_tokens": 5692
+          }
+        }
+      ]
+    }
+  ],
+  "legacy_metric_source_sha256": "e6f7da6738ab38c8b8b871c9e30dec428bce488316a103338d8d2766a4f07e52",
+  "analysis_source_sha256": "d256b0a9f520b02a6b6b74e7e7e86408f7fd1386a500e65eccd4792876a6fb0d",
+  "limits": [
+    "Actual reasoning tokens and provider-default Codex output cap are not controlled.",
+    "Native tool menus and protocols differ. UUID[filesystem path withheld] normalization is only a control fingerprint, never the byte metric.",
+    "Client bytes do not establish service-side final input, token use, cache causality, latency or cost.",
+    "Information retained means only the two-key endpoint; bounded text is not full-content preservation.",
+    "Internal calibration/review is not a genuine third-party witness."
+  ],
+  "projection_notice": "Source byte metrics refer to private original payloads; real pilot payload invariants are separately disclosed. Mock metrics are reference only, not product results."
+}
