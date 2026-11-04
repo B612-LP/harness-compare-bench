@@ -1,0 +1,417 @@
+{
+  "schema": "current-evidence-scope-v2",
+  "as_of": "2026-11-04",
+  "report": "5-评测报告/竞品评测报告-v1.7.md",
+  "paths_relative_to": "public repository root",
+  "historical_body_sections": "1-11 are v1.6 snapshot; date-qualified terms retain old batch scope",
+  "formal": {
+    "rows": 25,
+    "tracks": {
+      "A_same_model": 10,
+      "B_native": 10,
+      "W_gateway": 5
+    },
+    "n_per_product_case": 1,
+    "new_admissions": 0,
+    "mixed_track_ranking": false
+  },
+  "existing_repetitions_not_new_formal": {
+    "workbuddy": {
+      "attempts": 15,
+      "valid": 15,
+      "attempted_slots": 15
+    },
+    "doubao": {
+      "attempts": 17,
+      "valid": 15,
+      "attempted_slots": 15
+    },
+    "yuanbao": {
+      "attempts": 23,
+      "valid": 12,
+      "attempted_slots": 14,
+      "planned_slots": 15,
+      "cargo_attempts": 4,
+      "cargo_attempted_slots": 2,
+      "cargo_valid": 0,
+      "cargo_r3_attempted": false
+    }
+  },
+  "historical_lineage": {
+    "status": "linked_unchanged_not_regenerated",
+    "markdown": "5-评测报告/证据口径-2026-11-03/source-ledger.md",
+    "json": "5-评测报告/证据口径-2026-11-03/source-ledger.public-derived.json",
+    "formal_rows": 25,
+    "direct_formal_attempts": 30,
+    "explicit_replacements": 5,
+    "invalidated_pollution": 4,
+    "invalidated_infrastructure": 1,
+    "nodes": 522,
+    "edges": 628,
+    "source_paths": 402,
+    "old_source_pins": 331,
+    "old_pin_match": 326,
+    "old_pin_missing": 5,
+    "b_observation_version_unknown": 40,
+    "original_generation_baseline": "25ca6ea6d5ac5f085346a8014dad2b10a829df34"
+  },
+  "separate_historical_batches": [
+    {
+      "id": "r20261103-input-bytes",
+      "live_sessions": 14,
+      "upstream_requests": 27,
+      "mock_sessions": 8,
+      "valid_pairs": 6,
+      "median_reduction_bytes": 34187.5,
+      "endpoint_correct": 12,
+      "endpoint_total": 12,
+      "source": "3-表现现场/r20261103-input-bytes/README.md",
+      "limitations": [
+        "same DSH only",
+        "actual reasoning and cache not controlled",
+        "bytes are not tokens or cost or final server input"
+      ]
+    },
+    {
+      "id": "r20261103-native-input-gated",
+      "live_sessions": 1,
+      "upstream_attempts": 1,
+      "valid_comparison_blocks": 0,
+      "second_request_upstream_attempts": 0,
+      "diagnostic_selected_input_delta_bytes": 12825,
+      "diagnostic_delta_is_valid_effect": false,
+      "mock_sessions": 4,
+      "workbuddy_interface_preflight": 1,
+      "source": "3-表现现场/r20261103-native-input-gated/README.md"
+    }
+  ],
+  "current_sensor": {
+    "source": "3-表现现场/r20261104-read-detection/README.md",
+    "evidence_type": "synthetic_sensor_calibration_not_product",
+    "trial_rows": 28,
+    "read_rows": 20,
+    "nonread_rows": 8,
+    "not_syscall_count_or_product_runs": true,
+    "fixed_order_heterogeneous_sample": true,
+    "matrices": {
+      "open_fd_sampler": {
+        "TP": 8,
+        "FN": 12,
+        "FP": 4,
+        "TN": 4
+      },
+      "vnode_change_watcher": {
+        "TP": 1,
+        "FN": 19,
+        "FP": 0,
+        "TN": 8
+      }
+    },
+    "strata": {
+      "read_long_800ms": {
+        "rows": 4,
+        "truth_read": true,
+        "fd": {
+          "TP": 4,
+          "FN": 0,
+          "FP": 0,
+          "TN": 0
+        },
+        "vnode": {
+          "TP": 1,
+          "FN": 3,
+          "FP": 0,
+          "TN": 0
+        }
+      },
+      "read_short_immediate_close": {
+        "rows": 12,
+        "truth_read": true,
+        "fd": {
+          "TP": 0,
+          "FN": 12,
+          "FP": 0,
+          "TN": 0
+        },
+        "vnode": {
+          "TP": 0,
+          "FN": 12,
+          "FP": 0,
+          "TN": 0
+        }
+      },
+      "read_mid_50ms": {
+        "rows": 4,
+        "truth_read": true,
+        "fd": {
+          "TP": 4,
+          "FN": 0,
+          "FP": 0,
+          "TN": 0
+        },
+        "vnode": {
+          "TP": 0,
+          "FN": 4,
+          "FP": 0,
+          "TN": 0
+        }
+      },
+      "open_no_read": {
+        "rows": 4,
+        "truth_read": false,
+        "fd": {
+          "TP": 0,
+          "FN": 0,
+          "FP": 4,
+          "TN": 0
+        },
+        "vnode": {
+          "TP": 0,
+          "FN": 0,
+          "FP": 0,
+          "TN": 4
+        }
+      },
+      "idle": {
+        "rows": 4,
+        "truth_read": false,
+        "fd": {
+          "TP": 0,
+          "FN": 0,
+          "FP": 0,
+          "TN": 4
+        },
+        "vnode": {
+          "TP": 0,
+          "FN": 0,
+          "FP": 0,
+          "TN": 4
+        }
+      }
+    },
+    "truth_source": "controlled_synthetic_child_content_39_bytes_and_hash",
+    "truth_sha256": "32e93735af32bf9059005ab1f6af3fd94cde1d55b37bc29d0bb88061189d43f1",
+    "observed_read_period_vnode_flag": {
+      "value": 8,
+      "name": "NOTE_ATTRIB",
+      "is_read_semantics": false
+    },
+    "write_positive_control": {
+      "flags": [
+        6
+      ],
+      "flag_meaning": "NOTE_WRITE | NOTE_EXTEND",
+      "is_six_trials": false,
+      "included_in_trial_matrix": false
+    },
+    "timing": {
+      "sample_command_median_ms": 27.319541999999863,
+      "sample_start_gap_median_ms": 39.8278749999994,
+      "not_file_read_latency": true
+    },
+    "population_miss_rate_claimed": false,
+    "product_starts": 0,
+    "product_read_denominator": 0,
+    "product_detection_rate": null,
+    "product_isolation": "not_verified",
+    "os_wide_read_ground_truth": "not_measured",
+    "human_witness": "pending",
+    "historical_helper_38_runs_added_to_product_denominator": false
+  },
+  "current_judging": {
+    "source": "4-打分细则/盲态可判性审计-2026-11-04/README.md",
+    "all_ids_retained": 60,
+    "not_judgeable_from_reviewed_material": 57,
+    "neutral_candidates_pending_review": 3,
+    "live_ready": 0,
+    "model_requests": 0,
+    "source_groups": 41,
+    "conservative_event_families": 22,
+    "source_or_family_independence_established": false,
+    "reference_origin": "unverified_agent_possible_not_certified_human_gold",
+    "confirmed_human_authorship": 0,
+    "confirmed_zero_means": "not verified; not proof of no human participation",
+    "model_kappa_measured": false,
+    "synthetic_only": {
+      "cohen_kappa": 0.5,
+      "fleiss_two_rater": 0.4666666666666667,
+      "degenerate_pe_one": null
+    }
+  },
+  "human_checks": {
+    "genuine_third_party": "pending_external_condition",
+    "external_public_only_first_read": "pending_external_condition",
+    "reviewer": null,
+    "reviewed_at": null,
+    "signature": null,
+    "internal_recalculation_is_independent_human_witness": false
+  },
+  "historical_full_verification": {
+    "manifest": "3-表现现场/r20261103-native-input-gated/publication-manifest.json",
+    "fixed_commit": "38b0bcc64211a9a3bca36a8716b180c38460468c",
+    "current_navigation_may_drift": true,
+    "do_not_rewrite_old_manifest": true,
+    "current_data_only_recompute_is_full_historical_verify": false,
+    "status_of_full_verify_on_future_navigation_tree": "not_claimed",
+    "current_native_observation_does_not_retroactively_validate_old_manifest": true
+  },
+  "public_source_pins": [
+    {
+      "path": "5-评测报告/竞品评测报告-v1.6.md",
+      "sha256": "c9fb5f3de1192efaf54c06b91c13a885672dc27cc6501a48ceefbbbd970b7e9b",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "5-评测报告/未知登记-2026-11-03-r6.json",
+      "sha256": "26bbe2809f61d0c2c3c453c3c13a970e908cadd93ebcf077532b571d92f1aa7f",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "5-评测报告/证据口径-2026-11-03/README.md",
+      "sha256": "1587b1390f4460a3914aef28fe6dadc1b0eb4d4a76e1f664f0b7856ce7c778b1",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "5-评测报告/证据口径-2026-11-03/source-ledger.public-derived.json",
+      "sha256": "9784e714cd0134cece788fb3d67b080820dcbc0b95be29761123ab623deea420",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "5-评测报告/证据口径-2026-11-03/source-ledger.md",
+      "sha256": "280a3b0e38e109036a045235c02974cc15bd68b8d10905fcd4b2aa54cf77c955",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "3-表现现场/r20261103-native-input-gated/publication-manifest.json",
+      "sha256": "e8ef75f5dd1f212f972ac27d02e89bf22f824cc0602154321cf3ed9279f16e1a",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "4-打分细则/盲态可判性审计-2026-11-04/manifest.json",
+      "sha256": "be4a481ae4566f668d4a42f900c59a1797e46f627cb9e732639056e3b602b34b",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "4-打分细则/盲态可判性审计-2026-11-04/audit-items.json",
+      "sha256": "5687b1e9ab3d18b197be573e1134df65457919314a473183a2ca00167b3da2df",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "4-打分细则/盲态可判性审计-2026-11-04/neutral-candidates.json",
+      "sha256": "17aeafae1fb8c0e9ab42aee3553ac7ee45a1df6fb19775a9016b044f261e7276",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "4-打分细则/盲态可判性审计-2026-11-04/synthetic-kappa.json",
+      "sha256": "e481dff36cce39122fe14e581ba5416abd7452a4723f475985c89bbebae23a80",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "3-表现现场/r20261104-read-detection/README.md",
+      "sha256": "9832758fce48ac498f46e67584797980de5331ec751f676aa6faf37eca1523f1",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "3-表现现场/r20261104-read-detection/read-detection.json",
+      "sha256": "c0cc4ac928dc6bce344f46ca93ead0e6e2c27a576879beef4bf2b2db4e58ae73",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    },
+    {
+      "path": "3-表现现场/r20261104-read-detection/manifest.json",
+      "sha256": "bfe95eccde9247f2048460f0e719526d805b6e6254348814e21b41054fc871b6",
+      "semantics": "public source or explicit public derivative bytes, not original private seal"
+    }
+  ],
+  "current_native_source_provenance": {
+    "public_plan": "1-评测方案/原生来源链技术门-2026-11-04/README.md",
+    "public_scene": "3-表现现场/r20261104-native-provenance/README.md",
+    "scope": "completed_configuration_level_native_client_selected_input_observation_not_pure_harness_causality",
+    "source_analysis_sha256": "154e72cba5941538cfc6d3b378d623250854787645b0cfd938a5b9e47dab790d",
+    "source_analysis_hash_semantics": "closed source analysis bytes; hash only, not a public derivative hash or independent witness",
+    "frozen_source_pin_count": 24,
+    "frozen_source_pin_set_sha256": "8cf362bfcbd8bb732e75b9312755607dae92ab7c86b8a6a7464bf63f411d9f71",
+    "frozen_source_pins_unchanged": true,
+    "live_sessions": 8,
+    "live_upstream_attempts": 16,
+    "pilot": {
+      "live_sessions": 2,
+      "upstream_attempts": 4,
+      "included_in_confirmation_effect": false
+    },
+    "confirmation": {
+      "live_sessions": 6,
+      "upstream_attempts": 12,
+      "valid_blocks": 3
+    },
+    "strict_mock": {
+      "sessions": 3,
+      "first_failed_codex_engineering_session": 1,
+      "successful_two_cli_sessions": 2,
+      "model_calls": 0
+    },
+    "other_calibration_testing": "separate engineering ledger, not additional strict-mock or live model sessions",
+    "engineering_test_counts_are_model_sessions": false,
+    "formal_new_rows": 0,
+    "model_alias": "deepseek-flash",
+    "block_order": [
+      1,
+      2,
+      3
+    ],
+    "codex_delta_B_input_bytes": [
+      12764,
+      12528,
+      12733
+    ],
+    "dsh_bounded_delta_B_input_bytes": [
+      2382,
+      2523,
+      2382
+    ],
+    "difference_codex_minus_dsh_bytes": [
+      10382,
+      10005,
+      10351
+    ],
+    "median_difference_bytes": 10351,
+    "range_difference_bytes": [
+      10005,
+      10382
+    ],
+    "positive_blocks": 3,
+    "branch_threshold_median_bytes": 4096,
+    "branch_rule": "all three block differences positive and median >=4096 bytes",
+    "branch": "larger_codex_native_selected_input_growth_in_this_configuration",
+    "branch_condition_met": true,
+    "difference_range_is_population_interval": false,
+    "all_eight_live_full_gate_passed": true,
+    "upstream_accounting_complete": true,
+    "confirmation_endpoint": {
+      "two_keys_and_json_object_only_pass": 6,
+      "total": 6,
+      "not_general_task_accuracy": true
+    },
+    "fixture_bytes": 35767,
+    "tool_returned_bytes": {
+      "codex": 12021,
+      "dsh": 1981
+    },
+    "both_native_tool_paths_truncated_relative_to_fixture": true,
+    "codex_is_full_fixture_arm": false,
+    "client_output_budget": {
+      "codex_explicit_cap": null,
+      "codex_provider_default": "unknown",
+      "dsh_max_tokens": 1024,
+      "equal_budget_controlled": false
+    },
+    "dsh_tool_inline_max_tokens": 512,
+    "native_tool_menus_and_protocols_equal": false,
+    "actual_reasoning_controlled": false,
+    "cache_controlled": false,
+    "service_side_final_input_observed": false,
+    "bytes_are_tokens_or_cost": false,
+    "pure_harness_causal_claim": false,
+    "human_witness": "pending",
+    "public_projection_hash_pinning": "deferred to public projection manifest; these source hashes do not certify future public projection bytes"
+  }
+}

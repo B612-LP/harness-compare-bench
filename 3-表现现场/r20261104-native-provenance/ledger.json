@@ -1,0 +1,142 @@
+{
+  "schema": "native-provenance-public-v1",
+  "contract_id": "native-direct-provenance-20261104-v1",
+  "budget": {
+    "session_max": 8,
+    "upstream_max": 16,
+    "pilot_session_max": 2,
+    "confirmation_session_max": 6
+  },
+  "new_live": {
+    "sessions": 8,
+    "pilot": 2,
+    "confirmation": 6,
+    "upstream_attempts": 16,
+    "lower": 16,
+    "upper": 16,
+    "unknown_sessions": []
+  },
+  "strict_mocks": {
+    "sessions": 3,
+    "upstream_attempts": 0,
+    "ready_cli_sessions": 2,
+    "failed_engineering_sessions": 1
+  },
+  "historical_live": {
+    "sessions": 1,
+    "upstream_attempts": 1,
+    "not_in_new_contract_budget": true
+  },
+  "slots": [
+    {
+      "id": "pilot-codex-native-v1",
+      "status": "valid",
+      "upstream_attempts": 2
+    },
+    {
+      "id": "pilot-dsh-bounded-v1",
+      "status": "valid",
+      "upstream_attempts": 2
+    },
+    {
+      "id": "confirm-b01-codex",
+      "status": "valid",
+      "upstream_attempts": 2
+    },
+    {
+      "id": "confirm-b01-dsh",
+      "status": "valid",
+      "upstream_attempts": 2
+    },
+    {
+      "id": "confirm-b02-dsh",
+      "status": "valid",
+      "upstream_attempts": 2
+    },
+    {
+      "id": "confirm-b02-codex",
+      "status": "valid",
+      "upstream_attempts": 2
+    },
+    {
+      "id": "confirm-b03-codex",
+      "status": "valid",
+      "upstream_attempts": 2
+    },
+    {
+      "id": "confirm-b03-dsh",
+      "status": "valid",
+      "upstream_attempts": 2
+    },
+    {
+      "id": "offline-strict-codex-01",
+      "status": "invalid",
+      "upstream_attempts": 0
+    },
+    {
+      "id": "offline-strict-codex-02",
+      "status": "valid",
+      "upstream_attempts": 0
+    },
+    {
+      "id": "offline-strict-dsh-02",
+      "status": "valid",
+      "upstream_attempts": 0
+    },
+    {
+      "id": "legacy-pilot-codex-native-v3",
+      "status": "invalid",
+      "upstream_attempts": 1
+    }
+  ],
+  "blocks": [
+    {
+      "block": 1,
+      "order": [
+        "confirm-b01-codex",
+        "confirm-b01-dsh"
+      ],
+      "technical_valid": true,
+      "codex_delta": 12764,
+      "dsh_delta": 2382,
+      "difference_bytes": 10382
+    },
+    {
+      "block": 2,
+      "order": [
+        "confirm-b02-dsh",
+        "confirm-b02-codex"
+      ],
+      "technical_valid": true,
+      "codex_delta": 12528,
+      "dsh_delta": 2523,
+      "difference_bytes": 10005
+    },
+    {
+      "block": 3,
+      "order": [
+        "confirm-b03-codex",
+        "confirm-b03-dsh"
+      ],
+      "technical_valid": true,
+      "codex_delta": 12733,
+      "dsh_delta": 2382,
+      "difference_bytes": 10351
+    }
+  ],
+  "valid_blocks": 3,
+  "differences": [
+    10382,
+    10005,
+    10351
+  ],
+  "median_difference_bytes": 10351,
+  "range_difference_bytes": [
+    10005,
+    10382
+  ],
+  "branch": "larger_codex_native_selected_input_growth_in_this_configuration",
+  "formal_new_rows": 0,
+  "third_party_witness": "pending",
+  "scope": "native selected-input observation; not same-schema/output-budget causal comparison; not token/cache/cost measurement"
+}

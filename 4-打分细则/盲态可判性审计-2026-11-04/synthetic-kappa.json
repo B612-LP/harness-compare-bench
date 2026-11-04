@@ -1,0 +1,122 @@
+{
+  "schema": "synthetic-kappa-counterexamples-v1",
+  "purpose": "synthetic_only_not_model_kappa",
+  "labels": [
+    "pass",
+    "fail",
+    "uncertain"
+  ],
+  "fixtures": [
+    {
+      "id": "unequal-marginals",
+      "pairs": [
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "fail"
+        ],
+        [
+          "fail",
+          "fail"
+        ]
+      ],
+      "expected": {
+        "n": 4,
+        "agreement": 0.75,
+        "cohen_kappa": 0.5,
+        "fleiss_two_rater": 0.4666666666666667,
+        "undefined_reason": null,
+        "excluded_invalid": 0
+      }
+    },
+    {
+      "id": "constant-category",
+      "pairs": [
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass"
+        ]
+      ],
+      "expected": {
+        "n": 11,
+        "agreement": 1.0,
+        "cohen_kappa": null,
+        "fleiss_two_rater": null,
+        "undefined_reason": "constant_category_pe_one",
+        "excluded_invalid": 0
+      }
+    },
+    {
+      "id": "invalid-not-uncertain",
+      "pairs": [
+        [
+          "pass",
+          "pass"
+        ],
+        [
+          null,
+          "fail"
+        ],
+        [
+          "invalid",
+          "uncertain"
+        ]
+      ],
+      "expected": {
+        "n": 1,
+        "agreement": 1.0,
+        "cohen_kappa": null,
+        "fleiss_two_rater": null,
+        "undefined_reason": "constant_category_pe_one",
+        "excluded_invalid": 2
+      }
+    }
+  ]
+}

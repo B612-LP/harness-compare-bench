@@ -1,0 +1,23 @@
+{
+  "schema": "read-detection-source-map-v1",
+  "relation": "privacy_projection_not_byte_copy",
+  "verification_scope": "derived_arithmetic_only_no_raw_identity",
+  "sources": [
+    {
+      "source_id": "S001",
+      "role": "unpublished_calibration_receipt",
+      "sha256": "08a39f7fa7e788ed768d1c40f789ed2139fde2e466bb357e08d696fceafdc87e"
+    }
+  ],
+  "derived": [
+    {
+      "artifact_id": "D001",
+      "file": "read-detection.json",
+      "role": "privacy_redacted_trial_projection",
+      "sha256": "c0cc4ac928dc6bce344f46ca93ead0e6e2c27a576879beef4bf2b2db4e58ae73",
+      "source_ids": [
+        "S001"
+      ]
+    }
+  ]
+}

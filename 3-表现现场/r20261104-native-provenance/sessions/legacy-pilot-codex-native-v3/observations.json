@@ -1,0 +1,197 @@
+{
+  "schema": "native-provenance-public-v1",
+  "id": "legacy-pilot-codex-native-v3",
+  "contract_id": "native-direct-frozen04-20261103",
+  "product": "codex",
+  "mode": "live",
+  "phase": "legacy_pilot",
+  "block": null,
+  "attempted": true,
+  "technical_valid": false,
+  "gate": {
+    "ok": false,
+    "reasons": [
+      "capture_file_count_invalid"
+    ],
+    "guard_halted": true,
+    "guard_reason": "second_suffix_invalid",
+    "original_upstream_attempts": 0,
+    "source_fingerprint": null
+  },
+  "end": {
+    "exit_code": 1,
+    "timeout": false,
+    "requests": 2,
+    "fixture_called": true,
+    "fixture_calls": 1,
+    "fixture_exit_code": 0
+  },
+  "accounting": {
+    "attempts": 1,
+    "complete": true,
+    "lower": 1,
+    "upper": 1,
+    "request_count": 2,
+    "receipt_count": 2,
+    "reasons": []
+  },
+  "original_metric": {
+    "before": 25873,
+    "after": 38698,
+    "delta": 12825,
+    "wire": [
+      27345,
+      40170
+    ],
+    "components_before": {
+      "input": 18999,
+      "tools": 6855
+    },
+    "components_after": {
+      "input": 31824,
+      "tools": 6855
+    },
+    "component_delta": {
+      "input": 12825,
+      "tools": 0
+    },
+    "serialization_wrapper_delta": 0,
+    "primary_valid": false,
+    "invalid_reasons": [
+      "tool_or_response_link:FileNotFoundError",
+      "process_failed_or_timed_out"
+    ],
+    "returned_bytes": 12021
+  },
+  "projection_metric": {
+    "before": 25873,
+    "after": 38698,
+    "delta": 12825,
+    "wire": [
+      27345,
+      40170
+    ],
+    "components_before": {
+      "input": 18999,
+      "tools": 6855
+    },
+    "components_after": {
+      "input": 31824,
+      "tools": 6855
+    },
+    "component_delta": {
+      "input": 12825,
+      "tools": 0
+    },
+    "serialization_wrapper_delta": 0
+  },
+  "endpoint": {
+    "head": null,
+    "tail": null,
+    "json_object_only": null,
+    "information_retained": null
+  },
+  "controls": {
+    "model": "deepseek-flash",
+    "effort": "low",
+    "output_cap_kind": "provider_default_unknown",
+    "output_cap": null,
+    "max_inline_tokens": null,
+    "version": "codex-cli 0.163.0",
+    "actual_reasoning_controlled": false,
+    "server_final_input_observed": false,
+    "tool_menu": [
+      "list_mcp_resources",
+      "list_mcp_resource_templates",
+      "read_mcp_resource",
+      "request_user_input",
+      "mcp__fixture",
+      "get_goal",
+      "create_goal",
+      "update_goal"
+    ]
+  },
+  "requests": [
+    {
+      "index": 1,
+      "source_request_present": true,
+      "source_response_present": true,
+      "upstream_attempts": 1,
+      "request_guard_approved": true,
+      "response_guard_approved": true,
+      "request_forwarded_unchanged": true,
+      "response_forwarded_unchanged": true,
+      "completion_validated": true,
+      "request_body_bytes": 27345,
+      "response_body_bytes": 33961,
+      "outcome": "forwarded",
+      "delivery": "write_completed"
+    },
+    {
+      "index": 2,
+      "source_request_present": true,
+      "source_response_present": false,
+      "upstream_attempts": 0,
+      "request_guard_approved": null,
+      "response_guard_approved": null,
+      "request_forwarded_unchanged": false,
+      "response_forwarded_unchanged": false,
+      "completion_validated": null,
+      "request_body_bytes": 40170,
+      "response_body_bytes": null,
+      "outcome": "rejected",
+      "delivery": "write_completed"
+    }
+  ],
+  "usage": [
+    {
+      "request": 1,
+      "event": "response.completed",
+      "source": "response",
+      "reported_usage": {
+        "input_tokens": 5628,
+        "input_tokens_details": {
+          "cached_tokens": 3584
+        },
+        "output_tokens": 64,
+        "output_tokens_details": {
+          "reasoning_tokens": 35
+        },
+        "total_tokens": 5692
+      }
+    }
+  ],
+  "opaque": [
+    {
+      "request": 2,
+      "path": "/input/4/encrypted_content",
+      "source_serialized_bytes": 40,
+      "source_sha256": "55028f3224516e6a8cbb5c3e8fc06be6986ac72ddbd092137b35ae514bf67a61",
+      "derived_serialized_bytes": 40,
+      "derived_sha256": "bf6c0aa4e4e1819fcfb341a7fee9a686a473e01b8f4128cbe10d717fa10f1942"
+    }
+  ],
+  "source_presence": {
+    "run-meta.json": true,
+    "end.json": true,
+    "session-gate.json": true,
+    "metrics.json": true,
+    "policy.json": true,
+    "capture/relay.json": true,
+    "capture/relay-closed.json": true,
+    "capture/tool-process.json": true,
+    "capture/01-meta.json": true,
+    "capture/02-meta.json": true,
+    "capture/01-request.raw": true,
+    "capture/01-request.json": true,
+    "capture/01-response.sse": true,
+    "capture/02-request.raw": true,
+    "capture/02-request.json": true,
+    "capture/02-response.sse": false,
+    "capture/tool-output.txt": true
+  },
+  "provenance": {
+    "status": "verified_projection",
+    "reason": null
+  }
+}

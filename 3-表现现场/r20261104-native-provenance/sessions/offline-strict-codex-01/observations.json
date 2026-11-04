@@ -1,0 +1,191 @@
+{
+  "schema": "native-provenance-public-v1",
+  "id": "offline-strict-codex-01",
+  "contract_id": "native-direct-provenance-20261104-v1",
+  "product": "codex",
+  "mode": "mock",
+  "phase": "calibration",
+  "block": null,
+  "attempted": true,
+  "technical_valid": false,
+  "gate": {
+    "ok": false,
+    "reasons": [
+      "capture_file_count_invalid"
+    ],
+    "guard_halted": true,
+    "guard_reason": "response_to_assistant_history_mismatch",
+    "original_upstream_attempts": 0,
+    "source_fingerprint": null
+  },
+  "end": {
+    "exit_code": 1,
+    "timeout": false,
+    "requests": 2,
+    "fixture_called": true,
+    "fixture_calls": 1,
+    "fixture_exit_code": 0
+  },
+  "accounting": {
+    "attempts": 0,
+    "complete": true,
+    "lower": 0,
+    "upper": 0,
+    "request_count": 2,
+    "receipt_count": 2,
+    "reasons": []
+  },
+  "original_metric": {
+    "before": 25905,
+    "after": 38611,
+    "delta": 12706,
+    "wire": [
+      27377,
+      40083
+    ],
+    "components_before": {
+      "input": 19031,
+      "tools": 6855
+    },
+    "components_after": {
+      "input": 31737,
+      "tools": 6855
+    },
+    "component_delta": {
+      "input": 12706,
+      "tools": 0
+    },
+    "serialization_wrapper_delta": 0,
+    "primary_valid": false,
+    "invalid_reasons": [
+      "tool_or_response_link:FileNotFoundError",
+      "process_failed_or_timed_out"
+    ],
+    "returned_bytes": 12021
+  },
+  "projection_metric": {
+    "before": 25905,
+    "after": 38611,
+    "delta": 12706,
+    "wire": [
+      27377,
+      40083
+    ],
+    "components_before": {
+      "input": 19031,
+      "tools": 6855
+    },
+    "components_after": {
+      "input": 31737,
+      "tools": 6855
+    },
+    "component_delta": {
+      "input": 12706,
+      "tools": 0
+    },
+    "serialization_wrapper_delta": 0
+  },
+  "endpoint": {
+    "head": null,
+    "tail": null,
+    "json_object_only": null,
+    "information_retained": null
+  },
+  "controls": {
+    "model": "deepseek-flash",
+    "effort": "low",
+    "output_cap_kind": "provider_default_unknown",
+    "output_cap": null,
+    "max_inline_tokens": null,
+    "version": "codex-cli 0.163.0",
+    "actual_reasoning_controlled": false,
+    "server_final_input_observed": false,
+    "tool_menu": [
+      "list_mcp_resources",
+      "list_mcp_resource_templates",
+      "read_mcp_resource",
+      "request_user_input",
+      "mcp__fixture",
+      "get_goal",
+      "create_goal",
+      "update_goal"
+    ]
+  },
+  "requests": [
+    {
+      "index": 1,
+      "source_request_present": true,
+      "source_response_present": true,
+      "upstream_attempts": 0,
+      "request_guard_approved": true,
+      "response_guard_approved": true,
+      "request_forwarded_unchanged": false,
+      "response_forwarded_unchanged": true,
+      "completion_validated": true,
+      "request_body_bytes": 27377,
+      "response_body_bytes": 3777,
+      "outcome": "mock_response",
+      "delivery": "write_completed"
+    },
+    {
+      "index": 2,
+      "source_request_present": true,
+      "source_response_present": false,
+      "upstream_attempts": 0,
+      "request_guard_approved": null,
+      "response_guard_approved": null,
+      "request_forwarded_unchanged": false,
+      "response_forwarded_unchanged": false,
+      "completion_validated": null,
+      "request_body_bytes": 40083,
+      "response_body_bytes": null,
+      "outcome": "rejected",
+      "delivery": "write_completed"
+    }
+  ],
+  "usage": [
+    {
+      "request": 1,
+      "event": "response.completed",
+      "source": "response",
+      "reported_usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    }
+  ],
+  "opaque": [
+    {
+      "request": 2,
+      "path": "/input/4/encrypted_content",
+      "source_serialized_bytes": 26,
+      "source_sha256": "5cb2c984166f48245298c1ad292469adf9b6314f5e4ac253d9044ef39e1851df",
+      "derived_serialized_bytes": 26,
+      "derived_sha256": "5a572c6f52e87b097a3ec5e98292d2c9de13fb2a57590969dcaed6760a8f81d4"
+    }
+  ],
+  "source_presence": {
+    "run-meta.json": true,
+    "end.json": true,
+    "session-gate.json": true,
+    "metrics.json": true,
+    "policy.json": true,
+    "capture/relay.json": true,
+    "capture/relay-closed.json": true,
+    "capture/tool-process.json": true,
+    "capture/01-meta.json": true,
+    "capture/02-meta.json": true,
+    "capture/01-request.raw": true,
+    "capture/01-request.json": true,
+    "capture/01-response.sse": true,
+    "capture/02-request.raw": true,
+    "capture/02-request.json": true,
+    "capture/02-response.sse": false,
+    "capture/tool-output.txt": true
+  },
+  "provenance": {
+    "status": "preserved_rejection",
+    "reason": "response_to_assistant_history_mismatch"
+  }
+}

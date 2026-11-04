@@ -1,0 +1,199 @@
+{
+  "schema": "native-provenance-public-v1",
+  "id": "pilot-codex-native-v1",
+  "contract_id": "native-direct-provenance-20261104-v1",
+  "product": "codex",
+  "mode": "live",
+  "phase": "pilot",
+  "block": null,
+  "attempted": true,
+  "technical_valid": true,
+  "gate": {
+    "ok": true,
+    "reasons": [],
+    "guard_halted": false,
+    "guard_reason": null,
+    "original_upstream_attempts": 2,
+    "source_fingerprint": "08dca98e66d68ba2cbba16706617ac0fee8269fe67bf51484a72df256f879cd1"
+  },
+  "end": {
+    "exit_code": 0,
+    "timeout": false,
+    "requests": 2,
+    "fixture_called": true,
+    "fixture_calls": 1,
+    "fixture_exit_code": 0
+  },
+  "accounting": {
+    "attempts": 2,
+    "complete": true,
+    "lower": 2,
+    "upper": 2,
+    "request_count": 2,
+    "receipt_count": 2,
+    "reasons": []
+  },
+  "original_metric": {
+    "before": 25901,
+    "after": 38429,
+    "delta": 12528,
+    "wire": [
+      27373,
+      39901
+    ],
+    "components_before": {
+      "input": 19027,
+      "tools": 6855
+    },
+    "components_after": {
+      "input": 31555,
+      "tools": 6855
+    },
+    "component_delta": {
+      "input": 12528,
+      "tools": 0
+    },
+    "serialization_wrapper_delta": 0,
+    "primary_valid": true,
+    "invalid_reasons": [],
+    "returned_bytes": 12021
+  },
+  "projection_metric": {
+    "before": 25901,
+    "after": 38429,
+    "delta": 12528,
+    "wire": [
+      27373,
+      39901
+    ],
+    "components_before": {
+      "input": 19027,
+      "tools": 6855
+    },
+    "components_after": {
+      "input": 31555,
+      "tools": 6855
+    },
+    "component_delta": {
+      "input": 12528,
+      "tools": 0
+    },
+    "serialization_wrapper_delta": 0
+  },
+  "endpoint": {
+    "head": true,
+    "tail": true,
+    "json_object_only": true,
+    "information_retained": true
+  },
+  "controls": {
+    "model": "deepseek-flash",
+    "effort": "low",
+    "output_cap_kind": "provider_default_unknown",
+    "output_cap": null,
+    "max_inline_tokens": null,
+    "version": "codex-cli 0.163.0",
+    "actual_reasoning_controlled": false,
+    "server_final_input_observed": false,
+    "tool_menu": [
+      "list_mcp_resources",
+      "list_mcp_resource_templates",
+      "read_mcp_resource",
+      "request_user_input",
+      "mcp__fixture",
+      "get_goal",
+      "create_goal",
+      "update_goal"
+    ]
+  },
+  "requests": [
+    {
+      "index": 1,
+      "source_request_present": true,
+      "source_response_present": true,
+      "upstream_attempts": 1,
+      "request_guard_approved": true,
+      "response_guard_approved": true,
+      "request_forwarded_unchanged": true,
+      "response_forwarded_unchanged": true,
+      "completion_validated": true,
+      "request_body_bytes": 27373,
+      "response_body_bytes": 24646,
+      "outcome": "forwarded",
+      "delivery": "write_completed"
+    },
+    {
+      "index": 2,
+      "source_request_present": true,
+      "source_response_present": true,
+      "upstream_attempts": 1,
+      "request_guard_approved": true,
+      "response_guard_approved": true,
+      "request_forwarded_unchanged": true,
+      "response_forwarded_unchanged": true,
+      "completion_validated": true,
+      "request_body_bytes": 39901,
+      "response_body_bytes": 37908,
+      "outcome": "forwarded",
+      "delivery": "write_completed"
+    }
+  ],
+  "usage": [
+    {
+      "request": 1,
+      "event": "response.completed",
+      "source": "response",
+      "reported_usage": {
+        "input_tokens": 5636,
+        "input_tokens_details": {
+          "cached_tokens": 5248
+        },
+        "output_tokens": 29,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5665
+      }
+    },
+    {
+      "request": 2,
+      "event": "response.completed",
+      "source": "response",
+      "reported_usage": {
+        "input_tokens": 12102,
+        "input_tokens_details": {
+          "cached_tokens": 5632
+        },
+        "output_tokens": 53,
+        "output_tokens_details": {
+          "reasoning_tokens": 33
+        },
+        "total_tokens": 12155
+      }
+    }
+  ],
+  "opaque": [],
+  "source_presence": {
+    "run-meta.json": true,
+    "end.json": true,
+    "session-gate.json": true,
+    "metrics.json": true,
+    "policy.json": true,
+    "capture/relay.json": true,
+    "capture/relay-closed.json": true,
+    "capture/tool-process.json": true,
+    "capture/01-meta.json": true,
+    "capture/02-meta.json": true,
+    "capture/01-request.raw": true,
+    "capture/01-request.json": true,
+    "capture/01-response.sse": true,
+    "capture/02-request.raw": true,
+    "capture/02-request.json": true,
+    "capture/02-response.sse": true,
+    "capture/tool-output.txt": true
+  },
+  "provenance": {
+    "status": "verified_projection",
+    "reason": null
+  }
+}
