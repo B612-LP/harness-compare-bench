@@ -1,0 +1,72 @@
+{
+  "contract_id": "delivery-clarification-2026-11-05.1",
+  "status": "prospective-unrun",
+  "contract": "contract.json",
+  "source_bindings": "source-bindings.json",
+  "cases": [
+    {
+      "case_id": "bird-ca-schools-15",
+      "agent_instruction": "bird-instruction.md",
+      "agent_instruction_sha256": "0d0e58910bd349ac56f20277709f6d6899df8a9200e4852411c359e4761cdafb",
+      "staging": [
+        {
+          "source": "2-用例/bird-ca-schools-15/inputs/db/california_schools.sqlite",
+          "destination": "inputs/db/california_schools.sqlite"
+        },
+        {
+          "source": "2-用例/bird-ca-schools-15/inputs/schema.sql",
+          "destination": "inputs/schema.sql"
+        },
+        {
+          "source": "2-用例/bird-ca-schools-15/inputs/sample_rows.json",
+          "destination": "inputs/sample_rows.json"
+        },
+        {
+          "source": "2-用例/bird-ca-schools-15/inputs/questions.json",
+          "destination": "inputs/questions.json"
+        }
+      ],
+      "evaluator_source": "2-用例/bird-ca-schools-15/checker.py",
+      "evaluator_visibility": "not-agent-visible",
+      "external_spec_required": false
+    },
+    {
+      "case_id": "tb-cargo-plan",
+      "agent_instruction": "cargo-instruction.md",
+      "agent_instruction_sha256": "a1b7877e360c3fabb134effdd5f28a8aa6a9f3662b81216971383f2d4d873ff3",
+      "staging": [
+        {
+          "source": "2-用例/tb-cargo-plan/inputs/app/dispatch.py",
+          "destination": "inputs/app/dispatch.py"
+        },
+        {
+          "source": "2-用例/tb-cargo-plan/inputs/app/aircraft.py",
+          "destination": "inputs/app/aircraft.py"
+        },
+        {
+          "source": "2-用例/tb-cargo-plan/inputs/app/navigation.py",
+          "destination": "inputs/app/navigation.py"
+        },
+        {
+          "source": "2-用例/tb-cargo-plan/inputs/app/data/aircraft.json",
+          "destination": "inputs/app/data/aircraft.json"
+        },
+        {
+          "source": "2-用例/tb-cargo-plan/inputs/app/data/airports.json",
+          "destination": "inputs/app/data/airports.json"
+        },
+        {
+          "source": "2-用例/tb-cargo-plan/inputs/app/data/manifest.json",
+          "destination": "inputs/app/data/manifest.json"
+        },
+        {
+          "source": "2-用例/tb-cargo-plan/inputs/app/data/weather.json",
+          "destination": "inputs/app/data/weather.json"
+        }
+      ],
+      "evaluator_source": "2-用例/tb-cargo-plan/checker.py",
+      "evaluator_visibility": "not-agent-visible",
+      "external_spec_required": false
+    }
+  ]
+}
