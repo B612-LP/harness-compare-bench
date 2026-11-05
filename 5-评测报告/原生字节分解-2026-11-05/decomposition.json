@@ -1,0 +1,558 @@
+{
+  "component_order": [
+    "decoded_text",
+    "text_quotes",
+    "text_escape_expansion",
+    "return_structure",
+    "assistant_history"
+  ],
+  "domain": "public privacy-projected UTF-8 compact sorted JSON; not private originals",
+  "limits": {
+    "controlled_or_causal_effect": false,
+    "full_native_protocol_reverification": false,
+    "new_formal_rows": 0,
+    "new_sessions": 0,
+    "private_originals_authenticated": false,
+    "protocol_efficiency": false,
+    "same_dsh_pairs_combined": false,
+    "sensitivity_is_posthoc_algebra_only": true,
+    "token_or_cost_measurement": false
+  },
+  "original_preregistered_result": {
+    "blocks": 3,
+    "branch": "larger_codex_native_selected_input_growth_in_this_configuration",
+    "median_difference_bytes": 10351,
+    "positive_blocks": 3,
+    "threshold_applies_to": "original_difference_only",
+    "threshold_bytes": 4096
+  },
+  "pairs": [
+    {
+      "block": 1,
+      "codex_minus_dsh": {
+        "assistant_history": 185,
+        "decoded_text": 10040,
+        "return_structure": 40,
+        "text_escape_expansion": 115,
+        "text_quotes": 2
+      },
+      "component_sum": 10382,
+      "original_difference": 10382,
+      "residual_after_actual_text_scalars_subtraction": 225,
+      "residual_after_decoded_text_subtraction": 342
+    },
+    {
+      "block": 2,
+      "codex_minus_dsh": {
+        "assistant_history": -198,
+        "decoded_text": 10040,
+        "return_structure": 46,
+        "text_escape_expansion": 115,
+        "text_quotes": 2
+      },
+      "component_sum": 10005,
+      "original_difference": 10005,
+      "residual_after_actual_text_scalars_subtraction": -152,
+      "residual_after_decoded_text_subtraction": -35
+    },
+    {
+      "block": 3,
+      "codex_minus_dsh": {
+        "assistant_history": 154,
+        "decoded_text": 10040,
+        "return_structure": 40,
+        "text_escape_expansion": 115,
+        "text_quotes": 2
+      },
+      "component_sum": 10351,
+      "original_difference": 10351,
+      "residual_after_actual_text_scalars_subtraction": 194,
+      "residual_after_decoded_text_subtraction": 311
+    }
+  ],
+  "rows": [
+    {
+      "append_commas": 3,
+      "arm": "codex",
+      "assistant_items": [
+        {
+          "canonical_bytes_plus_comma": 242,
+          "pointer": "/input/4"
+        },
+        {
+          "canonical_bytes_plus_comma": 159,
+          "pointer": "/input/5"
+        }
+      ],
+      "block": 1,
+      "component_sum": 12764,
+      "components": {
+        "assistant_history": 401,
+        "decoded_text": 12021,
+        "return_structure": 196,
+        "text_escape_expansion": 142,
+        "text_quotes": 4
+      },
+      "history_pointer": "/input",
+      "id": "confirm-b01-codex",
+      "metric": {
+        "after": 38657,
+        "before": 25893,
+        "component_delta": {
+          "input": 12764,
+          "tools": 0
+        },
+        "components_after": {
+          "input": 31783,
+          "tools": 6855
+        },
+        "components_before": {
+          "input": 19019,
+          "tools": 6855
+        },
+        "delta": 12764,
+        "serialization_wrapper_delta": 0,
+        "wire": [
+          27365,
+          40129
+        ]
+      },
+      "observation_metric_pointer": "/projection_metric",
+      "return_item_pointer": "/input/6",
+      "source_refs": {
+        "first_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-codex/01-request.json",
+        "observation": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-codex/observations.json",
+        "second_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-codex/02-request.json"
+      },
+      "text_leaves": [
+        {
+          "decoded_bytes": 33,
+          "escape_expansion_bytes": 1,
+          "json_scalar_bytes": 36,
+          "pointer": "/input/6/output/0/text",
+          "quote_bytes": 2
+        },
+        {
+          "decoded_bytes": 11988,
+          "escape_expansion_bytes": 141,
+          "json_scalar_bytes": 12131,
+          "pointer": "/input/6/output/1/text",
+          "quote_bytes": 2
+        }
+      ]
+    },
+    {
+      "append_commas": 2,
+      "arm": "dsh",
+      "assistant_items": [
+        {
+          "canonical_bytes_plus_comma": 216,
+          "pointer": "/messages/1"
+        }
+      ],
+      "block": 1,
+      "component_sum": 2382,
+      "components": {
+        "assistant_history": 216,
+        "decoded_text": 1981,
+        "return_structure": 156,
+        "text_escape_expansion": 27,
+        "text_quotes": 2
+      },
+      "history_pointer": "/messages",
+      "id": "confirm-b01-dsh",
+      "metric": {
+        "after": 3506,
+        "before": 1124,
+        "component_delta": {
+          "messages": 2382,
+          "system": 0,
+          "tools": 0
+        },
+        "components_after": {
+          "messages": 3042,
+          "system": 160,
+          "tools": 272
+        },
+        "components_before": {
+          "messages": 660,
+          "system": 160,
+          "tools": 272
+        },
+        "delta": 2382,
+        "serialization_wrapper_delta": 0,
+        "wire": [
+          1244,
+          3626
+        ]
+      },
+      "observation_metric_pointer": "/projection_metric",
+      "return_item_pointer": "/messages/2",
+      "source_refs": {
+        "first_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-dsh/01-request.json",
+        "observation": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-dsh/observations.json",
+        "second_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-dsh/02-request.json"
+      },
+      "text_leaves": [
+        {
+          "decoded_bytes": 1981,
+          "escape_expansion_bytes": 27,
+          "json_scalar_bytes": 2010,
+          "pointer": "/messages/2/content/0/content/0/text",
+          "quote_bytes": 2
+        }
+      ]
+    },
+    {
+      "append_commas": 2,
+      "arm": "codex",
+      "assistant_items": [
+        {
+          "canonical_bytes_plus_comma": 162,
+          "pointer": "/input/4"
+        }
+      ],
+      "block": 2,
+      "component_sum": 12528,
+      "components": {
+        "assistant_history": 162,
+        "decoded_text": 12021,
+        "return_structure": 199,
+        "text_escape_expansion": 142,
+        "text_quotes": 4
+      },
+      "history_pointer": "/input",
+      "id": "confirm-b02-codex",
+      "metric": {
+        "after": 38421,
+        "before": 25893,
+        "component_delta": {
+          "input": 12528,
+          "tools": 0
+        },
+        "components_after": {
+          "input": 31547,
+          "tools": 6855
+        },
+        "components_before": {
+          "input": 19019,
+          "tools": 6855
+        },
+        "delta": 12528,
+        "serialization_wrapper_delta": 0,
+        "wire": [
+          27365,
+          39893
+        ]
+      },
+      "observation_metric_pointer": "/projection_metric",
+      "return_item_pointer": "/input/5",
+      "source_refs": {
+        "first_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-codex/01-request.json",
+        "observation": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-codex/observations.json",
+        "second_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-codex/02-request.json"
+      },
+      "text_leaves": [
+        {
+          "decoded_bytes": 33,
+          "escape_expansion_bytes": 1,
+          "json_scalar_bytes": 36,
+          "pointer": "/input/5/output/0/text",
+          "quote_bytes": 2
+        },
+        {
+          "decoded_bytes": 11988,
+          "escape_expansion_bytes": 141,
+          "json_scalar_bytes": 12131,
+          "pointer": "/input/5/output/1/text",
+          "quote_bytes": 2
+        }
+      ]
+    },
+    {
+      "append_commas": 2,
+      "arm": "dsh",
+      "assistant_items": [
+        {
+          "canonical_bytes_plus_comma": 360,
+          "pointer": "/messages/1"
+        }
+      ],
+      "block": 2,
+      "component_sum": 2523,
+      "components": {
+        "assistant_history": 360,
+        "decoded_text": 1981,
+        "return_structure": 153,
+        "text_escape_expansion": 27,
+        "text_quotes": 2
+      },
+      "history_pointer": "/messages",
+      "id": "confirm-b02-dsh",
+      "metric": {
+        "after": 3647,
+        "before": 1124,
+        "component_delta": {
+          "messages": 2523,
+          "system": 0,
+          "tools": 0
+        },
+        "components_after": {
+          "messages": 3183,
+          "system": 160,
+          "tools": 272
+        },
+        "components_before": {
+          "messages": 660,
+          "system": 160,
+          "tools": 272
+        },
+        "delta": 2523,
+        "serialization_wrapper_delta": 0,
+        "wire": [
+          1244,
+          3767
+        ]
+      },
+      "observation_metric_pointer": "/projection_metric",
+      "return_item_pointer": "/messages/2",
+      "source_refs": {
+        "first_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-dsh/01-request.json",
+        "observation": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-dsh/observations.json",
+        "second_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-dsh/02-request.json"
+      },
+      "text_leaves": [
+        {
+          "decoded_bytes": 1981,
+          "escape_expansion_bytes": 27,
+          "json_scalar_bytes": 2010,
+          "pointer": "/messages/2/content/0/content/0/text",
+          "quote_bytes": 2
+        }
+      ]
+    },
+    {
+      "append_commas": 3,
+      "arm": "codex",
+      "assistant_items": [
+        {
+          "canonical_bytes_plus_comma": 211,
+          "pointer": "/input/4"
+        },
+        {
+          "canonical_bytes_plus_comma": 159,
+          "pointer": "/input/5"
+        }
+      ],
+      "block": 3,
+      "component_sum": 12733,
+      "components": {
+        "assistant_history": 370,
+        "decoded_text": 12021,
+        "return_structure": 196,
+        "text_escape_expansion": 142,
+        "text_quotes": 4
+      },
+      "history_pointer": "/input",
+      "id": "confirm-b03-codex",
+      "metric": {
+        "after": 38626,
+        "before": 25893,
+        "component_delta": {
+          "input": 12733,
+          "tools": 0
+        },
+        "components_after": {
+          "input": 31752,
+          "tools": 6855
+        },
+        "components_before": {
+          "input": 19019,
+          "tools": 6855
+        },
+        "delta": 12733,
+        "serialization_wrapper_delta": 0,
+        "wire": [
+          27365,
+          40098
+        ]
+      },
+      "observation_metric_pointer": "/projection_metric",
+      "return_item_pointer": "/input/6",
+      "source_refs": {
+        "first_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-codex/01-request.json",
+        "observation": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-codex/observations.json",
+        "second_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-codex/02-request.json"
+      },
+      "text_leaves": [
+        {
+          "decoded_bytes": 33,
+          "escape_expansion_bytes": 1,
+          "json_scalar_bytes": 36,
+          "pointer": "/input/6/output/0/text",
+          "quote_bytes": 2
+        },
+        {
+          "decoded_bytes": 11988,
+          "escape_expansion_bytes": 141,
+          "json_scalar_bytes": 12131,
+          "pointer": "/input/6/output/1/text",
+          "quote_bytes": 2
+        }
+      ]
+    },
+    {
+      "append_commas": 2,
+      "arm": "dsh",
+      "assistant_items": [
+        {
+          "canonical_bytes_plus_comma": 216,
+          "pointer": "/messages/1"
+        }
+      ],
+      "block": 3,
+      "component_sum": 2382,
+      "components": {
+        "assistant_history": 216,
+        "decoded_text": 1981,
+        "return_structure": 156,
+        "text_escape_expansion": 27,
+        "text_quotes": 2
+      },
+      "history_pointer": "/messages",
+      "id": "confirm-b03-dsh",
+      "metric": {
+        "after": 3506,
+        "before": 1124,
+        "component_delta": {
+          "messages": 2382,
+          "system": 0,
+          "tools": 0
+        },
+        "components_after": {
+          "messages": 3042,
+          "system": 160,
+          "tools": 272
+        },
+        "components_before": {
+          "messages": 660,
+          "system": 160,
+          "tools": 272
+        },
+        "delta": 2382,
+        "serialization_wrapper_delta": 0,
+        "wire": [
+          1244,
+          3626
+        ]
+      },
+      "observation_metric_pointer": "/projection_metric",
+      "return_item_pointer": "/messages/2",
+      "source_refs": {
+        "first_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-dsh/01-request.json",
+        "observation": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-dsh/observations.json",
+        "second_request": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-dsh/02-request.json"
+      },
+      "text_leaves": [
+        {
+          "decoded_bytes": 1981,
+          "escape_expansion_bytes": 27,
+          "json_scalar_bytes": 2010,
+          "pointer": "/messages/2/content/0/content/0/text",
+          "quote_bytes": 2
+        }
+      ]
+    }
+  ],
+  "schema": "native-byte-partition-v1",
+  "sources": [
+    {
+      "path": "1-评测方案/原生来源链技术门-2026-11-04/README.md",
+      "sha256": "909833aa0aa6e00f6c02f7f860e236db48d42e1931a090134d7d42d720d96039"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/ledger.json",
+      "sha256": "0a1d14d3d065da2dc1fccb2eff4217f0b2e6c05d713c91fed07063ddb812c933"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/projection-map.json",
+      "sha256": "d5b80a23b28bc306f06c3a7fce66f81fc93ed0583fe16c5510ec0e37edb3a411"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/projection_protocol.py",
+      "sha256": "80981bf4073fe13e082ac1b7a269853eedff46ffa0623c46430e5cf256095358"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-codex/01-request.json",
+      "sha256": "60226f977592f9e163f66c5de3fd5e445f1ad9823c3e6991e5097089f4c7caa5"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-codex/02-request.json",
+      "sha256": "657c6413726ce84beb4fe887a96d892c74bf92b42b1c8b17e773d69da5712696"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-codex/observations.json",
+      "sha256": "18fc65eeb22600da32fc75f00e5082c7f2339c7821ec834df7b535dfb2584508"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-dsh/01-request.json",
+      "sha256": "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-dsh/02-request.json",
+      "sha256": "2fa447a3d116bd830dd5ecafe67325502af34886fc4a3fee7249f5e169a07d31"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b01-dsh/observations.json",
+      "sha256": "b6d08572c61e98e4c896ae8e29295e46684be13d9062fc245554082220c6d404"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-codex/01-request.json",
+      "sha256": "145961fd169e50cdf7c62f9ddd6d50f0b5c342dd99390ae18887d888e67ec4c2"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-codex/02-request.json",
+      "sha256": "27bb31f3aaadbf197be0663badb26d7b32906461a916f8fd8ce5570ff2ace30d"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-codex/observations.json",
+      "sha256": "8b50797d8eaa3d905359a12981e5d2cfcf2c2433032a51ede62dd64c46e77664"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-dsh/01-request.json",
+      "sha256": "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-dsh/02-request.json",
+      "sha256": "616b2b8af07cbcca7fbf60c62817a0b19c79bc309ba9d5629145eb1a94a0aa81"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b02-dsh/observations.json",
+      "sha256": "19436b3bd0e10f93ef8061fb2f650d079045fa5dc8c9a5d6713fd6b0ec461519"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-codex/01-request.json",
+      "sha256": "36591e7ccfe24b364c93aa6d0f0b9aa640fb972aff3b077fcc4ceb37e840d3d5"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-codex/02-request.json",
+      "sha256": "b09372a4afe1155fe656efc5bd1f7c50cb55cbe7509faf4025d01aa7b630065d"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-codex/observations.json",
+      "sha256": "812926f9bbf8b5856dfb6d2b21cd17975553cec7ab43522b205018dca29eceae"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-dsh/01-request.json",
+      "sha256": "b423638744a4ca393cad4845d6380e28af8e57028b3b0031187b82328ffbabf5"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-dsh/02-request.json",
+      "sha256": "36547aae12f84493da89cc4bee03d4d9199e15b273d179cd2c2a653e6f302dbf"
+    },
+    {
+      "path": "3-表现现场/r20261104-native-provenance/sessions/confirm-b03-dsh/observations.json",
+      "sha256": "b8a6cddc2ce66db72bd97407bb066fda199efdbdcfa96b1626ed20cf81fba950"
+    }
+  ]
+}
