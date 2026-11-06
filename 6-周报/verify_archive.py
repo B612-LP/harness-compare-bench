@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Check weekly archives and the non-adopted supplement; never send mail."""
+"""Check weekly archives and the non-adopted supplement; never send mail.
+
+Receipts are write-once: an existing 归档核对-<date>.json is never overwritten
+(exit 3 with a stderr note); delete it explicitly to re-check the same date.
+(2026-11-07 loop02: guard added; earlier receipts were written unconditionally.)
+"""
 import argparse
 import datetime as dt
 import hashlib
 import json
 from pathlib import Path
 import re
+import sys
 from urllib.parse import unquote, urlsplit
 import zipfile
 
@@ -98,6 +104,10 @@ def main():
     check('weekly_and_supplement_links_exist', not issues, {'checked': links, 'issues': issues})
     receipt = {'through': args.through.isoformat(), 'passed': sum(c['pass'] for c in CHECKS),
                'total': len(CHECKS), 'checks': CHECKS, 'mail_sent_by_script': False}
+    if output.exists():
+        print('FATAL: 收据已存在（write-once，不覆盖）: ' + output.name
+              + '；同日复跑请显式删除旧收据后再执行。', file=sys.stderr)
+        return 3
     output.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({'passed': receipt['passed'], 'total': receipt['total']}, ensure_ascii=False))
     return 0 if receipt['passed'] == receipt['total'] else 1
