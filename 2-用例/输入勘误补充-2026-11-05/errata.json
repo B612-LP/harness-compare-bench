@@ -1,0 +1,131 @@
+{
+  "schema": "mcc-derived-errata-v1",
+  "date": "2026-11-05",
+  "case_id": "dabstep-payments-10",
+  "conflict_class_count": 1,
+  "source_sha256": {
+    "2-用例/dabstep-payments-10/inputs/manual.md": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+    "2-用例/dabstep-payments-10/inputs/merchant_category_codes.csv": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+    "2-用例/dabstep-payments-10/inputs/questions.jsonl": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+    "2-用例/dabstep-payments-10/truth.json": "9e6e395fc7b0e5cf60238b8c3ab30fdaa399422fc047f554f0198488156e46d8",
+    "2-用例/dabstep-payments-10/spec.md": "ef0f822d01b56089bb6fe56f1a9a6bcf7f4a1ee9796689908c8ac04a45c53852"
+  },
+  "manual_dictionary_reference": {
+    "path": "2-用例/dabstep-payments-10/inputs/manual.md",
+    "line": 53,
+    "quote": "You can find a complete list of MCC in the annexed file `merchant_category_codes.csv`."
+  },
+  "conflicts": [
+    {
+      "mcc": "5451",
+      "manual": {
+        "path": "2-用例/dabstep-payments-10/inputs/manual.md",
+        "line": 44,
+        "description": "Automated Fuel Dispensers"
+      },
+      "dictionary": {
+        "path": "2-用例/dabstep-payments-10/inputs/merchant_category_codes.csv",
+        "line": 497,
+        "csv_index": "495",
+        "description": "Dairy Products Stores"
+      },
+      "auxiliary": {
+        "mcc": "5542",
+        "path": "2-用例/dabstep-payments-10/inputs/merchant_category_codes.csv",
+        "line": 506,
+        "csv_index": "504",
+        "description": "Automated Fuel Dispensers",
+        "role": "auxiliary_only_not_replacement"
+      },
+      "relationship": "same_code_label_conflict"
+    },
+    {
+      "mcc": "5812",
+      "manual": {
+        "path": "2-用例/dabstep-payments-10/inputs/manual.md",
+        "line": 44,
+        "description": "Automotive Parts and Accessories Stores"
+      },
+      "dictionary": {
+        "path": "2-用例/dabstep-payments-10/inputs/merchant_category_codes.csv",
+        "line": 537,
+        "csv_index": "535",
+        "description": "Eating Places and Restaurants"
+      },
+      "auxiliary": {
+        "mcc": "5533",
+        "path": "2-用例/dabstep-payments-10/inputs/merchant_category_codes.csv",
+        "line": 504,
+        "csv_index": "502",
+        "description": "Auto Parts and Accessories Stores",
+        "role": "auxiliary_only_not_replacement"
+      },
+      "relationship": "same_code_label_conflict"
+    },
+    {
+      "mcc": "5521",
+      "manual": {
+        "path": "2-用例/dabstep-payments-10/inputs/manual.md",
+        "line": 49,
+        "description": "Motor Vehicle Dealers - New and Used Cars"
+      },
+      "dictionary": {
+        "path": "2-用例/dabstep-payments-10/inputs/merchant_category_codes.csv",
+        "line": 501,
+        "csv_index": "499",
+        "description": "Car and Truck Dealers (Used Only) - Sales, Service, Repairs, Parts, and Leasing"
+      },
+      "auxiliary": {
+        "mcc": "5511",
+        "path": "2-用例/dabstep-payments-10/inputs/merchant_category_codes.csv",
+        "line": 500,
+        "csv_index": "498",
+        "description": "Car and Truck Dealers (New and Used) - Sales, Service, Repairs, Parts, and Leasing",
+        "role": "auxiliary_only_not_replacement"
+      },
+      "relationship": "same_code_label_conflict"
+    }
+  ],
+  "q1305": {
+    "path": "2-用例/dabstep-payments-10/inputs/questions.jsonl",
+    "line": 5,
+    "task_id": "1305",
+    "mcc_description": "Eating Places and Restaurants",
+    "matched_mcc": "5812",
+    "gold": {
+      "path": "2-用例/dabstep-payments-10/truth.json",
+      "line": 48,
+      "pointer": "/gold/1305",
+      "value": "0.123217"
+    },
+    "recomputed": false,
+    "correctness": "not_authenticated",
+    "historical_effect": "not_established"
+  },
+  "boundaries": {
+    "old_sources_modified": false,
+    "gold_changed": false,
+    "historical_scores_changed": false,
+    "formal_rows_added": 0,
+    "new_product_runs": 0,
+    "prior_conflict_priority_rule_established": false,
+    "dictionary_policy": "new_derived_local_dictionary_lookup",
+    "external_mcc_authority_authenticated": false,
+    "historical_product_use": "unknown",
+    "scoring_impact": "not_established",
+    "future_behavior_unchanged": "not_established",
+    "future_input_requires_registration": true,
+    "q49_scope_changed": false,
+    "q2697_scope_changed": false,
+    "new_license_granted": false,
+    "legal_compliance_certified": false
+  },
+  "limits": [
+    "three_examples_of_one_document_label_conflict",
+    "auxiliary_codes_do_not_replace_original_codes_or_fee_rules",
+    "current_local_dictionary_not_external_authority_or_upstream_correction",
+    "no_fee_calculation_regrading_product_run_or_historical_causality",
+    "new_explanatory_material_not_authenticated_historical_input",
+    "hashes_identify_bytes_not_source_authenticity_or_legal_rights"
+  ]
+}
