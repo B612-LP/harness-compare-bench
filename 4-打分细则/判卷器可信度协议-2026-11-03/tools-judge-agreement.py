@@ -30,7 +30,9 @@ rating 值 null/缺失/不在 labels 中 => 该 rater 该测项 invalid（计入
 
 退出码：0=计算完成；1=输入校验失败或空表；2=环境/参数错误；3=收据目标已存在拒写。
 
-v1（2026-11-03 预注册）：首版。演进须修前副本+双 sha256+私有登记同步。
+版本史：v1（2026-11-03 预注册，首版）→ v1.1（item_id 强制+T8 自测）→
+v1.2（收据增 tool_version/tool_sha256 自哈希；本注修正——v1.1 起即含 item_id 强制）。
+演进纪律：修前副本留档+双 sha256+私有登记同步。
 """
 
 import hashlib
@@ -39,6 +41,7 @@ import sys
 from itertools import combinations
 
 SCHEMA_VERSION = "judge-agreement-v1"
+TOOL_VERSION = "v1.2"
 
 
 def canonical_sha256(obj):
@@ -287,6 +290,8 @@ def selftest():
 
 def write_receipt(path, payload):
     payload = dict(payload)
+    payload["tool_version"] = TOOL_VERSION
+    payload["tool_sha256"] = hashlib.sha256(open(__file__, "rb").read()).hexdigest()
     payload["receipt_sha256"] = "PENDING"
     payload["receipt_sha256"] = canonical_sha256(payload)
     with open(path, "x", encoding="utf-8") as f:
