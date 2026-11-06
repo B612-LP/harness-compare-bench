@@ -1,4 +1,4 @@
-# 核验台账（2026-11-07，loop02）
+# 核验台账（2026-11-07）
 
 本目录落实老师 Week3 反馈第 4 条：「为公开与私档材料建立第三方核验记录：文件清单、哈希、
 核验人、核验时间、可公开字段与不能公开字段分开列，尤其解释当前公开 verify 无法复核的
@@ -32,7 +32,8 @@
   见 `generation.excluded_paths`；本批新增文件（含 6-周报 write-once 守卫改动）由下一次
   生成或发布护栏覆盖。
 - `ledger.json` 是**快照**：绑定 `generation.head`。同 HEAD 重跑逐字节相同
-  （无时间戳；确定性已实测）。复算方法：`git checkout <generation.head> --`（或
-  `git archive` 该提交解包）后以同一私档 sidecar 重跑生成器。
+  （无时间戳；确定性已实测）。复算方法（须真实 Git 工作副本）：克隆或复制本仓库 →
+  `git checkout --detach <generation.head>` → `python3 tools-verify-ledger.py --sidecar <同一私档 sidecar>` →
+  与提交内 ledger.json 逐字节比对。生成器需要 Git 仓库上下文；`git archive` 解包目录不是 Git 仓库，不可用于复算。
 - 私档 sidecar 保存在仓外私档目录，其路径不写入公开文档；无 sidecar 重跑时
   `verification_index.private` 为空表且 `generation.sidecar.used=false`。

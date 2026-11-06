@@ -3,7 +3,7 @@
 
 Receipts are write-once: an existing 归档核对-<date>.json is never overwritten
 (exit 3 with a stderr note); delete it explicitly to re-check the same date.
-(2026-11-07 loop02: guard added; earlier receipts were written unconditionally.)
+(2026-11-07: write-once guard added; earlier receipts were written unconditionally.)
 """
 import argparse
 import datetime as dt
