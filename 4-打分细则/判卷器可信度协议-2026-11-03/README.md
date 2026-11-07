@@ -42,6 +42,7 @@
 ## 六、工具与自测（已完成，零发射）
 
 - [tools-judge-agreement.py](<tools-judge-agreement.py>) v1.1（sha256 ab64b47ea463c715d768b2dd32503dd26ab3d0099b275184c33345dfcbff7c87；v1=L38 `49974dae…`→docstring 修正 `b4ab33ed…`，修订史见私档 RESULTS）：Cohen/Fleiss/百分一致/混淆矩阵/invalid 披露；write-once content-addressed 收据；退出码 0/1/2/3（PREREG 记 0/1/2，3=收据已存在拒写为实现加性补充，从严不减）。**v1.1（L39）：validate() 强制每条 item 非空字符串 item_id，缺失/空→校验错误拒算（修 L38 验收 issue 5 静默剔除路径，修订五要素见私档 RESULTS-L39）；自测扩至 T1–T8 14 断言。**
+- **v1.2=现行（2026-11-07）：write-once 收据新增 `tool_version`/`tool_sha256` 自哈希字段、docstring 增版本史注；SCHEMA 与判定逻辑零变更，合成自测 T1–T8 14/14。** 提交 `4ef1d952de8000a1af94c51d9543cec82195b066`；现行 sha256=`fdf46ea0dbf592e58e66c8a631e01e08ad24fa2bea9de254773a9f5931c2c96b`（核验台账 ledger.json 该文件条目同值）。上行 `ab64b47e…` 为 2026-11-07 上午整改时点历史值；[盲态可判性审计](<../盲态可判性审计-2026-11-04/README.md>) manifest.json 与核验台账 role 串中的旧版本串为对应时点历史记录，按「已发布历史记录不改写」原则保留不改写。
 - 自测：合成解析解套件 v1.1 起为 T1–T8 共 14 断言全过（κ=1.0、κ=0、κ=−0.6、三 rater Fleiss=−1/3、invalid 剔除、空表拒绝、非法标签拒绝、缺 item_id 拒绝）；v1 期首跑 T6 缺陷（空表未拒绝）已修复，首跑收据 VOIDED 留档（judge-agreement-selftest-v1.json.v1-buggy-T6-VOIDED）。
 
 ## 七、未排除因素（如实）
