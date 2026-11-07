@@ -12,6 +12,13 @@
 
 | 批次 | 用途 | 本轮如何使用 |
 |---|---|---|
+| [中止重封档案E2-20261030T0207](<中止重封档案E2-20261030T0207/>) | 中止重封事件档案（2026-10-30） | 中止收据与公开派生件留档；历史事件档案，不入正式账 |
+| [l4-20261029-cache](<l4-20261029-cache/REPORT.md>) | L4 缓存/干跑核算批（2026-10-29） | 早期缓存与执行核算留档；历史阶段材料 |
+| [l4-20261029-cli](<l4-20261029-cli/公开依据索引-v1.md>) | L4 CLI 批（2026-10-29） | 早期 CLI 双臂留档与公开依据索引；历史阶段材料 |
+| [l4-20261029-wb-gateway](<l4-20261029-wb-gateway/README.md>) | L4 WB 网关批（2026-10-29） | WB 交付态网关路由状态单列批；历史阶段材料，路由未验证如实声明 |
+| [l5-20261030-cli](<l5-20261030-cli/REPORT.md>) | L5 CLI 批（2026-10-30，含中止尝试留档） | aborted-attempts 封印留档；历史阶段材料 |
+| [l5-20261030-wb-gateway](<l5-20261030-wb-gateway/REPORT.md>) | L5 WB 网关批（2026-10-30） | 网关批留档；历史阶段材料 |
+| [l6-20261030-wb-gateway](<l6-20261030-wb-gateway/REPORT.md>) | L6 WB 网关批（2026-10-30） | 网关批留档；历史阶段材料 |
 | [r20261105-workbuddy-followup](<r20261105-workbuddy-followup/README.md>) | WB同一旧请求后观察 | 0新增模型，后来completed但19/27、reward0；旧timeout不改，非独立复测 |
 | [r20261105-doubao-independent](<r20261105-doubao-independent/README.md>) | 独立豆包文件诊断 | 1模型提交，后续只读确认完成；19/27、70.37、reward0，产物/原checker可复核，零正式准入 |
 | [r20261104-desktop-observation](<r20261104-desktop-observation/README.md>) | 原生桌面有界文件观察 | WB1提交/窗内完成0、豆包按条件未启动；1124 FD无命中不等于无读，0判卷/分数null，零正式准入 |
