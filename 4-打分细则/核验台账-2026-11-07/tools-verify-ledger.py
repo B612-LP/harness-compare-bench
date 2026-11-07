@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""tools-verify-ledger.py — 公开核验台账确定性生成器（2026-11-07 新建）。
+"""tools-verify-ledger.py — 公开核验台账确定性生成器（2026-11-07 新建；2026-11-08 v1.1：PUBLIC_RECORDS 增补 loop26–28 五条公开核验记录）。
 
 落实老师 Week3 第4条：「为公开与私档材料建立第三方核验记录：文件清单、哈希、核验人、
 核验时间、可公开字段与不能公开字段分开列，尤其解释当前公开 verify 无法复核的历史代际。」
@@ -74,6 +74,12 @@ PUBLIC_RECORDS = [
     ("历史封印复核限制 公开声明", "1-评测方案/历史封印复核限制.md", "agent:author"),
     ("工具链 evidence-kit/l4/runner-schema 自检收据（含 VOIDED 误报如实保留）", "1-评测方案/工具链/runner-schema-v2/cli-regression-receipt-l3-fixd1-20261029.json", "tools:工具链自检"),
     ("表现现场 l4 探针/自检收据", "3-表现现场/l4-20261029-cache/probe-receipt.json", "tools:现场探针"),
+    # ---- 2026-11-08 v1.1 增补（loop26–28 公开核验记录）----
+    ("敏感现场脱敏收据 机制+l6 试点（原件仅披露 basename+sha256，映射仓外）", "4-打分细则/敏感现场脱敏收据-2026-11-08/redaction-receipt-l6-pilot.json", "tools:tools-redaction-receipt.py"),
+    ("敏感现场脱敏收据 l6 试点见证（shasum 独立实现+确定性重放，机器见证非真人签名）", "4-打分细则/敏感现场脱敏收据-2026-11-08/redaction-receipt-l6-pilot.witness.json", "tools:tools-redaction-receipt.py"),
+    ("正式行复核 v1.9 适配（schema v1.1 现行版数值闭合+v1.8/v1.9 两版一致断言）", "5-评测报告/正式行复核-2026-11-05/README.md", "agent:author + tools:verify.py"),
+    ("请求侧用量观测试点（R1–R5 请求侧指标与自报值分列，自报值 auxiliary）", "4-打分细则/请求侧观测规范-2026-11-08/request-side-observe-pilot-ablation.json", "tools:tools-request-side-observe.py"),
+    ("请求侧用量观测试点见证（shasum 独立实现+确定性重放，机器见证非真人签名）", "4-打分细则/请求侧观测规范-2026-11-08/request-side-observe-pilot-ablation.witness.json", "tools:tools-request-side-observe.py"),
 ]
 
 # 公开 verify 无法复核项（curated，全部有公开文档锚点）
@@ -179,7 +185,7 @@ def main() -> int:
         sidecar_used = True
 
     payload = {
-        "tool": "tools-verify-ledger.py (2026-11-07)",
+        "tool": "tools-verify-ledger.py (2026-11-07; 2026-11-08 v1.1)",
         "generation": {
             "head": head, "head_date": head_date,
             "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
