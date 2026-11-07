@@ -1,0 +1,66 @@
+{
+ "inputs": {
+  "archive_file_count": 4,
+  "files": [
+   {
+    "bytes": 84908,
+    "path": "38450165205980162/agents/m_0cw3X6s10eN/system/trajectory.jsonl",
+    "sha256": "2927008dd9b47aec4b263d65f64bdb9edd2d3d75e985f7afb9aea0eb700820d0"
+   },
+   {
+    "bytes": 169954,
+    "path": "38450165222656514/agents/m_0cw3X6UGnZX/system/trajectory.jsonl",
+    "sha256": "4d8c94c5b7923593a7ed83cbd2fca09b27f2ba532b524673857581859c55a38c"
+   },
+   {
+    "bytes": 138491,
+    "path": "38450346687864066/agents/m_0cw3MNuabDf/system/trajectory.jsonl",
+    "sha256": "254f67bffc874d1df06ca18afe33ce84565d15e6cee74daf30952a5904dfcae6"
+   },
+   {
+    "bytes": 1317,
+    "path": "38450542625848066/agents/m_0cw3mkfgKNT/system/trajectory.jsonl",
+    "sha256": "06c52e4eda4a07717b587f39f327023fb3e8a330ff4a6ff4a995a04b722f0788"
+   }
+  ]
+ },
+ "kind": "doubao",
+ "label": "doubao-eval-20261030",
+ "limits": [
+  "原生轨迹观测面=应用 span/会话轨迹，非网关 HTTP 请求体；与 Codex rollout/DSH 会话轨迹口径不同，不做跨轨字节等值比较",
+  "usage/totalTokens 为应用自报值（auxiliary）；豆包轨迹未见 usage 字段则如实 absent",
+  "聚合件零内容字段、零本机路径；原件存评测私档归档，公开件可由归档原件复算"
+ ],
+ "metrics": {
+  "d1": {
+   "bytes": 394670,
+   "files": 4,
+   "lines": 286,
+   "unparsable_files": 0
+  },
+  "d2_roles": {
+   "assistant": 138,
+   "tool": 148
+  },
+  "d3_request_side_tool_args": {
+   "bytes": 126146,
+   "calls": 148,
+   "note": "assistant tool_calls.function.arguments 规范 JSON 字节和；会话轨迹面近似"
+  },
+  "d4_output_side_tool_results": {
+   "bytes": 217617,
+   "results": 148
+  },
+  "d5_usage_fields": {
+   "count": 0,
+   "note": "轨迹未见 token usage 字段则如实为 0（absent），不虚构"
+  },
+  "d6_duration_ms": {
+   "duration_available": false,
+   "first_timestamp": null
+  }
+ },
+ "schema": "native-trace-observe-v1",
+ "tool": "tools-native-trace-observe.py",
+ "tool_sha256": "b3f4b110b4f287dae4804ff982216d666baa6ec618a3599dee8a835cfe005b17"
+}

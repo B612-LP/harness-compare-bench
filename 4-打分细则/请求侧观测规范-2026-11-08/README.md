@@ -90,6 +90,34 @@ R3 的构造含义：turn 边界由自报记录切分，但边界内**计量的�
 
 观察（描述性，不构成新判定）：独立重复下 S3 输入侧字节高度稳定（多数任务三跑差 ≤48 B，dabstep 一场 27,646→43,944 系多一轮工具调用）；S4 输出侧随生成变化明显（同任务三跑差 1.4–2.6×）——请求侧「输入稳定/输出波动」的分离结构正是该框架要求分列观测的原因。全部 15 场 declared 配置一致（deepseek-official / deepseek-flash / reasoningEffort=low / maxTokens=256000 / contextWindow=1000000）。运行元数据（run/批次标签）按[脱敏收据](<../敏感现场脱敏收据-2026-11-08/README.md>)字段分离口径可公开。
 
-## 7. 与冻结件的关系
+## 7. 原生轨迹扩展：WorkBuddy 与豆包臂观测（T/D 系列，loop32）
+
+老师要求②三轨口径补齐：A 轨（Codex rollout，§2/§5）与 DSH 轨（§6）之外，本节把观测框架落到 W（WorkBuddy 原生 trace）与豆包办公（会话 trajectory）两臂，全部基于评测期真实运行的原生轨迹**历史归档件**（零发射；原件已按[归档纪律]存评测私档归档，公开聚合件可由归档原件复算）。
+
+| 系列 | 指标 | 口径 |
+|---|---|---|
+| T1/T2/T3 | 文件字节与行数 / 事件类型计数（trace_start/span_start/span_end/trace_end）/ span 类型计数（start/end 分列） | 结构面 |
+| T4 | 请求侧近似=`generation`+`agent` span 的 toolInput 字节和 | **span 工具面近似，非网关 HTTP 请求体**（WB 网关侧原始请求件不在：l4/l5/l6 网关线均为 mock 自测） |
+| T5 | 输出侧=toolOutput 字节和 | 结构面 |
+| T6 | `self_reported_` 应用自报值（trace.totalTokens/usage 字段） | auxiliary |
+| T7 | 会话时长（trace duration，ms） | 结构面 |
+| D1/D2 | 文件字节行数 / role 计数 | 结构面 |
+| D3 | 请求侧近似=assistant `tool_calls.function.arguments` 规范 JSON 字节和 | **会话轨迹面近似** |
+| D4 | 输出侧=tool 结果 content 字节和 | 结构面 |
+| D5 | usage 字段计数 | absent 如实输出，不虚构 |
+| D6 | 会话时长（轨迹时间戳差） | absent 如实输出 |
+
+工具 [tools-native-trace-observe.py](<tools-native-trace-observe.py>)：`--kind workbuddy|doubao --archive <归档目录> --out <pilot.json>`；防泄漏断言（>24 字符源内容串/本机绝对路径→FATAL rc=2 不写出；run 标识 basename 豁免）、write-once、确定性；机器见证（shasum 独立实现逐件复算+同输入确定性重放逐字节对比，非真人签名）。
+
+试点（真实历史窗口全集）：
+
+| 试点 | 归档件 | 字节/行数 | 请求侧近似 | 输出侧 | 自报值 | 见证 |
+|---|---|---|---|---|---|---|
+| [WorkBuddy 评测窗口](<native-trace-pilot-workbuddy-20261027-30.json>) | 41 trace（2026-10-27→30） | 9,398,273 B / 4,430 行 | T4=5,863,997 B（305 spans） | T5=533,551 B | T6=0/0/0（无 usage 字段、totalTokens 全 0） | [all_ok=true](<native-trace-pilot-workbuddy-20261027-30.witness.json>) |
+| [豆包办公 2026-10-30](<native-trace-pilot-doubao-20261030.json>) | 4 会话 trajectory | 394,670 B / 286 行 | D3=126,146 B（148 calls） | D4=217,617 B（148 results） | D5=0（无 usage 字段）；D6 absent | [all_ok=true](<native-trace-pilot-doubao-20261030.witness.json>) |
+
+观察（描述性，不构成新判定）：**两臂原生轨迹面均未携带 token usage**（WB totalTokens 全 0 且无 usage 字段、豆包无该字段）——W/豆包的自报 token 在原生轨迹面不可得，请求侧字节指标因此成为这两臂唯一可观测口径，这正是本规范要求「请求侧为主、自报为辅、分列输出」的原因。WB span 面与豆包轨迹面均不含用户 prompt 原文行（豆包 role 计数无 user 行），聚合件零内容字段。运行标识（pid/trace 文件名/会话号 basename）按[脱敏收据](<../敏感现场脱敏收据-2026-11-08/README.md>)口径可公开。
+
+## 8. 与冻结件的关系
 
 本目录为新增规范与工具，不改两版报告正文、ledger、正式25格、周报、gold 与历史判卷；报告 v1.9 §4.5 的机制与口径声明不受影响。发射阶段仍未放行；本规范在放行后的首批发射中即按 §3 采样纪律生效。
