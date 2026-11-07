@@ -58,7 +58,7 @@ ledger固定字节提供402源pin，再逐文件/逐指针复核。仅改source�
 
 ## 负例能力，不夸大拒绝机制
 
-43项测试明确分层（登记缺失测试含3个子例；2026-11-08 适配后共46项：新增现行版缺失/分数漂移/汇总漂移/保值格式漂移四条负例）：
+43项测试明确分层（登记缺失测试含3个子例；2026-11-08 适配后共47项（43+4）：新增现行版缺失/分数漂移/汇总漂移/保值格式漂移四条负例）：
 
 - **生产固定pin拒绝**：源分数修改、源修改后重封ledger、派生成绩重封、v1.8字节漂移、缺关键事件/grade收据；不是声称这些靠判卷语义重算拒绝。
 - **独立数据语义拒绝**：测试中专门临时关闭字节比较（仅test的mock，无生产CLI开关），基线仍过，再检验孤儿/重复/缺officialID、跨轨、run ID替换、算术自洽但与receipt不同的score、合同/事件checker改变、空score refs/坏pointer、同分跨run收据替代、必需事实缺失/known无value与refs/错误state/unknown伪装有值、门false与无效指针/来源也false但仍企图准入、首发selection=null/删除selection/plan_source=null三种登记跳过、registration指针错slot、ledger score与formal副本差异、lineage错slot/重复或删除替代/准入目标与来源path、SHA、pointer错误、报告重复冲突case行/分数/达标题数漂移。证明不是只有固定SHA拒绝；这些包含独审发现的9条私有探针对应公共回归（8个原语义接受现拒绝，已修准入引用继续拒绝）。
