@@ -59,6 +59,37 @@ R3 的构造含义：turn 边界由自报记录切分，但边界内**计量的�
 
 试点聚合经防泄漏断言+人工抽查：公开件内长字符串值仅 sha256/basename/说明文字，无 prompt/回复内容。运行元数据（basename 含 session uuid 片段）按[脱敏收据](<../敏感现场脱敏收据-2026-11-08/README.md>)的字段分离口径可公开。
 
-## 6. 与冻结件的关系
+## 6. 会话轨迹扩展：DSH 臂观测（S1–S6，loop30）
+
+老师要求②同样适用于 DSH 臂。DSH 会话轨迹原件为 `session.v4.jsonl.zstd`（JSONL v4 事件流，zstd 压缩），**该格式不记录 token usage 数值字段**——与 Codex rollout 不同，R5 无法落为自报 token 列，如实落为「声明请求配置」辅助列。工具 `tools-session-trace-observe.py` v1：
+
+| # | 指标 | 定义 |
+|---|------|------|
+| S1 | 文件字节 | zstd 压缩字节、解压字节、行数、unparsable 计数 |
+| S2 | 类型计数 | `type` 平铺 + `type+data 子键名`（仅键名，内容值不进计数键） |
+| S3 | 输入侧字节 | `user/message`+`request/header`+`request/context` 事件 canonical JSON 字节和（会话级汇总；v4 流单 turn 为主，不逐 turn 细分） |
+| S4 | 输出侧字节 | `assistant/message`+`tool/call` 字节和；`tool/result` 字节单列观察字段 |
+| S5 | 声明请求配置（auxiliary） | `data.header.config`（provider/model/reasoningEffort/maxTokens）与 `request/context`（contextWindow 等），冠 `declared_` 前缀；**是配置声明，不是用量实测** |
+| S6 | 会话时长 ms | timed 事件末−首（数据派生，确定性） |
+
+行标识：run 目录标签（`dsh__*`）+批次标签（`r1030-*` 等）——两者均为公开树 `3-表现现场/` 已有目录名，不含私档路径成分。防泄漏断言/确定性/write-once/机器见证同 §4（泄漏扫描对解压后文本逐行进行；`type` 键值与类型 token 形态作为结构元数据豁免——其本身在 S2 计数键中有意披露）。
+
+### 试点：正式批 a1 五场 + 独立重复 r2/r3 十场（15 份，2026-11-08）
+
+`session-trace-pilot-formal-a1-n3.json`（`aggregate_sha256=b9ce96563b1e199eaf66fe90b6d27144cbaec5357fda13f5f8663fb7945feb4d`）+ `.witness.json`（`all_ok=true`，确定性重放逐字节一致）。合计：15 文件 / 压缩 2,819,303 B / 解压 10,820,141 B / 2,394 行 / unparsable=0；S3 输入侧 405,200 B、S4 输出侧 8,516,247 B、tool_result 1,627,350 B。
+
+逐任务三跑对照（R3=输入侧字节，R4=输出侧字节；a1/r2/r3）：
+
+| 任务 | R3（三跑） | R4（三跑） |
+|------|-----------|-----------|
+| bird-ca-schools-15 | 27,196 / 27,244 / 27,244 | 637,076 / 444,611 / 368,855 |
+| dabstep-payments-10 | 25,939 / 27,646 / 43,944 | 645,806 / 1,090,758 / 564,407 |
+| exercism-py-6 | 25,046 / 25,094 / 25,094 | 273,086 / 246,649 / 341,806 |
+| lcb-recent-hard-4 | 25,295 / 25,343 / 25,343 | 721,310 / 798,114 / 634,801 |
+| tb-cargo-plan | 24,892 / 24,940 / 24,940 | 574,086 / 642,354 / 532,528 |
+
+观察（描述性，不构成新判定）：独立重复下 S3 输入侧字节高度稳定（多数任务三跑差 ≤48 B，dabstep 一场 27,646→43,944 系多一轮工具调用）；S4 输出侧随生成变化明显（同任务三跑差 1.4–2.6×）——请求侧「输入稳定/输出波动」的分离结构正是该框架要求分列观测的原因。全部 15 场 declared 配置一致（deepseek-official / deepseek-flash / reasoningEffort=low / maxTokens=256000 / contextWindow=1000000）。运行元数据（run/批次标签）按[脱敏收据](<../敏感现场脱敏收据-2026-11-08/README.md>)字段分离口径可公开。
+
+## 7. 与冻结件的关系
 
 本目录为新增规范与工具，不改两版报告正文、ledger、正式25格、周报、gold 与历史判卷；报告 v1.9 §4.5 的机制与口径声明不受影响。发射阶段仍未放行；本规范在放行后的首批发射中即按 §3 采样纪律生效。
