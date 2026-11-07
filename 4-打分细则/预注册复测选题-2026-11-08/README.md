@@ -7,7 +7,7 @@
 
 | 选题 | 轨 | 现有 n=3 证据 | 选题理由 |
 |---|---|---|---|
-| **①workbuddy/dabstep-payments-10** | W | [source-ledger](<../../5-评测报告/证据口径-2026-11-03/source-ledger.md>)：reward=[0,0,0]、weighted=[60.0,60.0,70.0]；[断言级 diff](<../../5-评测报告/断言级重复性-diff-2026-11-02/README.md>)：2 翻转断言（q1273/q1753）+稳定失败核 | W 轨唯一 reward 全 0 的正式行（60.00）+加权三轮上升+翻转断言明确 |
+| **①workbuddy/dabstep-payments-10** | W | [source-ledger](<../../5-评测报告/证据口径-2026-11-03/source-ledger.md>)：reward=[0,0,0]、weighted=[60.0,60.0,70.0]；[断言级 diff](<../../5-评测报告/断言级重复性-diff-2026-11-02/README.md>)：2 翻转断言（q1273/q1753）+稳定失败核 | W 轨 reward=0 正式行中加权最低（60.00；另一条 reward=0 正式行=workbuddy/tb-cargo-plan 74.07）+加权三轮上升+翻转断言明确 |
 | **②yuanbao/bird-ca-schools-15** | B | source-ledger：reward=[0,1,1]、weighted=[73.33,86.67,86.67]——B 轨唯一 reward 翻转题 | 「首跑失败=能力缺口还是采样方差」现有 n=3 无法回答 |
 | 备选③tb-cargo-plan（两轨） | B/W | 断言级 diff：翻转断言最多（W 稳失 6+翻 3；豆包稳失 4+翻 5） | 采样方差贡献最大；预算允许时的第三题 |
 
