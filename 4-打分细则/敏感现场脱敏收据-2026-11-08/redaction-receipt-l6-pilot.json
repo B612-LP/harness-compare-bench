@@ -1,0 +1,52 @@
+{
+ "all_pairs_ok": true,
+ "generated_at": "2026-11-08T00:27:22+08:00",
+ "honesty": {
+  "derivative_role": "公开脱敏摘要为事后编制派生件，不是历史原件，不替代证据",
+  "original_disclosure": "仅 basename+sha256+字节数；不含路径前缀与内容",
+  "witness": "见 --witness 模式产出的机器见证收据（独立实现复算），非真人签名"
+ },
+ "kind": "redaction-receipt",
+ "manifest_sha256": "10495042bf1df0998e532d6acdaf8d2fbc15e202c32ffcbd4bebfbe76d17ba87",
+ "pairs": [
+  {
+   "basename": "e1-to-e2-authorized-diff.json",
+   "derivative": "3-表现现场/l6-20261030-wb-gateway/receipts/public-redacted-summary.md",
+   "derivative_bytes": 684,
+   "derivative_sha256": "567f4d1552ef3b0738747407221a590e369c397212af9138e42c69d145b18cc1",
+   "method": "R1-移出私档+摘要替代",
+   "original_bytes": 9330,
+   "original_sha256": "d0a3afcfe3eedfe840629204aa35275fa63bb685407a33fd9b493f183adc6b0b",
+   "scope": "原件全文不公开；公开摘要仅记载记录名与结构计数（差异段数=7）"
+  },
+  {
+   "basename": "l6-runtime-defaults-audit.json",
+   "derivative": "3-表现现场/l6-20261030-wb-gateway/receipts/public-redacted-summary.md",
+   "derivative_bytes": 684,
+   "derivative_sha256": "567f4d1552ef3b0738747407221a590e369c397212af9138e42c69d145b18cc1",
+   "method": "R1-移出私档+摘要替代",
+   "original_bytes": 22107,
+   "original_sha256": "41319954dc29e2bf087636fc7b8940c3ebc81b20bab93318c5e657cf3b9d9a90",
+   "scope": "审计条目内容不公开；公开摘要仅记载审计条目数=85"
+  },
+  {
+   "basename": "release-refused.json",
+   "derivative": "3-表现现场/l6-20261030-wb-gateway/receipts/public-redacted-summary.md",
+   "derivative_bytes": 684,
+   "derivative_sha256": "567f4d1552ef3b0738747407221a590e369c397212af9138e42c69d145b18cc1",
+   "method": "R2-移出私档+不公开",
+   "original_bytes": 440,
+   "original_sha256": "84cd9c19ce86d80d6932bc4ab6cbc0d71410b97511d11f1c6b7719a8b70789b2",
+   "scope": "内容完全未公开（内部控制记录，公开侧仅记载其存在与不公开事实）"
+  }
+ ],
+ "private_map_basename_set": [
+  "_note",
+  "e1-to-e2-authorized-diff.json",
+  "l6-runtime-defaults-audit.json",
+  "release-refused.json"
+ ],
+ "problems": [],
+ "tool": "tools-redaction-receipt.py",
+ "tool_sha256": "5eb3854e7f18204abb02c4b2263af3c87ed38316699e97d78908a6ae407dec88"
+}

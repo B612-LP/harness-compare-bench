@@ -2,6 +2,10 @@
 
 按日期倒序，只记实质性变更；细枝末节见 `git log`。周报存档见 [`6-周报/`](6-周报/)。
 
+## [2026-11-08]
+
+- **新增[敏感现场脱敏收据机制](<4-打分细则/敏感现场脱敏收据-2026-11-08/README.md>)并完成 l6 试点（老师 2026-11-03 新追问④落地）**：[tools-redaction-receipt.py](<4-打分细则/敏感现场脱敏收据-2026-11-08/tools-redaction-receipt.py>) 对「私档原件→公开脱敏派生件」生成机械可复核收据（原件仅披露 basename+sha256+字节数，含私档路径防泄漏断言）；[l6 试点收据](<4-打分细则/敏感现场脱敏收据-2026-11-08/redaction-receipt-l6-pilot.json>)绑定 3-表现现场/l6-20261030-wb-gateway 移出的三件私档原件（e1-to-e2-authorized-diff.json / l6-runtime-defaults-audit.json / release-refused.json，哈希见收据）与公开脱敏摘要的对应关系；[见证收据](<4-打分细则/敏感现场脱敏收据-2026-11-08/redaction-receipt-l6-pilot.witness.json>)以独立实现（shasum CLI）复算全部哈希并确定性重放 pairs 块，明示**机器见证非真人签名**（真人核验要求 2026-11-04 已取消，不虚称）；与报告 v1.9 §4.5 口径一致，不改报告正文与历史成绩。运行收据与私档映射存仓外私档。
+
 ## [2026-11-07]
 
 - **[当日补记] 核验台账重绑 generation.head=02f9204（loop25）**：[核验台账](<4-打分细则/核验台账-2026-11-07/README.md>) ledger.json 按预留条件重绑——1f2e5f9（κ 文档同步+CHANGELOG 台账重绑补登）与 02f9204（表现现场批次索引补全）两件实质公开提交落地后预留条件再满足，重绑提交 `a3cc4e6`（单文件 ledger.json 10+/10−，重绑提交内 ledger 不自指其自身提交号）；inventory 5,425 文件/37 公开核验记录/14 私档行不变，同 HEAD 重跑逐字节相同；现盘 ledger.json sha256 `b0312b8b5af0e26f731fa70cff564c06b434511426dd90827986d40670b36a7a`；guard pre/post 全绿、全新克隆 WHOLE_CMP=IDENTICAL（5,428 blobs）、非尖 0 断链、coverage unindexed=0、changelog-audit ok。得分、判卷、官方表、历史原件零改动；收据存仓外私档。
