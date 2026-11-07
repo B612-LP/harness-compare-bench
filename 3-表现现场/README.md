@@ -47,7 +47,7 @@
 
 **历史文字适用范围**：下方为2026-10-16两批的原汇总；其中“A−C即Harness增量”“价值本体”等因果措辞不作为本轮已验证结论。后续批次README中“逐题同分”“打平不是噪声”“模型上限”“工作区是有效修法”等强措辞也只留作历史，当前以新报告的限定结论为准。r1026的旧脚本化[操作卡](<r1026-desktop-15/START-HERE.md>)已过时；后续各批的原生/自动化采集形态以对应README为准，不沿用早期手工GUI说明。豆包无截图为既定取证口径，不本身算缺证据。
 
-以下两批为 **glm**（r1016-*）与**小米**（r1016x-*）的历史两题材料，不代表当前全部现场。
+以下两批为 **glm**（r1016-*）与**小米**（r1016x-*）的历史两题材料，不代表当前全部现场。（2026-11-07 索引补全：下列目录此前仅在汇总表中以反引号文字提及、无任何内链，机器可达性缺口由目录覆盖审计发现并补链；均为历史材料不进当前口径：[r1016-intsum-codex](<r1016-intsum-codex/>)、[r1016-intsum-dsh](<r1016-intsum-dsh/>)、[r1016-intsum-nop](<r1016-intsum-nop/>)、[r1016-intsum-oracle](<r1016-intsum-oracle/>)、[r1016-wordfreq-codex](<r1016-wordfreq-codex/>)、[r1016-wordfreq-dsh](<r1016-wordfreq-dsh/>)、[r1016-wordfreq-nop](<r1016-wordfreq-nop/>)、[r1016-wordfreq-oracle](<r1016-wordfreq-oracle/>)、[r1016x-intsum-bare](<r1016x-intsum-bare/>)、[r1016x-intsum-codex](<r1016x-intsum-codex/>)、[r1016x-intsum-dsh](<r1016x-intsum-dsh/>)、[r1016x-wordfreq-bare](<r1016x-wordfreq-bare/>)、[r1016x-wordfreq-codex](<r1016x-wordfreq-codex/>)、[r1016x-wordfreq-dsh](<r1016x-wordfreq-dsh/>)。）
 
 ---
 
