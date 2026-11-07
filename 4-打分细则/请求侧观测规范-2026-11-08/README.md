@@ -116,7 +116,7 @@ R3 的构造含义：turn 边界由自报记录切分，但边界内**计量的�
 | [WorkBuddy 评测窗口](<native-trace-pilot-workbuddy-20261027-30.json>) | 41 trace（2026-10-27→30） | 9,398,273 B / 4,430 行 | T4=5,863,997 B（305 spans） | T5=533,551 B | T6=0/0/0（无 usage 字段、totalTokens 全 0） | [all_ok=true](<native-trace-pilot-workbuddy-20261027-30.witness.json>) |
 | [豆包办公 2026-10-30](<native-trace-pilot-doubao-20261030.json>) | 4 会话 trajectory | 394,670 B / 286 行 | D3=126,146 B（148 calls） | D4=217,617 B（148 results） | D5=0（无 usage 字段）；D6 absent | [all_ok=true](<native-trace-pilot-doubao-20261030.witness.json>) |
 
-观察（描述性，不构成新判定）：**两臂原生轨迹面均未携带 token usage**（WB totalTokens 全 0 且无 usage 字段、豆包无该字段）——W/豆包的自报 token 在原生轨迹面不可得，请求侧字节指标因此成为这两臂唯一可观测口径，这正是本规范要求「请求侧为主、自报为辅、分列输出」的原因。WB span 面与豆包轨迹面均不含用户 prompt 原文行（豆包 role 计数无 user 行），聚合件零内容字段。运行标识（pid/trace 文件名/会话号 basename）按[脱敏收据](<../敏感现场脱敏收据-2026-11-08/README.md>)口径可公开。
+观察（描述性，不构成新判定）：**两臂原生轨迹面均未携带 token usage**（WB totalTokens 全 0 且无 usage 字段、豆包无该字段）——W/豆包的自报 token 在原生轨迹面不可得，请求侧字节指标因此成为这两臂唯一可观测口径，这正是本规范要求「请求侧为主、自报为辅、分列输出」的原因。原文声明：豆包轨迹面不含用户 prompt 原文行（role 计数无 user 行）；WB span 面的 toolInput **含用户 prompt 文本**（305 个 generation span 的 toolInput 为含 `role:user` 的消息数组，应用侧截断约 20,000 字符）——因此 WB trace 原件属含内容原件，只存评测私档归档、不入公开树；本目录公开聚合件仅含计数/字节/哈希/basename，零内容字段。运行标识（pid/trace 文件名/会话号 basename）按[脱敏收据](<../敏感现场脱敏收据-2026-11-08/README.md>)口径可公开。
 
 ## 8. 与冻结件的关系
 
