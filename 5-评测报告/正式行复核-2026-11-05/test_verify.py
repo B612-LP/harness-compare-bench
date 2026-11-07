@@ -26,7 +26,7 @@ class ClosureTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         ledger = v.loads((ROOT / v.LEDGER).read_text(encoding='utf-8'))
-        self.names = [v.LEDGER, v.REPORT, v.REPORT_CURRENT] + [x['path'] for x in ledger['source_manifest'] if x['status'] == 'present']
+        self.names = [v.LEDGER, v.REPORT, v.REPORT_CURRENT, v.READ_DETECTION, v.DESKTOP_SUMMARY] + [x['path'] for x in ledger['source_manifest'] if x['status'] == 'present']
         for name in self.names:
             dest = self.root / name
             dest.parent.mkdir(parents=True, exist_ok=True)
@@ -77,6 +77,14 @@ class ClosureTests(unittest.TestCase):
         self.assertEqual(len(result['historical_inventory']['missing']), 5)
         self.assertFalse(result['historical_inventory']['complete_historical_verification'])
         self.assertEqual(result['report_editions'], {'reviewed_byte_pinned': v.REPORT, 'current_numeric_closure': v.REPORT_CURRENT})
+        self.assertEqual(result['schema'], 'formal-25-public-closure-v1.2')
+        blindspot = result['blindspot_closure']
+        self.assertEqual(blindspot['read_detection'], {'trials': 28, 'read': 20, 'non_read': 8, 'fd': [8, 12, 4, 4],
+                                                       'vnode': [1, 19, 0, 8], 'short_missed_by_both': 12,
+                                                       'open_only_fd_fp': 4, 'product_file_read_denominator': 0})
+        self.assertEqual(blindspot['desktop_observation'], {'fd_samples': 1124, 'bait_open_hits': 0})
+        self.assertTrue(blindspot['consistency_only'])
+        self.assertEqual(blindspot['citations']['reviewed']['fd_cited'], blindspot['citations']['current']['fd_cited'])
         self.assertTrue(all(row['report']['path'] == v.REPORT and row['report_current']['path'] == v.REPORT_CURRENT for row in result['rows']))
         self.assertTrue(all(row['report']['cell'] == row['report_current']['cell'] for row in result['rows']))
 
@@ -353,6 +361,38 @@ class ClosureTests(unittest.TestCase):
         link.symlink_to(self.root.parent, target_is_directory=True)
         with self.assertRaisesRegex(ValueError, 'escapes repository'):
             v.Store(self.root).path('escape/external.json')
+
+
+    def test_semantic_blindspot_current_citation_drift(self):
+        path = self.root / v.REPORT_CURRENT
+        path.write_text(path.read_text(encoding='utf-8').replace('=8/12/4/4', '=8/13/4/4'), encoding='utf-8')
+        self.rejects(r'report §4\.4 citation mismatch: fd \(current\)', True)
+
+    def test_semantic_blindspot_reviewed_citation_drift(self):
+        path = self.root / v.REPORT
+        path.write_text(path.read_text(encoding='utf-8').replace('为 8/12/4/4', '为 8/12/4/5'), encoding='utf-8')
+        self.rejects(r'report §4\.4 citation mismatch: fd \(reviewed\)', True)
+
+    def test_semantic_blindspot_section_missing_current(self):
+        path = self.root / v.REPORT_CURRENT
+        path.write_text(self.strip_44(path.read_text(encoding='utf-8')), encoding='utf-8')
+        self.rejects(r'report §4\.4 section missing \(current\)', True)
+
+    def test_semantic_blindspot_calibration_data_drift(self):
+        def poison(doc):
+            trial = next(t for t in doc['trials'] if any(s.get('fd_match') is True for s in t['samples']))
+            for sample in trial['samples']:
+                if sample.get('fd_match') is True:
+                    sample['fd_match'] = False
+        self.modify(v.READ_DETECTION, poison)
+        self.rejects(r'report §4\.4 citation mismatch: fd \(reviewed\)', True)
+
+    def strip_44(self, text):
+        heading = '### 4.4 读取检测有量化盲区'
+        lines = text.splitlines(keepends=True)
+        start = next(i for i, line in enumerate(lines) if line.startswith(heading))
+        end = next((i for i in range(start + 1, len(lines)) if lines[i].startswith(('### ', '## '))), len(lines))
+        return ''.join(lines[:start] + lines[end:])
 
 
 if __name__ == '__main__':

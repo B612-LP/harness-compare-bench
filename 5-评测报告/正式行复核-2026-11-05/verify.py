@@ -16,6 +16,10 @@ REPORT = '5-评测报告/竞品评测报告-v1.8.md'
 # Current living edition: closed numerically each run, deliberately NOT byte-pinned
 # (a future report revision must not silently invalidate the closure tool).
 REPORT_CURRENT = '5-评测报告/竞品评测报告-v1.9.md'
+# Blindspot calibration packages cited by report §4.4; numeric-only consistency
+# (their own tools remain the authenticity boundary of their data).
+READ_DETECTION = '3-表现现场/r20261104-read-detection/read-detection.json'
+DESKTOP_SUMMARY = '3-表现现场/r20261104-desktop-observation/fd-summary.json'
 # Reviewed immutable historical bytes. A changed manifest cannot nominate new trust.
 TRUSTED = {
     LEDGER: '9784e714cd0134cece788fb3d67b080820dcbc0b95be29761123ab623deea420',
@@ -179,6 +183,70 @@ def report_mapping(text, rows, report_path):
                 require(cells[1] == str(row['score']['reward']), 'report headline mismatch')
             result[row['event_id']] = {'path': report_path, 'line': line, 'column': column + 2, 'cell': cell}
     return result
+
+
+def blindspot_edition_citations(text, edition):
+    lines = text.splitlines()
+    start = next((i for i, line in enumerate(lines) if line.startswith('### 4.4 读取检测有量化盲区')), None)
+    require(start is not None, 'report §4.4 section missing (' + edition + ')')
+    end = next((i for i in range(start + 1, len(lines)) if lines[i].startswith(('### ', '## '))), len(lines))
+    body = '\n'.join(lines[start:end])
+    def one(pattern, label):
+        found = re.findall(pattern, body)
+        require(len(found) == 1, 'report §4.4 citation problem: ' + label + ' (' + edition + ')')
+        return found[0]
+    return {
+        'trials_cited': int(one(r'(\d+)\s*个异质', 'trials')),
+        'read_cited': int(one(r'(\d+)\s*已知读取\s*/\s*(\d+)\s*非读取', 'read')[0]),
+        'non_read_cited': int(one(r'(\d+)\s*已知读取\s*/\s*(\d+)\s*非读取', 'read')[1]),
+        'fd_cited': [int(x) for x in one(r'FD\s*(?:的)?\s*TP/FN/FP/TN\s*(?:为|=)\s*(\d+)\s*/\s*(\d+)\s*/\s*(\d+)\s*/\s*(\d+)', 'fd')],
+        'vnode_cited': [int(x) for x in one(r'vnode\s*(?:为|=)\s*(\d+)\s*/\s*(\d+)\s*/\s*(\d+)\s*/\s*(\d+)', 'vnode')],
+        'short_missed_by_both_cited': int(one(r'(\d+)\s*个?\s*短时读取', 'short')),
+        'open_only_fd_fp_cited': int(one(r'(\d+)\s*个?\s*open-only', 'open-only')),
+        'product_denominator_cited': int(one(r'分母\s*(\d+)', 'denominator')),
+        'desktop_fd_samples_cited': int(one(r'FD\s*(\d+)\s*次无命中', 'desktop fd')),
+    }
+
+
+def blindspot_closure(store, report_text, report_now_text):
+    rd = loads(store.path(READ_DETECTION).read_text(encoding='utf-8'))
+    trials = rd['trials']
+    require(len(trials) == 28, 'read-detection trial inventory changed')
+    fd, vnode = Counter(), Counter()
+    read_n = short_both = open_fp = 0
+    for trial in trials:
+        is_read = trial['ground_truth'].get('content_sha256') is not None
+        fd_hit = any(sample.get('fd_match') is True for sample in trial['samples'])
+        vn_hit = trial.get('vnode', {}).get('event_detected') is True
+        fd['TP' if is_read and fd_hit else 'FN' if is_read else 'FP' if fd_hit else 'TN'] += 1
+        vnode['TP' if is_read and vn_hit else 'FN' if is_read else 'FP' if vn_hit else 'TN'] += 1
+        read_n += 1 if is_read else 0
+        if trial['group'] == 'read_short' and is_read and not fd_hit and not vn_hit:
+            short_both += 1
+        if trial['group'] == 'open_no_read' and not is_read and fd_hit:
+            open_fp += 1
+    require(read_n == fd['TP'] + fd['FN'], 'read-detection read denominator mismatch')
+    desktop = loads(store.path(DESKTOP_SUMMARY).read_text(encoding='utf-8'))
+    require(rd['product']['file_read_denominator'] == 0, 'product read denominator no longer zero')
+    require(desktop['bait_open_hit_count'] == 0 and desktop.get('errors', {}).get('none') == desktop['samples']
+            and desktop.get('exit_codes', {}).get('0') == desktop['samples'], 'desktop FD summary changed')
+    recompute = {'trials_cited': len(trials), 'read_cited': read_n, 'non_read_cited': len(trials) - read_n,
+                 'fd_cited': [fd['TP'], fd['FN'], fd['FP'], fd['TN']],
+                 'vnode_cited': [vnode['TP'], vnode['FN'], vnode['FP'], vnode['TN']],
+                 'short_missed_by_both_cited': short_both, 'open_only_fd_fp_cited': open_fp,
+                 'product_denominator_cited': rd['product']['file_read_denominator'],
+                 'desktop_fd_samples_cited': desktop['samples']}
+    citations = {'reviewed': blindspot_edition_citations(report_text, 'reviewed'),
+                 'current': blindspot_edition_citations(report_now_text, 'current')}
+    for key, value in recompute.items():
+        for edition in ('reviewed', 'current'):
+            require(citations[edition][key] == value, 'report §4.4 citation mismatch: ' + key.replace('_cited', '') + ' (' + edition + ')')
+    return {'read_detection': {'trials': recompute['trials_cited'], 'read': read_n, 'non_read': len(trials) - read_n,
+                               'fd': recompute['fd_cited'], 'vnode': recompute['vnode_cited'],
+                               'short_missed_by_both': short_both, 'open_only_fd_fp': open_fp,
+                               'product_file_read_denominator': rd['product']['file_read_denominator']},
+            'desktop_observation': {'fd_samples': desktop['samples'], 'bait_open_hits': desktop['bait_open_hit_count']},
+            'citations': citations, 'consistency_only': True}
 
 
 def derive(root):
@@ -382,18 +450,20 @@ def derive(root):
         r['report_current'] = mapping_now[r['event_id']]
     unknown_versions = sum(r.get('product_version') is None for r in ledger['observation_attempts'] if r['product'] in ('yuanbao', 'doubao'))
     require(unknown_versions == 40, 'historical B version unknown inventory changed')
-    return {'schema': 'formal-25-public-closure-v1.1', 'ok': True, 'meaning': 'reviewed public data consistent, NOT historical raw seal authentication',
+    blindspot = blindspot_closure(store, report, report_now)
+    return {'schema': 'formal-25-public-closure-v1.2', 'ok': True, 'meaning': 'reviewed public data consistent, NOT historical raw seal authentication',
             'report_editions': {'reviewed_byte_pinned': REPORT, 'current_numeric_closure': REPORT_CURRENT},
             'formal_n_per_product_case': 1, 'track_counts': dict(Counter(r['track'] for r in formal)),
             'summary': summaries, 'rows': formal, 'attempts': len(attempts), 'replacements': replacements,
             'historical_inventory': {'sources': len(manifest), 'present_hashes_match': len(manifest) - len(store.missing),
                 'missing': sorted(store.missing), 'B_observation_version_unknown': unknown_versions, 'complete_historical_verification': False},
-            'trust_anchors': TRUSTED, 'source_inventory': manifest,
+            'trust_anchors': TRUSTED, 'source_inventory': manifest, 'blindspot_closure': blindspot,
             'limits': ['No checker/candidate execution, no regrading, no product/model/network calls.',
                        'Fixed hashes authenticate consistency to reviewed public bytes, not authenticity of private raw evidence or third-party signatures.',
                        'Missing historical sources and unknown versions remain incomplete; observations never increase formal n.',
                        'No same-model claim for B/W, no cross-track overall ranking.',
-                       'Current-edition report closure is numeric-only consistency; its bytes are not authenticated (only the reviewed v1.8 edition is byte-pinned).']}
+                       'Current-edition report closure is numeric-only consistency; its bytes are not authenticated (only the reviewed v1.8 edition is byte-pinned).',
+                       '§4.4 blindspot numbers are citation-consistency-only against the two calibration packages; those packages\' own tools remain the authenticity boundary of their data.']}
 
 
 def main():

@@ -30,6 +30,7 @@ python3 -O -B -m unittest discover -s 5-评测报告/正式行复核-2026-11-05 
 5. 解析[v1.8正式成绩节](<../竞品评测报告-v1.8.md#3-正式成绩25-格均-n1>)的25个分数、已写分数分式、W逐行headline和各产品汇总，与来源复算相等；在转dict前拒绝重复case行，不丢弃冲突行；不改原报告。
 6. 逐hash核[历史来源账](<../证据口径-2026-11-03/source-ledger.public-derived.json>)的402项：397现存字节匹配、5份历史原件缺失单列；不从汇总反填每次产品版本。B重复观察的40条version未知保持未知，不提升正式n。
 7. （2026-11-08 适配，schema v1.1）对[现行报告版 v1.9 正式成绩节](<../竞品评测报告-v1.9.md#3-正式成绩25-格均-n1>)执行与第5条相同的逐格与逐产品汇总机器闭合，并断言 v1.8/v1.9 两版逐event单元格文本一致；v1.9 是活版文档，**只做数值闭合、不做字节pin**（避免未来报告修订使本工具失效），输出`report_editions`区分两种语义，逐行附`report_current`。v1.9 分数/汇总漂移由其自身数值校验拒绝，保值的格式漂移由两版一致性断言拒绝。
+8. （2026-11-08 适配，schema v1.2）§4.4 盲区引用数字闭合：从[读取检测校准](<../../3-表现现场/r20261104-read-detection/read-detection.json>)28 trials独立重算（FD 8/12/4/4、vnode 1/19/0/8、短时双漏12、open-only FD误报4、`product.file_read_denominator`）与[桌面观测汇总](<../../3-表现现场/r20261104-desktop-observation/fd-summary.json>)（1124样本/0命中/errors.none==samples/exit0==samples）三方一致——v1.8 与 v1.9 两版 §4.4 解析引用 == 校准包重算；两包自身工具仍是其数据真实性边界，本闭合仅做引用一致性（consistency-only），输出`blindspot_closure`。
 
 当前输出摘要：
 
@@ -58,7 +59,7 @@ ledger固定字节提供402源pin，再逐文件/逐指针复核。仅改source�
 
 ## 负例能力，不夸大拒绝机制
 
-43项测试明确分层（登记缺失测试含3个子例；2026-11-08 适配后共47项（43+4）：新增现行版缺失/分数漂移/汇总漂移/保值格式漂移四条负例）：
+43项测试明确分层（登记缺失测试含3个子例；2026-11-08 适配后共47项（43+4）；同日 schema v1.2 再加 §4.4 闭合四条负例后共51项（47+4）：现行版缺失/分数漂移/汇总漂移/保值格式漂移+§4.4 现行引用漂移/审阅版引用漂移/§4.4 节缺失/校准数据漂移）：
 
 - **生产固定pin拒绝**：源分数修改、源修改后重封ledger、派生成绩重封、v1.8字节漂移、缺关键事件/grade收据；不是声称这些靠判卷语义重算拒绝。
 - **独立数据语义拒绝**：测试中专门临时关闭字节比较（仅test的mock，无生产CLI开关），基线仍过，再检验孤儿/重复/缺officialID、跨轨、run ID替换、算术自洽但与receipt不同的score、合同/事件checker改变、空score refs/坏pointer、同分跨run收据替代、必需事实缺失/known无value与refs/错误state/unknown伪装有值、门false与无效指针/来源也false但仍企图准入、首发selection=null/删除selection/plan_source=null三种登记跳过、registration指针错slot、ledger score与formal副本差异、lineage错slot/重复或删除替代/准入目标与来源path、SHA、pointer错误、报告重复冲突case行/分数/达标题数漂移。证明不是只有固定SHA拒绝；这些包含独审发现的9条私有探针对应公共回归（8个原语义接受现拒绝，已修准入引用继续拒绝）。
