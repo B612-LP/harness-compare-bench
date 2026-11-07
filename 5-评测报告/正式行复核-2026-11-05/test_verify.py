@@ -26,7 +26,7 @@ class ClosureTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         ledger = v.loads((ROOT / v.LEDGER).read_text(encoding='utf-8'))
-        self.names = [v.LEDGER, v.REPORT] + [x['path'] for x in ledger['source_manifest'] if x['status'] == 'present']
+        self.names = [v.LEDGER, v.REPORT, v.REPORT_CURRENT] + [x['path'] for x in ledger['source_manifest'] if x['status'] == 'present']
         for name in self.names:
             dest = self.root / name
             dest.parent.mkdir(parents=True, exist_ok=True)
@@ -76,6 +76,40 @@ class ClosureTests(unittest.TestCase):
         self.assertEqual(result['historical_inventory']['B_observation_version_unknown'], 40)
         self.assertEqual(len(result['historical_inventory']['missing']), 5)
         self.assertFalse(result['historical_inventory']['complete_historical_verification'])
+        self.assertEqual(result['report_editions'], {'reviewed_byte_pinned': v.REPORT, 'current_numeric_closure': v.REPORT_CURRENT})
+        self.assertTrue(all(row['report']['path'] == v.REPORT and row['report_current']['path'] == v.REPORT_CURRENT for row in result['rows']))
+        self.assertTrue(all(row['report']['cell'] == row['report_current']['cell'] for row in result['rows']))
+
+    def test_missing_current_report_fails(self):
+        # Fixture deletion only; never an original file.
+        target = self.root / v.REPORT_CURRENT
+        self.assertTrue(target.is_relative_to(self.root))
+        target.unlink()
+        with self.assertRaises(OSError):
+            v.derive(self.root)
+
+    def test_semantic_current_report_score_drift(self):
+        # Current edition is not byte-pinned: numeric closure must catch the drift.
+        path = self.root / v.REPORT_CURRENT
+        text = path.read_text(encoding='utf-8')
+        self.assertIn('93.33（14/15）', text)
+        path.write_text(text.replace('93.33（14/15）', '100.00（15/15）', 1), encoding='utf-8')
+        self.rejects('report weighted mismatch')
+
+    def test_semantic_current_report_cell_format_drift(self):
+        # Value-preserving cell edit: numeric checks pass, edition equality fails.
+        path = self.root / v.REPORT_CURRENT
+        text = path.read_text(encoding='utf-8')
+        self.assertIn('93.33（14/15）', text)
+        path.write_text(text.replace('93.33（14/15）', '93.33（14/15）注', 1), encoding='utf-8')
+        self.rejects('report edition cell mismatch')
+
+    def test_semantic_current_report_summary_drift(self):
+        path = self.root / v.REPORT_CURRENT
+        text = path.read_text(encoding='utf-8')
+        self.assertIn('| **达标题数** | **2/5** | **3/5** |', text)
+        path.write_text(text.replace('| **达标题数** | **2/5** | **3/5** |', '| **达标题数** | **3/5** | **3/5** |'), encoding='utf-8')
+        self.rejects('report summary mismatch')
 
     def test_semantic_baseline_without_byte_comparisons(self):
         with self.semantic_only():

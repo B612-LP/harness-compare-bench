@@ -29,6 +29,7 @@ python3 -O -B -m unittest discover -s 5-评测报告/正式行复核-2026-11-05 
 4. 连接旧ledger的30条直接尝试、25正式副本逐字段一致性和正式子图：每次尝试的slot/admission，五条唯一替代的登记来源、父场拒收状态及同轨同产品同题关系。当前30条尝试的config均绑定登记计划，包含无前承首发，故selection与有效plan_source不得缺失或为null；逐selection核plan_pointer指向的event身份/登记字段，并接config中的slot/plan绑定（不推广为臆造其他历史未登记事实）；替代边转换集合前拒绝重复，准入边核目标与source的path/SHA/pointer。**不是重生成整个含重复观察的522节点/628边旧图。**
 5. 解析[v1.8正式成绩节](<../竞品评测报告-v1.8.md#3-正式成绩25-格均-n1>)的25个分数、已写分数分式、W逐行headline和各产品汇总，与来源复算相等；在转dict前拒绝重复case行，不丢弃冲突行；不改原报告。
 6. 逐hash核[历史来源账](<../证据口径-2026-11-03/source-ledger.public-derived.json>)的402项：397现存字节匹配、5份历史原件缺失单列；不从汇总反填每次产品版本。B重复观察的40条version未知保持未知，不提升正式n。
+7. （2026-11-08 适配，schema v1.1）对[现行报告版 v1.9 正式成绩节](<../竞品评测报告-v1.9.md#3-正式成绩25-格均-n1>)执行与第5条相同的逐格与逐产品汇总机器闭合，并断言 v1.8/v1.9 两版逐event单元格文本一致；v1.9 是活版文档，**只做数值闭合、不做字节pin**（避免未来报告修订使本工具失效），输出`report_editions`区分两种语义，逐行附`report_current`。v1.9 分数/汇总漂移由其自身数值校验拒绝，保值的格式漂移由两版一致性断言拒绝。
 
 当前输出摘要：
 
@@ -57,7 +58,7 @@ ledger固定字节提供402源pin，再逐文件/逐指针复核。仅改source�
 
 ## 负例能力，不夸大拒绝机制
 
-43项测试明确分层（登记缺失测试含3个子例）：
+43项测试明确分层（登记缺失测试含3个子例；2026-11-08 适配后共46项：新增现行版缺失/分数漂移/汇总漂移/保值格式漂移四条负例）：
 
 - **生产固定pin拒绝**：源分数修改、源修改后重封ledger、派生成绩重封、v1.8字节漂移、缺关键事件/grade收据；不是声称这些靠判卷语义重算拒绝。
 - **独立数据语义拒绝**：测试中专门临时关闭字节比较（仅test的mock，无生产CLI开关），基线仍过，再检验孤儿/重复/缺officialID、跨轨、run ID替换、算术自洽但与receipt不同的score、合同/事件checker改变、空score refs/坏pointer、同分跨run收据替代、必需事实缺失/known无value与refs/错误state/unknown伪装有值、门false与无效指针/来源也false但仍企图准入、首发selection=null/删除selection/plan_source=null三种登记跳过、registration指针错slot、ledger score与formal副本差异、lineage错slot/重复或删除替代/准入目标与来源path、SHA、pointer错误、报告重复冲突case行/分数/达标题数漂移。证明不是只有固定SHA拒绝；这些包含独审发现的9条私有探针对应公共回归（8个原语义接受现拒绝，已修准入引用继续拒绝）。

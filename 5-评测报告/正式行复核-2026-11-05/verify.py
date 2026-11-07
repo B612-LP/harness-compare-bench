@@ -13,6 +13,9 @@ import sys
 
 LEDGER = '5-评测报告/证据口径-2026-11-03/source-ledger.public-derived.json'
 REPORT = '5-评测报告/竞品评测报告-v1.8.md'
+# Current living edition: closed numerically each run, deliberately NOT byte-pinned
+# (a future report revision must not silently invalidate the closure tool).
+REPORT_CURRENT = '5-评测报告/竞品评测报告-v1.9.md'
 # Reviewed immutable historical bytes. A changed manifest cannot nominate new trust.
 TRUSTED = {
     LEDGER: '9784e714cd0134cece788fb3d67b080820dcbc0b95be29761123ab623deea420',
@@ -143,7 +146,7 @@ def resolve_fact(store, event, field):
     return refs
 
 
-def report_mapping(text, rows):
+def report_mapping(text, rows, report_path):
     result = {}
     lines = text.splitlines()
     for title, track in (('### 3.1 ', 'A_same_model'), ('### 3.2 ', 'B_native'), ('### 3.3 ', 'W_gateway')):
@@ -174,7 +177,7 @@ def report_mapping(text, rows):
                 require((int(fraction[1]), int(fraction[2])) == (row['score']['earned'], row['score']['possible']), 'report fraction mismatch')
             if track == 'W_gateway':
                 require(cells[1] == str(row['score']['reward']), 'report headline mismatch')
-            result[row['event_id']] = {'path': REPORT, 'line': line, 'column': column + 2, 'cell': cell}
+            result[row['event_id']] = {'path': report_path, 'line': line, 'column': column + 2, 'cell': cell}
     return result
 
 
@@ -358,7 +361,13 @@ def derive(root):
     require(actual_edges == {(r['child'], r['parent']) for r in replacements}, 'lineage replacement mismatch')
     report = store.path(REPORT).read_text(encoding='utf-8')
     store.check_hash(REPORT)
-    mapping = report_mapping(report, formal)
+    mapping = report_mapping(report, formal, REPORT)
+    # Current-edition numeric closure: same per-cell and per-summary checks, no byte pin.
+    report_now = store.path(REPORT_CURRENT).read_text(encoding='utf-8')
+    mapping_now = report_mapping(report_now, formal, REPORT_CURRENT)
+    require(set(mapping) == set(mapping_now), 'report edition coverage mismatch')
+    for eid, anchor in mapping.items():
+        require(anchor['cell'] == mapping_now[eid]['cell'], 'report edition cell mismatch: ' + eid)
     summaries = {}
     for product in sorted({r['product'] for r in formal}):
         rows = [r for r in formal if r['product'] == product]
@@ -370,9 +379,11 @@ def derive(root):
         require(f"{summary['weighted_sum']:.2f} / {summary['headline']}/5" in report, 'report A summary mismatch')
     for r in formal:
         r['report'] = mapping[r['event_id']]
+        r['report_current'] = mapping_now[r['event_id']]
     unknown_versions = sum(r.get('product_version') is None for r in ledger['observation_attempts'] if r['product'] in ('yuanbao', 'doubao'))
     require(unknown_versions == 40, 'historical B version unknown inventory changed')
-    return {'schema': 'formal-25-public-closure-v1', 'ok': True, 'meaning': 'reviewed public data consistent, NOT historical raw seal authentication',
+    return {'schema': 'formal-25-public-closure-v1.1', 'ok': True, 'meaning': 'reviewed public data consistent, NOT historical raw seal authentication',
+            'report_editions': {'reviewed_byte_pinned': REPORT, 'current_numeric_closure': REPORT_CURRENT},
             'formal_n_per_product_case': 1, 'track_counts': dict(Counter(r['track'] for r in formal)),
             'summary': summaries, 'rows': formal, 'attempts': len(attempts), 'replacements': replacements,
             'historical_inventory': {'sources': len(manifest), 'present_hashes_match': len(manifest) - len(store.missing),
@@ -381,7 +392,8 @@ def derive(root):
             'limits': ['No checker/candidate execution, no regrading, no product/model/network calls.',
                        'Fixed hashes authenticate consistency to reviewed public bytes, not authenticity of private raw evidence or third-party signatures.',
                        'Missing historical sources and unknown versions remain incomplete; observations never increase formal n.',
-                       'No same-model claim for B/W, no cross-track overall ranking.']}
+                       'No same-model claim for B/W, no cross-track overall ranking.',
+                       'Current-edition report closure is numeric-only consistency; its bytes are not authenticated (only the reviewed v1.8 edition is byte-pinned).']}
 
 
 def main():
