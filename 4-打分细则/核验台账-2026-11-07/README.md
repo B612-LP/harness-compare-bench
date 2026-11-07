@@ -5,9 +5,9 @@
 历史代际。」由机器生成器 [`tools-verify-ledger.py`](<tools-verify-ledger.py>) 产出
 [`ledger.json`](<ledger.json>)，一份文件回答四个问题：
 
-1. **文件清单+哈希**：`inventory` 覆盖生成时点 HEAD（`generation.head`）的全部 5,425 个
-   tracked 文件，每文件给内容 sha256（s）、git blob sha1（b）、字节数（z），克隆内可逐条复算。
-2. **核验记录索引**：`verification_index.public` 登记 37 份公开核验记录（归档核对、判卷审计、
+1. **文件清单+哈希**：`inventory` 覆盖生成时点 HEAD（`generation.head`）的全部 tracked
+   文件（行数随重绑增长，以 [`ledger.json`](<ledger.json>) 现值为准），每文件给内容 sha256（s）、git blob sha1（b）、字节数（z），克隆内可逐条复算。
+2. **核验记录索引**：`verification_index.public` 登记 49 份公开核验记录（2026-11-08 生成器 v1.2 补录后；归档核对、判卷审计、
    判卷器可信度协议、判据边界复核、正式行复核、独立复核/独立验收、冻结包 lock、未知登记、
    修订复算收据等），每条含覆盖物、记录路径、核验人角色、核验时间（=该记录最后修订的
    提交日期，机器取自 git log）。
