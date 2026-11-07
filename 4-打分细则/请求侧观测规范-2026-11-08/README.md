@@ -118,6 +118,19 @@ R3 的构造含义：turn 边界由自报记录切分，但边界内**计量的�
 
 观察（描述性，不构成新判定）：**两臂原生轨迹面均未携带 token usage**（WB totalTokens 全 0 且无 usage 字段、豆包无该字段）——W/豆包的自报 token 在原生轨迹面不可得，请求侧字节指标因此成为这两臂唯一可观测口径，这正是本规范要求「请求侧为主、自报为辅、分列输出」的原因。原文声明：豆包轨迹面不含用户 prompt 原文行（role 计数无 user 行）；WB span 面的 toolInput **含用户 prompt 文本**（305 个 generation span 的 toolInput 为含 `role:user` 的消息数组，应用侧截断约 20,000 字符）——因此 WB trace 原件属含内容原件，只存评测私档归档、不入公开树；本目录公开聚合件仅含计数/字节/哈希/basename，零内容字段。运行标识（pid/trace 文件名/会话号 basename）按[脱敏收据](<../敏感现场脱敏收据-2026-11-08/README.md>)口径可公开。
 
-## 8. 与冻结件的关系
+## 8. 四臂跨批对照索引（单一索引呈现）
+
+第三周反馈要求「跨批合同、版本和提示差异需单一索引呈现」——本节为四臂请求侧观测的**索引层**（不改 §1–§7 指标定义与试点数值）：
+
+| 臂 | 观测原件形态 | 指标系列 | 请求侧近似口径（近似性质声明） | 自报值可得性 | 试点（聚合件 sha256 摘引） |
+|---|---|---|---|---|---|
+| Codex（A 轨） | rollout jsonl（CODEX_HOME 会话原件） | R1–R5（§2/§5） | 重构输入字节=逐 turn 前序 response_item canonical 字节和 | **有**：token_usage_record 自报 token（`self_reported_` 前缀 auxiliary 列） | [r20261027 消融批 2 份](<request-side-observe-pilot-ablation.json>) `632a8bda…4c3e`（[见证](<request-side-observe-pilot-ablation.witness.json>)） |
+| DSH | session.v4.jsonl.zstd（原生会话轨迹） | S1–S6（§6） | 输入侧=user/message+request·header/context 字节和（会话级汇总） | **无**：轨迹面无 usage 字段→`declared_` 配置（deepseek-flash/low/256000/1000000） | [formal-a1+r2/r3 15 份](<session-trace-pilot-formal-a1-n3.json>) `b9ce9656…eb4d`（[见证](<session-trace-pilot-formal-a1-n3.witness.json>)） |
+| WorkBuddy（W 轨） | span trace jsonl（原生 span 面） | T1–T7（§7） | generation+agent span toolInput 字节和=**span 工具面近似，非网关 HTTP 请求体**（网关线 l4/l5/l6 原始请求件不在） | **无**：totalTokens 全 0 且 span 无 usage 字段（T6=0/0/0 如实） | [41 trace 评测窗口](<native-trace-pilot-workbuddy-20261027-30.json>) `94ef96c9…2e3a`（[见证](<native-trace-pilot-workbuddy-20261027-30.witness.json>)）；trace 原件含 prompt 文本，只存私档归档 |
+| 豆包办公 | trajectory jsonl（原生会话轨迹） | D1–D6（§7） | assistant tool_calls arguments 规范 JSON 字节和=**会话轨迹面近似** | **无**：轨迹面无 usage 字段（D5=0 如实）；时长 D6 absent | [4 会话 2026-10-30](<native-trace-pilot-doubao-20261030.json>) `0868f228…ce0f`（[见证](<native-trace-pilot-doubao-20261030.witness.json>)） |
+
+统一不变式（四臂同守）：各臂请求侧口径互不等值，**不构成跨臂字节等值比较**（合同/模型/提示/schema 各臂不同，且各臂观测面层级不同）；自报值仅辅助；聚合件零内容字段、零本机路径，含内容原件只存评测私档；跨臂可比的只有「输入稳定/输出波动」的分离结构与「自报值可得性」本身——后者正是要求②「请求侧为主、自报为辅」在三轨落地的直接证据。
+
+## 9. 与冻结件的关系
 
 本目录为新增规范与工具，不改两版报告正文、ledger、正式25格、周报、gold 与历史判卷；报告 v1.9 §4.5 的机制与口径声明不受影响。发射阶段仍未放行；本规范在放行后的首批发射中即按 §3 采样纪律生效。
