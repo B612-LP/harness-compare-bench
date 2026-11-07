@@ -16,7 +16,7 @@
 | l6-runtime-defaults-audit.json | `41319954dc29e2bf087636fc7b8940c3ebc81b20bab93318c5e657cf3b9d9a90` | 审计条目内容不公开；仅记载条目数=85 | R1-移出私档+摘要替代 |
 | release-refused.json | `84cd9c19ce86d80d6932bc4ab6cbc0d71410b97511d11f1c6b7719a8b70789b2` | 完全不公开（内部控制记录） | R2-移出私档+不公开 |
 
-三对均绑定同一公开派生件 [public-redacted-summary.md](<../3-表现现场/l6-20261030-wb-gateway/receipts/public-redacted-summary.md>)（收据时点 sha256 `567f4d15…`，全值见收据文件）。
+三对均绑定同一公开派生件 [public-redacted-summary.md](<../../3-表现现场/l6-20261030-wb-gateway/receipts/public-redacted-summary.md>)（收据时点 sha256 `567f4d15…`，全值见收据文件）。
 
 - 主跑收据：[redaction-receipt-l6-pilot.json](<redaction-receipt-l6-pilot.json>)
 - 见证收据：[redaction-receipt-l6-pilot.witness.json](<redaction-receipt-l6-pilot.witness.json>)
@@ -37,4 +37,4 @@ python3 tools-redaction-receipt.py <公开仓根> --manifest <清单> --private-
   --witness <已有收据> --witness-out <见证收据>
 ```
 
-运行收据与私档映射存仓外私档；收据 write-once。与 [竞品评测报告 v1.9 §4.5](<../5-评测报告/竞品评测报告-v1.9.md>)「脱敏收据不是原件签名，机器审查不是真人见证」口径一致，本目录即该口径的机制实现，不改报告正文。
+运行收据与私档映射存仓外私档；收据 write-once。与 [竞品评测报告 v1.9 §4.5](<../../5-评测报告/竞品评测报告-v1.9.md>)「脱敏收据不是原件签名，机器审查不是真人见证」口径一致，本目录即该口径的机制实现，不改报告正文。
