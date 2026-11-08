@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""tools-verify-ledger.py — 公开核验台账确定性生成器（2026-11-07 新建；2026-11-08 v1.1：PUBLIC_RECORDS 增补 loop26–28 五条公开核验记录；2026-11-08 v1.2：再增补 loop30–33 七条公开核验记录）。
+"""tools-verify-ledger.py — 公开核验台账确定性生成器（2026-11-07 新建；2026-11-08 v1.1：PUBLIC_RECORDS 增补 loop26–28 五条公开核验记录；2026-11-08 v1.2：再增补 loop30–33 七条公开核验记录；2026-11-08 v1.3：增补 loop42 机制独立重复预注册 README 一条）。
 
 落实老师 Week3 第4条：「为公开与私档材料建立第三方核验记录：文件清单、哈希、核验人、
 核验时间、可公开字段与不能公开字段分开列，尤其解释当前公开 verify 无法复核的历史代际。」
@@ -88,6 +88,8 @@ PUBLIC_RECORDS = [
     ("原生轨迹观测试点豆包办公（4 会话，D1–D6，usage absent 如实）", "4-打分细则/请求侧观测规范-2026-11-08/native-trace-pilot-doubao-20261030.json", "tools:tools-native-trace-observe.py"),
     ("原生轨迹观测试点豆包办公 见证（机器见证非真人签名）", "4-打分细则/请求侧观测规范-2026-11-08/native-trace-pilot-doubao-20261030.witness.json", "tools:tools-native-trace-observe.py"),
     ("B/W 预注册复测选题（老师五追问⑤；阈值与退出条件预注册，执行未启动）", "4-打分细则/预注册复测选题-2026-11-08/README.md", "agent:author"),
+    # ---- 2026-11-08 v1.3 增补（loop42 公开核验记录）----
+    ("机制独立重复预注册（外溢机制方向确认协议：CLI 两臂×五场×n=3，阈值先于执行封存，执行待放行）", "4-打分细则/机制独立重复预注册-2026-11-08/README.md", "agent:author"),
 ]
 
 # 公开 verify 无法复核项（curated，全部有公开文档锚点）
@@ -193,7 +195,7 @@ def main() -> int:
         sidecar_used = True
 
     payload = {
-        "tool": "tools-verify-ledger.py (2026-11-07; 2026-11-08 v1.1; 2026-11-08 v1.2)",
+        "tool": "tools-verify-ledger.py (2026-11-07; 2026-11-08 v1.1; 2026-11-08 v1.2; 2026-11-08 v1.3)",
         "generation": {
             "head": head, "head_date": head_date,
             "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
