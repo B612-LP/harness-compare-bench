@@ -9,7 +9,7 @@
 ## 已有证据基线（引用公开件实测，本件不新增运行）
 
 - 观测指标：[请求侧观测规范](<../请求侧观测规范-2026-11-08/README.md>)四臂对照（Codex R1–R5 / DSH S1–S6 / WorkBuddy T1–T7 / 豆包 D1–D6）。
-- DSH 臂 r1030 正式批 15 份试点（a1 五场 + r2/r3 独立重复十场；聚合 `aggregate_sha256=b9ce9656…eb4d`，[见证](<../请求侧观测规范-2026-11-08/session-trace-pilot-formal-a1-n3.witness.json>) all_ok=true）：S3 输入侧合计 405,200 B；同任务三跑输入侧差多数 ≤48 B（dabstep-payments-10 一场 27,646→43,944 B 系多一轮工具调用）；S4 输出侧同任务三跑差 1.4–2.6×；15 场 declared 配置一致（deepseek-official / deepseek-flash / reasoningEffort=low / maxTokens=256000 / contextWindow=1000000）。
+- DSH 臂 r1030 正式批 15 份试点（a1 五场 + r2/r3 独立重复十场；聚合 `aggregate_sha256=b9ce9656…eb4d`，[见证](<../请求侧观测规范-2026-11-08/session-trace-pilot-formal-a1-n3.witness.json>) all_ok=true）：S3 输入侧合计 405,200 B；同任务三跑输入侧差多数 ≤48 B（dabstep-payments-10 一场 27,646→43,944 B 系多一轮工具调用）；S4 输出侧同任务三跑差（每场 max/min）1.21–1.93×（[勘误 2026-11-08]：初稿沿用 §6 散文句「1.4–2.6×」系无实测依据复读，已按聚合件逐场重算更正，见 CHANGELOG 当日勘误）；15 场 declared 配置一致（deepseek-official / deepseek-flash / reasoningEffort=low / maxTokens=256000 / contextWindow=1000000）。
 - 该观察系运行后总结，阈值未先于运行封存——本件补足预注册形式。
 
 ## 预注册执行方案（执行待发射放行；本件零发射）
