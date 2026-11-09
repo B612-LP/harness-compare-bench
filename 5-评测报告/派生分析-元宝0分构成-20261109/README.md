@@ -8,14 +8,14 @@
 
 | 构成 | 槽 | 判卷证据 |
 | --- | --- | --- |
-| **A 交付管线终点无产物**（5 场） | dabstep r2/r3（`answers_format` 缺失 answers.jsonl→10 题全「未回答」）；lcb r1b/r2/r3b（4 个 `solutions/*.py` 全 `fail_kind=missing`） | 五场 `filelink-harvest` 收割结果 `saved=[]` 全空（`file_cards`：dabstep 两场与 lcb r2 记 0，lcb r1b/r3b 无 assembly-notes 记 null，同为 0 卡片事实）；dabstep 两场会话答案块 `blocks=0`，lcb r2 `blocks=22` 但 0 卡片。当时已按 bird 先例做过卡片收割尝试，仍无产物 |
+| **A 交付管线终点无产物**（5 场） | dabstep r2/r3（`answers_format` 缺失 answers.jsonl→10 题全「未回答」）；lcb r1b/r2/r3b（4 个 `solutions/*.py` 全 `fail_kind=missing`） | 五场 `filelink-harvest` 收割结果 `saved=[]` 全空（`file_cards`：dabstep 两场与 lcb r2 记 0，lcb r1b/r3b 无 assembly-notes 记 null，同为 0 卡片事实）；当时已按 bird 先例做过卡片收割尝试，仍无产物。会话文本层（api-dump 逐快照机械计数，`session_py_fences`/`session_write_calls`）：dabstep 两场 0/0（会话内无答案与代码文本）；lcb 三场 65/25、55/55、65/0（会话内存在大量 python 代码块与 write 型工具调用展示，但交付终点仍无文件卡片） |
 | **B 完成回执在档但六项测试全不达标**（3 场） | exercism r1b/r2/r3 | 六项 check `pass=false` 全成立；回执测试数 forth 54/poker 37/dominoes 13/bowling 31/zipper 14/pov 15，除 dominoes 回执 `succeeded=6/13` 外其余项 `succeeded=0`；dominoes 虽 6/13 成功仍因 `identities_match=false` 判负。三轮回执逐值一致 |
 
-机械汇总见 [yuanbao-zero-constitution.json](<yuanbao-zero-constitution.json>)（逐槽 `failed_check_ids`/`delivery_missing`/`harvest_saved`/`file_cards`/`answer_blocks`/`receipt_detail`），由 [collect-yuanbao-zero-constitution.py](<collect-yuanbao-zero-constitution.py>)（sha256 `b871e159bdb62dc0…`，与私档副本同值）只读生成；私档数据根以第二参数传入（`python3 collect-yuanbao-zero-constitution.py <输出.json> <判卷原件根目录>`），脚本本体不含私有路径。
+机械汇总见 [yuanbao-zero-constitution.json](<yuanbao-zero-constitution.json>)（逐槽 `failed_check_ids`/`delivery_missing`/`harvest_saved`/`file_cards`/`answer_blocks`/`receipt_detail`），由 [collect-yuanbao-zero-constitution.py](<collect-yuanbao-zero-constitution.py>)（sha256 `2cf08a6cb0b60923…`，与私档副本同值）只读生成；私档数据根以第二参数传入（`python3 collect-yuanbao-zero-constitution.py <输出.json> <判卷原件根目录>`），脚本本体不含私有路径。
 
 ## 边界与解释
 
-- **产品黑盒边界**：A 类五场只能证明「交付管线终点无产物」，不能区分 agent「未产出」与「产出未送达交付终点」，不作产品缺陷因果归因；模型封闭（B 组）亦不可与 A 组同模型对照。
+- **产品黑盒边界**：A 类五场只能证明「交付管线终点无产物」，不能区分产品侧交付机制的归属，不作产品缺陷因果归因；模型封闭（B 组）亦不可与 A 组同模型对照。会话文本层细分（机械计数）：dabstep 两场=会话内无答案/代码文本（`blocks=0`、围栏 0）；lcb 三场=会话内存在代码块与 write 型调用展示（围栏 65/55/65），即工作痕迹在会话内可见而文件卡片终点为空——两者在「终点无产物」这一判分事实上同层，机理披露如实分开。
 - **能力对照事实**：bird r2c/r3 两槽曾以文件卡片成功交付并经 reassembly 判分（86.67），说明同一产品同批内卡片交付管线可以走通；上述五场是「该管线此番终点为空」，而非管线不可用。
 - **与 A/B/W 分轨的关系**：同题 WorkBuddy 形态 dabstep 三轮 weighted=60–70（答案错误但交付在档）、lcb 三轮 100.0，A/B 分轨差异在交付层同样显著；该差异只能作分轨描述，不外推产品能力结论。
 

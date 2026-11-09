@@ -34,6 +34,14 @@ for slot in SLOTS:
     else:
         entry['file_cards'] = None
         entry['answer_blocks'] = None
+    dumps = sorted(run.glob('api-dump-*.json')) if run.exists() else []
+    py_fences = write_calls = 0
+    for dp in dumps:
+        txt = dp.read_text(encoding='utf-8', errors='ignore')
+        py_fences += txt.count('```python')
+        write_calls += txt.count('"tcname":"write"') + txt.count('"tcname": "write"')
+    entry['session_py_fences'] = py_fences
+    entry['session_write_calls'] = write_calls
     if entry['case'] == 'exercism-py-6':
         rc = [c for c in out.get('checks', []) if c['id'] not in ('input_integrity',)]
         entry['receipt_tests'] = {
