@@ -36,6 +36,7 @@
 4. integrity 越界模式扫描（八类，真身轨迹终值）：非零槽共 5 个——codex bird r2=2、tb r1=2、tb r2=2（reasoning/事件文本 mention 级命中 `reference/`）；dsh dabstep r2=1（reasoning 文本 mention `solution/`）、dsh exercism r2=4（`../` 相对寻址，属用例说明书规定的就地实现动作）；其余 25 槽 0。逐条摘录见各槽 `integrity-rescan.json`；lead 复核（mention 级/任务规定动作/环境回显判定 + 受保护路径 tool/function_call 级扫描全 0）见 [reviews/lead-integrity-review.json](<reviews/lead-integrity-review.json>)，复核人=AI Agent（与核验台账同一署名口径）。3 个槽的 in-run violation 曾系邻槽轨迹污染计数（codex bird r3、codex tb r3、dsh dabstep r3），真身重扫为 0。
 5. runner 缺陷（不阻塞）：共享 ws 使 archived meta 仅 r1 份 → dsh 臂 12 槽 adjudication 补写（post-batch-fix；更正登记收据存私档 archive://launch-r1109/meta-corrections.json）；bird 三槽 meta.judge 曾被误写标量 15，已按 score-receipt 回填为完整判卷字典。in-run adjudication 状态分布：22 槽 valid；codex 5 槽（bird r2/r3、tb r1/r2/r3）曾为 infrastructure_invalid、dsh 3 槽（dabstep r2/r3、exercism r2）曾为 pending-review——8 槽均经 lead 复核终结为 valid（见 reviews/lead-integrity-review.json；槽内原始裁决文件 write-once 不改写，该复核文件为终态裁定层）。
 6. codex dabstep r1 期间模型自主 spawn subagent（parentSession 本槽，合法运行证据），其轨迹单独入档并在 S3/S4 分账披露。
+7. 批根 `adjudications.json` 元数据修正（2026-11-09 环15）：codex 15 槽 `identity` 键曾缺失（未写入）、dsh bird r2/r3 嵌套 `identity.rep` 曾误为 "1"（终验员非阻塞观察）；已按各槽 `run_id`+顶层 `event_id` 机械重建 30 槽 identity（不改 draft/adjudication/grade 等实质字段，修正脚本前后逐槽断言除 identity 外 canonical 全等；脚本随私档收据 archive://launch-r1109/fix-adjudications-identity.py 在档）。
 
 ## 文件结构
 
