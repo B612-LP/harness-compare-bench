@@ -1,0 +1,56 @@
+{
+ "inputs": {
+  "archive_file_count": 2,
+  "files": [
+   {
+    "bytes": 0,
+    "path": "session/agents/m_0cwec0lNFEG/socket/findings.jsonl",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+   },
+   {
+    "bytes": 75706,
+    "path": "session/agents/m_0cwec0lNFEG/system/trajectory.jsonl",
+    "sha256": "a5f04da5e23d88d0503b18df6fa32eec84e5f5e98523b49632c096b43ba24225"
+   }
+  ]
+ },
+ "kind": "doubao",
+ "label": "r1109-bw-retest:doubao:tb-cargo-plan:r1",
+ "limits": [
+  "原生轨迹观测面=应用 span/会话轨迹，非网关 HTTP 请求体；与 Codex rollout/DSH 会话轨迹口径不同，不做跨轨字节等值比较",
+  "usage/totalTokens 为应用自报值（auxiliary）；豆包轨迹未见 usage 字段则如实 absent",
+  "聚合件零内容字段、零本机路径；原件存评测私档归档，公开件可由归档原件复算"
+ ],
+ "metrics": {
+  "d1": {
+   "bytes": 75706,
+   "files": 2,
+   "lines": 45,
+   "unparsable_files": 0
+  },
+  "d2_roles": {
+   "assistant": 18,
+   "tool": 27
+  },
+  "d3_request_side_tool_args": {
+   "bytes": 26215,
+   "calls": 27,
+   "note": "assistant tool_calls.function.arguments 规范 JSON 字节和；会话轨迹面近似"
+  },
+  "d4_output_side_tool_results": {
+   "bytes": 40282,
+   "results": 27
+  },
+  "d5_usage_fields": {
+   "count": 0,
+   "note": "轨迹未见 token usage 字段则如实为 0（absent），不虚构"
+  },
+  "d6_duration_ms": {
+   "duration_available": false,
+   "first_timestamp": null
+  }
+ },
+ "schema": "native-trace-observe-v1",
+ "tool": "tools-native-trace-observe.py",
+ "tool_sha256": "b3f4b110b4f287dae4804ff982216d666baa6ec618a3599dee8a835cfe005b17"
+}

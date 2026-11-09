@@ -1,0 +1,669 @@
+{
+ "batch": "r1030-formal-a1",
+ "rule_version": "freeze-20261029-v2",
+ "product": "codex",
+ "case": "exercism-py-6",
+ "form": "cli",
+ "created_at": "2026-10-29T02:22:56+08:00",
+ "model": "deepseek-flash",
+ "reasoning_effort": "low",
+ "product_version": "codex-cli 0.163.0",
+ "route": {
+  "host": "api.deepseek.com",
+  "provider_id": "deepseek",
+  "wire_protocol": "responses",
+  "endpoint": "https://api.deepseek.com"
+ },
+ "tools": [
+  "shell",
+  "apply_patch",
+  "read_files（web_search=disabled，skills=off）"
+ ],
+ "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+ "skills": "off（[skills] include_instructions=false，bundled disabled）",
+ "web_search": "disabled",
+ "soft_constraints": [
+  "stay-in-workspace",
+  "no-oracle-hunt",
+  "offline"
+ ],
+ "prompt_sha256": "27697d2db8d125c1c1c092cb202e356e44a9038d1ba091fb403e3cff9221ec8b",
+ "isolation": {
+  "ok": true,
+  "problems": []
+ },
+ "inputs": [
+  {
+   "path": "inputs/README.md",
+   "sha256": "ce8cd74f03bf3517217591fc7289246069c4a6466f59960f115330ab0899956f",
+   "bytes": 674
+  },
+  {
+   "path": "inputs/exercises/bowling/README.md",
+   "sha256": "5ab7dcccef9be464f8e5f1d6a9c543d6c4c14e435c2ffe40d2e118ebfd299e32",
+   "bytes": 554
+  },
+  {
+   "path": "inputs/exercises/bowling/bowling.py",
+   "sha256": "a356c0682b6c0c04e9e30a7da603b2014c227426b43bbe37f34cd99913d368b6",
+   "bytes": 131
+  },
+  {
+   "path": "inputs/exercises/bowling/bowling_test.py",
+   "sha256": "6b9a80b6835828f575ce0aba66876850f75c59f764014ac509fe1df7e3a9ee20",
+   "bytes": 8558
+  },
+  {
+   "path": "inputs/exercises/dominoes/README.md",
+   "sha256": "77f6d2a86ba50b8ba2f0b53f1ab799eb2f30c1e4853ce1296ee1949578d6c50e",
+   "bytes": 430
+  },
+  {
+   "path": "inputs/exercises/dominoes/dominoes.py",
+   "sha256": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b",
+   "bytes": 34
+  },
+  {
+   "path": "inputs/exercises/dominoes/dominoes_test.py",
+   "sha256": "9645efc873738b9247ced09ccdce782fe2124646d24588d52c23df59e23ab140",
+   "bytes": 5099
+  },
+  {
+   "path": "inputs/exercises/forth/README.md",
+   "sha256": "0480b8a2eef97049ddff262b0bc21f5b31167561325c402918b5ceb0c37b466a",
+   "bytes": 559
+  },
+  {
+   "path": "inputs/exercises/forth/forth.py",
+   "sha256": "9acd281e02feff4fc5ae766063a1ce1290b625bb930cc8f54c15a0109610e562",
+   "bytes": 84
+  },
+  {
+   "path": "inputs/exercises/forth/forth_test.py",
+   "sha256": "05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c",
+   "bytes": 11264
+  },
+  {
+   "path": "inputs/exercises/poker/README.md",
+   "sha256": "9c24e6480e2ddbf3b72116c30cde1560657ca8ef283d1be26004ef2fa7908c97",
+   "bytes": 543
+  },
+  {
+   "path": "inputs/exercises/poker/poker.py",
+   "sha256": "6a4b5adab3ba9261fb4f9e2b09abc549b9ea37bf0774edc3c7759cec9a8b41fe",
+   "bytes": 32
+  },
+  {
+   "path": "inputs/exercises/poker/poker_test.py",
+   "sha256": "b39f023208318973e18a341449aa076f7595ff98f07174082a2a1b05c84ad8fd",
+   "bytes": 7690
+  },
+  {
+   "path": "inputs/exercises/pov/README.md",
+   "sha256": "12dafe5d49b0510037ea6ced53ae6ff08305b75f2d3be89efcad2635d54d75ec",
+   "bytes": 727
+  },
+  {
+   "path": "inputs/exercises/pov/pov.py",
+   "sha256": "ed7eba5f0b64b69a0a1904dc338ce39039b5de3ea2aa74019d8d494ca46b11ba",
+   "bytes": 622
+  },
+  {
+   "path": "inputs/exercises/pov/pov_test.py",
+   "sha256": "a5127ac17db6ad1563a08ba8ee2bbfc25ed8ab81ee56b92a355eb4a4dc2559fe",
+   "bytes": 6346
+  },
+  {
+   "path": "inputs/exercises/zipper/README.md",
+   "sha256": "8b932da02d3e213b5b1e03a8f585c89b72084d024074287d4b7427a351e4d619",
+   "bytes": 562
+  },
+  {
+   "path": "inputs/exercises/zipper/zipper.py",
+   "sha256": "66276107d448f53a12509da6f503280e0dca4a6bbd9d690a774fb0972a55f926",
+   "bytes": 359
+  },
+  {
+   "path": "inputs/exercises/zipper/zipper_test.py",
+   "sha256": "a3cf6e5ebcf6b2171bcc80fa0ce81b425af23b522f222e841fa2abd3119e95b2",
+   "bytes": 9641
+  }
+ ],
+ "status": "ok",
+ "exit_code": 0,
+ "started_at": "2026-11-09T13:38:41+08:00",
+ "finished_at": "2026-11-09T13:39:10+08:00",
+ "duration_s": 28.9,
+ "attempts": [
+  {
+   "n": 1,
+   "started_at": "2026-11-09T13:38:41+08:00",
+   "duration_s": 28.9,
+   "exit_code": 0,
+   "outcome": "ok"
+  }
+ ],
+ "transport_retries": 0,
+ "stdout_bytes": 82556,
+ "stderr_bytes": 1095,
+ "stdout_sha256": "b6fdee43388a05437a3e7a5d0e9fcb7b41d4f1c399b444b4d9c564f033c15eff",
+ "stderr_sha256": "0bbd4ce00da4b8a1f820f7e43612f5cb1fdeb0b5776ad8adc2c8afb1be4d5111",
+ "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+ "usage": {
+  "requests": 28,
+  "input_tokens": 1288545,
+  "output_tokens": 47420,
+  "cache_read_tokens": 1235456,
+  "cache_creation_tokens": 0,
+  "reasoning_output_tokens": 27403,
+  "total_tokens": 1335965,
+  "cumulative_thread_final": {
+   "input_tokens": 108611,
+   "cached_input_tokens": 89600,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 4886,
+   "reasoning_output_tokens": 852,
+   "total_tokens": 113497
+  },
+  "per_call": [
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:33:44.694Z",
+    "response_id": "dba7c90f-70ce-4d1a-a329-8ce3dd3f79e3",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 9319,
+    "cache_read_tokens": 9088,
+    "cache_creation_tokens": 0,
+    "output_tokens": 355,
+    "reasoning_output_tokens": 42,
+    "total_tokens": 9674
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:33:47.664Z",
+    "response_id": "e1a1b380-5d4b-43cb-9d4c-162346e895ea",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 12967,
+    "cache_read_tokens": 9600,
+    "cache_creation_tokens": 0,
+    "output_tokens": 451,
+    "reasoning_output_tokens": 66,
+    "total_tokens": 13418
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:33:58.502Z",
+    "response_id": "090a33ff-f23d-4c66-b830-54e447a3ef8c",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 21573,
+    "cache_read_tokens": 13312,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1734,
+    "reasoning_output_tokens": 1025,
+    "total_tokens": 23307
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:34:04.039Z",
+    "response_id": "74d0445b-3007-49c3-bcec-d3e06178b450",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 26141,
+    "cache_read_tokens": 23296,
+    "cache_creation_tokens": 0,
+    "output_tokens": 921,
+    "reasoning_output_tokens": 227,
+    "total_tokens": 27062
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:34:17.079Z",
+    "response_id": "8320b047-96ed-4ff0-86f3-77032e4ad281",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 29161,
+    "cache_read_tokens": 27008,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1999,
+    "reasoning_output_tokens": 739,
+    "total_tokens": 31160
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:34:35.684Z",
+    "response_id": "5c02455e-f652-4105-be63-63e0a98aa8d9",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 35898,
+    "cache_read_tokens": 31104,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2785,
+    "reasoning_output_tokens": 1692,
+    "total_tokens": 38683
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:34:43.190Z",
+    "response_id": "86c1b5bc-4c5f-46c9-ab32-5d0348d7bc1c",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 41074,
+    "cache_read_tokens": 37376,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1269,
+    "reasoning_output_tokens": 316,
+    "total_tokens": 42343
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:34:52.561Z",
+    "response_id": "2c381a93-8efd-4ccc-8f37-253e26e2660f",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 43115,
+    "cache_read_tokens": 42240,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1222,
+    "reasoning_output_tokens": 429,
+    "total_tokens": 44337
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:34:57.183Z",
+    "response_id": "24a5ae68-539e-4f99-a9b4-b248ba09f5bd",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 45881,
+    "cache_read_tokens": 44288,
+    "cache_creation_tokens": 0,
+    "output_tokens": 755,
+    "reasoning_output_tokens": 332,
+    "total_tokens": 46636
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:35:18.887Z",
+    "response_id": "701b7a83-454a-4732-86d6-d2dead4c570d",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 46713,
+    "cache_read_tokens": 46464,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2853,
+    "reasoning_output_tokens": 2170,
+    "total_tokens": 49566
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:35:32.498Z",
+    "response_id": "0e316b8b-48c4-44f0-910c-e5df59253aad",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 49785,
+    "cache_read_tokens": 49536,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1762,
+    "reasoning_output_tokens": 943,
+    "total_tokens": 51547
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:36:05.519Z",
+    "response_id": "cde8695e-c523-4993-9ba3-be0793ab863e",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 51935,
+    "cache_read_tokens": 51456,
+    "cache_creation_tokens": 0,
+    "output_tokens": 4487,
+    "reasoning_output_tokens": 3865,
+    "total_tokens": 56422
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:36:38.546Z",
+    "response_id": "d018778d-d2fa-4156-9e65-f934e37f1c86",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 56631,
+    "cache_read_tokens": 56320,
+    "cache_creation_tokens": 0,
+    "output_tokens": 4459,
+    "reasoning_output_tokens": 3745,
+    "total_tokens": 61090
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:36:42.913Z",
+    "response_id": "18ce4f5c-5e97-4961-acde-1604c161058e",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 61239,
+    "cache_read_tokens": 61056,
+    "cache_creation_tokens": 0,
+    "output_tokens": 683,
+    "reasoning_output_tokens": 141,
+    "total_tokens": 61922
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:36:58.567Z",
+    "response_id": "9ce37607-cd72-4ded-8bc4-26894aa76f88",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 62246,
+    "cache_read_tokens": 61824,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2099,
+    "reasoning_output_tokens": 1609,
+    "total_tokens": 64345
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:37:14.136Z",
+    "response_id": "f101c180-3dfe-4a59-a00c-80a9b812febd",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 64694,
+    "cache_read_tokens": 64256,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2423,
+    "reasoning_output_tokens": 1609,
+    "total_tokens": 67117
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:37:25.736Z",
+    "response_id": "df46e681-66b3-452a-838a-0c5584a1a328",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 67298,
+    "cache_read_tokens": 67072,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1280,
+    "reasoning_output_tokens": 1156,
+    "total_tokens": 68578
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:37:50.500Z",
+    "response_id": "e82c1641-d644-4a13-8a7c-f8e304919969",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 69217,
+    "cache_read_tokens": 68480,
+    "cache_creation_tokens": 0,
+    "output_tokens": 4471,
+    "reasoning_output_tokens": 1639,
+    "total_tokens": 73688
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:37:55.856Z",
+    "response_id": "71bd4835-07f2-416d-90c4-d76da254f2c6",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 74077,
+    "cache_read_tokens": 73600,
+    "cache_creation_tokens": 0,
+    "output_tokens": 562,
+    "reasoning_output_tokens": 294,
+    "total_tokens": 74639
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:37:59.374Z",
+    "response_id": "716f6211-46cc-4723-9dd9-48d886719c2e",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 74708,
+    "cache_read_tokens": 74496,
+    "cache_creation_tokens": 0,
+    "output_tokens": 551,
+    "reasoning_output_tokens": 54,
+    "total_tokens": 75259
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:38:11.323Z",
+    "response_id": "0e225c37-3b90-48cc-a456-66d469deb25b",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 76945,
+    "cache_read_tokens": 75136,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1649,
+    "reasoning_output_tokens": 1018,
+    "total_tokens": 78594
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:38:25.834Z",
+    "response_id": "0e4150a1-5f7b-4dca-8d75-e7c33923ca2c",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 78678,
+    "cache_read_tokens": 78464,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1883,
+    "reasoning_output_tokens": 1643,
+    "total_tokens": 80561
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "ts": "2026-11-09T05:38:40.744Z",
+    "response_id": "5abc5e3d-0dad-4db6-9b2b-c891e945ce16",
+    "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+    "input_tokens": 80639,
+    "cache_read_tokens": 80384,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1881,
+    "reasoning_output_tokens": 1797,
+    "total_tokens": 82520
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:38:44.773Z",
+    "response_id": "3c9627d9-b592-426d-aabe-edc84f9ecf79",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 8923,
+    "cache_read_tokens": 7808,
+    "cache_creation_tokens": 0,
+    "output_tokens": 581,
+    "reasoning_output_tokens": 53,
+    "total_tokens": 9504
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:38:51.694Z",
+    "response_id": "1c529f5d-ac88-4de2-a282-23b4c9ec044d",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 10149,
+    "cache_read_tokens": 9472,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1747,
+    "reasoning_output_tokens": 31,
+    "total_tokens": 11896
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:38:58.375Z",
+    "response_id": "02cd798d-4a6e-4a44-a4ee-8878f15996f5",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 28325,
+    "cache_read_tokens": 11776,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1427,
+    "reasoning_output_tokens": 29,
+    "total_tokens": 29752
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:39:04.711Z",
+    "response_id": "7dc8495c-08ba-4df7-b456-a131d176f1be",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 30107,
+    "cache_read_tokens": 29696,
+    "cache_creation_tokens": 0,
+    "output_tokens": 836,
+    "reasoning_output_tokens": 527,
+    "total_tokens": 30943
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:39:09.280Z",
+    "response_id": "0a9720fd-42c1-4fcb-be34-cd8baa6361db",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 31107,
+    "cache_read_tokens": 30848,
+    "cache_creation_tokens": 0,
+    "output_tokens": 295,
+    "reasoning_output_tokens": 212,
+    "total_tokens": 31402
+   }
+  ],
+  "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+ },
+ "reward": 1,
+ "weighted": 100.0,
+ "failed": [],
+ "judge": {
+  "case": "exercism-py-6",
+  "checker_version": "1.1",
+  "reward": 1,
+  "weighted": 100.0,
+  "checks": [
+   {
+    "id": "input_integrity",
+    "pass": true,
+    "note": "运行目录内官方测试文件与 canonical 一致"
+   },
+   {
+    "id": "forth",
+    "pass": true,
+    "note": "完成回执 tests=54/54 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 54,
+     "tests_run": 54,
+     "discovered": 54,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 54,
+     "stopped": 54,
+     "succeeded": 54,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "poker",
+    "pass": true,
+    "note": "完成回执 tests=37/37 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 37,
+     "tests_run": 37,
+     "discovered": 37,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 37,
+     "stopped": 37,
+     "succeeded": 37,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "dominoes",
+    "pass": true,
+    "note": "完成回执 tests=13/13 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 13,
+     "tests_run": 13,
+     "discovered": 13,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 13,
+     "stopped": 13,
+     "succeeded": 13,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "bowling",
+    "pass": true,
+    "note": "完成回执 tests=31/31 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 31,
+     "tests_run": 31,
+     "discovered": 31,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 31,
+     "stopped": 31,
+     "succeeded": 31,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "zipper",
+    "pass": true,
+    "note": "完成回执 tests=14/14 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 14,
+     "tests_run": 14,
+     "discovered": 14,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 14,
+     "stopped": 14,
+     "succeeded": 14,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "pov",
+    "pass": true,
+    "note": "完成回执 tests=15/15 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 15,
+     "tests_run": 15,
+     "discovered": 15,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 15,
+     "stopped": 15,
+     "succeeded": 15,
+     "identities_match": true
+    }
+   }
+  ]
+ },
+ "integrity": {
+  "violations": 0,
+  "patterns": [
+   "2-用例",
+   "truth.json",
+   "checker.py",
+   "reference/",
+   "solution/",
+   "../",
+   "~/Documents",
+   "harness-compare-bench"
+  ],
+  "basis": "inline session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+  "evidence": []
+ },
+ "integrity_verdict": "clean",
+ "run_id": "r1109-codex-exercism-py-6-r1",
+ "event_id": "mech-n3-codex-exercism-py-6-r1",
+ "selection": {
+  "plan_id": "mech-n3-20261109",
+  "slot_id": "mech-n3-codex-exercism-py-6-r1",
+  "order": 1,
+  "kind": "rep"
+ },
+ "rep": "1",
+ "post_run_corrections": [
+  {
+   "kind": "trace-accounting",
+   "true_rollout": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+   "neighbor_rollouts_moved": [
+    "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl"
+   ],
+   "integrity_violations_true_only": 0,
+   "r3_input_bytes_true_only": 91495,
+   "note": "in-run capture additionally included the previous slot rollout (shared CODEX_HOME); corrected values here supersede in-run counts"
+  }
+ ]
+}

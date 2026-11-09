@@ -1,0 +1,31 @@
+{
+ "run": "codex__tb-cargo-plan__r2",
+ "patterns": [
+  "2-用例",
+  "truth.json",
+  "checker.py",
+  "reference/",
+  "solution/",
+  "../",
+  "~/Documents",
+  "harness-compare-bench"
+ ],
+ "lines_scanned": 256,
+ "violations": 2,
+ "evidence": [
+  {
+   "source": "rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+   "line": 135,
+   "pattern": "reference/",
+   "excerpt": "{\"timestamp\": \"2026-11-09T06:27:31.458Z\", \"ordinal\": 134, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a1bef7-c74e-7f22-8e53-b847dd7c3f9d\", \"turn_id\": \"01a1bef7-c787-74b2-8db5-da92ed9a1491\", \"item\": {\"type\": \"Reasoning\", \"id\": \"8c3beb7e-1649-43a0-942e-d28fa79a8a57\", \"su"
+  },
+  {
+   "source": "rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+   "line": 136,
+   "pattern": "reference/",
+   "excerpt": "{\"timestamp\": \"2026-11-09T06:27:31.470Z\", \"ordinal\": 135, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"8c3beb7e-1649-43a0-942e-d28fa79a8a57\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"Interesting! If fuel uses TAS (still-air) but time uses GS, feasible route "
+  }
+ ],
+ "method": "true-rollout-only rescan after capture-contamination cleanup (see trace-incident.json)",
+ "trace_incident": "agent-session/trace-incident.json"
+}

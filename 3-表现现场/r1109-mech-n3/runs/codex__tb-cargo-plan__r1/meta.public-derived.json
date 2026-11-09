@@ -1,0 +1,1126 @@
+{
+ "batch": "r1030-formal-a1",
+ "rule_version": "freeze-20261029-v2",
+ "product": "codex",
+ "case": "tb-cargo-plan",
+ "form": "cli",
+ "created_at": "2026-10-29T02:29:17+08:00",
+ "model": "deepseek-flash",
+ "reasoning_effort": "low",
+ "product_version": "codex-cli 0.163.0",
+ "route": {
+  "host": "api.deepseek.com",
+  "provider_id": "deepseek",
+  "wire_protocol": "responses",
+  "endpoint": "https://api.deepseek.com"
+ },
+ "tools": [
+  "shell",
+  "apply_patch",
+  "read_files（web_search=disabled，skills=off）"
+ ],
+ "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+ "skills": "off（[skills] include_instructions=false，bundled disabled）",
+ "web_search": "disabled",
+ "soft_constraints": [
+  "stay-in-workspace",
+  "no-oracle-hunt",
+  "offline"
+ ],
+ "prompt_sha256": "859ef48d96f43dbc1217741bd629dd5cecb9bd6608777e7aa219c35d6e079567",
+ "isolation": {
+  "ok": true,
+  "problems": []
+ },
+ "inputs": [
+  {
+   "path": "inputs/app/aircraft.py",
+   "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+   "bytes": 2376
+  },
+  {
+   "path": "inputs/app/data/aircraft.json",
+   "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+   "bytes": 496
+  },
+  {
+   "path": "inputs/app/data/airports.json",
+   "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+   "bytes": 1685
+  },
+  {
+   "path": "inputs/app/data/manifest.json",
+   "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+   "bytes": 1257
+  },
+  {
+   "path": "inputs/app/data/weather.json",
+   "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+   "bytes": 1611
+  },
+  {
+   "path": "inputs/app/dispatch.py",
+   "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+   "bytes": 8504
+  },
+  {
+   "path": "inputs/app/navigation.py",
+   "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+   "bytes": 2482
+  }
+ ],
+ "status": "ok",
+ "exit_code": 0,
+ "started_at": "2026-11-09T14:00:18+08:00",
+ "finished_at": "2026-11-09T14:21:11+08:00",
+ "duration_s": 1253.2,
+ "attempts": [
+  {
+   "n": 1,
+   "started_at": "2026-11-09T14:00:18+08:00",
+   "duration_s": 1253.2,
+   "exit_code": 0,
+   "outcome": "ok"
+  }
+ ],
+ "transport_retries": 0,
+ "stdout_bytes": 362969,
+ "stderr_bytes": 1834,
+ "stdout_sha256": "6c384185279cf97b4e5fb52eb220b472ec1a6f4e1ed02c515f6d3dd60c6a937a",
+ "stderr_sha256": "27be4a1aaf2c7f4cdbb63e32aa8429b9b97fbf581711dd6a7b7414e3b4848f1b",
+ "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+ "usage": {
+  "requests": 66,
+  "input_tokens": 8582575,
+  "output_tokens": 170666,
+  "cache_read_tokens": 8533504,
+  "cache_creation_tokens": 0,
+  "reasoning_output_tokens": 119806,
+  "total_tokens": 8753241,
+  "cumulative_thread_final": {
+   "input_tokens": 8582575,
+   "cached_input_tokens": 8533504,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 170666,
+   "reasoning_output_tokens": 119806,
+   "total_tokens": 8753241
+  },
+  "per_call": [
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:00:21.708Z",
+    "response_id": "8772cd24-aa6b-4898-a018-25bf05770129",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 8809,
+    "cache_read_tokens": 7808,
+    "cache_creation_tokens": 0,
+    "output_tokens": 486,
+    "reasoning_output_tokens": 13,
+    "total_tokens": 9295
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:00:26.029Z",
+    "response_id": "fe7a4091-81ea-409f-863b-2f0e103ea7c0",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 9562,
+    "cache_read_tokens": 9216,
+    "cache_creation_tokens": 0,
+    "output_tokens": 947,
+    "reasoning_output_tokens": 9,
+    "total_tokens": 10509
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:00:44.506Z",
+    "response_id": "66a59e87-31f9-4d85-8430-044b50d9ebf5",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 18124,
+    "cache_read_tokens": 10496,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2844,
+    "reasoning_output_tokens": 2377,
+    "total_tokens": 20968
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:01:23.896Z",
+    "response_id": "b00ce709-2b96-4dcf-a9bc-41f032f1a29b",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 22838,
+    "cache_read_tokens": 20864,
+    "cache_creation_tokens": 0,
+    "output_tokens": 6125,
+    "reasoning_output_tokens": 5558,
+    "total_tokens": 28963
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:01:54.849Z",
+    "response_id": "327ca6ee-f8fb-4dd8-8614-444bd45762f2",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 32694,
+    "cache_read_tokens": 25344,
+    "cache_creation_tokens": 0,
+    "output_tokens": 5079,
+    "reasoning_output_tokens": 4115,
+    "total_tokens": 37773
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:03:04.306Z",
+    "response_id": "a3b5b34b-c0d7-422c-9207-71ba6ff42630",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 37920,
+    "cache_read_tokens": 37760,
+    "cache_creation_tokens": 0,
+    "output_tokens": 10522,
+    "reasoning_output_tokens": 9498,
+    "total_tokens": 48442
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:03:29.875Z",
+    "response_id": "5b941fa4-299a-48af-bfdd-75f83337cea8",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 48699,
+    "cache_read_tokens": 48384,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3578,
+    "reasoning_output_tokens": 3294,
+    "total_tokens": 52277
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:04:35.914Z",
+    "response_id": "b41d6a92-5184-4fb7-98ea-3952fb2cba1e",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 52328,
+    "cache_read_tokens": 52096,
+    "cache_creation_tokens": 0,
+    "output_tokens": 8901,
+    "reasoning_output_tokens": 8471,
+    "total_tokens": 61229
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:06:44.774Z",
+    "response_id": "85afa114-ccb4-4703-9f80-ba71d96dd191",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 61523,
+    "cache_read_tokens": 61184,
+    "cache_creation_tokens": 0,
+    "output_tokens": 17028,
+    "reasoning_output_tokens": 16728,
+    "total_tokens": 78551
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:06:54.000Z",
+    "response_id": "5d65dc01-7d64-4216-b253-0bac48c47135",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 78694,
+    "cache_read_tokens": 78464,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1340,
+    "reasoning_output_tokens": 1003,
+    "total_tokens": 80034
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:07:04.080Z",
+    "response_id": "2aa5d3f7-b6e7-4812-bb4a-c2145278e7d4",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 80509,
+    "cache_read_tokens": 80000,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1473,
+    "reasoning_output_tokens": 1213,
+    "total_tokens": 81982
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:07:08.400Z",
+    "response_id": "b786f72f-50c5-4ad3-b697-72dd03802b0e",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 82231,
+    "cache_read_tokens": 81920,
+    "cache_creation_tokens": 0,
+    "output_tokens": 613,
+    "reasoning_output_tokens": 318,
+    "total_tokens": 82844
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:07:11.495Z",
+    "response_id": "87e440ad-c60b-4be9-a853-653a908d7af8",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 82892,
+    "cache_read_tokens": 82688,
+    "cache_creation_tokens": 0,
+    "output_tokens": 527,
+    "reasoning_output_tokens": 159,
+    "total_tokens": 83419
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:07:16.425Z",
+    "response_id": "fade05bf-fb6f-45b9-958f-ca923aa5ac2e",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 83691,
+    "cache_read_tokens": 83328,
+    "cache_creation_tokens": 0,
+    "output_tokens": 785,
+    "reasoning_output_tokens": 242,
+    "total_tokens": 84476
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:07:24.922Z",
+    "response_id": "b24bc0d3-ac81-4ea3-b71b-8af6d36520d2",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 84524,
+    "cache_read_tokens": 84352,
+    "cache_creation_tokens": 0,
+    "output_tokens": 980,
+    "reasoning_output_tokens": 699,
+    "total_tokens": 85504
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:07:50.025Z",
+    "response_id": "b32ea688-f1d5-4ff1-bba0-51dee333fcfb",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 87604,
+    "cache_read_tokens": 85504,
+    "cache_creation_tokens": 0,
+    "output_tokens": 4085,
+    "reasoning_output_tokens": 3237,
+    "total_tokens": 91689
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:07:58.389Z",
+    "response_id": "e80eca85-9f89-40dd-9465-f80942c7e398",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 91833,
+    "cache_read_tokens": 91648,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1343,
+    "reasoning_output_tokens": 976,
+    "total_tokens": 93176
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:08:02.628Z",
+    "response_id": "34b2b14a-b834-4436-bcfd-abed28655af3",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 93229,
+    "cache_read_tokens": 93056,
+    "cache_creation_tokens": 0,
+    "output_tokens": 607,
+    "reasoning_output_tokens": 330,
+    "total_tokens": 93836
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:08:08.051Z",
+    "response_id": "84555f4b-6c34-4cb5-b923-d9220d62eee2",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 96297,
+    "cache_read_tokens": 93824,
+    "cache_creation_tokens": 0,
+    "output_tokens": 766,
+    "reasoning_output_tokens": 365,
+    "total_tokens": 97063
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:08:14.163Z",
+    "response_id": "5ee41f2a-ff40-4700-a9d3-ec9d9b3b27fc",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 97168,
+    "cache_read_tokens": 97024,
+    "cache_creation_tokens": 0,
+    "output_tokens": 628,
+    "reasoning_output_tokens": 203,
+    "total_tokens": 97796
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:08:18.873Z",
+    "response_id": "da2d41db-b40a-412c-bf5c-3682c24cfcc1",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 97873,
+    "cache_read_tokens": 97664,
+    "cache_creation_tokens": 0,
+    "output_tokens": 335,
+    "reasoning_output_tokens": 33,
+    "total_tokens": 98208
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:08:33.820Z",
+    "response_id": "3f25a669-8588-4340-819d-72262202fae8",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 98400,
+    "cache_read_tokens": 98176,
+    "cache_creation_tokens": 0,
+    "output_tokens": 506,
+    "reasoning_output_tokens": 170,
+    "total_tokens": 98906
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:08:38.202Z",
+    "response_id": "23ea243d-ecda-4ae1-8d11-e7060e01f937",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 99046,
+    "cache_read_tokens": 98816,
+    "cache_creation_tokens": 0,
+    "output_tokens": 594,
+    "reasoning_output_tokens": 205,
+    "total_tokens": 99640
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:08:47.157Z",
+    "response_id": "52fbae76-c6e4-4b12-bbb9-8f30922f31c9",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 100055,
+    "cache_read_tokens": 99584,
+    "cache_creation_tokens": 0,
+    "output_tokens": 645,
+    "reasoning_output_tokens": 333,
+    "total_tokens": 100700
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:08:52.876Z",
+    "response_id": "7d0c01f4-ca54-422b-bef0-a165d8e8f734",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 101016,
+    "cache_read_tokens": 100608,
+    "cache_creation_tokens": 0,
+    "output_tokens": 578,
+    "reasoning_output_tokens": 299,
+    "total_tokens": 101594
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:08:56.710Z",
+    "response_id": "5b970b2d-6efa-42b3-8327-69203e8a9e90",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 104824,
+    "cache_read_tokens": 101504,
+    "cache_creation_tokens": 0,
+    "output_tokens": 304,
+    "reasoning_output_tokens": 16,
+    "total_tokens": 105128
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:09:28.931Z",
+    "response_id": "514eda93-b6d7-4698-adf5-60d198ae6cfb",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 105946,
+    "cache_read_tokens": 105088,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3182,
+    "reasoning_output_tokens": 2570,
+    "total_tokens": 109128
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:09:42.932Z",
+    "response_id": "ee007c72-3d28-4320-9b9a-b9606fb1ec3b",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 109919,
+    "cache_read_tokens": 109056,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1976,
+    "reasoning_output_tokens": 1612,
+    "total_tokens": 111895
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:09:54.982Z",
+    "response_id": "1d2b5994-c99b-4a70-964c-9b6227267aec",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 111948,
+    "cache_read_tokens": 111744,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1939,
+    "reasoning_output_tokens": 1475,
+    "total_tokens": 113887
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:10:05.833Z",
+    "response_id": "73a77591-3255-40ae-bf7b-29a8cdd29ae3",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 114009,
+    "cache_read_tokens": 113792,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2024,
+    "reasoning_output_tokens": 864,
+    "total_tokens": 116033
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:10:13.693Z",
+    "response_id": "3470c293-fc0b-4a02-bc71-d0dbbb1e3b76",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 116203,
+    "cache_read_tokens": 115968,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1332,
+    "reasoning_output_tokens": 486,
+    "total_tokens": 117535
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:11:41.392Z",
+    "response_id": "007f38ad-f38a-4754-bdb6-7c4e17ed9e8a",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 118196,
+    "cache_read_tokens": 117504,
+    "cache_creation_tokens": 0,
+    "output_tokens": 11968,
+    "reasoning_output_tokens": 11389,
+    "total_tokens": 130164
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:11:47.041Z",
+    "response_id": "ec1620ec-455b-4e55-a02f-28b2a7a89150",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 130252,
+    "cache_read_tokens": 130048,
+    "cache_creation_tokens": 0,
+    "output_tokens": 558,
+    "reasoning_output_tokens": 12,
+    "total_tokens": 130810
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:12:02.290Z",
+    "response_id": "1eff92e5-2045-4012-8f9f-7d0050c90c4f",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 131000,
+    "cache_read_tokens": 130688,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2159,
+    "reasoning_output_tokens": 1644,
+    "total_tokens": 133159
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:12:59.681Z",
+    "response_id": "94384c9e-ccc6-4ca2-939b-fd56bd3a3a21",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 133353,
+    "cache_read_tokens": 133120,
+    "cache_creation_tokens": 0,
+    "output_tokens": 8075,
+    "reasoning_output_tokens": 7120,
+    "total_tokens": 141428
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:13:15.486Z",
+    "response_id": "91b6207d-c94a-4e98-8f00-a58d2dbdcf50",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 141881,
+    "cache_read_tokens": 141312,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2810,
+    "reasoning_output_tokens": 746,
+    "total_tokens": 144691
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:13:28.660Z",
+    "response_id": "38fd7e1b-60d6-4253-89d9-9ea6b7cea30b",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 145530,
+    "cache_read_tokens": 144640,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1728,
+    "reasoning_output_tokens": 1105,
+    "total_tokens": 147258
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:13:33.900Z",
+    "response_id": "c9fdd4b1-9e33-46ec-83ed-525923b2680f",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 147352,
+    "cache_read_tokens": 147200,
+    "cache_creation_tokens": 0,
+    "output_tokens": 640,
+    "reasoning_output_tokens": 275,
+    "total_tokens": 147992
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:13:40.801Z",
+    "response_id": "29003048-ed6a-4748-bc9e-7e3a751f1d18",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 148097,
+    "cache_read_tokens": 147840,
+    "cache_creation_tokens": 0,
+    "output_tokens": 721,
+    "reasoning_output_tokens": 330,
+    "total_tokens": 148818
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:13:57.015Z",
+    "response_id": "5b42c8d3-5b07-428c-b195-2da5a3faec7a",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 148872,
+    "cache_read_tokens": 148736,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3272,
+    "reasoning_output_tokens": 846,
+    "total_tokens": 152144
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:14:08.751Z",
+    "response_id": "956e4ebf-dd43-4fe4-a722-2866fcd48428",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 152861,
+    "cache_read_tokens": 152064,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1915,
+    "reasoning_output_tokens": 443,
+    "total_tokens": 154776
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:14:37.741Z",
+    "response_id": "14a933d5-c9e7-4dad-afa4-05be19a66f6c",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 154879,
+    "cache_read_tokens": 154624,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2072,
+    "reasoning_output_tokens": 1755,
+    "total_tokens": 156951
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:14:54.732Z",
+    "response_id": "719bbdd4-bbfb-4a5d-a9f2-509961aab14d",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 157161,
+    "cache_read_tokens": 156928,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3166,
+    "reasoning_output_tokens": 282,
+    "total_tokens": 160327
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:15:04.130Z",
+    "response_id": "fd26587d-2889-4243-abb0-a713febf5e56",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 160416,
+    "cache_read_tokens": 160256,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2147,
+    "reasoning_output_tokens": 14,
+    "total_tokens": 162563
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:15:15.307Z",
+    "response_id": "ac1d76ba-4df4-4ba0-b8d0-f595fe7c3986",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 163700,
+    "cache_read_tokens": 162560,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1541,
+    "reasoning_output_tokens": 279,
+    "total_tokens": 165241
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:16:17.576Z",
+    "response_id": "a3dd20c2-9f75-4bfa-ac4b-0d266f6099a5",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 165418,
+    "cache_read_tokens": 165120,
+    "cache_creation_tokens": 0,
+    "output_tokens": 5071,
+    "reasoning_output_tokens": 4705,
+    "total_tokens": 170489
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:16:48.131Z",
+    "response_id": "8b18f1ef-bdd1-413b-aa67-8f71b9d2c5b3",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 170597,
+    "cache_read_tokens": 170368,
+    "cache_creation_tokens": 0,
+    "output_tokens": 4681,
+    "reasoning_output_tokens": 2829,
+    "total_tokens": 175278
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:17:07.204Z",
+    "response_id": "1dc35a4e-daab-4aa5-97a4-fc12dae093fe",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 176141,
+    "cache_read_tokens": 175232,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2714,
+    "reasoning_output_tokens": 1544,
+    "total_tokens": 178855
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:17:25.021Z",
+    "response_id": "aa604bb2-ba00-4672-807e-e0c74071ae50",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 179383,
+    "cache_read_tokens": 178816,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2348,
+    "reasoning_output_tokens": 1217,
+    "total_tokens": 181731
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:18:05.551Z",
+    "response_id": "e6951e0c-a8ca-4b8a-a723-172a3b7fb181",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 181839,
+    "cache_read_tokens": 181632,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3609,
+    "reasoning_output_tokens": 1272,
+    "total_tokens": 185448
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:18:20.865Z",
+    "response_id": "11f7c232-44d0-43ff-876e-b8b5de218ac8",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 186231,
+    "cache_read_tokens": 185344,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2613,
+    "reasoning_output_tokens": 1009,
+    "total_tokens": 188844
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:18:39.924Z",
+    "response_id": "c7d8ba2d-f39f-445a-a614-3b2685d686d5",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 189560,
+    "cache_read_tokens": 188800,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2706,
+    "reasoning_output_tokens": 2161,
+    "total_tokens": 192266
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:18:48.096Z",
+    "response_id": "18fa4718-2306-4b55-87cf-b36c934e308e",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 192352,
+    "cache_read_tokens": 192128,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1498,
+    "reasoning_output_tokens": 82,
+    "total_tokens": 193850
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:18:51.142Z",
+    "response_id": "1565c7c0-cfb4-407a-abcc-627f16f25e0d",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 193908,
+    "cache_read_tokens": 193664,
+    "cache_creation_tokens": 0,
+    "output_tokens": 253,
+    "reasoning_output_tokens": 9,
+    "total_tokens": 194161
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:19:13.118Z",
+    "response_id": "501a444c-8f7f-48e7-b6b6-8b6d83739b1b",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 195488,
+    "cache_read_tokens": 194048,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3538,
+    "reasoning_output_tokens": 1699,
+    "total_tokens": 199026
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:19:22.026Z",
+    "response_id": "26e61a41-1afa-47d5-b475-76386a8051b6",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 199105,
+    "cache_read_tokens": 198912,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1529,
+    "reasoning_output_tokens": 477,
+    "total_tokens": 200634
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:19:42.807Z",
+    "response_id": "326d19df-f238-4749-9139-0a2af4a9abad",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 200886,
+    "cache_read_tokens": 200576,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2775,
+    "reasoning_output_tokens": 2522,
+    "total_tokens": 203661
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:19:52.277Z",
+    "response_id": "c7e07183-e0b1-4cf8-8cd0-086636953ad4",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 205117,
+    "cache_read_tokens": 203648,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1516,
+    "reasoning_output_tokens": 299,
+    "total_tokens": 206633
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:19:58.202Z",
+    "response_id": "096453eb-2bcf-4594-85ef-92020b54a3f1",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 206710,
+    "cache_read_tokens": 206464,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1239,
+    "reasoning_output_tokens": 22,
+    "total_tokens": 207949
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:20:04.116Z",
+    "response_id": "c7d8eead-d0a0-4b42-9a07-316140e67d0a",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 208045,
+    "cache_read_tokens": 207872,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1062,
+    "reasoning_output_tokens": 70,
+    "total_tokens": 209107
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:20:25.643Z",
+    "response_id": "a3ed179c-6554-4be0-9d10-229fdb524372",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 209175,
+    "cache_read_tokens": 209024,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2726,
+    "reasoning_output_tokens": 2200,
+    "total_tokens": 211901
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:20:44.885Z",
+    "response_id": "b3b2a303-3aea-484d-89e7-b8bd7ea19910",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 212282,
+    "cache_read_tokens": 211840,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2614,
+    "reasoning_output_tokens": 2382,
+    "total_tokens": 214896
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:20:54.384Z",
+    "response_id": "57d603dd-e595-41a7-a114-6950e71d8ad8",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 214944,
+    "cache_read_tokens": 214784,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1286,
+    "reasoning_output_tokens": 1029,
+    "total_tokens": 216230
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:21:00.220Z",
+    "response_id": "53421bf1-1338-4d13-b7e2-f347ae398128",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 216287,
+    "cache_read_tokens": 216064,
+    "cache_creation_tokens": 0,
+    "output_tokens": 836,
+    "reasoning_output_tokens": 472,
+    "total_tokens": 217123
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:21:03.031Z",
+    "response_id": "db2ae344-6606-4cef-852b-d7f751a506ce",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 217338,
+    "cache_read_tokens": 217088,
+    "cache_creation_tokens": 0,
+    "output_tokens": 369,
+    "reasoning_output_tokens": 13,
+    "total_tokens": 217707
+   },
+   {
+    "session_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "ts": "2026-11-09T06:21:10.934Z",
+    "response_id": "aa8aae6b-121c-4b2c-ab7f-e15ce802ea6d",
+    "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+    "input_tokens": 217811,
+    "cache_read_tokens": 217600,
+    "cache_creation_tokens": 0,
+    "output_tokens": 839,
+    "reasoning_output_tokens": 682,
+    "total_tokens": 218650
+   }
+  ],
+  "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+ },
+ "reward": 0,
+ "weighted": 70.37,
+ "failed": [
+  "ground_speed",
+  "reserve_holding",
+  "leg2_fuel_below_planned",
+  "leg2_remaining_below_reserve",
+  "tow_leg1",
+  "landing_weight_leg2",
+  "total_time_includes_turnaround",
+  "total_time_value"
+ ],
+ "judge": {
+  "case": "tb-cargo-plan",
+  "checker_version": "0.2",
+  "contract_revision": "b12-b14-b13a-tighten-2026-10-27",
+  "reward": 0,
+  "weighted": 70.37,
+  "passed": 19,
+  "total": 27,
+  "critical_ok": false,
+  "checks": [
+   {
+    "id": "input_integrity",
+    "pass": true,
+    "note": "ok"
+   },
+   {
+    "id": "code_rerun",
+    "pass": true,
+    "note": "ok"
+   },
+   {
+    "id": "plan_structure",
+    "pass": true,
+    "note": "route=6 legs=5"
+   },
+   {
+    "id": "route_hub",
+    "pass": true,
+    "note": "NAN..NAN"
+   },
+   {
+    "id": "route_order",
+    "pass": true,
+    "note": "['SUV', 'TBU', 'APW', 'FUN'] vs ['SUV', 'TBU', 'APW', 'FUN']"
+   },
+   {
+    "id": "leg_suv_tbu_distance",
+    "pass": true,
+    "note": "404.2 vs 404.2"
+   },
+   {
+    "id": "tas_varies",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "heading_wind_corrected",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "ground_speed",
+    "pass": false,
+    "note": "NAN-SUV,SUV-TBU,TBU-APW,APW-FUN,FUN-NAN"
+   },
+   {
+    "id": "crosswind_dest",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "crosswind_apw_near_limit",
+    "pass": true,
+    "note": "19.1"
+   },
+   {
+    "id": "crosswind_ok_field",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_carries_no_fuel_stop",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_no_refuel_carry",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_capacity",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "reserve_holding",
+    "pass": false,
+    "note": "45.0 vs 31.5"
+   },
+   {
+    "id": "tow_within_limit",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "leg2_weight_limits_fuel",
+    "pass": true,
+    "note": "144.7 vs 145.7"
+   },
+   {
+    "id": "leg2_fuel_below_planned",
+    "pass": false,
+    "note": ""
+   },
+   {
+    "id": "fuel_remaining_formula",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_remaining_above_min",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_remaining_ok_field",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "leg2_remaining_below_reserve",
+    "pass": false,
+    "note": "45.0"
+   },
+   {
+    "id": "tow_leg1",
+    "pass": false,
+    "note": "8527.9"
+   },
+   {
+    "id": "landing_weight_leg2",
+    "pass": false,
+    "note": "7996.0"
+   },
+   {
+    "id": "total_time_includes_turnaround",
+    "pass": false,
+    "note": "582.0 vs 582.0"
+   },
+   {
+    "id": "total_time_value",
+    "pass": false,
+    "note": "582.0"
+   },
+   {
+    "id": "route_feasible",
+    "pass": true,
+    "note": "True"
+   },
+   {
+    "id": "feasibility_includes_crosswind",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "feasibility_includes_fuel",
+    "pass": true,
+    "note": ""
+   }
+  ]
+ },
+ "integrity": {
+  "violations": 2,
+  "patterns": [
+   "2-用例",
+   "truth.json",
+   "checker.py",
+   "reference/",
+   "solution/",
+   "../",
+   "~/Documents",
+   "harness-compare-bench"
+  ],
+  "basis": "inline session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+  "evidence": [
+   {
+    "source": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "line": 88,
+    "pattern": "reference/",
+    "excerpt": "{\"timestamp\": \"2026-11-09T06:06:52.966Z\", \"ordinal\": 87, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a1bee4-a78d-7231-bde6-5cdfbada59b0\", \"turn_id\": \"01a1bee4-a81d-7430-89d4-09fcb6fde0a8\", \"item\": {\"type\": \"Reasoning\", \"id\": \"a645f684-fc3f-4f8b-9b8f-2b11f19f08aa\", \"sum"
+   },
+   {
+    "source": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "line": 89,
+    "pattern": "reference/",
+    "excerpt": "{\"timestamp\": \"2026-11-09T06:06:52.969Z\", \"ordinal\": 88, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"a645f684-fc3f-4f8b-9b8f-2b11f19f08aa\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"Interesting! The code files differ in size from meta.json hashes/bytes: airc"
+   }
+  ]
+ },
+ "integrity_verdict": "violation",
+ "run_id": "r1109-codex-tb-cargo-plan-r1",
+ "event_id": "mech-n3-codex-tb-cargo-plan-r1",
+ "selection": {
+  "plan_id": "mech-n3-20261109",
+  "slot_id": "mech-n3-codex-tb-cargo-plan-r1",
+  "order": 1,
+  "kind": "rep"
+ },
+ "rep": "1",
+ "post_run_corrections": [
+  {
+   "kind": "trace-accounting",
+   "true_rollout": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+   "neighbor_rollouts_moved": [],
+   "integrity_violations_true_only": 2,
+   "r3_input_bytes_true_only": 789813,
+   "note": "in-run capture additionally included the previous slot rollout (shared CODEX_HOME); corrected values here supersede in-run counts"
+  }
+ ]
+}

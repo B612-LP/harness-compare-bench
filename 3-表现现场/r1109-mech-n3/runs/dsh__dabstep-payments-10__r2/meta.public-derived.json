@@ -1,0 +1,748 @@
+{
+ "batch": "r1030-formal-a1",
+ "rule_version": "freeze-20261029-v2",
+ "product": "dsh",
+ "case": "dabstep-payments-10",
+ "form": "cli",
+ "created_at": "2026-10-29T02:15:39+08:00",
+ "model": "deepseek-flash",
+ "reasoning_effort": "low",
+ "product_version": "0.2.0-rc.2",
+ "route": {
+  "host": "api.deepseek.com",
+  "provider_id": "deepseek-official",
+  "wire_protocol": "anthropic-messages",
+  "endpoint": null
+ },
+ "tools": [
+  "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+ ],
+ "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+ "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+ "web_search": "disabled",
+ "soft_constraints": [
+  "stay-in-workspace",
+  "no-oracle-hunt",
+  "offline"
+ ],
+ "prompt_sha256": "02c63f2aa6dbc4a690cc7e830809ec9b4ada8eab05f455e76c582fa35a0fc422",
+ "isolation": {
+  "ok": true,
+  "problems": []
+ },
+ "inputs": [
+  {
+   "path": "inputs/acquirer_countries.csv",
+   "sha256": "6744cf1962e4b5086342821e627f4557c32f06c3c58e8b0ff3b449dcc634f37f",
+   "bytes": 194
+  },
+  {
+   "path": "inputs/fees.json",
+   "sha256": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+   "bytes": 531118
+  },
+  {
+   "path": "inputs/manual.md",
+   "sha256": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+   "bytes": 22127
+  },
+  {
+   "path": "inputs/merchant_category_codes.csv",
+   "sha256": "83247d79f5ddcdd180e02f184b644f4912731942a2fc58d91f2a06b911d04b41",
+   "bytes": 26611
+  },
+  {
+   "path": "inputs/merchant_data.json",
+   "sha256": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+   "bytes": 6857
+  },
+  {
+   "path": "inputs/payments.csv",
+   "sha256": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+   "bytes": 23581339
+  },
+  {
+   "path": "inputs/questions.jsonl",
+   "sha256": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+   "bytes": 3889
+  }
+ ],
+ "status": "ok",
+ "exit_code": 0,
+ "started_at": "2026-11-09T12:14:27+08:00",
+ "finished_at": "2026-11-09T12:18:40+08:00",
+ "duration_s": 253.3,
+ "transport_retries": [],
+ "archived_stdout": {
+  "raw_bytes": 204665,
+  "raw_lines": 176,
+  "raw_file": "agent.jsonl",
+  "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+  "full_bytes": 224015,
+  "full_lines": 176,
+  "full_file": "agent.jsonl.full",
+  "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+ },
+ "usage": {
+  "requests": 33,
+  "input_tokens": 27771,
+  "output_tokens": 35945,
+  "cache_read_tokens": 1318652,
+  "cache_creation_tokens": 0,
+  "per_call": [
+   {
+    "turn": 1,
+    "step": 1,
+    "input_tokens": 134,
+    "output_tokens": 142,
+    "total_tokens": 7184,
+    "cache_read_tokens": 6908,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 2,
+    "input_tokens": 6429,
+    "output_tokens": 211,
+    "total_tokens": 13808,
+    "cache_read_tokens": 7168,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 3,
+    "input_tokens": 3133,
+    "output_tokens": 1358,
+    "total_tokens": 18187,
+    "cache_read_tokens": 13696,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 4,
+    "input_tokens": 2141,
+    "output_tokens": 1401,
+    "total_tokens": 21718,
+    "cache_read_tokens": 18176,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 5,
+    "input_tokens": 1572,
+    "output_tokens": 443,
+    "total_tokens": 23647,
+    "cache_read_tokens": 21632,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 6,
+    "input_tokens": 203,
+    "output_tokens": 307,
+    "total_tokens": 24062,
+    "cache_read_tokens": 23552,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 7,
+    "input_tokens": 602,
+    "output_tokens": 2603,
+    "total_tokens": 27141,
+    "cache_read_tokens": 23936,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 8,
+    "input_tokens": 225,
+    "output_tokens": 501,
+    "total_tokens": 27734,
+    "cache_read_tokens": 27008,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 9,
+    "input_tokens": 650,
+    "output_tokens": 228,
+    "total_tokens": 28526,
+    "cache_read_tokens": 27648,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 10,
+    "input_tokens": 524,
+    "output_tokens": 1257,
+    "total_tokens": 30197,
+    "cache_read_tokens": 28416,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 11,
+    "input_tokens": 679,
+    "output_tokens": 768,
+    "total_tokens": 31527,
+    "cache_read_tokens": 30080,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 12,
+    "input_tokens": 378,
+    "output_tokens": 1360,
+    "total_tokens": 33226,
+    "cache_read_tokens": 31488,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 13,
+    "input_tokens": 184,
+    "output_tokens": 505,
+    "total_tokens": 33841,
+    "cache_read_tokens": 33152,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 14,
+    "input_tokens": 242,
+    "output_tokens": 1541,
+    "total_tokens": 35447,
+    "cache_read_tokens": 33664,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 15,
+    "input_tokens": 334,
+    "output_tokens": 484,
+    "total_tokens": 36146,
+    "cache_read_tokens": 35328,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 16,
+    "input_tokens": 845,
+    "output_tokens": 1747,
+    "total_tokens": 38688,
+    "cache_read_tokens": 36096,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 17,
+    "input_tokens": 380,
+    "output_tokens": 2087,
+    "total_tokens": 41123,
+    "cache_read_tokens": 38656,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 18,
+    "input_tokens": 655,
+    "output_tokens": 1891,
+    "total_tokens": 43634,
+    "cache_read_tokens": 41088,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 19,
+    "input_tokens": 234,
+    "output_tokens": 873,
+    "total_tokens": 44627,
+    "cache_read_tokens": 43520,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 20,
+    "input_tokens": 210,
+    "output_tokens": 1479,
+    "total_tokens": 46233,
+    "cache_read_tokens": 44544,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 21,
+    "input_tokens": 222,
+    "output_tokens": 2033,
+    "total_tokens": 48335,
+    "cache_read_tokens": 46080,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 22,
+    "input_tokens": 244,
+    "output_tokens": 1110,
+    "total_tokens": 49610,
+    "cache_read_tokens": 48256,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 23,
+    "input_tokens": 555,
+    "output_tokens": 1079,
+    "total_tokens": 51170,
+    "cache_read_tokens": 49536,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 24,
+    "input_tokens": 959,
+    "output_tokens": 2235,
+    "total_tokens": 54266,
+    "cache_read_tokens": 51072,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 25,
+    "input_tokens": 229,
+    "output_tokens": 1398,
+    "total_tokens": 55771,
+    "cache_read_tokens": 54144,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 26,
+    "input_tokens": 269,
+    "output_tokens": 142,
+    "total_tokens": 56091,
+    "cache_read_tokens": 55680,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 27,
+    "input_tokens": 3669,
+    "output_tokens": 1157,
+    "total_tokens": 60890,
+    "cache_read_tokens": 56064,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 28,
+    "input_tokens": 437,
+    "output_tokens": 4168,
+    "total_tokens": 65405,
+    "cache_read_tokens": 60800,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 29,
+    "input_tokens": 350,
+    "output_tokens": 532,
+    "total_tokens": 66162,
+    "cache_read_tokens": 65280,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 30,
+    "input_tokens": 171,
+    "output_tokens": 174,
+    "total_tokens": 66393,
+    "cache_read_tokens": 66048,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 31,
+    "input_tokens": 312,
+    "output_tokens": 136,
+    "total_tokens": 66752,
+    "cache_read_tokens": 66304,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 32,
+    "input_tokens": 236,
+    "output_tokens": 351,
+    "total_tokens": 67147,
+    "cache_read_tokens": 66560,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 33,
+    "input_tokens": 364,
+    "output_tokens": 244,
+    "total_tokens": 67680,
+    "cache_read_tokens": 67072,
+    "cache_creation_tokens": 0
+   }
+  ],
+  "cross_check": {
+   "compared": 33,
+   "equal": 33,
+   "mismatch": []
+  },
+  "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+ },
+ "reward": 0,
+ "weighted": 70.0,
+ "failed": [
+  "q49",
+  "q70",
+  "q2697"
+ ],
+ "judge": {
+  "case": "dabstep-payments-10",
+  "case_id": "dabstep-payments-10",
+  "checker_version": "0.2",
+  "binary": true,
+  "run_dir": "/Users/b612-lp/bench-workspaces/r1030/dsh/dabstep-payments-10",
+  "artifact": "/Users/b612-lp/bench-workspaces/r1030/dsh/dabstep-payments-10/answers.jsonl",
+  "scoring_mode": "official-compat",
+  "official_compat": {
+   "scorer_version": "dabstep-official-port-v0.1",
+   "reward": 0,
+   "weighted": 70.0,
+   "score_rate": 0.7,
+   "correct": 7,
+   "checks": [
+    {
+     "id": "answers_format",
+     "pass": true,
+     "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+    },
+    {
+     "id": "input_integrity",
+     "pass": true,
+     "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+    },
+    {
+     "id": "q5",
+     "pass": true,
+     "note": "pred='NL' ｜ gold='NL'",
+     "task_id": "5",
+     "level": "easy"
+    },
+    {
+     "id": "q49",
+     "pass": false,
+     "note": "pred='A. NL' ｜ gold='B. BE'",
+     "task_id": "49",
+     "level": "easy"
+    },
+    {
+     "id": "q70",
+     "pass": false,
+     "note": "pred='yes' ｜ gold='Not Applicable'",
+     "task_id": "70",
+     "level": "easy"
+    },
+    {
+     "id": "q1273",
+     "pass": true,
+     "note": "pred='0.120132' ｜ gold='0.120132'",
+     "task_id": "1273",
+     "level": "hard"
+    },
+    {
+     "id": "q1305",
+     "pass": true,
+     "note": "pred='0.123217' ｜ gold='0.123217'",
+     "task_id": "1305",
+     "level": "hard"
+    },
+    {
+     "id": "q1464",
+     "pass": true,
+     "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+     "task_id": "1464",
+     "level": "hard"
+    },
+    {
+     "id": "q1681",
+     "pass": true,
+     "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+     "task_id": "1681",
+     "level": "hard"
+    },
+    {
+     "id": "q1753",
+     "pass": true,
+     "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+     "task_id": "1753",
+     "level": "hard"
+    },
+    {
+     "id": "q1871",
+     "pass": true,
+     "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+     "task_id": "1871",
+     "level": "hard"
+    },
+    {
+     "id": "q2697",
+     "pass": false,
+     "note": "pred='E:77.68' ｜ gold='E:13.57'",
+     "task_id": "2697",
+     "level": "hard"
+    }
+   ],
+   "failed": [
+    "q49",
+    "q70",
+    "q2697"
+   ]
+  },
+  "strict_contract": {
+   "scorer_version": "signed-aci-v1",
+   "scope": [
+    "1871:signed-number",
+    "2697:aci-and-signed-fee"
+   ],
+   "numeric_tolerance": {
+    "rel_tol": 0.0001,
+    "abs_tol": 0.0001
+   },
+   "reward": 0,
+   "weighted": 70.0,
+   "score_rate": 0.7,
+   "correct": 7,
+   "checks": [
+    {
+     "id": "answers_format",
+     "pass": true,
+     "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+    },
+    {
+     "id": "input_integrity",
+     "pass": true,
+     "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+    },
+    {
+     "id": "q5",
+     "pass": true,
+     "note": "pred='NL' ｜ gold='NL'",
+     "task_id": "5",
+     "level": "easy"
+    },
+    {
+     "id": "q49",
+     "pass": false,
+     "note": "pred='A. NL' ｜ gold='B. BE'",
+     "task_id": "49",
+     "level": "easy"
+    },
+    {
+     "id": "q70",
+     "pass": false,
+     "note": "pred='yes' ｜ gold='Not Applicable'",
+     "task_id": "70",
+     "level": "easy"
+    },
+    {
+     "id": "q1273",
+     "pass": true,
+     "note": "pred='0.120132' ｜ gold='0.120132'",
+     "task_id": "1273",
+     "level": "hard"
+    },
+    {
+     "id": "q1305",
+     "pass": true,
+     "note": "pred='0.123217' ｜ gold='0.123217'",
+     "task_id": "1305",
+     "level": "hard"
+    },
+    {
+     "id": "q1464",
+     "pass": true,
+     "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+     "task_id": "1464",
+     "level": "hard"
+    },
+    {
+     "id": "q1681",
+     "pass": true,
+     "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+     "task_id": "1681",
+     "level": "hard"
+    },
+    {
+     "id": "q1753",
+     "pass": true,
+     "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+     "task_id": "1753",
+     "level": "hard"
+    },
+    {
+     "id": "q1871",
+     "pass": true,
+     "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+     "task_id": "1871",
+     "level": "hard"
+    },
+    {
+     "id": "q2697",
+     "pass": false,
+     "note": "pred='E:77.68' ｜ gold='E:13.57'",
+     "task_id": "2697",
+     "level": "hard"
+    }
+   ],
+   "failed": [
+    "q49",
+    "q70",
+    "q2697"
+   ]
+  },
+  "reward": 0,
+  "weighted": 70.0,
+  "score_rate": 0.7,
+  "threshold": 0.8,
+  "correct": 7,
+  "n_tasks": 10,
+  "gates": {
+   "answers_format": true,
+   "input_integrity": true
+  },
+  "input_integrity": "verified",
+  "checks": [
+   {
+    "id": "answers_format",
+    "pass": true,
+    "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+   },
+   {
+    "id": "input_integrity",
+    "pass": true,
+    "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+   },
+   {
+    "id": "q5",
+    "pass": true,
+    "note": "pred='NL' ｜ gold='NL'",
+    "task_id": "5",
+    "level": "easy"
+   },
+   {
+    "id": "q49",
+    "pass": false,
+    "note": "pred='A. NL' ｜ gold='B. BE'",
+    "task_id": "49",
+    "level": "easy"
+   },
+   {
+    "id": "q70",
+    "pass": false,
+    "note": "pred='yes' ｜ gold='Not Applicable'",
+    "task_id": "70",
+    "level": "easy"
+   },
+   {
+    "id": "q1273",
+    "pass": true,
+    "note": "pred='0.120132' ｜ gold='0.120132'",
+    "task_id": "1273",
+    "level": "hard"
+   },
+   {
+    "id": "q1305",
+    "pass": true,
+    "note": "pred='0.123217' ｜ gold='0.123217'",
+    "task_id": "1305",
+    "level": "hard"
+   },
+   {
+    "id": "q1464",
+    "pass": true,
+    "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+    "task_id": "1464",
+    "level": "hard"
+   },
+   {
+    "id": "q1681",
+    "pass": true,
+    "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+    "task_id": "1681",
+    "level": "hard"
+   },
+   {
+    "id": "q1753",
+    "pass": true,
+    "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+    "task_id": "1753",
+    "level": "hard"
+   },
+   {
+    "id": "q1871",
+    "pass": true,
+    "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+    "task_id": "1871",
+    "level": "hard"
+   },
+   {
+    "id": "q2697",
+    "pass": false,
+    "note": "pred='E:77.68' ｜ gold='E:13.57'",
+    "task_id": "2697",
+    "level": "hard"
+   }
+  ],
+  "failed": [
+   "q49",
+   "q70",
+   "q2697"
+  ]
+ },
+ "integrity": {
+  "violations": 2,
+  "patterns": [
+   "2-用例",
+   "truth.json",
+   "checker.py",
+   "reference/",
+   "solution/",
+   "../",
+   "~/Documents",
+   "harness-compare-bench"
+  ],
+  "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+  "stdout_scan": {
+   "lines": 176,
+   "violations": 1
+  },
+  "session_scan": {
+   "lines": 219,
+   "violations": 1
+  },
+  "evidence": [
+   {
+    "file": "agent.jsonl",
+    "line": 92,
+    "pattern": "solution/",
+    "excerpt": "{\"type\": \"thinking\", \"text\": \"Jan10 IDs 10 vs Jan month 35 vs March 34. Q1681 could expect 10 IDs if day10 transactions. But is that likely? The question \\\"For the 10th of the year 2023, what are the Fee IDs applicable to Belles_cookbook_store?\\\" Maybe yes: day 10 transactions only. However \\\"Fee ID"
+   },
+   {
+    "file": "session.v4.jsonl.zstd",
+    "line": 121,
+    "pattern": "solution/",
+    "excerpt": "{\"type\": \"assistant/message\", \"seq\": 119, \"time\": 1794197788398, \"data\": {\"turn\": 1, \"step\": 17, \"message\": {\"role\": \"assistant\", \"content\": [{\"type\": \"reasoning\", \"text\": \"Jan10 IDs 10 vs Jan month 35 vs March 34. Q1681 could expect 10 IDs if day10 transactions. But is that likely? The question \\\"F"
+   }
+  ]
+ },
+ "integrity_verdict": "violation",
+ "run_id": "r1109-dsh-dabstep-payments-10-r2",
+ "event_id": "mech-n3-dsh-dabstep-payments-10-r2",
+ "rep": "2"
+}

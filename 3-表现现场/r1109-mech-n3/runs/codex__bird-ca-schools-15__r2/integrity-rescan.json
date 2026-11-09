@@ -1,0 +1,31 @@
+{
+ "run": "codex__bird-ca-schools-15__r2",
+ "patterns": [
+  "2-用例",
+  "truth.json",
+  "checker.py",
+  "reference/",
+  "solution/",
+  "../",
+  "~/Documents",
+  "harness-compare-bench"
+ ],
+ "lines_scanned": 406,
+ "violations": 2,
+ "evidence": [
+  {
+   "source": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+   "line": 200,
+   "pattern": "reference/",
+   "excerpt": "{\"timestamp\": \"2026-11-09T05:05:55.755Z\", \"ordinal\": 199, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a1beae-646a-7de1-a3bd-033f8832cbf1\", \"turn_id\": \"01a1beae-6490-7b51-b2fd-09e7735f1ce1\", \"item\": {\"type\": \"Reasoning\", \"id\": \"d9d29208-b12b-4d92-886f-50d627b9fa8f\", \"su"
+  },
+  {
+   "source": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+   "line": 201,
+   "pattern": "reference/",
+   "excerpt": "{\"timestamp\": \"2026-11-09T05:05:55.762Z\", \"ordinal\": 200, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"d9d29208-b12b-4d92-886f-50d627b9fa8f\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"Fine.\\n\\nNow, could q28's average be over `Schools` without joining frpm, i"
+  }
+ ],
+ "method": "true-rollout-only rescan after capture-contamination cleanup (see trace-incident.json)",
+ "trace_incident": "agent-session/trace-incident.json"
+}

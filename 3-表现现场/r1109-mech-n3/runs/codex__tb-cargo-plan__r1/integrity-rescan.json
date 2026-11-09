@@ -1,0 +1,31 @@
+{
+ "run": "codex__tb-cargo-plan__r1",
+ "patterns": [
+  "2-用例",
+  "truth.json",
+  "checker.py",
+  "reference/",
+  "solution/",
+  "../",
+  "~/Documents",
+  "harness-compare-bench"
+ ],
+ "lines_scanned": 646,
+ "violations": 2,
+ "evidence": [
+  {
+   "source": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+   "line": 88,
+   "pattern": "reference/",
+   "excerpt": "{\"timestamp\": \"2026-11-09T06:06:52.966Z\", \"ordinal\": 87, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a1bee4-a78d-7231-bde6-5cdfbada59b0\", \"turn_id\": \"01a1bee4-a81d-7430-89d4-09fcb6fde0a8\", \"item\": {\"type\": \"Reasoning\", \"id\": \"a645f684-fc3f-4f8b-9b8f-2b11f19f08aa\", \"sum"
+  },
+  {
+   "source": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+   "line": 89,
+   "pattern": "reference/",
+   "excerpt": "{\"timestamp\": \"2026-11-09T06:06:52.969Z\", \"ordinal\": 88, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"a645f684-fc3f-4f8b-9b8f-2b11f19f08aa\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"Interesting! The code files differ in size from meta.json hashes/bytes: airc"
+  }
+ ],
+ "method": "true-rollout-only rescan after capture-contamination cleanup (see trace-incident.json)",
+ "trace_incident": "agent-session/trace-incident.json"
+}

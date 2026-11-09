@@ -1,0 +1,579 @@
+{
+ "batch": "r1109-mech-n3",
+ "rule_version": "freeze-20261029-v2",
+ "product": "dsh",
+ "case": "bird-ca-schools-15",
+ "rep": "2",
+ "event_id": "mech-n3-dsh-bird-ca-schools-15-r2",
+ "form": "cli",
+ "preregistration_commit": "704d2bb",
+ "created_at": "2026-11-09T11:54:35+08:00",
+ "model": "deepseek-flash",
+ "reasoning_effort": "low",
+ "product_version": "0.2.0-rc.2",
+ "route": {
+  "host": "api.deepseek.com",
+  "provider_id": "deepseek-official",
+  "wire_protocol": "anthropic-messages",
+  "endpoint": null
+ },
+ "tools": [
+  "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+ ],
+ "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+ "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+ "web_search": "disabled",
+ "soft_constraints": [
+  "stay-in-workspace",
+  "no-oracle-hunt",
+  "offline"
+ ],
+ "prompt_sha256": "dc63632ad541ad481e17ca941b0f362100b11bac9083df96ccfacc5e73a29685",
+ "a1_gate": {
+  "prompt_match": true,
+  "inputs_match": true,
+  "a1_run": "r1030-formal-a1"
+ },
+ "isolation": {
+  "ok": true,
+  "problems": []
+ },
+ "inputs": [
+  {
+   "path": "inputs/db/california_schools.sqlite",
+   "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+   "bytes": 11116544
+  },
+  {
+   "path": "inputs/questions.json",
+   "sha256": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+   "bytes": 15842
+  },
+  {
+   "path": "inputs/sample_rows.json",
+   "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+   "bytes": 7739
+  },
+  {
+   "path": "inputs/schema.sql",
+   "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+   "bytes": 3993
+  }
+ ],
+ "status": "ok",
+ "exit_code": 0,
+ "started_at": "2026-11-09T11:58:17+08:00",
+ "finished_at": "2026-11-09T11:59:19+08:00",
+ "duration_s": 62.2,
+ "transport_retries": [],
+ "archived_stdout": {
+  "raw_bytes": 82573,
+  "raw_lines": 64,
+  "raw_file": "agent.jsonl",
+  "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+  "full_bytes": 196163,
+  "full_lines": 150,
+  "full_file": "agent.jsonl.full",
+  "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+ },
+ "usage": {
+  "requests": 29,
+  "input_tokens": 36049,
+  "output_tokens": 30173,
+  "cache_read_tokens": 1110912,
+  "cache_creation_tokens": 0,
+  "per_call": [
+   {
+    "turn": 1,
+    "step": 1,
+    "input_tokens": 7289,
+    "output_tokens": 127,
+    "total_tokens": 7416,
+    "cache_read_tokens": 0,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 2,
+    "input_tokens": 6186,
+    "output_tokens": 192,
+    "total_tokens": 13674,
+    "cache_read_tokens": 7296,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 3,
+    "input_tokens": 2572,
+    "output_tokens": 2314,
+    "total_tokens": 18454,
+    "cache_read_tokens": 13568,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 4,
+    "input_tokens": 1740,
+    "output_tokens": 1130,
+    "total_tokens": 21302,
+    "cache_read_tokens": 18432,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 5,
+    "input_tokens": 1343,
+    "output_tokens": 299,
+    "total_tokens": 22890,
+    "cache_read_tokens": 21248,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 6,
+    "input_tokens": 1503,
+    "output_tokens": 324,
+    "total_tokens": 24611,
+    "cache_read_tokens": 22784,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 7,
+    "input_tokens": 2486,
+    "output_tokens": 768,
+    "total_tokens": 27830,
+    "cache_read_tokens": 24576,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 8,
+    "input_tokens": 1314,
+    "output_tokens": 2150,
+    "total_tokens": 31240,
+    "cache_read_tokens": 27776,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 9,
+    "input_tokens": 616,
+    "output_tokens": 1308,
+    "total_tokens": 33156,
+    "cache_read_tokens": 31232,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 10,
+    "input_tokens": 861,
+    "output_tokens": 618,
+    "total_tokens": 34631,
+    "cache_read_tokens": 33152,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 11,
+    "input_tokens": 337,
+    "output_tokens": 377,
+    "total_tokens": 35274,
+    "cache_read_tokens": 34560,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 12,
+    "input_tokens": 284,
+    "output_tokens": 542,
+    "total_tokens": 36026,
+    "cache_read_tokens": 35200,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 13,
+    "input_tokens": 963,
+    "output_tokens": 1112,
+    "total_tokens": 38043,
+    "cache_read_tokens": 35968,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 14,
+    "input_tokens": 189,
+    "output_tokens": 537,
+    "total_tokens": 38742,
+    "cache_read_tokens": 38016,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 15,
+    "input_tokens": 3109,
+    "output_tokens": 750,
+    "total_tokens": 42515,
+    "cache_read_tokens": 38656,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 16,
+    "input_tokens": 240,
+    "output_tokens": 699,
+    "total_tokens": 43435,
+    "cache_read_tokens": 42496,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 17,
+    "input_tokens": 578,
+    "output_tokens": 1616,
+    "total_tokens": 45586,
+    "cache_read_tokens": 43392,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 18,
+    "input_tokens": 160,
+    "output_tokens": 431,
+    "total_tokens": 46031,
+    "cache_read_tokens": 45440,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 19,
+    "input_tokens": 281,
+    "output_tokens": 859,
+    "total_tokens": 47092,
+    "cache_read_tokens": 45952,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 20,
+    "input_tokens": 241,
+    "output_tokens": 687,
+    "total_tokens": 47904,
+    "cache_read_tokens": 46976,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 21,
+    "input_tokens": 734,
+    "output_tokens": 553,
+    "total_tokens": 49159,
+    "cache_read_tokens": 47872,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 22,
+    "input_tokens": 655,
+    "output_tokens": 812,
+    "total_tokens": 50619,
+    "cache_read_tokens": 49152,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 23,
+    "input_tokens": 908,
+    "output_tokens": 3065,
+    "total_tokens": 54533,
+    "cache_read_tokens": 50560,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 24,
+    "input_tokens": 206,
+    "output_tokens": 795,
+    "total_tokens": 55401,
+    "cache_read_tokens": 54400,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 25,
+    "input_tokens": 135,
+    "output_tokens": 4283,
+    "total_tokens": 59714,
+    "cache_read_tokens": 55296,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 26,
+    "input_tokens": 470,
+    "output_tokens": 1059,
+    "total_tokens": 61177,
+    "cache_read_tokens": 59648,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 27,
+    "input_tokens": 147,
+    "output_tokens": 1007,
+    "total_tokens": 62210,
+    "cache_read_tokens": 61056,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 28,
+    "input_tokens": 174,
+    "output_tokens": 1721,
+    "total_tokens": 64103,
+    "cache_read_tokens": 62208,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 29,
+    "input_tokens": 328,
+    "output_tokens": 38,
+    "total_tokens": 64366,
+    "cache_read_tokens": 64000,
+    "cache_creation_tokens": 0
+   }
+  ],
+  "cross_check": {
+   "compared": 9,
+   "equal": 0,
+   "mismatch": [
+    {
+     "turn": 1,
+     "step": 1,
+     "session": {
+      "turn": 1,
+      "step": 1,
+      "input_tokens": 7289,
+      "output_tokens": 127,
+      "total_tokens": 7416,
+      "cache_read_tokens": 0,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 249,
+      "output_tokens": 175,
+      "total_tokens": 7464,
+      "cache_read_tokens": 7040,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 2,
+     "session": {
+      "turn": 1,
+      "step": 2,
+      "input_tokens": 6186,
+      "output_tokens": 192,
+      "total_tokens": 13674,
+      "cache_read_tokens": 7296,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 8025,
+      "output_tokens": 113,
+      "total_tokens": 15562,
+      "cache_read_tokens": 7424,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 3,
+     "session": {
+      "turn": 1,
+      "step": 3,
+      "input_tokens": 2572,
+      "output_tokens": 2314,
+      "total_tokens": 18454,
+      "cache_read_tokens": 13568,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 2019,
+      "output_tokens": 3058,
+      "total_tokens": 20565,
+      "cache_read_tokens": 15488,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 4,
+     "session": {
+      "turn": 1,
+      "step": 4,
+      "input_tokens": 1740,
+      "output_tokens": 1130,
+      "total_tokens": 21302,
+      "cache_read_tokens": 18432,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 2172,
+      "output_tokens": 1428,
+      "total_tokens": 24080,
+      "cache_read_tokens": 20480,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 5,
+     "session": {
+      "turn": 1,
+      "step": 5,
+      "input_tokens": 1343,
+      "output_tokens": 299,
+      "total_tokens": 22890,
+      "cache_read_tokens": 21248,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 1639,
+      "output_tokens": 931,
+      "total_tokens": 26634,
+      "cache_read_tokens": 24064,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 6,
+     "session": {
+      "turn": 1,
+      "step": 6,
+      "input_tokens": 1503,
+      "output_tokens": 324,
+      "total_tokens": 24611,
+      "cache_read_tokens": 22784,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 451,
+      "output_tokens": 1122,
+      "total_tokens": 28197,
+      "cache_read_tokens": 26624,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 7,
+     "session": {
+      "turn": 1,
+      "step": 7,
+      "input_tokens": 2486,
+      "output_tokens": 768,
+      "total_tokens": 27830,
+      "cache_read_tokens": 24576,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 1157,
+      "output_tokens": 2181,
+      "total_tokens": 31498,
+      "cache_read_tokens": 28160,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 8,
+     "session": {
+      "turn": 1,
+      "step": 8,
+      "input_tokens": 1314,
+      "output_tokens": 2150,
+      "total_tokens": 31240,
+      "cache_read_tokens": 27776,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 471,
+      "output_tokens": 1339,
+      "total_tokens": 33298,
+      "cache_read_tokens": 31488,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 9,
+     "session": {
+      "turn": 1,
+      "step": 9,
+      "input_tokens": 616,
+      "output_tokens": 1308,
+      "total_tokens": 33156,
+      "cache_read_tokens": 31232,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 231,
+      "output_tokens": 42,
+      "total_tokens": 33553,
+      "cache_read_tokens": 33280,
+      "cache_creation_tokens": 0
+     }
+    }
+   ]
+  },
+  "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+ },
+ "reward": 1,
+ "weighted": 100.0,
+ "failed": [],
+ "judge": {
+  "case": "bird-ca-schools-15",
+  "case_id": "bird-ca-schools-15",
+  "checker_version": "0.2",
+  "binary": true,
+  "artifact": "answers.jsonl（归档副本 workspace/answers.jsonl；共享 ws 已被后续 rep 覆盖，归档副本为该 rep 真终态）",
+  "earned": 15,
+  "possible": 15,
+  "reported": 100.0,
+  "reward": 1,
+  "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+  "rule_version": "freeze-20261029-v2",
+  "provenance": "retro-judge（frozen checker 全树修复后）自 score-receipt.json 回填；in-run judge=null（canonical 输入事故），原空判收据见 checker-error-prefix.json"
+ },
+ "integrity": {
+  "violations": 0,
+  "patterns": [
+   "2-用例",
+   "truth.json",
+   "checker.py",
+   "reference/",
+   "solution/",
+   "../",
+   "~/Documents",
+   "harness-compare-bench"
+  ],
+  "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+  "stdout_scan": {
+   "lines": 64,
+   "violations": 0
+  },
+  "session_scan": {
+   "lines": 189,
+   "violations": 0
+  },
+  "evidence": []
+ },
+ "integrity_verdict": "clean",
+ "run_id": "r1109-dsh-bird-ca-schools-15-r2",
+ "judge_provenance": "retro-judge post fixing checker canonical-input incident (see score-receipt.judging_incident); in-run judge=null"
+}

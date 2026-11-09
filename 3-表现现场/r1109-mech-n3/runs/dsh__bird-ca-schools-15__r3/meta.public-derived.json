@@ -1,0 +1,380 @@
+{
+ "batch": "r1109-mech-n3",
+ "rule_version": "freeze-20261029-v2",
+ "product": "dsh",
+ "case": "bird-ca-schools-15",
+ "rep": "3",
+ "event_id": "mech-n3-dsh-bird-ca-schools-15-r3",
+ "form": "cli",
+ "preregistration_commit": "704d2bb",
+ "created_at": "2026-11-09T11:54:35+08:00",
+ "model": "deepseek-flash",
+ "reasoning_effort": "low",
+ "product_version": "0.2.0-rc.2",
+ "route": {
+  "host": "api.deepseek.com",
+  "provider_id": "deepseek-official",
+  "wire_protocol": "anthropic-messages",
+  "endpoint": null
+ },
+ "tools": [
+  "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+ ],
+ "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+ "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+ "web_search": "disabled",
+ "soft_constraints": [
+  "stay-in-workspace",
+  "no-oracle-hunt",
+  "offline"
+ ],
+ "prompt_sha256": "dc63632ad541ad481e17ca941b0f362100b11bac9083df96ccfacc5e73a29685",
+ "a1_gate": {
+  "prompt_match": true,
+  "inputs_match": true,
+  "a1_run": "r1030-formal-a1"
+ },
+ "isolation": {
+  "ok": true,
+  "problems": []
+ },
+ "inputs": [
+  {
+   "path": "inputs/db/california_schools.sqlite",
+   "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+   "bytes": 11116544
+  },
+  {
+   "path": "inputs/questions.json",
+   "sha256": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+   "bytes": 15842
+  },
+  {
+   "path": "inputs/sample_rows.json",
+   "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+   "bytes": 7739
+  },
+  {
+   "path": "inputs/schema.sql",
+   "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+   "bytes": 3993
+  }
+ ],
+ "status": "ok",
+ "exit_code": 0,
+ "started_at": "2026-11-09T11:59:19+08:00",
+ "finished_at": "2026-11-09T12:02:36+08:00",
+ "duration_s": 196.1,
+ "transport_retries": [],
+ "archived_stdout": {
+  "raw_bytes": 161682,
+  "raw_lines": 144,
+  "raw_file": "agent.jsonl",
+  "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+  "full_bytes": 176208,
+  "full_lines": 144,
+  "full_file": "agent.jsonl.full",
+  "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+ },
+ "usage": {
+  "requests": 27,
+  "input_tokens": 24047,
+  "output_tokens": 27954,
+  "cache_read_tokens": 934656,
+  "cache_creation_tokens": 0,
+  "per_call": [
+   {
+    "turn": 1,
+    "step": 1,
+    "input_tokens": 249,
+    "output_tokens": 188,
+    "total_tokens": 7477,
+    "cache_read_tokens": 7040,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 2,
+    "input_tokens": 6597,
+    "output_tokens": 165,
+    "total_tokens": 14186,
+    "cache_read_tokens": 7424,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 3,
+    "input_tokens": 5088,
+    "output_tokens": 3017,
+    "total_tokens": 22185,
+    "cache_read_tokens": 14080,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 4,
+    "input_tokens": 339,
+    "output_tokens": 265,
+    "total_tokens": 22748,
+    "cache_read_tokens": 22144,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 5,
+    "input_tokens": 273,
+    "output_tokens": 203,
+    "total_tokens": 23132,
+    "cache_read_tokens": 22656,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 6,
+    "input_tokens": 1007,
+    "output_tokens": 610,
+    "total_tokens": 24657,
+    "cache_read_tokens": 23040,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 7,
+    "input_tokens": 446,
+    "output_tokens": 784,
+    "total_tokens": 25806,
+    "cache_read_tokens": 24576,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 8,
+    "input_tokens": 742,
+    "output_tokens": 646,
+    "total_tokens": 27116,
+    "cache_read_tokens": 25728,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 9,
+    "input_tokens": 564,
+    "output_tokens": 442,
+    "total_tokens": 28014,
+    "cache_read_tokens": 27008,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 10,
+    "input_tokens": 2199,
+    "output_tokens": 1503,
+    "total_tokens": 31606,
+    "cache_read_tokens": 27904,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 11,
+    "input_tokens": 507,
+    "output_tokens": 1120,
+    "total_tokens": 33115,
+    "cache_read_tokens": 31488,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 12,
+    "input_tokens": 1947,
+    "output_tokens": 741,
+    "total_tokens": 35712,
+    "cache_read_tokens": 33024,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 13,
+    "input_tokens": 806,
+    "output_tokens": 1215,
+    "total_tokens": 37733,
+    "cache_read_tokens": 35712,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 14,
+    "input_tokens": 163,
+    "output_tokens": 1279,
+    "total_tokens": 39074,
+    "cache_read_tokens": 37632,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 15,
+    "input_tokens": 225,
+    "output_tokens": 350,
+    "total_tokens": 39487,
+    "cache_read_tokens": 38912,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 16,
+    "input_tokens": 190,
+    "output_tokens": 185,
+    "total_tokens": 39799,
+    "cache_read_tokens": 39424,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 17,
+    "input_tokens": 240,
+    "output_tokens": 929,
+    "total_tokens": 40849,
+    "cache_read_tokens": 39680,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 18,
+    "input_tokens": 244,
+    "output_tokens": 1391,
+    "total_tokens": 42467,
+    "cache_read_tokens": 40832,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 19,
+    "input_tokens": 182,
+    "output_tokens": 2306,
+    "total_tokens": 44856,
+    "cache_read_tokens": 42368,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 20,
+    "input_tokens": 428,
+    "output_tokens": 922,
+    "total_tokens": 46150,
+    "cache_read_tokens": 44800,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 21,
+    "input_tokens": 301,
+    "output_tokens": 1180,
+    "total_tokens": 47561,
+    "cache_read_tokens": 46080,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 22,
+    "input_tokens": 246,
+    "output_tokens": 655,
+    "total_tokens": 48261,
+    "cache_read_tokens": 47360,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 23,
+    "input_tokens": 166,
+    "output_tokens": 760,
+    "total_tokens": 49054,
+    "cache_read_tokens": 48128,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 24,
+    "input_tokens": 197,
+    "output_tokens": 2031,
+    "total_tokens": 51124,
+    "cache_read_tokens": 48896,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 25,
+    "input_tokens": 243,
+    "output_tokens": 1675,
+    "total_tokens": 52862,
+    "cache_read_tokens": 50944,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 26,
+    "input_tokens": 201,
+    "output_tokens": 2278,
+    "total_tokens": 55215,
+    "cache_read_tokens": 52736,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 27,
+    "input_tokens": 257,
+    "output_tokens": 1114,
+    "total_tokens": 56411,
+    "cache_read_tokens": 55040,
+    "cache_creation_tokens": 0
+   }
+  ],
+  "cross_check": {
+   "compared": 27,
+   "equal": 27,
+   "mismatch": []
+  },
+  "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+ },
+ "reward": 1,
+ "weighted": 100.0,
+ "failed": [],
+ "judge": {
+  "case": "bird-ca-schools-15",
+  "case_id": "bird-ca-schools-15",
+  "checker_version": "0.2",
+  "binary": true,
+  "artifact": "answers.jsonl（归档副本 workspace/answers.jsonl；共享 ws 已被后续 rep 覆盖，归档副本为该 rep 真终态）",
+  "earned": 15,
+  "possible": 15,
+  "reported": 100.0,
+  "reward": 1,
+  "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+  "rule_version": "freeze-20261029-v2",
+  "provenance": "retro-judge（frozen checker 全树修复后）自 score-receipt.json 回填；in-run judge=null（canonical 输入事故），原空判收据见 checker-error-prefix.json"
+ },
+ "integrity": {
+  "violations": 0,
+  "patterns": [
+   "2-用例",
+   "truth.json",
+   "checker.py",
+   "reference/",
+   "solution/",
+   "../",
+   "~/Documents",
+   "harness-compare-bench"
+  ],
+  "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+  "stdout_scan": {
+   "lines": 144,
+   "violations": 0
+  },
+  "session_scan": {
+   "lines": 181,
+   "violations": 0
+  },
+  "evidence": []
+ },
+ "integrity_verdict": "clean",
+ "run_id": "r1109-dsh-bird-ca-schools-15-r3",
+ "judge_provenance": "retro-judge post fixing checker canonical-input incident (see score-receipt.judging_incident); in-run judge=null"
+}

@@ -1,0 +1,118 @@
+{
+ "format": "dsh-session-v4-jsonl-zstd",
+ "inputs": {
+  "files": [
+   "session.v4.jsonl.zstd"
+  ],
+  "runs": [
+   "dsh__dabstep-payments-10__r2"
+  ]
+ },
+ "notes": [
+  "S1-S6 request-side mechanical observation; canonical JSON bytes, not wire bytes.",
+  "declared_* is run configuration (auxiliary), NOT measured usage; this format records no token usage numbers.",
+  "durations are data-derived (last timed event minus first)."
+ ],
+ "per_file": [
+  {
+   "batch": null,
+   "file": "session.v4.jsonl.zstd",
+   "run": "dsh__dabstep-payments-10__r2",
+   "s1": {
+    "compressed_bytes": 233176,
+    "decompressed_bytes": 865464,
+    "lines": 219,
+    "unparsable": 0
+   },
+   "s2": {
+    "type_and_data_keys_counts": {
+     "agent/inbox/spliced:inserted+removedCount+start+target": 1,
+     "agent/inbox/spliced:inserted+start+target": 1,
+     "approval/policy:policy": 1,
+     "assistant/message:message+step+stream+turn+usage": 33,
+     "permission/preset:preset": 1,
+     "request/context:contextWindow+model+provider+systemPromptUpdate": 1,
+     "request/header:header+reason": 1,
+     "sandbox/mode:mode": 1,
+     "session-log-deepseek/delivery-accepted:sessionFormatVersion+sessionId+throughSeq": 33,
+     "session/title:messageSeqs+source+title": 1,
+     "step/end:step+turn": 33,
+     "step/start:step+turn": 33,
+     "system/message:message+step+turn": 1,
+     "tool/call:arguments+callId+name+step+turn": 36,
+     "tool/result:error+message+step+turn": 1,
+     "tool/result:message+meta+step+turn": 3,
+     "tool/result:message+step+turn": 32,
+     "turn/end:reason+turn": 1,
+     "turn/start:turn": 1,
+     "user/message:content+id+role+source": 3
+    },
+    "type_counts": {
+     "agent/inbox/spliced": 2,
+     "approval/policy": 1,
+     "assistant/message": 33,
+     "permission/preset": 1,
+     "request/context": 1,
+     "request/header": 1,
+     "sandbox/mode": 1,
+     "session": 1,
+     "session-log-deepseek/delivery-accepted": 33,
+     "session/title": 1,
+     "step/end": 33,
+     "step/start": 33,
+     "system/message": 1,
+     "tool/call": 36,
+     "tool/result": 36,
+     "turn/end": 1,
+     "turn/start": 1,
+     "user/message": 3
+    }
+   },
+   "s3": {
+    "input_bytes": 27106,
+    "request_contexts": 1,
+    "request_headers": 1,
+    "user_messages": 3
+   },
+   "s4": {
+    "assistant_messages": 33,
+    "output_bytes": 694996,
+    "tool_calls": 36,
+    "tool_result_bytes": 123370,
+    "tool_results": 36
+   },
+   "s5": {
+    "declared_config": {
+     "maxTokens": 256000,
+     "model": "deepseek-flash",
+     "provider": "deepseek-official",
+     "reasoningEffort": "low"
+    },
+    "declared_context": {
+     "contextWindow": 1000000,
+     "model": "deepseek-flash",
+     "provider": "deepseek-official",
+     "systemPromptUpdate": "in-history"
+    },
+    "request_header_events": 1
+   },
+   "s6": {
+    "duration_ms": 250859,
+    "timed_events": 218
+   }
+  }
+ ],
+ "tool": "tools-session-trace-observe.py",
+ "tool_sha256": "58e0c153ba436b39048962498a89a846559a60c7357843d80c1a1d988231420b",
+ "tool_version": "v1 (2026-11-08)",
+ "totals": {
+  "compressed_bytes": 233176,
+  "decompressed_bytes": 865464,
+  "files": 1,
+  "input_bytes": 27106,
+  "lines": 219,
+  "output_bytes": 694996,
+  "tool_result_bytes": 123370,
+  "unparsable": 0
+ }
+}

@@ -1,0 +1,425 @@
+{
+ "batch": "r1030-formal-a1",
+ "rule_version": "freeze-20261029-v2",
+ "product": "dsh",
+ "case": "lcb-recent-hard-4",
+ "form": "cli",
+ "created_at": "2026-10-29T02:24:23+08:00",
+ "model": "deepseek-flash",
+ "reasoning_effort": "low",
+ "product_version": "0.2.0-rc.2",
+ "route": {
+  "host": "api.deepseek.com",
+  "provider_id": "deepseek-official",
+  "wire_protocol": "anthropic-messages",
+  "endpoint": null
+ },
+ "tools": [
+  "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+ ],
+ "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+ "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+ "web_search": "disabled",
+ "soft_constraints": [
+  "stay-in-workspace",
+  "no-oracle-hunt",
+  "offline"
+ ],
+ "prompt_sha256": "320b6ca39004d9996e67ef699da0a2c91efb48cda3ff12b4c3073065f1c1e2a4",
+ "isolation": {
+  "ok": true,
+  "problems": []
+ },
+ "inputs": [
+  {
+   "path": "inputs/problems.json",
+   "sha256": "0ce2f9c1eee0039fa9cfc7cd9969d99118d3fba4ac41571c49d9f5289592a673",
+   "bytes": 7884
+  }
+ ],
+ "status": "ok",
+ "exit_code": 0,
+ "started_at": "2026-11-09T12:28:15+08:00",
+ "finished_at": "2026-11-09T12:33:21+08:00",
+ "duration_s": 306.3,
+ "transport_retries": [],
+ "archived_stdout": {
+  "raw_bytes": 98017,
+  "raw_lines": 148,
+  "raw_file": "agent.jsonl",
+  "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+  "full_bytes": 114263,
+  "full_lines": 148,
+  "full_file": "agent.jsonl.full",
+  "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+ },
+ "usage": {
+  "requests": 29,
+  "input_tokens": 12361,
+  "output_tokens": 22483,
+  "cache_read_tokens": 693376,
+  "cache_creation_tokens": 0,
+  "per_call": [
+   {
+    "turn": 1,
+    "step": 1,
+    "input_tokens": 228,
+    "output_tokens": 77,
+    "total_tokens": 6833,
+    "cache_read_tokens": 6528,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 2,
+    "input_tokens": 314,
+    "output_tokens": 68,
+    "total_tokens": 7166,
+    "cache_read_tokens": 6784,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 3,
+    "input_tokens": 3026,
+    "output_tokens": 97,
+    "total_tokens": 10163,
+    "cache_read_tokens": 7040,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 4,
+    "input_tokens": 2834,
+    "output_tokens": 250,
+    "total_tokens": 13196,
+    "cache_read_tokens": 10112,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 5,
+    "input_tokens": 227,
+    "output_tokens": 1426,
+    "total_tokens": 14709,
+    "cache_read_tokens": 13056,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 6,
+    "input_tokens": 401,
+    "output_tokens": 770,
+    "total_tokens": 15763,
+    "cache_read_tokens": 14592,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 7,
+    "input_tokens": 204,
+    "output_tokens": 96,
+    "total_tokens": 15916,
+    "cache_read_tokens": 15616,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 8,
+    "input_tokens": 192,
+    "output_tokens": 1022,
+    "total_tokens": 16958,
+    "cache_read_tokens": 15744,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 9,
+    "input_tokens": 214,
+    "output_tokens": 1856,
+    "total_tokens": 18838,
+    "cache_read_tokens": 16768,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 10,
+    "input_tokens": 147,
+    "output_tokens": 1123,
+    "total_tokens": 20086,
+    "cache_read_tokens": 18816,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 11,
+    "input_tokens": 177,
+    "output_tokens": 403,
+    "total_tokens": 20548,
+    "cache_read_tokens": 19968,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 12,
+    "input_tokens": 166,
+    "output_tokens": 1386,
+    "total_tokens": 22032,
+    "cache_read_tokens": 20480,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 13,
+    "input_tokens": 148,
+    "output_tokens": 1217,
+    "total_tokens": 23381,
+    "cache_read_tokens": 22016,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 14,
+    "input_tokens": 234,
+    "output_tokens": 863,
+    "total_tokens": 24265,
+    "cache_read_tokens": 23168,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 15,
+    "input_tokens": 223,
+    "output_tokens": 503,
+    "total_tokens": 24790,
+    "cache_read_tokens": 24064,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 16,
+    "input_tokens": 277,
+    "output_tokens": 512,
+    "total_tokens": 25493,
+    "cache_read_tokens": 24704,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 17,
+    "input_tokens": 166,
+    "output_tokens": 584,
+    "total_tokens": 26094,
+    "cache_read_tokens": 25344,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 18,
+    "input_tokens": 196,
+    "output_tokens": 1694,
+    "total_tokens": 27874,
+    "cache_read_tokens": 25984,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 19,
+    "input_tokens": 166,
+    "output_tokens": 389,
+    "total_tokens": 28331,
+    "cache_read_tokens": 27776,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 20,
+    "input_tokens": 301,
+    "output_tokens": 6147,
+    "total_tokens": 34736,
+    "cache_read_tokens": 28288,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 21,
+    "input_tokens": 236,
+    "output_tokens": 82,
+    "total_tokens": 34878,
+    "cache_read_tokens": 34560,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 22,
+    "input_tokens": 915,
+    "output_tokens": 122,
+    "total_tokens": 35853,
+    "cache_read_tokens": 34816,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 23,
+    "input_tokens": 188,
+    "output_tokens": 152,
+    "total_tokens": 36052,
+    "cache_read_tokens": 35712,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 24,
+    "input_tokens": 259,
+    "output_tokens": 385,
+    "total_tokens": 36484,
+    "cache_read_tokens": 35840,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 25,
+    "input_tokens": 160,
+    "output_tokens": 347,
+    "total_tokens": 36859,
+    "cache_read_tokens": 36352,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 26,
+    "input_tokens": 239,
+    "output_tokens": 382,
+    "total_tokens": 37357,
+    "cache_read_tokens": 36736,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 27,
+    "input_tokens": 145,
+    "output_tokens": 237,
+    "total_tokens": 37630,
+    "cache_read_tokens": 37248,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 28,
+    "input_tokens": 162,
+    "output_tokens": 174,
+    "total_tokens": 37840,
+    "cache_read_tokens": 37504,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 29,
+    "input_tokens": 216,
+    "output_tokens": 119,
+    "total_tokens": 38095,
+    "cache_read_tokens": 37760,
+    "cache_creation_tokens": 0
+   }
+  ],
+  "cross_check": {
+   "compared": 29,
+   "equal": 29,
+   "mismatch": []
+  },
+  "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+ },
+ "reward": 1,
+ "weighted": 100.0,
+ "failed": [],
+ "judge": {
+  "case": "lcb-recent-hard-4",
+  "checker_version": "0.1",
+  "reward": 1,
+  "weighted": 100.0,
+  "passed_problems": 4,
+  "total_problems": 4,
+  "threshold": 2,
+  "checks": [
+   {
+    "id": "input_integrity",
+    "item": "输入完整性（守卫）",
+    "weight": 0.0,
+    "pass": true,
+    "note": "附带输入副本与 canonical 一致（inputs/problems.json）",
+    "guard": true
+   },
+   {
+    "id": "abc387_f",
+    "item": "abc387_f Count Arrays",
+    "weight": 25.0,
+    "pass": true,
+    "note": "43/43 全过",
+    "passed_tests": 43,
+    "total_tests": 43,
+    "first_fail_index": -1,
+    "fail_kind": ""
+   },
+   {
+    "id": "abc388_f",
+    "item": "abc388_f Dangerous Sugoroku",
+    "weight": 25.0,
+    "pass": true,
+    "note": "43/43 全过",
+    "passed_tests": 43,
+    "total_tests": 43,
+    "first_fail_index": -1,
+    "fail_kind": ""
+   },
+   {
+    "id": "abc388_g",
+    "item": "abc388_g Simultaneous Kagamimochi 2",
+    "weight": 25.0,
+    "pass": true,
+    "note": "42/42 全过",
+    "passed_tests": 42,
+    "total_tests": 42,
+    "first_fail_index": -1,
+    "fail_kind": ""
+   },
+   {
+    "id": "abc389_g",
+    "item": "abc389_g Odd Even Graph",
+    "weight": 25.0,
+    "pass": true,
+    "note": "43/43 全过",
+    "passed_tests": 43,
+    "total_tests": 43,
+    "first_fail_index": -1,
+    "fail_kind": ""
+   }
+  ]
+ },
+ "integrity": {
+  "violations": 0,
+  "patterns": [
+   "2-用例",
+   "truth.json",
+   "checker.py",
+   "reference/",
+   "solution/",
+   "../",
+   "~/Documents",
+   "harness-compare-bench"
+  ],
+  "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+  "stdout_scan": {
+   "lines": 148,
+   "violations": 0
+  },
+  "session_scan": {
+   "lines": 190,
+   "violations": 0
+  },
+  "evidence": []
+ },
+ "integrity_verdict": "clean",
+ "run_id": "r1109-dsh-lcb-recent-hard-4-r2",
+ "event_id": "mech-n3-dsh-lcb-recent-hard-4-r2",
+ "rep": "2"
+}

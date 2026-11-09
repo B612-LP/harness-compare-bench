@@ -1,0 +1,60 @@
+{
+ "inputs": {
+  "archive_file_count": 1,
+  "files": [
+   {
+    "bytes": 388833,
+    "path": "16a4dc87-780e-4b1b-9874-50a1a5e5ccd4.jsonl",
+    "sha256": "63fb382e73c0e48c0f355efa13fb33b8f6347b98f075684cd54458a5c4a310d0"
+   }
+  ]
+ },
+ "kind": "workbuddy",
+ "label": "r1109-bw-retest:workbuddy:dabstep-payments-10:r3",
+ "limits": [
+  "原生轨迹观测面=应用 span/会话轨迹，非网关 HTTP 请求体；与 Codex rollout/DSH 会话轨迹口径不同，不做跨轨字节等值比较",
+  "usage/totalTokens 为应用自报值（auxiliary）；豆包轨迹未见 usage 字段则如实 absent",
+  "聚合件零内容字段、零本机路径；原件存评测私档归档，公开件可由归档原件复算"
+ ],
+ "metrics": {
+  "t1": {
+   "bytes": 388833,
+   "files": 1,
+   "lines": 87,
+   "unparsable_files": 0
+  },
+  "t2_event_types": {
+   "span_end": 0,
+   "span_start": 0,
+   "trace_end": 0,
+   "trace_start": 0,
+   "unparsable_lines": 0
+  },
+  "t3_span_types": {
+   "end": {},
+   "start": {}
+  },
+  "t4_request_side_tool_input": {
+   "bytes": 0,
+   "note": "generation/agent span toolInput 字节和；span 工具面近似，非网关 HTTP 请求体",
+   "spans": 0
+  },
+  "t5_output_side_tool_output": {
+   "bytes": 0,
+   "spans": 0
+  },
+  "t6_self_reported": {
+   "note": "应用自报值，auxiliary",
+   "spans_with_usage": 0,
+   "total_tokens_sum": 0,
+   "traces_with_total_tokens": 0
+  },
+  "t7_duration_ms": {
+   "sum": 0,
+   "traces": 0
+  }
+ },
+ "schema": "native-trace-observe-v1",
+ "tool": "tools-native-trace-observe.py",
+ "tool_sha256": "b3f4b110b4f287dae4804ff982216d666baa6ec618a3599dee8a835cfe005b17"
+}

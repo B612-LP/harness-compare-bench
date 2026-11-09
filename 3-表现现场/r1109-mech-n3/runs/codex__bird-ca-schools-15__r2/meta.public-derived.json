@@ -1,0 +1,1121 @@
+{
+ "batch": "r1030-formal-a1",
+ "rule_version": "freeze-20261029-v2",
+ "product": "codex",
+ "case": "bird-ca-schools-15",
+ "form": "cli",
+ "created_at": "2026-10-29T02:12:00+08:00",
+ "model": "deepseek-flash",
+ "reasoning_effort": "low",
+ "product_version": "codex-cli 0.163.0",
+ "route": {
+  "host": "api.deepseek.com",
+  "provider_id": "deepseek",
+  "wire_protocol": "responses",
+  "endpoint": "https://api.deepseek.com"
+ },
+ "tools": [
+  "shell",
+  "apply_patch",
+  "read_files（web_search=disabled，skills=off）"
+ ],
+ "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+ "skills": "off（[skills] include_instructions=false，bundled disabled）",
+ "web_search": "disabled",
+ "soft_constraints": [
+  "stay-in-workspace",
+  "no-oracle-hunt",
+  "offline"
+ ],
+ "prompt_sha256": "c0cc6169ad0b5f19861f4200fdcc20f0d57194ee8deea97b36715c7abd14026c",
+ "isolation": {
+  "ok": true,
+  "problems": []
+ },
+ "inputs": [
+  {
+   "path": "inputs/db/california_schools.sqlite",
+   "sha256": "a9e7d92a47c0d247d76a7a4acd76a4764f430f4d711e9e6809f399a9bf72322d",
+   "bytes": 11116544
+  },
+  {
+   "path": "inputs/questions.json",
+   "sha256": "144bf7c36b58ab261f44676618a80af9f9d642fd287a4d2885c0cd7d53543f3e",
+   "bytes": 15842
+  },
+  {
+   "path": "inputs/sample_rows.json",
+   "sha256": "1d6f869c2feb54d8c2ad3a1d427489aa770e7e52442f4a343d3e3a2b6d594d3d",
+   "bytes": 7739
+  },
+  {
+   "path": "inputs/schema.sql",
+   "sha256": "33411f4b8db97a1a703876a6142d070625d9e7f6ea1e63251a981da67826dd0d",
+   "bytes": 3993
+  }
+ ],
+ "status": "ok",
+ "exit_code": 0,
+ "started_at": "2026-11-09T13:01:02+08:00",
+ "finished_at": "2026-11-09T13:09:34+08:00",
+ "duration_s": 512.8,
+ "attempts": [
+  {
+   "n": 1,
+   "started_at": "2026-11-09T13:01:02+08:00",
+   "duration_s": 512.8,
+   "exit_code": 0,
+   "outcome": "ok"
+  }
+ ],
+ "transport_retries": 0,
+ "stdout_bytes": 155936,
+ "stderr_bytes": 1095,
+ "stdout_sha256": "dfbcdc2e7a7e99409c63ead8e7232e99b04723b96b8160ceeb554665ed24641a",
+ "stderr_sha256": "5f66b7adf20b4f26a6204bc0e1ede9514aa0962d85a8a2a9a3139ba3b9b393a0",
+ "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+ "usage": {
+  "requests": 70,
+  "input_tokens": 3485329,
+  "output_tokens": 105176,
+  "cache_read_tokens": 3422848,
+  "cache_creation_tokens": 0,
+  "reasoning_output_tokens": 80199,
+  "total_tokens": 3590505,
+  "cumulative_thread_final": {
+   "input_tokens": 2319888,
+   "cached_input_tokens": 2291200,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 70142,
+   "reasoning_output_tokens": 57081,
+   "total_tokens": 2390030
+  },
+  "per_call": [
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:57:06.307Z",
+    "response_id": "6be1896a-74d6-4ddf-8329-e8076de8c177",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 9567,
+    "cache_read_tokens": 3584,
+    "cache_creation_tokens": 0,
+    "output_tokens": 190,
+    "reasoning_output_tokens": 9,
+    "total_tokens": 9757
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:57:08.023Z",
+    "response_id": "c0946c97-a82f-42a0-a097-49f9ae3ed30c",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 13676,
+    "cache_read_tokens": 9728,
+    "cache_creation_tokens": 0,
+    "output_tokens": 215,
+    "reasoning_output_tokens": 18,
+    "total_tokens": 13891
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:57:10.837Z",
+    "response_id": "052fffe3-7891-43ce-94c0-9c8ddf3fbe18",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 16484,
+    "cache_read_tokens": 13824,
+    "cache_creation_tokens": 0,
+    "output_tokens": 276,
+    "reasoning_output_tokens": 124,
+    "total_tokens": 16760
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:57:12.358Z",
+    "response_id": "31f5ceec-e561-4cd2-bce9-3cf115d7f73a",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 17158,
+    "cache_read_tokens": 16640,
+    "cache_creation_tokens": 0,
+    "output_tokens": 234,
+    "reasoning_output_tokens": 4,
+    "total_tokens": 17392
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:57:26.716Z",
+    "response_id": "7cb53877-3731-4f1f-976b-cb0995f198e0",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 19910,
+    "cache_read_tokens": 17280,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2374,
+    "reasoning_output_tokens": 2003,
+    "total_tokens": 22284
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:57:37.982Z",
+    "response_id": "5a5bfb32-2d76-4202-a158-de790f65759a",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 22738,
+    "cache_read_tokens": 22272,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2012,
+    "reasoning_output_tokens": 940,
+    "total_tokens": 24750
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:57:46.222Z",
+    "response_id": "81b9d0a2-bacd-4287-b2be-45f7fd0947b6",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 26668,
+    "cache_read_tokens": 24704,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1175,
+    "reasoning_output_tokens": 832,
+    "total_tokens": 27843
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:57:48.503Z",
+    "response_id": "1f957204-2afd-4a69-b6a9-424f4e224a24",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 27932,
+    "cache_read_tokens": 27776,
+    "cache_creation_tokens": 0,
+    "output_tokens": 348,
+    "reasoning_output_tokens": 5,
+    "total_tokens": 28280
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:57:51.988Z",
+    "response_id": "aedb60b0-5586-4d47-84b0-b6713a7ce4b0",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 28370,
+    "cache_read_tokens": 28160,
+    "cache_creation_tokens": 0,
+    "output_tokens": 502,
+    "reasoning_output_tokens": 140,
+    "total_tokens": 28872
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:58:01.889Z",
+    "response_id": "c171c2df-9c42-459d-8000-01214e341660",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 29370,
+    "cache_read_tokens": 28800,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1273,
+    "reasoning_output_tokens": 1192,
+    "total_tokens": 30643
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:58:04.116Z",
+    "response_id": "140ac36b-b065-42ca-8e9d-e83f0979c061",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 30857,
+    "cache_read_tokens": 30592,
+    "cache_creation_tokens": 0,
+    "output_tokens": 244,
+    "reasoning_output_tokens": 41,
+    "total_tokens": 31101
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:58:24.610Z",
+    "response_id": "e0a5fc93-e531-4b54-b4b0-11e1eecf4873",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 34543,
+    "cache_read_tokens": 30976,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3012,
+    "reasoning_output_tokens": 2496,
+    "total_tokens": 37555
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:58:34.504Z",
+    "response_id": "dd586713-5854-4a86-8d52-8d3404c1035e",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 38982,
+    "cache_read_tokens": 34944,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1478,
+    "reasoning_output_tokens": 942,
+    "total_tokens": 40460
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:58:41.227Z",
+    "response_id": "9c5cdc36-c92b-4209-8689-a59845f3f0b1",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 41562,
+    "cache_read_tokens": 40448,
+    "cache_creation_tokens": 0,
+    "output_tokens": 872,
+    "reasoning_output_tokens": 341,
+    "total_tokens": 42434
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:58:47.349Z",
+    "response_id": "7eca081b-3d42-4510-8b28-cec6a7ab89da",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 42658,
+    "cache_read_tokens": 42368,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1014,
+    "reasoning_output_tokens": 513,
+    "total_tokens": 43672
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:58:56.173Z",
+    "response_id": "7cd9d4ae-09d1-4e7c-a2fb-72c678c48691",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 43845,
+    "cache_read_tokens": 43648,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1399,
+    "reasoning_output_tokens": 760,
+    "total_tokens": 45244
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:59:03.590Z",
+    "response_id": "2ad5c801-5d01-487e-8932-c5d63ec06e23",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 45862,
+    "cache_read_tokens": 45184,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1116,
+    "reasoning_output_tokens": 799,
+    "total_tokens": 46978
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:59:14.256Z",
+    "response_id": "7298b918-4f25-481f-a8c6-bbd1b3f8816f",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 47077,
+    "cache_read_tokens": 46848,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1573,
+    "reasoning_output_tokens": 1340,
+    "total_tokens": 48650
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:59:18.094Z",
+    "response_id": "dbf01dbd-9c4f-409f-8b8d-26ce01ac5f3d",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 49239,
+    "cache_read_tokens": 48640,
+    "cache_creation_tokens": 0,
+    "output_tokens": 445,
+    "reasoning_output_tokens": 223,
+    "total_tokens": 49684
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:59:20.819Z",
+    "response_id": "97aa3dbc-fabf-49bc-aa86-d098cd8a9461",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 50039,
+    "cache_read_tokens": 49664,
+    "cache_creation_tokens": 0,
+    "output_tokens": 351,
+    "reasoning_output_tokens": 71,
+    "total_tokens": 50390
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:59:24.767Z",
+    "response_id": "c15879e3-2fd3-42ea-977d-6e02932aad3a",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 50959,
+    "cache_read_tokens": 50304,
+    "cache_creation_tokens": 0,
+    "output_tokens": 529,
+    "reasoning_output_tokens": 195,
+    "total_tokens": 51488
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:59:33.054Z",
+    "response_id": "a181e1f7-c534-43d1-9b69-5e6c32ac3962",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 51980,
+    "cache_read_tokens": 51456,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1220,
+    "reasoning_output_tokens": 738,
+    "total_tokens": 53200
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:59:36.772Z",
+    "response_id": "a9fc1454-051c-489c-a295-d2ca7e02d085",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 53394,
+    "cache_read_tokens": 53120,
+    "cache_creation_tokens": 0,
+    "output_tokens": 477,
+    "reasoning_output_tokens": 159,
+    "total_tokens": 53871
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T04:59:52.147Z",
+    "response_id": "a96aca0a-1fd5-4894-a47f-49dbb029f422",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 54111,
+    "cache_read_tokens": 53760,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2167,
+    "reasoning_output_tokens": 1898,
+    "total_tokens": 56278
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T05:00:24.211Z",
+    "response_id": "de351ae9-18c1-44c3-bd82-18eb4424cd2a",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 56438,
+    "cache_read_tokens": 56192,
+    "cache_creation_tokens": 0,
+    "output_tokens": 5308,
+    "reasoning_output_tokens": 4060,
+    "total_tokens": 61746
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T05:00:41.123Z",
+    "response_id": "94418b4e-5da0-43c3-be83-05517c8762c4",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 62269,
+    "cache_read_tokens": 61696,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2881,
+    "reasoning_output_tokens": 1395,
+    "total_tokens": 65150
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T05:00:54.099Z",
+    "response_id": "2d906788-9534-4f92-9f55-548bc1d9f0ca",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 65252,
+    "cache_read_tokens": 65024,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1681,
+    "reasoning_output_tokens": 1405,
+    "total_tokens": 66933
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T05:00:56.977Z",
+    "response_id": "dcf73026-f41a-4179-8f1b-8ccddfc0f131",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 67087,
+    "cache_read_tokens": 66816,
+    "cache_creation_tokens": 0,
+    "output_tokens": 269,
+    "reasoning_output_tokens": 110,
+    "total_tokens": 67356
+   },
+   {
+    "session_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "ts": "2026-11-09T05:01:01.440Z",
+    "response_id": "52f4d2c5-803e-4631-9e0a-9d7407496f16",
+    "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+    "input_tokens": 67414,
+    "cache_read_tokens": 67200,
+    "cache_creation_tokens": 0,
+    "output_tokens": 399,
+    "reasoning_output_tokens": 365,
+    "total_tokens": 67813
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:01:04.193Z",
+    "response_id": "98d552cf-c013-4955-a8d2-ebf477c7ab36",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 9567,
+    "cache_read_tokens": 9344,
+    "cache_creation_tokens": 0,
+    "output_tokens": 167,
+    "reasoning_output_tokens": 8,
+    "total_tokens": 9734
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:01:05.965Z",
+    "response_id": "c6a73894-da0b-4724-b891-99e95dfddb1c",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 11090,
+    "cache_read_tokens": 9728,
+    "cache_creation_tokens": 0,
+    "output_tokens": 253,
+    "reasoning_output_tokens": 25,
+    "total_tokens": 11343
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:01:08.131Z",
+    "response_id": "e46eb7ba-d41d-473c-abf8-75fcae273cfb",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 17697,
+    "cache_read_tokens": 11264,
+    "cache_creation_tokens": 0,
+    "output_tokens": 214,
+    "reasoning_output_tokens": 64,
+    "total_tokens": 17911
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:01:28.937Z",
+    "response_id": "36894199-6f91-477d-80e9-c88252a20e73",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 19680,
+    "cache_read_tokens": 17792,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2986,
+    "reasoning_output_tokens": 2667,
+    "total_tokens": 22666
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:01:32.221Z",
+    "response_id": "fc85021d-b515-42cb-9668-2b2a64fa6a59",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 22913,
+    "cache_read_tokens": 22656,
+    "cache_creation_tokens": 0,
+    "output_tokens": 381,
+    "reasoning_output_tokens": 31,
+    "total_tokens": 23294
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:01:43.810Z",
+    "response_id": "56c8562e-4ad9-4def-88cf-fcfdfd3ca185",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 23647,
+    "cache_read_tokens": 23168,
+    "cache_creation_tokens": 0,
+    "output_tokens": 624,
+    "reasoning_output_tokens": 287,
+    "total_tokens": 24271
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:01:52.779Z",
+    "response_id": "fa4c1b17-f1e3-4393-8d0e-80a86d1af613",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 26081,
+    "cache_read_tokens": 24192,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1228,
+    "reasoning_output_tokens": 857,
+    "total_tokens": 27309
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:02:01.095Z",
+    "response_id": "59e20131-63c0-441d-a41b-553f2348453f",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 27865,
+    "cache_read_tokens": 27264,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1220,
+    "reasoning_output_tokens": 744,
+    "total_tokens": 29085
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:02:05.395Z",
+    "response_id": "460f5042-3766-4cdd-89d2-b05373031d80",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 29518,
+    "cache_read_tokens": 29056,
+    "cache_creation_tokens": 0,
+    "output_tokens": 625,
+    "reasoning_output_tokens": 255,
+    "total_tokens": 30143
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:02:32.435Z",
+    "response_id": "f0e9ef57-90ed-4d7a-a8be-e81d9c744876",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 31184,
+    "cache_read_tokens": 30080,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3698,
+    "reasoning_output_tokens": 3437,
+    "total_tokens": 34882
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:02:38.192Z",
+    "response_id": "91d7cf03-f4c6-440d-acab-f1ddf6d88222",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 36271,
+    "cache_read_tokens": 34816,
+    "cache_creation_tokens": 0,
+    "output_tokens": 830,
+    "reasoning_output_tokens": 313,
+    "total_tokens": 37101
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:02:41.558Z",
+    "response_id": "8ef7b0f1-9ce6-42e4-9c0a-2ae8ca6b126d",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 38003,
+    "cache_read_tokens": 36992,
+    "cache_creation_tokens": 0,
+    "output_tokens": 669,
+    "reasoning_output_tokens": 28,
+    "total_tokens": 38672
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:02:45.958Z",
+    "response_id": "c5e7e688-b90d-4716-8b67-a1afb03290c3",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 39155,
+    "cache_read_tokens": 38656,
+    "cache_creation_tokens": 0,
+    "output_tokens": 701,
+    "reasoning_output_tokens": 155,
+    "total_tokens": 39856
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:02:48.594Z",
+    "response_id": "dd556da3-5d06-4d8f-926b-bde0e9b7b572",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 40446,
+    "cache_read_tokens": 39808,
+    "cache_creation_tokens": 0,
+    "output_tokens": 334,
+    "reasoning_output_tokens": 22,
+    "total_tokens": 40780
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:02:57.740Z",
+    "response_id": "01274fcb-69e8-49e5-a4f1-4c2804bd7d23",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 41420,
+    "cache_read_tokens": 40704,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1418,
+    "reasoning_output_tokens": 911,
+    "total_tokens": 42838
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:03:01.688Z",
+    "response_id": "66e7a916-64e6-4949-9faa-de612e368d7d",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 43550,
+    "cache_read_tokens": 42752,
+    "cache_creation_tokens": 0,
+    "output_tokens": 474,
+    "reasoning_output_tokens": 67,
+    "total_tokens": 44024
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:03:05.562Z",
+    "response_id": "2e714c79-0e24-4c8d-87d9-54080b092de5",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 44493,
+    "cache_read_tokens": 43904,
+    "cache_creation_tokens": 0,
+    "output_tokens": 567,
+    "reasoning_output_tokens": 189,
+    "total_tokens": 45060
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:03:21.802Z",
+    "response_id": "aa2f38fb-25d4-4851-a759-09e1bfd27f57",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 45344,
+    "cache_read_tokens": 45056,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2446,
+    "reasoning_output_tokens": 1998,
+    "total_tokens": 47790
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:03:51.448Z",
+    "response_id": "1de91e2d-c26f-45f0-8a00-e5cf3e67ca13",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 47969,
+    "cache_read_tokens": 47744,
+    "cache_creation_tokens": 0,
+    "output_tokens": 4029,
+    "reasoning_output_tokens": 3589,
+    "total_tokens": 51998
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:03:58.113Z",
+    "response_id": "24e83724-d9c1-4c01-b6da-1067633ed6f4",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 52138,
+    "cache_read_tokens": 51968,
+    "cache_creation_tokens": 0,
+    "output_tokens": 949,
+    "reasoning_output_tokens": 525,
+    "total_tokens": 53087
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:04:00.607Z",
+    "response_id": "82f861fa-48d9-4125-95b2-6ccaa7153efd",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 53289,
+    "cache_read_tokens": 52992,
+    "cache_creation_tokens": 0,
+    "output_tokens": 284,
+    "reasoning_output_tokens": 68,
+    "total_tokens": 53573
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:04:20.764Z",
+    "response_id": "6e530374-452b-4656-84ba-da367964c95b",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 53669,
+    "cache_read_tokens": 53504,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2911,
+    "reasoning_output_tokens": 2577,
+    "total_tokens": 56580
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:04:40.395Z",
+    "response_id": "e47b0cd3-f5c4-4d0f-90cf-f60937127e5c",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 56772,
+    "cache_read_tokens": 56576,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3032,
+    "reasoning_output_tokens": 2464,
+    "total_tokens": 59804
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:05:01.597Z",
+    "response_id": "867241f3-1ed9-4329-8891-ef7e9d497f0a",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 60125,
+    "cache_read_tokens": 59776,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2989,
+    "reasoning_output_tokens": 2746,
+    "total_tokens": 63114
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:05:16.970Z",
+    "response_id": "5be42d63-5e62-462d-b7b3-185ad1ecff35",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 63207,
+    "cache_read_tokens": 62720,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2173,
+    "reasoning_output_tokens": 1750,
+    "total_tokens": 65380
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:05:56.096Z",
+    "response_id": "906929d8-6098-4332-bc3d-8fb19fe4eb66",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 65461,
+    "cache_read_tokens": 65280,
+    "cache_creation_tokens": 0,
+    "output_tokens": 5358,
+    "reasoning_output_tokens": 5220,
+    "total_tokens": 70819
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:06:26.515Z",
+    "response_id": "5ac7cfba-21de-4734-af01-c8015b6e038b",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 71135,
+    "cache_read_tokens": 70784,
+    "cache_creation_tokens": 0,
+    "output_tokens": 4137,
+    "reasoning_output_tokens": 3832,
+    "total_tokens": 75272
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:06:31.408Z",
+    "response_id": "b260dc45-9fad-4796-884d-f5052183f554",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 75377,
+    "cache_read_tokens": 75136,
+    "cache_creation_tokens": 0,
+    "output_tokens": 659,
+    "reasoning_output_tokens": 386,
+    "total_tokens": 76036
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:06:45.851Z",
+    "response_id": "fc7b2b7d-4f95-4721-9b51-2577869e48f0",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 76235,
+    "cache_read_tokens": 76032,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1991,
+    "reasoning_output_tokens": 1814,
+    "total_tokens": 78226
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:06:50.164Z",
+    "response_id": "07ac4213-4f58-45f8-b1bd-1175d1192801",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 79335,
+    "cache_read_tokens": 78208,
+    "cache_creation_tokens": 0,
+    "output_tokens": 542,
+    "reasoning_output_tokens": 231,
+    "total_tokens": 79877
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:07:16.244Z",
+    "response_id": "dcc7c8a0-59e4-489f-8ab9-16720857c830",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 80062,
+    "cache_read_tokens": 79872,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3591,
+    "reasoning_output_tokens": 3280,
+    "total_tokens": 83653
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:07:32.372Z",
+    "response_id": "6d87b69a-9530-475e-bdae-b1f1fada0b01",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 83887,
+    "cache_read_tokens": 83584,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2203,
+    "reasoning_output_tokens": 2113,
+    "total_tokens": 86090
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:07:58.192Z",
+    "response_id": "dd97587d-3ae1-400f-9cc0-746f80f8efcf",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 86216,
+    "cache_read_tokens": 86016,
+    "cache_creation_tokens": 0,
+    "output_tokens": 3641,
+    "reasoning_output_tokens": 3407,
+    "total_tokens": 89857
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:08:03.328Z",
+    "response_id": "d27296fc-7105-4e34-a4eb-eeb682085598",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 90016,
+    "cache_read_tokens": 89856,
+    "cache_creation_tokens": 0,
+    "output_tokens": 689,
+    "reasoning_output_tokens": 371,
+    "total_tokens": 90705
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:08:06.414Z",
+    "response_id": "b5cd81a8-8c34-4ed0-9ed5-02d32ae88442",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 90763,
+    "cache_read_tokens": 90624,
+    "cache_creation_tokens": 0,
+    "output_tokens": 365,
+    "reasoning_output_tokens": 92,
+    "total_tokens": 91128
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:08:23.205Z",
+    "response_id": "e9497e98-845c-46b2-941c-99b2a29d0c91",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 91384,
+    "cache_read_tokens": 91008,
+    "cache_creation_tokens": 0,
+    "output_tokens": 2164,
+    "reasoning_output_tokens": 2082,
+    "total_tokens": 93548
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:08:35.412Z",
+    "response_id": "24185dcb-24f3-49f3-81be-569f8b626ecd",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 94822,
+    "cache_read_tokens": 93440,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1595,
+    "reasoning_output_tokens": 1393,
+    "total_tokens": 96417
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:08:39.752Z",
+    "response_id": "fcd864cd-a8d3-4d25-a365-edc4ed6bac23",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 96503,
+    "cache_read_tokens": 96256,
+    "cache_creation_tokens": 0,
+    "output_tokens": 659,
+    "reasoning_output_tokens": 192,
+    "total_tokens": 97162
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:09:13.560Z",
+    "response_id": "4bc789c3-f1a2-4344-9e9e-1eb92395603b",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 97506,
+    "cache_read_tokens": 97152,
+    "cache_creation_tokens": 0,
+    "output_tokens": 4622,
+    "reasoning_output_tokens": 4374,
+    "total_tokens": 102128
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:09:22.587Z",
+    "response_id": "a3f88cb8-b6db-4735-b3ff-86188a851b92",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 102304,
+    "cache_read_tokens": 102016,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1240,
+    "reasoning_output_tokens": 1085,
+    "total_tokens": 103544
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "ts": "2026-11-09T05:09:34.557Z",
+    "response_id": "1c65e83e-941d-49a3-b443-c2e38eaa628b",
+    "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+    "input_tokens": 103789,
+    "cache_read_tokens": 103424,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1484,
+    "reasoning_output_tokens": 1432,
+    "total_tokens": 105273
+   }
+  ],
+  "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+ },
+ "reward": 1,
+ "weighted": 93.33,
+ "failed": [
+  "q25"
+ ],
+ "judge": {
+  "case": "bird-ca-schools-15",
+  "checker_version": "1.2-q26-frpm",
+  "contract_revision": "b2-tighten-2026-10-27",
+  "contract_status": "adopted-2026-10-26",
+  "parent_checker_version": "1.1",
+  "binary": true,
+  "run_dir": "/Users/b612-lp/bench-workspaces/r1030/codex/bird-ca-schools-15",
+  "reward": 1,
+  "weighted": 93.33,
+  "accuracy": 0.9333,
+  "correct": 14,
+  "n_questions": 15,
+  "threshold": 0.8,
+  "input_integrity": "verified",
+  "failed_questions": [
+   "25"
+  ],
+  "checks": [
+   {
+    "id": "input_integrity",
+    "pass": true,
+    "note": "已附输入副本 4 件，均与 canonical 一致"
+   },
+   {
+    "id": "answers_file",
+    "pass": true,
+    "note": "/Users/b612-lp/bench-workspaces/r1030/codex/bird-ca-schools-15/answers.jsonl"
+   },
+   {
+    "id": "answers_schema",
+    "pass": true,
+    "note": "15 行可解析，0 行 JSON/结构异常"
+   },
+   {
+    "id": "answers_coverage",
+    "pass": true,
+    "note": "有效行 15/15；缺失 无；多余 无；重复 0"
+   },
+   {
+    "id": "q28",
+    "pass": true,
+    "difficulty": "challenging",
+    "note": "行集一致（57 行）"
+   },
+   {
+    "id": "q36",
+    "pass": true,
+    "difficulty": "challenging",
+    "note": "行集一致（1 行）"
+   },
+   {
+    "id": "q62",
+    "pass": true,
+    "difficulty": "challenging",
+    "note": "行集一致（1 行）"
+   },
+   {
+    "id": "q83",
+    "pass": true,
+    "difficulty": "challenging",
+    "note": "行集一致（1 行）"
+   },
+   {
+    "id": "q87",
+    "pass": true,
+    "difficulty": "challenging",
+    "note": "行集一致（1 行）"
+   },
+   {
+    "id": "q12",
+    "pass": true,
+    "difficulty": "moderate",
+    "note": "行集一致（1 行）"
+   },
+   {
+    "id": "q23",
+    "pass": true,
+    "difficulty": "moderate",
+    "note": "行集一致（1239 行）"
+   },
+   {
+    "id": "q24",
+    "pass": true,
+    "difficulty": "moderate",
+    "note": "行集一致（1068 行）"
+   },
+   {
+    "id": "q25",
+    "pass": false,
+    "difficulty": "moderate",
+    "note": "行数 12 vs gold 6"
+   },
+   {
+    "id": "q26",
+    "pass": true,
+    "difficulty": "moderate",
+    "note": "行集一致（6 行）"
+   },
+   {
+    "id": "q27",
+    "pass": true,
+    "difficulty": "moderate",
+    "note": "行集一致（8574 行）"
+   },
+   {
+    "id": "q31",
+    "pass": true,
+    "difficulty": "moderate",
+    "note": "行集一致（2 行）"
+   },
+   {
+    "id": "q5",
+    "pass": true,
+    "difficulty": "simple",
+    "note": "行集一致（1 行）"
+   },
+   {
+    "id": "q11",
+    "pass": true,
+    "difficulty": "simple",
+    "note": "行集一致（7806 行）"
+   },
+   {
+    "id": "q17",
+    "pass": true,
+    "difficulty": "simple",
+    "note": "行集一致（50 行）"
+   }
+  ]
+ },
+ "integrity": {
+  "violations": 2,
+  "patterns": [
+   "2-用例",
+   "truth.json",
+   "checker.py",
+   "reference/",
+   "solution/",
+   "../",
+   "~/Documents",
+   "harness-compare-bench"
+  ],
+  "basis": "inline session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+  "evidence": [
+   {
+    "source": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "line": 200,
+    "pattern": "reference/",
+    "excerpt": "{\"timestamp\": \"2026-11-09T05:05:55.755Z\", \"ordinal\": 199, \"type\": \"event_msg\", \"payload\": {\"type\": \"item_completed\", \"thread_id\": \"01a1beae-646a-7de1-a3bd-033f8832cbf1\", \"turn_id\": \"01a1beae-6490-7b51-b2fd-09e7735f1ce1\", \"item\": {\"type\": \"Reasoning\", \"id\": \"d9d29208-b12b-4d92-886f-50d627b9fa8f\", \"su"
+   },
+   {
+    "source": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "line": 201,
+    "pattern": "reference/",
+    "excerpt": "{\"timestamp\": \"2026-11-09T05:05:55.762Z\", \"ordinal\": 200, \"type\": \"response_item\", \"payload\": {\"type\": \"reasoning\", \"id\": \"d9d29208-b12b-4d92-886f-50d627b9fa8f\", \"summary\": [], \"content\": [{\"type\": \"reasoning_text\", \"text\": \"Fine.\\n\\nNow, could q28's average be over `Schools` without joining frpm, i"
+   }
+  ]
+ },
+ "integrity_verdict": "violation",
+ "run_id": "r1109-codex-bird-ca-schools-15-r2",
+ "event_id": "mech-n3-codex-bird-ca-schools-15-r2",
+ "selection": {
+  "plan_id": "mech-n3-20261109",
+  "slot_id": "mech-n3-codex-bird-ca-schools-15-r2",
+  "order": 2,
+  "kind": "rep"
+ },
+ "rep": "2",
+ "post_run_corrections": [
+  {
+   "kind": "trace-accounting",
+   "true_rollout": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+   "neighbor_rollouts_moved": 1,
+   "integrity_violations_true_only": 2,
+   "r3_input_bytes_true_only": 379471,
+   "note": "in-run capture additionally included the previous slot rollout (shared CODEX_HOME); corrected values here supersede in-run counts"
+  }
+ ]
+}

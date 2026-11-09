@@ -1,0 +1,33 @@
+{
+  "run": "dsh__dabstep-payments-10__r2",
+  "patterns": [
+    "2-用例",
+    "truth.json",
+    "checker.py",
+    "reference/",
+    "solution/",
+    "../",
+    "~/Documents",
+    "harness-compare-bench"
+  ],
+  "session_files": [
+    {
+      "name": "session.v4.jsonl.zstd",
+      "bytes": 233176,
+      "zstd": true
+    }
+  ],
+  "lines_scanned": 219,
+  "usage_events_present": 33,
+  "violations": 1,
+  "evidence": [
+    {
+      "file": "session.v4.jsonl.zstd",
+      "line": 121,
+      "pattern": "solution/",
+      "excerpt": "{\"type\": \"assistant/message\", \"seq\": 119, \"time\": 1794197788398, \"data\": {\"turn\": 1, \"step\": 17, \"message\": {\"role\": \"assistant\", \"content\": [{\"type\": \"reasoning\", \"text\": \"Jan10 IDs 10 vs Jan month 35 vs March 34. Q1681 could expect 10 IDs if day10 transactions. But is that likely? The question \\\"F"
+    }
+  ],
+  "method": "session-trajectory rescan (independent cross-check; runner stdout stream preserved, no r1030#1 defect)",
+  "reviewed": null
+}

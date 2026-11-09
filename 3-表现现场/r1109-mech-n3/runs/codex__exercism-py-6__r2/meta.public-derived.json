@@ -1,0 +1,453 @@
+{
+ "batch": "r1030-formal-a1",
+ "rule_version": "freeze-20261029-v2",
+ "product": "codex",
+ "case": "exercism-py-6",
+ "form": "cli",
+ "created_at": "2026-10-29T02:22:56+08:00",
+ "model": "deepseek-flash",
+ "reasoning_effort": "low",
+ "product_version": "codex-cli 0.163.0",
+ "route": {
+  "host": "api.deepseek.com",
+  "provider_id": "deepseek",
+  "wire_protocol": "responses",
+  "endpoint": "https://api.deepseek.com"
+ },
+ "tools": [
+  "shell",
+  "apply_patch",
+  "read_files（web_search=disabled，skills=off）"
+ ],
+ "permissions": "sandbox_mode=danger-full-access; approval_policy=never（隔离 CODEX_HOME 配置）",
+ "skills": "off（[skills] include_instructions=false，bundled disabled）",
+ "web_search": "disabled",
+ "soft_constraints": [
+  "stay-in-workspace",
+  "no-oracle-hunt",
+  "offline"
+ ],
+ "prompt_sha256": "27697d2db8d125c1c1c092cb202e356e44a9038d1ba091fb403e3cff9221ec8b",
+ "isolation": {
+  "ok": true,
+  "problems": []
+ },
+ "inputs": [
+  {
+   "path": "inputs/README.md",
+   "sha256": "ce8cd74f03bf3517217591fc7289246069c4a6466f59960f115330ab0899956f",
+   "bytes": 674
+  },
+  {
+   "path": "inputs/exercises/bowling/README.md",
+   "sha256": "5ab7dcccef9be464f8e5f1d6a9c543d6c4c14e435c2ffe40d2e118ebfd299e32",
+   "bytes": 554
+  },
+  {
+   "path": "inputs/exercises/bowling/bowling.py",
+   "sha256": "a356c0682b6c0c04e9e30a7da603b2014c227426b43bbe37f34cd99913d368b6",
+   "bytes": 131
+  },
+  {
+   "path": "inputs/exercises/bowling/bowling_test.py",
+   "sha256": "6b9a80b6835828f575ce0aba66876850f75c59f764014ac509fe1df7e3a9ee20",
+   "bytes": 8558
+  },
+  {
+   "path": "inputs/exercises/dominoes/README.md",
+   "sha256": "77f6d2a86ba50b8ba2f0b53f1ab799eb2f30c1e4853ce1296ee1949578d6c50e",
+   "bytes": 430
+  },
+  {
+   "path": "inputs/exercises/dominoes/dominoes.py",
+   "sha256": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b",
+   "bytes": 34
+  },
+  {
+   "path": "inputs/exercises/dominoes/dominoes_test.py",
+   "sha256": "9645efc873738b9247ced09ccdce782fe2124646d24588d52c23df59e23ab140",
+   "bytes": 5099
+  },
+  {
+   "path": "inputs/exercises/forth/README.md",
+   "sha256": "0480b8a2eef97049ddff262b0bc21f5b31167561325c402918b5ceb0c37b466a",
+   "bytes": 559
+  },
+  {
+   "path": "inputs/exercises/forth/forth.py",
+   "sha256": "9acd281e02feff4fc5ae766063a1ce1290b625bb930cc8f54c15a0109610e562",
+   "bytes": 84
+  },
+  {
+   "path": "inputs/exercises/forth/forth_test.py",
+   "sha256": "05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c",
+   "bytes": 11264
+  },
+  {
+   "path": "inputs/exercises/poker/README.md",
+   "sha256": "9c24e6480e2ddbf3b72116c30cde1560657ca8ef283d1be26004ef2fa7908c97",
+   "bytes": 543
+  },
+  {
+   "path": "inputs/exercises/poker/poker.py",
+   "sha256": "6a4b5adab3ba9261fb4f9e2b09abc549b9ea37bf0774edc3c7759cec9a8b41fe",
+   "bytes": 32
+  },
+  {
+   "path": "inputs/exercises/poker/poker_test.py",
+   "sha256": "b39f023208318973e18a341449aa076f7595ff98f07174082a2a1b05c84ad8fd",
+   "bytes": 7690
+  },
+  {
+   "path": "inputs/exercises/pov/README.md",
+   "sha256": "12dafe5d49b0510037ea6ced53ae6ff08305b75f2d3be89efcad2635d54d75ec",
+   "bytes": 727
+  },
+  {
+   "path": "inputs/exercises/pov/pov.py",
+   "sha256": "ed7eba5f0b64b69a0a1904dc338ce39039b5de3ea2aa74019d8d494ca46b11ba",
+   "bytes": 622
+  },
+  {
+   "path": "inputs/exercises/pov/pov_test.py",
+   "sha256": "a5127ac17db6ad1563a08ba8ee2bbfc25ed8ab81ee56b92a355eb4a4dc2559fe",
+   "bytes": 6346
+  },
+  {
+   "path": "inputs/exercises/zipper/README.md",
+   "sha256": "8b932da02d3e213b5b1e03a8f585c89b72084d024074287d4b7427a351e4d619",
+   "bytes": 562
+  },
+  {
+   "path": "inputs/exercises/zipper/zipper.py",
+   "sha256": "66276107d448f53a12509da6f503280e0dca4a6bbd9d690a774fb0972a55f926",
+   "bytes": 359
+  },
+  {
+   "path": "inputs/exercises/zipper/zipper_test.py",
+   "sha256": "a3cf6e5ebcf6b2171bcc80fa0ce81b425af23b522f222e841fa2abd3119e95b2",
+   "bytes": 9641
+  }
+ ],
+ "status": "ok",
+ "exit_code": 0,
+ "started_at": "2026-11-09T13:39:10+08:00",
+ "finished_at": "2026-11-09T13:39:33+08:00",
+ "duration_s": 22.4,
+ "attempts": [
+  {
+   "n": 1,
+   "started_at": "2026-11-09T13:39:10+08:00",
+   "duration_s": 22.4,
+   "exit_code": 0,
+   "outcome": "ok"
+  }
+ ],
+ "transport_retries": 0,
+ "stdout_bytes": 88914,
+ "stderr_bytes": 1095,
+ "stdout_sha256": "6b40de0741a197b10b6de6a50c7b31a8803fe5d3f4e5bfd4635168c7ccc20de5",
+ "stderr_sha256": "ea957b06bba6e99a91e148878e78c3030dc53a7087c6ef9919fd78957e12def5",
+ "stdout_archive_note": "runner 侧完整 stdout 事件流落盘，无 8192 截断路径（工程项 a）；CLI 显示层对大输出的约 8192 字符前缀截断属产品行为，完整工具输出由会话轨迹佐证",
+ "usage": {
+  "requests": 10,
+  "input_tokens": 192214,
+  "output_tokens": 8249,
+  "cache_read_tokens": 163712,
+  "cache_creation_tokens": 0,
+  "reasoning_output_tokens": 1698,
+  "total_tokens": 200463,
+  "cumulative_thread_final": {
+   "input_tokens": 83603,
+   "cached_input_tokens": 74112,
+   "cache_write_input_tokens": 0,
+   "output_tokens": 3363,
+   "reasoning_output_tokens": 846,
+   "total_tokens": 86966
+  },
+  "per_call": [
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:38:44.773Z",
+    "response_id": "3c9627d9-b592-426d-aabe-edc84f9ecf79",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 8923,
+    "cache_read_tokens": 7808,
+    "cache_creation_tokens": 0,
+    "output_tokens": 581,
+    "reasoning_output_tokens": 53,
+    "total_tokens": 9504
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:38:51.694Z",
+    "response_id": "1c529f5d-ac88-4de2-a282-23b4c9ec044d",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 10149,
+    "cache_read_tokens": 9472,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1747,
+    "reasoning_output_tokens": 31,
+    "total_tokens": 11896
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:38:58.375Z",
+    "response_id": "02cd798d-4a6e-4a44-a4ee-8878f15996f5",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 28325,
+    "cache_read_tokens": 11776,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1427,
+    "reasoning_output_tokens": 29,
+    "total_tokens": 29752
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:39:04.711Z",
+    "response_id": "7dc8495c-08ba-4df7-b456-a131d176f1be",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 30107,
+    "cache_read_tokens": 29696,
+    "cache_creation_tokens": 0,
+    "output_tokens": 836,
+    "reasoning_output_tokens": 527,
+    "total_tokens": 30943
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "ts": "2026-11-09T05:39:09.280Z",
+    "response_id": "0a9720fd-42c1-4fcb-be34-cd8baa6361db",
+    "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+    "input_tokens": 31107,
+    "cache_read_tokens": 30848,
+    "cache_creation_tokens": 0,
+    "output_tokens": 295,
+    "reasoning_output_tokens": 212,
+    "total_tokens": 31402
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+    "ts": "2026-11-09T05:39:15.178Z",
+    "response_id": "c5ae21cc-b58b-495a-9110-2dbe911318b6",
+    "turn_id": "01a1bed1-4f94-7573-a821-a7b43e417394",
+    "input_tokens": 8923,
+    "cache_read_tokens": 8704,
+    "cache_creation_tokens": 0,
+    "output_tokens": 871,
+    "reasoning_output_tokens": 97,
+    "total_tokens": 9794
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+    "ts": "2026-11-09T05:39:19.630Z",
+    "response_id": "05b237b2-bc29-438b-9e0e-3d3a6f1d0acc",
+    "turn_id": "01a1bed1-4f94-7573-a821-a7b43e417394",
+    "input_tokens": 13556,
+    "cache_read_tokens": 9728,
+    "cache_creation_tokens": 0,
+    "output_tokens": 888,
+    "reasoning_output_tokens": 66,
+    "total_tokens": 14444
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+    "ts": "2026-11-09T05:39:27.103Z",
+    "response_id": "2b7121c1-06f8-4e0f-aa1f-8bf054ebc2fa",
+    "turn_id": "01a1bed1-4f94-7573-a821-a7b43e417394",
+    "input_tokens": 19321,
+    "cache_read_tokens": 14336,
+    "cache_creation_tokens": 0,
+    "output_tokens": 1062,
+    "reasoning_output_tokens": 520,
+    "total_tokens": 20383
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+    "ts": "2026-11-09T05:39:30.122Z",
+    "response_id": "ca11979a-e5e2-4a40-935f-1e26dc25ec74",
+    "turn_id": "01a1bed1-4f94-7573-a821-a7b43e417394",
+    "input_tokens": 20617,
+    "cache_read_tokens": 20352,
+    "cache_creation_tokens": 0,
+    "output_tokens": 393,
+    "reasoning_output_tokens": 80,
+    "total_tokens": 21010
+   },
+   {
+    "session_file": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+    "ts": "2026-11-09T05:39:31.984Z",
+    "response_id": "546e89b9-f232-4540-a325-6bec1403f041",
+    "turn_id": "01a1bed1-4f94-7573-a821-a7b43e417394",
+    "input_tokens": 21186,
+    "cache_read_tokens": 20992,
+    "cache_creation_tokens": 0,
+    "output_tokens": 149,
+    "reasoning_output_tokens": 83,
+    "total_tokens": 21335
+   }
+  ],
+  "note": "per-response usage from product session rollout token_usage_record; cached_input_tokens→cache_read_tokens, cache_write_input_tokens→cache_creation_tokens; absent fields stay 0"
+ },
+ "reward": 1,
+ "weighted": 100.0,
+ "failed": [],
+ "judge": {
+  "case": "exercism-py-6",
+  "checker_version": "1.1",
+  "reward": 1,
+  "weighted": 100.0,
+  "checks": [
+   {
+    "id": "input_integrity",
+    "pass": true,
+    "note": "运行目录内官方测试文件与 canonical 一致"
+   },
+   {
+    "id": "forth",
+    "pass": true,
+    "note": "完成回执 tests=54/54 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 54,
+     "tests_run": 54,
+     "discovered": 54,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 54,
+     "stopped": 54,
+     "succeeded": 54,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "poker",
+    "pass": true,
+    "note": "完成回执 tests=37/37 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 37,
+     "tests_run": 37,
+     "discovered": 37,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 37,
+     "stopped": 37,
+     "succeeded": 37,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "dominoes",
+    "pass": true,
+    "note": "完成回执 tests=13/13 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 13,
+     "tests_run": 13,
+     "discovered": 13,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 13,
+     "stopped": 13,
+     "succeeded": 13,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "bowling",
+    "pass": true,
+    "note": "完成回执 tests=31/31 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 31,
+     "tests_run": 31,
+     "discovered": 31,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 31,
+     "stopped": 31,
+     "succeeded": 31,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "zipper",
+    "pass": true,
+    "note": "完成回执 tests=14/14 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 14,
+     "tests_run": 14,
+     "discovered": 14,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 14,
+     "stopped": 14,
+     "succeeded": 14,
+     "identities_match": true
+    }
+   },
+   {
+    "id": "pov",
+    "pass": true,
+    "note": "完成回执 tests=15/15 exit=0",
+    "completion": {
+     "complete": true,
+     "expected": 15,
+     "tests_run": 15,
+     "discovered": 15,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+     "started": 15,
+     "stopped": 15,
+     "succeeded": 15,
+     "identities_match": true
+    }
+   }
+  ]
+ },
+ "integrity": {
+  "violations": 0,
+  "patterns": [
+   "2-用例",
+   "truth.json",
+   "checker.py",
+   "reference/",
+   "solution/",
+   "../",
+   "~/Documents",
+   "harness-compare-bench"
+  ],
+  "basis": "inline session-trajectory + runner-stdout rescan; see integrity-rescan.json",
+  "evidence": []
+ },
+ "integrity_verdict": "clean",
+ "run_id": "r1109-codex-exercism-py-6-r2",
+ "event_id": "mech-n3-codex-exercism-py-6-r2",
+ "selection": {
+  "plan_id": "mech-n3-20261109",
+  "slot_id": "mech-n3-codex-exercism-py-6-r2",
+  "order": 2,
+  "kind": "rep"
+ },
+ "rep": "2",
+ "post_run_corrections": [
+  {
+   "kind": "trace-accounting",
+   "true_rollout": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+   "neighbor_rollouts_moved": [
+    "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl"
+   ],
+   "integrity_violations_true_only": 0,
+   "r3_input_bytes_true_only": 60064,
+   "note": "in-run capture additionally included the previous slot rollout (shared CODEX_HOME); corrected values here supersede in-run counts"
+  }
+ ]
+}

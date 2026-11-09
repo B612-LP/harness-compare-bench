@@ -1,0 +1,33 @@
+{
+ "run": "dsh__dabstep-payments-10__r1",
+ "patterns": [
+  "2-用例",
+  "truth.json",
+  "checker.py",
+  "reference/",
+  "solution/",
+  "../",
+  "~/Documents",
+  "harness-compare-bench"
+ ],
+ "session_files": [
+  {
+   "name": "session.v4.jsonl.zstd (main, recovered)",
+   "bytes": 428424,
+   "zstd": true
+  },
+  {
+   "name": "subagent-0cd290d6…/session.v4.jsonl.zstd",
+   "bytes": 181170,
+   "zstd": true
+  }
+ ],
+ "lines_scanned": 515,
+ "violations": 0,
+ "evidence": {
+  "main": [],
+  "subagent": []
+ },
+ "method": "session-trajectory rescan（trace recovery 后重扫；主/子代理分账见 integrity-rescan-attribution.json）",
+ "capture_incident": "agent-session/capture-incident.json"
+}

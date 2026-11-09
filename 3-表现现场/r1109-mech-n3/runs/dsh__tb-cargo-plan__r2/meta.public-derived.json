@@ -1,0 +1,687 @@
+{
+ "batch": "r1030-formal-a1",
+ "rule_version": "freeze-20261029-v2",
+ "product": "dsh",
+ "case": "tb-cargo-plan",
+ "form": "cli",
+ "created_at": "2026-10-29T02:29:17+08:00",
+ "model": "deepseek-flash",
+ "reasoning_effort": "low",
+ "product_version": "0.2.0-rc.2",
+ "route": {
+  "host": "api.deepseek.com",
+  "provider_id": "deepseek-official",
+  "wire_protocol": "anthropic-messages",
+  "endpoint": null
+ },
+ "tools": [
+  "builtin shell/read/write 等 bench-cli 基础工具（tool-web/tool-skill/skill-filesystem disabled）"
+ ],
+ "permissions": "permission preset danger-full-access（approval never，bench-cli cordis.patch.yml）",
+ "skills": "off（tool-skill 与 skill-filesystem 均 disabled）",
+ "web_search": "disabled",
+ "soft_constraints": [
+  "stay-in-workspace",
+  "no-oracle-hunt",
+  "offline"
+ ],
+ "prompt_sha256": "3ff694e25e3729bcf69078f4994519135ec254a504b0fc0b0e69b136067f52b4",
+ "isolation": {
+  "ok": true,
+  "problems": []
+ },
+ "inputs": [
+  {
+   "path": "inputs/app/aircraft.py",
+   "sha256": "7b2afc4273ea0b9046bf1e32b6a57a99a4ec5b073ed39f075beb4994cffa9de9",
+   "bytes": 2376
+  },
+  {
+   "path": "inputs/app/data/aircraft.json",
+   "sha256": "5042e4c7cabfc55453c4d3b13edf4cab4c2b2142d634e767f64b6eb175aca549",
+   "bytes": 496
+  },
+  {
+   "path": "inputs/app/data/airports.json",
+   "sha256": "25bb33e33712e70b98158c14d7207fb17fdf870c678973b88a2b1ce85d65bde2",
+   "bytes": 1685
+  },
+  {
+   "path": "inputs/app/data/manifest.json",
+   "sha256": "e29b874389205274056b0044e03c2682e00b6c06909c9f1d2a386d97e9178f88",
+   "bytes": 1257
+  },
+  {
+   "path": "inputs/app/data/weather.json",
+   "sha256": "5b5b3caa0f93b0a6d1f2ecb58f1b0a89c2ca62ecf5bd85104dc6097fa31fa867",
+   "bytes": 1611
+  },
+  {
+   "path": "inputs/app/dispatch.py",
+   "sha256": "7a435b3a743a380728f41a4a4d2b25ff5b0305ca4ffdfa83162d72589a657bd8",
+   "bytes": 8504
+  },
+  {
+   "path": "inputs/app/navigation.py",
+   "sha256": "b7932e8f60649e22f106b3bf5b6c2542971a76d07a0f6202802651aebac1494e",
+   "bytes": 2482
+  }
+ ],
+ "status": "ok",
+ "exit_code": 0,
+ "started_at": "2026-11-09T12:49:36+08:00",
+ "finished_at": "2026-11-09T12:54:12+08:00",
+ "duration_s": 276.0,
+ "transport_retries": [],
+ "archived_stdout": {
+  "raw_bytes": 126925,
+  "raw_lines": 102,
+  "raw_file": "agent.jsonl",
+  "raw_truncation": "dsh-headless 0.2.0-rc.2 --json projection caps are hardcoded (maxStringBytes=8192, maxEventBytes=32768); no flag/env override exists in this version",
+  "full_bytes": 361394,
+  "full_lines": 112,
+  "full_file": "agent.jsonl.full",
+  "full_method": "lossless re-projection of durable session log (agent-session/*.jsonl.zstd) with string/line caps removed; same commit-point semantics as the CLI projection"
+ },
+ "usage": {
+  "requests": 21,
+  "input_tokens": 31305,
+  "output_tokens": 69931,
+  "cache_read_tokens": 1162496,
+  "cache_creation_tokens": 0,
+  "per_call": [
+   {
+    "turn": 1,
+    "step": 1,
+    "input_tokens": 6278,
+    "output_tokens": 80,
+    "total_tokens": 6614,
+    "cache_read_tokens": 256,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 2,
+    "input_tokens": 315,
+    "output_tokens": 233,
+    "total_tokens": 7076,
+    "cache_read_tokens": 6528,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 3,
+    "input_tokens": 10093,
+    "output_tokens": 4001,
+    "total_tokens": 21134,
+    "cache_read_tokens": 7040,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 4,
+    "input_tokens": 2646,
+    "output_tokens": 1427,
+    "total_tokens": 25193,
+    "cache_read_tokens": 21120,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 5,
+    "input_tokens": 589,
+    "output_tokens": 3204,
+    "total_tokens": 28881,
+    "cache_read_tokens": 25088,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 6,
+    "input_tokens": 314,
+    "output_tokens": 626,
+    "total_tokens": 29740,
+    "cache_read_tokens": 28800,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 7,
+    "input_tokens": 225,
+    "output_tokens": 1494,
+    "total_tokens": 31415,
+    "cache_read_tokens": 29696,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 8,
+    "input_tokens": 197,
+    "output_tokens": 7204,
+    "total_tokens": 38633,
+    "cache_read_tokens": 31232,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 9,
+    "input_tokens": 171,
+    "output_tokens": 1131,
+    "total_tokens": 39830,
+    "cache_read_tokens": 38528,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 10,
+    "input_tokens": 3669,
+    "output_tokens": 18757,
+    "total_tokens": 62234,
+    "cache_read_tokens": 39808,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 11,
+    "input_tokens": 174,
+    "output_tokens": 9007,
+    "total_tokens": 71261,
+    "cache_read_tokens": 62080,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 12,
+    "input_tokens": 235,
+    "output_tokens": 3375,
+    "total_tokens": 74650,
+    "cache_read_tokens": 71040,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 13,
+    "input_tokens": 1674,
+    "output_tokens": 274,
+    "total_tokens": 76572,
+    "cache_read_tokens": 74624,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 14,
+    "input_tokens": 1693,
+    "output_tokens": 1936,
+    "total_tokens": 80173,
+    "cache_read_tokens": 76544,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 15,
+    "input_tokens": 364,
+    "output_tokens": 4232,
+    "total_tokens": 84724,
+    "cache_read_tokens": 80128,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 16,
+    "input_tokens": 1779,
+    "output_tokens": 7786,
+    "total_tokens": 94173,
+    "cache_read_tokens": 84608,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 17,
+    "input_tokens": 147,
+    "output_tokens": 1011,
+    "total_tokens": 95238,
+    "cache_read_tokens": 94080,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 18,
+    "input_tokens": 155,
+    "output_tokens": 2927,
+    "total_tokens": 98186,
+    "cache_read_tokens": 95104,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 19,
+    "input_tokens": 152,
+    "output_tokens": 691,
+    "total_tokens": 98891,
+    "cache_read_tokens": 98048,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 20,
+    "input_tokens": 301,
+    "output_tokens": 296,
+    "total_tokens": 99413,
+    "cache_read_tokens": 98816,
+    "cache_creation_tokens": 0
+   },
+   {
+    "turn": 1,
+    "step": 21,
+    "input_tokens": 134,
+    "output_tokens": 239,
+    "total_tokens": 99701,
+    "cache_read_tokens": 99328,
+    "cache_creation_tokens": 0
+   }
+  ],
+  "cross_check": {
+   "compared": 19,
+   "equal": 0,
+   "mismatch": [
+    {
+     "turn": 1,
+     "step": 1,
+     "session": {
+      "turn": 1,
+      "step": 1,
+      "input_tokens": 6278,
+      "output_tokens": 80,
+      "total_tokens": 6614,
+      "cache_read_tokens": 256,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 134,
+      "output_tokens": 86,
+      "total_tokens": 6620,
+      "cache_read_tokens": 6400,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 2,
+     "session": {
+      "turn": 1,
+      "step": 2,
+      "input_tokens": 315,
+      "output_tokens": 233,
+      "total_tokens": 7076,
+      "cache_read_tokens": 6528,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 307,
+      "output_tokens": 234,
+      "total_tokens": 7069,
+      "cache_read_tokens": 6528,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 3,
+     "session": {
+      "turn": 1,
+      "step": 3,
+      "input_tokens": 10093,
+      "output_tokens": 4001,
+      "total_tokens": 21134,
+      "cache_read_tokens": 7040,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 11762,
+      "output_tokens": 3470,
+      "total_tokens": 22272,
+      "cache_read_tokens": 7040,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 4,
+     "session": {
+      "turn": 1,
+      "step": 4,
+      "input_tokens": 2646,
+      "output_tokens": 1427,
+      "total_tokens": 25193,
+      "cache_read_tokens": 21120,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 814,
+      "output_tokens": 2303,
+      "total_tokens": 25389,
+      "cache_read_tokens": 22272,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 5,
+     "session": {
+      "turn": 1,
+      "step": 5,
+      "input_tokens": 589,
+      "output_tokens": 3204,
+      "total_tokens": 28881,
+      "cache_read_tokens": 25088,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 746,
+      "output_tokens": 4976,
+      "total_tokens": 31066,
+      "cache_read_tokens": 25344,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 6,
+     "session": {
+      "turn": 1,
+      "step": 6,
+      "input_tokens": 314,
+      "output_tokens": 626,
+      "total_tokens": 29740,
+      "cache_read_tokens": 28800,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 283,
+      "output_tokens": 650,
+      "total_tokens": 31909,
+      "cache_read_tokens": 30976,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 7,
+     "session": {
+      "turn": 1,
+      "step": 7,
+      "input_tokens": 225,
+      "output_tokens": 1494,
+      "total_tokens": 31415,
+      "cache_read_tokens": 29696,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 421,
+      "output_tokens": 8244,
+      "total_tokens": 40537,
+      "cache_read_tokens": 31872,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 8,
+     "session": {
+      "turn": 1,
+      "step": 8,
+      "input_tokens": 197,
+      "output_tokens": 7204,
+      "total_tokens": 38633,
+      "cache_read_tokens": 31232,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 141,
+      "output_tokens": 1370,
+      "total_tokens": 41959,
+      "cache_read_tokens": 40448,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 9,
+     "session": {
+      "turn": 1,
+      "step": 9,
+      "input_tokens": 171,
+      "output_tokens": 1131,
+      "total_tokens": 39830,
+      "cache_read_tokens": 38528,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 155,
+      "output_tokens": 123,
+      "total_tokens": 42134,
+      "cache_read_tokens": 41856,
+      "cache_creation_tokens": 0
+     }
+    },
+    {
+     "turn": 1,
+     "step": 10,
+     "session": {
+      "turn": 1,
+      "step": 10,
+      "input_tokens": 3669,
+      "output_tokens": 18757,
+      "total_tokens": 62234,
+      "cache_read_tokens": 39808,
+      "cache_creation_tokens": 0
+     },
+     "stdout_projection": {
+      "input_tokens": 205,
+      "output_tokens": 900,
+      "total_tokens": 43217,
+      "cache_read_tokens": 42112,
+      "cache_creation_tokens": 0
+     }
+    }
+   ]
+  },
+  "source": "durable session log assistant/message usage (commit points); cache_read_tokens=cacheReadTokens, cache_creation_tokens=cacheWriteTokens (anthropic-messages 语义)"
+ },
+ "reward": 1,
+ "weighted": 88.89,
+ "failed": [
+  "leg2_weight_limits_fuel",
+  "tow_leg1",
+  "landing_weight_leg2"
+ ],
+ "judge": {
+  "case": "tb-cargo-plan",
+  "checker_version": "0.2",
+  "contract_revision": "b12-b14-b13a-tighten-2026-10-27",
+  "reward": 1,
+  "weighted": 88.89,
+  "passed": 24,
+  "total": 27,
+  "critical_ok": true,
+  "checks": [
+   {
+    "id": "input_integrity",
+    "pass": true,
+    "note": "ok"
+   },
+   {
+    "id": "code_rerun",
+    "pass": true,
+    "note": "ok"
+   },
+   {
+    "id": "plan_structure",
+    "pass": true,
+    "note": "route=6 legs=5"
+   },
+   {
+    "id": "route_hub",
+    "pass": true,
+    "note": "NAN..NAN"
+   },
+   {
+    "id": "route_order",
+    "pass": true,
+    "note": "['SUV', 'TBU', 'APW', 'FUN'] vs ['SUV', 'TBU', 'APW', 'FUN']"
+   },
+   {
+    "id": "leg_suv_tbu_distance",
+    "pass": true,
+    "note": "404.2 vs 404.2"
+   },
+   {
+    "id": "tas_varies",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "heading_wind_corrected",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "ground_speed",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "crosswind_dest",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "crosswind_apw_near_limit",
+    "pass": true,
+    "note": "19.1"
+   },
+   {
+    "id": "crosswind_ok_field",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_carries_no_fuel_stop",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_no_refuel_carry",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_capacity",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "reserve_holding",
+    "pass": true,
+    "note": "31.5 vs 31.5"
+   },
+   {
+    "id": "tow_within_limit",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "leg2_weight_limits_fuel",
+    "pass": false,
+    "note": "139.1 vs 145.7"
+   },
+   {
+    "id": "leg2_fuel_below_planned",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_remaining_formula",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_remaining_above_min",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "fuel_remaining_ok_field",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "leg2_remaining_below_reserve",
+    "pass": true,
+    "note": "20.0"
+   },
+   {
+    "id": "tow_leg1",
+    "pass": false,
+    "note": "8395.3"
+   },
+   {
+    "id": "landing_weight_leg2",
+    "pass": false,
+    "note": "7846.0"
+   },
+   {
+    "id": "total_time_includes_turnaround",
+    "pass": true,
+    "note": "668.7 vs 568.7"
+   },
+   {
+    "id": "total_time_value",
+    "pass": true,
+    "note": "668.7"
+   },
+   {
+    "id": "route_feasible",
+    "pass": true,
+    "note": "True"
+   },
+   {
+    "id": "feasibility_includes_crosswind",
+    "pass": true,
+    "note": ""
+   },
+   {
+    "id": "feasibility_includes_fuel",
+    "pass": true,
+    "note": ""
+   }
+  ]
+ },
+ "integrity": {
+  "violations": 0,
+  "patterns": [
+   "2-用例",
+   "truth.json",
+   "checker.py",
+   "reference/",
+   "solution/",
+   "../",
+   "~/Documents",
+   "harness-compare-bench"
+  ],
+  "basis": "runner stdout stream (preserved via staging, r1030#1 fixed) + session-trajectory dual scan",
+  "stdout_scan": {
+   "lines": 102,
+   "violations": 0
+  },
+  "session_scan": {
+   "lines": 146,
+   "violations": 0
+  },
+  "evidence": []
+ },
+ "integrity_verdict": "clean",
+ "run_id": "r1109-dsh-tb-cargo-plan-r2",
+ "event_id": "mech-n3-dsh-tb-cargo-plan-r2",
+ "rep": "2"
+}

@@ -1,0 +1,321 @@
+{
+ "category": "offline_recompute",
+ "case": "dabstep-payments-10",
+ "rep": 3,
+ "rule_ref": {
+  "contract": "freeze-20261031-wb-v2",
+  "lock_sha256": "e2f52839c444f9e7430110ddae26e719e0c59a89d57fd432901801bff2bc36d7"
+ },
+ "session_id": "16a4dc87-780e-4b1b-9874-50a1a5e5ccd4",
+ "started_at": "2026-11-09T12:22:19+08:00",
+ "finished_at": "2026-11-09T12:22:19+08:00",
+ "returncode": 1,
+ "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+ "review_sha256": "2f74511f44d539dd230b7bb039542a060d0bc5973dece123f949a99c21dd5cb0",
+ "profile_sha256": "d2f76043ee3a7ce76ca8a7dc928ee068fa5a50d9ca3841fcac63f819c4ee58d6",
+ "frozen_after_sha256": "059532551e8742dd97f0c5b5f874a21b664665d1802a1980322c1483e4022276",
+ "result": {
+  "case": "dabstep-payments-10",
+  "case_id": "dabstep-payments-10",
+  "checker_version": "0.2",
+  "binary": true,
+  "run_dir": "archive://launch-r1109/bw-retest/workbuddy/runs/dabstep-payments-10__r3/workspace",
+  "artifact": "archive://launch-r1109/bw-retest/workbuddy/runs/dabstep-payments-10__r3/workspace/answers.jsonl",
+  "scoring_mode": "official-compat",
+  "official_compat": {
+   "scorer_version": "dabstep-official-port-v0.1",
+   "reward": 0,
+   "weighted": 70.0,
+   "score_rate": 0.7,
+   "correct": 7,
+   "checks": [
+    {
+     "id": "answers_format",
+     "pass": true,
+     "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+    },
+    {
+     "id": "input_integrity",
+     "pass": true,
+     "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+    },
+    {
+     "id": "q5",
+     "pass": true,
+     "note": "pred='NL' ｜ gold='NL'",
+     "task_id": "5",
+     "level": "easy"
+    },
+    {
+     "id": "q49",
+     "pass": false,
+     "note": "pred='A. NL' ｜ gold='B. BE'",
+     "task_id": "49",
+     "level": "easy"
+    },
+    {
+     "id": "q70",
+     "pass": false,
+     "note": "pred='yes' ｜ gold='Not Applicable'",
+     "task_id": "70",
+     "level": "easy"
+    },
+    {
+     "id": "q1273",
+     "pass": true,
+     "note": "pred='0.120132' ｜ gold='0.120132'",
+     "task_id": "1273",
+     "level": "hard"
+    },
+    {
+     "id": "q1305",
+     "pass": true,
+     "note": "pred='0.123217' ｜ gold='0.123217'",
+     "task_id": "1305",
+     "level": "hard"
+    },
+    {
+     "id": "q1464",
+     "pass": true,
+     "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+     "task_id": "1464",
+     "level": "hard"
+    },
+    {
+     "id": "q1681",
+     "pass": true,
+     "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+     "task_id": "1681",
+     "level": "hard"
+    },
+    {
+     "id": "q1753",
+     "pass": true,
+     "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+     "task_id": "1753",
+     "level": "hard"
+    },
+    {
+     "id": "q1871",
+     "pass": true,
+     "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+     "task_id": "1871",
+     "level": "hard"
+    },
+    {
+     "id": "q2697",
+     "pass": false,
+     "note": "pred='B:77.87' ｜ gold='E:13.57'",
+     "task_id": "2697",
+     "level": "hard"
+    }
+   ],
+   "failed": [
+    "q49",
+    "q70",
+    "q2697"
+   ]
+  },
+  "strict_contract": {
+   "scorer_version": "signed-aci-v1",
+   "scope": [
+    "1871:signed-number",
+    "2697:aci-and-signed-fee"
+   ],
+   "numeric_tolerance": {
+    "rel_tol": 0.0001,
+    "abs_tol": 0.0001
+   },
+   "reward": 0,
+   "weighted": 70.0,
+   "score_rate": 0.7,
+   "correct": 7,
+   "checks": [
+    {
+     "id": "answers_format",
+     "pass": true,
+     "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+    },
+    {
+     "id": "input_integrity",
+     "pass": true,
+     "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+    },
+    {
+     "id": "q5",
+     "pass": true,
+     "note": "pred='NL' ｜ gold='NL'",
+     "task_id": "5",
+     "level": "easy"
+    },
+    {
+     "id": "q49",
+     "pass": false,
+     "note": "pred='A. NL' ｜ gold='B. BE'",
+     "task_id": "49",
+     "level": "easy"
+    },
+    {
+     "id": "q70",
+     "pass": false,
+     "note": "pred='yes' ｜ gold='Not Applicable'",
+     "task_id": "70",
+     "level": "easy"
+    },
+    {
+     "id": "q1273",
+     "pass": true,
+     "note": "pred='0.120132' ｜ gold='0.120132'",
+     "task_id": "1273",
+     "level": "hard"
+    },
+    {
+     "id": "q1305",
+     "pass": true,
+     "note": "pred='0.123217' ｜ gold='0.123217'",
+     "task_id": "1305",
+     "level": "hard"
+    },
+    {
+     "id": "q1464",
+     "pass": true,
+     "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+     "task_id": "1464",
+     "level": "hard"
+    },
+    {
+     "id": "q1681",
+     "pass": true,
+     "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+     "task_id": "1681",
+     "level": "hard"
+    },
+    {
+     "id": "q1753",
+     "pass": true,
+     "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+     "task_id": "1753",
+     "level": "hard"
+    },
+    {
+     "id": "q1871",
+     "pass": true,
+     "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+     "task_id": "1871",
+     "level": "hard"
+    },
+    {
+     "id": "q2697",
+     "pass": false,
+     "note": "pred='B:77.87' ｜ gold='E:13.57'",
+     "task_id": "2697",
+     "level": "hard"
+    }
+   ],
+   "failed": [
+    "q49",
+    "q70",
+    "q2697"
+   ]
+  },
+  "reward": 0,
+  "weighted": 70.0,
+  "score_rate": 0.7,
+  "threshold": 0.8,
+  "correct": 7,
+  "n_tasks": 10,
+  "gates": {
+   "answers_format": true,
+   "input_integrity": true
+  },
+  "input_integrity": "verified",
+  "checks": [
+   {
+    "id": "answers_format",
+    "pass": true,
+    "note": "answers.jsonl 结构合法：10 题各一行，answer 均为 JSON 字符串"
+   },
+   {
+    "id": "input_integrity",
+    "pass": true,
+    "note": "已核验 7/7 个输入副本，SHA-256 全部一致"
+   },
+   {
+    "id": "q5",
+    "pass": true,
+    "note": "pred='NL' ｜ gold='NL'",
+    "task_id": "5",
+    "level": "easy"
+   },
+   {
+    "id": "q49",
+    "pass": false,
+    "note": "pred='A. NL' ｜ gold='B. BE'",
+    "task_id": "49",
+    "level": "easy"
+   },
+   {
+    "id": "q70",
+    "pass": false,
+    "note": "pred='yes' ｜ gold='Not Applicable'",
+    "task_id": "70",
+    "level": "easy"
+   },
+   {
+    "id": "q1273",
+    "pass": true,
+    "note": "pred='0.120132' ｜ gold='0.120132'",
+    "task_id": "1273",
+    "level": "hard"
+   },
+   {
+    "id": "q1305",
+    "pass": true,
+    "note": "pred='0.123217' ｜ gold='0.123217'",
+    "task_id": "1305",
+    "level": "hard"
+   },
+   {
+    "id": "q1464",
+    "pass": true,
+    "note": "pred='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …' ｜ gold='1, 2, 5, 6, 8, 9, 10, 12, 14, 15, 20, 21, 22, 23, 25, 30, 34, 35, 36, 39, 45, 48, 49, 50, …'",
+    "task_id": "1464",
+    "level": "hard"
+   },
+   {
+    "id": "q1681",
+    "pass": true,
+    "note": "pred='286, 381, 454, 473, 477, 536, 572, 709, 741, 813' ｜ gold='741, 709, 454, 813, 381, 536, 473, 572, 477, 286'",
+    "task_id": "1681",
+    "level": "hard"
+   },
+   {
+    "id": "q1753",
+    "pass": true,
+    "note": "pred='36, 51, 53, 64, 107, 123, 150, 163, 231, 249, 276, 286, 347, 381, 384, 394, 428, 454, 473,…' ｜ gold='384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709,…'",
+    "task_id": "1753",
+    "level": "hard"
+   },
+   {
+    "id": "q1871",
+    "pass": true,
+    "note": "pred='-0.94810300000000' ｜ gold='-0.94810300000017'",
+    "task_id": "1871",
+    "level": "hard"
+   },
+   {
+    "id": "q2697",
+    "pass": false,
+    "note": "pred='B:77.87' ｜ gold='E:13.57'",
+    "task_id": "2697",
+    "level": "hard"
+   }
+  ],
+  "failed": [
+   "q49",
+   "q70",
+   "q2697"
+  ]
+ },
+ "network_attempted_by_packager": false
+}
