@@ -63,9 +63,9 @@
 | DSH × exercism | S3 [25588×3]，max−min=0 | 通过 |
 | DSH × lcb | S3 [25837×3]，max−min=0 | 通过 |
 | DSH × tb | S3 [25434×3]，max−min=0 | 通过 |
-| Codex × bird / dabstep / exercism / lcb / tb | 全轨迹 R3 构造性随轨迹轮数增长（330KB–817KB），严格门对全轨迹聚合不成立；首轮控制输入（permissions/environment_context/任务文本）内容级 n=3 逐字节一致 × 5 场（剥离 rollout 封套后），a1_gate 全过 | 五组均不满足严格门，标注「方向性机制观察」并如实披露首轮一致 + R1 复用证据 |
+| Codex × bird / dabstep / exercism / lcb / tb | 全轨迹 R3 构造性随轨迹轮数增长（真身值 62,854–817,320B），严格门对全轨迹聚合不成立；首轮控制输入（permissions/environment_context/任务文本）内容级 n=3 逐字节一致 × 5 场（剥离 rollout 封套后），a1_gate 全过 | 五组均不满足严格门，标注「方向性机制观察」并如实披露首轮一致 + R1 复用证据 |
 
 - 升级条件核验：10 组未全部通过严格门（DSH 4/5 通过、Codex 0/5 以严格门口径通过）→ 机制表述**维持**「方向性机制观察」，不升级；不以补充运行凑数。
 - 输出侧（只记录不判定）：DSH S4 逐场比率 bird 1.067 / dabstep 2.086 / exercism 3.399 / lcb 1.62 / tb 3.263；Codex 自报 token 仅辅助。
 - 结果侧复现：9/10 臂×场 reward 二值复现 a1（唯一例外 dsh×tb：a1 单次 0 → 本批 3/3 过且 weighted 三轮一致 88.89，如实分账为采样方差或未识别因素，不改 a1 正式行）；dabstep 双臂 6/6 失败、codex tb 3/3 失败稳定复现。
-- 事件披露（详见现场 README）：bird in-run 判卷事故与 retro-judge（judging_incident 收据）、判卷以各 rep 归档 workspace 副本为准、DSH 会话轨迹对账（4 槽换入真身，trace-incident 收据）、Codex capture 加性污染清理（真身 rollout 识别，邻槽移存不删除）、integrity 真身终值（dsh 全 0；codex bird r2=2、tb r1=2、tb r2=2，mention 级）、runner 缺陷补写（meta-corrections）。
+- 事件披露（详见现场 README）：bird in-run 判卷事故与 retro-judge（judging_incident 收据）、判卷以各 rep 归档 workspace 副本为准、DSH 会话轨迹对账与 Codex capture 加性污染清理（真身识别，30/30 在档；公开对账汇总见现场 observe/trace-accounting-summary.json）、integrity 真身终值（非零槽 5 个：codex bird r2=2、tb r1=2、tb r2=2 与 dsh dabstep r2=1、exercism r2=4，均经 lead 复核为 mention 级/任务规定动作，受保护路径 tool/function_call 级扫描全 0；其余 25 槽 0；复核件=现场 reviews/lead-integrity-review.json）、runner 缺陷补写与 8 槽裁决终态（lead 复核终结为 valid）。

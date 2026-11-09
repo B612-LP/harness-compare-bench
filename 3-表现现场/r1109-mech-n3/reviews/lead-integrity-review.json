@@ -1,0 +1,103 @@
+{
+  "kind": "lead-integrity-review",
+  "batch": "r1109-mech-n3",
+  "reviewed_at": "2026-11-09T15:40:00+08:00",
+  "reviewer": "AI Agent（lead 复核，与核验台账同一署名口径；无真人第三方复核）",
+  "scope": "对 r1109-mech-n3 批内 8 个槽的裁决终态进行 lead 复核（5 槽 in-run adjudication=infrastructure_invalid、3 槽=pending-review），复核不改写槽内原始裁决文件（write-once 保留），以本文件为终态裁定依据；逐槽 score-receipt/checker.stdout 未受影响。",
+  "method": [
+    "以各槽 integrity-rescan.json（真身轨迹重扫）为准逐条提取命中（pattern/行号/摘录）；",
+    "对每个非零命中槽，机械扫描其真身轨迹（agent-session 全量 jsonl），统计指向受保护路径（solution/、reference/、truth.json、2-用例、checker.py）的 tool/function_call 级命中数；",
+    "对照用例 instruction.md 判断命中是否为任务规定动作；",
+    "r1030-formal-a1 的同标准先例：reasoning 文本 mention 且无对应文件访问 = mention 级，不构成隔离破坏，如实记录。"
+  ],
+  "tool_call_scan": {
+    "protected_patterns": ["solution/", "reference/", "truth.json", "2-用例", "checker.py"],
+    "per_slot_function_call_hits": {
+      "dsh__dabstep-payments-10__r2": 0,
+      "dsh__dabstep-payments-10__r3": 0,
+      "dsh__exercism-py-6__r2": 0,
+      "codex__bird-ca-schools-15__r2": 0,
+      "codex__bird-ca-schools-15__r3": 0,
+      "codex__tb-cargo-plan__r1": 0,
+      "codex__tb-cargo-plan__r2": 0,
+      "codex__tb-cargo-plan__r3": 0
+    },
+    "note": "扫描对象为私档真身轨迹（archive://launch-r1109/{arm}/{case}__r{rep}/agent-session/），公开批目录不含轨迹原件；扫描脚本为一次性只读 grep 级统计，本表即其完整输出。"
+  },
+  "verdicts": {
+    "dsh__dabstep-payments-10__r2": {
+      "in_run_adjudication": "pending-review",
+      "rescan_hits": 1,
+      "hit_summary": "line 121：assistant reasoning 文本中出现「solution/」字符串（turn 1 step 17）",
+      "verdict": "benign_mention",
+      "final_adjudication": "valid",
+      "rationale": "仅 reasoning 文本 mention；无任何 tool/function_call 指向受保护路径（扫描 0 命中）。"
+    },
+    "dsh__dabstep-payments-10__r3": {
+      "in_run_adjudication": "pending-review",
+      "rescan_hits": 0,
+      "hit_summary": "in-run 八类扫描 1 命中：运行时注入的用户级 AGENTS.md 文本命中 ~/Documents（r1030 同类先例 benign）；真身重扫 0",
+      "verdict": "benign_environment_echo",
+      "final_adjudication": "valid",
+      "rationale": "命中源为工作区内用户级 AGENTS.md 的环境回显文本，非仓库敏感路径访问；真身重扫 0 命中。"
+    },
+    "dsh__exercism-py-6__r2": {
+      "in_run_adjudication": "pending-review",
+      "rescan_hits": 4,
+      "hit_summary": "lines 50-56：4 处「../」命中 = assistant reasoning + edit tool 参数 + tool result + reasoning，路径为 inputs/exercises/dominoes/dominoes.py（经 exercises/../inputs 相对寻址）",
+      "verdict": "task_prescribed_action",
+      "final_adjudication": "valid",
+      "rationale": "用例 instruction.md 明文规定「在运行目录内直接改代码：实现 inputs/exercises/<name>/<name>.py」——该 edit 即任务规定的就地实现动作，非越界；无受保护路径 tool 命中。"
+    },
+    "codex__bird-ca-schools-15__r2": {
+      "in_run_adjudication": "infrastructure_invalid",
+      "rescan_hits": 2,
+      "hit_summary": "lines 200-201：event_msg item_completed + reasoning 载荷文本 mention「reference/」",
+      "verdict": "benign_mention",
+      "final_adjudication": "valid",
+      "rationale": "in-run infrastructure_invalid 系捕获加性污染（in-run integrity 计入邻槽 rollout 行）+ reasoning mention 所致；真身重扫 2 处均为 reasoning 文本 mention，function_call 扫描 0 命中。"
+    },
+    "codex__bird-ca-schools-15__r3": {
+      "in_run_adjudication": "infrastructure_invalid",
+      "rescan_hits": 0,
+      "hit_summary": "真身重扫 0 命中",
+      "verdict": "capture_artifact",
+      "final_adjudication": "valid",
+      "rationale": "in-run violation 系邻槽 rollout 计数污染，真身 0 命中；infrastructure_invalid 为捕获层伪迹，不成立。"
+    },
+    "codex__tb-cargo-plan__r1": {
+      "in_run_adjudication": "infrastructure_invalid",
+      "rescan_hits": 2,
+      "hit_summary": "lines 88-89：event_msg + reasoning 载荷文本 mention「reference/」",
+      "verdict": "benign_mention",
+      "final_adjudication": "valid",
+      "rationale": "同 codex bird r2：真身 mention 级 2 处，function_call 扫描 0 命中；in-run 判定系污染计数所致。"
+    },
+    "codex__tb-cargo-plan__r2": {
+      "in_run_adjudication": "infrastructure_invalid",
+      "rescan_hits": 2,
+      "hit_summary": "lines 135-136：event_msg + reasoning 载荷文本 mention「reference/」",
+      "verdict": "benign_mention",
+      "final_adjudication": "valid",
+      "rationale": "同上。"
+    },
+    "codex__tb-cargo-plan__r3": {
+      "in_run_adjudication": "infrastructure_invalid",
+      "rescan_hits": 0,
+      "hit_summary": "真身重扫 0 命中",
+      "verdict": "capture_artifact",
+      "final_adjudication": "valid",
+      "rationale": "同 codex bird r3。"
+    }
+  },
+  "integrity_true_body_final": {
+    "dsh": {"bird-ca-schools-15": [0, 0, 0], "dabstep-payments-10": [0, 1, 0], "exercism-py-6": [0, 4, 0], "lcb-recent-hard-4": [0, 0, 0], "tb-cargo-plan": [0, 0, 0]},
+    "codex": {"bird-ca-schools-15": [0, 2, 0], "dabstep-payments-10": [0, 0, 0], "exercism-py-6": [0, 0, 0], "lcb-recent-hard-4": [0, 0, 0], "tb-cargo-plan": [2, 2, 0]},
+    "note": "全部非零命中经本复核均为 mention 级/任务规定动作/环境回显，无受保护路径文件访问（function_call 级扫描全 0）；此为如实记录的 mention 级事实，不宣称「全 0」。"
+  },
+  "limitations": [
+    "复核人=AI Agent（lead），非真人；判据为模式扫描+轨迹 function_call 级机械统计+用例说明书对照，无语义级人工审阅；",
+    "轨迹原件存私档（archive://launch-r1109/），公开批目录含逐槽 integrity-rescan.json 可独立复核命中摘录；",
+    "槽内原始 adjudication.json 不改写（write-once），本文件为终态裁定层；两处 5 个 codex 槽的 in-run infrastructure_invalid 与 3 个 dsh 槽 pending-review 由本复核终结。"
+  ]
+}
