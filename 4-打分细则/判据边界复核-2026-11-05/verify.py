@@ -8,8 +8,9 @@ from pathlib import Path, PurePosixPath
 import types
 
 PACKAGE = '4-打分细则/判据边界复核-2026-11-05/'
-REPORT = '5-评测报告/竞品评测报告-v1.9.md'
-OLD_REPORT = '5-评测报告/竞品评测报告-v1.8.md'
+REPORT = '5-评测报告/竞品评测报告-v1.10.md'
+OLD_REPORT = '5-评测报告/竞品评测报告-v1.9.md'
+FROZEN_V1_8 = '5-评测报告/竞品评测报告-v1.8.md'
 HELPERS = {
     'lcb_visibility.py': 'f5c3dbf85b6cc1f993a116341d362d3d05f5a9ae2def5971e1cfaedc761d3093',
     'dab_q49.py': '2812c40166cb001adb3dd4a66852e38c4a42a208acee3b77eb8a7bedaba587f8',
@@ -99,10 +100,13 @@ def derive(root):
         for path, expected in pins.items():
             require(path not in source_union or source_union[path] == expected, 'conflicting source pins')
             source_union[path] = expected
+    legacy = safe_file(root, FROZEN_V1_8).read_bytes()
     old = safe_file(root, OLD_REPORT).read_bytes()
     current = safe_file(root, REPORT).read_bytes()
+    require(formal_tables(legacy.decode('utf-8')) == formal_tables(old.decode('utf-8')),
+            'formal report tables differ between frozen v1.8 and v1.9')
     require(formal_tables(old.decode('utf-8')) == formal_tables(current.decode('utf-8')),
-            'formal report tables differ from frozen v1.8')
+            'formal report tables differ between frozen v1.9 and current v1.10')
     require(bool(formal_tables(current.decode('utf-8'))), 'formal report tables absent')
     for filename, expected in HELPERS.items():
         require(hashlib.sha256(safe_file(root, PACKAGE + filename).read_bytes()).hexdigest() == expected,
@@ -122,6 +126,8 @@ def derive(root):
             'path': REPORT, 'sha256': hashlib.sha256(current).hexdigest(),
             'previous_report_path': OLD_REPORT,
             'previous_report_sha256': hashlib.sha256(old).hexdigest(),
+            'frozen_legacy_path': FROZEN_V1_8,
+            'frozen_legacy_sha256': hashlib.sha256(legacy).hexdigest(),
             'formal_table_cells_and_reasons_equal': True,
         },
         'checks': views,
