@@ -26,7 +26,7 @@
 | codex × tb | 0 / 70.37 | 0 / 70.37 | 0 / 70.37 |
 
 - 9/10 臂×场 reward 二值复现 a1（唯一例外：dsh × tb，a1 单次 0 → 本批 3/3 过，weighted 88.89 三轮一致，见执行记录分账）。
-- 输入侧判定（预注册门）：DSH S3 四场 n=3 逐字节一致（bird 27738×3、exercism 25588×3、lcb 25837×3、tb 25434×3，max−min=0）；dabstep [28062, 27106, 27106] max−min=956B>100B——逐 turn 定位为 r1 轨迹含模型自主委派（subagent）事件，基础 prompt/context 字节一致，按预注册分账处理，该组不满足严格门、标方向性。Codex R3 全轨迹重构随轨迹轮数构造性增长（真身值 62,854–817,320B，即约 61KB–798KB，见 [../../r1109-bw-retest/observe/codex-r3-summary.json](<../../r1109-bw-retest/observe/codex-r3-summary.json>)；早期 files[0] 口径的 330KB–817KB 已被该文件自注 supersede），严格门不适用于全轨迹聚合；首轮控制输入（permissions / environment_context / 任务文本）内容级 n=3 逐字节一致 × 5 场（剥离 rollout 封套 id/时间戳后），故 Codex 组输入侧控制以首轮一致 + a1_gate 为准，全轨迹 R3 如实披露。
+- 输入侧判定（预注册门）：DSH S3 四场 n=3 逐字节一致（bird 27738×3、exercism 25588×3、lcb 25837×3、tb 25434×3，max−min=0）；dabstep [28062, 27106, 27106] max−min=956B>100B——逐 turn 定位为 r1 轨迹含模型自主委派（subagent）事件，基础 prompt/context 字节一致，按预注册分账处理，该组不满足严格门、标方向性。Codex R3 全轨迹重构随轨迹轮数构造性增长（真身值 62,854–817,320B，即约 61KB–798KB，见 [../r1109-bw-retest/observe/codex-r3-summary.json](<../r1109-bw-retest/observe/codex-r3-summary.json>)；早期 files[0] 口径的 330KB–817KB 已被该文件自注 supersede），严格门不适用于全轨迹聚合；首轮控制输入（permissions / environment_context / 任务文本）内容级 n=3 逐字节一致 × 5 场（剥离 rollout 封套 id/时间戳后），故 Codex 组输入侧控制以首轮一致 + a1_gate 为准，全轨迹 R3 如实披露。
 
 ## 事件与更正（全程收据保留，公开件为派生）
 
