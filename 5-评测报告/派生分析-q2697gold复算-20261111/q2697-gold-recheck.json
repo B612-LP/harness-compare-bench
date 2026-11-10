@@ -1,0 +1,115 @@
+{
+ "case": "dabstep-payments-10",
+ "question_task_id": "2697",
+ "gold_bundled": "E:13.57",
+ "gold_note": "gold 为 DABstep 官方 dev 划分随包答案（dev.jsonl 的 answer 字段），由 solution/answers.jsonl 复现；checker 启动时用 question_scorer 交叉校验两者一致。",
+ "fraud_set": {
+  "n_tx": 94,
+  "amount_total": 11680.62,
+  "merchant_month_volume": 113260.42,
+  "fraud_ratio_amount_pct": 10.3131,
+  "scheme_counts": {
+   "GlobalCard": 31,
+   "NexPay": 19,
+   "SwiftCharge": 14,
+   "TransactPlus": 30
+  },
+  "all_aci_g": true,
+  "all_is_credit": true,
+  "all_not_refused": true
+ },
+ "guidelines_format_note": {
+  "guidelines_say": "{card_scheme}:{fee}",
+  "actual_gold_shape": "ACI letter : fee  (E = Card Not Present - Recurring Bill Payment)",
+  "verdict": "guidelines wording bug: 'card_scheme' should read ACI letter",
+  "verbatim": "Answer must be just the selected ACI to incentive and the associated cost rounded to 2 decimals in this format: {card_scheme}:{fee}. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'"
+ },
+ "semantics_axes": {
+  "capture_map": [
+   "<3",
+   "immediate",
+   "only_null"
+  ],
+  "multi_rule": [
+   "min",
+   "max",
+   "first_by_ID"
+  ],
+  "fraud_band": [
+   "amount",
+   "count",
+   "none_only"
+  ],
+  "empty_list": "wildcard or dead, per-field; manual documents only null",
+  "non_matching_tx": "scored 0 (assumption; undefined in manual)",
+  "candidate_acis": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F"
+  ],
+  "current_aci_excluded": "G",
+  "n_combinations": 216
+ },
+ "canonical_semantics": {
+  "description": "capture '<3', per-tx min, fraud band by EUR ratio (>8.3%), [] = wildcard",
+  "per_aci": {
+   "A": 81.81,
+   "B": 54.21,
+   "C": 81.04,
+   "D": 36.62,
+   "E": 16.63,
+   "F": 33.56
+  },
+  "E_is_lowest_fee_aci": true,
+  "E_total": 16.63
+ },
+ "gold_reproduction": {
+  "combinations_reproducing_gold": 0,
+  "nearest_combination": {
+   "semantics": {
+    "capture": "<3",
+    "multi": "min",
+    "fraud_band_mode": "amount",
+    "empty_wildcard": {
+     "at_empty_wild": true,
+     "mcc_empty_wild": true,
+     "aci_empty_wild": true
+    }
+   },
+   "E_total": 16.63,
+   "abs_gap_vs_gold": 3.06
+  },
+  "canonical_E_is_lowest": true
+ },
+ "model_answers_11_runs": {
+  "source": "published derivation: 3-表现现场 failure spectra + 派生分析-dabstep失败归因-20261109",
+  "distribution": {
+   "E:77.68": 7,
+   "B:54.21": 2,
+   "NexPay:3.49": 2
+  },
+  "semantic_alignment": {
+   "B:54.21": {
+    "equals": "canonical per-ACI fee for candidate B (per-tx min semantics)",
+    "canonical_B_total": 54.21
+   },
+   "E:77.68": {
+    "equals": "SwiftCharge ID183 group fee 5.64 + TransactPlus ID924 10.99 + TransactPlus ID454 61.05 = sum of ALL matching rules under candidate E",
+    "interpretation": "multi-rule-sum semantics (the manual defines no tie-break for multiple matching rules); the canonical engine picks one rule per transaction instead",
+    "decomposition_check": 77.68
+   },
+   "NexPay:3.49": {
+    "equals": "no correspondence in the enumerated space (NexPay has no matching ACI-E rule under any capture map)"
+   }
+  },
+  "any_match_reproducible_gold": {
+   "E:77.68": false,
+   "B:54.21": false,
+   "NexPay:3.49": false
+  }
+ },
+ "conclusion": "gold E:13.57 is not reproducible under any of the 216 enumerated semantics combinations on the bundled dataset version; the canonical semantics give E=16.63 and E is the lowest-fee ACI among candidates (current ACI G excluded), so the letter half of the gold is defensible while the fee value is not. Model answers align with the enumerated space instead of the gold: B:54.21 equals the canonical candidate-B fee, and E:77.68 equals summing every matching rule (E:77.68 vs canonical E:16.63) — direct behavioural evidence that the undefined multi-rule tie-break splits answers. Question guidelines additionally mislabel the answer format ({card_scheme} instead of the ACI letter). Recorded as a grading-layer defect registration; formal scored rows and historical judgements are not modified."
+}
