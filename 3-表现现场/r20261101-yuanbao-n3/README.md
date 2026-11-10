@@ -8,7 +8,7 @@
 
 ## 五段结论
 
-**观察**：12 个有效运行中非零分四场：bird r1=73.33（reward 0，未达 80% 达标线）、bird r2c=86.67（reward 1，更正后）、bird r3=86.67（reward 1，L21 补发射槽，文件卡片交付）、dabstep r1c=20.0（reward 0，更正后）；其余八场（dabstep r2/r3、exercism ×3、lcb ×3）全部 0 分。（0 分构成=交付管线终点无产物 5 场[收割 0 卡片]+完成回执在档但六项测试全不达标 3 场[exercism]，逐槽机械汇总见 [派生分析](<../../5-评测报告/派生分析-元宝0分构成-20261109/README.md>)）bird 列补齐后 n=3：73.33（F，11/15）/ 86.67（V，13/15）/ 86.67（V，13/15），reward 二值 2/3 场达标；A 组 CLI bird 全 V（14/15），元宝 r1 的 11/15 为主要落差。tb 列 0 个有效运行——其任务书被产品侧内容门静默拦截（判别探针收据见 [runs/_diagnosis/](<runs/_diagnosis/probe-tb-content-gate.json>)）。发射失败 11 槽全部记 launch_invalid，未筛除。
+**观察**：12 个有效运行中非零分四场：bird r1=73.33（reward 0，未达 80% 达标线）、bird r2c=86.67（reward 1，更正后）、bird r3=86.67（reward 1，L21 补发射槽，文件卡片交付）、dabstep r1c=20.0（reward 0，更正后）；其余八场（dabstep r2/r3、exercism ×3、lcb ×3）全部 0 分。（0 分构成=交付管线终点无产物 5 场[收割 0 卡片]+完成回执在档但六项测试全不达标 3 场[exercism；**2026-11-11 更正：实为零交付、判卷对象为夹具骨架空壳**，八场 0 分全部为交付终点问题，见 [派生分析更正节](<../../5-评测报告/派生分析-元宝0分构成-20261109/README.md>)]，逐槽机械汇总见 [派生分析](<../../5-评测报告/派生分析-元宝0分构成-20261109/README.md>)）bird 列补齐后 n=3：73.33（F，11/15）/ 86.67（V，13/15）/ 86.67（V，13/15），reward 二值 2/3 场达标；A 组 CLI bird 全 V（14/15），元宝 r1 的 11/15 为主要落差。tb 列 0 个有效运行——其任务书被产品侧内容门静默拦截（判别探针收据见 [runs/_diagnosis/](<runs/_diagnosis/probe-tb-content-gate.json>)）。发射失败 11 槽全部记 launch_invalid，未筛除。
 
 **证据**：[批次收据](<batch-summary.json>)（23 行逐槽记录）；每槽 JSON 见 [runs/](<runs/>)。关键证据链：①tb 列 r1b/r2b 两槽发送点击在 900 秒窗口内被静默吞掉（Quill 已同步、发送钮启用），同时段其他题面发射正常；②判别探针（中性文本 + tb 同一附件）3 秒建成会话 → 门控跟随题面文本，非附件、非基础设施；③exercism r1b 会话在产品 UI 中可见「本次会话已达到最大调用轮次」的产品自述；④bird r3 会话全程 detail API 快照留档（api-dump-00..07），speech 级 internetFlag=0（autoInternetSearch 档位开启但零实际检索，外部 URL 均为题面自带链接回显）。
 

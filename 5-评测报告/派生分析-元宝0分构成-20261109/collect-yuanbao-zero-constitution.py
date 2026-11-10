@@ -52,16 +52,33 @@ for slot in SLOTS:
                       'succeeded': (c.get('completion') or {}).get('succeeded'),
                       'tests_run': (c.get('completion') or {}).get('tests_run'),
                       'note': c.get('note')} for c in rc}
+        # v2（2026-11-11 更正环）：骨架同码判定——workspace 实现文件是否与公开夹具骨架逐字节一致。
+        # 可复算：骨架基准=公开仓 2-用例/exercism-py-6/inputs/exercises/（tracked）；
+        # 运行约定：cwd=公开仓根，第二参数=私档判卷原件根。
+        sk_root = Path('2-用例/exercism-py-6/inputs/exercises')
+        ws_root = run / 'workspace' / 'inputs' / 'exercises'
+        EXS = ['forth', 'poker', 'dominoes', 'bowling', 'zipper', 'pov']
+        per = {}
+        for ex in EXS:
+            w = ws_root / ex / (ex + '.py')
+            s = sk_root / ex / (ex + '.py')
+            per[ex] = bool(w.exists() and s.exists() and
+                           hashlib.sha256(w.read_bytes()).hexdigest() ==
+                           hashlib.sha256(s.read_bytes()).hexdigest())
+        entry['workspace_impl_equals_fixture_skeleton'] = per
+        entry['workspace_impl_all_skeleton'] = all(per.values())
     rows.append(entry)
 doc = {
     'derivation': 'yuanbao-zero-constitution',
     'date': '2026-11-09',
+    'revised': '2026-11-11 v2：exercism 三场新增骨架同码判定（workspace 实现文件==公开夹具骨架逐字节）；据此更正 v1 的 B 类定性（见 README 更正节）',
     'posture': 'exploratory-derived (事后派生分析；零发射；不改正式行/判卷)',
     'boundary': '产品黑盒：交付缺失不能区分「agent 未产出」vs「产出未到交付终点」，按交付管线终点无产物登记，不作产品缺陷因果归因',
     'slots': rows,
     'summary': {
         'delivery_missing_slots': [r['slot'] for r in rows if r['delivery_missing']],
         'receipt_pass_false_slots': [r['slot'] for r in rows if r.get('receipt_check_pass_false')],
+        'exercism_impl_all_skeleton_slots': [r['slot'] for r in rows if r.get('workspace_impl_all_skeleton')],
     },
 }
 dest = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('yuanbao-zero-constitution.json')
