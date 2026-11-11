@@ -1,0 +1,1521 @@
+{
+  "M1_inline_spill_effect_identified": false,
+  "baseline_commit": "38b2e13f63c5aeacb58094d2e977980ab12e8041",
+  "byte_subgate_pass_counts": {
+    "codex": 0,
+    "dsh": 4
+  },
+  "canonical_codex_R3_range": [
+    60064,
+    789813
+  ],
+  "contract": {
+    "arms": [
+      "dsh",
+      "codex"
+    ],
+    "byte_threshold": 100,
+    "cases": [
+      "bird-ca-schools-15",
+      "dabstep-payments-10",
+      "exercism-py-6",
+      "lcb-recent-hard-4",
+      "tb-cargo-plan"
+    ],
+    "groups": 10,
+    "operator": "AND",
+    "reps": [
+      1,
+      2,
+      3
+    ],
+    "slots": 30
+  },
+  "evidence_sha256": "925470d3b55b4226d70f5749d45d0c65a161703c4053fa21028ce0516fcd6b5c",
+  "groups": [
+    {
+      "S4_max_min_ratio": 2.848615448140597,
+      "arm": "dsh",
+      "byte_subgate_pass": true,
+      "case": "bird-ca-schools-15",
+      "historical_AND_status": "unverifiable",
+      "input_bytes": [
+        27738,
+        27738,
+        27738
+      ],
+      "legacy_all_session_only": true,
+      "max_minus_min": 0,
+      "n": 3,
+      "narrow_boundary_equal_diagnostic": true,
+      "output_bytes": [
+        551905,
+        193745,
+        517142
+      ],
+      "sequence_subgate": null,
+      "step_tool_assistant_equal_diagnostic": false
+    },
+    {
+      "S4_max_min_ratio": 2.174040342224942,
+      "arm": "dsh",
+      "byte_subgate_pass": false,
+      "case": "dabstep-payments-10",
+      "historical_AND_status": "fail",
+      "input_bytes": [
+        28062,
+        27106,
+        27106
+      ],
+      "legacy_all_session_only": true,
+      "max_minus_min": 956,
+      "n": 3,
+      "narrow_boundary_equal_diagnostic": true,
+      "output_bytes": [
+        1449424,
+        694996,
+        666696
+      ],
+      "sequence_subgate": null,
+      "step_tool_assistant_equal_diagnostic": false
+    },
+    {
+      "S4_max_min_ratio": 3.398837188436485,
+      "arm": "dsh",
+      "byte_subgate_pass": true,
+      "case": "exercism-py-6",
+      "historical_AND_status": "unverifiable",
+      "input_bytes": [
+        25588,
+        25588,
+        25588
+      ],
+      "legacy_all_session_only": true,
+      "max_minus_min": 0,
+      "n": 3,
+      "narrow_boundary_equal_diagnostic": true,
+      "output_bytes": [
+        55727,
+        189407,
+        81097
+      ],
+      "sequence_subgate": null,
+      "step_tool_assistant_equal_diagnostic": false
+    },
+    {
+      "S4_max_min_ratio": 1.6203712383988,
+      "arm": "dsh",
+      "byte_subgate_pass": true,
+      "case": "lcb-recent-hard-4",
+      "historical_AND_status": "unverifiable",
+      "input_bytes": [
+        25837,
+        25837,
+        25837
+      ],
+      "legacy_all_session_only": true,
+      "max_minus_min": 0,
+      "n": 3,
+      "narrow_boundary_equal_diagnostic": true,
+      "output_bytes": [
+        256008,
+        414828,
+        412441
+      ],
+      "sequence_subgate": null,
+      "step_tool_assistant_equal_diagnostic": false
+    },
+    {
+      "S4_max_min_ratio": 3.263124607805837,
+      "arm": "dsh",
+      "byte_subgate_pass": true,
+      "case": "tb-cargo-plan",
+      "historical_AND_status": "unverifiable",
+      "input_bytes": [
+        25434,
+        25434,
+        25434
+      ],
+      "legacy_all_session_only": true,
+      "max_minus_min": 0,
+      "n": 3,
+      "narrow_boundary_equal_diagnostic": true,
+      "output_bytes": [
+        1320828,
+        643922,
+        404774
+      ],
+      "sequence_subgate": null,
+      "step_tool_assistant_equal_diagnostic": false
+    },
+    {
+      "arm": "codex",
+      "byte_subgate_pass": false,
+      "case": "bird-ca-schools-15",
+      "historical_AND_status": "fail",
+      "input_bytes": [
+        225170,
+        379471,
+        268786
+      ],
+      "leading_role_content_equal_secondary": true,
+      "max_minus_min": 154301,
+      "n": 3,
+      "output_bytes": [
+        102835,
+        241296,
+        141592
+      ],
+      "sequence_subgate": null,
+      "task_content_equal_secondary": true
+    },
+    {
+      "arm": "codex",
+      "byte_subgate_pass": false,
+      "case": "dabstep-payments-10",
+      "historical_AND_status": "fail",
+      "input_bytes": [
+        583317,
+        334724,
+        286469
+      ],
+      "leading_role_content_equal_secondary": true,
+      "max_minus_min": 296848,
+      "n": 3,
+      "output_bytes": [
+        318642,
+        135806,
+        128922
+      ],
+      "sequence_subgate": null,
+      "task_content_equal_secondary": true
+    },
+    {
+      "arm": "codex",
+      "byte_subgate_pass": false,
+      "case": "exercism-py-6",
+      "historical_AND_status": "fail",
+      "input_bytes": [
+        91495,
+        60064,
+        80553
+      ],
+      "leading_role_content_equal_secondary": true,
+      "max_minus_min": 31431,
+      "n": 3,
+      "output_bytes": [
+        12832,
+        12964,
+        14817
+      ],
+      "sequence_subgate": null,
+      "task_content_equal_secondary": true
+    },
+    {
+      "arm": "codex",
+      "byte_subgate_pass": false,
+      "case": "lcb-recent-hard-4",
+      "historical_AND_status": "fail",
+      "input_bytes": [
+        131074,
+        156316,
+        296612
+      ],
+      "leading_role_content_equal_secondary": true,
+      "max_minus_min": 165538,
+      "n": 3,
+      "output_bytes": [
+        64814,
+        83436,
+        184612
+      ],
+      "sequence_subgate": null,
+      "task_content_equal_secondary": true
+    },
+    {
+      "arm": "codex",
+      "byte_subgate_pass": false,
+      "case": "tb-cargo-plan",
+      "historical_AND_status": "fail",
+      "input_bytes": [
+        789813,
+        323290,
+        317916
+      ],
+      "leading_role_content_equal_secondary": true,
+      "max_minus_min": 471897,
+      "n": 3,
+      "output_bytes": [
+        500123,
+        214461,
+        202195
+      ],
+      "sequence_subgate": null,
+      "task_content_equal_secondary": true
+    }
+  ],
+  "historical_AND_status_counts": {
+    "fail": 6,
+    "unverifiable": 4
+  },
+  "historical_upgrade_10_of_10": false,
+  "limitations": [
+    "Post-hoc v1.1 clarification, not retroactive preregistration or gate replacement.",
+    "Selected canonical event/payload bytes, not wire bytes, tokens, costs or complete controlled input.",
+    "Source projections omit contents; raw event serialization, control hashes and full identity require original archive.",
+    "Legacy whitelist is a semantic diagnostic, not public authentication of the historical private implementation.",
+    "No scores rejudged; no historical files modified; no new causal mechanism evidence."
+  ],
+  "new_product_requests": 0,
+  "new_product_runs": 0,
+  "public_replay_scope": "Content-free projection arithmetic and public source binding only; private raw authenticity NOT certified.",
+  "public_summary_discrepancies": [
+    {
+      "field": "S4",
+      "public_summary_value": 551905,
+      "recomputed_value": 193745,
+      "slot": "dsh__bird-ca-schools-15__r2",
+      "source": "3-表现现场/r1109-bw-retest/observe/dsh-s3-s4-summary.json"
+    },
+    {
+      "field": "S4",
+      "public_summary_value": 694996,
+      "recomputed_value": 666696,
+      "slot": "dsh__dabstep-payments-10__r3",
+      "source": "3-表现现场/r1109-bw-retest/observe/dsh-s3-s4-summary.json"
+    },
+    {
+      "field": "S4",
+      "public_summary_value": 1320828,
+      "recomputed_value": 643922,
+      "slot": "dsh__tb-cargo-plan__r2",
+      "source": "3-表现现场/r1109-bw-retest/observe/dsh-s3-s4-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 231098,
+      "recomputed_value": 225170,
+      "slot": "codex__bird-ca-schools-15__r1",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 389995,
+      "recomputed_value": 379471,
+      "slot": "codex__bird-ca-schools-15__r2",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 275144,
+      "recomputed_value": 268786,
+      "slot": "codex__bird-ca-schools-15__r3",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 623342,
+      "recomputed_value": 583317,
+      "slot": "codex__dabstep-payments-10__r1",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 353337,
+      "recomputed_value": 334724,
+      "slot": "codex__dabstep-payments-10__r2",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 303943,
+      "recomputed_value": 286469,
+      "slot": "codex__dabstep-payments-10__r3",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 96421,
+      "recomputed_value": 91495,
+      "slot": "codex__exercism-py-6__r1",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 62854,
+      "recomputed_value": 60064,
+      "slot": "codex__exercism-py-6__r2",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 84524,
+      "recomputed_value": 80553,
+      "slot": "codex__exercism-py-6__r3",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 143205,
+      "recomputed_value": 131074,
+      "slot": "codex__lcb-recent-hard-4__r1",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 163133,
+      "recomputed_value": 156316,
+      "slot": "codex__lcb-recent-hard-4__r2",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 314804,
+      "recomputed_value": 296612,
+      "slot": "codex__lcb-recent-hard-4__r3",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 817320,
+      "recomputed_value": 789813,
+      "slot": "codex__tb-cargo-plan__r1",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 330167,
+      "recomputed_value": 323290,
+      "slot": "codex__tb-cargo-plan__r2",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    },
+    {
+      "field": "R3",
+      "public_summary_value": 330034,
+      "recomputed_value": 317916,
+      "slot": "codex__tb-cargo-plan__r3",
+      "source": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json"
+    }
+  ],
+  "schema": "mechanism-repetition-clarification-v1.1",
+  "slots": [
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-bird-ca-schools-15__r1.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "bird-ca-schools-15",
+      "event_count": 189,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 27738,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": true,
+      "meta_batch_label": "r1109-mech-n3",
+      "metric": "S3_event_canonical",
+      "output_bytes": 551905,
+      "output_metric": "S4_event_canonical",
+      "rep": 1,
+      "slot": "dsh__bird-ca-schools-15__r1",
+      "status": "ok",
+      "step_sequence_length": 147,
+      "step_sequence_sha256": "cf6884ff2c18cd915802223bd70fd25fc3f646cd6c396f5ab3f8a793c7f2f807",
+      "trace_sha256": "205f35dddff641c5f002312e9de82d442b6654c40f3c1577c7977a6352c73cca"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh__bird-ca-schools-15__r2.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "bird-ca-schools-15",
+      "event_count": 83,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 27738,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": true,
+      "meta_batch_label": "r1109-mech-n3",
+      "metric": "S3_event_canonical",
+      "output_bytes": 193745,
+      "output_metric": "S4_event_canonical",
+      "rep": 2,
+      "slot": "dsh__bird-ca-schools-15__r2",
+      "status": "ok",
+      "step_sequence_length": 61,
+      "step_sequence_sha256": "186e1206e4f44660efb1c189d53eab891c6c7a80aefe62fdb16aba753ea7f435",
+      "trace_sha256": "27234833c35fdddf7050e96297f4a16c4d4979681b48083ac9a79bad0d5158c7"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-bird-ca-schools-15__r3.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "bird-ca-schools-15",
+      "event_count": 181,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 27738,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": true,
+      "meta_batch_label": "r1109-mech-n3",
+      "metric": "S3_event_canonical",
+      "output_bytes": 517142,
+      "output_metric": "S4_event_canonical",
+      "rep": 3,
+      "slot": "dsh__bird-ca-schools-15__r3",
+      "status": "ok",
+      "step_sequence_length": 141,
+      "step_sequence_sha256": "feed19af1c21bc3660f229d3a126773cad21a831227a2464b99d80c0e6da1a62",
+      "trace_sha256": "e5a2bac26e524e4e2f619a96fae1bad9d1791c429950467975d61bb1fa4f6f68"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-dabstep-payments-10__r1.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "dabstep-payments-10",
+      "event_count": 356,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 28062,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 1449424,
+      "output_metric": "S4_event_canonical",
+      "rep": 1,
+      "slot": "dsh__dabstep-payments-10__r1",
+      "status": "ok",
+      "step_sequence_length": 280,
+      "step_sequence_sha256": "42eacd7348c5244a7546d59c0e03b738959033171d93c64620f1309444275cbd",
+      "trace_sha256": "3116d1097f258ff66eff092b03bee90c04b9c1bb79f97b9332e3720b3779b97a"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-dabstep-payments-10__r2.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "dabstep-payments-10",
+      "event_count": 219,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 27106,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 694996,
+      "output_metric": "S4_event_canonical",
+      "rep": 2,
+      "slot": "dsh__dabstep-payments-10__r2",
+      "status": "ok",
+      "step_sequence_length": 173,
+      "step_sequence_sha256": "a1b17c81c2a7a23f16048192d69b021494ddbc2b566aadaa05430b40e493bf38",
+      "trace_sha256": "190dd49774ff48fc4303f54be27d658177029b4c1d98bd7b3ef1995a376ba3ed"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh__dabstep-payments-10__r3.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "dabstep-payments-10",
+      "event_count": 207,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 27106,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 666696,
+      "output_metric": "S4_event_canonical",
+      "rep": 3,
+      "slot": "dsh__dabstep-payments-10__r3",
+      "status": "ok",
+      "step_sequence_length": 163,
+      "step_sequence_sha256": "071b7c38c1e06bee7566f8ae7bad254e94824411b6563cf9b14b5c2978e4aba2",
+      "trace_sha256": "d6733947de9b82b201e7c6e622e340c1ae5df4e604e66bfceffdee15c522030c"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-exercism-py-6__r1.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "exercism-py-6",
+      "event_count": 72,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 25588,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 55727,
+      "output_metric": "S4_event_canonical",
+      "rep": 1,
+      "slot": "dsh__exercism-py-6__r1",
+      "status": "ok",
+      "step_sequence_length": 50,
+      "step_sequence_sha256": "3f919a6afc3b61483028936c7ffe56c85712ff108d31cca992483a22323660fb",
+      "trace_sha256": "f5aba62e7bf39c4b3f9affec43c6826d389092f5e2e692e89b306e247fbc4e0a"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-exercism-py-6__r2.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "exercism-py-6",
+      "event_count": 82,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 25588,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 189407,
+      "output_metric": "S4_event_canonical",
+      "rep": 2,
+      "slot": "dsh__exercism-py-6__r2",
+      "status": "ok",
+      "step_sequence_length": 55,
+      "step_sequence_sha256": "7023aa8380f6a6e5c896f8080bc535a207616fd35735a40663fada8f51d1e66c",
+      "trace_sha256": "e89798bdeb2448e354c2a5ddec80e4ce4992f39296b9dc645a9398860abe4077"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-exercism-py-6__r3.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "exercism-py-6",
+      "event_count": 68,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 25588,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 81097,
+      "output_metric": "S4_event_canonical",
+      "rep": 3,
+      "slot": "dsh__exercism-py-6__r3",
+      "status": "ok",
+      "step_sequence_length": 44,
+      "step_sequence_sha256": "cb1472ff2216add43ecf684f41b520a389838810ffb627f81539e406e88b6cb7",
+      "trace_sha256": "4688e38d8d74fd03322403a59570a40bc8ba24b866345ad689c1d25c34445ec3"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-lcb-recent-hard-4__r1.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "lcb-recent-hard-4",
+      "event_count": 124,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 25837,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 256008,
+      "output_metric": "S4_event_canonical",
+      "rep": 1,
+      "slot": "dsh__lcb-recent-hard-4__r1",
+      "status": "ok",
+      "step_sequence_length": 92,
+      "step_sequence_sha256": "9dd3b9cae854bfa8877b455d4974ead64e6414efb7f746d564ff5b76422d7a22",
+      "trace_sha256": "d6795a8c29e6e1f17cefe4d18697d38c1cf37c7f38f9650877ed8b3fd716abd1"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-lcb-recent-hard-4__r2.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "lcb-recent-hard-4",
+      "event_count": 190,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 25837,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 414828,
+      "output_metric": "S4_event_canonical",
+      "rep": 2,
+      "slot": "dsh__lcb-recent-hard-4__r2",
+      "status": "ok",
+      "step_sequence_length": 145,
+      "step_sequence_sha256": "a8cf0bc70ed1c189126dc84ccc4c2da54942966036c67c83fad1b46fc17f892e",
+      "trace_sha256": "25419549abbec6ffaaeda30e2d6daa1823bc8279f7baa1b1aa17a7ad731d94c6"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-lcb-recent-hard-4__r3.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "lcb-recent-hard-4",
+      "event_count": 184,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 25837,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 412441,
+      "output_metric": "S4_event_canonical",
+      "rep": 3,
+      "slot": "dsh__lcb-recent-hard-4__r3",
+      "status": "ok",
+      "step_sequence_length": 140,
+      "step_sequence_sha256": "6e167e2bbf6d908afdcfd050d3a1dccbbf3b0862ee986324a3bdd53491d604b4",
+      "trace_sha256": "2ed5fb752f600a631324ee8508cc9c9e23a906fa1651012a1b4078b0e343ed75"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-tb-cargo-plan__r1.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "tb-cargo-plan",
+      "event_count": 146,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 25434,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 1320828,
+      "output_metric": "S4_event_canonical",
+      "rep": 1,
+      "slot": "dsh__tb-cargo-plan__r1",
+      "status": "ok",
+      "step_sequence_length": 109,
+      "step_sequence_sha256": "c54dbb024d2d59c23f085b18908b8db4012f5ce58de5ffc2f1e2c24575671f94",
+      "trace_sha256": "208a66f4dd2605ac7cebb9be1ff528c7346c7a67216e2e5a40be5c9eadd66abe"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh__tb-cargo-plan__r2.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "tb-cargo-plan",
+      "event_count": 134,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 25434,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 643922,
+      "output_metric": "S4_event_canonical",
+      "rep": 2,
+      "slot": "dsh__tb-cargo-plan__r2",
+      "status": "ok",
+      "step_sequence_length": 99,
+      "step_sequence_sha256": "d2d08ea9dcfe9d7c7398d3ebe9ace19b6b99034b036bb857039b0a9d4807668f",
+      "trace_sha256": "e256549fa7f2294352621983595a9455558cb289a5112669f09573bcb4423045"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/session-dsh-tb-cargo-plan__r3.json",
+      "arm": "dsh",
+      "boundary_sequence": [
+        "turn/start",
+        "turn/end"
+      ],
+      "case": "tb-cargo-plan",
+      "event_count": 110,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 25434,
+      "legacy_sequence": [
+        "session"
+      ],
+      "legacy_sequence_sufficient": false,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "S3_event_canonical",
+      "output_bytes": 404774,
+      "output_metric": "S4_event_canonical",
+      "rep": 3,
+      "slot": "dsh__tb-cargo-plan__r3",
+      "status": "ok",
+      "step_sequence_length": 79,
+      "step_sequence_sha256": "54d3d579d90192f6595361e7c9e07f46dd108e69f2520b242cef056cb565eae8",
+      "trace_sha256": "c0d544c2a9bc64fc7bbad2b7d1348952b1cb19b3879984376a743e9980c4ea6f"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r1.json",
+      "arm": "codex",
+      "case": "bird-ca-schools-15",
+      "closed_turns": 29,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "975cc3ca8d7b9a0a13abafb09fee6f34ca9bf0e1c6c3a99527eeb03e572f16a9",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "8bf9e454e6fbf3107f5b9e15708f1216da832bd8240c4def2b4fa21fc770b18a"
+      },
+      "event_count": 223,
+      "event_wrapper_canonical_bytes": 238636,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 225170,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 102835,
+      "output_metric": "R4_payload_canonical",
+      "rep": 1,
+      "slot": "codex__bird-ca-schools-15__r1",
+      "status": "ok",
+      "trace_sha256": "302aadf648f1c33033f13d57c0df157db69c1acff4c05f5af422c7fd2b81e5c2"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r2.json",
+      "arm": "codex",
+      "case": "bird-ca-schools-15",
+      "closed_turns": 41,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "975cc3ca8d7b9a0a13abafb09fee6f34ca9bf0e1c6c3a99527eeb03e572f16a9",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "8bf9e454e6fbf3107f5b9e15708f1216da832bd8240c4def2b4fa21fc770b18a"
+      },
+      "event_count": 311,
+      "event_wrapper_canonical_bytes": 397948,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 379471,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 241296,
+      "output_metric": "R4_payload_canonical",
+      "rep": 2,
+      "slot": "codex__bird-ca-schools-15__r2",
+      "status": "ok",
+      "trace_sha256": "54bacf19266b99ebff0446caaa80b118addc36ad1bb9bac81522f22f28516f84"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r3.json",
+      "arm": "codex",
+      "case": "bird-ca-schools-15",
+      "closed_turns": 19,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "975cc3ca8d7b9a0a13abafb09fee6f34ca9bf0e1c6c3a99527eeb03e572f16a9",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "8bf9e454e6fbf3107f5b9e15708f1216da832bd8240c4def2b4fa21fc770b18a"
+      },
+      "event_count": 204,
+      "event_wrapper_canonical_bytes": 284505,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 268786,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 141592,
+      "output_metric": "R4_payload_canonical",
+      "rep": 3,
+      "slot": "codex__bird-ca-schools-15__r3",
+      "status": "ok",
+      "trace_sha256": "055436a333a22768972eaba3bc56b7519ae37a39494adb0789abd078e9bb3ec1"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r1.json",
+      "arm": "codex",
+      "case": "dabstep-payments-10",
+      "closed_turns": 54,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "5f05696ae718404b6f79553073003048892e08e03b53fadc9b2971c4acfac828",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "364ecc66f2413da05f442c4527b78f6cf3de762dac5c475cd9a2937da3d959ee"
+      },
+      "event_count": 484,
+      "event_wrapper_canonical_bytes": 622085,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 583317,
+      "meta_a1_gate_present": true,
+      "meta_batch_label": "r1109-mech-n3",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 318642,
+      "output_metric": "R4_payload_canonical",
+      "rep": 1,
+      "slot": "codex__dabstep-payments-10__r1",
+      "status": "ok",
+      "trace_sha256": "32d6d09316a5b5c2cb0c0e33e95e372fbe72f79cb97e02dfa11eae2cc3e06fa5"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r2.json",
+      "arm": "codex",
+      "case": "dabstep-payments-10",
+      "closed_turns": 24,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "5f05696ae718404b6f79553073003048892e08e03b53fadc9b2971c4acfac828",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "364ecc66f2413da05f442c4527b78f6cf3de762dac5c475cd9a2937da3d959ee"
+      },
+      "event_count": 251,
+      "event_wrapper_canonical_bytes": 353664,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 334724,
+      "meta_a1_gate_present": true,
+      "meta_batch_label": "r1109-mech-n3",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 135806,
+      "output_metric": "R4_payload_canonical",
+      "rep": 2,
+      "slot": "codex__dabstep-payments-10__r2",
+      "status": "ok",
+      "trace_sha256": "e5ee7b2bdd44d0fbedf9ff55d27edd4cdb0db6457ba0335a6331d387b71457a9"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r3.json",
+      "arm": "codex",
+      "case": "dabstep-payments-10",
+      "closed_turns": 23,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "5f05696ae718404b6f79553073003048892e08e03b53fadc9b2971c4acfac828",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "364ecc66f2413da05f442c4527b78f6cf3de762dac5c475cd9a2937da3d959ee"
+      },
+      "event_count": 241,
+      "event_wrapper_canonical_bytes": 306171,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 286469,
+      "meta_a1_gate_present": true,
+      "meta_batch_label": "r1109-mech-n3",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 128922,
+      "output_metric": "R4_payload_canonical",
+      "rep": 3,
+      "slot": "codex__dabstep-payments-10__r3",
+      "status": "ok",
+      "trace_sha256": "be045ce4457d98ac8934cfcaddfc0a1759ee3ce6cce79139822cac7490b66c2e"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r1.json",
+      "arm": "codex",
+      "case": "exercism-py-6",
+      "closed_turns": 5,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "a1b0550f5b414c1bf8584eb80893dde8785d834ecdf2f665233935a6b4d2e491",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "abc7325ddd03006a268ead09c0d20edd7a0b662beb6bde00ea02eb6bad5ae972"
+      },
+      "event_count": 85,
+      "event_wrapper_canonical_bytes": 99012,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 91495,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 12832,
+      "output_metric": "R4_payload_canonical",
+      "rep": 1,
+      "slot": "codex__exercism-py-6__r1",
+      "status": "ok",
+      "trace_sha256": "e355baeb2cfcf644a5f9cf6e9017011a78d95e2050a11ce2d37acfc081639cac"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r2.json",
+      "arm": "codex",
+      "case": "exercism-py-6",
+      "closed_turns": 5,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "a1b0550f5b414c1bf8584eb80893dde8785d834ecdf2f665233935a6b4d2e491",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "abc7325ddd03006a268ead09c0d20edd7a0b662beb6bde00ea02eb6bad5ae972"
+      },
+      "event_count": 67,
+      "event_wrapper_canonical_bytes": 65739,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 60064,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 12964,
+      "output_metric": "R4_payload_canonical",
+      "rep": 2,
+      "slot": "codex__exercism-py-6__r2",
+      "status": "ok",
+      "trace_sha256": "a866cd55cc64db6b5ad69436bec7b1c3124d406d42541137bc1077ebd0412796"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r3.json",
+      "arm": "codex",
+      "case": "exercism-py-6",
+      "closed_turns": 5,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "a1b0550f5b414c1bf8584eb80893dde8785d834ecdf2f665233935a6b4d2e491",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "abc7325ddd03006a268ead09c0d20edd7a0b662beb6bde00ea02eb6bad5ae972"
+      },
+      "event_count": 70,
+      "event_wrapper_canonical_bytes": 86535,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 80553,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 14817,
+      "output_metric": "R4_payload_canonical",
+      "rep": 3,
+      "slot": "codex__exercism-py-6__r3",
+      "status": "ok",
+      "trace_sha256": "0e64e0c436a0f24a5cd51cbabcf2425b4da559781d298e4447c8bf0db7f12c49"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r1.json",
+      "arm": "codex",
+      "case": "lcb-recent-hard-4",
+      "closed_turns": 23,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "17f905696c81ca9cab16cb1078088c576f838bb34c12c63796eb6c4a13a70046",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "7d93a9b0f1e5737902cdbdbf61bc80341ac54fb4d2f15b837e1293d2f443e5a0"
+      },
+      "event_count": 199,
+      "event_wrapper_canonical_bytes": 145233,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 131074,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 64814,
+      "output_metric": "R4_payload_canonical",
+      "rep": 1,
+      "slot": "codex__lcb-recent-hard-4__r1",
+      "status": "ok",
+      "trace_sha256": "96e3a8d498b8c36d73cd14db01ac9c5b4fbc1ccf47b705e0af4115342b3a8b94"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r2.json",
+      "arm": "codex",
+      "case": "lcb-recent-hard-4",
+      "closed_turns": 21,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "17f905696c81ca9cab16cb1078088c576f838bb34c12c63796eb6c4a13a70046",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "7d93a9b0f1e5737902cdbdbf61bc80341ac54fb4d2f15b837e1293d2f443e5a0"
+      },
+      "event_count": 156,
+      "event_wrapper_canonical_bytes": 165311,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 156316,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 83436,
+      "output_metric": "R4_payload_canonical",
+      "rep": 2,
+      "slot": "codex__lcb-recent-hard-4__r2",
+      "status": "ok",
+      "trace_sha256": "4127b45493bcc49c23c4512fdb8e9c82a073d38fd10a7d9e49f1ace4d39dd6c8"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r3.json",
+      "arm": "codex",
+      "case": "lcb-recent-hard-4",
+      "closed_turns": 42,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "17f905696c81ca9cab16cb1078088c576f838bb34c12c63796eb6c4a13a70046",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "7d93a9b0f1e5737902cdbdbf61bc80341ac54fb4d2f15b837e1293d2f443e5a0"
+      },
+      "event_count": 312,
+      "event_wrapper_canonical_bytes": 315788,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 296612,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 184612,
+      "output_metric": "R4_payload_canonical",
+      "rep": 3,
+      "slot": "codex__lcb-recent-hard-4__r3",
+      "status": "ok",
+      "trace_sha256": "b48451020b389f927507b2d7f8ee9afb6c048e8b11461379dcd97b5667588f1d"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r1.json",
+      "arm": "codex",
+      "case": "tb-cargo-plan",
+      "closed_turns": 66,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "2c8e426f526d22265caf19052af37ed34e3af83bd301a42b5ed7f5294f246173",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "7a3a77c1cea5235e6c206565ba426985ddf09c3bfe3641568bd83f01ec0b486c"
+      },
+      "event_count": 496,
+      "event_wrapper_canonical_bytes": 819510,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 789813,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 500123,
+      "output_metric": "R4_payload_canonical",
+      "rep": 1,
+      "slot": "codex__tb-cargo-plan__r1",
+      "status": "ok",
+      "trace_sha256": "c3e4fa242b2deb54a9df232a6c366f027469bfe80eeefff26458e4d3ab916941"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r2.json",
+      "arm": "codex",
+      "case": "tb-cargo-plan",
+      "closed_turns": 25,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "2c8e426f526d22265caf19052af37ed34e3af83bd301a42b5ed7f5294f246173",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "7a3a77c1cea5235e6c206565ba426985ddf09c3bfe3641568bd83f01ec0b486c"
+      },
+      "event_count": 196,
+      "event_wrapper_canonical_bytes": 335597,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 323290,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 214461,
+      "output_metric": "R4_payload_canonical",
+      "rep": 2,
+      "slot": "codex__tb-cargo-plan__r2",
+      "status": "ok",
+      "trace_sha256": "911668a178b9da2b2a77ce276a0452c55073f33de0ffa90e4808109fad8aa092"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r3.json",
+      "arm": "codex",
+      "case": "tb-cargo-plan",
+      "closed_turns": 24,
+      "controls": {
+        "first_user_is_environment": true,
+        "leading_role_content_sha256": "2c8e426f526d22265caf19052af37ed34e3af83bd301a42b5ed7f5294f246173",
+        "roles": [
+          "developer",
+          "user",
+          "user"
+        ],
+        "task_content_sha256": "7a3a77c1cea5235e6c206565ba426985ddf09c3bfe3641568bd83f01ec0b486c"
+      },
+      "event_count": 223,
+      "event_wrapper_canonical_bytes": 334079,
+      "identity_reconciled_to_public_receipt": true,
+      "input_bytes": 317916,
+      "meta_a1_gate_present": false,
+      "meta_batch_label": "r1030-formal-a1",
+      "metric": "R3_payload_canonical",
+      "output_bytes": 202195,
+      "output_metric": "R4_payload_canonical",
+      "rep": 3,
+      "slot": "codex__tb-cargo-plan__r3",
+      "status": "ok",
+      "trace_sha256": "17857cbdf68fb736bfd9d85194cf967940389cf6f47d0a281e1e8c5e15fe78b8"
+    }
+  ],
+  "source_bindings": [
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json",
+      "sha256": "e78f5ea72d34cb57c628504d212bc8c1a2bc41ab3e4f905b47f855cf43bdbd63"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/dsh-s3-s4-summary.json",
+      "sha256": "bd5da97b71201475896f64f96434af108f4da7a3633361bfe9c1d26f3a66e03c"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r1.json",
+      "sha256": "d0b7d0fea0343537f1860e7678c9a16b39329412f9c735ce883fb0f2cff04a8f"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r2.json",
+      "sha256": "1e11cc4c48c86843638b684a770124205bf53aadef894d36288e9c501b888c2c"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r3.json",
+      "sha256": "d5898dbdb3d63d6a4f76a2d096c0f53722a811f886f3e3e5fde2f9d7afec7bcb"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r1.json",
+      "sha256": "66088f93c7b75280efe4648bf9d79dc6fdd4a5084ff522c4b4cb1938b05949f3"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r2.json",
+      "sha256": "26280b5cedda4b026587d8b5948da5763fc137714dd87647608160e9ccf9c5fc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r3.json",
+      "sha256": "521594e1c67e3b9ca003fa59f96ccb236839e3b9ad70196dba64929f9f60a348"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r1.json",
+      "sha256": "01baee8b135a7fc08de3c62224a45965abc68dfb84c4b8bfb97c080df82e423e"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r2.json",
+      "sha256": "89f2e6c00e3cb02148c36d67afb76c0afb7e7569af8034a337dc2c44cf182696"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r3.json",
+      "sha256": "450a776d4cf4dac6b4d8af87431bf75e39f84ed5d04a524ca92a87a2ddfafba3"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r1.json",
+      "sha256": "06fc0a2442b864a5fd0c7997e19c3f400b8d3767dc3740ee70d79c27bf8aca13"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r2.json",
+      "sha256": "475432c239b45b6d8a5d1c779a5c03ccdb36cd877bbcb4863982d434bec3d2f5"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r3.json",
+      "sha256": "b7d7e449c923503c250c2bed256af02c7cceb5cd33194e8ee73dcf536f8d19ab"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r1.json",
+      "sha256": "45f4333ebc5f225ca53618f5295c0cffe0d3152a3225a50d2bd3341dd21ae0cf"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r2.json",
+      "sha256": "d0beee4269ff5df57e7764b9c17d7e0caa8b2bb052ea817fdb87e14f7fb297ef"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r3.json",
+      "sha256": "bcbc222b62e72dce56f2b7e80eafd77476b70e4890503028fc41ad14af4345d9"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-bird-ca-schools-15__r1.json",
+      "sha256": "542a54d439e585c6d5f966888e2f0c5f4615fa3da3a02063a69b5331633d4bfc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-bird-ca-schools-15__r3.json",
+      "sha256": "f6f8eff63eac2482b83b41b1671c0d382c0456917fff80436aacdad532076221"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-dabstep-payments-10__r1.json",
+      "sha256": "8dda9c0fcc7deb553a65ec17382b8cf000cfb33c3ac2456dbe67383f9f97e277"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-dabstep-payments-10__r2.json",
+      "sha256": "9b63189e43eaf50749e14f99d01aee4024bf1a8b1ab495c9a430096b51aa9561"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-exercism-py-6__r1.json",
+      "sha256": "c3b738e5ad43a8b9545115a1c1fefdb962ee1092d4508d439fa728b9e239d20c"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-exercism-py-6__r2.json",
+      "sha256": "38f60f67b723bc4f9cf817f824e8f2d746755ee07c36319953cd0d2cdf07cdf8"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-exercism-py-6__r3.json",
+      "sha256": "6a09fe6ec7ad49ca583b9c8fc7eefa344d0d6492573101dc04e7adbdfd577bcc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-lcb-recent-hard-4__r1.json",
+      "sha256": "15bfad13275fd81102e8e9cac685bf562179c6303b4cd1e8042decaa265528cd"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-lcb-recent-hard-4__r2.json",
+      "sha256": "47bb77961c574b08f18a337121dbaa0013a1bd8456b992361e8c55929140a705"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-lcb-recent-hard-4__r3.json",
+      "sha256": "4bfa6b0bb5955e4e302e38eb27c9818292cfd7f135c406bd57a830d9fd8ff8a4"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-tb-cargo-plan__r1.json",
+      "sha256": "ab1f0e2d60cb43ea9057c69af58a20fc470f80319420d32f2875e5b4206708dc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-tb-cargo-plan__r3.json",
+      "sha256": "21b982d232b1aa9b818de8316ab25a39a97b3a9435b021c353e82a8ab0d34b9e"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh__bird-ca-schools-15__r2.json",
+      "sha256": "501950e037a39cb739cf0b7186371ddc0d7bf7b8452282b5b889eb10066cb0fc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh__dabstep-payments-10__r3.json",
+      "sha256": "9f1fb689fd52540bf89830425f030225dff6e2d6c7f46acabfe135ffd76bac6a"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh__tb-cargo-plan__r2.json",
+      "sha256": "b0cafe2fbf7f41d1992f6430f1e0366c5d08d008db86e25d3b1e0046c914992a"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/README.md",
+      "sha256": "a7d471b5d001f96237d099d3341ac586df89702abfae3dadf7a48cfbd78effa3"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/adjudications.json",
+      "sha256": "880bc15725505408d022345bdb0eeae794f5740129f8313bf4622df647b7e2dd"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/observe/trace-accounting-summary.json",
+      "sha256": "b29227d1273c984b8012c096a4eca25101203646dd02729d2cccaa4ec80e4b48"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__bird-ca-schools-15__r1/meta.public-derived.json",
+      "sha256": "02fe666ec6bc66d0f15bf7da90a750beb3032d71d5cc75057733792ffd56f8a2"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__bird-ca-schools-15__r2/meta.public-derived.json",
+      "sha256": "a2a9b526f6056c156532b91ce15e7b62824195491f7e67a520f222fca51ddb18"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__bird-ca-schools-15__r3/meta.public-derived.json",
+      "sha256": "561cfe04b7b78159ca64a183f1b0a3d3582308a4b8ce1db4d8b9baef49d6a89c"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__dabstep-payments-10__r1/meta.public-derived.json",
+      "sha256": "822788177e38c8ed7919a6fb24bf7560751b38f5a0477ed8bb5299b9653f8650"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__dabstep-payments-10__r2/meta.public-derived.json",
+      "sha256": "1ec912362406660fe133c6874d39734f7d684402ec959788e1ae1e00b6472de9"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__dabstep-payments-10__r3/meta.public-derived.json",
+      "sha256": "67c87b7e3c724e8bb15d27822536dea2940d53c3e67f36f25ea7165979c50c73"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__exercism-py-6__r1/meta.public-derived.json",
+      "sha256": "a9e49d6f87a16402a1709a2d0186eda591e21d7a838833a35aad2d81bf74d203"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__exercism-py-6__r2/meta.public-derived.json",
+      "sha256": "044bbcd6268c8fbfdaae17606a37f834b215837d3b5febd81d3043437c74d6ce"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__exercism-py-6__r3/meta.public-derived.json",
+      "sha256": "f0e4f038bab237852453338aae702f14a3d327b14ae1dc7c5f7d03d892e5a531"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__lcb-recent-hard-4__r1/meta.public-derived.json",
+      "sha256": "b45953b8f74d54072c440c0826bb29a4d25047ca3931d488540c95b3c4b164ae"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__lcb-recent-hard-4__r2/meta.public-derived.json",
+      "sha256": "3f0e54b0cadfcb05f0d0099245301f1444eb2b70ee3e6c1b0ee89198b01511d3"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__lcb-recent-hard-4__r3/meta.public-derived.json",
+      "sha256": "3fccbf1b1cd90c3c4e0ce880121fb094c2a944fdc085995a088c0d5217972f18"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__tb-cargo-plan__r1/meta.public-derived.json",
+      "sha256": "08a3a485b439588a213e6d66823a89c42a67cf6d5ed16eed134d1592ae74e192"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__tb-cargo-plan__r2/meta.public-derived.json",
+      "sha256": "1e69bfab7d067d53c5083027b0c6222e8f05bc8363faff1d181e41ad961f7456"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__tb-cargo-plan__r3/meta.public-derived.json",
+      "sha256": "b1f37c9b8ec78c3606ad30d134ad78d5dfb7d53abbc288d641d687cc3fa12c71"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__bird-ca-schools-15__r1/meta.public-derived.json",
+      "sha256": "e17e1880cce56b8482474c745148c063777551a866729baf1e1e8cdfe3f4936a"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__bird-ca-schools-15__r2/meta.public-derived.json",
+      "sha256": "580392e8ddb7f12e85f454342d77f6875f4a036f8a5691927539335ac0e3c0da"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__bird-ca-schools-15__r3/meta.public-derived.json",
+      "sha256": "975a5e4e2e56e5d3b524fb83125d52d2e85694585895415e03a587b6797863e1"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__dabstep-payments-10__r1/meta.public-derived.json",
+      "sha256": "fb38291d4e42a8e7a3513b6214734269858f6acf1a5eb099954ea82d6f2d2b71"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__dabstep-payments-10__r2/meta.public-derived.json",
+      "sha256": "95c0f55f36a4531d9b71bdba81888b2f44b46144cc89fca80ca79d2981d8e245"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__dabstep-payments-10__r3/meta.public-derived.json",
+      "sha256": "efc13fa45973d04d808f0f5dfe925002bb27dd73bc7c8e9665e3b27554cabe61"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__exercism-py-6__r1/meta.public-derived.json",
+      "sha256": "261dfbc042e22c1c172770d4bd5e8411ed5e3d328280428b7dd57af102ffde8e"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__exercism-py-6__r2/meta.public-derived.json",
+      "sha256": "09e3fa8fa5f5efd029074202309e392870f30d0ceba0a3e9f7a9bc60144dc556"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__exercism-py-6__r3/meta.public-derived.json",
+      "sha256": "1fa5e986069ed2fc1a0a440801f8d969cde495a5649c755e814feb0bca60f7a0"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__lcb-recent-hard-4__r1/meta.public-derived.json",
+      "sha256": "5a16e35792bcc0eb79f7cc4d594f03d2da061fdc89f272d3c2414d5c999314ae"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__lcb-recent-hard-4__r2/meta.public-derived.json",
+      "sha256": "b1c914416150ed1fea5b9f6b1b7e9468f53105cd7fae962a795bb85dcf9aa5ef"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__lcb-recent-hard-4__r3/meta.public-derived.json",
+      "sha256": "eb5dcd89358f7bbbd364cb7b020aab0bdd90dea8002d7b8d3a6801528bc90652"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__tb-cargo-plan__r1/meta.public-derived.json",
+      "sha256": "f8bad3f7b82008952824a9f8d9ad575b9dc35baa4ecad277741423855aae166a"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__tb-cargo-plan__r2/meta.public-derived.json",
+      "sha256": "1939153d55c3a76c55cb982478a5649e254df70bda1e17e858a1e49a3e85e15f"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__tb-cargo-plan__r3/meta.public-derived.json",
+      "sha256": "00933c22e7967615c2ddf89d3c291d3bcecc8c41b2142f53fea7947c619561f3"
+    },
+    {
+      "path": "4-打分细则/机制独立重复预注册-2026-11-08/README.md",
+      "sha256": "4c2d32bb55290af087fc46faf6b23bbcfd409d3b27bfc679e61a87f7c6dcabb3"
+    },
+    {
+      "path": "4-打分细则/请求侧观测规范-2026-11-08/README.md",
+      "sha256": "7bd025e6b4ebaae78210fd5a50bc06c7f9be12511269ad5dc282b350102fe735"
+    },
+    {
+      "path": "4-打分细则/请求侧观测规范-2026-11-08/tools-request-side-observe.py",
+      "sha256": "b5f2da70be440cd1178fed65405b2546372083642cf79b77c4b7bd9290064fd2"
+    },
+    {
+      "path": "4-打分细则/请求侧观测规范-2026-11-08/tools-session-trace-observe.py",
+      "sha256": "58e0c153ba436b39048962498a89a846559a60c7357843d80c1a1d988231420b"
+    }
+  ]
+}
