@@ -1,0 +1,342 @@
+{
+  "schema": 1,
+  "analysis_kind": "post_hoc_two_purposively_selected_historical_traces",
+  "not_new_runs": true,
+  "source_access": "derived_projection_only_not_full_public_trace_authentication",
+  "Q1": {
+    "complete_owner": "trusted_runner",
+    "runner_suite_run_line": 53,
+    "runner_complete_literal_line": 55,
+    "runner_sha256": "4002bcf55618673aea7ef408ea84dd8752b1596dd173db834330b24ce0c7ba86",
+    "runner_sha_matches_frozen_config": true,
+    "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+    "checker_bridge_lines": [
+      168,
+      191
+    ],
+    "complete_is_agent_claim": false,
+    "formal_graded_pov": {
+      "tests": 15,
+      "failures": 3,
+      "errors": 0,
+      "exit_code": 1,
+      "complete": true
+    },
+    "legacy_F5_singleton": 1,
+    "supported_agent_false_final_cases_from_this_singleton": 0,
+    "insufficient_for_original_agent_claim_F5_attribution": 1,
+    "not_a_global_no_false_claim_assertion": true,
+    "agent_false_final_basis": "not_supported_by_this_field_or_observed_trace_tail"
+  },
+  "cases": {
+    "formal": {
+      "trace": {
+        "bytes": 100507,
+        "sha256": "8201ba0e2326b9307d770d8dcb7e2b99020424924d28e197ab3a2412e443387f",
+        "records": 65,
+        "roles": {
+          "assistant": 23,
+          "tool": 42
+        },
+        "tool_calls": 42,
+        "all_calls_matched": true,
+        "final_role": "tool",
+        "final_newline": true,
+        "user_or_system_rows": 0,
+        "per_record_timestamps_present": false
+      },
+      "versions": [
+        {
+          "operation": "Write",
+          "call_line": 58,
+          "ack_line": 59,
+          "before": null,
+          "after": {
+            "bytes": 1785,
+            "sha256": "c139bc0b1b13b62b98986c9fdb79dd9f9ebe66564e9405d5cc3f3809da3c6168"
+          },
+          "prior_fragment_matches": null
+        },
+        {
+          "operation": "Edit",
+          "call_line": 64,
+          "ack_line": 65,
+          "before": {
+            "bytes": 1785,
+            "sha256": "c139bc0b1b13b62b98986c9fdb79dd9f9ebe66564e9405d5cc3f3809da3c6168"
+          },
+          "after": {
+            "bytes": 1859,
+            "sha256": "c99b96b68ca54c4671d174d0801c80e2976b899550a3f1e8ce91ffca1b5395b6"
+          },
+          "prior_fragment_matches": 1
+        }
+      ],
+      "repair_chains": [
+        {
+          "failure_line": 61,
+          "diagnosis_line": 64,
+          "edit_line": 64,
+          "edit_ack_line": 65,
+          "diagnostic_probe_lines": [
+            [
+              62,
+              63
+            ]
+          ],
+          "next_pov_retest_line": null,
+          "next_pov_result_line": null,
+          "next_failures": null,
+          "closure": "no_retest_observed"
+        }
+      ],
+      "pov_retests": [
+        {
+          "call_line": 60,
+          "return_line": 61,
+          "tests": 15,
+          "failures": 10,
+          "errors": 0,
+          "exit_code": 1,
+          "status": "FAILED (failures=10)"
+        }
+      ],
+      "same_visible_pov_command_within_case": true,
+      "terminal_statement": {
+        "line": null,
+        "content_sha256": null,
+        "observed": false
+      },
+      "scope_annotations": [
+        {
+          "line": 53,
+          "owner": "assistant",
+          "kind": "local_zipper_green_then_pov_next",
+          "scope": "zipper only; not global final",
+          "content_sha256": "603da84272fb8b0fe2eea6e0d32759816ad1cb8eb184ddf0690bd7fb0ae97732"
+        },
+        {
+          "line": 22,
+          "owner": "assistant_tool_intent",
+          "kind": "six_prospective_task_goals",
+          "scope": "requested future success, not observed completed tasks"
+        }
+      ],
+      "full_sweep_displayed": [],
+      "reconstructed": {
+        "bytes": 1859,
+        "sha256": "c99b96b68ca54c4671d174d0801c80e2976b899550a3f1e8ce91ffca1b5395b6"
+      },
+      "current": {
+        "bytes": 1859,
+        "sha256": "c99b96b68ca54c4671d174d0801c80e2976b899550a3f1e8ce91ffca1b5395b6"
+      },
+      "matches_current_bytes": true,
+      "closure": "edit_ack_without_subsequent_retest_or_final"
+    },
+    "r1_control": {
+      "trace": {
+        "bytes": 113631,
+        "sha256": "f10f9c49bd875427d14ac0724df7654ed1001a9f0d92a272bdc301cbd3f025a6",
+        "records": 78,
+        "roles": {
+          "assistant": 29,
+          "tool": 49
+        },
+        "tool_calls": 49,
+        "all_calls_matched": true,
+        "final_role": "assistant",
+        "final_newline": true,
+        "user_or_system_rows": 0,
+        "per_record_timestamps_present": false
+      },
+      "versions": [
+        {
+          "operation": "Write",
+          "call_line": 61,
+          "ack_line": 62,
+          "before": null,
+          "after": {
+            "bytes": 2214,
+            "sha256": "835e3fb6908c51981f4dcd0793e42179f28f4fb3eca2df68f9a0931ad4918879"
+          },
+          "prior_fragment_matches": null
+        },
+        {
+          "operation": "Edit",
+          "call_line": 67,
+          "ack_line": 68,
+          "before": {
+            "bytes": 2214,
+            "sha256": "835e3fb6908c51981f4dcd0793e42179f28f4fb3eca2df68f9a0931ad4918879"
+          },
+          "after": {
+            "bytes": 2443,
+            "sha256": "7e37994ca33206fb9d667ba26c711b26fe79e18ab07a801776f2765874828133"
+          },
+          "prior_fragment_matches": 1
+        },
+        {
+          "operation": "Edit",
+          "call_line": 71,
+          "ack_line": 72,
+          "before": {
+            "bytes": 2443,
+            "sha256": "7e37994ca33206fb9d667ba26c711b26fe79e18ab07a801776f2765874828133"
+          },
+          "after": {
+            "bytes": 2438,
+            "sha256": "83d5a2e99500a1cd44e4db2debadb1a45f4d9ec61efb83a7f13f7fdab6d19009"
+          },
+          "prior_fragment_matches": 1
+        }
+      ],
+      "repair_chains": [
+        {
+          "failure_line": 64,
+          "diagnosis_line": 67,
+          "edit_line": 67,
+          "edit_ack_line": 68,
+          "diagnostic_probe_lines": [
+            [
+              65,
+              66
+            ]
+          ],
+          "next_pov_retest_line": 69,
+          "next_pov_result_line": 70,
+          "next_failures": 2,
+          "closure": "retest_still_failed"
+        },
+        {
+          "failure_line": 70,
+          "diagnosis_line": 71,
+          "edit_line": 71,
+          "edit_ack_line": 72,
+          "diagnostic_probe_lines": [],
+          "next_pov_retest_line": 73,
+          "next_pov_result_line": 74,
+          "next_failures": 0,
+          "closure": "retest_success"
+        }
+      ],
+      "pov_retests": [
+        {
+          "call_line": 63,
+          "return_line": 64,
+          "tests": 15,
+          "failures": 5,
+          "errors": 0,
+          "exit_code": 1,
+          "status": "FAILED (failures=5)"
+        },
+        {
+          "call_line": 69,
+          "return_line": 70,
+          "tests": 15,
+          "failures": 2,
+          "errors": 0,
+          "exit_code": 1,
+          "status": "FAILED (failures=2)"
+        },
+        {
+          "call_line": 73,
+          "return_line": 74,
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "exit_code": 0,
+          "status": "OK"
+        }
+      ],
+      "same_visible_pov_command_within_case": true,
+      "terminal_statement": {
+        "line": 78,
+        "content_sha256": "0bedc112a618dadf3ea816edabf4136fdc235f4698739426daabc024854578b6",
+        "observed": true
+      },
+      "scope_annotations": [
+        {
+          "line": 78,
+          "owner": "assistant",
+          "kind": "global_success_claim",
+          "scope": "all six exercises; manually scoped after source reading",
+          "content_sha256": "0bedc112a618dadf3ea816edabf4136fdc235f4698739426daabc024854578b6"
+        }
+      ],
+      "full_sweep_displayed": [
+        {
+          "call_line": 75,
+          "return_line": 77,
+          "outer_exit_code": 0,
+          "pipeline_exit_caveat": true,
+          "summaries": [
+            {
+              "exercise": "forth",
+              "tests": 54,
+              "status": "OK"
+            },
+            {
+              "exercise": "poker",
+              "tests": 37,
+              "status": "OK"
+            },
+            {
+              "exercise": "dominoes",
+              "tests": 13,
+              "status": "OK"
+            },
+            {
+              "exercise": "bowling",
+              "tests": 31,
+              "status": "OK"
+            },
+            {
+              "exercise": "zipper",
+              "tests": 14,
+              "status": "OK"
+            },
+            {
+              "exercise": "pov",
+              "tests": 15,
+              "status": "OK"
+            }
+          ]
+        }
+      ],
+      "reconstructed": {
+        "bytes": 2438,
+        "sha256": "83d5a2e99500a1cd44e4db2debadb1a45f4d9ec61efb83a7f13f7fdab6d19009"
+      },
+      "current": {
+        "bytes": 2438,
+        "sha256": "83d5a2e99500a1cd44e4db2debadb1a45f4d9ec61efb83a7f13f7fdab6d19009"
+      },
+      "matches_current_bytes": true,
+      "closure": "same_command_retests_then_terminal_claim",
+      "matches_collected_bytes": true
+    }
+  },
+  "Q3": {
+    "formal_scored_solution_hash": null,
+    "r1_scored_solution_hash": null,
+    "state": "unknown_in_named_inspected_scope",
+    "same_current_bytes_not_original_scoring_attestation": true,
+    "formal_frozen_source_records_checked": 9,
+    "formal_solution_hash_records_in_those_sources": 0,
+    "case_input_stub_hash_not_solution_hash": true,
+    "r1_other_receipt_digest_not_per_file_solution_hash": true
+  },
+  "limits": {
+    "purposive_historical_cases": 2,
+    "new_sample_size": 0,
+    "formal_F5_original_cases": 1,
+    "frequency_or_generalization": false,
+    "causal_effect": null,
+    "formal_tail_cause": "unknown",
+    "formal_10_to_external_3_not_same_suite_effect": true,
+    "local_stdout_not_cryptographic_execution_receipt": true,
+    "complete_exported_rows_not_full_user_prompt": true,
+    "frozen_scores_changed": false
+  }
+}
