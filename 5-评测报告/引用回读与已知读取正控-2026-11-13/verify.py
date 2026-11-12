@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v7"
+            data["schema"] == "knownread-20261113-v8"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -317,6 +317,54 @@ def verify(data: dict) -> dict:
         checks["ring6_first_session_marked_superseded"] = (
             "superseded" in data["ring6_yuanbao_known_read_first_session"]["status"]
             and data["ring6_yuanbao_known_read_first_session"]["n"] == 1
+        )
+
+    # ---- ring18 boundary precision + ring17 interim (v8) ----
+    if "ring18_boundary_precision" in data:
+        r18 = data["ring18_boundary_precision"]
+        spill = {x["cap_tokens"]: x for x in r18["spill_sessions"]}
+        nospill = {x["cap_tokens"]: x for x in r18["nospill_sessions"]}
+        checks["ring18_spill_arms"] = (
+            set(spill) == {8941, 8942}
+            and spill[8941]["omitted_bytes"] == [323, 323]
+            and spill[8942]["omitted_bytes"] == [319, 319]
+            and spill[8941]["slots"] == 2 and spill[8942]["slots"] == 2
+            and spill[8941]["keys_all_correct"] == 2 and spill[8942]["keys_all_correct"] == 2
+        )
+        checks["ring18_nospill_arms"] = (
+            set(nospill) == {9020, 9021, 9022}
+            and all(nospill[c]["read_attempts_total"] == 0 for c in nospill)
+            and all(nospill[c]["keys_all_correct"] == 1 for c in nospill)
+            and all(nospill[c]["middle_record_in_request2"] is True for c in nospill)
+        )
+        fixture_chars = 35767
+        def _omit(cap: int) -> int:
+            return fixture_chars - 4 * (cap - 80)
+        checks["ring18_truncation_law"] = (
+            r18["truncation_law"].startswith("omitted = 35767 - 4*(cap-80); exact at caps 8192/8941/8942")
+            and r18["prior_point"]["cap_tokens"] == 8192
+            and r18["prior_point"]["omitted_bytes"] == _omit(8192)
+            and _omit(8941) == 323 and _omit(8942) == 319
+            and r18["boundary"] == "spill-off boundary in [8943, 9020]: cap 8942 spills, cap 9020 does not; sub-interval not point-resolved"
+            and "chars/4 estimator" in r18["trigger_criterion"]
+        )
+        checks["ring18_prediction_honesty"] = (
+            "refuted" in r18["prediction_honesty"]
+            and r18["branches"]["ring18"] == "read_at_all_caps"
+            and r18["branches"]["ring18b"] == "boundary_below_9021"
+            and r18["branches"]["ring18c"] == "boundary_above_9020_side"
+        )
+    if "ring17_yuanbao_size_interim" in data:
+        r17 = data["ring17_yuanbao_size_interim"]
+        s1 = r17["sessions"][0]
+        checks["ring17_interim_shape"] = (
+            r17["status"] == "interim"
+            and "screen lock" in r17["note"]
+            and s1["slot"] == "yb-s-1k"
+            and s1["probe_bytes"] == 990
+            and s1["fixture_sha256"] == "1355a449c2c71fdf11b6aff4c1381d3585c27e690171a3e3ef1e2af96388c054"
+            and s1["keys_all_correct"] is True
+            and s1["tail"] == "JADE-104"
         )
 
     ok = all(checks.values())

@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v7",
+ "schema": "knownread-20261113-v8",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -300,7 +300,9 @@
   "ring10 cap sweep is mechanism-face with n=2 per arm on one fixture geometry; cost medians are client bytes and the stopping-rule distinction (no spill left vs answer already visible) is not resolved by this ladder",
   "ring12 middle-position control is mechanism-face n=2 per arm at a single cap (8192) with three probe positions; the head+tail preview discovery and answer-visibility gate come from this same instrumented scenario and are not product-wide claims",
   "ring14: spill-off boundary bracketed on one fixture only (8192, 9216]; no-spill prediction for 16384 held, 9216 prediction wrong and recorded",
-  "ring6 completed (v7): yuanbao known-read positive control n=3 final = partial; one session reached the observable read path (2/3 keys), two fabricated; no fully correct answer observed on this detection surface; not a product-wide claim"
+  "ring6 completed (v7): yuanbao known-read positive control n=3 final = partial; one session reached the observable read path (2/3 keys), two fabricated; no fully correct answer observed on this detection surface; not a product-wide claim",
+  "ring18/18b/18c (v8): spill-off boundary in [8943,9020] on one fixture; truncation law omitted=35767-4*(cap-80) exact at 8192/8941/8942; trigger criterion not chars/4 (tokenizer candidate, unobservable); three prereg predictions refuted and recorded as observed",
+  "ring17 interim (v8): yuanbao size probe has only the 990B point (3/3 correct); 8k/64k/256k blocked by screen lock, pending unlock; no size threshold claim"
  ],
  "v3_added_at": "2026-11-13T02:35:00+08:00",
  "ring8_size_threshold": {
@@ -921,6 +923,116 @@
    "n=3, one slot each; no product-level rate claims",
    "upload via synthetic DragEvent (DataTransfer); difference from a real user drag not measured",
    "expert mode box-default tier only; model tier/version not confirmable from the page"
+  ]
+ },
+ "v8_added_at": "2026-11-13T03:59+08:00",
+ "ring18_boundary_precision": {
+  "prereg_seals": {
+   "r18": "7236db6d7b92fd8b",
+   "r18b": "0aabcd4d20222b27",
+   "r18c": "ea6c45b20e40660d"
+  },
+  "dsh_pin": "0.2.0-rc.2",
+  "model": "deepseek-flash",
+  "effort": "low",
+  "fixture_note": "same 35767B fixture, 422 lines, prompt asks record noise-0210 (line 212, ~50%)",
+  "spill_sessions": [
+   {
+    "cap_tokens": 8941,
+    "slots": 2,
+    "requests_each": 3,
+    "omitted_bytes": [
+     323,
+     323
+    ],
+    "read_attempts_total": 2,
+    "middle_key_hits": 2,
+    "keys_all_correct": 2
+   },
+   {
+    "cap_tokens": 8942,
+    "slots": 2,
+    "requests_each": 3,
+    "omitted_bytes": [
+     319,
+     319
+    ],
+    "read_attempts_total": 2,
+    "middle_key_hits": 2,
+    "keys_all_correct": 2
+   }
+  ],
+  "nospill_sessions": [
+   {
+    "cap_tokens": 9020,
+    "slots": 1,
+    "requests_each": 2,
+    "read_attempts_total": 0,
+    "keys_all_correct": 1,
+    "middle_record_in_request2": true
+   },
+   {
+    "cap_tokens": 9021,
+    "slots": 1,
+    "requests_each": 2,
+    "read_attempts_total": 0,
+    "keys_all_correct": 1,
+    "middle_record_in_request2": true
+   },
+   {
+    "cap_tokens": 9022,
+    "slots": 1,
+    "requests_each": 2,
+    "read_attempts_total": 0,
+    "keys_all_correct": 1,
+    "middle_record_in_request2": true
+   }
+  ],
+  "prior_point": {
+   "cap_tokens": 8192,
+   "source": "ring12_middle_position",
+   "omitted_bytes": 3319
+  },
+  "truncation_law": "omitted = 35767 - 4*(cap-80); exact at caps 8192/8941/8942 (zero free parameters, delta_cap +1 -> omitted -4)",
+  "boundary": "spill-off boundary in [8943, 9020]: cap 8942 spills, cap 9020 does not; sub-interval not point-resolved",
+  "trigger_criterion": "spill trigger is not the chars/4 estimator (8942 spills but 9020 does not); content-dependent estimate, candidate = real tokenizer token count in (8862, 8940]; unobservable on this detection surface, recorded as hypothesis",
+  "prediction_honesty": "ring18 prereg predicted 8942 no-spill from budget=cap*4 rule — refuted by observation and recorded; ring18b floor-law prediction for 9021 and ring18c for 9020 also refuted (both no-spill), so only the truncation-side law is exact",
+  "branches": {
+   "ring18": "read_at_all_caps",
+   "ring18b": "boundary_below_9021",
+   "ring18c": "boundary_above_9020_side"
+  },
+  "boundaries": [
+   "single fixture (35767B, head+noise+tail)",
+   "single model/effort (deepseek-flash low)",
+   "boundary bracket [8943,9020] not point-resolved; -80 constant meaning unobservable"
+  ]
+ },
+ "ring17_yuanbao_size_interim": {
+  "status": "interim",
+  "note": "slots 8k/64k/256k blocked by desktop screen lock at ~03:45+08:00; pending unlock, not rescheduled within this ring",
+  "prereg_seal_17": "53475225756affc8",
+  "model_note": "yuanbao expert mode, agent default model (not pinned)",
+  "sessions": [
+   {
+    "slot": "yb-s-1k",
+    "probe": "probe-1k.txt",
+    "probe_bytes": 990,
+    "fixture_sha256": "1355a449c2c71fdf11b6aff4c1381d3585c27e690171a3e3ef1e2af96388c054",
+    "keys_all_correct": true,
+    "head": "AMBER-731",
+    "middle": "e95863ba0f635ac13c052c2bb7d5b06820bc4df5504bdce00fdde7a028a04a79",
+    "tail": "JADE-104",
+    "expert_mode_confirmed": true,
+    "truncation_markers_visible": false,
+    "reply_latency": "<60s",
+    "screenshot_sha256": "9fdc1a27"
+   }
+  ],
+  "boundaries": [
+   "n=1 size point (990B) only",
+   "detection surface = visible reply text",
+   "upload via synthetic DragEvent; remaining sizes pending unlock"
   ]
  }
 }

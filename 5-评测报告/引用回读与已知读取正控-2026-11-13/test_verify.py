@@ -231,6 +231,44 @@ class FullResult(unittest.TestCase):
         bad[r12]["prereg_seal_12"] = "deadbeefdeadbeef"
         self.assertFalse(verify.verify(bad)["checks"]["ring12_arms_two_slots_each"])
 
+    def test_tampered_ring18_detected(self):
+        r18 = "ring18_boundary_precision"
+        # 8942 的省略字节数被洗成无外溢（截断量律证据消失）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r18]["spill_sessions"][1]["omitted_bytes"] = [0, 0]
+        self.assertFalse(verify.verify(bad)["checks"]["ring18_spill_arms"])
+        # 无外溢臂的 read 次数被改成 1（零 read 是边界证据核心）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r18]["nospill_sessions"][0]["read_attempts_total"] = 1
+        self.assertFalse(verify.verify(bad)["checks"]["ring18_nospill_arms"])
+        # 截断量律公式常数被改（-80 -> -100）使 8941 数据不再吻合必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r18]["truncation_law"] = "omitted = 35767 - 4*(cap-100); exact at caps 8192/8941/8942"
+        self.assertFalse(verify.verify(bad)["checks"]["ring18_truncation_law"])
+        # 边界声明被改成单点精解（掩盖 [8943,9020] 未逐点定位）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r18]["boundary"] = "spill-off boundary exactly at cap 9020"
+        self.assertFalse(verify.verify(bad)["checks"]["ring18_truncation_law"])
+        # 被否证预测被洗成已验证（预测诚实性抹除）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r18]["prediction_honesty"] = "all prereg predictions held"
+        self.assertFalse(verify.verify(bad)["checks"]["ring18_prediction_honesty"])
+
+    def test_tampered_ring17_detected(self):
+        r17 = "ring17_yuanbao_size_interim"
+        # 1k 点三键全对被改成 false（正控结论翻转）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r17]["sessions"][0]["keys_all_correct"] = False
+        self.assertFalse(verify.verify(bad)["checks"]["ring17_interim_shape"])
+        # interim 状态被洗成 completed（阻塞事实抹除）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r17]["status"] = "completed"
+        self.assertFalse(verify.verify(bad)["checks"]["ring17_interim_shape"])
+        # probe 字节数被改（夹具身份漂移）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r17]["sessions"][0]["probe_bytes"] = 1024
+        self.assertFalse(verify.verify(bad)["checks"]["ring17_interim_shape"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
