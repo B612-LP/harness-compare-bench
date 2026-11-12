@@ -13,7 +13,7 @@
 - **IMK×2**：同菜单、阈值 1,000,000（等 inline 全量），作成本对照。
 - 预注册或有臂 rb-nudge×3（提示词追加 read 提示）：仅当 RB 六场全部未调 read 才发射；实际未触发。
 
-## 二、结果（数值见 [result.json](<result.json>)，[verify.py](<verify.py>) 一键复算，69 checks）
+## 二、结果（数值见 [result.json](<result.json>)，[verify.py](<verify.py>) 一键复算，73 checks）
 
 | 臂 | 场次 | 关键结果 |
 |---|---|---|
@@ -177,8 +177,8 @@ wb-80k 完成且 3/3：显示面为 persisted 预览（2.3K chars）但模型侧
 |---|---|---|---|---|---|
 | DSH | cap×4 字符代理（Ring 26 usage 斜率证实） | maxInlineTokens 配置 | 显式页脚 "Omitted N bytes"+引用路径 | 显式、可自行 read 恢复 | 自发 read（6/6） |
 | 豆包工作 | chars/4 自估（拒绝文本精确） | 工具 25,000 est tok + 输出削顶帽 | 全文拒绝+`<tool-output-truncated>` head2K+tail | 显式双机制 | 按建议定向读（3/3） |
-| WorkBuddy | chars/4 自估（行为边界推断） | 工具 20,000 est tok（256k 拒）；80k est=20,000 边界通过 | persisted 预览（显示面）/ ≥112k waiting_user 人工门 | 显示面≠摄入面 | 80k 全摄入直答 3/3；人工门场景未自动补偿 |
-| Codex | 未知（帽字符当量 [65.6k, 66.8k]） | 摄入帽 ~17k tok | **静默削顶**（无标记） | 无显式信号 | 搜索补偿（rg/grep 3/3） |
+| WorkBuddy | chars/4 型自估，content-dependent（Ring 44：112k est 28,000 恰 chars/4、192k est 42,465 ≠ 48,000） | Read 工具拒绝门 est>20,000 tok（拒绝文本直接观测）；80k est=20,000 边界通过 | persisted 预览（显示面）；Ring 30 waiting_user=瞬时偶发（Ring 44 15 秒完成修正） | 显式拒绝文本 | 拒绝→Grep 补偿 3/3（Ring 44）；80k 全摄入直答 3/3 |
+| Codex | bytes（折叠门=bytes>10,000，Ring 43；保留每侧 5,000 bytes，Ring 41） | 折叠触发门 (10k, 10,004] bytes | **折叠**（Warning 头+chars 计数中缝，无恢复路径提示） | 显式截断标记（v14 修正） | 搜索补偿（rg/grep，middle 位置完全预测） |
 
 ### 二之十六、帽单位判别：CJK vs ASCII（同日 v12 增补，Ring 32/33，7 会话）
 
@@ -217,13 +217,28 @@ Ring 39 曾表述折叠「静默（无页脚无恢复提示）」。Ring 41 请�
 - grep stdout 同被折叠 → 对任意工具输出生效；折叠 face 在后续请求原样保留（无二次折叠）。
 - 边界：单 CLI/单模型；非行对齐截断（中途截词）；relay 只观测请求面。
 
+### 二之二十一、折叠触发门定位（同日 v15 增补，Ring 43，relay 2 会话）
+
+| 探针 | bytes | declared | 折叠 | marker |
+|---|---|---|---|---|
+| fg-10k04 | 10,004 | 2501 | 是 | …4 chars truncated… |
+| fg-10k512 | 10,512 | 2628 | 是 | …512 chars truncated… |
+
+- **触发门 = bytes > 10,000**（10,004B 即折叠；10KiB=10,240 候选否证）；marker 计数 = bytes−10,000 自洽；Ring 41 bracket (10k,12k] 收窄至 (10k,10,004]。declared=ceil(bytes/4) 第三点复证；declared 门与 bytes 门逐点数学等值，无行为判别点。
+
+### 二之二十二、恢复链定型与估计器分化（同日 v15 增补，Ring 44/45，3 会话 live）
+
+- **Ring 44（WB 重试）**：Ring 30 的 waiting_user 暂停=**瞬时偶发**（同夹具重发 15.2 秒完成，两会话拒绝→Grep 补偿→3/3）；**WB Read 拒绝门直接观测**：`File content (estimated X tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters… or use the GrepTool…`——帽 20,000（豆包 25,000）；est 28,000（112k，恰 chars/4）与 42,465（192k，≠48,000，−11.5%）→ **WB 自估估计器 content-dependent**，豆包两点均 chars/4 精确。拒绝模板句式同族（offset and limit/GrepTool），帽与措辞不同——观察事实，不作同源推断。
+- **Ring 45（豆包 80k 干净重跑）**：Ring 29 作废 MIDDLE 格闭合——80k=削顶（`Output too large (84K characters, 83688 bytes)`、无拒绝=自估 21k<25k）→自发 Grep "noise-0482" 命中 L485→**3/3**。
+- **四产品恢复链定型**：DSH 显式页脚+read / Codex Warning 头+rg / 豆包 marker+Grep / WB 拒绝文本+Grep——「显式信号→自发定向恢复」四产品一致，无静默失败例。
+
 ## 三、老师反馈对照（第四轮 Issue #16）
 
 | 条款 | 本环对应 |
 |---|---|
 | P1 最小对照区分外溢/截断/重组 | ① 的可实测缺口（引用回读）已测；bounded 优势与恢复成本同时量化；外溢阈参数依赖已扫描（512–131072 五档，交叉点 [8192,32768]，512 最省；边界收窄 [8943,9020] 且截断量律近似精确（≤64k 精确、256k +4 破缺）；**「token 对齐候选」已被 usage 斜率否证——计量单位=chars/4 字符代理**，E1 门六条件一致） |
 | P1 真实产品统一"当前检测面未观察到" | 正控按探针条件披露；不把合成漏检率套到产品；零命中裁定不推翻 |
-| P1 请求字节与 usage 分列 | DSH 逐请求 B 序列公布；豆包 usage 字段缺失如实记录；**Codex turn usage 与 WB usage 增量补齐产品侧分列；四产品 "token" 限额在检测面上均为 chars/4 自估（真实摄入可超名义值），信号面四分类=DSH 显式页脚/豆包显式拒绝+削顶标记/WB persisted 预览+人工门/Codex 静默削顶；Ring 32–34 显式修正 ρ 标定链并以行为面（rg 补偿）为主证据**；字节≠token≠成本 |
+| P1 请求字节与 usage 分列 | DSH 逐请求 B 序列公布；豆包 usage 字段缺失如实记录；**Codex turn usage 与 WB usage 增量补齐产品侧分列；折叠门定位至 bytes>10,000（Ring 43）；WB/豆包拒绝门与恢复链定型（Ring 44/45）；四产品 "token" 限额在检测面上均为 chars/4 自估（真实摄入可超名义值），信号面四分类=DSH 显式页脚/豆包显式拒绝+削顶标记/WB persisted 预览+人工门/Codex 静默削顶；Ring 32–34 显式修正 ρ 标定链并以行为面（rg 补偿）为主证据**；字节≠token≠成本 |
 | P0 协议变更留版本 | 机制执行器为 v3 新版（新预注册+实时 control-drift 门），1103 冻结件未改；C1 门与旧基线逐字节一致 |
 | P1 一页索引 | [结论复核索引](<../结论复核索引-2026-11-12/README.md>)已增行 |
 

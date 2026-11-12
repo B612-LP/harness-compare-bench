@@ -439,5 +439,32 @@ class FullResult(unittest.TestCase):
         self.assertFalse(verify.verify(bad)["checks"]["ring39_correction_v14"])
 
 
+    def test_tampered_ring43_detected(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring43_fold_gate"]["sessions"][0]["folded"] = False
+        bad["ring43_fold_gate"]["branch"] = "gate_above_10512"
+        self.assertFalse(verify.verify(bad)["ok"])
+
+    def test_tampered_ring44_detected(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring44_wb_retry"]["sessions"][1]["refusal_est_tokens"] = 48000
+        bad["ring44_wb_retry"]["branch"] = "pause_deterministic_gate"
+        self.assertFalse(verify.verify(bad)["ok"])
+        bad2 = copy.deepcopy(self.data)
+        bad2["ring44_wb_retry"]["findings"]["pause_not_deterministic"] = "pauses are deterministic"
+        self.assertFalse(verify.verify(bad2)["ok"])
+
+    def test_tampered_ring45_detected(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring45_doubao_80k_clean"]["session"]["keys_correct"] = "2/3"
+        self.assertFalse(verify.verify(bad)["ok"])
+        bad2 = copy.deepcopy(self.data)
+        bad2["ring45_doubao_80k_clean"]["session"]["truncation_marker"] = False
+        self.assertFalse(verify.verify(bad2)["ok"])
+        bad3 = copy.deepcopy(self.data)
+        bad3["ring29_doubao_bracket"].pop("correction_v15", None)
+        self.assertFalse(verify.verify(bad3)["ok"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v14"
+            data["schema"] == "knownread-20261113-v15"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -574,6 +574,50 @@ def verify(data: dict) -> dict:
         checks["ring41_bracket_honesty"] = (
             "both preregistered branches" in r["prereg_branch_honesty"]
         )
+    # ring43/44/45 + corrections (v15)
+    if "ring43_fold_gate" in data:
+        r = data["ring43_fold_gate"]
+        ss = {x["slot"]: x for x in r["sessions"]}
+        checks["ring43_shape"] = (
+            r["prereg_seal_43"] == "693cc80847f36bd1"
+            and len(r["sessions"]) == 2
+            and ss["fg-10k04-01"]["bytes"] == 10004 and ss["fg-10k04-01"]["folded"] is True
+            and ss["fg-10k04-01"]["marker_chars_truncated"] == 4
+            and ss["fg-10k512-01"]["bytes"] == 10512 and ss["fg-10k512-01"]["folded"] is True
+            and r["branch"] == "fold_gate_at_10004"
+            and "refuted" in r["finding"]
+        )
+
+    if "ring44_wb_retry" in data:
+        r = data["ring44_wb_retry"]
+        ss = {x["slot"]: x for x in r["sessions"]}
+        checks["ring44_shape"] = (
+            r["prereg_seal_44"] == "3081c832267de6ed"
+            and len(r["sessions"]) == 2
+            and ss["wb-r-112k"]["refusal_est_tokens"] == 28000
+            and ss["wb-r-112k"]["refusal_cap_tokens"] == 20000
+            and ss["wb-r-192k"]["refusal_est_tokens"] == 42465
+            and ss["wb-r-192k"]["keys_correct_count"] == 3
+            and r["branch"] == "pause_not_deterministic_transients"
+            and r["findings"]["pause_not_deterministic"] == "Ring 30 waiting_user pauses are transient occurrences, not deterministic size gates; Ring 30 behaviour cell corrected"
+        )
+
+    if "ring45_doubao_80k_clean" in data:
+        r = data["ring45_doubao_80k_clean"]
+        ssn = r["session"]
+        checks["ring45_shape"] = (
+            r["prereg_seal_45"] == "2645a291e4e0d988"
+            and ssn["slot"] == "db-80kc"
+            and ssn["keys_correct"] == "3/3"
+            and ssn["truncation_marker"] is True and ssn["refusal"] is False
+            and ssn["middle_value"] == "ae13b824f05b5766a6eb027a0d667089e5c8e3499a80640f366b415607c7f3a2"
+            and r["branch"] == "compensated_3of3"
+        )
+        checks["ring2945_corrections_present"] = (
+            data["ring29_doubao_bracket"].get("correction_v15", {}).get("void_cell_closed_by_ring_45", "") != ""
+            and data["ring30_wb_bracket"].get("correction_v15", {}).get("waiting_user_transient", "") != ""
+        )
+
     if "ring39_codex_collapse" in data and "ring41_foldrefine" in data:
         c = data["ring39_codex_collapse"].get("correction_v14", {})
         checks["ring39_correction_v14"] = (
