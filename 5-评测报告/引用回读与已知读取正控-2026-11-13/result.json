@@ -1,5 +1,5 @@
 {
-  "schema": "knownread-20261113-v4",
+  "schema": "knownread-20261113-v5",
   "generated_at": "2026-11-13T01:25:00+08:00",
   "v2_added_at": "2026-11-13T01:50:00+08:00",
   "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -297,7 +297,8 @@
     "ring6 yuanbao data is a single-session interim sample (partial 2/3); the TAIL observation is a hypothesis registered for further sessions, not a product defect claim; codex sessions ran with the shell tool enabled by design (the path under test)",
     "ring8 size-threshold runs use per-product local observation surfaces; cross-product rows are descriptive and do not compare products on a shared surface",
     "ring8 workbuddy first attempt (wrong prompt path) and doubao db-1k precondition failure are recorded as incidents; reruns followed prereg rev2 and added no planned slots",
-    "ring10 cap sweep is mechanism-face with n=2 per arm on one fixture geometry; cost medians are client bytes and the stopping-rule distinction (no spill left vs answer already visible) is not resolved by this ladder"
+    "ring10 cap sweep is mechanism-face with n=2 per arm on one fixture geometry; cost medians are client bytes and the stopping-rule distinction (no spill left vs answer already visible) is not resolved by this ladder",
+    "ring12 middle-position control is mechanism-face n=2 per arm at a single cap (8192) with three probe positions; the head+tail preview discovery and answer-visibility gate come from this same instrumented scenario and are not product-wide claims"
   ],
   "v3_added_at": "2026-11-13T02:35:00+08:00",
   "ring8_size_threshold": {
@@ -689,6 +690,98 @@
       "mechanism face only (DSH+deepseek-flash, single fixture geometry); no real-product claims",
       "n=2 per arm; client-side UTF-8 assembly bytes, not tokens or cost; thinking/cache/backend serialization unobserved",
       "16384 rung (spill with middle visible) not in the frozen ladder; stopping-rule reading (no-spill-left vs answer-visible) remains open"
+    ]
+  },
+  "v5_added_at": "2026-11-13T02:58+08:00",
+  "ring12_middle_position": {
+    "prereg_seal_12": "2eddfd154415be5e",
+    "dsh_pin": "0.2.0-rc.2",
+    "model": "deepseek-flash",
+    "effort": "low",
+    "fixture_note": "same 35767B / 422-line fixture as ring10; max_inline_tokens=8192; tool menu {fixture_output, read}; prompts never mention read",
+    "design": "two arms x 2 slots: mp-near asks noise-0019 (line 21, ~4.6% position), mp-far asks noise-0405 (line 407, ~96.3% position)",
+    "arms": {
+      "mp-near": {
+        "n_planned": 2,
+        "n_valid": 2,
+        "read_attempts_total": 0,
+        "middle_key_hits": 2,
+        "sessions_all_keys_correct": 2,
+        "branch": "answered_without_read",
+        "sessions": [
+          {
+            "id": "mp-near-01",
+            "requests": 2,
+            "read_attempts": 0,
+            "keys_all_correct": true,
+            "record_position": "4.6%",
+            "B_input_series": [
+              1724,
+              35269
+            ]
+          },
+          {
+            "id": "mp-near-02",
+            "requests": 2,
+            "read_attempts": 0,
+            "keys_all_correct": true,
+            "record_position": "4.6%",
+            "B_input_series": [
+              1724,
+              35187
+            ]
+          }
+        ]
+      },
+      "mp-far": {
+        "n_planned": 2,
+        "n_valid": 2,
+        "read_attempts_total": 0,
+        "middle_key_hits": 2,
+        "sessions_all_keys_correct": 2,
+        "branch": "answered_without_read",
+        "sessions": [
+          {
+            "id": "mp-far-01",
+            "requests": 2,
+            "read_attempts": 0,
+            "keys_all_correct": true,
+            "record_position": "96.3%",
+            "B_input_series": [
+              1724,
+              35562
+            ]
+          },
+          {
+            "id": "mp-far-02",
+            "requests": 2,
+            "read_attempts": 0,
+            "keys_all_correct": true,
+            "record_position": "96.3%",
+            "B_input_series": [
+              1724,
+              35832
+            ]
+          }
+        ]
+      }
+    },
+    "preview_evidence": {
+      "source": "runs/mp-far-01/capture/02-request.json tool_result",
+      "tool_result_chars": 32700,
+      "omitted_bytes": 3319,
+      "far_record_in_preview": true,
+      "middle_record_50pct_in_preview": false,
+      "tail_key_in_preview": true,
+      "footer_tail": "Omitted 3319 bytes. Full formatted result stored at: /var/folders/rl/7n6h633s4c9dl69tvyb777000000gn/T/dsh-spill-9pCLmH/session-69ed65db17c2/4991e093a2a5-fixture_output.txt. Use read with offset/limit, or grep this path to search within it."
+    },
+    "finding": "DSH bounded preview keeps head AND tail, omitting the middle (head+tail truncation), not head-only truncation; combined with ring10, the model calls read exactly when the asked record sits in the omitted middle (answer-visibility gate).",
+    "branch": "answer_visible_no_read",
+    "interpretation": "both asked records visible inside the head+tail preview; read skipped in every slot; together with the omitted-middle case this supports answer-visibility as the read gate",
+    "boundaries": [
+      "n=2 per arm on one fixture geometry at cap 8192; only 3 probe positions (4.6%/50%/96.3%)",
+      "read-motive attribution (self-verification vs efficiency) is not directly observable",
+      "mechanism-face scenario; no claim about real-product UX"
     ]
   }
 }

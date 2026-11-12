@@ -156,6 +156,36 @@ class FullResult(unittest.TestCase):
         bad[r10]["arms"]["rb-c2048"]["sessions_all_keys_correct"] = 1
         self.assertFalse(verify.verify(bad)["checks"]["ring10_arms_two_slots_each"])
 
+    def test_tampered_ring12_detected(self):
+        r12 = "ring12_middle_position"
+        # read 次数被改成 1（零 read 是本环核心证据）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r12]["arms"]["mp-far"]["sessions"][0]["read_attempts"] = 1
+        self.assertFalse(verify.verify(bad)["checks"]["ring12_arms_two_slots_each"])
+        bad = copy.deepcopy(self.data)
+        bad[r12]["arms"]["mp-far"]["read_attempts_total"] = 2
+        self.assertFalse(verify.verify(bad)["checks"]["ring12_arms_two_slots_each"])
+        # 省略字节数被改成 0（头尾预览证据消失）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r12]["preview_evidence"]["omitted_bytes"] = 0
+        self.assertFalse(verify.verify(bad)["checks"]["ring12_preview_evidence"])
+        # far 记录在预览内可见被翻转（动摇 answer-visibility 结论）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r12]["preview_evidence"]["far_record_in_preview"] = False
+        self.assertFalse(verify.verify(bad)["checks"]["ring12_preview_evidence"])
+        # 分支被换成 preview_estimate_wrong 必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r12]["branch"] = "preview_estimate_wrong"
+        self.assertFalse(verify.verify(bad)["checks"]["ring12_branch"])
+        # B 系列被改值必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r12]["arms"]["mp-near"]["sessions"][0]["B_input_series"] = [1724, 40000]
+        self.assertFalse(verify.verify(bad)["checks"]["ring12_b_series_exact"])
+        # 预注册印记被换必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r12]["prereg_seal_12"] = "deadbeefdeadbeef"
+        self.assertFalse(verify.verify(bad)["checks"]["ring12_arms_two_slots_each"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

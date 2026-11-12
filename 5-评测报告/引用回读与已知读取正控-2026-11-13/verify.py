@@ -232,6 +232,41 @@ def verify(data: dict) -> dict:
         and r10["arms"]["rb-c131072"]["sessions"][0]["B_input_series"][0] == 1724
     )
 
+    # ---- ring12 middle-position control (v5) ----
+    r12 = data["ring12_middle_position"]
+    near, far = r12["arms"]["mp-near"], r12["arms"]["mp-far"]
+    checks["ring12_arms_two_slots_each"] = (
+        r12["prereg_seal_12"] == "2eddfd154415be5e"
+        and near["n_valid"] == 2 and far["n_valid"] == 2
+        and near["read_attempts_total"] == 0 and far["read_attempts_total"] == 0
+        and near["middle_key_hits"] == 2 and far["middle_key_hits"] == 2
+        and near["sessions_all_keys_correct"] == 2 and far["sessions_all_keys_correct"] == 2
+        and all(s["read_attempts"] == 0 and s["keys_all_correct"] and s["requests"] == 2
+                for arm in (near, far) for s in arm["sessions"])
+    )
+    pe = r12["preview_evidence"]
+    checks["ring12_preview_evidence"] = (
+        pe["tool_result_chars"] == 32700
+        and pe["omitted_bytes"] == 3319
+        and pe["far_record_in_preview"] is True
+        and pe["middle_record_50pct_in_preview"] is False
+        and pe["tail_key_in_preview"] is True
+        and pe["footer_tail"].startswith("Omitted 3319 bytes.")
+        and "Use read with offset/limit" in pe["footer_tail"]
+    )
+    checks["ring12_branch"] = (
+        r12["branch"] == "answer_visible_no_read"
+        and r12["interpretation"].startswith("both asked records visible")
+        and near["branch"] == "answered_without_read"
+        and far["branch"] == "answered_without_read"
+    )
+    checks["ring12_b_series_exact"] = (
+        [s["B_input_series"] for s in near["sessions"]] == [[1724, 35269], [1724, 35187]]
+        and [s["B_input_series"] for s in far["sessions"]] == [[1724, 35562], [1724, 35832]]
+        and [s["record_position"] for s in near["sessions"]] == ["4.6%", "4.6%"]
+        and [s["record_position"] for s in far["sessions"]] == ["96.3%", "96.3%"]
+    )
+
     ok = all(checks.values())
     return {"ok": ok, "checks": checks}
 
