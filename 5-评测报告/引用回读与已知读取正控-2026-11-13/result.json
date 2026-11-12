@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v11",
+ "schema": "knownread-20261113-v12",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -305,7 +305,9 @@
   "ring17 interim (v8): yuanbao size probe has only the 990B point (3/3 correct); 8k/64k/256k blocked by screen lock, pending unlock; no size threshold claim",
   "v10: Ring 23 cost crossover is a derived estimate under a constant-overhead assumption; Ring 24 read-bypass result is mechanism-surface only, single shape/cap/params, n=1 x2.",
   "Ring 28–30 摄入帽 bracket 为 n=1/档 区间披露：Codex 帽 [65,589, 66,795] chars 且削顶静默（记录面完整/模型面 ~17k tok）；豆包拒绝自估=chars/4 精确、削顶保留 head 2K+tail≈4.4K chars 单点；WB 112k/192k 为 waiting_user 不可判（锁屏相关人工门混杂如实声明）。",
-  "Ring 26/27 为 derived-only（冻结捕获重算，零发射）；Ring 29 db-80k 的 MIDDLE 正确性判定因夹具缺陷作废（模型按文件内约定作答，行为面有效）。"
+  "Ring 26/27 为 derived-only（冻结捕获重算，零发射）；Ring 29 db-80k 的 MIDDLE 正确性判定因夹具缺陷作废（模型按文件内约定作答，行为面有效）。",
+  "Ring 32–34 修正链：v11 的 ρ_ascii=3.895 与「Codex 64k 全量摄入」经 Ring 34 行为面（rg 补偿可观察）否证，修正为 ρ=1.807、64k 已削（face≈30.4k chars）；ring28 字符 bracket 重算 [29,300,31,000]；原始读数保留、以 superseded/correction 字段显式标注，不重写历史段落。",
+  "Ring 32–34 边界：CLI tokenizer 不可观测（CLI-token 帽是候选非测量）；削顶保留形状（头/头+尾）不可直接观测；codex turn usage 当日两例单会话异常（cal-01/c-full-02）→ 行为面为首选主证据；行为面 n=4。"
  ],
  "v3_added_at": "2026-11-13T02:35:00+08:00",
  "ring8_size_threshold": {
@@ -1235,7 +1237,15 @@
   "full_ingest_evidence_ratio": 1.03,
   "delta_256k_minus_64k": 981,
   "correction_by_ring28": "256k sits on the same ingest plateau as 64k (~17k tok clipped); 981 is inter-session overhead, NOT 'only 2.5% entered' (superseded)",
-  "verdict": "client_record_exceeds_ingest"
+  "verdict": "client_record_exceeds_ingest",
+  "status": "partially_superseded_by_ring34",
+  "correction": {
+   "what": "'64k full ingest (delta 16,841 ~ 103% of full equivalent)' and rho_ascii=3.895 are SUPERSEDED",
+   "evidence": "ring34 re-examined cx-64k stdout.jsonl: an `rg '^noise-0386' probe-64k.txt` command exists and middle@59% was absent from the model face (behavioral rg-compensation) -> 64k was already clipped (face ~= 30.4k chars of 65,589)",
+   "rho_ascii_corrected": 1.807,
+   "rho_ascii_source": "cx-8k minus cx-1k delta (3,950 tok over 7,139 chars; both sessions single-cat, no rg, unclipped)",
+   "kept": "verdict client_record_exceeds_ingest (strengthened); input-by-probe table unchanged (raw readings)"
+  }
  },
  "ring28_codex_bracket": {
   "prereg_seal_28": "fd0acae77084bace",
@@ -1249,10 +1259,6 @@
    "64k": 16841,
    "256k": 17822
   },
-  "cap_char_bracket": [
-   65589,
-   66795
-  ],
   "keys_correct": "3/3 each slot; compensation = cat then targeted rg/grep",
   "silent_clip": true,
   "silent_clip_evidence": "rollout records contain FULL cat outputs (81.8k/114.6k/196.6k chars, no truncation marker) while usage shows ~17k tok ingested",
@@ -1261,7 +1267,17 @@
    "n=1 per size",
    "cap unit (chars vs tokens) not separable at rho 3.895",
    "clip mechanism not directly observable"
-  ]
+  ],
+  "cap_char_bracket_superseded": [
+   65589,
+   66795
+  ],
+  "cap_char_bracket_corrected": [
+   29300,
+   31000
+  ],
+  "correction_note": "old bracket [65589,66795] was computed with rho_ascii=3.895 (wrong; see ring27 correction); recomputed with rho 1.807; ds-token plateau band [16234,17149] unchanged (direct readings)",
+  "cap_unit_update": "Ring 32/34 resolved the 'cap unit not separable' boundary: char-based cap refuted behaviorally; CLI-own-tokenizer cap is the surviving candidate"
  },
  "ring29_doubao_bracket": {
   "prereg_seal_29": "9c102bbd5fa9f75e",
@@ -1306,5 +1322,103 @@
   "cross_product_conclusion": "WB real ingest (51k tok) exceeds nominal 20,000 without triggering the gate -> the gate acts on the chars/4 estimate, not real tokens; third product converging on chars/4-style gating",
   "behavior_split": "doubao auto-compensates after refusal (3/3); WB pauses for a human gate",
   "verdict": "gate_on_estimate_not_reality_partial_bracket"
+ },
+ "v12_added_at": "2026-11-13T06:06+08:00",
+ "ring32_codex_cjk_unit": {
+  "prereg_seal_32": "7e9c353e31d749dd",
+  "rev2_seal": "8479336ac288136b",
+  "rev3_seal": "1f1a680449fd64bf",
+  "sessions": 5,
+  "design": "CJK-mixed fixture (90,169 chars / 130,073 bytes; generator hit the byte target, chars-metric deviation recorded) vs frozen ring28 ASCII control; spontaneous and forced-cat slots",
+  "observations": {
+   "spontaneous_cjk": "model skipped cat, ran targeted rg only (3/3 keys; behavior-face data)",
+   "forced_cat_cjk": "client face (rollout) full 90,169 chars, NO truncation marker; model-face ingest_est 14,368/13,845 tok; middle@50% absent from model face (rg compensation) -> 3/3",
+   "ascii_ctrl": "ingest_est 16,713 reproduces ring28 plateau band [16,234,17,149] same-day same-accounting"
+  },
+  "prereg_branch": "mixed_or_invalid (both preregistered bands missed; honest label)",
+  "refined_finding": "char-based cap refuted (CJK face ~30k chars incl. rho fix vs ASCII face ~30k but different ds-tok; see ring34 for the decisive behavioral test); deepseek-token cap refuted (14.4k outside band while control reproduces it); CLI-own-tokenizer cap qualitatively consistent (face ds-tok ratio 1.163 vs prediction 1.175 with rho estimated, 1.163 vs 1.880r implied r=0.62 with measured rho)",
+  "rollout_vs_model_face": "third documented separation: WB display!=ingest, Codex silent clip, Codex rollout full/model small",
+  "boundaries": [
+   "CLI tokenizer unknowable; candidate not measurement",
+   "n=1 per condition",
+   "usage self-report",
+   "fixture chars-vs-bytes deviation recorded"
+  ]
+ },
+ "ring33_rho_calibration": {
+  "prereg_seal_33": "d3ffe898ae4d78b7",
+  "sessions": 2,
+  "fixture": "probe-cjk-cal.txt 7,071 chars / 10,181 bytes / 62 lines (same content distribution as ring32 CJK fixture)",
+  "cal_01": {
+   "ingest_est": 13397,
+   "verdict": "anomalous_session_excluded",
+   "note": "input 25,630 inconsistent with 7k-char file; mechanism unknown; same-fixture rerun restored consistency; kept unexplained"
+  },
+  "cal_02": {
+   "ingest_est": 3413,
+   "verdict": "rho_measured"
+  },
+  "rho_cjk_measured": 2.072,
+  "expected_band": [
+   1.5,
+   2.2
+  ],
+  "boundary": [
+   "n=1 valid",
+   "baseline 12,233 from ring27 cx-1k accounting",
+   "usage instrument showed a second anomaly same day (see ring34)"
+  ]
+ },
+ "ring34_calibrated_bracket": {
+  "prereg_seal_34": "17c63dae1031b219",
+  "sessions": 4,
+  "design": "probe-a43k (43,236 chars ASCII) + probe-c44k (43,905 chars CJK / 70,373 bytes), x2 forced-cat each; discriminator: under a char-based cap the C-arm (43.9k < 65.6k char-cap floor) must be unclipped",
+  "results": [
+   {
+    "slot": "a-full-01",
+    "ingest_est_tokens": 17055,
+    "client_cat_full": true,
+    "rg_middle_compensation": true,
+    "keys": "3/3"
+   },
+   {
+    "slot": "a-full-02",
+    "ingest_est_tokens": 16653,
+    "client_cat_full": true,
+    "rg_middle_compensation": true,
+    "keys": "3/3"
+   },
+   {
+    "slot": "c-full-01",
+    "ingest_est_tokens": 12793,
+    "client_cat_full": true,
+    "rg_middle_compensation": true,
+    "keys": "3/3"
+   },
+   {
+    "slot": "c-full-02",
+    "ingest_est_tokens": 2985,
+    "client_cat_full": true,
+    "rg_middle_compensation": false,
+    "keys": "2/3"
+   }
+  ],
+  "prereg_branch": "mixed_or_invalid (both bands missed; predictions were built on the rho_ascii=3.895 calibration that this ring's behavioral evidence refuted)",
+  "behavioral_verdict": "CHAR-BASED CAP REFUTED: both arms (43.2k/43.9k chars) sit below the published char-cap floor 65,589 yet all clipped (middle absent, rg compensation observable); clip plateau reproduces in est-tok (a: 17,055/16,653 in band; c-full-01: 12,793 lower) -> ds-tok face is content-dependent -> CLI-own-tokenizer cap candidate supported by behavior+usage",
+  "usage_anomalies": [
+   "ring33 cal-01 (+10k tok unexplained)",
+   "ring34 c-full-02 (-18k tok unexplained; middle absent uncompensated, keys 2/3; excluded from usage readings)"
+  ],
+  "instrument_caveat": "codex turn usage is a fallible instrument (two anomalies same day); behavioral evidence (keys+command sequences) is the primary evidence where available",
+  "corrections": [
+   "ring27 rho 3.895 -> 1.807 and 64k-full claim superseded",
+   "ring28 char bracket -> [29,300, 31,000] (ds-tok plateau kept)",
+   "ring32 ascii-ctrl face -> ~30.2k chars"
+  ],
+  "boundaries": [
+   "clip retention shape (head-only vs head+tail) not directly observable: all middle positions fell in the omitted zone",
+   "rho_cjk(gen34 density) not separately calibrated",
+   "behavioral n=4, usage-valid n=3"
+  ]
  }
 }

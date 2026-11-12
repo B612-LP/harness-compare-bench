@@ -318,9 +318,12 @@ class FullResult(unittest.TestCase):
         bad = copy.deepcopy(self.data)
         bad[r28]["silent_clip"] = False
         self.assertFalse(verify.verify(bad)["checks"]["ring28_codex_bracket_shape"])
-        # 帽 bracket 被改宽（精度虚报）必须被拒
+        # 修正后帽 bracket 被改宽（精度虚报）必须被拒
         bad = copy.deepcopy(self.data)
-        bad[r28]["cap_char_bracket"] = [65589, 70000]
+        bad[r28]["cap_char_bracket_corrected"] = [29300, 34000]
+        self.assertFalse(verify.verify(bad)["checks"]["ring28_codex_bracket_shape"])
+        bad = copy.deepcopy(self.data)
+        bad[r28]["cap_char_bracket_superseded"] = [100, 200]
         self.assertFalse(verify.verify(bad)["checks"]["ring28_codex_bracket_shape"])
 
     def test_tampered_ring29_incident_honesty(self):
@@ -344,6 +347,44 @@ class FullResult(unittest.TestCase):
         bad = copy.deepcopy(self.data)
         bad[r30]["cross_product_conclusion"] = "gate acts on real tokens"
         self.assertFalse(verify.verify(bad)["checks"]["ring30_wb_bracket_shape"])
+
+
+    def test_tampered_ring34_char_cap_refusal_hidden(self):
+        r34 = "ring34_calibrated_bracket"
+        # 字符帽否证结论被洗掉（行为面裁定抹除）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r34]["behavioral_verdict"] = "char-based cap confirmed"
+        self.assertFalse(verify.verify(bad)["checks"]["ring34_shape"])
+        # usage 仪器异常被隐瞒（仪器边界抹除）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r34]["instrument_caveat"] = "usage readings are always reliable"
+        self.assertFalse(verify.verify(bad)["checks"]["ring34_shape"])
+        # rg 补偿证据被洗掉（削顶事实抹除）必须被拒
+        bad = copy.deepcopy(self.data)
+        for row in bad[r34]["results"]:
+            row["rg_middle_compensation"] = False
+        self.assertFalse(verify.verify(bad)["checks"]["ring34_arms"])
+
+    def test_tampered_ring27_correction_dropped(self):
+        # ρ 修正字段被删除（修正链抹除）必须被拒
+        bad = copy.deepcopy(self.data)
+        del bad["ring27_codex_usage"]["correction"]["rho_ascii_corrected"]
+        self.assertFalse(verify.verify(bad)["checks"]["ring27_correction_present"])
+        # 修正后的 ρ 被改回错误值必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring27_codex_usage"]["correction"]["rho_ascii_corrected"] = 3.895
+        self.assertFalse(verify.verify(bad)["checks"]["ring27_correction_present"])
+
+    def test_tampered_ring28_bracket_unsuperseded(self):
+        # 旧字符 bracket 恢复为有效值（修正被回滚）必须被拒
+        bad = copy.deepcopy(self.data)
+        r28 = bad["ring28_codex_bracket"]
+        r28["cap_char_bracket_corrected"] = [65589, 66795]
+        self.assertFalse(verify.verify(bad)["checks"]["ring28_bracket_superseded"])
+        # 33 环实测 ρ 被篡改必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring33_rho_calibration"]["rho_cjk_measured"] = 3.9
+        self.assertFalse(verify.verify(bad)["checks"]["ring33_rho_shape"])
 
 
 if __name__ == "__main__":

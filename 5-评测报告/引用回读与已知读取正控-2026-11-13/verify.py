@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v11"
+            data["schema"] == "knownread-20261113-v12"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -442,7 +442,8 @@ def verify(data: dict) -> dict:
         checks["ring28_codex_bracket_shape"] = (
             r["prereg_seal_28"] == "fd0acae77084bace"
             and r["ingest_est_tokens"] == {"80k": 17149, "112k": 16234, "192k": 16682}
-            and r["cap_char_bracket"] == [65589, 66795]
+            and r["cap_char_bracket_superseded"] == [65589, 66795]
+            and r["cap_char_bracket_corrected"] == [29300, 31000]
             and r["silent_clip"] is True
             and "no truncation marker" in r["silent_clip_evidence"]
             and r["verdict"] == "ingest_cap_plateau"
@@ -470,6 +471,54 @@ def verify(data: dict) -> dict:
             and "not real tokens" in r["cross_product_conclusion"]
             and r["verdict"] == "gate_on_estimate_not_reality_partial_bracket"
         )
+
+    # ring32/33/34 (v12)
+    if "ring32_codex_cjk_unit" in data:
+        r = data["ring32_codex_cjk_unit"]
+        checks["ring32_cjk_shape"] = (
+            r["prereg_seal_32"] == "7e9c353e31d749dd" and r["rev3_seal"] == "1f1a680449fd64bf"
+            and r["sessions"] == 5
+            and r["prereg_branch"] == "mixed_or_invalid (both preregistered bands missed; honest label)"
+            and "CLI-own-tokenizer" in r["refined_finding"]
+            and "third documented separation" in r["rollout_vs_model_face"]
+        )
+    if "ring33_rho_calibration" in data:
+        r = data["ring33_rho_calibration"]
+        checks["ring33_rho_shape"] = (
+            r["prereg_seal_33"] == "d3ffe898ae4d78b7"
+            and r["cal_01"]["verdict"] == "anomalous_session_excluded"
+            and r["cal_02"]["verdict"] == "rho_measured"
+            and abs(r["rho_cjk_measured"] - 2.072) < 1e-9
+            and r["expected_band"] == [1.5, 2.2]
+        )
+    if "ring34_calibrated_bracket" in data:
+        r = data["ring34_calibrated_bracket"]
+        checks["ring34_shape"] = (
+            r["prereg_seal_34"] == "17c63dae1031b219" and len(r["results"]) == 4
+            and "CHAR-BASED CAP REFUTED" in r["behavioral_verdict"]
+            and r["prereg_branch"].startswith("mixed_or_invalid")
+            and "fallible instrument" in r["instrument_caveat"]
+            and len(r["corrections"]) == 3
+        )
+        slots = {x["slot"]: x for x in r["results"]}
+        checks["ring34_arms"] = (
+            slots["a-full-01"]["rg_middle_compensation"] is True
+            and slots["a-full-02"]["ingest_est_tokens"] == 16653
+            and slots["c-full-01"]["rg_middle_compensation"] is True
+            and slots["c-full-02"]["keys"] == "2/3"
+        )
+    # corrections present (v12 explicit-supersede discipline)
+    _c = data["ring27_codex_usage"].get("correction", {}) if isinstance(data["ring27_codex_usage"].get("correction"), dict) else {}
+    checks["ring27_correction_present"] = (
+        data["ring27_codex_usage"].get("status") == "partially_superseded_by_ring34"
+        and abs(_c.get("rho_ascii_corrected", 0) - 1.807) < 1e-9
+        and "rg" in _c.get("evidence", "")
+    )
+    checks["ring28_bracket_superseded"] = (
+        data["ring28_codex_bracket"]["cap_char_bracket_superseded"] == [65589, 66795]
+        and data["ring28_codex_bracket"]["cap_char_bracket_corrected"] == [29300, 31000]
+        and "recomputed" in data["ring28_codex_bracket"]["correction_note"]
+    )
 
     ok = all(checks.values())
     return {"ok": ok, "checks": checks}
