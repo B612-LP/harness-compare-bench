@@ -1,0 +1,89 @@
+{
+  "schema": "knownread-20261113-v1",
+  "generated_at": "2026-11-13T01:25:00+08:00",
+  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
+  "constants": {
+    "probe_fixture_bytes": 35767,
+    "probe_fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+    "probe_fixture_lines": 422,
+    "probe_middle_record": "noise-0210",
+    "probe_middle_source_string": "fixture-v1-210",
+    "probe_middle_key": "59f421aea4171df85721b2fc8e0081cb9bdc4969d81c7e61aa00adf1b8480203",
+    "probe_head_key": "AMBER-731",
+    "probe_tail_key": "COBALT-492",
+    "dsh_version": "0.2.0-rc.2",
+    "model_id": "deepseek-flash",
+    "reasoning_effort": "low",
+    "probe_task_text": "Read the file <path>. Then reply with ONLY a JSON object with keys HEAD_KEY, MIDDLE_KEY and TAIL_KEY. HEAD_KEY and TAIL_KEY are the two OBSERVATION values in the file. MIDDLE_KEY is the checksum value of record noise-0210. Ignore other checksum noise."
+  },
+  "ring1_dsh_readback_mechanism": {
+    "design": "three arms, same DSH build: C1 x2 bounded replication gate (no read tool declared, 512-token spill cap); RB x6 bounded preview plus a read(path,offset,limit) tool (cap 512); IMK x2 same tool menu with cap 1000000 (inline single-shot)",
+    "prompt_variant": "RB/IMK prompt asks only for fixture_output then the three-key JSON; it never mentions read — read use is spontaneous",
+    "sessions": {
+      "c1": [
+        {"id": "c1-01", "B_series": [1124, 3506], "delta": 2382},
+        {"id": "c1-02", "B_series": [1124, 3506], "delta": 2382}
+      ],
+      "rb": [
+        {"id": "rb-01", "B_series": [1724, 4106, 5470], "read_attempts": 1, "keys": {"HEAD_KEY": true, "MIDDLE_KEY": true, "TAIL_KEY": true}},
+        {"id": "rb-02", "B_series": [1724, 4460, 6413], "read_attempts": 1, "keys": {"HEAD_KEY": true, "MIDDLE_KEY": true, "TAIL_KEY": true}},
+        {"id": "rb-03", "B_series": [1724, 4377, 5922], "read_attempts": 1, "keys": {"HEAD_KEY": true, "MIDDLE_KEY": true, "TAIL_KEY": true}},
+        {"id": "rb-04", "B_series": [1724, 4337, 5192], "read_attempts": 1, "keys": {"HEAD_KEY": true, "MIDDLE_KEY": true, "TAIL_KEY": true}},
+        {"id": "rb-05", "B_series": [1724, 4236, 6603], "read_attempts": 1, "keys": {"HEAD_KEY": true, "MIDDLE_KEY": true, "TAIL_KEY": true}},
+        {"id": "rb-06", "B_series": [1724, 4486, 8939], "read_attempts": 1, "keys": {"HEAD_KEY": true, "MIDDLE_KEY": true, "TAIL_KEY": true}}
+      ],
+      "imk": [
+        {"id": "imk-01", "B_series": [1724, 38450], "keys": {"HEAD_KEY": true, "MIDDLE_KEY": true, "TAIL_KEY": true}},
+        {"id": "imk-02", "B_series": [1724, 38420], "keys": {"HEAD_KEY": true, "MIDDLE_KEY": true, "TAIL_KEY": true}}
+      ]
+    },
+    "derived": {
+      "rb_n": 6,
+      "rb_middle_hits": 6,
+      "rb_wilson95": [0.6096657120978346, 1.0],
+      "rb_session_total_median": 12293.0,
+      "imk_final_request_median": 38435.0,
+      "rb_total_minus_imk_final_median": -26142.0,
+      "rb_total_over_imk_final_median": 0.3198,
+      "c1_delta": 2382,
+      "baseline_r20261103_bounded_delta": 2382,
+      "c1_matches_20261103_baseline": true,
+      "decision_branch": "recovered_via_read",
+      "contingent_nudge_arm": "not triggered (read attempts were 6, not 0)"
+    }
+  },
+  "ring2_workbuddy_known_read_positive_control": {
+    "product": "WorkBuddy 5.9.3 desktop, native bridge; model setting not controlled (product default), disclosed",
+    "n": 3,
+    "sessions": [
+      {"id": "wb-s1", "read_calls": 1, "read_result_chars": 38332, "keys_all_correct": true},
+      {"id": "wb-s2", "read_calls": 1, "read_result_chars": 38332, "keys_all_correct": true},
+      {"id": "wb-s3", "read_calls": 1, "read_result_chars": 38332, "keys_all_correct": true}
+    ],
+    "verdict": "full inline read result (line-numbered format), no truncation or reference pagination; positive control passed 3/3"
+  },
+  "ring3_doubao_known_read_first_sampling": {
+    "product": "DoubaoWork 2.35.19 desktop, native bridge; model setting user-selected DS Flash + Low, disclosed, not controlled",
+    "n": 3,
+    "sessions": [
+      {"id": "db-s1", "read_calls": 1, "read_result_chars": 37367, "keys_all_correct": true, "usage_fields_in_local_trace": "none"},
+      {"id": "db-s2", "read_calls": 1, "read_result_chars": 37367, "keys_all_correct": true, "usage_fields_in_local_trace": "none"},
+      {"id": "db-s3", "read_calls": 1, "read_result_chars": 37367, "keys_all_correct": true, "usage_fields_in_local_trace": "none"}
+    ],
+    "verdict": "full inline read result (tab line numbers), no truncation marker; positive control passed 3/3; local trajectory exposes no usage/token fields"
+  },
+  "teacher_feedback_alignment": {
+    "P1_minimal_contrast": "spill vs truncation vs recomposition: reference-to-full-readback now measured on DSH; recovery costs ~32% of inline single-shot client-side input at this fixture size",
+    "P1_product_reporting": "positive controls are probe-condition reachability facts; passive-sampling zero-hit results stay 'not observed on the current detection surface'; no synthetic miss-rate transfer to products",
+    "P1_bytes_vs_usage": "DSH per-request client-side byte series published; Doubao usage fields absent from local trace; bytes are not tokens or cost",
+    "P0_protocol_versioning": "mechanism executor is a new versioned fork (v3) with new preregistration; the 2026-11-03 frozen bundle untouched; C1 replication gate reproduced the frozen 2382-byte delta exactly"
+  },
+  "limits": [
+    "single fixture geometry (422 lines / 35767 bytes / one middle record); no extrapolation to other sizes, products, or tasks",
+    "client-side UTF-8 assembly bytes only; actual reasoning tokens, cache, backend history rewriting remain unobserved and uncontrolled",
+    "n=3 / n=6 descriptive samples; Wilson interval given for RB middle hits only; no ranking or score inference",
+    "WorkBuddy model setting not controlled; Doubao setting is user-selected and disclosed; these runs do not join the formal A/B/W grids",
+    "raw relay captures, bridge receipts, and product traces stay private; this file contains published summary numbers only",
+    "positive control shows the read path can deliver known content under probe conditions; it does not bound false negatives of passive sampling nor prove isolation"
+  ]
+}
