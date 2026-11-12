@@ -77,6 +77,30 @@ class FullResult(unittest.TestCase):
         bad["ring3_doubao_known_read_first_sampling"]["sessions"][2]["read_result_chars"] = 123
         self.assertFalse(verify.verify(bad)["checks"]["ring3_n3_all_pass"])
 
+    def test_tampered_ring5_detected(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring5_codex_known_read_positive_control"]["sessions"][0]["read_result_bytes"] = 100
+        self.assertFalse(verify.verify(bad)["checks"]["ring5_n3_all_pass"])
+        bad = copy.deepcopy(self.data)
+        bad["ring5_codex_known_read_positive_control"]["sessions"][1]["truncation_marker"] = True
+        self.assertFalse(verify.verify(bad)["checks"]["ring5_n3_all_pass"])
+        bad = copy.deepcopy(self.data)
+        bad["ring5_codex_known_read_positive_control"]["sessions"][2]["keys_all_correct"] = False
+        self.assertFalse(verify.verify(bad)["checks"]["ring5_n3_all_pass"])
+
+    def test_tampered_ring6_detected(self):
+        # 中期口径被改成立"全对"必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring6_yuanbao_known_read_first_session"]["sessions"][0]["keys_correct"]["TAIL_KEY"] = True
+        self.assertFalse(verify.verify(bad)["checks"]["ring6_partial_2of3"])
+        bad = copy.deepcopy(self.data)
+        bad["ring6_yuanbao_known_read_first_session"]["sessions"][0]["keys_correct_count"] = 3
+        self.assertFalse(verify.verify(bad)["checks"]["ring6_partial_2of3"])
+        # 中期状态标记被移除必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring6_yuanbao_known_read_first_session"]["status"] = "final"
+        self.assertFalse(verify.verify(bad)["checks"]["ring6_interim_shape"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

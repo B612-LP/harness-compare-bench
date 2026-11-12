@@ -119,6 +119,33 @@ def verify(data: dict) -> dict:
         and all(s["usage_fields_in_local_trace"] == "none" for s in r3["sessions"])
     )
 
+    r5 = data["ring5_codex_known_read_positive_control"]
+    checks["ring5_n3_all_pass"] = (
+        r5["n"] == len(r5["sessions"]) == 3
+        and all(s["read_result_bytes"] == 35767
+                and s["truncation_marker"] is False
+                and s["read_form"] == "cat aggregated_output"
+                and s["keys_all_correct"]
+                and 2 <= s["commands"] <= 3
+                for s in r5["sessions"])
+    )
+
+    r6 = data["ring6_yuanbao_known_read_first_session"]
+    yb = r6["sessions"]
+    checks["ring6_interim_shape"] = (
+        r6["n"] == len(yb) == 1
+        and r6["status"].startswith("interim:")
+        and yb[0]["id"] == "yb-01"
+        and yb[0]["read_path_reached"] is True
+        and len(yb[0]["read_steps"]) == 2
+    )
+    checks["ring6_partial_2of3"] = (
+        yb[0]["keys_correct"] == {"HEAD_KEY": True, "MIDDLE_KEY": True, "TAIL_KEY": False}
+        and yb[0]["keys_correct_count"] == 2
+        and yb[0]["TAIL_KEY_observed"] != yb[0]["TAIL_KEY_expected"]
+        and yb[0]["TAIL_KEY_expected"] == "COBALT-492"
+    )
+
     ok = all(checks.values())
     return {"ok": ok, "checks": checks}
 
