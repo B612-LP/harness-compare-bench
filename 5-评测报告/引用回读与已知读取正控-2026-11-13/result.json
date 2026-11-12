@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v13",
+ "schema": "knownread-20261113-v14",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -309,7 +309,9 @@
   "Ring 32–34 修正链：v11 的 ρ_ascii=3.895 与「Codex 64k 全量摄入」经 Ring 34 行为面（rg 补偿可观察）否证，修正为 ρ=1.807、64k 已削（face≈30.4k chars）；ring28 字符 bracket 重算 [29,300,31,000]；原始读数保留、以 superseded/correction 字段显式标注，不重写历史段落。",
   "Ring 32–34 边界：CLI tokenizer 不可观测（CLI-token 帽是候选非测量）；削顶保留形状（头/头+尾）不可直接观测；codex turn usage 当日两例单会话异常（cal-01/c-full-02）→ 行为面为首选主证据；行为面 n=4。",
   "Ring 36 panel verifies the published DSH truncation law at panel level; the 256k +4 char break remains as declared in v9.",
-  "Ring 39 collapse law is ASCII-fixture, single-version evidence; fold threshold boundary untested; Ring 27/28 byte-derived numbers are superseded, not deleted."
+  "Ring 39 collapse law is ASCII-fixture, single-version evidence; fold threshold boundary untested; Ring 27/28 byte-derived numbers are superseded, not deleted.",
+  "Ring 41: fold trigger threshold bracketed (10000, 12000] bytes, not point-located; single CLI build; relay observes request face only.",
+  "Ring 41: retention measured as bytes via one CJK probe pair; other shapes ASCII where chars/bytes are indistinguishable."
  ],
  "v3_added_at": "2026-11-13T02:35:00+08:00",
  "ring8_size_threshold": {
@@ -1487,7 +1489,86 @@
    "ASCII fixtures (chars=bytes); UTF-8 multi-byte retention rule untested",
    "exact fold threshold (<=10k full retention) untested; 8k probe (8129ch) retained whole",
    "codex-cli 0.163.0 single version"
-  ]
+  ],
+  "correction_v14": {
+   "silent_claim_withdrawn": true,
+   "corrected_by": "ring41_foldrefine (relay bodies re-read 2026-11-13 06:38)",
+   "actual_behavior": "folded output carries 'Warning: truncated output (original token count: <bytes/4 ceil>)' + 'Total output lines: <L>' header and '…<K> chars truncated…' mid-marker; it is explicit about truncation but provides no file path and no recovery hint",
+   "retention_unit_corrected_chars_to_bytes": true,
+   "model_face_bound_unchanged": "head 5000 + tail 5000 bytes, no recovery path"
+  }
  },
- "ring37_codex_o200k": {}
+ "ring37_codex_o200k": {},
+ "v14_added_at": "2026-11-13T06:40:31+08:00",
+ "ring41_foldrefine": {
+  "kind": "mechanism live relay measurement",
+  "prereg_seal_41": "6b2b6337e94f5a31",
+  "dsh_pin": null,
+  "codex_cli": "0.163.0",
+  "model": "deepseek-flash",
+  "effort": "low",
+  "sessions": [
+   {
+    "slot": "b10k-01",
+    "probe_bytes": 10000,
+    "probe_chars": 10000,
+    "folded": false,
+    "keys": "3/3",
+    "declared_original_tokens": 2500
+   },
+   {
+    "slot": "b12k-01",
+    "probe_bytes": 12000,
+    "probe_chars": 12000,
+    "folded": true,
+    "head_bytes": 5000,
+    "tail_bytes": 5000,
+    "marker": "…2000 chars truncated…",
+    "keys": "3/3",
+    "declared_original_tokens": 3000
+   },
+   {
+    "slot": "cjkfold-01",
+    "probe_bytes": 20634,
+    "probe_chars": 12000,
+    "folded": true,
+    "head_bytes": 5000,
+    "tail_bytes": 5000,
+    "head_chars": 2920,
+    "tail_chars": 2866,
+    "marker": "…6214 chars truncated…",
+    "keys": "3/3",
+    "declared_original_tokens": 5159
+   },
+   {
+    "slot": "rglarge-01",
+    "grep_output_chars": 30364,
+    "folded": true,
+    "head_bytes": 5000,
+    "tail_bytes": 5000,
+    "marker": "…20364 chars truncated…",
+    "keys": "3/3",
+    "declared_original_tokens": 7591
+   }
+  ],
+  "anatomy": {
+   "wrapper": "Chunk ID/Wall time/exit code/Original token count/Output",
+   "warning_header_when_folded": "Warning: truncated output (original token count: <bytes/4 ceil>)\\nTotal output lines: <L>",
+   "mid_marker": "…<K> chars truncated…",
+   "declared_tokens_unit": "bytes/4 ceiling (CJK-decisive: 20634B -> 5159)",
+   "marker_unit": "chars",
+   "retention_unit": "bytes (5000 per side)",
+   "fold_carried_verbatim_in_later_requests": true
+  },
+  "fold_trigger_threshold_bracket_bytes": "(10000, 12000]",
+  "prereg_branch_honesty": "both preregistered branches (at_10k / above_12k) missed the bracket; recorded as bracket, no unplanned shots",
+  "grep_output_folded_too": true,
+  "all_keys_correct": true,
+  "finding": "Codex folds any large tool output to head 5000 bytes + tail 5000 bytes with an explicit warning header and a char-count mid-marker; retention budget is byte-based (CJK-decisive); folded face persists verbatim in later requests.",
+  "boundaries": [
+   "single CLI build 0.163.0 and single model; threshold bracket not point-located",
+   "retention window not line-aligned (b12k head cut mid-word)",
+   "relay observes request face only; CLI-side executor behavior not directly observed"
+  ]
+ }
 }

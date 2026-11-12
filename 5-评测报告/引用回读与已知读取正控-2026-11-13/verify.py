@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v13"
+            data["schema"] == "knownread-20261113-v14"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -546,6 +546,40 @@ def verify(data: dict) -> dict:
         checks["ring2728_superseded_by_ring39"] = (
             data["ring27_codex_usage"]["status"] == "fully_superseded_by_ring39_for_byte_derived_numbers"
             and data["ring28_codex_bracket"]["status"] == "superseded_by_ring39"
+        )
+
+    # ring41 + ring39 correction (v14)
+    if "ring41_foldrefine" in data:
+        r = data["ring41_foldrefine"]
+        ss = {s["slot"]: s for s in r["sessions"]}
+        cf = ss["cjkfold-01"]
+        checks["ring41_shape"] = (
+            r["prereg_seal_41"] == "6b2b6337e94f5a31"
+            and len(r["sessions"]) == 4 and r["all_keys_correct"] is True
+            and r["fold_trigger_threshold_bracket_bytes"] == "(10000, 12000]"
+            and ss["b10k-01"]["folded"] is False
+            and ss["b12k-01"]["folded"] is True
+            and ss["b12k-01"]["head_bytes"] == 5000 and ss["b12k-01"]["tail_bytes"] == 5000
+            and cf["head_bytes"] == 5000 and cf["tail_bytes"] == 5000
+            and cf["head_chars"] == 2920 and cf["tail_chars"] == 2866
+            and cf["probe_bytes"] == 20634 and cf["probe_chars"] == 12000
+            and cf["declared_original_tokens"] == 5159
+            and ss["rglarge-01"]["folded"] is True
+            and r["grep_output_folded_too"] is True
+            and r["anatomy"]["retention_unit"] == "bytes (5000 per side)"
+            and r["anatomy"]["marker_unit"] == "chars"
+            and "bytes/4" in r["anatomy"]["declared_tokens_unit"]
+            and r["anatomy"]["fold_carried_verbatim_in_later_requests"] is True
+        )
+        checks["ring41_bracket_honesty"] = (
+            "both preregistered branches" in r["prereg_branch_honesty"]
+        )
+    if "ring39_codex_collapse" in data and "ring41_foldrefine" in data:
+        c = data["ring39_codex_collapse"].get("correction_v14", {})
+        checks["ring39_correction_v14"] = (
+            c.get("silent_claim_withdrawn") is True
+            and c.get("retention_unit_corrected_chars_to_bytes") is True
+            and "no file path" in c.get("actual_behavior", "")
         )
 
     ok = all(checks.values())

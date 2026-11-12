@@ -409,6 +409,35 @@ class FullResult(unittest.TestCase):
         bad["ring28_codex_bracket"]["status"] = "cap_bracket_valid"
         self.assertFalse(verify.verify(bad)["checks"]["ring2728_superseded_by_ring39"])
 
+    def test_tampered_ring41_detected(self):
+        # 阈值 bracket 被洗成单点精解必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring41_foldrefine"]["fold_trigger_threshold_bracket_bytes"] = "12000 exactly"
+        self.assertFalse(verify.verify(bad)["checks"]["ring41_shape"])
+        # cjkfold 字节判别值被改必须被拒
+        bad = copy.deepcopy(self.data)
+        for s in bad["ring41_foldrefine"]["sessions"]:
+            if s["slot"] == "cjkfold-01":
+                s["head_chars"] = 3750
+        self.assertFalse(verify.verify(bad)["checks"]["ring41_shape"])
+        # 保留单位被改回 chars 必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring41_foldrefine"]["anatomy"]["retention_unit"] = "chars (5000 per side)"
+        self.assertFalse(verify.verify(bad)["checks"]["ring41_shape"])
+        # bracket 诚实性被洗（假装预注册命中）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring41_foldrefine"]["prereg_branch_honesty"] = "prereg branch at_10k confirmed"
+        self.assertFalse(verify.verify(bad)["checks"]["ring41_bracket_honesty"])
+
+    def test_tampered_ring39_correction_rolled_back(self):
+        # Ring 39「静默」修正被回滚必须被拒
+        bad = copy.deepcopy(self.data)
+        del bad["ring39_codex_collapse"]["correction_v14"]
+        self.assertFalse(verify.verify(bad)["checks"]["ring39_correction_v14"])
+        bad = copy.deepcopy(self.data)
+        bad["ring39_codex_collapse"]["correction_v14"]["silent_claim_withdrawn"] = False
+        self.assertFalse(verify.verify(bad)["checks"]["ring39_correction_v14"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
