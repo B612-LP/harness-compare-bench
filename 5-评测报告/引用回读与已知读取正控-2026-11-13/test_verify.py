@@ -254,6 +254,19 @@ class FullResult(unittest.TestCase):
         bad[r18]["prediction_honesty"] = "all prereg predictions held"
         self.assertFalse(verify.verify(bad)["checks"]["ring18_prediction_honesty"])
 
+    def test_tampered_ring20_detected(self):
+        orig=json.loads(RESULT.read_text(encoding='utf-8'))
+        bad=json.loads(json.dumps(orig))
+        bad['ring20_sizegen']['probes']['dsh-256k']['as_predicted']=True  # whitewash the +4 law break
+        r=verify.verify(bad)
+        self.assertFalse(r['ok'])
+        self.assertFalse(r['checks']['ring20_law_break_honesty'])
+        bad2=json.loads(json.dumps(orig))
+        bad2['ring20_sizegen']['probes']['dsh-64k']['measured_omitted']=33057  # not the law-exact value
+        r2=verify.verify(bad2)
+        self.assertFalse(r2['ok'])
+        self.assertFalse(r2['checks']['ring20_shape'])
+
     def test_tampered_ring17_detected(self):
         r17 = "ring17_yuanbao_size_interim"
         # 1k 点三键全对被改成 false（正控结论翻转）必须被拒

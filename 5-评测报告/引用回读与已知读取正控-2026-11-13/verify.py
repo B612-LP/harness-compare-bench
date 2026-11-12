@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v8"
+            data["schema"] == "knownread-20261113-v9"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -353,6 +353,28 @@ def verify(data: dict) -> dict:
             and r18["branches"]["ring18"] == "read_at_all_caps"
             and r18["branches"]["ring18b"] == "boundary_below_9021"
             and r18["branches"]["ring18c"] == "boundary_above_9020_side"
+        )
+    # ---- ring20 sizegen (v9) ----
+    if "ring20_sizegen" in data:
+        r20 = data["ring20_sizegen"]
+        p = r20["probes"]
+        checks["ring20_shape"] = (
+            set(p) == {"dsh-1k", "dsh-8k", "dsh-64k", "dsh-256k"}
+            and r20["cap_tokens"] == 8192 and r20["budget_chars"] == 32448
+            and p["dsh-1k"]["measured_omitted"] is None and p["dsh-8k"]["measured_omitted"] is None
+            and p["dsh-64k"]["measured_omitted"] == 33056 == p["dsh-64k"]["predicted_omitted"]
+            and p["dsh-256k"]["measured_omitted"] == 229665
+            and p["dsh-256k"]["predicted_omitted"] == 229661
+            and all(x["keys_all_correct"] is True for x in p.values())
+            and all(x["read_attempts"] == (1 if x["spill"] else 0) for x in p.values())
+            and p["dsh-256k"]["b_series"] == [1736, 35430, 36993]
+        )
+        checks["ring20_law_break_honesty"] = (
+            p["dsh-256k"]["as_predicted"] is False
+            and r20["overall_branch"] == "truncation_ratio_differs"
+            and "approximation" in r20["law_status"]
+            and "+4" in r20["law_status"]
+            and r20["qualitative_generalization"] is True
         )
     if "ring17_yuanbao_size_interim" in data:
         r17 = data["ring17_yuanbao_size_interim"]

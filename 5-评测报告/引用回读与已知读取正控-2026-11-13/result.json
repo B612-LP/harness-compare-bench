@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v8",
+ "schema": "knownread-20261113-v9",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -1033,6 +1033,83 @@
    "n=1 size point (990B) only",
    "detection surface = visible reply text",
    "upload via synthetic DragEvent; remaining sizes pending unlock"
+  ]
+ },
+ "v9_added_at": "04:17",
+ "ring20_sizegen": {
+  "prereg_seal": "eea88a516171d779",
+  "executor": "mech-sizegen-20261113",
+  "dsh_pin": "0.2.0-rc.2",
+  "model": "deepseek-flash (effort low)",
+  "cap_tokens": 8192,
+  "budget_chars": 32448,
+  "budget_formula": "4*(8192-80) under the 4*(cap-80) truncation law from Ring 18",
+  "sessions_total": 4,
+  "probes": {
+   "dsh-1k": {
+    "bytes": 990,
+    "predicted_omitted": null,
+    "measured_omitted": null,
+    "spill": false,
+    "read_attempts": 0,
+    "keys_all_correct": true,
+    "as_predicted": true,
+    "b_series": [
+     1736,
+     3249
+    ]
+   },
+   "dsh-8k": {
+    "bytes": 8129,
+    "predicted_omitted": null,
+    "measured_omitted": null,
+    "spill": false,
+    "read_attempts": 0,
+    "keys_all_correct": true,
+    "as_predicted": true,
+    "b_series": [
+     1736,
+     10655
+    ]
+   },
+   "dsh-64k": {
+    "bytes": 65504,
+    "predicted_omitted": 33056,
+    "measured_omitted": 33056,
+    "spill": true,
+    "read_attempts": 1,
+    "keys_all_correct": true,
+    "as_predicted": true,
+    "b_series": [
+     1736,
+     35423,
+     36424
+    ]
+   },
+   "dsh-256k": {
+    "bytes": 262109,
+    "predicted_omitted": 229661,
+    "measured_omitted": 229665,
+    "spill": true,
+    "read_attempts": 1,
+    "keys_all_correct": true,
+    "as_predicted": false,
+    "b_series": [
+     1736,
+     35430,
+     36993
+    ]
+   }
+  },
+  "overall_branch": "truncation_ratio_differs",
+  "law_status": "exact at 35767B fixture (3319/323/319) and 64k probe (33056); breaks by +4 chars at 256k (229665 vs 229661) - chars/4 law demoted to approximation; token-boundary alignment is the candidate explanation, consistent with Ring 18c boundary in [8943, 9020]",
+  "qualitative_generalization": true,
+  "constant_visible_segment": "spill arms show near-constant r2 client bytes (35423/35430, 7-char difference) despite 4x probe size difference",
+  "usage_note": "descriptive only: spill-arm request-2 reported input_tokens 17626/17741 (cap applies to tool-result inlining only, not whole request)",
+  "boundaries": [
+   "single cap (8192), four Ring 8 probe shapes, one DSH version and model tier",
+   "omitted is the client-visible footer self-report; the real tokenizer is not directly observable, token alignment remains a candidate explanation",
+   "n=1 per probe; no repetition"
   ]
  }
 }
