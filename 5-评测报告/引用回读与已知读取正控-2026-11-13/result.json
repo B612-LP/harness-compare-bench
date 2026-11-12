@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v5",
+ "schema": "knownread-20261113-v7",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -260,7 +260,7 @@
  "ring6_yuanbao_known_read_first_session": {
   "product": "yuanbao (腾讯元宝) web, expert mode (box default, mode unchanged), file delivered by attachment upload",
   "n": 1,
-  "status": "interim: session 1 of 3 completed; remaining sessions pending (browser availability); do not generalize",
+  "status": "interim: superseded by ring6_yuanbao_known_read_completed (v7); retained for provenance",
   "sessions": [
    {
     "id": "yb-01",
@@ -294,12 +294,13 @@
   "WorkBuddy model setting not controlled; Doubao setting is user-selected and disclosed; these runs do not join the formal A/B/W grids",
   "raw relay captures, bridge receipts, and product traces stay private; this file contains published summary numbers only",
   "positive control shows the read path can deliver known content under probe conditions; it does not bound false negatives of passive sampling nor prove isolation",
-  "ring6 yuanbao data is a single-session interim sample (partial 2/3); the TAIL observation is a hypothesis registered for further sessions, not a product defect claim; codex sessions ran with the shell tool enabled by design (the path under test)",
+  "ring6 yuanbao interim session (v2) superseded by v7 completed n=3 (still partial); interim TAIL hypothesis registered for further sessions, not a product defect claim; codex sessions ran with the shell tool enabled by design (the path under test)",
   "ring8 size-threshold runs use per-product local observation surfaces; cross-product rows are descriptive and do not compare products on a shared surface",
   "ring8 workbuddy first attempt (wrong prompt path) and doubao db-1k precondition failure are recorded as incidents; reruns followed prereg rev2 and added no planned slots",
   "ring10 cap sweep is mechanism-face with n=2 per arm on one fixture geometry; cost medians are client bytes and the stopping-rule distinction (no spill left vs answer already visible) is not resolved by this ladder",
   "ring12 middle-position control is mechanism-face n=2 per arm at a single cap (8192) with three probe positions; the head+tail preview discovery and answer-visibility gate come from this same instrumented scenario and are not product-wide claims",
-  "ring14: spill-off boundary bracketed on one fixture only (8192, 9216]; no-spill prediction for 16384 held, 9216 prediction wrong and recorded"
+  "ring14: spill-off boundary bracketed on one fixture only (8192, 9216]; no-spill prediction for 16384 held, 9216 prediction wrong and recorded",
+  "ring6 completed (v7): yuanbao known-read positive control n=3 final = partial; one session reached the observable read path (2/3 keys), two fabricated; no fully correct answer observed on this detection surface; not a product-wide claim"
  ],
  "v3_added_at": "2026-11-13T02:35:00+08:00",
  "ring8_size_threshold": {
@@ -856,6 +857,70 @@
    "single ASCII fixture (~4.0 chars/token); boundary 8942 is an estimate",
    "n=2 per arm, mechanism side; read motivation not directly observable",
    "head+tail split ratio of the spill preview not measured"
+  ]
+ },
+ "v7_added_at": "2026-11-13T03:30+08:00",
+ "ring6_yuanbao_known_read_completed": {
+  "product": "yuanbao (腾讯元宝) web, expert mode (box default, mode unchanged), file delivered by attachment upload",
+  "prereg_seal_06": "d4e281e1826494e9",
+  "n": 3,
+  "n_planned": 3,
+  "status": "final for this ring: all three planned sessions completed (yb-01 prompt typed during a handover window, yb-02/03 fully agent-driven via synthetic DragEvent upload + fill + Enter)",
+  "judge_branch": "partial",
+  "passed_all_keys": 0,
+  "read_path_reached_count": 1,
+  "sessions": [
+   {
+    "id": "yb-01",
+    "read_path_reached": true,
+    "read_steps": [
+     "I'll read the attached file to find the required values.",
+     "已阅读1个文件 / 已读取probe.txt文件内容 probe.txt"
+    ],
+    "keys_correct": {
+     "HEAD_KEY": true,
+     "MIDDLE_KEY": true,
+     "TAIL_KEY": false
+    },
+    "keys_correct_count": 2,
+    "TAIL_KEY_observed": "30e506c93",
+    "TAIL_KEY_expected": "COBALT-492"
+   },
+   {
+    "id": "yb-02",
+    "read_path_reached": false,
+    "read_steps": [],
+    "keys_correct": {
+     "HEAD_KEY": true,
+     "MIDDLE_KEY": false,
+     "TAIL_KEY": false
+    },
+    "keys_correct_count": 1,
+    "MIDDLE_KEY_observed": "0a1c9f3e8d7b6a59482716c0e5d4f3b2a1908f7e6d5c4b3a2918f7e6d5c4b3a29",
+    "TAIL_KEY_observed": "OBSERVATION_TAIL_VALUE",
+    "TAIL_KEY_expected": "COBALT-492"
+   },
+   {
+    "id": "yb-03",
+    "read_path_reached": false,
+    "read_steps": [],
+    "keys_correct": {
+     "HEAD_KEY": true,
+     "MIDDLE_KEY": false,
+     "TAIL_KEY": false
+    },
+    "keys_correct_count": 1,
+    "MIDDLE_KEY_observed": "f3d9a12e8b7c6d5e4f3098a7b6c5d4e3f2019182736455647382910a1b2c3d4e5",
+    "TAIL_KEY_observed": "AMBER-731",
+    "TAIL_KEY_expected": "COBALT-492"
+   }
+  ],
+  "verdict": "partial: HEAD (line 1) correct in all three sessions; read path observably reached in 1 of 3 sessions only, and that session scored 2/3 (MIDDLE exact, TAIL wrong); the two sessions without observable read steps fabricated MIDDLE (64-hex strings absent from the fixture) and TAIL (a placeholder string / the HEAD value). On this detection surface a fully correct known-read answer was never observed for yuanbao; failure mode is fabrication, not an error message.",
+  "observation_caveat": "read-step detection = visible page text regex + screenshots; internal invisible steps cannot be distinguished on this surface",
+  "boundaries": [
+   "n=3, one slot each; no product-level rate claims",
+   "upload via synthetic DragEvent (DataTransfer); difference from a real user drag not measured",
+   "expert mode box-default tier only; model tier/version not confirmable from the page"
   ]
  }
 }

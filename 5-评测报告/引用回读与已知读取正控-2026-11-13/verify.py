@@ -291,6 +291,34 @@ def verify(data: dict) -> dict:
         and r14["interpretation"].startswith("E1 answer-visibility gate")
     )
 
+    # ring16: yuanbao known-read completed (n=3, v7)
+    if "ring6_yuanbao_known_read_completed" in data:
+        r6f = data["ring6_yuanbao_known_read_completed"]
+        ss = {s["id"]: s for s in r6f["sessions"]}
+        checks["ring6_completed_shape"] = (
+            data["schema"] == "knownread-20261113-v7"
+            and r6f["n"] == 3 and r6f["n_planned"] == 3
+            and r6f["judge_branch"] == "partial"
+            and r6f["passed_all_keys"] == 0
+            and r6f["read_path_reached_count"] == 1
+            and set(ss) == {"yb-01", "yb-02", "yb-03"}
+        )
+        checks["ring6_keys_pattern"] = (
+            all(s["keys_correct"]["HEAD_KEY"] is True for s in ss.values())
+            and ss["yb-01"]["read_path_reached"] is True
+            and ss["yb-01"]["keys_correct_count"] == 2
+            and ss["yb-02"]["read_path_reached"] is False
+            and ss["yb-03"]["read_path_reached"] is False
+            and ss["yb-02"]["TAIL_KEY_observed"] == "OBSERVATION_TAIL_VALUE"
+            and ss["yb-03"]["TAIL_KEY_observed"] == "AMBER-731"
+            and ss["yb-01"]["TAIL_KEY_observed"] == "30e506c93"
+            and all(s["TAIL_KEY_expected"] == "COBALT-492" for s in ss.values())
+        )
+        checks["ring6_first_session_marked_superseded"] = (
+            "superseded" in data["ring6_yuanbao_known_read_first_session"]["status"]
+            and data["ring6_yuanbao_known_read_first_session"]["n"] == 1
+        )
+
     ok = all(checks.values())
     return {"ok": ok, "checks": checks}
 

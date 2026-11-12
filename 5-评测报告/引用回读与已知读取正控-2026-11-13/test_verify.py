@@ -180,6 +180,27 @@ class FullResult(unittest.TestCase):
         self.assertFalse(verify.verify(bad)["checks"]["ring14_branch"])
 
 
+    def test_tampered_ring16_detected(self):
+        r6 = "ring6_yuanbao_known_read_completed"
+        # branch 翻成 positive_control_passed（伪造正控通过）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r6]["judge_branch"] = "positive_control_passed"
+        bad[r6]["passed_all_keys"] = 3
+        self.assertFalse(verify.verify(bad)["checks"]["ring6_completed_shape"])
+        # yb-01 的读取路径到达被抹掉（动摇"可达性"结论）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r6]["sessions"][0]["read_path_reached"] = False
+        bad[r6]["read_path_reached_count"] = 0
+        self.assertFalse(verify.verify(bad)["checks"]["ring6_keys_pattern"])
+        # TAIL 伪造观测值被改成正确值（把 partial 洗成全对）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r6]["sessions"][2]["TAIL_KEY_observed"] = "COBALT-492"
+        self.assertFalse(verify.verify(bad)["checks"]["ring6_keys_pattern"])
+        # 中期记录的 superseded 标记被删（历史口径回活）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring6_yuanbao_known_read_first_session"]["status"] = "interim: session 1 of 3"
+        self.assertFalse(verify.verify(bad)["checks"]["ring6_first_session_marked_superseded"])
+
     def test_tampered_ring12_detected(self):
         r12 = "ring12_middle_position"
         # read 次数被改成 1（零 read 是本环核心证据）必须被拒
