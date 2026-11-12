@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v10"
+            data["schema"] == "knownread-20261113-v11"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -414,6 +414,61 @@ def verify(data: dict) -> dict:
             and r24["sessions_all_keys_correct"] == 2
             and r24["branch"] == "read_result_unbounded"
             and "first-layer" in r24["finding"]
+        )
+
+    # ---- ring26/27/28/29/30 fuel-map (v11) ----
+    if "ring26_usage_unit" in data:
+        r = data["ring26_usage_unit"]
+        checks["ring26_usage_unit_shape"] = (
+            r["source_seal_26"] == "9c5d9242b026a2ee"
+            and r["rho_chars_per_token_422"] == 1.8529
+            and r["spill_regression_slope_tokens_per_cap"] == 2.1497
+            and r["chars_per_4_prediction"] == 2.159
+            and r["token_aligned_prediction"] == 1.0
+            and r["verdict"] == "budget_unit_char_proxy"
+            and r["cross_shape_delta_at_cap_8192"]["422-line"] == 17611
+        )
+    if "ring27_codex_usage" in data:
+        r = data["ring27_codex_usage"]
+        checks["ring27_codex_usage_shape"] = (
+            r["input_tokens_by_probe"]["64k"] == 29074
+            and r["input_tokens_by_probe"]["256k"] == 30055
+            and r["delta_64k_minus_1k"] == 16841
+            and "superseded" in r["correction_by_ring28"]
+            and r["verdict"] == "client_record_exceeds_ingest"
+        )
+    if "ring28_codex_bracket" in data:
+        r = data["ring28_codex_bracket"]
+        checks["ring28_codex_bracket_shape"] = (
+            r["prereg_seal_28"] == "fd0acae77084bace"
+            and r["ingest_est_tokens"] == {"80k": 17149, "112k": 16234, "192k": 16682}
+            and r["cap_char_bracket"] == [65589, 66795]
+            and r["silent_clip"] is True
+            and "no truncation marker" in r["silent_clip_evidence"]
+            and r["verdict"] == "ingest_cap_plateau"
+        )
+    if "ring29_doubao_bracket" in data:
+        r = data["ring29_doubao_bracket"]
+        checks["ring29_doubao_bracket_shape"] = (
+            r["prereg_seal_29"] == "9c102bbd5fa9f75e"
+            and "exceeds maximum allowed tokens (25000)" in r["refusal_text_112k"]
+            and r["estimator_chars_per_token_exact"] is True
+            and "MIDDLE judgment VOID" in r["keys"]["80k"]
+            and "fixture defect" in r["incident"]
+            and r["tool_output_clip"]["kept_chars"] == 6438
+            and r["tool_output_clip"]["independent_of_token_refusal"] is True
+            and r["verdict"] == "dual_mechanism_refusal_plus_clip"
+        )
+    if "ring30_wb_bracket" in data:
+        r = data["ring30_wb_bracket"]
+        checks["ring30_wb_bracket_shape"] = (
+            r["prereg_seal_30"] == "59724333ed7f333f"
+            and r["wb_80k"]["keys"] == "3/3"
+            and "80,034" in r["wb_80k"]["model_side"]
+            and r["wb_112k_wb_192k"]["status"] == "waiting_user"
+            and "cannot be excluded" in r["wb_112k_wb_192k"]["confound"]
+            and "not real tokens" in r["cross_product_conclusion"]
+            and r["verdict"] == "gate_on_estimate_not_reality_partial_bracket"
         )
 
     ok = all(checks.values())

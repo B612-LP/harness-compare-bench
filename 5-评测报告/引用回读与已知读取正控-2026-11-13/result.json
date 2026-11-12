@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v10",
+ "schema": "knownread-20261113-v11",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -303,7 +303,9 @@
   "ring6 completed (v7): yuanbao known-read positive control n=3 final = partial; one session reached the observable read path (2/3 keys), two fabricated; no fully correct answer observed on this detection surface; not a product-wide claim",
   "ring18/18b/18c (v8): spill-off boundary in [8943,9020] on one fixture; truncation law omitted=35767-4*(cap-80) exact at 8192/8941/8942; trigger criterion not chars/4 (tokenizer candidate, unobservable); three prereg predictions refuted and recorded as observed",
   "ring17 interim (v8): yuanbao size probe has only the 990B point (3/3 correct); 8k/64k/256k blocked by screen lock, pending unlock; no size threshold claim",
-  "v10: Ring 23 cost crossover is a derived estimate under a constant-overhead assumption; Ring 24 read-bypass result is mechanism-surface only, single shape/cap/params, n=1 x2."
+  "v10: Ring 23 cost crossover is a derived estimate under a constant-overhead assumption; Ring 24 read-bypass result is mechanism-surface only, single shape/cap/params, n=1 x2.",
+  "Ring 28–30 摄入帽 bracket 为 n=1/档 区间披露：Codex 帽 [65,589, 66,795] chars 且削顶静默（记录面完整/模型面 ~17k tok）；豆包拒绝自估=chars/4 精确、削顶保留 head 2K+tail≈4.4K chars 单点；WB 112k/192k 为 waiting_user 不可判（锁屏相关人工门混杂如实声明）。",
+  "Ring 26/27 为 derived-only（冻结捕获重算，零发射）；Ring 29 db-80k 的 MIDDLE 正确性判定因夹具缺陷作废（模型按文件内约定作答，行为面有效）。"
  ],
  "v3_added_at": "2026-11-13T02:35:00+08:00",
  "ring8_size_threshold": {
@@ -1190,5 +1192,119 @@
    "mechanism observation surface (client-assembled bytes); native CLI without relay not observed",
    "backend-side limits not observable"
   ]
+ },
+ "v11_added_at": "2026-11-13T05:30+08:00",
+ "ring26_usage_unit": {
+  "kind": "derived-only (frozen capture SSE usage frames, no product sessions)",
+  "source_seal_26": "9c5d9242b026a2ee",
+  "nospill_delta_mean_tokens": 19303.3,
+  "nospill_range_tokens": [
+   19263,
+   19367
+  ],
+  "rho_chars_per_token_422": 1.8529,
+  "spill_regression_slope_tokens_per_cap": 2.1497,
+  "regression_intercept": -1.6,
+  "chars_per_4_prediction": 2.159,
+  "deviation_from_prediction": 0.0042,
+  "token_aligned_prediction": 1.0,
+  "verdict": "budget_unit_char_proxy",
+  "finding": "spill budget = cap x 4 characters (a fixed char proxy), not real tokenizer tokens; boundary cap*=9021.75 and usage slope converge",
+  "cross_shape_delta_at_cap_8192": {
+   "422-line": 17611,
+   "probe_64k": 17638,
+   "probe_256k": 17651,
+   "rs_64k_slice": 17612
+  },
+  "boundaries": [
+   "single model deepseek-flash",
+   "usage is API self-report",
+   "repeat-session noise ~±40 tok; single-cap-step effect unresolvable"
+  ]
+ },
+ "ring27_codex_usage": {
+  "kind": "derived-only (frozen codex stdout.jsonl turn usage)",
+  "source_seal_27": "6a015a8e88fb9e43",
+  "input_tokens_by_probe": {
+   "1k": 12233,
+   "8k": 16183,
+   "64k": 29074,
+   "256k": 30055
+  },
+  "delta_64k_minus_1k": 16841,
+  "full_ingest_evidence_ratio": 1.03,
+  "delta_256k_minus_64k": 981,
+  "correction_by_ring28": "256k sits on the same ingest plateau as 64k (~17k tok clipped); 981 is inter-session overhead, NOT 'only 2.5% entered' (superseded)",
+  "verdict": "client_record_exceeds_ingest"
+ },
+ "ring28_codex_bracket": {
+  "prereg_seal_28": "fd0acae77084bace",
+  "sessions": 3,
+  "ingest_est_tokens": {
+   "80k": 17149,
+   "112k": 16234,
+   "192k": 16682
+  },
+  "ring8_anchors": {
+   "64k": 16841,
+   "256k": 17822
+  },
+  "cap_char_bracket": [
+   65589,
+   66795
+  ],
+  "keys_correct": "3/3 each slot; compensation = cat then targeted rg/grep",
+  "silent_clip": true,
+  "silent_clip_evidence": "rollout records contain FULL cat outputs (81.8k/114.6k/196.6k chars, no truncation marker) while usage shows ~17k tok ingested",
+  "verdict": "ingest_cap_plateau",
+  "boundaries": [
+   "n=1 per size",
+   "cap unit (chars vs tokens) not separable at rho 3.895",
+   "clip mechanism not directly observable"
+  ]
+ },
+ "ring29_doubao_bracket": {
+  "prereg_seal_29": "9c102bbd5fa9f75e",
+  "sessions": 3,
+  "refusal_text_112k": "File content (28000 tokens) exceeds maximum allowed tokens (25000). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file.",
+  "estimator_chars_per_token_exact": true,
+  "refusal_boundary_chars": "(80,000, 112,000]",
+  "keys": {
+   "112k": "3/3",
+   "192k": "3/3",
+   "80k": "HEAD/TAIL correct; MIDDLE judgment VOID"
+  },
+  "incident": "db-80k fixture had duplicate record noise-0482 (generator overwrite bug); model detected the duplicate, verified with shasum, answered per the file's dominant name->checksum convention; voided as fixture defect, not model failure",
+  "tool_output_clip": {
+   "marker": "<tool-output-truncated>",
+   "kept_chars": 6438,
+   "clip_boundary_chars": "(68,504, 83,688] tool-output chars (ring8 64k inline anchor)",
+   "independent_of_token_refusal": true
+  },
+  "verdict": "dual_mechanism_refusal_plus_clip",
+  "boundaries": [
+   "n=1 per size",
+   "no usage fields in doubao local trajectory",
+   "clip kept-ratio is a single-point observation"
+  ]
+ },
+ "ring30_wb_bracket": {
+  "prereg_seal_30": "59724333ed7f333f",
+  "sessions": 3,
+  "wb_80k": {
+   "status": "completed",
+   "keys": "3/3",
+   "display_face": "persisted preview (FCR 2,353 chars)",
+   "model_side": "prompt_tokens 80,034 at final message ~= baseline 28.8k + file ~51.2k tok at 1.56 chars/tok = full ingest",
+   "gate": "not triggered at est=20,000 boundary (<= passes)"
+  },
+  "wb_112k_wb_192k": {
+   "status": "waiting_user",
+   "finding": "tasks paused after 1-2 tool calls; refusal text NOT observed; keys unjudgeable",
+   "confound": "lock-screen-related human-confirmation gate cannot be excluded (wb-80k completed under same conditions); single-submit discipline kept, no followup sent"
+  },
+  "cross_product_conclusion": "WB real ingest (51k tok) exceeds nominal 20,000 without triggering the gate -> the gate acts on the chars/4 estimate, not real tokens; third product converging on chars/4-style gating",
+  "behavior_split": "doubao auto-compensates after refusal (3/3); WB pauses for a human gate",
+  "verdict": "gate_on_estimate_not_reality_partial_bracket"
  }
 }

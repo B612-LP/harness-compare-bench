@@ -312,6 +312,39 @@ class FullResult(unittest.TestCase):
         bad[r24]["sessions_all_keys_correct"] = 0
         self.assertFalse(verify.verify(bad)["checks"]["ring24_unbounded_shape"])
 
+    def test_tampered_ring28_silent_clip_detected(self):
+        r28 = "ring28_codex_bracket"
+        # 静默削顶被洗成 False（信号面分类抹除）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r28]["silent_clip"] = False
+        self.assertFalse(verify.verify(bad)["checks"]["ring28_codex_bracket_shape"])
+        # 帽 bracket 被改宽（精度虚报）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r28]["cap_char_bracket"] = [65589, 70000]
+        self.assertFalse(verify.verify(bad)["checks"]["ring28_codex_bracket_shape"])
+
+    def test_tampered_ring29_incident_honesty(self):
+        r29 = "ring29_doubao_bracket"
+        # 事故被洗成正常键全对（夹具缺陷隐瞒）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r29]["keys"]["80k"] = "3/3"
+        self.assertFalse(verify.verify(bad)["checks"]["ring29_doubao_bracket_shape"])
+        # chars/4 自估精确性被翻转（跨产品收敛结论失效）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r29]["estimator_chars_per_token_exact"] = False
+        self.assertFalse(verify.verify(bad)["checks"]["ring29_doubao_bracket_shape"])
+
+    def test_tampered_ring30_waiting_user_honesty(self):
+        r30 = "ring30_wb_bracket"
+        # waiting_user 不可判被洗成 completed 3/3（暂停事实抹除）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r30]["wb_112k_wb_192k"]["status"] = "completed"
+        self.assertFalse(verify.verify(bad)["checks"]["ring30_wb_bracket_shape"])
+        # 闸门作用面结论被翻转（chars/4 收敛失效）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r30]["cross_product_conclusion"] = "gate acts on real tokens"
+        self.assertFalse(verify.verify(bad)["checks"]["ring30_wb_bracket_shape"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
