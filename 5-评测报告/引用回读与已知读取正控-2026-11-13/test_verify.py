@@ -282,6 +282,36 @@ class FullResult(unittest.TestCase):
         bad[r17]["sessions"][0]["probe_bytes"] = 1024
         self.assertFalse(verify.verify(bad)["checks"]["ring17_interim_shape"])
 
+    def test_tampered_ring23_detected(self):
+        r23 = "ring23_cost_crossover"
+        # 交叉点被洗成 0（吃亏区消失）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r23]["crossover_probe_chars"] = 0
+        self.assertFalse(verify.verify(bad)["checks"]["ring23_crossover_shape"])
+        # 256k 增量被洗成 0（节省被抹平）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r23]["rb_minus_inline"]["probe_256k"] = 0
+        self.assertFalse(verify.verify(bad)["checks"]["ring23_crossover_shape"])
+        # r2 预览原样保留标志被洗成 False（无历史压缩观测抹除）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r23]["preview_r2_identical_in_r3"] = [False, False]
+        self.assertFalse(verify.verify(bad)["checks"]["ring23_crossover_shape"])
+
+    def test_tampered_ring24_detected(self):
+        r24 = "ring24_read_unbounded"
+        # read 有界标志被洗成 True（嵌套外溢白嫖成立）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r24]["r3_read_bounded"] = [True, True]
+        self.assertFalse(verify.verify(bad)["checks"]["ring24_unbounded_shape"])
+        # 分支被换成 nested_spill_confirmed（P1 否证被翻转）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r24]["branch"] = "nested_spill_confirmed"
+        self.assertFalse(verify.verify(bad)["checks"]["ring24_unbounded_shape"])
+        # 三键全对计数被洗成 0 必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r24]["sessions_all_keys_correct"] = 0
+        self.assertFalse(verify.verify(bad)["checks"]["ring24_unbounded_shape"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v9"
+            data["schema"] == "knownread-20261113-v10"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -387,6 +387,33 @@ def verify(data: dict) -> dict:
             and s1["fixture_sha256"] == "1355a449c2c71fdf11b6aff4c1381d3585c27e690171a3e3ef1e2af96388c054"
             and s1["keys_all_correct"] is True
             and s1["tail"] == "JADE-104"
+        )
+
+    # ---- ring23 cost crossover + ring24 read unbounded (v10) ----
+    if "ring23_cost_crossover" in data:
+        r23 = data["ring23_cost_crossover"]
+        checks["ring23_crossover_shape"] = (
+            r23["kind"].startswith("derived-only")
+            and r23["inline_overhead_estimate"] == 2668.0
+            and r23["rb_minus_inline"]["probe_64k"] == 5411.0
+            and r23["rb_minus_inline"]["probe_256k"] == -190618.0
+            and r23["crossover_probe_chars"] == 71491.0
+            and r23["preview_r2_identical_in_r3"] == [True, True]
+            and r23["read_targeted_windows_bytes"] == [85, 850]
+            and "loss_zone" in r23["regimes"]
+        )
+    if "ring24_read_unbounded" in data:
+        r24 = data["ring24_read_unbounded"]
+        checks["ring24_unbounded_shape"] = (
+            r24["prereg_seal_24"] == "cd1f2ac5d8f0cbed"
+            and r24["r2_omitted"] == [33056, 33056]
+            and r24["r3_read_bounded"] == [False, False]
+            and r24["r3_read_omitted_matches_prediction"] == [False, False]
+            and r24["middle_visible_via_read"] == [True, True]
+            and r24["read_attempts_total"] == 2
+            and r24["sessions_all_keys_correct"] == 2
+            and r24["branch"] == "read_result_unbounded"
+            and "first-layer" in r24["finding"]
         )
 
     ok = all(checks.values())

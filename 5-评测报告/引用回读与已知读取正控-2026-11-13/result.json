@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v9",
+ "schema": "knownread-20261113-v10",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -302,7 +302,8 @@
   "ring14: spill-off boundary bracketed on one fixture only (8192, 9216]; no-spill prediction for 16384 held, 9216 prediction wrong and recorded",
   "ring6 completed (v7): yuanbao known-read positive control n=3 final = partial; one session reached the observable read path (2/3 keys), two fabricated; no fully correct answer observed on this detection surface; not a product-wide claim",
   "ring18/18b/18c (v8): spill-off boundary in [8943,9020] on one fixture; truncation law omitted=35767-4*(cap-80) exact at 8192/8941/8942; trigger criterion not chars/4 (tokenizer candidate, unobservable); three prereg predictions refuted and recorded as observed",
-  "ring17 interim (v8): yuanbao size probe has only the 990B point (3/3 correct); 8k/64k/256k blocked by screen lock, pending unlock; no size threshold claim"
+  "ring17 interim (v8): yuanbao size probe has only the 990B point (3/3 correct); 8k/64k/256k blocked by screen lock, pending unlock; no size threshold claim",
+  "v10: Ring 23 cost crossover is a derived estimate under a constant-overhead assumption; Ring 24 read-bypass result is mechanism-surface only, single shape/cap/params, n=1 x2."
  ],
  "v3_added_at": "2026-11-13T02:35:00+08:00",
  "ring8_size_threshold": {
@@ -1110,6 +1111,84 @@
    "single cap (8192), four Ring 8 probe shapes, one DSH version and model tier",
    "omitted is the client-visible footer self-report; the real tokenizer is not directly observable, token alignment remains a candidate explanation",
    "n=1 per probe; no repetition"
+  ]
+ },
+ "v10_added_at": "2026-11-13T04:36",
+ "ring23_cost_crossover": {
+  "kind": "derived-only, no new sessions",
+  "source_seal_23": "124aee922934356a",
+  "inline_overhead_estimate": 2668.0,
+  "rb_minus_inline": {
+   "probe_64k": 5411.0,
+   "probe_256k": -190618.0
+  },
+  "rb_over_inline_ratio": {
+   "probe_64k": 1.0794,
+   "probe_256k": 0.2801
+  },
+  "crossover_probe_chars": 71491.0,
+  "regimes": {
+   "no_spill": "bounded==inline, same bytes (<=32448 chars)",
+   "loss_zone": "spill happens but rb_total > inline estimate; r3 carries the full bounded preview verbatim (no history compression)",
+   "saving_zone": "rb_total < inline, savings grow toward ~3.5x at 256k"
+  },
+  "preview_r2_identical_in_r3": [
+   true,
+   true
+  ],
+  "preview_r2_chars": [
+   32701,
+   32698
+  ],
+  "read_targeted_windows_bytes": [
+   85,
+   850
+  ],
+  "boundaries": [
+   "inline side is a constant-overhead estimate, not measured",
+   "bytes != tokens != cost",
+   "n=1 per size, mechanism observation surface"
+  ]
+ },
+ "ring24_read_unbounded": {
+  "prereg_seal_24": "cd1f2ac5d8f0cbed",
+  "design": "forced read offset=1 limit=400 on probe-64k; slice 33942 chars > budget 32448 -> nested-spill prediction omitted=1494",
+  "sessions_b_series": [
+   [
+    1780,
+    35427,
+    70315
+   ],
+   [
+    1780,
+    35299,
+    70491
+   ]
+  ],
+  "r2_omitted": [
+   33056,
+   33056
+  ],
+  "r3_read_bounded": [
+   false,
+   false
+  ],
+  "r3_read_omitted_matches_prediction": [
+   false,
+   false
+  ],
+  "middle_visible_via_read": [
+   true,
+   true
+  ],
+  "read_attempts_total": 2,
+  "sessions_all_keys_correct": 2,
+  "branch": "read_result_unbounded",
+  "finding": "fuel policy applies only to first-layer tool results; the read slice came back fully inline with no nested footer; read is an escape hatch that bypasses the spill gate (info complete, session bytes rise)",
+  "boundaries": [
+   "single probe shape (64k), single cap (8192), single slice params, n=1 x2",
+   "mechanism observation surface (client-assembled bytes); native CLI without relay not observed",
+   "backend-side limits not observable"
   ]
  }
 }
