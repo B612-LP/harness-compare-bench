@@ -1,484 +1,694 @@
 {
- "schema": "knownread-20261113-v3",
- "generated_at": "2026-11-13T01:25:00+08:00",
- "v2_added_at": "2026-11-13T01:50:00+08:00",
- "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
- "constants": {
-  "probe_fixture_bytes": 35767,
-  "probe_fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
-  "probe_fixture_lines": 422,
-  "probe_middle_record": "noise-0210",
-  "probe_middle_source_string": "fixture-v1-210",
-  "probe_middle_key": "59f421aea4171df85721b2fc8e0081cb9bdc4969d81c7e61aa00adf1b8480203",
-  "probe_head_key": "AMBER-731",
-  "probe_tail_key": "COBALT-492",
-  "dsh_version": "0.2.0-rc.2",
-  "model_id": "deepseek-flash",
-  "reasoning_effort": "low",
-  "probe_task_text": "Read the file <path>. Then reply with ONLY a JSON object with keys HEAD_KEY, MIDDLE_KEY and TAIL_KEY. HEAD_KEY and TAIL_KEY are the two OBSERVATION values in the file. MIDDLE_KEY is the checksum value of record noise-0210. Ignore other checksum noise."
- },
- "ring1_dsh_readback_mechanism": {
-  "design": "three arms, same DSH build: C1 x2 bounded replication gate (no read tool declared, 512-token spill cap); RB x6 bounded preview plus a read(path,offset,limit) tool (cap 512); IMK x2 same tool menu with cap 1000000 (inline single-shot)",
-  "prompt_variant": "RB/IMK prompt asks only for fixture_output then the three-key JSON; it never mentions read — read use is spontaneous",
-  "sessions": {
-   "c1": [
-    {
-     "id": "c1-01",
-     "B_series": [
-      1124,
-      3506
-     ],
-     "delta": 2382
-    },
-    {
-     "id": "c1-02",
-     "B_series": [
-      1124,
-      3506
-     ],
-     "delta": 2382
-    }
-   ],
-   "rb": [
-    {
-     "id": "rb-01",
-     "B_series": [
-      1724,
-      4106,
-      5470
-     ],
-     "read_attempts": 1,
-     "keys": {
-      "HEAD_KEY": true,
-      "MIDDLE_KEY": true,
-      "TAIL_KEY": true
-     }
-    },
-    {
-     "id": "rb-02",
-     "B_series": [
-      1724,
-      4460,
-      6413
-     ],
-     "read_attempts": 1,
-     "keys": {
-      "HEAD_KEY": true,
-      "MIDDLE_KEY": true,
-      "TAIL_KEY": true
-     }
-    },
-    {
-     "id": "rb-03",
-     "B_series": [
-      1724,
-      4377,
-      5922
-     ],
-     "read_attempts": 1,
-     "keys": {
-      "HEAD_KEY": true,
-      "MIDDLE_KEY": true,
-      "TAIL_KEY": true
-     }
-    },
-    {
-     "id": "rb-04",
-     "B_series": [
-      1724,
-      4337,
-      5192
-     ],
-     "read_attempts": 1,
-     "keys": {
-      "HEAD_KEY": true,
-      "MIDDLE_KEY": true,
-      "TAIL_KEY": true
-     }
-    },
-    {
-     "id": "rb-05",
-     "B_series": [
-      1724,
-      4236,
-      6603
-     ],
-     "read_attempts": 1,
-     "keys": {
-      "HEAD_KEY": true,
-      "MIDDLE_KEY": true,
-      "TAIL_KEY": true
-     }
-    },
-    {
-     "id": "rb-06",
-     "B_series": [
-      1724,
-      4486,
-      8939
-     ],
-     "read_attempts": 1,
-     "keys": {
-      "HEAD_KEY": true,
-      "MIDDLE_KEY": true,
-      "TAIL_KEY": true
-     }
-    }
-   ],
-   "imk": [
-    {
-     "id": "imk-01",
-     "B_series": [
-      1724,
-      38450
-     ],
-     "keys": {
-      "HEAD_KEY": true,
-      "MIDDLE_KEY": true,
-      "TAIL_KEY": true
-     }
-    },
-    {
-     "id": "imk-02",
-     "B_series": [
-      1724,
-      38420
-     ],
-     "keys": {
-      "HEAD_KEY": true,
-      "MIDDLE_KEY": true,
-      "TAIL_KEY": true
-     }
-    }
-   ]
+  "schema": "knownread-20261113-v4",
+  "generated_at": "2026-11-13T01:25:00+08:00",
+  "v2_added_at": "2026-11-13T01:50:00+08:00",
+  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
+  "constants": {
+    "probe_fixture_bytes": 35767,
+    "probe_fixture_sha256": "fed57592028c9d8a9180c2b97f74a3cd5e0daa841aab244cf4aad78fe44626a2",
+    "probe_fixture_lines": 422,
+    "probe_middle_record": "noise-0210",
+    "probe_middle_source_string": "fixture-v1-210",
+    "probe_middle_key": "59f421aea4171df85721b2fc8e0081cb9bdc4969d81c7e61aa00adf1b8480203",
+    "probe_head_key": "AMBER-731",
+    "probe_tail_key": "COBALT-492",
+    "dsh_version": "0.2.0-rc.2",
+    "model_id": "deepseek-flash",
+    "reasoning_effort": "low",
+    "probe_task_text": "Read the file <path>. Then reply with ONLY a JSON object with keys HEAD_KEY, MIDDLE_KEY and TAIL_KEY. HEAD_KEY and TAIL_KEY are the two OBSERVATION values in the file. MIDDLE_KEY is the checksum value of record noise-0210. Ignore other checksum noise."
   },
-  "derived": {
-   "rb_n": 6,
-   "rb_middle_hits": 6,
-   "rb_wilson95": [
-    0.6096657120978346,
-    1.0
-   ],
-   "rb_session_total_median": 12293.0,
-   "imk_final_request_median": 38435.0,
-   "rb_total_minus_imk_final_median": -26142.0,
-   "rb_total_over_imk_final_median": 0.3198,
-   "c1_delta": 2382,
-   "baseline_r20261103_bounded_delta": 2382,
-   "c1_matches_20261103_baseline": true,
-   "decision_branch": "recovered_via_read",
-   "contingent_nudge_arm": "not triggered (read attempts were 6, not 0)"
-  }
- },
- "ring2_workbuddy_known_read_positive_control": {
-  "product": "WorkBuddy 5.9.3 desktop, native bridge; model setting not controlled (product default), disclosed",
-  "n": 3,
-  "sessions": [
-   {
-    "id": "wb-s1",
-    "read_calls": 1,
-    "read_result_chars": 38332,
-    "keys_all_correct": true
-   },
-   {
-    "id": "wb-s2",
-    "read_calls": 1,
-    "read_result_chars": 38332,
-    "keys_all_correct": true
-   },
-   {
-    "id": "wb-s3",
-    "read_calls": 1,
-    "read_result_chars": 38332,
-    "keys_all_correct": true
-   }
-  ],
-  "verdict": "full inline read result (line-numbered format), no truncation or reference pagination; positive control passed 3/3"
- },
- "ring3_doubao_known_read_first_sampling": {
-  "product": "DoubaoWork 2.35.19 desktop, native bridge; model setting user-selected DS Flash + Low, disclosed, not controlled",
-  "n": 3,
-  "sessions": [
-   {
-    "id": "db-s1",
-    "read_calls": 1,
-    "read_result_chars": 37367,
-    "keys_all_correct": true,
-    "usage_fields_in_local_trace": "none"
-   },
-   {
-    "id": "db-s2",
-    "read_calls": 1,
-    "read_result_chars": 37367,
-    "keys_all_correct": true,
-    "usage_fields_in_local_trace": "none"
-   },
-   {
-    "id": "db-s3",
-    "read_calls": 1,
-    "read_result_chars": 37367,
-    "keys_all_correct": true,
-    "usage_fields_in_local_trace": "none"
-   }
-  ],
-  "verdict": "full inline read result (tab line numbers), no truncation marker; positive control passed 3/3; local trajectory exposes no usage/token fields"
- },
- "ring5_codex_known_read_positive_control": {
-  "product": "Codex CLI 0.163.0, isolated CODEX_HOME, direct official-style endpoint, model deepseek-flash effort low, retries 0, sandbox read-only, shell tool enabled (native read path under test)",
-  "n": 3,
-  "sessions": [
-   {
-    "id": "cx-01",
-    "read_form": "cat aggregated_output",
-    "read_result_bytes": 35767,
-    "truncation_marker": false,
-    "commands": 3,
-    "keys_all_correct": true,
-    "duration_s": 5.1
-   },
-   {
-    "id": "cx-02",
-    "read_form": "cat aggregated_output",
-    "read_result_bytes": 35767,
-    "truncation_marker": false,
-    "commands": 2,
-    "keys_all_correct": true,
-    "duration_s": 6.2
-   },
-   {
-    "id": "cx-03",
-    "read_form": "cat aggregated_output",
-    "read_result_bytes": 35767,
-    "truncation_marker": false,
-    "commands": 3,
-    "keys_all_correct": true,
-    "duration_s": 4.7
-   }
-  ],
-  "verdict": "first command cat probe.txt carries the full 35,767-byte fixture in the tool output with no truncation marker; subsequent rg locates the middle line; positive control passed 3/3"
- },
- "ring6_yuanbao_known_read_first_session": {
-  "product": "yuanbao (腾讯元宝) web, expert mode (box default, mode unchanged), file delivered by attachment upload",
-  "n": 1,
-  "status": "interim: session 1 of 3 completed; remaining sessions pending (browser availability); do not generalize",
-  "sessions": [
-   {
-    "id": "yb-01",
-    "read_path_reached": true,
-    "read_steps": [
-     "I'll read the attached file to find the required values.",
-     "已阅读1个文件 / 已读取probe.txt文件内容 probe.txt"
+  "ring1_dsh_readback_mechanism": {
+    "design": "three arms, same DSH build: C1 x2 bounded replication gate (no read tool declared, 512-token spill cap); RB x6 bounded preview plus a read(path,offset,limit) tool (cap 512); IMK x2 same tool menu with cap 1000000 (inline single-shot)",
+    "prompt_variant": "RB/IMK prompt asks only for fixture_output then the three-key JSON; it never mentions read — read use is spontaneous",
+    "sessions": {
+      "c1": [
+        {
+          "id": "c1-01",
+          "B_series": [
+            1124,
+            3506
+          ],
+          "delta": 2382
+        },
+        {
+          "id": "c1-02",
+          "B_series": [
+            1124,
+            3506
+          ],
+          "delta": 2382
+        }
+      ],
+      "rb": [
+        {
+          "id": "rb-01",
+          "B_series": [
+            1724,
+            4106,
+            5470
+          ],
+          "read_attempts": 1,
+          "keys": {
+            "HEAD_KEY": true,
+            "MIDDLE_KEY": true,
+            "TAIL_KEY": true
+          }
+        },
+        {
+          "id": "rb-02",
+          "B_series": [
+            1724,
+            4460,
+            6413
+          ],
+          "read_attempts": 1,
+          "keys": {
+            "HEAD_KEY": true,
+            "MIDDLE_KEY": true,
+            "TAIL_KEY": true
+          }
+        },
+        {
+          "id": "rb-03",
+          "B_series": [
+            1724,
+            4377,
+            5922
+          ],
+          "read_attempts": 1,
+          "keys": {
+            "HEAD_KEY": true,
+            "MIDDLE_KEY": true,
+            "TAIL_KEY": true
+          }
+        },
+        {
+          "id": "rb-04",
+          "B_series": [
+            1724,
+            4337,
+            5192
+          ],
+          "read_attempts": 1,
+          "keys": {
+            "HEAD_KEY": true,
+            "MIDDLE_KEY": true,
+            "TAIL_KEY": true
+          }
+        },
+        {
+          "id": "rb-05",
+          "B_series": [
+            1724,
+            4236,
+            6603
+          ],
+          "read_attempts": 1,
+          "keys": {
+            "HEAD_KEY": true,
+            "MIDDLE_KEY": true,
+            "TAIL_KEY": true
+          }
+        },
+        {
+          "id": "rb-06",
+          "B_series": [
+            1724,
+            4486,
+            8939
+          ],
+          "read_attempts": 1,
+          "keys": {
+            "HEAD_KEY": true,
+            "MIDDLE_KEY": true,
+            "TAIL_KEY": true
+          }
+        }
+      ],
+      "imk": [
+        {
+          "id": "imk-01",
+          "B_series": [
+            1724,
+            38450
+          ],
+          "keys": {
+            "HEAD_KEY": true,
+            "MIDDLE_KEY": true,
+            "TAIL_KEY": true
+          }
+        },
+        {
+          "id": "imk-02",
+          "B_series": [
+            1724,
+            38420
+          ],
+          "keys": {
+            "HEAD_KEY": true,
+            "MIDDLE_KEY": true,
+            "TAIL_KEY": true
+          }
+        }
+      ]
+    },
+    "derived": {
+      "rb_n": 6,
+      "rb_middle_hits": 6,
+      "rb_wilson95": [
+        0.6096657120978346,
+        1.0
+      ],
+      "rb_session_total_median": 12293.0,
+      "imk_final_request_median": 38435.0,
+      "rb_total_minus_imk_final_median": -26142.0,
+      "rb_total_over_imk_final_median": 0.3198,
+      "c1_delta": 2382,
+      "baseline_r20261103_bounded_delta": 2382,
+      "c1_matches_20261103_baseline": true,
+      "decision_branch": "recovered_via_read",
+      "contingent_nudge_arm": "not triggered (read attempts were 6, not 0)"
+    }
+  },
+  "ring2_workbuddy_known_read_positive_control": {
+    "product": "WorkBuddy 5.9.3 desktop, native bridge; model setting not controlled (product default), disclosed",
+    "n": 3,
+    "sessions": [
+      {
+        "id": "wb-s1",
+        "read_calls": 1,
+        "read_result_chars": 38332,
+        "keys_all_correct": true
+      },
+      {
+        "id": "wb-s2",
+        "read_calls": 1,
+        "read_result_chars": 38332,
+        "keys_all_correct": true
+      },
+      {
+        "id": "wb-s3",
+        "read_calls": 1,
+        "read_result_chars": 38332,
+        "keys_all_correct": true
+      }
     ],
-    "keys_correct": {
-     "HEAD_KEY": true,
-     "MIDDLE_KEY": true,
-     "TAIL_KEY": false
-    },
-    "keys_correct_count": 2,
-    "TAIL_KEY_observed": "30e506c93",
-    "TAIL_KEY_expected": "COBALT-492"
-   }
-  ],
-  "verdict": "partial 2/3 on the first session: HEAD (line 1) and MIDDLE (line 212 checksum, exact 64-hex) reached; TAIL (line 422) replaced by a 9-hex string not present in the fixture tail line - observation consistent with tail truncation or rewrite in the attachment read path; hypothesis only, to be distinguished by remaining sessions"
- },
- "teacher_feedback_alignment": {
-  "P1_minimal_contrast": "spill vs truncation vs recomposition: reference-to-full-readback now measured on DSH; recovery costs ~32% of inline single-shot client-side input at this fixture size",
-  "P1_product_reporting": "positive controls are probe-condition reachability facts; passive-sampling zero-hit results stay 'not observed on the current detection surface'; no synthetic miss-rate transfer to products",
-  "P1_bytes_vs_usage": "DSH per-request client-side byte series published; Doubao usage fields absent from local trace; bytes are not tokens or cost",
-  "P0_protocol_versioning": "mechanism executor is a new versioned fork (v3) with new preregistration; the 2026-11-03 frozen bundle untouched; C1 replication gate reproduced the frozen 2382-byte delta exactly"
- },
- "limits": [
-  "single fixture geometry (422 lines / 35767 bytes / one middle record); no extrapolation to other sizes, products, or tasks",
-  "client-side UTF-8 assembly bytes only; actual reasoning tokens, cache, backend history rewriting remain unobserved and uncontrolled",
-  "n=3 / n=6 descriptive samples; Wilson interval given for RB middle hits only; no ranking or score inference",
-  "WorkBuddy model setting not controlled; Doubao setting is user-selected and disclosed; these runs do not join the formal A/B/W grids",
-  "raw relay captures, bridge receipts, and product traces stay private; this file contains published summary numbers only",
-  "positive control shows the read path can deliver known content under probe conditions; it does not bound false negatives of passive sampling nor prove isolation",
-  "ring6 yuanbao data is a single-session interim sample (partial 2/3); the TAIL observation is a hypothesis registered for further sessions, not a product defect claim; codex sessions ran with the shell tool enabled by design (the path under test)",
-  "ring8 size-threshold runs use per-product local observation surfaces; cross-product rows are descriptive and do not compare products on a shared surface",
-  "ring8 workbuddy first attempt (wrong prompt path) and doubao db-1k precondition failure are recorded as incidents; reruns followed prereg rev2 and added no planned slots"
- ],
- "v3_added_at": "2026-11-13T02:35:00+08:00",
- "ring8_size_threshold": {
-  "product_arms": [
-   "codex_cli",
-   "workbuddy",
-   "doubao_work"
-  ],
-  "fixtures": [
-   {
-    "file": "probe-1k.txt",
-    "bytes": 990,
-    "head_key": "AMBER-731",
-    "middle_record": "noise-0006",
-    "middle_line_1based": 7,
-    "tail_key": "JADE-104"
-   },
-   {
-    "file": "probe-8k.txt",
-    "bytes": 8129,
-    "head_key": "VIOL-318",
-    "middle_record": "noise-0048",
-    "middle_line_1based": 49,
-    "tail_key": "ROSE-577"
-   },
-   {
-    "file": "probe-64k.txt",
-    "bytes": 65504,
-    "head_key": "CYAN-662",
-    "middle_record": "noise-0386",
-    "middle_line_1based": 387,
-    "tail_key": "GOLD-908"
-   },
-   {
-    "file": "probe-256k.txt",
-    "bytes": 262109,
-    "head_key": "NEON-275",
-    "middle_record": "noise-1542",
-    "middle_line_1based": 1543,
-    "tail_key": "IRON-440"
-   }
-  ],
-  "codex_cli": {
-   "n": 4,
-   "verdict": "no_threshold_found_upto_256k: cat/rg outputs up to 276,427 chars carried in full on the observed surface, no truncation marker; keys 4/4 all correct",
-   "sessions": [
-    {
-     "id": "cx-1k",
-     "read_form": "full_inline",
-     "command_count": 1,
-     "max_output_chars": 990,
-     "truncation_marker": false,
-     "keys_correct_count": 3,
-     "keys_all_correct": true,
-     "duration_s": 3.2,
-     "model_compensations": 0
-    },
-    {
-     "id": "cx-8k",
-     "read_form": "full_inline",
-     "command_count": 1,
-     "max_output_chars": 8129,
-     "truncation_marker": false,
-     "keys_correct_count": 3,
-     "keys_all_correct": true,
-     "duration_s": 3.9,
-     "model_compensations": 0
-    },
-    {
-     "id": "cx-64k",
-     "read_form": "full_inline",
-     "command_count": 2,
-     "max_output_chars": 65504,
-     "truncation_marker": false,
-     "keys_correct_count": 3,
-     "keys_all_correct": true,
-     "duration_s": 5.2,
-     "model_compensations": 1
-    },
-    {
-     "id": "cx-256k",
-     "read_form": "full_inline",
-     "command_count": 4,
-     "max_output_chars": 276427,
-     "truncation_marker": false,
-     "keys_correct_count": 3,
-     "keys_all_correct": true,
-     "duration_s": 6.2,
-     "model_compensations": 3
-    }
-   ]
+    "verdict": "full inline read result (line-numbered format), no truncation or reference pagination; positive control passed 3/3"
   },
-  "workbuddy": {
-   "n": 4,
-   "model": "glm-5.3-flash (requestModelName disclosed)",
-   "verdict": "threshold_bracketed: 1k/8k full inline; 64k persisted-preview display with usage-based model-side full intake; 256k refused at 20,000-token cap then self-directed partial reads, keys 3/3",
-   "attempt_note": "first attempt used a wrong prompt path (model self-corrected to the real file); rerun under prereg rev2 (seal 0b4dd5aa8521482a); 8 sessions total, no sample added beyond the planned 4 per arm",
-   "sessions": [
-    {
-     "id": "wb2-1k",
-     "read_form": "full_inline",
-     "read_count": 1,
-     "fcr_chars_total": 1101,
-     "keys_correct_count": 3,
-     "model_side_full_inferred": null
-    },
-    {
-     "id": "wb2-8k",
-     "read_form": "full_inline",
-     "read_count": 1,
-     "fcr_chars_total": 8744,
-     "keys_correct_count": 3,
-     "model_side_full_inferred": null
-    },
-    {
-     "id": "wb2-64k",
-     "read_form": "persisted_preview_display_model_full",
-     "read_count": 1,
-     "fcr_chars_total": 2354,
-     "keys_correct_count": 3,
-     "model_side_full_inferred": true,
-     "display_form": "persisted-output preview (first 2048 bytes)",
-     "usage_evidence": "WB rawUsage step delta 28,848 to 70,836 prompt tokens (+41,988, approx full file) indicates model-side full intake"
-    },
-    {
-     "id": "wb2-256k",
-     "read_form": "tool_refused_token_cap",
-     "read_count": 4,
-     "fcr_chars_total": 4281,
-     "keys_correct_count": 3,
-     "model_side_full_inferred": null,
-     "read_tool_error": "File content (estimated 42486 tokens) exceeds maximum allowed tokens (20000)",
-     "compensation": "model self-directed offset/limit partial reads (4 reads, 4281 chars) after the tool error message"
-    }
-   ]
+  "ring3_doubao_known_read_first_sampling": {
+    "product": "DoubaoWork 2.35.19 desktop, native bridge; model setting user-selected DS Flash + Low, disclosed, not controlled",
+    "n": 3,
+    "sessions": [
+      {
+        "id": "db-s1",
+        "read_calls": 1,
+        "read_result_chars": 37367,
+        "keys_all_correct": true,
+        "usage_fields_in_local_trace": "none"
+      },
+      {
+        "id": "db-s2",
+        "read_calls": 1,
+        "read_result_chars": 37367,
+        "keys_all_correct": true,
+        "usage_fields_in_local_trace": "none"
+      },
+      {
+        "id": "db-s3",
+        "read_calls": 1,
+        "read_result_chars": 37367,
+        "keys_all_correct": true,
+        "usage_fields_in_local_trace": "none"
+      }
+    ],
+    "verdict": "full inline read result (tab line numbers), no truncation marker; positive control passed 3/3; local trajectory exposes no usage/token fields"
   },
-  "doubao_work": {
-   "n": 4,
-   "app": "2.35.19",
-   "verdict": "threshold_bracketed: 1k/8k/64k full inline (68,504 chars at 64k); 256k refused at 25,000-token cap then self-directed Grep, keys 3/3",
-   "session_note": "db-1k first attempt failed at the empty-composer precondition before any product submission and left no sample; rerun as db-1k-r2 after a real-mouse click on the official new-task entry",
-   "sessions": [
-    {
-     "id": "db-1k-r2",
-     "read_form": "full_inline",
-     "tool_chars_total": 1039,
-     "keys_correct_count": 3,
-     "keys_all_correct": true,
-     "conversation_id": "38453370455893762"
-    },
-    {
-     "id": "db-8k",
-     "read_form": "full_inline",
-     "tool_chars_total": 8430,
-     "keys_correct_count": 3,
-     "keys_all_correct": true,
-     "conversation_id": "38453435776430850"
-    },
-    {
-     "id": "db-64k",
-     "read_form": "full_inline",
-     "tool_chars_total": 68504,
-     "keys_correct_count": 3,
-     "keys_all_correct": true,
-     "conversation_id": "38453314814253570"
-    },
-    {
-     "id": "db-256k",
-     "read_form": "tool_refused_token_cap",
-     "tool_chars_total": 1617,
-     "keys_correct_count": 3,
-     "keys_all_correct": true,
-     "conversation_id": "38453370548004866",
-     "read_tool_error": "File content (65527 tokens) exceeds maximum allowed tokens (25000)",
-     "compensation": "model self-directed Grep (pattern OBSERVATION; pattern noise-1542 with -C 3) after the tool error message"
-    }
-   ]
+  "ring5_codex_known_read_positive_control": {
+    "product": "Codex CLI 0.163.0, isolated CODEX_HOME, direct official-style endpoint, model deepseek-flash effort low, retries 0, sandbox read-only, shell tool enabled (native read path under test)",
+    "n": 3,
+    "sessions": [
+      {
+        "id": "cx-01",
+        "read_form": "cat aggregated_output",
+        "read_result_bytes": 35767,
+        "truncation_marker": false,
+        "commands": 3,
+        "keys_all_correct": true,
+        "duration_s": 5.1
+      },
+      {
+        "id": "cx-02",
+        "read_form": "cat aggregated_output",
+        "read_result_bytes": 35767,
+        "truncation_marker": false,
+        "commands": 2,
+        "keys_all_correct": true,
+        "duration_s": 6.2
+      },
+      {
+        "id": "cx-03",
+        "read_form": "cat aggregated_output",
+        "read_result_bytes": 35767,
+        "truncation_marker": false,
+        "commands": 3,
+        "keys_all_correct": true,
+        "duration_s": 4.7
+      }
+    ],
+    "verdict": "first command cat probe.txt carries the full 35,767-byte fixture in the tool output with no truncation marker; subsequent rg locates the middle line; positive control passed 3/3"
   },
-  "boundaries": [
-   "observation surface = local trajectories/receipts per product, not model-side bytes; WB usage deltas are an inference aid, doubao/codex have no usage surface",
-   "n=1 per slot; no retries; sizes above 256KB not probed (preregistered stop rule)",
-   "tool token-cap refusals (WB 20,000 / doubao 25,000) are tool-side limits on the observed surface, not product capability claims"
-  ]
- }
+  "ring6_yuanbao_known_read_first_session": {
+    "product": "yuanbao (腾讯元宝) web, expert mode (box default, mode unchanged), file delivered by attachment upload",
+    "n": 1,
+    "status": "interim: session 1 of 3 completed; remaining sessions pending (browser availability); do not generalize",
+    "sessions": [
+      {
+        "id": "yb-01",
+        "read_path_reached": true,
+        "read_steps": [
+          "I'll read the attached file to find the required values.",
+          "已阅读1个文件 / 已读取probe.txt文件内容 probe.txt"
+        ],
+        "keys_correct": {
+          "HEAD_KEY": true,
+          "MIDDLE_KEY": true,
+          "TAIL_KEY": false
+        },
+        "keys_correct_count": 2,
+        "TAIL_KEY_observed": "30e506c93",
+        "TAIL_KEY_expected": "COBALT-492"
+      }
+    ],
+    "verdict": "partial 2/3 on the first session: HEAD (line 1) and MIDDLE (line 212 checksum, exact 64-hex) reached; TAIL (line 422) replaced by a 9-hex string not present in the fixture tail line - observation consistent with tail truncation or rewrite in the attachment read path; hypothesis only, to be distinguished by remaining sessions"
+  },
+  "teacher_feedback_alignment": {
+    "P1_minimal_contrast": "spill vs truncation vs recomposition: reference-to-full-readback now measured on DSH; recovery costs ~32% of inline single-shot client-side input at this fixture size",
+    "P1_product_reporting": "positive controls are probe-condition reachability facts; passive-sampling zero-hit results stay 'not observed on the current detection surface'; no synthetic miss-rate transfer to products",
+    "P1_bytes_vs_usage": "DSH per-request client-side byte series published; Doubao usage fields absent from local trace; bytes are not tokens or cost",
+    "P0_protocol_versioning": "mechanism executor is a new versioned fork (v3) with new preregistration; the 2026-11-03 frozen bundle untouched; C1 replication gate reproduced the frozen 2382-byte delta exactly"
+  },
+  "limits": [
+    "single fixture geometry (422 lines / 35767 bytes / one middle record); no extrapolation to other sizes, products, or tasks",
+    "client-side UTF-8 assembly bytes only; actual reasoning tokens, cache, backend history rewriting remain unobserved and uncontrolled",
+    "n=3 / n=6 descriptive samples; Wilson interval given for RB middle hits only; no ranking or score inference",
+    "WorkBuddy model setting not controlled; Doubao setting is user-selected and disclosed; these runs do not join the formal A/B/W grids",
+    "raw relay captures, bridge receipts, and product traces stay private; this file contains published summary numbers only",
+    "positive control shows the read path can deliver known content under probe conditions; it does not bound false negatives of passive sampling nor prove isolation",
+    "ring6 yuanbao data is a single-session interim sample (partial 2/3); the TAIL observation is a hypothesis registered for further sessions, not a product defect claim; codex sessions ran with the shell tool enabled by design (the path under test)",
+    "ring8 size-threshold runs use per-product local observation surfaces; cross-product rows are descriptive and do not compare products on a shared surface",
+    "ring8 workbuddy first attempt (wrong prompt path) and doubao db-1k precondition failure are recorded as incidents; reruns followed prereg rev2 and added no planned slots",
+    "ring10 cap sweep is mechanism-face with n=2 per arm on one fixture geometry; cost medians are client bytes and the stopping-rule distinction (no spill left vs answer already visible) is not resolved by this ladder"
+  ],
+  "v3_added_at": "2026-11-13T02:35:00+08:00",
+  "ring8_size_threshold": {
+    "product_arms": [
+      "codex_cli",
+      "workbuddy",
+      "doubao_work"
+    ],
+    "fixtures": [
+      {
+        "file": "probe-1k.txt",
+        "bytes": 990,
+        "head_key": "AMBER-731",
+        "middle_record": "noise-0006",
+        "middle_line_1based": 7,
+        "tail_key": "JADE-104"
+      },
+      {
+        "file": "probe-8k.txt",
+        "bytes": 8129,
+        "head_key": "VIOL-318",
+        "middle_record": "noise-0048",
+        "middle_line_1based": 49,
+        "tail_key": "ROSE-577"
+      },
+      {
+        "file": "probe-64k.txt",
+        "bytes": 65504,
+        "head_key": "CYAN-662",
+        "middle_record": "noise-0386",
+        "middle_line_1based": 387,
+        "tail_key": "GOLD-908"
+      },
+      {
+        "file": "probe-256k.txt",
+        "bytes": 262109,
+        "head_key": "NEON-275",
+        "middle_record": "noise-1542",
+        "middle_line_1based": 1543,
+        "tail_key": "IRON-440"
+      }
+    ],
+    "codex_cli": {
+      "n": 4,
+      "verdict": "no_threshold_found_upto_256k: cat/rg outputs up to 276,427 chars carried in full on the observed surface, no truncation marker; keys 4/4 all correct",
+      "sessions": [
+        {
+          "id": "cx-1k",
+          "read_form": "full_inline",
+          "command_count": 1,
+          "max_output_chars": 990,
+          "truncation_marker": false,
+          "keys_correct_count": 3,
+          "keys_all_correct": true,
+          "duration_s": 3.2,
+          "model_compensations": 0
+        },
+        {
+          "id": "cx-8k",
+          "read_form": "full_inline",
+          "command_count": 1,
+          "max_output_chars": 8129,
+          "truncation_marker": false,
+          "keys_correct_count": 3,
+          "keys_all_correct": true,
+          "duration_s": 3.9,
+          "model_compensations": 0
+        },
+        {
+          "id": "cx-64k",
+          "read_form": "full_inline",
+          "command_count": 2,
+          "max_output_chars": 65504,
+          "truncation_marker": false,
+          "keys_correct_count": 3,
+          "keys_all_correct": true,
+          "duration_s": 5.2,
+          "model_compensations": 1
+        },
+        {
+          "id": "cx-256k",
+          "read_form": "full_inline",
+          "command_count": 4,
+          "max_output_chars": 276427,
+          "truncation_marker": false,
+          "keys_correct_count": 3,
+          "keys_all_correct": true,
+          "duration_s": 6.2,
+          "model_compensations": 3
+        }
+      ]
+    },
+    "workbuddy": {
+      "n": 4,
+      "model": "glm-5.3-flash (requestModelName disclosed)",
+      "verdict": "threshold_bracketed: 1k/8k full inline; 64k persisted-preview display with usage-based model-side full intake; 256k refused at 20,000-token cap then self-directed partial reads, keys 3/3",
+      "attempt_note": "first attempt used a wrong prompt path (model self-corrected to the real file); rerun under prereg rev2 (seal 0b4dd5aa8521482a); 8 sessions total, no sample added beyond the planned 4 per arm",
+      "sessions": [
+        {
+          "id": "wb2-1k",
+          "read_form": "full_inline",
+          "read_count": 1,
+          "fcr_chars_total": 1101,
+          "keys_correct_count": 3,
+          "model_side_full_inferred": null
+        },
+        {
+          "id": "wb2-8k",
+          "read_form": "full_inline",
+          "read_count": 1,
+          "fcr_chars_total": 8744,
+          "keys_correct_count": 3,
+          "model_side_full_inferred": null
+        },
+        {
+          "id": "wb2-64k",
+          "read_form": "persisted_preview_display_model_full",
+          "read_count": 1,
+          "fcr_chars_total": 2354,
+          "keys_correct_count": 3,
+          "model_side_full_inferred": true,
+          "display_form": "persisted-output preview (first 2048 bytes)",
+          "usage_evidence": "WB rawUsage step delta 28,848 to 70,836 prompt tokens (+41,988, approx full file) indicates model-side full intake"
+        },
+        {
+          "id": "wb2-256k",
+          "read_form": "tool_refused_token_cap",
+          "read_count": 4,
+          "fcr_chars_total": 4281,
+          "keys_correct_count": 3,
+          "model_side_full_inferred": null,
+          "read_tool_error": "File content (estimated 42486 tokens) exceeds maximum allowed tokens (20000)",
+          "compensation": "model self-directed offset/limit partial reads (4 reads, 4281 chars) after the tool error message"
+        }
+      ]
+    },
+    "doubao_work": {
+      "n": 4,
+      "app": "2.35.19",
+      "verdict": "threshold_bracketed: 1k/8k/64k full inline (68,504 chars at 64k); 256k refused at 25,000-token cap then self-directed Grep, keys 3/3",
+      "session_note": "db-1k first attempt failed at the empty-composer precondition before any product submission and left no sample; rerun as db-1k-r2 after a real-mouse click on the official new-task entry",
+      "sessions": [
+        {
+          "id": "db-1k-r2",
+          "read_form": "full_inline",
+          "tool_chars_total": 1039,
+          "keys_correct_count": 3,
+          "keys_all_correct": true,
+          "conversation_id": "38453370455893762"
+        },
+        {
+          "id": "db-8k",
+          "read_form": "full_inline",
+          "tool_chars_total": 8430,
+          "keys_correct_count": 3,
+          "keys_all_correct": true,
+          "conversation_id": "38453435776430850"
+        },
+        {
+          "id": "db-64k",
+          "read_form": "full_inline",
+          "tool_chars_total": 68504,
+          "keys_correct_count": 3,
+          "keys_all_correct": true,
+          "conversation_id": "38453314814253570"
+        },
+        {
+          "id": "db-256k",
+          "read_form": "tool_refused_token_cap",
+          "tool_chars_total": 1617,
+          "keys_correct_count": 3,
+          "keys_all_correct": true,
+          "conversation_id": "38453370548004866",
+          "read_tool_error": "File content (65527 tokens) exceeds maximum allowed tokens (25000)",
+          "compensation": "model self-directed Grep (pattern OBSERVATION; pattern noise-1542 with -C 3) after the tool error message"
+        }
+      ]
+    },
+    "boundaries": [
+      "observation surface = local trajectories/receipts per product, not model-side bytes; WB usage deltas are an inference aid, doubao/codex have no usage surface",
+      "n=1 per slot; no retries; sizes above 256KB not probed (preregistered stop rule)",
+      "tool token-cap refusals (WB 20,000 / doubao 25,000) are tool-side limits on the observed surface, not product capability claims"
+    ]
+  },
+  "v4_added_at": "2026-11-13T02:45+08:00",
+  "ring10_spill_cap_sweep": {
+    "prereg_seal_16": "035ac8ca2aea9b21",
+    "dsh_pin": "0.2.0-rc.2",
+    "model": "deepseek-flash",
+    "effort": "low",
+    "fixture_note": "same 35767B fixture as ring1; HEAD L1, MIDDLE=noise-0210@L212, TAIL L422",
+    "prompt": "PROMPT_V2 (asks HEAD/MIDDLE/TAIL; does not mention read)",
+    "tool_menu": [
+      "fixture_output",
+      "read"
+    ],
+    "slot_order": [
+      "rb-c512-01",
+      "rb-c512-02",
+      "rb-c2048-01",
+      "rb-c2048-02",
+      "rb-c8192-01",
+      "rb-c8192-02",
+      "rb-c32768-01",
+      "rb-c32768-02",
+      "rb-c131072-01",
+      "rb-c131072-02"
+    ],
+    "request_ceiling_per_session": 8,
+    "arms": {
+      "rb-c512": {
+        "cap_tokens": 512,
+        "n_planned": 2,
+        "n_valid": 2,
+        "read_attempts_total": 2,
+        "middle_key_hits": 2,
+        "sessions_all_keys_correct": 2,
+        "branch": "recovered_via_read",
+        "B_input_first_median": 1724.0,
+        "B_input_total_median": 13128.5,
+        "request_counts": [
+          3,
+          3
+        ],
+        "sessions": [
+          {
+            "id": "rb-c00512-01",
+            "requests": 3,
+            "B_input_series": [
+              1724,
+              4604,
+              6639
+            ]
+          },
+          {
+            "id": "rb-c00512-02",
+            "requests": 3,
+            "B_input_series": [
+              1724,
+              4597,
+              6969
+            ]
+          }
+        ]
+      },
+      "rb-c2048": {
+        "cap_tokens": 2048,
+        "n_planned": 2,
+        "n_valid": 2,
+        "read_attempts_total": 2,
+        "middle_key_hits": 2,
+        "sessions_all_keys_correct": 2,
+        "branch": "recovered_via_read",
+        "B_input_first_median": 1724.0,
+        "B_input_total_median": 24966.5,
+        "request_counts": [
+          3,
+          3
+        ],
+        "sessions": [
+          {
+            "id": "rb-c02048-01",
+            "requests": 3,
+            "B_input_series": [
+              1724,
+              10591,
+              12748
+            ]
+          },
+          {
+            "id": "rb-c02048-02",
+            "requests": 3,
+            "B_input_series": [
+              1724,
+              10631,
+              12515
+            ]
+          }
+        ]
+      },
+      "rb-c8192": {
+        "cap_tokens": 8192,
+        "n_planned": 2,
+        "n_valid": 2,
+        "read_attempts_total": 2,
+        "middle_key_hits": 2,
+        "sessions_all_keys_correct": 2,
+        "branch": "recovered_via_read",
+        "B_input_first_median": 1724.0,
+        "B_input_total_median": 74846.0,
+        "request_counts": [
+          3,
+          3
+        ],
+        "sessions": [
+          {
+            "id": "rb-c08192-01",
+            "requests": 3,
+            "B_input_series": [
+              1724,
+              35379,
+              37246
+            ]
+          },
+          {
+            "id": "rb-c08192-02",
+            "requests": 3,
+            "B_input_series": [
+              1724,
+              35297,
+              38322
+            ]
+          }
+        ]
+      },
+      "rb-c32768": {
+        "cap_tokens": 32768,
+        "n_planned": 2,
+        "n_valid": 2,
+        "read_attempts_total": 0,
+        "middle_key_hits": 2,
+        "sessions_all_keys_correct": 2,
+        "branch": "answered_without_read",
+        "B_input_first_median": 1724.0,
+        "B_input_total_median": 40196.5,
+        "request_counts": [
+          2,
+          2
+        ],
+        "sessions": [
+          {
+            "id": "rb-c32768-01",
+            "requests": 2,
+            "B_input_series": [
+              1724,
+              38360
+            ]
+          },
+          {
+            "id": "rb-c32768-02",
+            "requests": 2,
+            "B_input_series": [
+              1724,
+              38585
+            ]
+          }
+        ]
+      },
+      "rb-c131072": {
+        "cap_tokens": 131072,
+        "n_planned": 2,
+        "n_valid": 2,
+        "read_attempts_total": 0,
+        "middle_key_hits": 2,
+        "sessions_all_keys_correct": 2,
+        "branch": "answered_without_read",
+        "B_input_first_median": 1724.0,
+        "B_input_total_median": 40211.5,
+        "request_counts": [
+          2,
+          2
+        ],
+        "sessions": [
+          {
+            "id": "rb-c131072-01",
+            "requests": 2,
+            "B_input_series": [
+              1724,
+              38522
+            ]
+          },
+          {
+            "id": "rb-c131072-02",
+            "requests": 2,
+            "B_input_series": [
+              1724,
+              38453
+            ]
+          }
+        ]
+      }
+    },
+    "overall_branch": "crossover_bracketed",
+    "crossover": {
+      "largest_cap_with_read": "rb-c8192",
+      "smallest_cap_without_read": "rb-c32768"
+    },
+    "boundaries": [
+      "mechanism face only (DSH+deepseek-flash, single fixture geometry); no real-product claims",
+      "n=2 per arm; client-side UTF-8 assembly bytes, not tokens or cost; thinking/cache/backend serialization unobserved",
+      "16384 rung (spill with middle visible) not in the frozen ladder; stopping-rule reading (no-spill-left vs answer-visible) remains open"
+    ]
+  }
 }

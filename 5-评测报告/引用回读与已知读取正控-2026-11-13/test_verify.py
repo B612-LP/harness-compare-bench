@@ -128,6 +128,34 @@ class FullResult(unittest.TestCase):
         bad[r8]["fixtures"][3]["bytes"] = 131072
         self.assertFalse(verify.verify(bad)["checks"]["ring8_three_arms_four_slots"])
 
+    def test_tampered_ring10_detected(self):
+        r10 = "ring10_spill_cap_sweep"
+        # c32768 分支被改成 recovered_via_read（零 read 却宣称经读恢复）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r10]["arms"]["rb-c32768"]["branch"] = "recovered_via_read"
+        self.assertFalse(verify.verify(bad)["checks"]["ring10_read_partition"])
+        # c32768 读次数被改成 2 必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r10]["arms"]["rb-c32768"]["read_attempts_total"] = 2
+        self.assertFalse(verify.verify(bad)["checks"]["ring10_read_partition"])
+        # 成本中位数被改必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r10]["arms"]["rb-c8192"]["B_input_total_median"] = 1000.0
+        self.assertFalse(verify.verify(bad)["checks"]["ring10_cost_medians_exact"])
+        self.assertFalse(verify.verify(bad)["checks"]["ring10_nonmonotonic_8192_max_512_min"])
+        # 交叉点被改必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r10]["crossover"]["smallest_cap_without_read"] = "rb-c131072"
+        self.assertFalse(verify.verify(bad)["checks"]["ring10_crossover_values"])
+        # 预注册印记被换必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r10]["prereg_seal_16"] = "deadbeefdeadbeef"
+        self.assertFalse(verify.verify(bad)["checks"]["ring10_arms_two_slots_each"])
+        # 键命中被改少必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r10]["arms"]["rb-c2048"]["sessions_all_keys_correct"] = 1
+        self.assertFalse(verify.verify(bad)["checks"]["ring10_arms_two_slots_each"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

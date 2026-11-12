@@ -186,6 +186,52 @@ def verify(data: dict) -> dict:
         and db8["db-256k"]["keys_correct_count"] == 3
     )
 
+    # ---- ring10 spill-cap sweep (v4) ----
+    r10 = data["ring10_spill_cap_sweep"]
+    arm_names = ["rb-c512", "rb-c2048", "rb-c8192", "rb-c32768", "rb-c131072"]
+    checks["ring10_arms_two_slots_each"] = (
+        r10["overall_branch"] == "crossover_bracketed"
+        and list(r10["arms"]) == arm_names
+        and all(
+            r10["arms"][a]["n_valid"] == 2
+            and r10["arms"][a]["n_planned"] == 2
+            and r10["arms"][a]["sessions_all_keys_correct"] == 2
+            and r10["arms"][a]["middle_key_hits"] == 2
+            for a in arm_names
+        )
+        and r10["prereg_seal_16"] == "035ac8ca2aea9b21"
+    )
+    checks["ring10_read_partition"] = (
+        r10["arms"]["rb-c512"]["read_attempts_total"] == 2
+        and r10["arms"]["rb-c2048"]["read_attempts_total"] == 2
+        and r10["arms"]["rb-c8192"]["read_attempts_total"] == 2
+        and r10["arms"]["rb-c32768"]["read_attempts_total"] == 0
+        and r10["arms"]["rb-c131072"]["read_attempts_total"] == 0
+        and r10["arms"]["rb-c512"]["branch"] == "recovered_via_read"
+        and r10["arms"]["rb-c32768"]["branch"] == "answered_without_read"
+    )
+    checks["ring10_crossover_values"] = (
+        r10["crossover"]["largest_cap_with_read"] == "rb-c8192"
+        and r10["crossover"]["smallest_cap_without_read"] == "rb-c32768"
+        and r10["arms"]["rb-c8192"]["request_counts"] == [3, 3]
+        and r10["arms"]["rb-c32768"]["request_counts"] == [2, 2]
+    )
+    med = {a: r10["arms"][a]["B_input_total_median"] for a in arm_names}
+    checks["ring10_cost_medians_exact"] = (
+        med["rb-c512"] == 13128.5
+        and med["rb-c2048"] == 24966.5
+        and med["rb-c8192"] == 74846.0
+        and med["rb-c32768"] == 40196.5
+        and med["rb-c131072"] == 40211.5
+    )
+    checks["ring10_nonmonotonic_8192_max_512_min"] = (
+        max(med, key=med.get) == "rb-c8192" and min(med, key=med.get) == "rb-c512"
+    )
+    checks["ring10_first_input_identical"] = (
+        all(r10["arms"][a]["B_input_first_median"] == 1724.0 for a in arm_names)
+        and r10["arms"]["rb-c131072"]["sessions"][0]["B_input_series"][0] == 1724
+    )
+
     ok = all(checks.values())
     return {"ok": ok, "checks": checks}
 
