@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v12"
+            data["schema"] == "knownread-20261113-v13"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -508,17 +508,45 @@ def verify(data: dict) -> dict:
             and slots["c-full-02"]["keys"] == "2/3"
         )
     # corrections present (v12 explicit-supersede discipline)
-    _c = data["ring27_codex_usage"].get("correction", {}) if isinstance(data["ring27_codex_usage"].get("correction"), dict) else {}
+    _r27 = data["ring27_codex_usage"]
+    _c = _r27.get("correction", {}) if isinstance(_r27.get("correction"), dict) else {}
     checks["ring27_correction_present"] = (
-        data["ring27_codex_usage"].get("status") == "partially_superseded_by_ring34"
-        and abs(_c.get("rho_ascii_corrected", 0) - 1.807) < 1e-9
-        and "rg" in _c.get("evidence", "")
+        _r27.get("status") in ("partially_superseded_by_ring34", "fully_superseded_by_ring39_for_byte_derived_numbers")
+        and (abs(_c.get("rho_ascii_corrected", 0) - 1.807) < 1e-9 or "ring39" in _r27.get("correction_note_v13", ""))
+        and ("rg" in _c.get("evidence", "") or "collapsed" in _r27.get("correction_note_v13", ""))
     )
     checks["ring28_bracket_superseded"] = (
         data["ring28_codex_bracket"]["cap_char_bracket_superseded"] == [65589, 66795]
         and data["ring28_codex_bracket"]["cap_char_bracket_corrected"] == [29300, 31000]
         and "recomputed" in data["ring28_codex_bracket"]["correction_note"]
     )
+
+    # ring36/39 (v13)
+    if "ring36_law_panel" in data:
+        r = data["ring36_law_panel"]
+        checks["ring36_shape"] = (
+            r["prereg_seal_36"] == "613734c39b7feaf1"
+            and r["rows_total"] == 101 and r["spill_rows"] == 76 and r["no_spill_rows"] == 25
+            and r["max_deviation_chars"] == 4
+            and r["branch"] == "law_holds_full_panel"
+            and "9 executors" in r["finding"]
+        )
+    if "ring39_codex_collapse" in data:
+        r = data["ring39_codex_collapse"]
+        fl = r["fold_layout"]
+        checks["ring39_shape"] = (
+            r["prereg_seal_39_rev2"] == "9f688f251c1218ac"
+            and r["sessions"] == 6 and r["all_keys_correct"] == 6
+            and all(v == {"head_kept": 5000, "tail_kept": 5000} for v in fl.values()) and len(fl) == 3
+            and r["request_invariance"]["r1_bytes"] == 30486
+            and "input_tokens" in r["usage_semantics"]
+            and r["relay_bodies_sealed"] is True
+            and len(r["supersedes"]) == 4
+        )
+        checks["ring2728_superseded_by_ring39"] = (
+            data["ring27_codex_usage"]["status"] == "fully_superseded_by_ring39_for_byte_derived_numbers"
+            and data["ring28_codex_bracket"]["status"] == "superseded_by_ring39"
+        )
 
     ok = all(checks.values())
     return {"ok": ok, "checks": checks}

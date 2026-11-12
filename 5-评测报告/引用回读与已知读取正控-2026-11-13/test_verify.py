@@ -387,5 +387,28 @@ class FullResult(unittest.TestCase):
         self.assertFalse(verify.verify(bad)["checks"]["ring33_rho_shape"])
 
 
+    def test_tampered_ring36_detected(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring36_law_panel"]["max_deviation_chars"] = 0
+        self.assertFalse(verify.verify(bad)["checks"]["ring36_shape"])
+        bad = copy.deepcopy(self.data)
+        bad["ring36_law_panel"]["branch"] = "law_holds_everywhere_exact"
+        self.assertFalse(verify.verify(bad)["checks"]["ring36_shape"])
+
+    def test_tampered_ring39_detected(self):
+        # 折叠保留量被洗成全量保留必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring39_codex_collapse"]["fold_layout"]["probe-256k-262109ch"] = {"head_kept": 262109, "tail_kept": 262109}
+        self.assertFalse(verify.verify(bad)["checks"]["ring39_shape"])
+        # r1 字节不变性数字被改必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring39_codex_collapse"]["request_invariance"]["r1_bytes"] = 30000
+        self.assertFalse(verify.verify(bad)["checks"]["ring39_shape"])
+        # superseded 链被回滚必须被拒
+        bad = copy.deepcopy(self.data)
+        bad["ring28_codex_bracket"]["status"] = "cap_bracket_valid"
+        self.assertFalse(verify.verify(bad)["checks"]["ring2728_superseded_by_ring39"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

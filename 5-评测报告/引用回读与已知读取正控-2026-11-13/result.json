@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v12",
+ "schema": "knownread-20261113-v13",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -307,7 +307,9 @@
   "Ring 28–30 摄入帽 bracket 为 n=1/档 区间披露：Codex 帽 [65,589, 66,795] chars 且削顶静默（记录面完整/模型面 ~17k tok）；豆包拒绝自估=chars/4 精确、削顶保留 head 2K+tail≈4.4K chars 单点；WB 112k/192k 为 waiting_user 不可判（锁屏相关人工门混杂如实声明）。",
   "Ring 26/27 为 derived-only（冻结捕获重算，零发射）；Ring 29 db-80k 的 MIDDLE 正确性判定因夹具缺陷作废（模型按文件内约定作答，行为面有效）。",
   "Ring 32–34 修正链：v11 的 ρ_ascii=3.895 与「Codex 64k 全量摄入」经 Ring 34 行为面（rg 补偿可观察）否证，修正为 ρ=1.807、64k 已削（face≈30.4k chars）；ring28 字符 bracket 重算 [29,300,31,000]；原始读数保留、以 superseded/correction 字段显式标注，不重写历史段落。",
-  "Ring 32–34 边界：CLI tokenizer 不可观测（CLI-token 帽是候选非测量）；削顶保留形状（头/头+尾）不可直接观测；codex turn usage 当日两例单会话异常（cal-01/c-full-02）→ 行为面为首选主证据；行为面 n=4。"
+  "Ring 32–34 边界：CLI tokenizer 不可观测（CLI-token 帽是候选非测量）；削顶保留形状（头/头+尾）不可直接观测；codex turn usage 当日两例单会话异常（cal-01/c-full-02）→ 行为面为首选主证据；行为面 n=4。",
+  "Ring 36 panel verifies the published DSH truncation law at panel level; the 256k +4 char break remains as declared in v9.",
+  "Ring 39 collapse law is ASCII-fixture, single-version evidence; fold threshold boundary untested; Ring 27/28 byte-derived numbers are superseded, not deleted."
  ],
  "v3_added_at": "2026-11-13T02:35:00+08:00",
  "ring8_size_threshold": {
@@ -1238,14 +1240,15 @@
   "delta_256k_minus_64k": 981,
   "correction_by_ring28": "256k sits on the same ingest plateau as 64k (~17k tok clipped); 981 is inter-session overhead, NOT 'only 2.5% entered' (superseded)",
   "verdict": "client_record_exceeds_ingest",
-  "status": "partially_superseded_by_ring34",
+  "status": "fully_superseded_by_ring39_for_byte_derived_numbers",
   "correction": {
    "what": "'64k full ingest (delta 16,841 ~ 103% of full equivalent)' and rho_ascii=3.895 are SUPERSEDED",
    "evidence": "ring34 re-examined cx-64k stdout.jsonl: an `rg '^noise-0386' probe-64k.txt` command exists and middle@59% was absent from the model face (behavioral rg-compensation) -> 64k was already clipped (face ~= 30.4k chars of 65,589)",
    "rho_ascii_corrected": 1.807,
    "rho_ascii_source": "cx-8k minus cx-1k delta (3,950 tok over 7,139 chars; both sessions single-cat, no rg, unclipped)",
    "kept": "verdict client_record_exceeds_ingest (strengthened); input-by-probe table unchanged (raw readings)"
-  }
+  },
+  "correction_note_v13": "turn usage sums per-request inputs of constant-size folded requests; input-baseline est invalid; behavioral conclusions (record face > request face; 64k full was wrong) restated: real face is head+tail 5000 chars per tool output"
  },
  "ring28_codex_bracket": {
   "prereg_seal_28": "fd0acae77084bace",
@@ -1277,7 +1280,9 @@
    31000
   ],
   "correction_note": "old bracket [65589,66795] was computed with rho_ascii=3.895 (wrong; see ring27 correction); recomputed with rho 1.807; ds-token plateau band [16234,17149] unchanged (direct readings)",
-  "cap_unit_update": "Ring 32/34 resolved the 'cap unit not separable' boundary: char-based cap refuted behaviorally; CLI-own-tokenizer cap is the surviving candidate"
+  "cap_unit_update": "Ring 32/34 resolved the 'cap unit not separable' boundary: char-based cap refuted behaviorally; CLI-own-tokenizer cap is the surviving candidate",
+  "status": "superseded_by_ring39",
+  "superseded_note": "cap concept replaced by tool-output collapse law (head+tail 5000 chars); both original and corrected brackets describe sum-of-folded-request token arithmetic, not a cap"
  },
  "ring29_doubao_bracket": {
   "prereg_seal_29": "9c102bbd5fa9f75e",
@@ -1343,7 +1348,8 @@
    "n=1 per condition",
    "usage self-report",
    "fixture chars-vs-bytes deviation recorded"
-  ]
+  ],
+  "status_note_v13": "CLI-token cap candidate superseded by ring39 collapse law (face ~10k chars)"
  },
  "ring33_rho_calibration": {
   "prereg_seal_33": "d3ffe898ae4d78b7",
@@ -1419,6 +1425,69 @@
    "clip retention shape (head-only vs head+tail) not directly observable: all middle positions fell in the omitted zone",
    "rho_cjk(gen34 density) not separately calibrated",
    "behavioral n=4, usage-valid n=3"
+  ],
+  "status_note_v13": "CLI-token cap candidate superseded by ring39 collapse law (face ~10k chars)"
+ },
+ "v13_added_at": "06:21",
+ "ring36_law_panel": {
+  "kind": "derived-only panel verification",
+  "prereg_seal_36": "613734c39b7feaf1",
+  "rows_total": 101,
+  "spill_rows": 76,
+  "no_spill_rows": 25,
+  "executors": 9,
+  "external_freeze_rows": 8,
+  "external_freeze_source": "r20261103 frozen captures (8 rows)",
+  "deviation": "all rows dev=0 except probe-256k rows dev=+4 (4 rows, consistent with v9 ring20_sizegen finding)",
+  "max_deviation_chars": 4,
+  "branch": "law_holds_full_panel",
+  "finding": "omitted = fixture_chars - 4*(cap-80) holds across the full DSH capture panel (caps 512-8942, three fixture shapes, 9 executors + r20261103 frozen 8 rows); the 256k +4 char break is the only deviation and was pre-declared in v9",
+  "boundaries": [
+   "single model deepseek-flash; usage=API self-report",
+   "law is client-visible footer arithmetic, not server internals"
   ]
- }
+ },
+ "ring39_codex_collapse": {
+  "kind": "live request-face measurement via loopback relay",
+  "prereg_seal_39_rev2": "9f688f251c1218ac",
+  "sessions": 6,
+  "all_keys_correct": 6,
+  "fold_layout": {
+   "probe-b15k-30461ch": {
+    "head_kept": 5000,
+    "tail_kept": 5000
+   },
+   "probe-64k-65504ch": {
+    "head_kept": 5000,
+    "tail_kept": 5000
+   },
+   "probe-256k-262109ch": {
+    "head_kept": 5000,
+    "tail_kept": 5000
+   }
+  },
+  "request_invariance": {
+   "r1_bytes": 30486,
+   "r2_bytes_range": [
+    41197,
+    41497
+   ]
+  },
+  "position_prediction": "middle in tail-5000 -> direct answer; middle in collapsed zone -> rg compensation; 6/6 sessions match",
+  "usage_semantics": "turn.completed usage = sum of per-request input_tokens (each folded request ~12k tokens incl cached)",
+  "relay_bodies_sealed": true,
+  "finding": "codex folds tool output to head+tail 5000 chars each, silently, already in the request carrying the result; model face of any big tool output <= 10000 chars; no footer, no recovery hint (contrast: DSH explicit footer + read recovery)",
+  "supersedes": [
+   "ring27 est methodology (input-baseline) -> byte-derived claims invalid",
+   "ring28 cap brackets incl corrected values -> cap concept replaced by collapse law",
+   "ring32/ring34 CLI-token cap candidates",
+   "ring37 o200k separator (unclipped samples were middle-position luck)"
+  ],
+  "boundaries": [
+   "ASCII fixtures (chars=bytes); UTF-8 multi-byte retention rule untested",
+   "exact fold threshold (<=10k full retention) untested; 8k probe (8129ch) retained whole",
+   "codex-cli 0.163.0 single version"
+  ]
+ },
+ "ring37_codex_o200k": {}
 }
