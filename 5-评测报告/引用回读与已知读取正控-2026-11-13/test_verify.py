@@ -156,6 +156,30 @@ class FullResult(unittest.TestCase):
         bad[r10]["arms"]["rb-c2048"]["sessions_all_keys_correct"] = 1
         self.assertFalse(verify.verify(bad)["checks"]["ring10_arms_two_slots_each"])
 
+    def test_tampered_ring14_detected(self):
+        r14 = "ring14_spill_boundary"
+        # read 次数改成 1（零 read 是本环核心证据）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r14]["arms"]["rb-c9216"]["read_attempts_each"] = 1
+        self.assertFalse(verify.verify(bad)["checks"]["ring14_arms_two_slots_each"])
+        # 无外溢证据被翻转（spill_footer 假装存在）必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r14]["arms"]["rb-c16384"]["spill_footer"] = "Omitted 0 bytes."
+        self.assertFalse(verify.verify(bad)["checks"]["ring14_no_spill_evidence"])
+        # B 系列被改值必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r14]["arms"]["rb-c9216"]["B_input_series"][0][1] = 3506
+        self.assertFalse(verify.verify(bad)["checks"]["ring14_no_spill_evidence"])
+        # 9216 预测错误被改写成"as predicted"必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r14]["outcome_vs_prediction"]["rb-c9216"] = "as predicted (no spill, 0 read)"
+        self.assertFalse(verify.verify(bad)["checks"]["ring14_no_spill_evidence"])
+        # 分支被换掉必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r14]["branch"] = "answered_without_read"
+        self.assertFalse(verify.verify(bad)["checks"]["ring14_branch"])
+
+
     def test_tampered_ring12_detected(self):
         r12 = "ring12_middle_position"
         # read 次数被改成 1（零 read 是本环核心证据）必须被拒

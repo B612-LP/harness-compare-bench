@@ -267,6 +267,30 @@ def verify(data: dict) -> dict:
         and [s["record_position"] for s in far["sessions"]] == ["96.3%", "96.3%"]
     )
 
+    r14 = data["ring14_spill_boundary"]
+    a9216, a16384 = r14["arms"]["rb-c9216"], r14["arms"]["rb-c16384"]
+    checks["ring14_arms_two_slots_each"] = (
+        r14["prereg_seal_14"] == "bd0bacce4560e456"
+        and a9216["cap_tokens"] == 9216 and a16384["cap_tokens"] == 16384
+        and len(a9216["slots"]) == 2 and len(a16384["slots"]) == 2
+        and a9216["requests_each"] == 2 and a16384["requests_each"] == 2
+        and a9216["read_attempts_each"] == 0 and a16384["read_attempts_each"] == 0
+        and a9216["keys_all_correct"] is True and a16384["keys_all_correct"] is True
+    )
+    checks["ring14_no_spill_evidence"] = (
+        a9216["spill_footer"] is None and a16384["spill_footer"] is None
+        and a9216["middle_record_in_request2"] == [True, True]
+        and a16384["middle_record_in_request2"] == [True, True]
+        and a9216["B_input_series"] == [[1724, 38425], [1724, 38794]]
+        and a16384["B_input_series"] == [[1724, 38491], [1724, 38465]]
+        and r14["outcome_vs_prediction"]["rb-c16384"] == "as predicted (no spill, 0 read)"
+        and r14["outcome_vs_prediction"]["rb-c9216"].startswith("prediction wrong")
+    )
+    checks["ring14_branch"] = (
+        r14["branch"] == "read_at_no_cap"
+        and r14["interpretation"].startswith("E1 answer-visibility gate")
+    )
+
     ok = all(checks.values())
     return {"ok": ok, "checks": checks}
 
