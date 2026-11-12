@@ -465,6 +465,33 @@ class FullResult(unittest.TestCase):
         bad3["ring29_doubao_bracket"].pop("correction_v15", None)
         self.assertFalse(verify.verify(bad3)["ok"])
 
+    def test_tampered_ring47_detected(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring47_estimator_map"]["wb_sessions"][3]["est_tokens"] = 56000
+        self.assertFalse(verify.verify(bad)["ok"])
+        bad2 = copy.deepcopy(self.data)
+        bad2["ring47_estimator_map"]["doubao_branch"] = "db_128k_exact_chars4"
+        self.assertFalse(verify.verify(bad2)["ok"])
+        bad3 = copy.deepcopy(self.data)
+        bad3["ring47_estimator_map"]["branch"] = "wb_estimator_chars4_exact_all"
+        self.assertFalse(verify.verify(bad3)["ok"])
+
+    def test_tampered_ring47b_detected(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring47b_estsat"]["sessions"][0]["est_tokens"] = 42465
+        self.assertFalse(verify.verify(bad)["ok"])
+        bad2 = copy.deepcopy(self.data)
+        bad2["ring47b_estsat"]["sessions"][1]["est_tokens"] = 44000
+        self.assertFalse(verify.verify(bad2)["ok"])
+        bad3 = copy.deepcopy(self.data)
+        bad3["ring47b_estsat"]["branch"] = "clamp_constant"
+        self.assertFalse(verify.verify(bad3)["ok"])
+
+    def test_ring44_estimator_update_v16_required(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring44_wb_retry"].pop("estimator_update_v16", None)
+        self.assertFalse(verify.verify(bad)["ok"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v15"
+            data["schema"] == "knownread-20261113-v16"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -617,6 +617,34 @@ def verify(data: dict) -> dict:
             data["ring29_doubao_bracket"].get("correction_v15", {}).get("void_cell_closed_by_ring_45", "") != ""
             and data["ring30_wb_bracket"].get("correction_v15", {}).get("waiting_user_transient", "") != ""
         )
+
+    if "ring47_estimator_map" in data:
+        r = data["ring47_estimator_map"]
+        ws = {x["slot"]: x for x in r["wb_sessions"]}
+        checks["ring47_shape"] = (
+            r["prereg_seal_47"] == "d374de4af726889c"
+            and r["branch"] == "wb_estimator_diverges_at_wb-e-224k"
+            and len(r["wb_sessions"]) == 4
+            and ws["wb-e-96k"]["est_tokens"] == 24000
+            and ws["wb-e-160k"]["est_tokens"] == 40000
+            and ws["wb-e-224k"]["est_tokens"] == 42465
+            and r["doubao_branch"] == "db_estimator_not_observable_at_128k_model_avoided_full_read"
+        )
+
+    if "ring47b_estsat" in data:
+        r = data["ring47b_estsat"]
+        ss = {x["slot"]: x for x in r["sessions"]}
+        checks["ring47b_shape"] = (
+            r["prereg_seal_47b"] == "aaee74ca6419f100"
+            and r["branch"] == "other_all_three_prereg_hypotheses_refuted"
+            and ss["wb-e2-192k-alt"]["est_tokens"] == 28978
+            and ss["wb-e2-176k"]["est_tokens"] == 42464
+            and "refuted" in r["branch"]
+        )
+
+    checks["ring44_estimator_update_v16"] = (
+        "saturation" in data.get("ring44_wb_retry", {}).get("estimator_update_v16", {}).get("content_dependent_claim_refined", "")
+    )
 
     if "ring39_codex_collapse" in data and "ring41_foldrefine" in data:
         c = data["ring39_codex_collapse"].get("correction_v14", {})

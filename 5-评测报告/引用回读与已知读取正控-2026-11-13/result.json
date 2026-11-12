@@ -1,5 +1,5 @@
 {
-  "schema": "knownread-20261113-v15",
+  "schema": "knownread-20261113-v16",
   "generated_at": "2026-11-13T01:25:00+08:00",
   "v2_added_at": "2026-11-13T01:50:00+08:00",
   "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -313,7 +313,9 @@
     "Ring 41: fold trigger threshold bracketed (10000, 12000] bytes, not point-located; single CLI build; relay observes request face only.",
     "Ring 41: retention measured as bytes via one CJK probe pair; other shapes ASCII where chars/bytes are indistinguishable.",
     "Ring 43: fold gate located to (10000, 10004] bytes; declared-token and byte gates are point-wise equivalent so no behavioural discriminator exists between estimator variants.",
-    "Ring 44/45: transient pauses and content-dependent estimates are recorded behaviourally, causes not attributable; the closed 80k cell is a single point."
+    "Ring 44/45: transient pauses and content-dependent estimates are recorded behaviourally, causes not attributable; the closed 80k cell is a single point.",
+    "Ring 47/47b: WB est mapped behaviourally (exact chars/4 to 160k, saturated ~42465 at >=176k natural, lower on dense prefix); mechanism unobservable; alt-slot keys undetermined (pause).",
+    "Ring 47/47b: waiting_user cumulative frequency 3/11 is an observation, not an extrapolated rate."
   ],
   "v3_added_at": "2026-11-13T02:35:00+08:00",
   "ring8_size_threshold": {
@@ -1662,7 +1664,10 @@
       "pause cause (lock/scheduler) not attributable",
       "n=1 x 2",
       "estimator internals not observable"
-    ]
+    ],
+    "estimator_update_v16": {
+      "content_dependent_claim_refined": "Ring 47/47b: est is exact chars/4 up to 160k on natural-line content, saturates ~42465 for >=176k natural, and drops for a dense-prefix file (28978 at 192k-alt); the original -11.5 percent note at 192k is the saturation effect, not gradual divergence"
+    }
   },
   "ring45_doubao_80k_clean": {
     "kind": "behavioral_live",
@@ -1688,6 +1693,115 @@
       "80k single point only",
       "DoubaoWork 2.35.19 single version",
       "compensation tool preference recorded, motivation not observable"
+    ]
+  },
+  "v16_added_at": "2026-11-13T07:30:37+08:00",
+  "ring47_estimator_map": {
+    "kind": "behavioral_live",
+    "prereg_seal_47": "d374de4af726889c",
+    "note": "rebuilt from scratch after a folded-summary claim of readiness with no on-disk artifacts",
+    "product": "WorkBuddy 5.9.3 / DoubaoWork 2.35.19",
+    "design": "WB refusal-text est sampling at four sizes (96k/128k/160k/224k natural-line probes) plus Doubao comparison at 96k/128k",
+    "wb_sessions": [
+      {
+        "slot": "wb-e-96k",
+        "bytes": 96000,
+        "est_tokens": 24000,
+        "chars_per_4_expected": 24000,
+        "keys_correct_count": 3,
+        "form": "tool_refused_token_cap",
+        "seconds": 15.2
+      },
+      {
+        "slot": "wb-e-128k",
+        "bytes": 128000,
+        "est_tokens": 32000,
+        "chars_per_4_expected": 32000,
+        "keys_correct_count": 3,
+        "form": "tool_refused_token_cap",
+        "seconds": 15.2
+      },
+      {
+        "slot": "wb-e-160k",
+        "bytes": 160000,
+        "est_tokens": 40000,
+        "chars_per_4_expected": 40000,
+        "keys_correct_count": 3,
+        "form": "tool_refused_token_cap",
+        "seconds": 15.3
+      },
+      {
+        "slot": "wb-e-224k",
+        "bytes": 224000,
+        "est_tokens": 42465,
+        "chars_per_4_expected": 56000,
+        "keys_correct_count": 3,
+        "form": "tool_refused_token_cap",
+        "reads": 2,
+        "seconds": 30.4
+      }
+    ],
+    "wb_finding": "est is exact chars/4 at 96k/128k/160k and saturates at 42465 at 224k - the same value as Ring 44 wb-r-192k (42465) on a different file; saturation boundary in (160000, 192000] bytes",
+    "branch": "wb_estimator_diverges_at_wb-e-224k",
+    "doubao_sessions": [
+      {
+        "slot": "db-e-96k",
+        "bytes": 96000,
+        "result": "truncation marker (no refusal, est ~24k < 25000 cap as predicted), Grep compensation, keys 3/3",
+        "est_observable": false
+      },
+      {
+        "slot": "db-e-128k",
+        "bytes": 128000,
+        "result": "model avoided full Read (Bash wc rejected -> Grep OBSERVATION -> Grep middle -> Read offset=755 limit=1), refusal never produced, keys 3/3",
+        "est_observable": false
+      }
+    ],
+    "doubao_branch": "db_estimator_not_observable_at_128k_model_avoided_full_read",
+    "doubao_note": "Doubao chars/4 exactness stands on Ring 29 points only (112k=28000, 192k=48000); this ring adds no est point",
+    "boundaries": [
+      "est mechanism not observable, behavioural wording only",
+      "n=1 per point",
+      "single product versions"
+    ]
+  },
+  "ring47b_estsat": {
+    "kind": "behavioral_live",
+    "prereg_seal_47b": "aaee74ca6419f100",
+    "design": "three-way discrimination on a 192k file with a 170k mixed-case-alnum dense prefix, plus a 176k natural-line boundary point",
+    "sessions": [
+      {
+        "slot": "wb-e2-192k-alt",
+        "bytes": 192000,
+        "content": "170k dense prefix",
+        "est_tokens": 28978,
+        "chars_per_4_expected": 48000,
+        "keys_correct_count": 0,
+        "status": "waiting_user",
+        "pause_note": "transient pause during compensation (third occurrence); est captured from refusal text before pause; keys undetermined, single-submission discipline"
+      },
+      {
+        "slot": "wb-e2-176k",
+        "bytes": 176000,
+        "content": "natural-line",
+        "est_tokens": 42464,
+        "chars_per_4_expected": 44000,
+        "keys_correct_count": 3,
+        "status": "completed"
+      }
+    ],
+    "verdicts": {
+      "clamp_constant_refuted": "alt est 28978 != 42465",
+      "naive_chars4_refuted": "alt est 28978 != 48000",
+      "prefix_gt50k_refuted": "dense prefix LOWERED the estimate (28978 < 48000), opposite to true-tokenizer extrapolation",
+      "saturation_confirmed_on_natural": "176k est 42464 ~= 42465 (+-1 window jitter); saturation boundary narrowed to (160000, 176000] bytes"
+    },
+    "branch": "other_all_three_prereg_hypotheses_refuted",
+    "waiting_user_frequency": "cumulative 3/11 WB sessions (Ring 30 2/3, Ring 44 0/2, Ring 47 0/4, Ring 47b 1/2); transient per Ring 44 re-run evidence",
+    "boundaries": [
+      "est internals unobservable (28978 origin recorded not explained)",
+      "alt keys undetermined due to pause",
+      "one density contrast only"
     ]
   }
 }
