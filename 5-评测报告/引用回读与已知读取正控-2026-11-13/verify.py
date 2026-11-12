@@ -146,6 +146,46 @@ def verify(data: dict) -> dict:
         and yb[0]["TAIL_KEY_expected"] == "COBALT-492"
     )
 
+    # ---- ring8 size-threshold (v3) ----
+    r8 = data["ring8_size_threshold"]
+    arms = r8["codex_cli"], r8["workbuddy"], r8["doubao_work"]
+    checks["ring8_three_arms_four_slots"] = (
+        r8["product_arms"] == ["codex_cli", "workbuddy", "doubao_work"]
+        and all(a["n"] == 4 and len(a["sessions"]) == 4 for a in arms)
+        and len(r8["fixtures"]) == 4
+        and [f["bytes"] for f in r8["fixtures"]] == [990, 8129, 65504, 262109]
+    )
+    cx8 = {s["id"]: s for s in r8["codex_cli"]["sessions"]}
+    checks["ring8_codex_no_threshold"] = (
+        all(cx8[i]["read_form"] == "full_inline" for i in cx8)
+        and cx8["cx-256k"]["max_output_chars"] == 276427
+        and cx8["cx-256k"]["truncation_marker"] is False
+        and all(s["keys_all_correct"] for s in cx8.values())
+    )
+    wb8 = {s["id"]: s for s in r8["workbuddy"]["sessions"]}
+    checks["ring8_wb_64k_persisted_usage"] = (
+        wb8["wb2-64k"]["read_form"] == "persisted_preview_display_model_full"
+        and wb8["wb2-64k"]["model_side_full_inferred"] is True
+        and wb8["wb2-64k"]["keys_correct_count"] == 3
+    )
+    checks["ring8_wb_256k_cap_refusal"] = (
+        wb8["wb2-256k"]["read_form"] == "tool_refused_token_cap"
+        and "exceeds maximum allowed tokens (20000)" in wb8["wb2-256k"]["read_tool_error"]
+        and wb8["wb2-256k"]["keys_correct_count"] == 3
+    )
+    db8 = {s["id"]: s for s in r8["doubao_work"]["sessions"]}
+    checks["ring8_doubao_64k_full_inline"] = (
+        db8["db-64k"]["read_form"] == "full_inline"
+        and db8["db-64k"]["tool_chars_total"] == 68504
+        and db8["db-64k"]["keys_all_correct"] is True
+    )
+    checks["ring8_doubao_256k_cap_grep"] = (
+        db8["db-256k"]["read_form"] == "tool_refused_token_cap"
+        and "exceeds maximum allowed tokens (25000)" in db8["db-256k"]["read_tool_error"]
+        and "Grep" in db8["db-256k"]["compensation"]
+        and db8["db-256k"]["keys_correct_count"] == 3
+    )
+
     ok = all(checks.values())
     return {"ok": ok, "checks": checks}
 

@@ -101,6 +101,33 @@ class FullResult(unittest.TestCase):
         bad["ring6_yuanbao_known_read_first_session"]["status"] = "final"
         self.assertFalse(verify.verify(bad)["checks"]["ring6_interim_shape"])
 
+    def test_tampered_ring8_detected(self):
+        r8 = "ring8_size_threshold"
+        # 豆包 64k 全内联字符量被改必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r8]["doubao_work"]["sessions"][2]["tool_chars_total"] = 100
+        self.assertFalse(verify.verify(bad)["checks"]["ring8_doubao_64k_full_inline"])
+        # 256k 拒绝形态被改成"未拒绝"必须被拒（token 上限证据缺失）
+        bad = copy.deepcopy(self.data)
+        bad[r8]["doubao_work"]["sessions"][3]["read_form"] = "full_inline"
+        self.assertFalse(verify.verify(bad)["checks"]["ring8_doubao_256k_cap_grep"])
+        # WB 256k 上限消息被改必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r8]["workbuddy"]["sessions"][3]["read_tool_error"] = "no error"
+        self.assertFalse(verify.verify(bad)["checks"]["ring8_wb_256k_cap_refusal"])
+        # WB 64k 模型侧全文摄入推断被抹掉必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r8]["workbuddy"]["sessions"][2]["model_side_full_inferred"] = None
+        self.assertFalse(verify.verify(bad)["checks"]["ring8_wb_64k_persisted_usage"])
+        # Codex 256k 全量携带被改小必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r8]["codex_cli"]["sessions"][3]["max_output_chars"] = 1000
+        self.assertFalse(verify.verify(bad)["checks"]["ring8_codex_no_threshold"])
+        # 夹具尺寸阶梯被改必须被拒
+        bad = copy.deepcopy(self.data)
+        bad[r8]["fixtures"][3]["bytes"] = 131072
+        self.assertFalse(verify.verify(bad)["checks"]["ring8_three_arms_four_slots"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
