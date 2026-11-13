@@ -1,0 +1,793 @@
+{
+  "schema": "joint-literal-copy-derived-v1",
+  "analysis_scope": "posthoc_exact_native_snapshot_reanalysis",
+  "original_gate": {
+    "valid": 0,
+    "planned": 4,
+    "status": "FAIL",
+    "reason": "initial_prompt_not_exact",
+    "reclassified": false
+  },
+  "posthoc_gate": {
+    "valid": 4,
+    "planned": 4,
+    "exact": 4,
+    "preregistered_pass": false
+  },
+  "design": {
+    "order": [
+      "dup1",
+      "ind1",
+      "ind2",
+      "dup2"
+    ],
+    "planned_cells": 4,
+    "n_per_condition": 2,
+    "A_reused_within_repeat": true
+  },
+  "controls": {
+    "harness": "DSH",
+    "recorded_version": "0.2.0-rc.2",
+    "provider": "deepseek-official",
+    "model": "deepseek-flash",
+    "effort": "low",
+    "thinking": "enabled",
+    "max_tokens": 4096,
+    "spill_cap": 512,
+    "retry": 0
+  },
+  "privacy": {
+    "derived_not_raw_trace": true,
+    "path_transform": "each_selected_face_path_to_equal_utf8_byte_length_ASCII_X",
+    "initial_request_text_public": false,
+    "native_snapshot_text_public": false,
+    "call_ids": "original_opaque_tool_ids_only"
+  },
+  "limits": {
+    "I_text_is_entropy": false,
+    "server_model_input_observed": false,
+    "reasoning_equalized": false,
+    "cache_equalized": false,
+    "usage_arithmetic_performed": false,
+    "first_hash_authenticates_original": false
+  },
+  "audit": {
+    "scope": "posthoc_exact_native_assembly_reanalysis_only",
+    "verdict": "PASS",
+    "receipt_sha256": "01dcaa7b028769b3466950886350560537a0317d73e06dffed961b4411844f1a",
+    "source_files_stable": 108,
+    "rejected_counterexamples": 18
+  },
+  "sources": {
+    "A1": {
+      "file": "sources/A1.txt",
+      "bytes": 16000,
+      "sha256": "14a273fcf143ac05ec5390c0a351e7b82b9177c33a82ee0c6907885badb29dbe",
+      "nonces": {
+        "head_nonce": {
+          "bytes": 700,
+          "sha256": "b1106268d223bbf46469d10f1b95a5ba9d439ca34daf6a2a051fa726962f0eb1",
+          "source_interval": [
+            11,
+            711
+          ]
+        },
+        "tail_nonce": {
+          "bytes": 700,
+          "sha256": "863080966596bfbf694679b33ceb74c35f690e61638d36a15776226cd72e9559",
+          "source_interval": [
+            15299,
+            15999
+          ]
+        }
+      }
+    },
+    "B1": {
+      "file": "sources/B1.txt",
+      "bytes": 16000,
+      "sha256": "b44b5fba17fad8f800023ef9428c68fa9f10e05656b4f0edd1688d1199bbda25",
+      "nonces": {
+        "head_nonce": {
+          "bytes": 700,
+          "sha256": "b8280f92f0afbaefec2f13d4bacaad19169e5cb9935b60d6d7be4a0830fb2774",
+          "source_interval": [
+            11,
+            711
+          ]
+        },
+        "tail_nonce": {
+          "bytes": 700,
+          "sha256": "672721e6d51f1cb5040cf2783048c6b470c740e28e360fa05d63b82dd369ec7c",
+          "source_interval": [
+            15299,
+            15999
+          ]
+        }
+      }
+    },
+    "A2": {
+      "file": "sources/A2.txt",
+      "bytes": 16000,
+      "sha256": "dd3baf53a59eb0cdf72f4877bd5ae1db44a3a42b3f01fef8604e40775f72a87a",
+      "nonces": {
+        "head_nonce": {
+          "bytes": 700,
+          "sha256": "480f2f2728d4b3786725e0ad6ee591ce6e25af45489a6dbe0c29ace2a74f99ea",
+          "source_interval": [
+            11,
+            711
+          ]
+        },
+        "tail_nonce": {
+          "bytes": 700,
+          "sha256": "bd7755ed121f0f862c3755beed2227c08ae281976caa3064ceb07dd12e504ef2",
+          "source_interval": [
+            15299,
+            15999
+          ]
+        }
+      }
+    },
+    "B2": {
+      "file": "sources/B2.txt",
+      "bytes": 16000,
+      "sha256": "f52dde33d62b2573c0d2c3744bd4dea537323fe50ab2c12102b368af9f3c1559",
+      "nonces": {
+        "head_nonce": {
+          "bytes": 700,
+          "sha256": "6edd837662f71ce27c01fd62013838d0639a7d6be91f62759f19c66bab8644f1",
+          "source_interval": [
+            11,
+            711
+          ]
+        },
+        "tail_nonce": {
+          "bytes": 700,
+          "sha256": "3da3adfef1ef47341660cfc1127154ad3b21e3c5e204a0430004b81567759b53",
+          "source_interval": [
+            15299,
+            15999
+          ]
+        }
+      }
+    }
+  },
+  "cells": [
+    {
+      "id": "dup1",
+      "condition": "duplicate",
+      "repeat": 1,
+      "original_gate_valid": false,
+      "first_wire": {
+        "bytes": 1504,
+        "sha256": "eb98ea308bc89eff42a3f4a9bca425e5f37091beeff93859758f36159d020e7a",
+        "content_public": false
+      },
+      "last_request_source": {
+        "index": 2,
+        "raw_bytes": 6078,
+        "raw_sha256": "c1b698e1779ee8d525226dda3f18679f6fe00df2e49c02a7569aaa0db99909ed",
+        "formatted_json_file_sha256": "c8a3d9d4b02ea4b7fda6435677f4f35b8cdca449b29adea4fb1d00ccfdeba06f",
+        "response_sha256": "b166396de48f6b88a4b1ea57b5be4be5f629396f66e209ef11373dc2f4eb46aa"
+      },
+      "calls": [
+        {
+          "name": "packet_a",
+          "id": "call_00_ET_SRdtGlkBFEbZeYdMKIsX2143",
+          "input": {},
+          "result_tool_use_id": "call_00_ET_SRdtGlkBFEbZeYdMKIsX2143",
+          "source": "A1",
+          "file": "faces/dup1-packet_a.txt",
+          "source_text_sha256": "49560b72189172245dabc1e3763b336bae8e4820864509fc28aeecb30be1765c",
+          "derived_text_sha256": "ca679dfb7046e3853194e08873903a48fc61ff16f3ad2f8f90bca6fe265016fc",
+          "source_text_bytes": 1979,
+          "derived_text_bytes": 1979,
+          "path_transform": {
+            "applied": true,
+            "byte_interval": [
+              1798,
+              1910
+            ],
+            "original_span_sha256": "349fe24c0b2fc3497a41554328f16148749c8cc41f1f8b26077152ca4dd4fc9a",
+            "placeholder": "X",
+            "byte_length_preserved": true
+          },
+          "source_intervals": [
+            [
+              0,
+              868
+            ],
+            [
+              15136,
+              16000
+            ]
+          ],
+          "M_source": 1732,
+          "wrapper_bytes": 247,
+          "omitted_bytes": 14268
+        },
+        {
+          "name": "packet_b",
+          "id": "call_01_ET_2lquusXb3ZGUrvPjiNtd3834",
+          "input": {},
+          "result_tool_use_id": "call_01_ET_2lquusXb3ZGUrvPjiNtd3834",
+          "source": "A1",
+          "file": "faces/dup1-packet_b.txt",
+          "source_text_sha256": "25f0a02cc5eea3c23ae3873ba00f169d9550604579a3370fac9a98cb9f6f242a",
+          "derived_text_sha256": "ca679dfb7046e3853194e08873903a48fc61ff16f3ad2f8f90bca6fe265016fc",
+          "source_text_bytes": 1979,
+          "derived_text_bytes": 1979,
+          "path_transform": {
+            "applied": true,
+            "byte_interval": [
+              1798,
+              1910
+            ],
+            "original_span_sha256": "6ce2c6fdef6957a0ee331277f683f4c89f26315b880b9fdd4265190da576466c",
+            "placeholder": "X",
+            "byte_length_preserved": true
+          },
+          "source_intervals": [
+            [
+              0,
+              868
+            ],
+            [
+              15136,
+              16000
+            ]
+          ],
+          "M_source": 1732,
+          "wrapper_bytes": 247,
+          "omitted_bytes": 14268
+        }
+      ],
+      "answer": {
+        "file": "answers/dup1.txt",
+        "sha256": "7672e8bdd7bef7378afa73a2266be9ce9b59c3a744365b7929797927d550f47e",
+        "bytes": 2891,
+        "transformed": false
+      },
+      "I_text": 1400,
+      "M_source_max": 1732,
+      "two_call_source_bytes_sum": 3464,
+      "M_residual_vs_mock": 4,
+      "provider_usage_events": [
+        {
+          "request": 1,
+          "provider_usage_events": [
+            {
+              "event": "message_start",
+              "usage": {
+                "input_tokens": 516,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 0,
+                "output_tokens": 0,
+                "service_tier": "standard"
+              }
+            },
+            {
+              "event": "message_delta",
+              "usage": {
+                "input_tokens": 516,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 0,
+                "output_tokens": 36,
+                "service_tier": "standard"
+              },
+              "stop_reason": "tool_use"
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "provider_usage_events": [
+            {
+              "event": "message_start",
+              "usage": {
+                "input_tokens": 2216,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 512,
+                "output_tokens": 0,
+                "service_tier": "standard"
+              }
+            },
+            {
+              "event": "message_delta",
+              "usage": {
+                "input_tokens": 2216,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 512,
+                "output_tokens": 2536,
+                "service_tier": "standard"
+              },
+              "stop_reason": "end_turn"
+            }
+          ]
+        }
+      ],
+      "client_accounting": {
+        "durable_intents": 2,
+        "confirmed": 2,
+        "unknown_upper_bound": 0
+      }
+    },
+    {
+      "id": "ind1",
+      "condition": "independent",
+      "repeat": 1,
+      "original_gate_valid": false,
+      "first_wire": {
+        "bytes": 1504,
+        "sha256": "eb98ea308bc89eff42a3f4a9bca425e5f37091beeff93859758f36159d020e7a",
+        "content_public": false
+      },
+      "last_request_source": {
+        "index": 2,
+        "raw_bytes": 6189,
+        "raw_sha256": "f8eb6f6f90d4b6aade86e8a83babd059c3c84757135c96921749c2c4407bd2e6",
+        "formatted_json_file_sha256": "394660ceb8d2e91a01e8d75639eff0eced9361d7949ef5291ac63e7f9aa5b84e",
+        "response_sha256": "f7ff3e614f667ba833cdd6ccff5c15188cf27d30f84104d88216977d731bfbea"
+      },
+      "calls": [
+        {
+          "name": "packet_a",
+          "id": "call_00_H1A2kgr8B7mCqN0u6MUR9310",
+          "input": {},
+          "result_tool_use_id": "call_00_H1A2kgr8B7mCqN0u6MUR9310",
+          "source": "A1",
+          "file": "faces/ind1-packet_a.txt",
+          "source_text_sha256": "f33d97884053d5b9181496b5737ae0e687abbb5625333424ce547dd513763f6d",
+          "derived_text_sha256": "ca679dfb7046e3853194e08873903a48fc61ff16f3ad2f8f90bca6fe265016fc",
+          "source_text_bytes": 1979,
+          "derived_text_bytes": 1979,
+          "path_transform": {
+            "applied": true,
+            "byte_interval": [
+              1798,
+              1910
+            ],
+            "original_span_sha256": "056b6713a2c7b7d0d50a61905c3fab9732b942ea5d917711edd216952ec43a43",
+            "placeholder": "X",
+            "byte_length_preserved": true
+          },
+          "source_intervals": [
+            [
+              0,
+              868
+            ],
+            [
+              15136,
+              16000
+            ]
+          ],
+          "M_source": 1732,
+          "wrapper_bytes": 247,
+          "omitted_bytes": 14268
+        },
+        {
+          "name": "packet_b",
+          "id": "call_01_4SiQcfUn9KbAgoEYoJuz7828",
+          "input": {},
+          "result_tool_use_id": "call_01_4SiQcfUn9KbAgoEYoJuz7828",
+          "source": "B1",
+          "file": "faces/ind1-packet_b.txt",
+          "source_text_sha256": "0c5c13dd51667da7a6aa7653c96d96af75dc57d17b2ce2d3003734acb704a0ea",
+          "derived_text_sha256": "191e690a230de23148638f112d69e3bdf50964ddbd635057a4c84fddc3ce1430",
+          "source_text_bytes": 1979,
+          "derived_text_bytes": 1979,
+          "path_transform": {
+            "applied": true,
+            "byte_interval": [
+              1798,
+              1910
+            ],
+            "original_span_sha256": "f1de29f8e8ac8a11a1cf81a491ccce122b9a21836cac33178d55fbb6a638f3b4",
+            "placeholder": "X",
+            "byte_length_preserved": true
+          },
+          "source_intervals": [
+            [
+              0,
+              868
+            ],
+            [
+              15136,
+              16000
+            ]
+          ],
+          "M_source": 1732,
+          "wrapper_bytes": 247,
+          "omitted_bytes": 14268
+        }
+      ],
+      "answer": {
+        "file": "answers/ind1.txt",
+        "sha256": "823500865e7480d00ab152925f626e5290a4caf50dc9a76e58efcca4a7ceb013",
+        "bytes": 2891,
+        "transformed": false
+      },
+      "I_text": 2800,
+      "M_source_max": 1732,
+      "two_call_source_bytes_sum": 3464,
+      "M_residual_vs_mock": 4,
+      "provider_usage_events": [
+        {
+          "request": 1,
+          "provider_usage_events": [
+            {
+              "event": "message_start",
+              "usage": {
+                "input_tokens": 134,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 382,
+                "output_tokens": 0,
+                "service_tier": "standard"
+              }
+            },
+            {
+              "event": "message_delta",
+              "usage": {
+                "input_tokens": 134,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 382,
+                "output_tokens": 63,
+                "service_tier": "standard"
+              },
+              "stop_reason": "tool_use"
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "provider_usage_events": [
+            {
+              "event": "message_start",
+              "usage": {
+                "input_tokens": 2214,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 512,
+                "output_tokens": 0,
+                "service_tier": "standard"
+              }
+            },
+            {
+              "event": "message_delta",
+              "usage": {
+                "input_tokens": 2214,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 512,
+                "output_tokens": 3473,
+                "service_tier": "standard"
+              },
+              "stop_reason": "end_turn"
+            }
+          ]
+        }
+      ],
+      "client_accounting": {
+        "durable_intents": 2,
+        "confirmed": 2,
+        "unknown_upper_bound": 0
+      }
+    },
+    {
+      "id": "ind2",
+      "condition": "independent",
+      "repeat": 2,
+      "original_gate_valid": false,
+      "first_wire": {
+        "bytes": 1504,
+        "sha256": "eb98ea308bc89eff42a3f4a9bca425e5f37091beeff93859758f36159d020e7a",
+        "content_public": false
+      },
+      "last_request_source": {
+        "index": 2,
+        "raw_bytes": 6078,
+        "raw_sha256": "074d7ee3a653e73c59d7af857dc916f61df459cbe4d61fb6ae9f1b18c5f4ebed",
+        "formatted_json_file_sha256": "892ad96975e6282e71d34b407ce198fbc5944e2f861a5d4cf443991f32f3d7a5",
+        "response_sha256": "a6807de2fe90df0ed2fc7524a05ee164e454ad7343170752e63a0564dedbf576"
+      },
+      "calls": [
+        {
+          "name": "packet_a",
+          "id": "call_00_ET_J3DEByL2o0J1iGfGnnQj7586",
+          "input": {},
+          "result_tool_use_id": "call_00_ET_J3DEByL2o0J1iGfGnnQj7586",
+          "source": "A2",
+          "file": "faces/ind2-packet_a.txt",
+          "source_text_sha256": "dea32c957a03af2016cc20822168d5a6ffc62ac357ae210e1454101b20ed958f",
+          "derived_text_sha256": "9ab9843f6be817014aebdb33220821c5fa3a5e5b2eda96041532ada625a1520f",
+          "source_text_bytes": 1979,
+          "derived_text_bytes": 1979,
+          "path_transform": {
+            "applied": true,
+            "byte_interval": [
+              1798,
+              1910
+            ],
+            "original_span_sha256": "181d1a8344e49fdf84aea00152e7f4b89f9b0eb4bfec357bb47546dcfb216eb2",
+            "placeholder": "X",
+            "byte_length_preserved": true
+          },
+          "source_intervals": [
+            [
+              0,
+              868
+            ],
+            [
+              15136,
+              16000
+            ]
+          ],
+          "M_source": 1732,
+          "wrapper_bytes": 247,
+          "omitted_bytes": 14268
+        },
+        {
+          "name": "packet_b",
+          "id": "call_01_ET_Jm7c9zbWjrdxuy5LOHtI7444",
+          "input": {},
+          "result_tool_use_id": "call_01_ET_Jm7c9zbWjrdxuy5LOHtI7444",
+          "source": "B2",
+          "file": "faces/ind2-packet_b.txt",
+          "source_text_sha256": "bc0e61b9ecb273950dfb68b1a4d71af0974d6704820ffe7fbc994cb909278fe0",
+          "derived_text_sha256": "32cc07af9d775474fa87d6c0c9ed5d06a2b239cb50ddafbe5d329427fb6b3bf2",
+          "source_text_bytes": 1979,
+          "derived_text_bytes": 1979,
+          "path_transform": {
+            "applied": true,
+            "byte_interval": [
+              1798,
+              1910
+            ],
+            "original_span_sha256": "688297b463749d314f9fb74a02dec83f08ae5c5901d6ed23a502a40efcf3ad14",
+            "placeholder": "X",
+            "byte_length_preserved": true
+          },
+          "source_intervals": [
+            [
+              0,
+              868
+            ],
+            [
+              15136,
+              16000
+            ]
+          ],
+          "M_source": 1732,
+          "wrapper_bytes": 247,
+          "omitted_bytes": 14268
+        }
+      ],
+      "answer": {
+        "file": "answers/ind2.txt",
+        "sha256": "5e1382c7c90a11ef62d4a9eb890cdbe70e126fe4f8343094e8c43de414807b4d",
+        "bytes": 2891,
+        "transformed": false
+      },
+      "I_text": 2800,
+      "M_source_max": 1732,
+      "two_call_source_bytes_sum": 3464,
+      "M_residual_vs_mock": 4,
+      "provider_usage_events": [
+        {
+          "request": 1,
+          "provider_usage_events": [
+            {
+              "event": "message_start",
+              "usage": {
+                "input_tokens": 134,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 382,
+                "output_tokens": 0,
+                "service_tier": "standard"
+              }
+            },
+            {
+              "event": "message_delta",
+              "usage": {
+                "input_tokens": 134,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 382,
+                "output_tokens": 36,
+                "service_tier": "standard"
+              },
+              "stop_reason": "tool_use"
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "provider_usage_events": [
+            {
+              "event": "message_start",
+              "usage": {
+                "input_tokens": 2246,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 512,
+                "output_tokens": 0,
+                "service_tier": "standard"
+              }
+            },
+            {
+              "event": "message_delta",
+              "usage": {
+                "input_tokens": 2246,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 512,
+                "output_tokens": 3818,
+                "service_tier": "standard"
+              },
+              "stop_reason": "end_turn"
+            }
+          ]
+        }
+      ],
+      "client_accounting": {
+        "durable_intents": 2,
+        "confirmed": 2,
+        "unknown_upper_bound": 0
+      }
+    },
+    {
+      "id": "dup2",
+      "condition": "duplicate",
+      "repeat": 2,
+      "original_gate_valid": false,
+      "first_wire": {
+        "bytes": 1504,
+        "sha256": "eb98ea308bc89eff42a3f4a9bca425e5f37091beeff93859758f36159d020e7a",
+        "content_public": false
+      },
+      "last_request_source": {
+        "index": 2,
+        "raw_bytes": 6078,
+        "raw_sha256": "1bb2b7bb4ab942bf0ae46b770af3e6be4830477e0d394fb4b57e9a844d591485",
+        "formatted_json_file_sha256": "a5b700267da7820b7cb06000c6477ce05baf6816301f9de5121e6fc1129555a5",
+        "response_sha256": "2a26574995d624ac29574758427749972f9cca3d8ad9e9718a4ed2a8daed5c93"
+      },
+      "calls": [
+        {
+          "name": "packet_a",
+          "id": "call_00_ET_0Qx1CtMR8IGSfleJeuPf9999",
+          "input": {},
+          "result_tool_use_id": "call_00_ET_0Qx1CtMR8IGSfleJeuPf9999",
+          "source": "A2",
+          "file": "faces/dup2-packet_a.txt",
+          "source_text_sha256": "621a6cea9b9eff9c97a027574f3eaf906d365c75e62d6105f99a4f350138d5ab",
+          "derived_text_sha256": "9ab9843f6be817014aebdb33220821c5fa3a5e5b2eda96041532ada625a1520f",
+          "source_text_bytes": 1979,
+          "derived_text_bytes": 1979,
+          "path_transform": {
+            "applied": true,
+            "byte_interval": [
+              1798,
+              1910
+            ],
+            "original_span_sha256": "af25e1267310bc1baf320fa743b77532d6f009489f489b98464a4ef056fb89de",
+            "placeholder": "X",
+            "byte_length_preserved": true
+          },
+          "source_intervals": [
+            [
+              0,
+              868
+            ],
+            [
+              15136,
+              16000
+            ]
+          ],
+          "M_source": 1732,
+          "wrapper_bytes": 247,
+          "omitted_bytes": 14268
+        },
+        {
+          "name": "packet_b",
+          "id": "call_01_ET_6qig1WJxWiXKWjGPNOOn9584",
+          "input": {},
+          "result_tool_use_id": "call_01_ET_6qig1WJxWiXKWjGPNOOn9584",
+          "source": "A2",
+          "file": "faces/dup2-packet_b.txt",
+          "source_text_sha256": "723637dcbac182d9ae1f13852c0a04efe0b540c1773d91de8d344bcc045af6b5",
+          "derived_text_sha256": "9ab9843f6be817014aebdb33220821c5fa3a5e5b2eda96041532ada625a1520f",
+          "source_text_bytes": 1979,
+          "derived_text_bytes": 1979,
+          "path_transform": {
+            "applied": true,
+            "byte_interval": [
+              1798,
+              1910
+            ],
+            "original_span_sha256": "a7cddeae3c8717eeb35d4ece32698cb450c358a83e3399de8e35adfb7284d9bc",
+            "placeholder": "X",
+            "byte_length_preserved": true
+          },
+          "source_intervals": [
+            [
+              0,
+              868
+            ],
+            [
+              15136,
+              16000
+            ]
+          ],
+          "M_source": 1732,
+          "wrapper_bytes": 247,
+          "omitted_bytes": 14268
+        }
+      ],
+      "answer": {
+        "file": "answers/dup2.txt",
+        "sha256": "5ce2e4ad422d06b96f74513b485faf31b1ba2d46f2d3a0b1c77902b62825e6e4",
+        "bytes": 2891,
+        "transformed": false
+      },
+      "I_text": 1400,
+      "M_source_max": 1732,
+      "two_call_source_bytes_sum": 3464,
+      "M_residual_vs_mock": 4,
+      "provider_usage_events": [
+        {
+          "request": 1,
+          "provider_usage_events": [
+            {
+              "event": "message_start",
+              "usage": {
+                "input_tokens": 134,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 382,
+                "output_tokens": 0,
+                "service_tier": "standard"
+              }
+            },
+            {
+              "event": "message_delta",
+              "usage": {
+                "input_tokens": 134,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 382,
+                "output_tokens": 36,
+                "service_tier": "standard"
+              },
+              "stop_reason": "tool_use"
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "provider_usage_events": [
+            {
+              "event": "message_start",
+              "usage": {
+                "input_tokens": 1341,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 1408,
+                "output_tokens": 0,
+                "service_tier": "standard"
+              }
+            },
+            {
+              "event": "message_delta",
+              "usage": {
+                "input_tokens": 1341,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 1408,
+                "output_tokens": 2918,
+                "service_tier": "standard"
+              },
+              "stop_reason": "end_turn"
+            }
+          ]
+        }
+      ],
+      "client_accounting": {
+        "durable_intents": 2,
+        "confirmed": 2,
+        "unknown_upper_bound": 0
+      }
+    }
+  ]
+}
