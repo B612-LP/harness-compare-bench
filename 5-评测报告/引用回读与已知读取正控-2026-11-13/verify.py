@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v16"
+            data["schema"] == "knownread-20261113-v17"
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -640,6 +640,98 @@ def verify(data: dict) -> dict:
             and ss["wb-e2-192k-alt"]["est_tokens"] == 28978
             and ss["wb-e2-176k"]["est_tokens"] == 42464
             and "refuted" in r["branch"]
+        )
+
+
+    if "ring49_multi_output_composition" in data:
+        r = data["ring49_multi_output_composition"]
+        checks["ring49_shape"] = (
+            r["prereg_seal_49"] == "5a097ba3b9b2334f"
+            and r["branch"] == "per_result_budget_both"
+            and r["dsh_sessions"]["ms-01"]["footers_r2"] == [33056, 33056]
+            and r["dsh_sessions"]["ms-01"]["footers_r3"] == [33056, 33056]
+            and r["dsh_sessions"]["ms-02"]["footers_r2"] == [33056, 33056]
+            and r["dsh_sessions"]["ms-02"]["keys"] == "3/3"
+            and r["dsh_sessions"]["ms-01"]["usage_r2_tokens"] == 35228
+            and r["codex_sessions"]["mx-01"]["folded_faces"] == [10210, 10210]
+            and r["codex_sessions"]["mx-02"]["original_token_declared_each"] == 16376
+            and r["codex_sessions"]["mx-02"]["keys"] == "3/3"
+        )
+    if "ring49b_wb_doubao_composition" in data:
+        r = data["ring49b_wb_doubao_composition"]
+        checks["ring49b_shape"] = (
+            r["prereg_seal_49b"] == "b1b3c49e4a550693"
+            and r["combined_branch"] == "per_call_independent_confirmed_with_one_transient_slot"
+            and r["wb_sessions"]["wb-m-01"]["refusal_est_list"] == [24000, 24000]
+            and r["wb_sessions"]["wb-m-01"]["keys"] == "3/3"
+            and r["wb_sessions"]["wb-m-02"]["keys"] == "0/3 undecided"
+            and r["wb_sessions"]["wb-m-02"]["status"] == "waiting_user"
+            and r["doubao_sessions"]["db-m-01"]["truncation_marker_count"] == 2
+            and r["doubao_sessions"]["db-m-02"]["keys"] == "3/3"
+        )
+    if "ring50_recovery_cost" in data:
+        r = data["ring50_recovery_cost"]
+        checks["ring50_shape"] = (
+            r["prereg_seal_50"] == "e69e28ee003514fe"
+            and r["branch"] == "mixed"
+            and r["per_product"]["dsh"]["window_bytes"] == [510, 1700]
+            and r["per_product"]["codex"]["rg_client_chars"] == [188, 253]
+            and r["per_product"]["wb"]["grep_chars"] == 447
+            and r["per_product"]["doubao"]["usage_face"] == "none (no usage surface)"
+        )
+    if "ring51_dsh_onset" in data:
+        r = data["ring51_dsh_onset"]
+        checks["ring51_shape"] = (
+            r["prereg_seal_51"] == "1196a9bbca9f6626"
+            and r["branch"] == "onset_different_threshold"
+            and r["trim_budget_bytes"] == 32448
+            and r["sessions"]["on-32448"]["spilled"] is False
+            and r["sessions"]["on-32452"]["spilled"] is False
+            and r["sessions"]["on-32452"]["probe_bytes"] == 32452
+            and r["sessions"]["on-32452"]["keys"] == "3/3"
+            and r["sessions"]["on-32452"]["note"].startswith("budget+4B inline full")
+        )
+        checks["ring51_no_spill_honesty"] = (
+            r["sessions"]["on-32452"]["omitted"] is None
+            and "NOT the trim budget" in r["finding"]
+        )
+    if "ring52_trigger_byteside" in data:
+        r = data["ring52_trigger_byteside"]
+        checks["ring52_shape"] = (
+            r["prereg_seal_52"] == "b89165452fd9cb1c"
+            and r["branch"] == "trigger_below_32768_confirmed"
+            and r["sessions"]["t-32768"]["omitted"] == 320
+            and r["sessions"]["t-32768"]["predicted"] == 320
+            and r["sessions"]["t-33600"]["omitted"] == 1152
+            and r["sessions"]["t-33600"]["predicted"] == 1152
+            and r["sessions"]["t-33600"]["keys"] == "3/3"
+        )
+    if "ring53_codex_margin" in data:
+        r = data["ring53_codex_margin"]
+        checks["ring53_shape"] = (
+            r["prereg_seal_53"] == "2796b8ba556e7100"
+            and r["branch"] == "fold_gate_strict_at_budget"
+            and r["sessions"]["fg-10001-01"]["probe_bytes"] == 10001
+            and r["sessions"]["fg-10001-01"]["folded"] is True
+            and r["sessions"]["fg-10001-01"]["declared_original_tokens"] == 2501
+            and r["sessions"]["fg-10001-01"]["marker"] == "1 chars truncated"
+        )
+        checks["ring53_margin_strictness"] = (
+            "strict >" in r["finding"] and "margin <= 1 byte" in r["finding"]
+        )
+    if "ring54_gateboundary" in data:
+        r = data["ring54_gateboundary"]
+        checks["ring54_shape"] = (
+            r["prereg_seal_54"] == "f5033c58852a1747"
+            and r["branch"] == "gate_strict_above_nominal_both"
+            and r["sessions"]["wb-x-01"]["refusal_est"] == 20001
+            and r["sessions"]["wb-x-01"]["cap"] == 20000
+            and r["sessions"]["db-x-01"]["refusal_est"] == 25001
+            and r["sessions"]["db-x-01"]["cap"] == 25000
+            and r["sessions"]["db-x-01"]["keys"] == "3/3"
+        )
+        checks["ring54_trigger_semantics_summary"] = (
+            "DSH slack" in r["finding"] and "strict >" in r["finding"]
         )
 
     checks["ring44_estimator_update_v16"] = (

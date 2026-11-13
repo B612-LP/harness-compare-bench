@@ -493,5 +493,37 @@ class FullResult(unittest.TestCase):
         self.assertFalse(verify.verify(bad)["ok"])
 
 
+    def test_tampered_ring49_detected(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring49_multi_output_composition"]["dsh_sessions"]["ms-01"]["footers_r2"] = [33056]
+        self.assertFalse(verify.verify(bad)["ok"])
+        bad2 = copy.deepcopy(self.data)
+        bad2["ring49_multi_output_composition"]["codex_sessions"]["mx-01"]["folded_faces"] = [10210, 9000]
+        self.assertFalse(verify.verify(bad2)["ok"])
+
+    def test_tampered_ring51_detected(self):
+        bad = copy.deepcopy(self.data)
+        r = bad["ring51_dsh_onset"]["sessions"]["on-32452"]
+        r["spilled"] = True
+        r["omitted"] = 4
+        self.assertFalse(verify.verify(bad)["ok"])
+
+    def test_tampered_ring53_detected(self):
+        bad = copy.deepcopy(self.data)
+        r = bad["ring53_codex_margin"]["sessions"]["fg-10001-01"]
+        r["probe_bytes"] = 10004
+        r["declared_original_tokens"] = 2501
+        self.assertFalse(verify.verify(bad)["ok"])
+
+    def test_tampered_ring54_detected(self):
+        bad = copy.deepcopy(self.data)
+        r = bad["ring54_gateboundary"]["sessions"]["wb-x-01"]
+        r["refusal_est"] = 20000
+        self.assertFalse(verify.verify(bad)["ok"])
+        bad2 = copy.deepcopy(self.data)
+        bad2["ring54_gateboundary"]["sessions"]["db-x-01"]["keys"] = "2/3"
+        self.assertFalse(verify.verify(bad2)["ok"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
