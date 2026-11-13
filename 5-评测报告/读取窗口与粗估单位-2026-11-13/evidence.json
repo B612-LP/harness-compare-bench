@@ -1,0 +1,1136 @@
+{
+  "schema": "read-window-derived-evidence-v1",
+  "policy": {
+    "default_lines": 2000,
+    "line_utf16_cap": 2000,
+    "maximum": 20000,
+    "file_size_gate_bytes": 262144,
+    "fixed_prefix_bytes": 169860,
+    "units": "UTF16_code_units_with_BMP_4E00_9FA5_weighted_separate_ceil"
+  },
+  "provenance": {
+    "kind": "anonymized_derived_not_original",
+    "raw_http_included": false,
+    "proprietary_source_included": false,
+    "source_pin_is_runtime_attestation": false,
+    "unicode_product_validation": false,
+    "new_product_n": 0,
+    "prior_unicode_attempt": "unknown_stopped",
+    "scientific_audit_status": "pending_at_candidate_generation"
+  },
+  "owner_commitments": {
+    "desktop_version": "5.9.3",
+    "bundled_cli_version": "2.165.0",
+    "desktop_archive_sha256": "12a2be53ec7db2943a9958f6986d7807adcf083bd79b307d26706d83750effa7",
+    "read_owner_bundle_sha256": "5cebda9a075c17a5eefa302342a5b2e1c236455cee05b09fac11244600f91465",
+    "window_method_sha256": "027dc4672f6511c55ef078903422f0c6d6a25b26eeb3931fdd6ed505d11c0764",
+    "estimator_method_sha256": "1275743298d68d201f7b254a08971d8568cd9b24da79b1343f69c87e06b08cb1",
+    "scope": "static source commitments; no runtime attestation or proprietary source distribution"
+  },
+  "points": [
+    {
+      "id": "P01",
+      "read": "R04",
+      "session": "S04",
+      "source_file": "fixtures/P01.txt",
+      "declaration": {
+        "estimate": 42486,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 42486 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "cba3447589776de37bb572ca2f9b2cdd2caf908b4f7a61d850fcd77a5636de9c",
+      "derived_source_sha256": "c36d659e006fd65da1a63bb618164bccc826abe913cf422ab15fa8da7a12845d",
+      "original_trace_sha256": "92475757bf87676a6aa98ba2abb45b5ca01876bd43ba997198a48db572a62da7",
+      "original_call_id_sha256": "07ded36c0efd93d4207d7650d7761f72c2a7c9b49597b17d00fb83ebd1b821aa",
+      "original_source_units": {
+        "utf8_bytes": 262109,
+        "utf16_units": 262109,
+        "codepoints": 262109,
+        "split_lines": 3086,
+        "LF": 3085,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 169941,
+        "utf16_units": 169941,
+        "codepoints": 169941,
+        "split_lines": 2000,
+        "LF": 1999,
+        "CR": 0
+      },
+      "original_window_sha256": "71f659470987ce8d403b3aa16d321635b80bb6b0b0f720fc0e471fe1c648eaa3",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 262109,
+          "utf16_units": 262109,
+          "codepoints": 262109,
+          "split_lines": 3086,
+          "LF": 3085,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 169941,
+          "utf16_units": 169941,
+          "codepoints": 169941,
+          "split_lines": 2000,
+          "LF": 1999,
+          "CR": 0
+        },
+        "window_sha256": "b0cd9f1bfa474459c453b5702c5118a2a1fa5c66a5f9504920e6d61c44bf11e9",
+        "selected_lines": 2000,
+        "lines_truncated": 0,
+        "hybrid_estimate": 42486,
+        "full_file_bytes_div4": 65528,
+        "fixed_169860_bytes_div4": 42465,
+        "window_utf8_div4": 42486,
+        "window_utf16_div4": 42486,
+        "window_codepoints_div4": 42486
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P02",
+      "read": "R08",
+      "session": "S07",
+      "source_file": "fixtures/P02.txt",
+      "declaration": {
+        "estimate": 28000,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 28000 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "7bbd18d365d1b848c0410d05d9203385a03c36ea3e887148af877da5f423814c",
+      "derived_source_sha256": "ca2eeaba9aab0afd74972c3eebed1d5f764dd51df3c0ef367b5ad3a36d1bfac0",
+      "original_trace_sha256": "a91b60de71a73bd2df63594dc1d491a63de5cdbb03d4d84b7ea6b91b644bc4de",
+      "original_call_id_sha256": "30d9e3ac0c3c1ec8d132693e954d430cb1f97dd4d2269690b99f11962e4e3c51",
+      "original_source_units": {
+        "utf8_bytes": 112000,
+        "utf16_units": 112000,
+        "codepoints": 112000,
+        "split_lines": 1321,
+        "LF": 1320,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 112000,
+        "utf16_units": 112000,
+        "codepoints": 112000,
+        "split_lines": 1321,
+        "LF": 1320,
+        "CR": 0
+      },
+      "original_window_sha256": "7bbd18d365d1b848c0410d05d9203385a03c36ea3e887148af877da5f423814c",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 112000,
+          "utf16_units": 112000,
+          "codepoints": 112000,
+          "split_lines": 1321,
+          "LF": 1320,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 112000,
+          "utf16_units": 112000,
+          "codepoints": 112000,
+          "split_lines": 1321,
+          "LF": 1320,
+          "CR": 0
+        },
+        "window_sha256": "ca2eeaba9aab0afd74972c3eebed1d5f764dd51df3c0ef367b5ad3a36d1bfac0",
+        "selected_lines": 1321,
+        "lines_truncated": 0,
+        "hybrid_estimate": 28000,
+        "full_file_bytes_div4": 28000,
+        "fixed_169860_bytes_div4": 28000,
+        "window_utf8_div4": 28000,
+        "window_utf16_div4": 28000,
+        "window_codepoints_div4": 28000
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P03",
+      "read": "R09",
+      "session": "S08",
+      "source_file": "fixtures/P03.txt",
+      "declaration": {
+        "estimate": 42465,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 42465 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "98e4093ce8a7f63c0072e1fd3c45b792e44252aaa9a7425c1c0548a77ea5a3c6",
+      "derived_source_sha256": "fa1ce5f4c2834963594613e564377a9b81921e6fea296e4577e7d270adc12780",
+      "original_trace_sha256": "f9371b097e3e4c3aaddcf35f7c18c953c6ab79655b854b93bbb2a7b7e4066caf",
+      "original_call_id_sha256": "73d2d449b144c0af8de3497c32f12adefb97950d53d4d93bffbc703b1361004f",
+      "original_source_units": {
+        "utf8_bytes": 192000,
+        "utf16_units": 192000,
+        "codepoints": 192000,
+        "split_lines": 2263,
+        "LF": 2262,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 169858,
+        "utf16_units": 169858,
+        "codepoints": 169858,
+        "split_lines": 2000,
+        "LF": 1999,
+        "CR": 0
+      },
+      "original_window_sha256": "c7bd6c383b1f9266b121a0bfd621ca61c79f4ee863fc729589f0edf19cbf48aa",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 192000,
+          "utf16_units": 192000,
+          "codepoints": 192000,
+          "split_lines": 2263,
+          "LF": 2262,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 169858,
+          "utf16_units": 169858,
+          "codepoints": 169858,
+          "split_lines": 2000,
+          "LF": 1999,
+          "CR": 0
+        },
+        "window_sha256": "52632a42603a7b7b67f411953c73622f227988a4738cd7d5e47f9cfccbff740f",
+        "selected_lines": 2000,
+        "lines_truncated": 0,
+        "hybrid_estimate": 42465,
+        "full_file_bytes_div4": 48000,
+        "fixed_169860_bytes_div4": 42465,
+        "window_utf8_div4": 42465,
+        "window_utf16_div4": 42465,
+        "window_codepoints_div4": 42465
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P04",
+      "read": "R10",
+      "session": "S09",
+      "source_file": "fixtures/P04.txt",
+      "declaration": {
+        "estimate": 24000,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 24000 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "a3b2fee3f9b2063062ca780e1c831dabe251b2c178230850e2b17ae0fee11f31",
+      "derived_source_sha256": "a18a0f3a88de6f8283c8987562fc4d329ed1616f0a7499d8cc0d7a41fe08625e",
+      "original_trace_sha256": "1d94129686de8da4e4f4a915841f88ad4f4fa03a99db5adabb1e99a768a50ac9",
+      "original_call_id_sha256": "f29f3d81a8a51b3a919f381bf0918d20fbb32df8d6d2bdc52dd3dd22cbf6f894",
+      "original_source_units": {
+        "utf8_bytes": 96000,
+        "utf16_units": 96000,
+        "codepoints": 96000,
+        "split_lines": 1132,
+        "LF": 1131,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 96000,
+        "utf16_units": 96000,
+        "codepoints": 96000,
+        "split_lines": 1132,
+        "LF": 1131,
+        "CR": 0
+      },
+      "original_window_sha256": "a3b2fee3f9b2063062ca780e1c831dabe251b2c178230850e2b17ae0fee11f31",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 96000,
+          "utf16_units": 96000,
+          "codepoints": 96000,
+          "split_lines": 1132,
+          "LF": 1131,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 96000,
+          "utf16_units": 96000,
+          "codepoints": 96000,
+          "split_lines": 1132,
+          "LF": 1131,
+          "CR": 0
+        },
+        "window_sha256": "a18a0f3a88de6f8283c8987562fc4d329ed1616f0a7499d8cc0d7a41fe08625e",
+        "selected_lines": 1132,
+        "lines_truncated": 0,
+        "hybrid_estimate": 24000,
+        "full_file_bytes_div4": 24000,
+        "fixed_169860_bytes_div4": 24000,
+        "window_utf8_div4": 24000,
+        "window_utf16_div4": 24000,
+        "window_codepoints_div4": 24000
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P05",
+      "read": "R12",
+      "session": "S10",
+      "source_file": "fixtures/P05.txt",
+      "declaration": {
+        "estimate": 32000,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 32000 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "d9e51aa99c9fc5f5bf9dfe98127531dfdd4ac6daf7f6e70f663e4b2db716b38f",
+      "derived_source_sha256": "59e5979cf93b51be70cfebf0de48b8d94dd208bc2586349dbc48fec3b44654fc",
+      "original_trace_sha256": "6b6bb8d504c5c263574d12e974bf3ecffc734cca39f393d5f174d7a066f10d28",
+      "original_call_id_sha256": "ff71bd1b4b11a965c5f77e008acb0de19634ea0cfc2a7d546fb77771faed7e67",
+      "original_source_units": {
+        "utf8_bytes": 128000,
+        "utf16_units": 128000,
+        "codepoints": 128000,
+        "split_lines": 1508,
+        "LF": 1507,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 128000,
+        "utf16_units": 128000,
+        "codepoints": 128000,
+        "split_lines": 1508,
+        "LF": 1507,
+        "CR": 0
+      },
+      "original_window_sha256": "d9e51aa99c9fc5f5bf9dfe98127531dfdd4ac6daf7f6e70f663e4b2db716b38f",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 128000,
+          "utf16_units": 128000,
+          "codepoints": 128000,
+          "split_lines": 1508,
+          "LF": 1507,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 128000,
+          "utf16_units": 128000,
+          "codepoints": 128000,
+          "split_lines": 1508,
+          "LF": 1507,
+          "CR": 0
+        },
+        "window_sha256": "59e5979cf93b51be70cfebf0de48b8d94dd208bc2586349dbc48fec3b44654fc",
+        "selected_lines": 1508,
+        "lines_truncated": 0,
+        "hybrid_estimate": 32000,
+        "full_file_bytes_div4": 32000,
+        "fixed_169860_bytes_div4": 32000,
+        "window_utf8_div4": 32000,
+        "window_utf16_div4": 32000,
+        "window_codepoints_div4": 32000
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P06",
+      "read": "R13",
+      "session": "S11",
+      "source_file": "fixtures/P06.txt",
+      "declaration": {
+        "estimate": 40000,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 40000 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "a82106d950fcfbdcaa7f79136260cbaa7640e2ca3df7964867ab8b92669cb035",
+      "derived_source_sha256": "d9f8008b110357b69d208a7d01484e385cf85ba9f7bdbc94cc1ff0042f9c16f0",
+      "original_trace_sha256": "c0a377adbf4b35b25bc80ae80132812edf02a987ea3c82d49b39bfc377d73f4f",
+      "original_call_id_sha256": "3ac065b51f6115e713d19cfbc7b090043fbed8113e4a00cf9fe04ca36c466d90",
+      "original_source_units": {
+        "utf8_bytes": 160000,
+        "utf16_units": 160000,
+        "codepoints": 160000,
+        "split_lines": 1885,
+        "LF": 1884,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 160000,
+        "utf16_units": 160000,
+        "codepoints": 160000,
+        "split_lines": 1885,
+        "LF": 1884,
+        "CR": 0
+      },
+      "original_window_sha256": "a82106d950fcfbdcaa7f79136260cbaa7640e2ca3df7964867ab8b92669cb035",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 160000,
+          "utf16_units": 160000,
+          "codepoints": 160000,
+          "split_lines": 1885,
+          "LF": 1884,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 160000,
+          "utf16_units": 160000,
+          "codepoints": 160000,
+          "split_lines": 1885,
+          "LF": 1884,
+          "CR": 0
+        },
+        "window_sha256": "d9f8008b110357b69d208a7d01484e385cf85ba9f7bdbc94cc1ff0042f9c16f0",
+        "selected_lines": 1885,
+        "lines_truncated": 0,
+        "hybrid_estimate": 40000,
+        "full_file_bytes_div4": 40000,
+        "fixed_169860_bytes_div4": 40000,
+        "window_utf8_div4": 40000,
+        "window_utf16_div4": 40000,
+        "window_codepoints_div4": 40000
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P07",
+      "read": "R14",
+      "session": "S12",
+      "source_file": "fixtures/P07.txt",
+      "declaration": {
+        "estimate": 42465,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 42465 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "6a0987cefcd3bcabae4622d6be6e061e08e6ca4988cd62a021b879f43929adc8",
+      "derived_source_sha256": "c5b8c9e350923b51dbc0801133de0d67bafc2244785ee813208f21ba30248085",
+      "original_trace_sha256": "77ed3bde182285e93bed313a43b747bc021356fed0f9e599d436c799b17feea2",
+      "original_call_id_sha256": "5d5d4571ef9ce0f8c124032e0475dccbcdd476d0f4d24e6ba9c71a152b9d9621",
+      "original_source_units": {
+        "utf8_bytes": 224000,
+        "utf16_units": 224000,
+        "codepoints": 224000,
+        "split_lines": 2638,
+        "LF": 2637,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 169858,
+        "utf16_units": 169858,
+        "codepoints": 169858,
+        "split_lines": 2000,
+        "LF": 1999,
+        "CR": 0
+      },
+      "original_window_sha256": "b9febeb6c17d0998478ca358dbcbfc3343c41ba0dbbb72e67cc352761e7a1999",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 224000,
+          "utf16_units": 224000,
+          "codepoints": 224000,
+          "split_lines": 2638,
+          "LF": 2637,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 169858,
+          "utf16_units": 169858,
+          "codepoints": 169858,
+          "split_lines": 2000,
+          "LF": 1999,
+          "CR": 0
+        },
+        "window_sha256": "52632a42603a7b7b67f411953c73622f227988a4738cd7d5e47f9cfccbff740f",
+        "selected_lines": 2000,
+        "lines_truncated": 0,
+        "hybrid_estimate": 42465,
+        "full_file_bytes_div4": 56000,
+        "fixed_169860_bytes_div4": 42465,
+        "window_utf8_div4": 42465,
+        "window_utf16_div4": 42465,
+        "window_codepoints_div4": 42465
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P08",
+      "read": "R15",
+      "session": "S13",
+      "source_file": "fixtures/P08.txt",
+      "declaration": {
+        "estimate": 28978,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 28978 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "60e8063c3e38e4f96ab25f0324414353c20861131099e1a67c49afb2e1024623",
+      "derived_source_sha256": "327fcfe2f175c4f248dccd9e955a4910554d151f7933f5fce0c70e66a462dfa3",
+      "original_trace_sha256": "3d2e856faefba179df4ad8addb702f952a1f746c1b402d1c2ed30e42dc94441a",
+      "original_call_id_sha256": "30cebaac0bc85e3a044e30c5aaa56e2e542f473775d5e5803ce3dd0529712c77",
+      "original_source_units": {
+        "utf8_bytes": 192000,
+        "utf16_units": 192000,
+        "codepoints": 192000,
+        "split_lines": 3192,
+        "LF": 3191,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 115910,
+        "utf16_units": 115910,
+        "codepoints": 115910,
+        "split_lines": 2000,
+        "LF": 1999,
+        "CR": 0
+      },
+      "original_window_sha256": "2655107d8525d26ec2763b02e476a6aeaaf89aa5e0a3bb3005b22978cfcc81b9",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 192000,
+          "utf16_units": 192000,
+          "codepoints": 192000,
+          "split_lines": 3192,
+          "LF": 3191,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 115910,
+          "utf16_units": 115910,
+          "codepoints": 115910,
+          "split_lines": 2000,
+          "LF": 1999,
+          "CR": 0
+        },
+        "window_sha256": "20b4fd444e517b6bc0b8502f1c1db4d0e5a2ba50a761a9abbecd2714ccbb9448",
+        "selected_lines": 2000,
+        "lines_truncated": 0,
+        "hybrid_estimate": 28978,
+        "full_file_bytes_div4": 48000,
+        "fixed_169860_bytes_div4": 42465,
+        "window_utf8_div4": 28978,
+        "window_utf16_div4": 28978,
+        "window_codepoints_div4": 28978
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P09",
+      "read": "R16",
+      "session": "S14",
+      "source_file": "fixtures/P09.txt",
+      "declaration": {
+        "estimate": 42464,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 42464 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "be9860aaa4908c272ade630b94b9e069e2e69600d7c51c72ebc1a1078bcf62cb",
+      "derived_source_sha256": "0224a3c228bfef2e963c52884c879151bd3267f1d56561b31fc9a274dc2a309e",
+      "original_trace_sha256": "b567a31cb01069426a72e81ea44ba8d434df90727ee2009fbb058b5ca9072401",
+      "original_call_id_sha256": "37cf30fe7cfb1cbf6404c203453200e872a2f734015068c2307e48fae254cb15",
+      "original_source_units": {
+        "utf8_bytes": 176000,
+        "utf16_units": 176000,
+        "codepoints": 176000,
+        "split_lines": 2073,
+        "LF": 2072,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 169856,
+        "utf16_units": 169856,
+        "codepoints": 169856,
+        "split_lines": 2000,
+        "LF": 1999,
+        "CR": 0
+      },
+      "original_window_sha256": "89ed9dd0ce6d2fa6f4d9a36d4c0d43f0c7126edd9b34d140fc97da731bf7658c",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 176000,
+          "utf16_units": 176000,
+          "codepoints": 176000,
+          "split_lines": 2073,
+          "LF": 2072,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 169856,
+          "utf16_units": 169856,
+          "codepoints": 169856,
+          "split_lines": 2000,
+          "LF": 1999,
+          "CR": 0
+        },
+        "window_sha256": "cd6adb14f6b08267ecc7dcd66fe05b1acce69312d8671dc2c9802286320f8d53",
+        "selected_lines": 2000,
+        "lines_truncated": 0,
+        "hybrid_estimate": 42464,
+        "full_file_bytes_div4": 44000,
+        "fixed_169860_bytes_div4": 42465,
+        "window_utf8_div4": 42464,
+        "window_utf16_div4": 42464,
+        "window_codepoints_div4": 42464
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P10",
+      "read": "R17",
+      "session": "S15",
+      "source_file": "fixtures/P10.txt",
+      "declaration": {
+        "estimate": 24000,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 24000 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "a3b2fee3f9b2063062ca780e1c831dabe251b2c178230850e2b17ae0fee11f31",
+      "derived_source_sha256": "a18a0f3a88de6f8283c8987562fc4d329ed1616f0a7499d8cc0d7a41fe08625e",
+      "original_trace_sha256": "3ba88aa0ca58dff3bc0ad0debdd94bf05539505ef85937b3a825b85471663eb2",
+      "original_call_id_sha256": "6e80c3fa1e3c98774e73ad4d480f12aa778907c39d3d6527d02f83dbb2391ab4",
+      "original_source_units": {
+        "utf8_bytes": 96000,
+        "utf16_units": 96000,
+        "codepoints": 96000,
+        "split_lines": 1132,
+        "LF": 1131,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 96000,
+        "utf16_units": 96000,
+        "codepoints": 96000,
+        "split_lines": 1132,
+        "LF": 1131,
+        "CR": 0
+      },
+      "original_window_sha256": "a3b2fee3f9b2063062ca780e1c831dabe251b2c178230850e2b17ae0fee11f31",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 96000,
+          "utf16_units": 96000,
+          "codepoints": 96000,
+          "split_lines": 1132,
+          "LF": 1131,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 96000,
+          "utf16_units": 96000,
+          "codepoints": 96000,
+          "split_lines": 1132,
+          "LF": 1131,
+          "CR": 0
+        },
+        "window_sha256": "a18a0f3a88de6f8283c8987562fc4d329ed1616f0a7499d8cc0d7a41fe08625e",
+        "selected_lines": 1132,
+        "lines_truncated": 0,
+        "hybrid_estimate": 24000,
+        "full_file_bytes_div4": 24000,
+        "fixed_169860_bytes_div4": 24000,
+        "window_utf8_div4": 24000,
+        "window_utf16_div4": 24000,
+        "window_codepoints_div4": 24000
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P11",
+      "read": "R18",
+      "session": "S15",
+      "source_file": "fixtures/P11.txt",
+      "declaration": {
+        "estimate": 24000,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 24000 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "8fe66b9931669faf5c5f0656d8db4ccac8deb1f6f833d563dc2151bf2741b2e3",
+      "derived_source_sha256": "3108e67690f943a094b4c5d650640b9db57cd2273f41a264c25b4b0b8bee88a8",
+      "original_trace_sha256": "3ba88aa0ca58dff3bc0ad0debdd94bf05539505ef85937b3a825b85471663eb2",
+      "original_call_id_sha256": "6a06f3f4abb74e4e2a97b6c97679bc1fa1a144407812ec7c3cafb3bc55b84c66",
+      "original_source_units": {
+        "utf8_bytes": 96000,
+        "utf16_units": 96000,
+        "codepoints": 96000,
+        "split_lines": 1106,
+        "LF": 1105,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 96000,
+        "utf16_units": 96000,
+        "codepoints": 96000,
+        "split_lines": 1106,
+        "LF": 1105,
+        "CR": 0
+      },
+      "original_window_sha256": "8fe66b9931669faf5c5f0656d8db4ccac8deb1f6f833d563dc2151bf2741b2e3",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 96000,
+          "utf16_units": 96000,
+          "codepoints": 96000,
+          "split_lines": 1106,
+          "LF": 1105,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 96000,
+          "utf16_units": 96000,
+          "codepoints": 96000,
+          "split_lines": 1106,
+          "LF": 1105,
+          "CR": 0
+        },
+        "window_sha256": "3108e67690f943a094b4c5d650640b9db57cd2273f41a264c25b4b0b8bee88a8",
+        "selected_lines": 1106,
+        "lines_truncated": 0,
+        "hybrid_estimate": 24000,
+        "full_file_bytes_div4": 24000,
+        "fixed_169860_bytes_div4": 24000,
+        "window_utf8_div4": 24000,
+        "window_utf16_div4": 24000,
+        "window_codepoints_div4": 24000
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P12",
+      "read": "R21",
+      "session": "S17",
+      "source_file": "fixtures/P12.txt",
+      "declaration": {
+        "estimate": 20001,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 20001 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "5ff6152942532b659f7f98cf921659c451fb012db1bf39c92f7d0e30fe17e293",
+      "derived_source_sha256": "5572136476b6a47d336b020147699e789ad8fb65c14509b060adbb58967b6f33",
+      "original_trace_sha256": "170dee8ec681fc497fa8cae0e84e540ba11a7cd39e909e6fa41de8e7db7ee590",
+      "original_call_id_sha256": "5df317427fc21c8ccee8fbc3854b85bbd9a09623bb97b61f3c3a304ae0246435",
+      "original_source_units": {
+        "utf8_bytes": 80004,
+        "utf16_units": 80004,
+        "codepoints": 80004,
+        "split_lines": 943,
+        "LF": 942,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 80004,
+        "utf16_units": 80004,
+        "codepoints": 80004,
+        "split_lines": 943,
+        "LF": 942,
+        "CR": 0
+      },
+      "original_window_sha256": "5ff6152942532b659f7f98cf921659c451fb012db1bf39c92f7d0e30fe17e293",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 80004,
+          "utf16_units": 80004,
+          "codepoints": 80004,
+          "split_lines": 943,
+          "LF": 942,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 80004,
+          "utf16_units": 80004,
+          "codepoints": 80004,
+          "split_lines": 943,
+          "LF": 942,
+          "CR": 0
+        },
+        "window_sha256": "5572136476b6a47d336b020147699e789ad8fb65c14509b060adbb58967b6f33",
+        "selected_lines": 943,
+        "lines_truncated": 0,
+        "hybrid_estimate": 20001,
+        "full_file_bytes_div4": 20001,
+        "fixed_169860_bytes_div4": 20001,
+        "window_utf8_div4": 20001,
+        "window_utf16_div4": 20001,
+        "window_codepoints_div4": 20001
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    },
+    {
+      "id": "P13",
+      "read": "R23",
+      "session": "S18",
+      "source_file": "fixtures/P13.txt",
+      "declaration": {
+        "estimate": 24000,
+        "maximum": 20000,
+        "status": "incomplete",
+        "text": "File content (estimated 24000 tokens) exceeds maximum allowed tokens (20000). Please use offset and limit parameters to read specific portions of the file, or use the GrepTool to search for specific content."
+      },
+      "original_source_sha256": "1e71702f48772871a5e3a6e1b721b07179686c34638ea3a49da00e3d54e9330a",
+      "derived_source_sha256": "84fb99bb1d4fe3ff5c81dc5aafa5206a5d181790f4cd3130600e7a4981602df8",
+      "original_trace_sha256": "0e8877a10bae1894eff1be4e2a0151f5558834e1b45ff4df37c1018bca4a956a",
+      "original_call_id_sha256": "b255517b504066626b5fc24349e576f58b78e73efa3222510da103727da11cb3",
+      "original_source_units": {
+        "utf8_bytes": 96000,
+        "utf16_units": 96000,
+        "codepoints": 96000,
+        "split_lines": 891,
+        "LF": 890,
+        "CR": 0
+      },
+      "original_window_units": {
+        "utf8_bytes": 96000,
+        "utf16_units": 96000,
+        "codepoints": 96000,
+        "split_lines": 891,
+        "LF": 890,
+        "CR": 0
+      },
+      "original_window_sha256": "1e71702f48772871a5e3a6e1b721b07179686c34638ea3a49da00e3d54e9330a",
+      "derived_metrics": {
+        "source_units": {
+          "utf8_bytes": 96000,
+          "utf16_units": 96000,
+          "codepoints": 96000,
+          "split_lines": 891,
+          "LF": 890,
+          "CR": 0
+        },
+        "window_units": {
+          "utf8_bytes": 96000,
+          "utf16_units": 96000,
+          "codepoints": 96000,
+          "split_lines": 891,
+          "LF": 890,
+          "CR": 0
+        },
+        "window_sha256": "84fb99bb1d4fe3ff5c81dc5aafa5206a5d181790f4cd3130600e7a4981602df8",
+        "selected_lines": 891,
+        "lines_truncated": 0,
+        "hybrid_estimate": 24000,
+        "full_file_bytes_div4": 24000,
+        "fixed_169860_bytes_div4": 24000,
+        "window_utf8_div4": 24000,
+        "window_utf16_div4": 24000,
+        "window_codepoints_div4": 24000
+      },
+      "transformation": "ASCII non-CR/LF bytes replaced by x; CR/LF positions unchanged",
+      "public_source_is_original": false
+    }
+  ],
+  "ledger": [
+    {
+      "read": "R01",
+      "session": "S01",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R01"
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R02",
+      "session": "S02",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R02"
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R03",
+      "session": "S03",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R03"
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R04",
+      "session": "S04",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P01"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R05",
+      "session": "S04",
+      "initial_batch": false,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R05",
+        "limit": 40
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "noninitial_Read",
+        "explicit_offset_or_limit",
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R06",
+      "session": "S05",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R06"
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R07",
+      "session": "S06",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R07",
+        "limit": 50
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "explicit_offset_or_limit",
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R08",
+      "session": "S07",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P02"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R09",
+      "session": "S08",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P03"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R10",
+      "session": "S09",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P04"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R11",
+      "session": "S09",
+      "initial_batch": false,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R11",
+        "limit": 40
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "noninitial_Read",
+        "explicit_offset_or_limit",
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R12",
+      "session": "S10",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P05"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R13",
+      "session": "S11",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P06"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R14",
+      "session": "S12",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P07"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R15",
+      "session": "S13",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P08"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R16",
+      "session": "S14",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P09"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R17",
+      "session": "S15",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P10"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R18",
+      "session": "S15",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P11"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R19",
+      "session": "S15",
+      "initial_batch": false,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R19",
+        "limit": 10
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "noninitial_Read",
+        "explicit_offset_or_limit",
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R20",
+      "session": "S16",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R20",
+        "limit": 50
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "explicit_offset_or_limit",
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R21",
+      "session": "S17",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P12"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    },
+    {
+      "read": "R22",
+      "session": "S17",
+      "initial_batch": false,
+      "arguments_alias": {
+        "file_path": "unpublished-source-R22",
+        "limit": 50
+      },
+      "qualified": false,
+      "exclusion_reasons": [
+        "noninitial_Read",
+        "explicit_offset_or_limit",
+        "no_explicit_estimate"
+      ]
+    },
+    {
+      "read": "R23",
+      "session": "S18",
+      "initial_batch": true,
+      "arguments_alias": {
+        "file_path": "P13"
+      },
+      "qualified": true,
+      "exclusion_reasons": []
+    }
+  ],
+  "missing_or_bad_setup": [
+    {
+      "session": "S19",
+      "reason": "no_Read_call_in_archived_session"
+    },
+    {
+      "session": "S20",
+      "reason": "archived_badpromptpath_attempt_not_qualified_source_task"
+    },
+    {
+      "session": "S21",
+      "reason": "archived_badpromptpath_attempt_not_qualified_source_task"
+    },
+    {
+      "session": "S22",
+      "reason": "archived_badpromptpath_attempt_not_qualified_source_task"
+    },
+    {
+      "session": "S23",
+      "reason": "archived_badpromptpath_attempt_not_qualified_source_task"
+    }
+  ],
+  "comparison": {
+    "hybrid_estimate": 13,
+    "full_file_bytes_div4": 8,
+    "fixed_169860_bytes_div4": 10,
+    "window_utf8_div4": 13,
+    "window_utf16_div4": 13,
+    "window_codepoints_div4": 13
+  }
+}
