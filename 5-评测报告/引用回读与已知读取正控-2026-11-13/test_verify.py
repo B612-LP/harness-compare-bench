@@ -268,19 +268,30 @@ class FullResult(unittest.TestCase):
         self.assertFalse(r2['checks']['ring20_shape'])
 
     def test_tampered_ring17_detected(self):
-        r17 = "ring17_yuanbao_size_interim"
-        # 1k 点三键全对被改成 false（正控结论翻转）必须被拒
+        r17 = "ring17_yuanbao_size"
+        ss = "sessions"
+        # 64k 点三键全对被改成 false（正控结论翻转）必须被拒
         bad = copy.deepcopy(self.data)
-        bad[r17]["sessions"][0]["keys_all_correct"] = False
-        self.assertFalse(verify.verify(bad)["checks"]["ring17_interim_shape"])
-        # interim 状态被洗成 completed（阻塞事实抹除）必须被拒
+        bad[r17][ss][2]["keys_all_correct"] = False
+        self.assertFalse(verify.verify(bad)["checks"]["ring17_final_shape"])
+        # 256k 阻塞事实被洗成完成（边界抹除）必须被拒
         bad = copy.deepcopy(self.data)
-        bad[r17]["status"] = "completed"
-        self.assertFalse(verify.verify(bad)["checks"]["ring17_interim_shape"])
+        bad[r17][ss][3]["status"] = "completed"
+        bad[r17][ss][3]["keys_all_correct"] = True
+        v = verify.verify(bad)["checks"]
+        self.assertFalse(v["ring17_256k_blocked_honest"] and v["ring17_final_shape"])
+        # 模式分歧声明被删除（divergence 隐瞒）必须被拒
+        bad = copy.deepcopy(self.data)
+        del bad[r17]["mode_divergence"]
+        self.assertFalse(verify.verify(bad)["checks"]["ring17_mode_divergence_declared"])
+        # 8k SHA 修正注被删除（笔误痕迹洗掉）必须被拒
+        bad = copy.deepcopy(self.data)
+        del bad[r17][ss][1]["sha_correction_note"]
+        self.assertFalse(verify.verify(bad)["checks"]["ring17_mode_divergence_declared"])
         # probe 字节数被改（夹具身份漂移）必须被拒
         bad = copy.deepcopy(self.data)
-        bad[r17]["sessions"][0]["probe_bytes"] = 1024
-        self.assertFalse(verify.verify(bad)["checks"]["ring17_interim_shape"])
+        bad[r17][ss][2]["probe_bytes"] = 60000
+        self.assertFalse(verify.verify(bad)["checks"]["ring17_final_shape"])
 
     def test_tampered_ring23_detected(self):
         r23 = "ring23_cost_crossover"

@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] == "knownread-20261113-v17"
+            data["schema"] in ("knownread-20261113-v17", "knownread-20261113-v18")
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -376,17 +376,35 @@ def verify(data: dict) -> dict:
             and "+4" in r20["law_status"]
             and r20["qualitative_generalization"] is True
         )
-    if "ring17_yuanbao_size_interim" in data:
-        r17 = data["ring17_yuanbao_size_interim"]
-        s1 = r17["sessions"][0]
-        checks["ring17_interim_shape"] = (
-            r17["status"] == "interim"
-            and "screen lock" in r17["note"]
-            and s1["slot"] == "yb-s-1k"
-            and s1["probe_bytes"] == 990
-            and s1["fixture_sha256"] == "1355a449c2c71fdf11b6aff4c1381d3585c27e690171a3e3ef1e2af96388c054"
-            and s1["keys_all_correct"] is True
-            and s1["tail"] == "JADE-104"
+    if "ring17_yuanbao_size" in data:
+        r17 = data["ring17_yuanbao_size"]
+        ss = {x["slot"]: x for x in r17["sessions"]}
+        b256 = ss["yb-s-256k"]
+        checks["ring17_final_shape"] = (
+            r17["status"] == "final_three_of_four"
+            and r17["prereg_seal_17"] == "53475225756affc8"
+            and set(ss) == {"yb-s-1k", "yb-s-8k", "yb-s-64k", "yb-s-256k"}
+            and all(ss[k]["keys_all_correct"] is True for k in ("yb-s-1k", "yb-s-8k", "yb-s-64k"))
+            and [ss[k]["probe_bytes"] for k in ("yb-s-1k", "yb-s-8k", "yb-s-64k")] == [990, 8129, 65504]
+            and ss["yb-s-8k"]["middle"] == "b29c221876d307b00b32dcd1465e672b06440ed07f33d5142e8ad02ca11a4f18"
+            and ss["yb-s-64k"]["middle"] == "cff74c94a27f3fb8753f00e00384892d212647835254509671df3598a5b808d9"
+            and ss["yb-s-1k"]["mode"] == "专家模式"
+            and ss["yb-s-8k"]["mode"] == "深度思考" and ss["yb-s-64k"]["mode"] == "深度思考"
+            and "full-file ingestion evidence" in ss["yb-s-8k"]["ingest_evidence"]
+            and "full-file ingestion evidence" in ss["yb-s-64k"]["ingest_evidence"]
+        )
+        checks["ring17_256k_blocked_honest"] = (
+            b256["status"] == "channel_blocked"
+            and b256["keys_all_correct"] is None
+            and "native macOS Finder picker" in b256["reason_chain"][0]
+            and any("banned by user" in x for x in b256["reason_chain"])
+            and any("filtered" in x for x in b256["reason_chain"])
+        )
+        md = r17.get("mode_divergence") or {}
+        checks["ring17_mode_divergence_declared"] = (
+            md.get("per_slot", "").startswith("yb-s-1k ran")
+            and "no uniform-mode matrix claim" in md.get("scope", "")
+            and "hand-completed SHA" in r17["sessions"][1].get("sha_correction_note", "")
         )
 
     # ---- ring23 cost crossover + ring24 read unbounded (v10) ----

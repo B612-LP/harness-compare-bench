@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v17",
+ "schema": "knownread-20261113-v18",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -317,7 +317,8 @@
   "Ring 47/47b: WB est mapped behaviourally (exact chars/4 to 160k, saturated ~42465 at >=176k natural, lower on dense prefix); mechanism unobservable; alt-slot keys undetermined (pause).",
   "Ring 47/47b: waiting_user cumulative frequency 3/11 is an observation, not an extrapolated rate.",
   "组合维度（ring49/49b）按每工具结果/每调用独立计费：DSH/Codex 每结果独立预算，WB 每调用独立拒绝门，豆包每输出独立 marker；每会话仅测 2 个大输出。",
-  "触发维度（ring51/52/53/54）：DSH 触发比裁剪预算宽松（cap8192 bracket (32,452,32,768)，C∈(1,313] 候选拟合）；Codex 折叠门=预算本身（边际≤1B）；WB/豆包 拒绝门=名义 est 上限严格 >（+1 点单点）。精确 C 与 WB est 高位内容依赖机制不可直接观测。"
+  "触发维度（ring51/52/53/54）：DSH 触发比裁剪预算宽松（cap8192 bracket (32,452,32,768)，C∈(1,313] 候选拟合）；Codex 折叠门=预算本身（边际≤1B）；WB/豆包 拒绝门=名义 est 上限严格 >（+1 点单点）。精确 C 与 WB est 高位内容依赖机制不可直接观测。",
+  "元宝尺寸探针（ring17 v3 终局）三点全对（990B/8,129B/65,504B，模式分歧逐槽声明）；256k 因上传通道迁移原生 picker+用户禁焦点抢占而 channel_blocked，不裁定该尺寸行为。"
  ],
  "v3_added_at": "2026-11-13T02:35:00+08:00",
  "ring8_size_threshold": {
@@ -1021,33 +1022,6 @@
    "single fixture (35767B, head+noise+tail)",
    "single model/effort (deepseek-flash low)",
    "boundary bracket [8943,9020] not point-resolved; -80 constant meaning unobservable"
-  ]
- },
- "ring17_yuanbao_size_interim": {
-  "status": "interim",
-  "note": "slots 8k/64k/256k blocked by desktop screen lock at ~03:45+08:00; pending unlock, not rescheduled within this ring",
-  "prereg_seal_17": "53475225756affc8",
-  "model_note": "yuanbao expert mode, agent default model (not pinned)",
-  "sessions": [
-   {
-    "slot": "yb-s-1k",
-    "probe": "probe-1k.txt",
-    "probe_bytes": 990,
-    "fixture_sha256": "1355a449c2c71fdf11b6aff4c1381d3585c27e690171a3e3ef1e2af96388c054",
-    "keys_all_correct": true,
-    "head": "AMBER-731",
-    "middle": "e95863ba0f635ac13c052c2bb7d5b06820bc4df5504bdce00fdde7a028a04a79",
-    "tail": "JADE-104",
-    "expert_mode_confirmed": true,
-    "truncation_markers_visible": false,
-    "reply_latency": "<60s",
-    "screenshot_sha256": "9fdc1a27"
-   }
-  ],
-  "boundaries": [
-   "n=1 size point (990B) only",
-   "detection surface = visible reply text",
-   "upload via synthetic DragEvent; remaining sizes pending unlock"
   ]
  },
  "v9_added_at": "04:17",
@@ -2091,6 +2065,77 @@
   "boundaries": [
    "single +1 point per product (80,004/100,004); +2/+3 untested",
    "WB est content-dependence only observed >=192k natural-line, absent here"
+  ]
+ },
+ "v18_added_at": "2026-11-13T11:25+08:00",
+ "ring17_yuanbao_size": {
+  "status": "final_three_of_four",
+  "finalized_at": "2026-11-13T11:22+08:00",
+  "prereg_seal_17": "53475225756affc8",
+  "judgment_note": "v2 interim misdiagnosis (infrastructure_blocked after 1k) corrected in ring17-size-judgment-v3: upload channel migrated in-window to a native macOS file picker; osascript adaptation delivered 8k/64k; user banned focus-stealing automation at 11:15 ('stop stealing my focus') leaving 256k channel-blocked; all remaining in-page synthetic channels verified filtered after clean reload.",
+  "mode_divergence": {
+   "fact": "expert-mode entry removed from the model-switch menu by the product between 03:40 and 10:34 (verified on home composer and conversation page)",
+   "per_slot": "yb-s-1k ran 专家模式 (pre-removal); yb-s-8k/64k ran 深度思考 default",
+   "scope": "conclusions stated per-slot; no uniform-mode matrix claim"
+  },
+  "sessions": [
+   {
+    "slot": "yb-s-1k",
+    "probe": "probe-1k.txt",
+    "probe_bytes": 990,
+    "fixture_sha256": "1355a449c2c71fdf11b6aff4c1381d3585c27e690171a3e3ef1e2af96388c054",
+    "keys_all_correct": true,
+    "head": "AMBER-731",
+    "middle": "e95863ba0f635ac13c052c2bb7d5b06820bc4df5504bdce00fdde7a028a04a79",
+    "tail": "JADE-104",
+    "mode": "专家模式",
+    "truncation_markers_visible": false,
+    "ingest_evidence": "full-file inline (chip + in-conversation preview), reply <60s",
+    "screenshot_sha256": "9fdc1a27"
+   },
+   {
+    "slot": "yb-s-8k",
+    "probe": "probe-8k.txt",
+    "probe_bytes": 8129,
+    "fixture_sha256": "2cd7bf8977cdf0b391a9847a0f2d1fc10d62b67b113273787bae7cf2bddd2b4f",
+    "keys_all_correct": true,
+    "head": "VIOL-318",
+    "middle": "b29c221876d307b00b32dcd1465e672b06440ed07f33d5142e8ad02ca11a4f18",
+    "tail": "ROSE-577",
+    "mode": "深度思考",
+    "ingest_evidence": "thinking panel quotes exact noise-0048 checksum => full-file ingestion evidence; no truncation marker",
+    "sha_correction_note": "receipt initially contained a hand-completed SHA middle segment; corrected against shasum with fixture_sha256_correction field"
+   },
+   {
+    "slot": "yb-s-64k",
+    "probe": "probe-64k.txt",
+    "probe_bytes": 65504,
+    "fixture_sha256": "bf8f9c135c0ccd64ff3564fde703553ca82ed2beb4fdfba8e9c136a95f93e6bb",
+    "keys_all_correct": true,
+    "head": "CYAN-662",
+    "middle": "cff74c94a27f3fb8753f00e00384892d212647835254509671df3598a5b808d9",
+    "tail": "GOLD-908",
+    "mode": "深度思考",
+    "ingest_evidence": "thinking panel quotes exact noise-0386 checksum => 64k full-file ingestion evidence; no truncation marker; answer in 2s"
+   },
+   {
+    "slot": "yb-s-256k",
+    "probe": "probe-256k.txt",
+    "probe_bytes": 262109,
+    "status": "channel_blocked",
+    "keys_all_correct": null,
+    "reason_chain": [
+     "upload channel migrated in-window to native macOS Finder picker (in-page panel no longer mounts)",
+     "osascript focus-stealing adaptation banned by user at 11:15; rule made permanent",
+     "post-reload verification: synthetic change event, synthetic DragEvent drop, and CDP-level drop all filtered by the migrated chain (no chip rendered)"
+    ]
+   }
+  ],
+  "boundaries": [
+   "three size points (990B/8,129B/65,504B) all keys-correct; 256k undetermined — no claim at 262,109B",
+   "detection surface = visible reply text + screenshots; no local trajectory (declared in prereg)",
+   "mode divergence and in-window product changes (expert-mode removal, upload migration) limit cross-slot comparability; declared per-slot",
+   "no alternative-backend resend (prereg discipline)"
   ]
  }
 }
