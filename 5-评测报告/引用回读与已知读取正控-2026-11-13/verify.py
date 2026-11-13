@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] in ("knownread-20261113-v17", "knownread-20261113-v18", "knownread-20261113-v19")
+            data["schema"] in ("knownread-20261113-v17", "knownread-20261113-v18", "knownread-20261113-v19", "knownread-20261113-v20")
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -768,6 +768,32 @@ def verify(data: dict) -> dict:
             "min(bytes" in r58.get("est_model_statement", "")
             and "isolated anomaly" in r58.get("anomaly_note", "")
             and "42,465" in r58.get("anomaly_note", "")
+        )
+
+    if "ring60_trigger_refine" in data:
+        r60 = data.get("ring60_trigger_refine", {})
+        p60 = r60.get("probes", {})
+        hi = p60.get("t2-32767", {})
+        mid = p60.get("t2-32600", {})
+        lo = p60.get("t2-32510", {})
+        checks["ring60_shape"] = (
+            r60.get("prereg_seal_60") == "d7f0a531fe7027b9"
+            and r60.get("cap_tokens") == 8192 and r60.get("budget_bytes") == 32448
+            and hi.get("spilled") is True and hi.get("measured_omitted") == [319]
+            and hi.get("read_attempts") == 1 and hi.get("keys_all_correct") is True
+            and hi.get("B_input_series") == [1736, 35364, 37248]
+            and mid.get("spilled") is False and mid.get("measured_omitted") == [None]
+            and mid.get("read_attempts") == 0 and mid.get("keys_all_correct") is True
+            and lo.get("spilled") is False and lo.get("measured_omitted") == [None]
+            and lo.get("read_attempts") == 0 and lo.get("keys_all_correct") is True
+        )
+        checks["ring60_branch_honesty"] = (
+            r60.get("overall_branch") == "trigger_between_452_600"
+            and hi.get("as_predicted") is True
+            and mid.get("as_predicted") is False and lo.get("as_predicted") is False
+            and "(32,600, 32,767]" in r60.get("boundary_update", "")
+            and "[1, 168)" in r60.get("C_model_survival", "")
+            and "probe_bytes - 32448" in r60.get("omission_law_note", "")
         )
 
     checks["ring44_estimator_update_v16"] = (

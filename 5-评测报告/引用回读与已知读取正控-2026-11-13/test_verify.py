@@ -546,6 +546,26 @@ class FullResult(unittest.TestCase):
         bad3["ring58_estdense"].pop("anomaly_note")
         self.assertFalse(verify.verify(bad3)["ok"])
 
+    def test_tampered_ring60_detected(self):
+        # 篡改 1：把 32767 的外溢洗掉（omitted 改 None / spilled 改 False）
+        bad = copy.deepcopy(self.data)
+        p = bad["ring60_trigger_refine"]["probes"]["t2-32767"]
+        p["measured_omitted"] = [None]
+        p["spilled"] = False
+        self.assertFalse(verify.verify(bad)["ok"])
+        # 篡改 2：把分支洗成旧的宽 bracket（Ring 51/52 结论）而非细化后的 (32,600, 32,767]
+        bad2 = copy.deepcopy(self.data)
+        bad2["ring60_trigger_refine"]["overall_branch"] = "trigger_below_510"
+        self.assertFalse(verify.verify(bad2)["ok"])
+        # 篡改 3：把 C 模型存活区间改写成已定位单点（夸大结论）
+        bad3 = copy.deepcopy(self.data)
+        bad3["ring60_trigger_refine"]["C_model_survival"] = "C = 80 bytes exactly (measured)"
+        self.assertFalse(verify.verify(bad3)["ok"])
+        # 篡改 4：read 计数洗 0（隐匿自发 read 恢复）
+        bad4 = copy.deepcopy(self.data)
+        bad4["ring60_trigger_refine"]["probes"]["t2-32767"]["read_attempts"] = 0
+        self.assertFalse(verify.verify(bad4)["ok"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
