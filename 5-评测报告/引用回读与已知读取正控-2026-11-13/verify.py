@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] in ("knownread-20261113-v17", "knownread-20261113-v18", "knownread-20261113-v19", "knownread-20261113-v20")
+            data["schema"] in ("knownread-20261113-v17", "knownread-20261113-v18", "knownread-20261113-v19", "knownread-20261113-v20", "knownread-20261113-v21")
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -794,6 +794,33 @@ def verify(data: dict) -> dict:
             and "(32,600, 32,767]" in r60.get("boundary_update", "")
             and "[1, 168)" in r60.get("C_model_survival", "")
             and "probe_bytes - 32448" in r60.get("omission_law_note", "")
+        )
+
+    if "ring62_composition_n3" in data:
+        r62 = data["ring62_composition_n3"]
+        d1 = {x["slot"]: x for x in r62.get("dsh_sessions", [])}
+        c1 = {x["slot"]: x for x in r62.get("codex_slots", [])}
+        s01, s02 = d1.get("ms3-01", {}), d1.get("ms3-02", {})
+        x01, x02 = c1.get("mx3-01", {}), c1.get("mx3-02", {})
+        checks["ring62_shape"] = (
+            r62.get("prereg_seal_62") == "0b48e2e33182fcd3"
+            and r62.get("cap_tokens") == 8192 and r62.get("per_result_budget_chars") == 32448
+            and s01.get("footers_last") == [33056, 33056, 33056]
+            and s02.get("footers_last") == [33056, 33056, 33056]
+            and s01.get("keys_all_correct") is True and s02.get("keys_all_correct") is True
+            and s01.get("read_attempts") == 1 and s02.get("read_attempts") == 1
+            and s01.get("execution_shape") == "sequential_one_call_per_turn"
+            and s02.get("execution_shape") == "parallel_three_calls_one_turn"
+            and x01.get("r4_warning_faces") == 3 and x02.get("r4_warning_faces") == 3
+            and x01.get("declared_tokens_each") == 16376 and x02.get("declared_tokens_each") == 16376
+            and x01.get("marker_chars_truncated_each") == 55504
+            and x01.get("keys_all_correct") is True and x02.get("keys_all_correct") is True
+        )
+        checks["ring62_branch_honesty"] = (
+            r62.get("dsh_branch") == "per_result_budget_n3"
+            and r62.get("codex_branch") == "fold_per_result_n3"
+            and "per-tool-result property" in r62.get("composition_summary", "")
+            and "N>3 untested" in r62.get("boundaries", [""])[0] if r62.get("boundaries") else False
         )
 
     checks["ring44_estimator_update_v16"] = (

@@ -567,5 +567,20 @@ class FullResult(unittest.TestCase):
         self.assertFalse(verify.verify(bad4)["ok"])
 
 
+    def test_tampered_ring62_detected(self):
+        # 篡改 1：DSH footers_last 洗成共享预算（三份共享 32,448 → 单页脚）
+        bad = copy.deepcopy(self.data)
+        bad["ring62_composition_n3"]["dsh_sessions"][0]["footers_last"] = [99000]
+        self.assertFalse(verify.verify(bad)["ok"])
+        # 篡改 2：Codex 折叠 face 数洗 1（隐匿 per-result 三独立面）
+        bad2 = copy.deepcopy(self.data)
+        bad2["ring62_composition_n3"]["codex_slots"][0]["r4_warning_faces"] = 1
+        self.assertFalse(verify.verify(bad2)["ok"])
+        # 篡改 3：分支洗成 aggregate（推翻 per-result 结论）
+        bad3 = copy.deepcopy(self.data)
+        bad3["ring62_composition_n3"]["dsh_branch"] = "aggregate_budget_n3"
+        self.assertFalse(verify.verify(bad3)["ok"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
