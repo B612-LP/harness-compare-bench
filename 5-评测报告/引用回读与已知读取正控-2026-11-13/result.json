@@ -1,5 +1,5 @@
 {
- "schema": "knownread-20261113-v18",
+ "schema": "knownread-20261113-v19",
  "generated_at": "2026-11-13T01:25:00+08:00",
  "v2_added_at": "2026-11-13T01:50:00+08:00",
  "kind": "new preregistered minimal experiments (mechanism + positive controls); no formal 25-grid change; no historical score rewrite",
@@ -318,7 +318,8 @@
   "Ring 47/47b: waiting_user cumulative frequency 3/11 is an observation, not an extrapolated rate.",
   "组合维度（ring49/49b）按每工具结果/每调用独立计费：DSH/Codex 每结果独立预算，WB 每调用独立拒绝门，豆包每输出独立 marker；每会话仅测 2 个大输出。",
   "触发维度（ring51/52/53/54）：DSH 触发比裁剪预算宽松（cap8192 bracket (32,452,32,768)，C∈(1,313] 候选拟合）；Codex 折叠门=预算本身（边际≤1B）；WB/豆包 拒绝门=名义 est 上限严格 >（+1 点单点）。精确 C 与 WB est 高位内容依赖机制不可直接观测。",
-  "元宝尺寸探针（ring17 v3 终局）三点全对（990B/8,129B/65,504B，模式分歧逐槽声明）；256k 因上传通道迁移原生 picker+用户禁焦点抢占而 channel_blocked，不裁定该尺寸行为。"
+  "元宝尺寸探针（ring17 v3 终局）三点全对（990B/8,129B/65,504B，模式分歧逐槽声明）；256k 因上传通道迁移原生 picker+用户禁焦点抢占而 channel_blocked，不裁定该尺寸行为。",
+  "WB est 终态模型（ring58）：est=min(bytes, C≈169,860)/4——帽下对内容不敏感（密集 96k=24,000 精确）；Ring 47b alt 28,978 为孤立异常点（单点未解释如实登记）。"
  ],
  "v3_added_at": "2026-11-13T02:35:00+08:00",
  "ring8_size_threshold": {
@@ -2136,6 +2137,44 @@
    "detection surface = visible reply text + screenshots; no local trajectory (declared in prereg)",
    "mode divergence and in-window product changes (expert-mode removal, upload migration) limit cross-slot comparability; declared per-slot",
    "no alternative-backend resend (prereg discipline)"
+  ]
+ },
+ "v19_added_at": "2026-11-13T11:43+08:00",
+ "ring58_estdense": {
+  "status": "final_single_probe",
+  "prereg_seal_58": "59cbf5b624f285c1",
+  "sessions": [
+   {
+    "slot": "wb-d-01",
+    "probe": "probe-dense-96k.txt",
+    "probe_bytes": 96000,
+    "fixture_sha256": "1e71702f48772871a5e3a6e1b721b07179686c34638ea3a49da00e3d54e9330a",
+    "content": "dense mix full-file (cap-below discriminator)",
+    "gate_fired": true,
+    "refusal_est_tokens": 24000,
+    "refusal_cap_tokens": 20000,
+    "keys_all_correct": true,
+    "head": "MAPLE-512",
+    "middle": "6891f6ab5e9ac92b6e96de42d04a1a4de1b8803f7239952fd2f661fcab231ee4",
+    "tail": "CEDAR-729",
+    "compensation": "refusal -> targeted compensation (FCR 694 chars contains all three keys)",
+    "branch": "wb_estimator_chars4_even_dense",
+    "h1_band": [
+     14000,
+     19000
+    ],
+    "h2_band": [
+     23880,
+     24120
+    ]
+   }
+  ],
+  "est_model_statement": "est = min(bytes, C~169,860)/4 — content-insensitive below cap (dense 96k measures exactly 24,000 = bytes/4; natural-line points unchanged); saturation points 176k/192k/224k all 42,464-42,465 consistent with the same cap",
+  "anomaly_note": "Ring 47b wb-e2-192k-alt est=28,978 becomes an isolated anomaly under this model (predicted 42,465); single occurrence, mechanism not observable, recorded not explained",
+  "boundaries": [
+   "n=1 dense probe; H1 bandwidth came from a Ring 47b single-point backout",
+   "cap C is backed out (42,465x4), not directly observed; byte-to-est unit mapping unobservable",
+   "alt 28,978 anomaly: single occurrence, no re-send (single-submission discipline)"
   ]
  }
 }

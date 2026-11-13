@@ -535,6 +535,17 @@ class FullResult(unittest.TestCase):
         bad2["ring54_gateboundary"]["sessions"]["db-x-01"]["keys"] = "2/3"
         self.assertFalse(verify.verify(bad2)["ok"])
 
+    def test_tampered_ring58_detected(self):
+        bad = copy.deepcopy(self.data)
+        bad["ring58_estdense"]["sessions"][0]["refusal_est_tokens"] = 16354
+        self.assertFalse(verify.verify(bad)["ok"])
+        bad2 = copy.deepcopy(self.data)
+        bad2["ring58_estdense"]["sessions"][0]["keys_all_correct"] = False
+        self.assertFalse(verify.verify(bad2)["ok"])
+        bad3 = copy.deepcopy(self.data)
+        bad3["ring58_estdense"].pop("anomaly_note")
+        self.assertFalse(verify.verify(bad3)["ok"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

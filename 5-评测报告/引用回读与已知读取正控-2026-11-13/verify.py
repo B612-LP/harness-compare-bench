@@ -296,7 +296,7 @@ def verify(data: dict) -> dict:
         r6f = data["ring6_yuanbao_known_read_completed"]
         ss = {s["id"]: s for s in r6f["sessions"]}
         checks["ring6_completed_shape"] = (
-            data["schema"] in ("knownread-20261113-v17", "knownread-20261113-v18")
+            data["schema"] in ("knownread-20261113-v17", "knownread-20261113-v18", "knownread-20261113-v19")
             and r6f["n"] == 3 and r6f["n_planned"] == 3
             and r6f["judge_branch"] == "partial"
             and r6f["passed_all_keys"] == 0
@@ -750,6 +750,24 @@ def verify(data: dict) -> dict:
         )
         checks["ring54_trigger_semantics_summary"] = (
             "DSH slack" in r["finding"] and "strict >" in r["finding"]
+        )
+
+    if "ring58_estdense" in data:
+        r58 = data.get("ring58_estdense", {})
+        s58 = (r58.get("sessions") or [{}])[0]
+        checks["ring58_shape"] = (
+            r58.get("prereg_seal_58") == "59cbf5b624f285c1"
+            and s58.get("slot") == "wb-d-01"
+            and s58.get("gate_fired") is True
+            and s58.get("refusal_est_tokens") == 24000
+            and s58.get("refusal_cap_tokens") == 20000
+            and s58.get("keys_all_correct") is True
+            and s58.get("branch") == "wb_estimator_chars4_even_dense"
+        )
+        checks["ring58_model_and_anomaly"] = (
+            "min(bytes" in r58.get("est_model_statement", "")
+            and "isolated anomaly" in r58.get("anomaly_note", "")
+            and "42,465" in r58.get("anomaly_note", "")
         )
 
     checks["ring44_estimator_update_v16"] = (
