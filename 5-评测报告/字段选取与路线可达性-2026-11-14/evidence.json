@@ -1,0 +1,268 @@
+{
+  "schema": "field-selection-selected-v1",
+  "provenance": {
+    "kind": "selected_safe_derivative",
+    "original_raw_authenticated_by_public_package": false,
+    "science_verdict": "finite_PASS",
+    "science_final_sha256": "66ca6a4a9fb4694d471cb1be1d9bcad5a296dff12431d3b2fbbb350e66e24c19",
+    "science_report_sha256": "668d12550ad914f5bf329ab1c46ee8b1baccedd2241ae592b235be2b0d4e0323",
+    "root_seal_sha256": "973ed145c293b752426c16dc58ef5a5b4cc465d02605d23f2b36473667b5a11e",
+    "execution_seal_sha256": "73bb160c3109d85402bb1305d5dee06ca0cb0132854b4dd4129305524a5cbebc",
+    "analysis_seal_sha256": "f0a0b66f20f59f29a7eb67040f0c3132976241f6ba5be6e72b6ae59a854ea7de",
+    "actual_analysis_sha256": "33b4283b78ed1988e1de43feebaaa14cbf97a7c961ebf54fd72a589254ac0356"
+  },
+  "design": {
+    "pattern": "TARGET=[0-9a-f]{64}",
+    "route": "controller_fixed_native_bash",
+    "agent_strategy_tested": false,
+    "system_still_recommends_grep_not_shell": true,
+    "permissions": "workspace-write/ask",
+    "native_caps_defaults_preserved": true,
+    "tool_names": [
+      "bash",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "read_image",
+      "write"
+    ],
+    "previous_tool_names": [
+      "packet_a",
+      "packet_b",
+      "edit",
+      "glob",
+      "grep",
+      "read",
+      "read_image",
+      "write"
+    ],
+    "fully_equally_controlled_against_previous_route": false,
+    "field_bytes_interval": [
+      8000,
+      8071
+    ],
+    "known_pair_differing_byte": 8007,
+    "reachable_outcomes": "two_complete_correct_fields_or_unknown_only",
+    "valid_zero_or_one_counterbranch_covered": false
+  },
+  "counts": {
+    "catalog_sessions": 1,
+    "confirm_scientific_sessions": 1,
+    "fresh_sessions": 2,
+    "local_requests": 4,
+    "bash_calls": 2,
+    "fixture_calls": 0,
+    "real_model_calls": 0,
+    "upstream_forwards": 0,
+    "fully_validated_result_rows": 2,
+    "observed_bash_operations": 2,
+    "complete_fields": 2
+  },
+  "requests": [
+    {
+      "slot": "catalog",
+      "ordinal": 1,
+      "raw_request_body_bytes": 8104,
+      "raw_request_sha256": "fff51cebecd18b3b9dc3c4aee7d8e40245f0f71e13c6d314e5b8e03617498aa6",
+      "formatted_json_file_sha256": "1e590abbfed81ad055f2dcbabc38b8e6b57890802a3d2ee015b957d6cf49e41f",
+      "canonical_json_value_sha256": "3735a6a900f02cc48a0ba8463047755460d08e78dec02fa3b07f204dba9b5472",
+      "response_sse_sha256": "c6342f2211279f3b89d0d85bcbc7a05f060ff7736265d8027c851ef2a53a8d66"
+    },
+    {
+      "slot": "confirm",
+      "ordinal": 1,
+      "raw_request_body_bytes": 8104,
+      "raw_request_sha256": "fff51cebecd18b3b9dc3c4aee7d8e40245f0f71e13c6d314e5b8e03617498aa6",
+      "formatted_json_file_sha256": "1e590abbfed81ad055f2dcbabc38b8e6b57890802a3d2ee015b957d6cf49e41f",
+      "canonical_json_value_sha256": "3735a6a900f02cc48a0ba8463047755460d08e78dec02fa3b07f204dba9b5472",
+      "response_sse_sha256": "673fe7fa28a4f08c2250d794db96e3b40b243e49aa53bbe7ff39dab17e6d1c96"
+    },
+    {
+      "slot": "confirm",
+      "ordinal": 2,
+      "raw_request_body_bytes": 8619,
+      "raw_request_sha256": "ef4deeb912f615dde3c3362f853a851b3e284d9edf4f2bee8f9ff6db84dc427a",
+      "formatted_json_file_sha256": "4caa3e7bc661606ead7c9b04e9f0a5dd4b99897b28baf419518e37e96f113ad4",
+      "canonical_json_value_sha256": "ea1379ecf800916fa2158f2590c14d972cc5e5f097b33b6866404881509e0a1c",
+      "response_sse_sha256": "039132c55b4a90607b7512da84db607e51a07b5b689c8948beb38815b0cf9f22"
+    },
+    {
+      "slot": "confirm",
+      "ordinal": 3,
+      "raw_request_body_bytes": 9134,
+      "raw_request_sha256": "ed3f383566638bc79ec4de2b3e6b224e9b9dbf37f6cb20cbab733165b31f217b",
+      "formatted_json_file_sha256": "398091184252c02407e36bf70b6a9d85410ea1a4e1d2d7b9d66b5946a0ad1552",
+      "canonical_json_value_sha256": "8c00f93d4ab50133eab8196d278204aee0db5d0d193f286f62b48cce74cfe7c3",
+      "response_sse_sha256": "dd0cad0ca187b7587d65367bf7a783ab266e99019e481140251d7b7d1304cb0e"
+    }
+  ],
+  "ends": {
+    "catalog": {
+      "exit_code": 0,
+      "timeout": false,
+      "owned_group_cleanup": {
+        "start_new_session": true,
+        "state": "absent",
+        "events": [
+          {
+            "signal": 0,
+            "result": "absent"
+          }
+        ],
+        "scope": "one_owned_group_token_not_all_processes"
+      },
+      "launch_failure": null,
+      "cleanup_attempts": 1,
+      "completed": true,
+      "failure": null,
+      "logs_withheld": false,
+      "native_identity_verified": true,
+      "upstream_forwards": 0,
+      "never_resubmit": true,
+      "not_global_runtime_attestation": true
+    },
+    "confirm": {
+      "exit_code": 0,
+      "timeout": false,
+      "owned_group_cleanup": {
+        "start_new_session": true,
+        "state": "absent",
+        "events": [
+          {
+            "signal": 0,
+            "result": "absent"
+          }
+        ],
+        "scope": "one_owned_group_token_not_all_processes"
+      },
+      "launch_failure": null,
+      "cleanup_attempts": 1,
+      "completed": true,
+      "failure": null,
+      "logs_withheld": false,
+      "native_identity_verified": true,
+      "upstream_forwards": 0,
+      "never_resubmit": true,
+      "not_global_runtime_attestation": true
+    }
+  },
+  "observations": [
+    {
+      "source_id": "A",
+      "source_file": "sources/A.txt",
+      "source_original_sha256": "11104026259b14aa512c6c69f6e7f14f8ac099ebe6e0b99f61b06bb00ea41d6d",
+      "source_derived_sha256": "11104026259b14aa512c6c69f6e7f14f8ac099ebe6e0b99f61b06bb00ea41d6d",
+      "source_transform": "safe_synthetic_bytes_unchanged",
+      "result_file": "outputs/A.txt",
+      "decoded_text_bytes": 72,
+      "result_original_text_sha256": "5e874779d63273cd7311f044b37e8a4b320bf53f9806a2b92e5696c3b5462fd1",
+      "result_derived_text_sha256": "5e874779d63273cd7311f044b37e8a4b320bf53f9806a2b92e5696c3b5462fd1",
+      "call_id": "call-0000001",
+      "original_call_id_sha256": "97c1e1e3b6b25714ecf2c83a4ccb2852cbb55774fde6e12a2512339dae8420ab",
+      "source_path_alias": "source/A/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "original_source_path_sha256": "d1fb890cbfe259c6de640e5e30b0dba3441eb96a9f409dfba3aa6769fbc6abc5",
+      "original_source_path_utf8_bytes": 105,
+      "arguments": {
+        "command": "/usr/bin/grep -oE 'TARGET=[0-9a-f]{64}' -- source/A/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "description": "Select the complete target field"
+      },
+      "original_arguments_sha256": "2763256bf931239a1ef1faa724bd4f85f66853eaebe057cd6455d17e5e6f5ca1",
+      "derived_arguments_sha256": "295b75ce6ae89b61ab7cc0b3e06275157f7794964fbb89ae0a9f3c4bd26dfa1f",
+      "original_wire_block_sha256": "105e1ef0a7ca03f7c5f902864f3783a982d4813935b52766da3c0638709e1022",
+      "wire_block": {
+        "type": "tool_result",
+        "tool_use_id": "call-0000001",
+        "content": [
+          {
+            "type": "text",
+            "text": "TARGET=0000000000000000000000000000000000000000000000000000000000000000\n"
+          }
+        ],
+        "is_error": false
+      },
+      "wire_position": {
+        "role": "user",
+        "message_index": 2,
+        "block_index": 0
+      },
+      "original_native_event_sha256": "6ebd946ac1f71276200a5c80826bce9cb5929d90c2490122fe0b1545a2fdf930",
+      "native_event": {
+        "type": "tool_result",
+        "callId": "call-0000001",
+        "status": "completed",
+        "result": "TARGET=0000000000000000000000000000000000000000000000000000000000000000\n"
+      },
+      "source_unchanged": true,
+      "complete_field": true,
+      "numeric_inner_exit_code_observed": false,
+      "inner_exit_code": null,
+      "renderer_inferred_zero": true
+    },
+    {
+      "source_id": "B",
+      "source_file": "sources/B.txt",
+      "source_original_sha256": "65d51423026971f1b0695721f5d78d6aca404a733e8bf822469edaf924295b57",
+      "source_derived_sha256": "65d51423026971f1b0695721f5d78d6aca404a733e8bf822469edaf924295b57",
+      "source_transform": "safe_synthetic_bytes_unchanged",
+      "result_file": "outputs/B.txt",
+      "decoded_text_bytes": 72,
+      "result_original_text_sha256": "1598c254e38df9bdb826d7fefa807df2d051bda6b30555b48271991566138f02",
+      "result_derived_text_sha256": "1598c254e38df9bdb826d7fefa807df2d051bda6b30555b48271991566138f02",
+      "call_id": "call-0000002",
+      "original_call_id_sha256": "0ce4d9c1257960f53fb4124d97ffbe84c2522810aeeb647cf3e287f844f07910",
+      "source_path_alias": "source/B/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "original_source_path_sha256": "90c9e67fca6bc0a33443ace6c54782cd6f4adbfdade659b3e137547fd4df9a37",
+      "original_source_path_utf8_bytes": 105,
+      "arguments": {
+        "command": "/usr/bin/grep -oE 'TARGET=[0-9a-f]{64}' -- source/B/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "description": "Select the complete target field"
+      },
+      "original_arguments_sha256": "efbfe64ba8d8e0e886cfadebff366f2fe96f9fc8f8299d9d8690aa75ce6e8edd",
+      "derived_arguments_sha256": "bcc093be43c6e188e6b1e9245e6114a3c2b5a8135795ff88aced52f1b3e2032a",
+      "original_wire_block_sha256": "89b8191f6b49bf245ba7b161fbaf8fd4f961d47d9b147dc917ef36f815ce1247",
+      "wire_block": {
+        "type": "tool_result",
+        "tool_use_id": "call-0000002",
+        "content": [
+          {
+            "type": "text",
+            "text": "TARGET=8000000000000000000000000000000000000000000000000000000000000000\n"
+          }
+        ],
+        "is_error": false
+      },
+      "wire_position": {
+        "role": "user",
+        "message_index": 4,
+        "block_index": 0
+      },
+      "original_native_event_sha256": "bfe18c106ed8acc09902a4d04510e67d4082428d32aeb30ff11414d658f3a344",
+      "native_event": {
+        "type": "tool_result",
+        "callId": "call-0000002",
+        "status": "completed",
+        "result": "TARGET=8000000000000000000000000000000000000000000000000000000000000000\n"
+      },
+      "source_unchanged": true,
+      "complete_field": true,
+      "numeric_inner_exit_code_observed": false,
+      "inner_exit_code": null,
+      "renderer_inferred_zero": true
+    }
+  ],
+  "limits": {
+    "decoded_text_bytes_not_http_bytes": true,
+    "numeric_inner_exit_code_observed": false,
+    "inner_exit_code": null,
+    "inner_state": "renderer_inferred_zero",
+    "native_completed_or_outer_zero_proves_inner_numeric": false,
+    "independent_repeats": false,
+    "known_candidate_bit_suffices_with_mapping": true,
+    "unknown_256_bit_increment_measured": false,
+    "whole_context_indistinguishability": false,
+    "general_recovery_or_ranking_claim": false,
+    "old_read_and_grep_local_limits_revoked": false,
+    "original_raw_not_publicly_authenticated": true
+  }
+}
