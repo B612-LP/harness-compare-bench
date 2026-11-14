@@ -1,9 +1,11 @@
 # 一页结论—绑定提交—公开复算—私档缺口
 
-对应[第四周反馈](<../../反馈/2026-11-11-第四轮/README.md>)与[当前整合报告 v1.38](<../竞品评测报告-v1.38.md>)。每行绑定确切证据/实现快照，不是“任意HEAD全部可核”。离线重算、实际小样本与零上游客户端对照分列；不回填正式25格、旧n或历史分数。中期解释以当前报告及下列新对照收窄，版本留痕不等于互斥解释同时成立。
+对应[第四周反馈](<../../反馈/2026-11-11-第四轮/README.md>)与[当前整合报告 v1.39](<../竞品评测报告-v1.39.md>)。每行绑定确切证据/实现快照，不是“任意HEAD全部可核”。离线重算、实际小样本与零上游客户端对照分列；不回填正式25格、旧n或历史分数。中期解释以当前报告及下列新对照收窄，版本留痕不等于互斥解释同时成立。
 
 | 关键问题 | 当前可说的结论 | 绑定提交 | 公开复算/证据入口 | 不能公开或尚未识别的缺口 |
 |---|---|---|---|---|
+| 回读保留任务信息吗 | 1会话4次原装Read：S完整覆盖16159B；三个长行结果仅覆盖源前2000B+34B marker，行分页未补目标。指定Read去唯一路径正文相同；另有六个源码条件有限反例。 | [9564ffd](<https://github.com/B612-LP/harness-compare-bench/commit/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191>) | [定义](<https://github.com/B612-LP/harness-compare-bench/blob/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191/5-评测报告/回读任务信息与投影反例-2026-11-14/README.md>) · [Native披露](<https://github.com/B612-LP/harness-compare-bench/blob/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191/5-评测报告/回读任务信息与投影反例-2026-11-14/native/manifest.json>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191/5-评测报告/回读任务信息与投影反例-2026-11-14/verify.py>) · [反例](<https://github.com/B612-LP/harness-compare-bench/blob/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191/5-评测报告/回读任务信息与投影反例-2026-11-14/test_cleanroom.py>) | 6本地脚本请求/0模型；S已向历史提供A目标，不是含路径整返回、整请求或整个Harness不可恢复。原header/control/错误字段完整性仅私档承诺；ASCII不实测Unicode单位，CR无marker仅源码反例。 |
+| Read正例能作漏检分母吗 | 既有78行档案含28唯一配对、8个非空成功Read，旧9行是其精确前缀；没有可信同目标同窗配对，不能把8当FD漏检分母。 | [9564ffd](<https://github.com/B612-LP/harness-compare-bench/commit/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191>) | [定义](<https://github.com/B612-LP/harness-compare-bench/blob/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191/5-评测报告/读取正例与检测支持集-2026-11-14/README.md>) · [派生](<https://github.com/B612-LP/harness-compare-bench/blob/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191/5-评测报告/读取正例与检测支持集-2026-11-14/evidence.json>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191/5-评测报告/读取正例与检测支持集-2026-11-14/verify.py>) · [反例](<https://github.com/B612-LP/harness-compare-bench/blob/9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191/5-评测报告/读取正例与检测支持集-2026-11-14/test_verify.py>) | 1124个FD记录不是读取机会，日志时刻不是物理IO时钟，词法别名不认证物理对象；真实读取数、FN、recall与风险上界仍null。无新增产品运行，原档前缀和未见bait仅私档承诺。 |
 | 正式25格 | 每格n=1；A10/B10/W5只作轨内观察，不合五款总榜。 | [ababe63](<https://github.com/B612-LP/harness-compare-bench/commit/ababe63694b46db7ed8cd2c5210243155b5cde5c>)（历史可执行代） | [旧版25行来源闭合](<https://github.com/B612-LP/harness-compare-bench/blob/ababe63694b46db7ed8cd2c5210243155b5cde5c/5-评测报告/正式行复核-2026-11-05/README.md>)；该代v1.9与当前v1.9/v1.10/v1.11/v1.12/v1.13/v1.14的§3字节相同。 | 38b2/06ef当前树运行旧verify会在q2697文档SHA门失败；只在左列固定历史代实际通过。来源闭合非重新判卷或原件认证，详见下方漂移与命令。 |
 | 输入为何减少 | 18场捕获区间保留旧历史；工具源正文省略与包装差共存，不能只归为等文本重组。 | [06ef6ef](<https://github.com/B612-LP/harness-compare-bench/commit/06ef6ef19272f398466278500d30a8eb8d5fae11>) | [定义/18场分账](<https://github.com/B612-LP/harness-compare-bench/blob/06ef6ef19272f398466278500d30a8eb8d5fae11/5-%E8%AF%84%E6%B5%8B%E6%8A%A5%E5%91%8A/%E8%BE%93%E5%85%A5%E6%BA%90%E8%A6%86%E7%9B%96%E4%B8%8E%E6%9C%BA%E5%88%B6%E5%8C%BA%E5%88%86-2026-11-12/README.md>) · [A重算](<https://github.com/B612-LP/harness-compare-bench/blob/06ef6ef19272f398466278500d30a8eb8d5fae11/5-%E8%AF%84%E6%B5%8B%E6%8A%A5%E5%91%8A/%E8%BE%93%E5%85%A5%E6%BA%90%E8%A6%86%E7%9B%96%E4%B8%8E%E6%9C%BA%E5%88%B6%E5%8C%BA%E5%88%86-2026-11-12/verify.py>) · [结果](<https://github.com/B612-LP/harness-compare-bench/blob/06ef6ef19272f398466278500d30a8eb8d5fae11/5-%E8%AF%84%E6%B5%8B%E6%8A%A5%E5%91%8A/%E8%BE%93%E5%85%A5%E6%BA%90%E8%A6%86%E7%9B%96%E4%B8%8E%E6%9C%BA%E5%88%B6%E5%8C%BA%E5%88%86-2026-11-12/result.json>) | 同DSH六对与原生三block不合n=9；引用不等实际回读，未控制后端历史/思考/cache，不推token/费用。 |
 | WB粗估平台与读取窗口 | 既有13点/12会话，2000行及每行2000 UTF16窗口精确13/13；全文件8/13、固定169860B帽10/13。alt真实窗口115910B而非ceil逆算115912B。 | [582594f](<https://github.com/B612-LP/harness-compare-bench/commit/582594f4c8c0473514d03ba64b78bc09b610ba52>) | [定义](<https://github.com/B612-LP/harness-compare-bench/blob/582594f4c8c0473514d03ba64b78bc09b610ba52/5-评测报告/读取窗口与粗估单位-2026-11-13/README.md>) · [派生](<https://github.com/B612-LP/harness-compare-bench/blob/582594f4c8c0473514d03ba64b78bc09b610ba52/5-评测报告/读取窗口与粗估单位-2026-11-13/evidence.json>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/582594f4c8c0473514d03ba64b78bc09b610ba52/5-评测报告/读取窗口与粗估单位-2026-11-13/verify.py>) · [反例](<https://github.com/B612-LP/harness-compare-bench/blob/582594f4c8c0473514d03ba64b78bc09b610ba52/5-评测报告/读取窗口与粗估单位-2026-11-13/test_verify.py>) | 23 Read/10排除及5缺失坏setup单列；无新增产品n。CJK/UTF16公式只源码条件预测，13 ASCII不能识别单位；静态source pin非历史runtime认证，桌面Unicode仍缺样。 |
@@ -22,7 +24,15 @@
 
 ## 最小复算（在独立克隆/工作树中）
 
-先取下列确切研究提交，不在有未提交改动的工作目录直接切换：
+先在独立克隆复核2026-11-14新增的两个证据包（只读复算；纯测试不是新产品样本）：
+
+```sh
+git checkout --detach 9564ffd7cf56fc7c8316b90d0ba9cb25dcde2191
+(cd '5-评测报告/回读任务信息与投影反例-2026-11-14' && python3 -B verify.py && python3 -B test_cleanroom.py)
+(cd '5-评测报告/读取正例与检测支持集-2026-11-14' && python3 -B verify.py && python3 -B test_verify.py)
+```
+
+六静态反例与指定Native派生分别复算；根清单依固定提交绑定，不自证真实性。以下旧命令及其绑定保持原样，不在有未提交改动的工作目录直接切换：
 
 ```sh
 git checkout --detach 06ef6ef19272f398466278500d30a8eb8d5fae11
