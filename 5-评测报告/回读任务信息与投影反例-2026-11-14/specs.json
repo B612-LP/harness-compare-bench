@@ -1,0 +1,55 @@
+{
+  "schema": "finite-read-projection-spec-v1",
+  "implementation": "independent Python 3.9 standard library; no vendor code or runtime imports",
+  "synthetic_path": "/synthetic/same-path.txt",
+  "units": {
+    "line_prefix": "UTF16 code units, not Python codepoints or UTF8 bytes",
+    "line_cap": 2000,
+    "prefix_sentinel": 2001,
+    "byte_cap": 51200,
+    "default_offset": 1,
+    "default_limit": 2000,
+    "byte_count": "UTF8 display bytes of selected line text plus one LF between selected lines; excludes numbering/envelope"
+  },
+  "finite_projection": [
+    "Split decoded text at LF; a terminal LF creates no extra empty line.",
+    "For each source line retain at most the first 2001 UTF16 code units.",
+    "Strip a final CR from that retained prefix, not from the unbounded original line.",
+    "If the remaining prefix exceeds 2000 UTF16 units, expose first 2000 plus the declared line marker.",
+    "Select positive integer line offset/limit; reject an offset beyond source lines except an empty source at offset 1.",
+    "If a selected complete displayed line would exceed the byte cap, omit that whole line and all following lines in that window; total line count is still known.",
+    "Number lines and render the complete same-synthetic-path envelope/footer; EOF is a line-count statement."
+  ],
+  "collision_task_predicates": {
+    "crlf": "Is the newline encoding CRLF or LF?",
+    "terminal-lf": "Does the source end with LF?",
+    "terminal-cr": "Does the source end with CR?",
+    "json-decision": "How many decision values equal ALLOW in the full valid JSON?",
+    "astral-unit": "What is the original astral codepoint after the 1999 x prefix?",
+    "cr-unmarked": "Does the original source contain SECRET?"
+  },
+  "unicode_contract": {
+    "source": "The two complete sources are valid UTF8 with different astral codepoints.",
+    "projection": "A 2000-unit cut after 1999 ASCII units leaves unpaired 0xd83d.",
+    "json": "Escaping that unit as \\ud83d preserves it after JSON parsing.",
+    "utf8_display": "Encoding the unpaired unit as a display byte string uses U+FFFD; this is a different representation, not proof of actual wire replacement."
+  },
+  "post_execute_condition": {
+    "assumptions": ["accepted result", "no parent delegation", "declared tool-name branch"],
+    "without_own_value": {"read": "unbounded by this post-execute branch", "alias": "bounded by this branch"},
+    "own_property_bypass": ["undefined", "null", "false"],
+    "not_truthiness": true,
+    "not_global_runtime_identity_proof": true
+  },
+  "source_commitments_only": [
+    {"package_path": "@deepseek-ai/dsh-tool-fs/lib/index.js", "version": "0.2.0-rc.2", "sha256": "66742231de99695b98400cdbc7bcf47b8ef2bf24600cf86f66bb35591981427f"},
+    {"package_path": "@deepseek-ai/dsh-spill-policy/lib/index.js", "version": "0.2.0-rc.2", "sha256": "970dc4c00c488f11d96cd25ad3bbdc4d034ed754506b2c0c46563b75102291ac"},
+    {"package_path": "@deepseek-ai/dsh-fs-local/lib/index.js", "version": "0.2.0-rc.2", "sha256": "63fbb41d2c33e07111884b798be507e68c2752acab8249c821c20ade436e894f"}
+  ],
+  "limits": [
+    "Source-conditioned finite examples, not Native execution or model success.",
+    "Read line pagination can recover the byte-cap examples but cannot address columns after a single-line prefix cap.",
+    "No claim that grep, shell, edits, reformatting or every recovery strategy fails.",
+    "No universal token, traffic, cache, cost or model sample inference."
+  ]
+}
