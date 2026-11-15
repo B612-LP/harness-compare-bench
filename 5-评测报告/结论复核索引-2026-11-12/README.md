@@ -1,9 +1,14 @@
 # 一页结论—绑定提交—公开复算—私档缺口
 
-对应[第四周反馈](<../../反馈/2026-11-11-第四轮/README.md>)与[当前整合报告 v1.48](<../竞品评测报告-v1.48.md>)。每行绑定确切证据/实现快照，不是“任意HEAD全部可核”。较早固定提交的原文不含后续勘误，尤其旧q2697精确匹配及旧回读全文表述应结合本表首两行阅读。离线重算、实际小样本与零上游客户端对照分列；不回填正式25格、旧n或历史分数。中期解释以当前报告及下列新对照收窄，版本留痕不等于互斥解释同时成立。
+对应[第四周反馈](<../../反馈/2026-11-11-第四轮/README.md>)与[当前整合报告 v1.49](<../竞品评测报告-v1.49.md>)。每行绑定确切证据/实现快照，不是“任意HEAD全部可核”。较早固定提交的原文不含后续勘误，尤其旧q2697精确匹配及旧回读全文表述应结合本表对应勘误行阅读。离线重算、实际小样本与零上游客户端对照分列；不回填正式25格、旧n或历史分数。中期解释以当前报告及下列新对照收窄，版本留痕不等于互斥解释同时成立。
 
 | 关键问题 | 当前可说的结论 | 绑定提交 | 公开复算/证据入口 | 不能公开或尚未识别的缺口 |
 |---|---|---|---|---|
+| 成功编辑等于验证闭环吗（树换根） | 部分修复而非完全修复：编辑前 5/15→编辑后 12/15，深层祖先仍并列挂新根；浅层 10/10 过、深层 6 目标根对边错，参考 15/15 实过。 | [073cafe](<https://github.com/B612-LP/harness-compare-bench/commit/073cafe2deb3e433714e2c183a4842738172bf47>) | [说明](<https://github.com/B612-LP/harness-compare-bench/blob/073cafe2deb3e433714e2c183a4842738172bf47/5-评测报告/树重定位与补丁验证-2026-11-15/ANALYSIS.md>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/073cafe2deb3e433714e2c183a4842738172bf47/5-评测报告/树重定位与补丁验证-2026-11-15/verify.py>) | 作者仅亲验 6005B 前版验证器（字节未归档不可回放），当前 6210B 由非作者与独审复算；快照止于编辑回执，后台是否复验未知；不冒称当年失败 ID 身份，不改旧分。 |
+| q62重复翻转来自单位还是表过滤 | 固定库F/J×18%/0.18%为201/1/201/1；同单位行多重集一致，单位步骤−200、表过滤步骤0、交互0。首槽可见已读定义仍选另一阈值。 | [bba823c](<https://github.com/B612-LP/harness-compare-bench/commit/bba823cb36632bce70f2cc1f792cfc146254956e>) | [说明](<https://github.com/B612-LP/harness-compare-bench/blob/bba823cb36632bce70f2cc1f792cfc146254956e/5-评测报告/百分数单位与重复断言-2026-11-15/report.md>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/bba823cb36632bce70f2cc1f792cfc146254956e/5-评测报告/百分数单位与重复断言-2026-11-15/verify.py>) | 7条私档引文只公开最小派生与hash；不认证旧运行时、hidden推理或Harness因果，不推一般表等价/REAL重结合等价，不改旧分。 |
+| 13次归档的等待标签意味着什么 | 34调用/30结果配对，4waiting均见Bash无对应结果；Read拒绝不是必要条件。30配对不是30成功。 | [bba823c](<https://github.com/B612-LP/harness-compare-bench/commit/bba823cb36632bce70f2cc1f792cfc146254956e>) | [说明](<https://github.com/B612-LP/harness-compare-bench/blob/bba823cb36632bce70f2cc1f792cfc146254956e/5-评测报告/暂停分支与调用回执-2026-11-15/ANALYSIS.md>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/bba823cb36632bce70f2cc1f792cfc146254956e/5-评测报告/暂停分支与调用回执-2026-11-15/verify.py>) | 原档不公开；11份状态仅string、2份仅旧判断标签，原生pending/runtime来源未绑定。首waiting停采的右删失未排除，不证批准屏障或Bash实际未完成。 |
+| q1871费用差额为何不同 | 固定12笔支持729.31EUR；其中4笔113.51EUR同时匹配两规则，sum与mean局部差额−0.948103/−0.8743215，差0.0737815。 | [bba823c](<https://github.com/B612-LP/harness-compare-bench/commit/bba823cb36632bce70f2cc1f792cfc146254956e>) | [说明](<https://github.com/B612-LP/harness-compare-bench/blob/bba823cb36632bce70f2cc1f792cfc146254956e/5-评测报告/规则重叠与费用差分-2026-11-15/README.md>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/bba823cb36632bce70f2cc1f792cfc146254956e/5-评测报告/规则重叠与费用差分-2026-11-15/verify.py>) | 仅当前字节与局部差分，非整月旧总费复现；空列表规范、唯一业务聚合、私档来源及Harness原因仍未知，不改gold/旧分。 |
+| 固定整数测试能辨别全部除法吗 | 当前六份纯算法副本中r2/r3均54/54，却在负商非整除时不同；两份浮点中转在大整数除以1失真。 | [bba823c](<https://github.com/B612-LP/harness-compare-bench/commit/bba823cb36632bce70f2cc1f792cfc146254956e>) | [说明](<https://github.com/B612-LP/harness-compare-bench/blob/bba823cb36632bce70f2cc1f792cfc146254956e/5-评测报告/整数除法与测试辨别-2026-11-15/README.md>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/bba823cb36632bce70f2cc1f792cfc146254956e/5-评测报告/整数除法与测试辨别-2026-11-15/verify.py>) | 负商舍入及整数域未唯一指定；r1历史52/54与当前失败ID分列，旧桌面当前54通过不认证历史总判卷；目的性选6源码不当产品重复n。 |
 | q25 空值与分组如何影响结果 | 当前库12行中6项缺分；按两类分组/过滤条件重建为6行与12行，额外6行均NULL。 | [4f0b0ed](<https://github.com/B612-LP/harness-compare-bench/commit/4f0b0ed90c2663a00373afb4632b6d2c8435336b>) | [说明](<https://github.com/B612-LP/harness-compare-bench/blob/4f0b0ed90c2663a00373afb4632b6d2c8435336b/5-评测报告/聚合分母与空值-2026-11-15/README.md>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/4f0b0ed90c2663a00373afb4632b6d2c8435336b/5-评测报告/聚合分母与空值-2026-11-15/verify.py>) | 不证明判卷瞬间答案身份或唯一业务语义；私档回读不公开，不改历史分。 |
 | 日期对照返回后仍选何条件 | 正式Codex单场先返回裸年与完整日期差异，后写裸年；当前库学校集合分别16317和8574。 | [51c0a3f](<https://github.com/B612-LP/harness-compare-bench/commit/51c0a3f3e04f04c8541db72c7c631a6b23e0fc56>) | [说明](<https://github.com/B612-LP/harness-compare-bench/blob/51c0a3f3e04f04c8541db72c7c631a6b23e0fc56/5-评测报告/日期亲和与可见反馈-2026-11-15/README.md>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/51c0a3f3e04f04c8541db72c7c631a6b23e0fc56/5-评测报告/日期亲和与可见反馈-2026-11-15/verify.py>) | stdout缺失，返回不证注意/理解或内部因果；类型与集合比较限定当前库和条件，历史分不改。 |
 | q1273 规则均值是实际收费吗 | 123条true规则均值约0.117667，加21条null后为0.120132；规则等权不等于逐笔平均。 | [ee3f46e](<https://github.com/B612-LP/harness-compare-bench/commit/ee3f46ec1936b73ec31a4e87792837e53357c10d>) | [说明](<https://github.com/B612-LP/harness-compare-bench/blob/ee3f46ec1936b73ec31a4e87792837e53357c10d/5-评测报告/费用规则均值与适用条件-2026-11-15/README.md>) · [复算](<https://github.com/B612-LP/harness-compare-bench/blob/ee3f46ec1936b73ec31a4e87792837e53357c10d/5-评测报告/费用规则均值与适用条件-2026-11-15/verify.py>) | 其他条件及交易分布未明；六槽原件私档，数值相符不证模型算法；上游原件本次未直接复验。 |
@@ -38,7 +43,31 @@
 
 ## 最小复算（在独立克隆/工作树中）
 
-按判卷与定位边界的确切提交复核；前者使用仓库内公开输入与收据，后者是自造演示，不验证私档原槽：
+上述四项新增分析共用已提交的证据版本；仅在独立、干净克隆中切换，不在现有工作目录自动切换或清理：
+
+```sh
+git checkout --detach bba823cb36632bce70f2cc1f792cfc146254956e
+for name in '整数除法与测试辨别-2026-11-15' '规则重叠与费用差分-2026-11-15' '暂停分支与调用回执-2026-11-15' '百分数单位与重复断言-2026-11-15'; do
+  for mode in '' '-O'; do
+    python3 $mode -B "5-评测报告/$name/verify.py" || exit 1
+    python3 $mode -B "5-评测报告/$name/test_verify.py" || exit 1
+  done
+done
+```
+
+依赖Python3标准库；普通/优化模式的测试组数分别为7、18、30、14，均为公开派生复算而非新产品实验或历史原件真实性认证。Forth命令会在临时目录执行已公开的纯解释器副本，不是OS沙箱；SQLite源仅只读查询。具体合同/缺口见各说明。
+
+树换根研究绑定其自身提交；其验证器要求显式子进程优化档，两档各 30 项验证测试，固定结果字节不一致或子进程不可观察时拒绝：
+
+```sh
+git checkout --detach 073cafe2deb3e433714e2c183a4842738172bf47
+python3 -I -S -B '5-评测报告/树重定位与补丁验证-2026-11-15/verify.py' --optimize 0
+python3 -I -S -B '5-评测报告/树重定位与补丁验证-2026-11-15/test_verify.py' --optimize 0
+python3 -I -S -B -O '5-评测报告/树重定位与补丁验证-2026-11-15/verify.py' --optimize 1
+python3 -I -S -B -O '5-评测报告/树重定位与补丁验证-2026-11-15/test_verify.py' --optimize 1
+```
+
+以下保留较早证据的各自固定提交，不能用新版HEAD代替。按判卷与定位边界的确切提交复核；前者使用仓库内公开输入与收据，后者是自造演示，不验证私档原槽：
 
 ```sh
 git checkout --detach cd0c546cfad8ca979e3407efe299e765db3ed3a9
