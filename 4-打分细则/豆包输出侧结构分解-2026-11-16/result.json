@@ -1,0 +1,332 @@
+{
+  "baseline_commit": "737330c60b8a9842efaf7f03b5c96f5ab04892c6",
+  "branch": {
+    "indeterminate_conditions": "硬等失败或数据不足 ⇒ exit2 / H-INDETERMINATE（本结果未触发）",
+    "isomorphism_note": "与 bird §4.34 同判据形式的同型性观察（如为 EARLY-DIVERGENCE）：非因果、非跨产品规律；n=3 单 case 单产品描述性登记。",
+    "verdict": "H-EARLY-DIVERGENCE"
+  },
+  "content_agnostic": {
+    "declaration": "内容无关验证：tool_call function.arguments 与 tool/assistant content 的值一律不读取、不落盘；stdout 与 result 仅含计数、字节数与可登记标识符（工具名、'T'、槽位名、<agent> 占位）。字节口径逐项声明：tool_call function canonical JSON 字节 = json.dumps(function, sort_keys=True, ensure_ascii=False, separators=(',',':')) 的 UTF-8 字节数；tool_result content 字节 = str 按 UTF-8 字节数，非 str 按 canonical JSON 字节并登记类型。",
+    "excluded_values": [
+      "tool_call function.arguments",
+      "tool content",
+      "assistant content"
+    ],
+    "registered_identifiers": [
+      "tool names",
+      "'T' markers",
+      "slot names",
+      "<agent> placeholder"
+    ]
+  },
+  "hard_equal": {
+    "expected_reward": [
+      "0",
+      "0",
+      "0"
+    ],
+    "expected_weighted": [
+      "81.48",
+      "70.37",
+      "81.48"
+    ],
+    "passed": true,
+    "reward": [
+      "0",
+      "0",
+      "0"
+    ],
+    "source": "复测登记-r1109.md §③ 豆包×tb 行",
+    "weighted": [
+      "81.48",
+      "70.37",
+      "81.48"
+    ]
+  },
+  "notes": {
+    "app_version_facts_not_judged": "豆包 app 2.34.12→2.35.19、DB tb r1 到达 2400s driver 超时帽（复测登记-r1109 §环境与披露）：仅注记，不参与判定。",
+    "interpretation_boundary": "不外推产品行为规律、不横比 B 组分数面、不构成判卷差异来源分析（checker 未变）；正式 25 行与 bw-retest 判分不变。"
+  },
+  "per_rep": {
+    "r1": {
+      "function_canonical_bytes_by_name": {
+        "Bash": 7223,
+        "Edit": 7257,
+        "Read": 1446,
+        "Write": 10381,
+        "present_files": 202,
+        "task_create": 273,
+        "task_update": 142
+      },
+      "function_canonical_bytes_total": 26924,
+      "n_assistant_lines": 18,
+      "n_lines": 45,
+      "n_pure_assistant_turns": 0,
+      "n_tool_calls": 27,
+      "n_tool_lines": 27,
+      "tool_call_counts": {
+        "Bash": 7,
+        "Edit": 6,
+        "Read": 9,
+        "Write": 1,
+        "present_files": 1,
+        "task_create": 1,
+        "task_update": 2
+      },
+      "tool_name_sequence": [
+        "Bash",
+        "T",
+        "Read",
+        "Read",
+        "Read",
+        "T",
+        "T",
+        "T",
+        "Read",
+        "Read",
+        "Read",
+        "Read",
+        "T",
+        "T",
+        "T",
+        "T",
+        "Read",
+        "Read",
+        "T",
+        "T",
+        "Bash",
+        "T",
+        "Edit",
+        "Edit",
+        "Edit",
+        "T",
+        "T",
+        "T",
+        "Edit",
+        "T",
+        "Write",
+        "T",
+        "Bash",
+        "T",
+        "task_create",
+        "T",
+        "task_update",
+        "Bash",
+        "T",
+        "T",
+        "Bash",
+        "T",
+        "Edit",
+        "T",
+        "Edit",
+        "T",
+        "Bash",
+        "T",
+        "Bash",
+        "T",
+        "task_update",
+        "T",
+        "present_files",
+        "T"
+      ],
+      "tool_result_content_bytes_total": 40282,
+      "tool_result_content_types": {
+        "str": 27
+      },
+      "trajectory": "runs/tb-cargo-plan__r1/trace/session/agents/<agent>/system/trajectory.jsonl"
+    },
+    "r2": {
+      "function_canonical_bytes_by_name": {
+        "Bash": 4776,
+        "Edit": 1150,
+        "Read": 1294,
+        "Write": 10562,
+        "present_files": 202,
+        "task_create": 270,
+        "task_update": 142
+      },
+      "function_canonical_bytes_total": 18396,
+      "n_assistant_lines": 16,
+      "n_lines": 37,
+      "n_pure_assistant_turns": 1,
+      "n_tool_calls": 21,
+      "n_tool_lines": 21,
+      "tool_call_counts": {
+        "Bash": 6,
+        "Edit": 2,
+        "Read": 8,
+        "Write": 1,
+        "present_files": 1,
+        "task_create": 1,
+        "task_update": 2
+      },
+      "tool_name_sequence": [
+        "Bash",
+        "T",
+        "Read",
+        "Read",
+        "Read",
+        "T",
+        "T",
+        "T",
+        "Read",
+        "Read",
+        "Read",
+        "Read",
+        "T",
+        "T",
+        "T",
+        "T",
+        "Bash",
+        "T",
+        "Edit",
+        "Edit",
+        "T",
+        "T",
+        "Write",
+        "T",
+        "Bash",
+        "T",
+        "Bash",
+        "T",
+        "Read",
+        "T",
+        "task_create",
+        "T",
+        "task_update",
+        "T",
+        "Bash",
+        "T",
+        "Bash",
+        "T",
+        "task_update",
+        "T",
+        "present_files",
+        "T"
+      ],
+      "tool_result_content_bytes_total": 36111,
+      "tool_result_content_types": {
+        "str": 21
+      },
+      "trajectory": "runs/tb-cargo-plan__r2/trace/session/agents/<agent>/system/trajectory.jsonl"
+    },
+    "r3": {
+      "function_canonical_bytes_by_name": {
+        "Bash": 7925,
+        "Edit": 11708,
+        "Read": 1446,
+        "present_files": 202
+      },
+      "function_canonical_bytes_total": 21281,
+      "n_assistant_lines": 19,
+      "n_lines": 44,
+      "n_pure_assistant_turns": 1,
+      "n_tool_calls": 25,
+      "n_tool_lines": 25,
+      "tool_call_counts": {
+        "Bash": 6,
+        "Edit": 9,
+        "Read": 9,
+        "present_files": 1
+      },
+      "tool_name_sequence": [
+        "Bash",
+        "T",
+        "Read",
+        "Read",
+        "Read",
+        "T",
+        "T",
+        "T",
+        "Read",
+        "Read",
+        "Read",
+        "Read",
+        "T",
+        "T",
+        "T",
+        "T",
+        "Read",
+        "T",
+        "Edit",
+        "Edit",
+        "Edit",
+        "T",
+        "T",
+        "T",
+        "Edit",
+        "T",
+        "Edit",
+        "T",
+        "Edit",
+        "T",
+        "Edit",
+        "T",
+        "Bash",
+        "T",
+        "Bash",
+        "T",
+        "Read",
+        "T",
+        "Bash",
+        "T",
+        "Edit",
+        "T",
+        "Edit",
+        "T",
+        "Bash",
+        "T",
+        "Bash",
+        "T",
+        "present_files",
+        "T"
+      ],
+      "tool_result_content_bytes_total": 41900,
+      "tool_result_content_types": {
+        "str": 25
+      },
+      "trajectory": "runs/tb-cargo-plan__r3/trace/session/agents/<agent>/system/trajectory.jsonl"
+    }
+  },
+  "prereg_package": "4-打分细则/豆包输出侧结构分解-2026-11-16/README.md",
+  "prereg_sha256": "aabe1f09ab2710e6a95d7efa4e9a497c3ccc40ba09df78b4e24075a0e187ec5e",
+  "schema": "doubao-struct-v1",
+  "sequence_comparison": {
+    "first_divergence_elements": {
+      "r1": "Read",
+      "r2": "Bash",
+      "r3": "Read"
+    },
+    "first_divergence_index": 16,
+    "min_sequence_length": 42,
+    "pairwise_lcp": {
+      "r1-r2": 16,
+      "r1-r3": 17,
+      "r2-r3": 16
+    },
+    "rule": "三方 LCP < min(序列长)/2 ⇒ H-EARLY-DIVERGENCE；≥ ⇒ H-LATE-CONVERGENCE",
+    "sequence_lengths": {
+      "r1": 54,
+      "r2": 42,
+      "r3": 50
+    },
+    "three_way_lcp": 16,
+    "threshold_min_half": 21.0
+  },
+  "task": {
+    "product": "doubao",
+    "reps": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "run": "bw-retest",
+    "task_id": "tb-cargo-plan"
+  },
+  "units": {
+    "function_canonical_bytes_*": "canonical JSON UTF-8 字节（sort_keys=True, ensure_ascii=False, separators=(',',':')）",
+    "tool_result_content_bytes_*": "str 按 UTF-8 字节；非 str 按 canonical JSON 字节并登记类型名",
+    "序列": "元素 = 工具名标识符或 'T'（tool 行）；分母 = 各 rep 序列元素个数",
+    "行数/assistant/tool/tool_call/纯assistant轮/逐工具计数": "计数（条/个）"
+  }
+}
