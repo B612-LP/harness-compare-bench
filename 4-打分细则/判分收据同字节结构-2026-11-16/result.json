@@ -1,0 +1,2337 @@
+{
+  "anomalies": [
+    {
+      "detail": "prereg §2 line 15 records the surveyed premise bird r2/r3 workspace distinct (r2≠r3); recomputation of the workspace file-set aggregate finds the two file sets content-identical (equal aggregate SHA). The premise is refuted by in-package recomputation. This is a survey premise error, not a frozen-criteria failure: §2 requires the recomputation itself, and §3 branch conditions are receipt-level.",
+      "id": "workspace-survey-premise-refuted"
+    }
+  ],
+  "baseline_commit": "c27f73191e915192ec9387671ef703c32f716746",
+  "bird_r2_r3": {
+    "case": "bird-ca-schools-15",
+    "receipt_main_bytes_identical_r2_r3": true,
+    "receipt_main_mtime_same_second_r2_r3": true,
+    "receipt_retrorun_bytes_identical_r2_r3": true,
+    "slots": {
+      "r1": "dsh__bird-ca-schools-15__r1",
+      "r2": "dsh__bird-ca-schools-15__r2",
+      "r3": "dsh__bird-ca-schools-15__r3"
+    },
+    "survey_expectation_from_prereg": {
+      "bird_r2_r3_workspace_distinct": true,
+      "source": "prereg §2 line 15（已勘察 r2≠r3，包内复算）"
+    },
+    "survey_premise_supported": false,
+    "workspace_aggregate_r2": "d467043a992efa3c78048b58272f94b3a6172705f4a92a8d3a92bda9087af640",
+    "workspace_aggregate_r3": "d467043a992efa3c78048b58272f94b3a6172705f4a92a8d3a92bda9087af640",
+    "workspace_content_identical_r2_r3": true
+  },
+  "branch": {
+    "counts": {
+      "collapse_pairs": 2,
+      "cross_case_bytes_equal_pairs": 0,
+      "cross_tuple_different_pairs": 4,
+      "diverge_same_tuple_pairs": 12,
+      "unclassified_missing_tuple_pairs": 0
+    },
+    "rationale": [
+      "all collapse pairs explained by equal result tuple + identical in-pair incident material (lengths/SHA256) [s1]",
+      "all diverge-with-same-tuple pairs have located divergence in per-rep material fields [s2]",
+      "no mtime order contradiction within case/family rep sequences [s3]",
+      "all same-case rep pairs classified (no missing-tuple probes) [complete]"
+    ],
+    "structural_conditions": {
+      "classification_complete": true,
+      "s1_collapse_pairs_fully_explained": true,
+      "s2_divergence_located_to_per_rep_material": true,
+      "s3_mtime_batch_consistent": true
+    },
+    "t2_reasons": [],
+    "triggers": {
+      "t1_same_tuple_same_bytes_incident_material_diff_exit2": false,
+      "t2_collapse_pattern_inconsistent_with_tuple_grouping": false,
+      "t3_mtime_contradicts_batch_semantics": false,
+      "t4_retrorun_has_per_run_material_but_collapse_unexplained": false
+    },
+    "verdict": "B-STRUCTURAL-COINCIDENCE"
+  },
+  "content_free_declaration": "verification reads key names, SHA256 digests, byte lengths, mtime seconds and counts only; receipt value text and workspace file contents are never emitted or stored",
+  "cross_family_incident_material_comparison": [
+    {
+      "slot": "dsh__bird-ca-schools-15__r1",
+      "subkey_comparison": {
+        "cause": "different",
+        "pre_fix_checker_stdout": "same"
+      }
+    },
+    {
+      "slot": "dsh__bird-ca-schools-15__r2",
+      "subkey_comparison": {
+        "cause": "different",
+        "pre_fix_checker_stdout": "same"
+      }
+    },
+    {
+      "slot": "dsh__bird-ca-schools-15__r3",
+      "subkey_comparison": {
+        "cause": "different",
+        "pre_fix_checker_stdout": "same"
+      }
+    }
+  ],
+  "git_available": true,
+  "incident_material_table": {
+    "main": {
+      "dsh__bird-ca-schools-15__r1": {
+        "materials": {
+          "cause": {
+            "len": 390,
+            "sha256": "9bee326882d0833fa4fa0f318b8d762cf4c6577b4c820433f1051e64f45d4728"
+          },
+          "pre_fix_checker_stdout": {
+            "len": 25,
+            "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+          }
+        },
+        "subkeys": [
+          "cause",
+          "pre_fix_checker_stdout"
+        ]
+      },
+      "dsh__bird-ca-schools-15__r2": {
+        "materials": {
+          "cause": {
+            "len": 390,
+            "sha256": "9bee326882d0833fa4fa0f318b8d762cf4c6577b4c820433f1051e64f45d4728"
+          },
+          "pre_fix_checker_stdout": {
+            "len": 25,
+            "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+          }
+        },
+        "subkeys": [
+          "cause",
+          "pre_fix_checker_stdout"
+        ]
+      },
+      "dsh__bird-ca-schools-15__r3": {
+        "materials": {
+          "cause": {
+            "len": 390,
+            "sha256": "9bee326882d0833fa4fa0f318b8d762cf4c6577b4c820433f1051e64f45d4728"
+          },
+          "pre_fix_checker_stdout": {
+            "len": 25,
+            "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+          }
+        },
+        "subkeys": [
+          "cause",
+          "pre_fix_checker_stdout"
+        ]
+      }
+    },
+    "retrorun": {
+      "dsh__bird-ca-schools-15__r1": {
+        "materials": {
+          "cause": {
+            "len": 160,
+            "sha256": "c5d0523e532f3073221837134fbf649d997117e79000637924672afa827f0fa0"
+          },
+          "pre_fix_checker_stdout": {
+            "len": 25,
+            "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+          }
+        },
+        "subkeys": [
+          "cause",
+          "pre_fix_checker_stdout"
+        ]
+      },
+      "dsh__bird-ca-schools-15__r2": {
+        "materials": {
+          "cause": {
+            "len": 160,
+            "sha256": "c5d0523e532f3073221837134fbf649d997117e79000637924672afa827f0fa0"
+          },
+          "pre_fix_checker_stdout": {
+            "len": 25,
+            "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+          }
+        },
+        "subkeys": [
+          "cause",
+          "pre_fix_checker_stdout"
+        ]
+      },
+      "dsh__bird-ca-schools-15__r3": {
+        "materials": {
+          "cause": {
+            "len": 160,
+            "sha256": "c5d0523e532f3073221837134fbf649d997117e79000637924672afa827f0fa0"
+          },
+          "pre_fix_checker_stdout": {
+            "len": 25,
+            "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+          }
+        },
+        "subkeys": [
+          "cause",
+          "pre_fix_checker_stdout"
+        ]
+      }
+    }
+  },
+  "inputs": {
+    "archive_layout": "dsh/runs/<slot>/score-receipt.json (+ retrorun file where present, workspace/)",
+    "archive_root_provided": true,
+    "paths_redacted": "absolute CLI paths intentionally omitted from result",
+    "root_provided": true
+  },
+  "interpretation_notes": [
+    "prereg §3 names incident-subkey per-rep material as the divergence locus; for diverge-with-same-tuple pairs whose schema has no judging_incident key, the per-rep material fields are rep/run_id (prereg §2 line 10: run-unique material evidence). Either way every differing path is fully attributed by length+SHA256, content-free."
+  ],
+  "key_set_groups": {
+    "[\"assessed\", \"checker_sha256\", \"earned\", \"judging_incident\", \"possible\", \"reported\", \"reward\", \"rule_version\"]": [
+      "dsh__bird-ca-schools-15__r1/main",
+      "dsh__bird-ca-schools-15__r1/retrorun",
+      "dsh__bird-ca-schools-15__r2/main",
+      "dsh__bird-ca-schools-15__r2/retrorun",
+      "dsh__bird-ca-schools-15__r3/main",
+      "dsh__bird-ca-schools-15__r3/retrorun"
+    ],
+    "[\"case\", \"note\", \"product\", \"raw_checker_output\", \"rep\", \"run_id\", \"score\"]": [
+      "dsh__dabstep-payments-10__r1/main",
+      "dsh__dabstep-payments-10__r2/main",
+      "dsh__dabstep-payments-10__r3/main",
+      "dsh__exercism-py-6__r1/main",
+      "dsh__exercism-py-6__r2/main",
+      "dsh__exercism-py-6__r3/main",
+      "dsh__lcb-recent-hard-4__r1/main",
+      "dsh__lcb-recent-hard-4__r2/main",
+      "dsh__lcb-recent-hard-4__r3/main",
+      "dsh__tb-cargo-plan__r1/main",
+      "dsh__tb-cargo-plan__r2/main",
+      "dsh__tb-cargo-plan__r3/main"
+    ]
+  },
+  "mtime_matrix": {
+    "dsh__bird-ca-schools-15__r1": {
+      "main": {
+        "epoch": 1794200950,
+        "utc8": "2026-11-09 13:09:10 +08:00"
+      },
+      "retrorun": {
+        "epoch": 1794197638,
+        "utc8": "2026-11-09 12:13:58 +08:00"
+      }
+    },
+    "dsh__bird-ca-schools-15__r2": {
+      "main": {
+        "epoch": 1794200950,
+        "utc8": "2026-11-09 13:09:10 +08:00"
+      },
+      "retrorun": {
+        "epoch": 1794197638,
+        "utc8": "2026-11-09 12:13:58 +08:00"
+      }
+    },
+    "dsh__bird-ca-schools-15__r3": {
+      "main": {
+        "epoch": 1794200950,
+        "utc8": "2026-11-09 13:09:10 +08:00"
+      },
+      "retrorun": {
+        "epoch": 1794197639,
+        "utc8": "2026-11-09 12:13:59 +08:00"
+      }
+    },
+    "dsh__dabstep-payments-10__r1": {
+      "main": {
+        "epoch": 1794197666,
+        "utc8": "2026-11-09 12:14:26 +08:00"
+      }
+    },
+    "dsh__dabstep-payments-10__r2": {
+      "main": {
+        "epoch": 1794197920,
+        "utc8": "2026-11-09 12:18:40 +08:00"
+      }
+    },
+    "dsh__dabstep-payments-10__r3": {
+      "main": {
+        "epoch": 1794198175,
+        "utc8": "2026-11-09 12:22:55 +08:00"
+      }
+    },
+    "dsh__exercism-py-6__r1": {
+      "main": {
+        "epoch": 1794198211,
+        "utc8": "2026-11-09 12:23:31 +08:00"
+      }
+    },
+    "dsh__exercism-py-6__r2": {
+      "main": {
+        "epoch": 1794198289,
+        "utc8": "2026-11-09 12:24:49 +08:00"
+      }
+    },
+    "dsh__exercism-py-6__r3": {
+      "main": {
+        "epoch": 1794198334,
+        "utc8": "2026-11-09 12:25:34 +08:00"
+      }
+    },
+    "dsh__lcb-recent-hard-4__r1": {
+      "main": {
+        "epoch": 1794198495,
+        "utc8": "2026-11-09 12:28:15 +08:00"
+      }
+    },
+    "dsh__lcb-recent-hard-4__r2": {
+      "main": {
+        "epoch": 1794198814,
+        "utc8": "2026-11-09 12:33:34 +08:00"
+      }
+    },
+    "dsh__lcb-recent-hard-4__r3": {
+      "main": {
+        "epoch": 1794199213,
+        "utc8": "2026-11-09 12:40:13 +08:00"
+      }
+    },
+    "dsh__tb-cargo-plan__r1": {
+      "main": {
+        "epoch": 1794199776,
+        "utc8": "2026-11-09 12:49:36 +08:00"
+      }
+    },
+    "dsh__tb-cargo-plan__r2": {
+      "main": {
+        "epoch": 1794200052,
+        "utc8": "2026-11-09 12:54:12 +08:00"
+      }
+    },
+    "dsh__tb-cargo-plan__r3": {
+      "main": {
+        "epoch": 1794200224,
+        "utc8": "2026-11-09 12:57:04 +08:00"
+      }
+    }
+  },
+  "mtime_order_violations": [],
+  "mtime_same_second_groups": [
+    {
+      "epoch": 1794197638,
+      "members": [
+        "dsh__bird-ca-schools-15__r1/retrorun",
+        "dsh__bird-ca-schools-15__r2/retrorun"
+      ],
+      "utc8": "2026-11-09 12:13:58 +08:00"
+    },
+    {
+      "epoch": 1794200950,
+      "members": [
+        "dsh__bird-ca-schools-15__r1/main",
+        "dsh__bird-ca-schools-15__r2/main",
+        "dsh__bird-ca-schools-15__r3/main"
+      ],
+      "utc8": "2026-11-09 13:09:10 +08:00"
+    }
+  ],
+  "observation_surface": {
+    "cases": {
+      "bird-ca-schools-15": {
+        "rep_count": 3,
+        "slots": [
+          "dsh__bird-ca-schools-15__r1",
+          "dsh__bird-ca-schools-15__r2",
+          "dsh__bird-ca-schools-15__r3"
+        ]
+      },
+      "dabstep-payments-10": {
+        "rep_count": 3,
+        "slots": [
+          "dsh__dabstep-payments-10__r1",
+          "dsh__dabstep-payments-10__r2",
+          "dsh__dabstep-payments-10__r3"
+        ]
+      },
+      "exercism-py-6": {
+        "rep_count": 3,
+        "slots": [
+          "dsh__exercism-py-6__r1",
+          "dsh__exercism-py-6__r2",
+          "dsh__exercism-py-6__r3"
+        ]
+      },
+      "lcb-recent-hard-4": {
+        "rep_count": 3,
+        "slots": [
+          "dsh__lcb-recent-hard-4__r1",
+          "dsh__lcb-recent-hard-4__r2",
+          "dsh__lcb-recent-hard-4__r3"
+        ]
+      },
+      "tb-cargo-plan": {
+        "rep_count": 3,
+        "slots": [
+          "dsh__tb-cargo-plan__r1",
+          "dsh__tb-cargo-plan__r2",
+          "dsh__tb-cargo-plan__r3"
+        ]
+      }
+    },
+    "expected_slot_count": 15,
+    "slot_count": 15,
+    "slots": [
+      "dsh__bird-ca-schools-15__r1",
+      "dsh__bird-ca-schools-15__r2",
+      "dsh__bird-ca-schools-15__r3",
+      "dsh__dabstep-payments-10__r1",
+      "dsh__dabstep-payments-10__r2",
+      "dsh__dabstep-payments-10__r3",
+      "dsh__exercism-py-6__r1",
+      "dsh__exercism-py-6__r2",
+      "dsh__exercism-py-6__r3",
+      "dsh__lcb-recent-hard-4__r1",
+      "dsh__lcb-recent-hard-4__r2",
+      "dsh__lcb-recent-hard-4__r3",
+      "dsh__tb-cargo-plan__r1",
+      "dsh__tb-cargo-plan__r2",
+      "dsh__tb-cargo-plan__r3"
+    ]
+  },
+  "package": "判分收据同字节结构-2026-11-16",
+  "pairs": {
+    "cross_case_bytes_equal": [],
+    "same_case": [
+      {
+        "bytes_equal": false,
+        "case": "bird-ca-schools-15",
+        "classification": "cross-tuple-different",
+        "family": "main",
+        "sha_a": "bb54dbeae312e9dfd2cbfe5b5df9aa27344667042d3d68288f444320d4bfcab4",
+        "sha_b": "1dbdcbd884a3a45d7aab8291e06d4ba7592683d8fc1677b217bea80e7efe39fa",
+        "size_a": 706,
+        "size_b": 700,
+        "slot_a": "dsh__bird-ca-schools-15__r1",
+        "slot_b": "dsh__bird-ca-schools-15__r2",
+        "tuple_a": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 14,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": false
+      },
+      {
+        "bytes_equal": false,
+        "case": "bird-ca-schools-15",
+        "classification": "cross-tuple-different",
+        "family": "retrorun",
+        "sha_a": "132a1fc0d0a79396d3982ea565c0c44144e3ad2e08cfe52d0fad02c1bda17716",
+        "sha_b": "49d665753085e72112718c20ed5781f3ab8f4bebb4dad43241732b3051fb0559",
+        "size_a": 476,
+        "size_b": 470,
+        "slot_a": "dsh__bird-ca-schools-15__r1",
+        "slot_b": "dsh__bird-ca-schools-15__r2",
+        "tuple_a": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 14,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": false
+      },
+      {
+        "bytes_equal": false,
+        "case": "bird-ca-schools-15",
+        "classification": "cross-tuple-different",
+        "family": "main",
+        "sha_a": "bb54dbeae312e9dfd2cbfe5b5df9aa27344667042d3d68288f444320d4bfcab4",
+        "sha_b": "1dbdcbd884a3a45d7aab8291e06d4ba7592683d8fc1677b217bea80e7efe39fa",
+        "size_a": 706,
+        "size_b": 700,
+        "slot_a": "dsh__bird-ca-schools-15__r1",
+        "slot_b": "dsh__bird-ca-schools-15__r3",
+        "tuple_a": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 14,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": false
+      },
+      {
+        "bytes_equal": false,
+        "case": "bird-ca-schools-15",
+        "classification": "cross-tuple-different",
+        "family": "retrorun",
+        "sha_a": "132a1fc0d0a79396d3982ea565c0c44144e3ad2e08cfe52d0fad02c1bda17716",
+        "sha_b": "49d665753085e72112718c20ed5781f3ab8f4bebb4dad43241732b3051fb0559",
+        "size_a": 476,
+        "size_b": 470,
+        "slot_a": "dsh__bird-ca-schools-15__r1",
+        "slot_b": "dsh__bird-ca-schools-15__r3",
+        "tuple_a": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 14,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": false
+      },
+      {
+        "bytes_equal": true,
+        "case": "bird-ca-schools-15",
+        "classification": "collapse",
+        "explanation_complete": true,
+        "family": "main",
+        "incident_both_absent": false,
+        "incident_materials_equal": true,
+        "sha_a": "1dbdcbd884a3a45d7aab8291e06d4ba7592683d8fc1677b217bea80e7efe39fa",
+        "sha_b": "1dbdcbd884a3a45d7aab8291e06d4ba7592683d8fc1677b217bea80e7efe39fa",
+        "size_a": 700,
+        "size_b": 700,
+        "slot_a": "dsh__bird-ca-schools-15__r2",
+        "slot_b": "dsh__bird-ca-schools-15__r3",
+        "tuple_a": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": true,
+        "case": "bird-ca-schools-15",
+        "classification": "collapse",
+        "explanation_complete": true,
+        "family": "retrorun",
+        "incident_both_absent": false,
+        "incident_materials_equal": true,
+        "sha_a": "49d665753085e72112718c20ed5781f3ab8f4bebb4dad43241732b3051fb0559",
+        "sha_b": "49d665753085e72112718c20ed5781f3ab8f4bebb4dad43241732b3051fb0559",
+        "size_a": 470,
+        "size_b": 470,
+        "slot_a": "dsh__bird-ca-schools-15__r2",
+        "slot_b": "dsh__bird-ca-schools-15__r3",
+        "tuple_a": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "dabstep-payments-10",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 32,
+              "sha256": "74cdf593173299a331ac217e78eff83f730dc8c2344adef03b01ca5ddd1bb972",
+              "type": "str"
+            },
+            "b": {
+              "len": 32,
+              "sha256": "e500c6bff3ccc10ad0fb39461713cfaf1c6724eca2c5b54fcb5dfc6736ca5544",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "4fef974acb2b884f8e6a7fc2e7caf1917b6582be36d0cbdda4f819af30d72124",
+        "sha_b": "0582136bc614ac62a63b7767fbdde5b58628950b368793f55647d862d9fe95de",
+        "size_a": 9349,
+        "size_b": 9349,
+        "slot_a": "dsh__dabstep-payments-10__r1",
+        "slot_b": "dsh__dabstep-payments-10__r2",
+        "tuple_a": {
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "earned": 7,
+          "possible": 10,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "earned": 7,
+          "possible": 10,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "dabstep-payments-10",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 32,
+              "sha256": "74cdf593173299a331ac217e78eff83f730dc8c2344adef03b01ca5ddd1bb972",
+              "type": "str"
+            },
+            "b": {
+              "len": 32,
+              "sha256": "a583628506f650b46731bd83ce6ee5fcae4ab3115fd40c49e89fff6d14631ea5",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "4fef974acb2b884f8e6a7fc2e7caf1917b6582be36d0cbdda4f819af30d72124",
+        "sha_b": "47ff55368c49728a627344ce8926645f52ff05f44bb3a630e373c2fd80206cb9",
+        "size_a": 9349,
+        "size_b": 9349,
+        "slot_a": "dsh__dabstep-payments-10__r1",
+        "slot_b": "dsh__dabstep-payments-10__r3",
+        "tuple_a": {
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "earned": 7,
+          "possible": 10,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "earned": 7,
+          "possible": 10,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "dabstep-payments-10",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 32,
+              "sha256": "e500c6bff3ccc10ad0fb39461713cfaf1c6724eca2c5b54fcb5dfc6736ca5544",
+              "type": "str"
+            },
+            "b": {
+              "len": 32,
+              "sha256": "a583628506f650b46731bd83ce6ee5fcae4ab3115fd40c49e89fff6d14631ea5",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "0582136bc614ac62a63b7767fbdde5b58628950b368793f55647d862d9fe95de",
+        "sha_b": "47ff55368c49728a627344ce8926645f52ff05f44bb3a630e373c2fd80206cb9",
+        "size_a": 9349,
+        "size_b": 9349,
+        "slot_a": "dsh__dabstep-payments-10__r2",
+        "slot_b": "dsh__dabstep-payments-10__r3",
+        "tuple_a": {
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "earned": 7,
+          "possible": 10,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "earned": 7,
+          "possible": 10,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "exercism-py-6",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 26,
+              "sha256": "0d4adde265d8abb978576b9efb83288f93fc7e1e6e747c8489ace5d00d5df635",
+              "type": "str"
+            },
+            "b": {
+              "len": 26,
+              "sha256": "0a85e2291e4a1f24319ab823c6b767b6ad2b60d81cf78abbb641798d0b822bdc",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "4e77745b74ee1adebfe68d874d20afb470152548338ac834aa054394cdd98d91",
+        "sha_b": "9e95cb4da1319311a1112ca0fddf005c70585a9ac24b9b9c2cf6e2a20ff7b3fd",
+        "size_a": 3365,
+        "size_b": 3365,
+        "slot_a": "dsh__exercism-py-6__r1",
+        "slot_b": "dsh__exercism-py-6__r2",
+        "tuple_a": {
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "earned": 6,
+          "possible": 6,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "earned": 6,
+          "possible": 6,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "exercism-py-6",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 26,
+              "sha256": "0d4adde265d8abb978576b9efb83288f93fc7e1e6e747c8489ace5d00d5df635",
+              "type": "str"
+            },
+            "b": {
+              "len": 26,
+              "sha256": "217f07fcacc257f25564f6a7b8719474a640466aef8669cd37cd0b99ef0afa28",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "4e77745b74ee1adebfe68d874d20afb470152548338ac834aa054394cdd98d91",
+        "sha_b": "00c6aaaa5ddc27b7bbecb794e968e2af4e0d00b4a853fc6717d318093b16cd52",
+        "size_a": 3365,
+        "size_b": 3365,
+        "slot_a": "dsh__exercism-py-6__r1",
+        "slot_b": "dsh__exercism-py-6__r3",
+        "tuple_a": {
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "earned": 6,
+          "possible": 6,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "earned": 6,
+          "possible": 6,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "exercism-py-6",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 26,
+              "sha256": "0a85e2291e4a1f24319ab823c6b767b6ad2b60d81cf78abbb641798d0b822bdc",
+              "type": "str"
+            },
+            "b": {
+              "len": 26,
+              "sha256": "217f07fcacc257f25564f6a7b8719474a640466aef8669cd37cd0b99ef0afa28",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "9e95cb4da1319311a1112ca0fddf005c70585a9ac24b9b9c2cf6e2a20ff7b3fd",
+        "sha_b": "00c6aaaa5ddc27b7bbecb794e968e2af4e0d00b4a853fc6717d318093b16cd52",
+        "size_a": 3365,
+        "size_b": 3365,
+        "slot_a": "dsh__exercism-py-6__r2",
+        "slot_b": "dsh__exercism-py-6__r3",
+        "tuple_a": {
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "earned": 6,
+          "possible": 6,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "earned": 6,
+          "possible": 6,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "lcb-recent-hard-4",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 30,
+              "sha256": "bb3d97b96a56d54b279ee2f8397005984a25b1f304ac5d5435a375def33ec8eb",
+              "type": "str"
+            },
+            "b": {
+              "len": 30,
+              "sha256": "e0f1f502cfe20a93723ce69a66e6ba986cab4587d11856e74ea27a97fe8c0f48",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "02e8527f158a93939c3dbb13169aad54d14af24536c3435d2d72ab9c5e2f3c5a",
+        "sha_b": "cba11654e965797d6caef3b72e4d56b35eaf88069564267b4c848a4fb9a724be",
+        "size_a": 2022,
+        "size_b": 2022,
+        "slot_a": "dsh__lcb-recent-hard-4__r1",
+        "slot_b": "dsh__lcb-recent-hard-4__r2",
+        "tuple_a": {
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "earned": 4,
+          "possible": 4,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "earned": 4,
+          "possible": 4,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "lcb-recent-hard-4",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 30,
+              "sha256": "bb3d97b96a56d54b279ee2f8397005984a25b1f304ac5d5435a375def33ec8eb",
+              "type": "str"
+            },
+            "b": {
+              "len": 30,
+              "sha256": "b71f32d402d78e8f561f2d8aa6e0c2cf4a5cc70603ca8109cf2fb4aa1328d2e0",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "02e8527f158a93939c3dbb13169aad54d14af24536c3435d2d72ab9c5e2f3c5a",
+        "sha_b": "e2767b2fac7b9727b77d24351791874e617ebc97ad24e89709ec8ca5485da7de",
+        "size_a": 2022,
+        "size_b": 2022,
+        "slot_a": "dsh__lcb-recent-hard-4__r1",
+        "slot_b": "dsh__lcb-recent-hard-4__r3",
+        "tuple_a": {
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "earned": 4,
+          "possible": 4,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "earned": 4,
+          "possible": 4,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "lcb-recent-hard-4",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 30,
+              "sha256": "e0f1f502cfe20a93723ce69a66e6ba986cab4587d11856e74ea27a97fe8c0f48",
+              "type": "str"
+            },
+            "b": {
+              "len": 30,
+              "sha256": "b71f32d402d78e8f561f2d8aa6e0c2cf4a5cc70603ca8109cf2fb4aa1328d2e0",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "cba11654e965797d6caef3b72e4d56b35eaf88069564267b4c848a4fb9a724be",
+        "sha_b": "e2767b2fac7b9727b77d24351791874e617ebc97ad24e89709ec8ca5485da7de",
+        "size_a": 2022,
+        "size_b": 2022,
+        "slot_a": "dsh__lcb-recent-hard-4__r2",
+        "slot_b": "dsh__lcb-recent-hard-4__r3",
+        "tuple_a": {
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "earned": 4,
+          "possible": 4,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "earned": 4,
+          "possible": 4,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "tb-cargo-plan",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 26,
+              "sha256": "cc77db0b8f202d4ce0f022d0292e2a7e6cbdaf8b527a076f578ce8ee0733e031",
+              "type": "str"
+            },
+            "b": {
+              "len": 26,
+              "sha256": "91ecca72dde58170c1ac0acedcdbb59c6d5edb9f165a602f0631d6c36920b0eb",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "a1e8ba62092e0810695474814d2b0ca44ab5ffe92397713226ba946c4eb77d2f",
+        "sha_b": "63f946865aac40e9416f659a67458815d8b2d7bda3189256c7f60897af87b428",
+        "size_a": 3711,
+        "size_b": 3711,
+        "slot_a": "dsh__tb-cargo-plan__r1",
+        "slot_b": "dsh__tb-cargo-plan__r2",
+        "tuple_a": {
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "earned": 24,
+          "possible": 27,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "earned": 24,
+          "possible": 27,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "tb-cargo-plan",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 26,
+              "sha256": "cc77db0b8f202d4ce0f022d0292e2a7e6cbdaf8b527a076f578ce8ee0733e031",
+              "type": "str"
+            },
+            "b": {
+              "len": 26,
+              "sha256": "73632c56ce09603ef922ca982ba852569e6af82f5637a847b3b7f51355b86e21",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "a1e8ba62092e0810695474814d2b0ca44ab5ffe92397713226ba946c4eb77d2f",
+        "sha_b": "f99ddfd50c13581afcfda370a2120e7fd1c7aa8cf3832e053f8574717f805794",
+        "size_a": 3711,
+        "size_b": 3711,
+        "slot_a": "dsh__tb-cargo-plan__r1",
+        "slot_b": "dsh__tb-cargo-plan__r3",
+        "tuple_a": {
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "earned": 24,
+          "possible": 27,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "earned": 24,
+          "possible": 27,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      },
+      {
+        "bytes_equal": false,
+        "case": "tb-cargo-plan",
+        "classification": "diverge-with-same-tuple",
+        "differing_paths": [
+          {
+            "a": {
+              "len": 1,
+              "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+              "type": "str"
+            },
+            "b": {
+              "len": 1,
+              "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+              "type": "str"
+            },
+            "path": "rep"
+          },
+          {
+            "a": {
+              "len": 26,
+              "sha256": "91ecca72dde58170c1ac0acedcdbb59c6d5edb9f165a602f0631d6c36920b0eb",
+              "type": "str"
+            },
+            "b": {
+              "len": 26,
+              "sha256": "73632c56ce09603ef922ca982ba852569e6af82f5637a847b3b7f51355b86e21",
+              "type": "str"
+            },
+            "path": "run_id"
+          }
+        ],
+        "divergence_categories": [
+          "per-rep-material"
+        ],
+        "family": "main",
+        "sha_a": "63f946865aac40e9416f659a67458815d8b2d7bda3189256c7f60897af87b428",
+        "sha_b": "f99ddfd50c13581afcfda370a2120e7fd1c7aa8cf3832e053f8574717f805794",
+        "size_a": 3711,
+        "size_b": 3711,
+        "slot_a": "dsh__tb-cargo-plan__r2",
+        "slot_b": "dsh__tb-cargo-plan__r3",
+        "tuple_a": {
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "earned": 24,
+          "possible": 27,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_b": {
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "earned": 24,
+          "possible": 27,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_equal": true
+      }
+    ]
+  },
+  "prereg": {
+    "path": "4-打分细则/判分收据同字节结构-2026-11-16/README.md",
+    "sha256": "47c0fef7c563863b926af13cb1e8a3d3ea53272f63b32581aaf9c311490ed074",
+    "size_bytes": 3044
+  },
+  "privacy_audit": "passed",
+  "receipts": {
+    "dsh__bird-ca-schools-15__r1": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {
+            "cause": {
+              "len": 390,
+              "sha256": "9bee326882d0833fa4fa0f318b8d762cf4c6577b4c820433f1051e64f45d4728"
+            },
+            "pre_fix_checker_stdout": {
+              "len": 25,
+              "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+            }
+          },
+          "note": null,
+          "present": true,
+          "subkeys": [
+            "cause",
+            "pre_fix_checker_stdout"
+          ]
+        },
+        "mtime_epoch": 1794200950,
+        "mtime_utc8": "2026-11-09 13:09:10 +08:00",
+        "sha256": "bb54dbeae312e9dfd2cbfe5b5df9aa27344667042d3d68288f444320d4bfcab4",
+        "size_bytes": 706,
+        "top_key_set": [
+          "assessed",
+          "checker_sha256",
+          "earned",
+          "judging_incident",
+          "possible",
+          "reported",
+          "reward",
+          "rule_version"
+        ],
+        "tuple": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 14,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "22ad9b19526ccdac5801d202fbcda2d83d8255905e3ad4745a24c5a608022a37",
+        "tuple_source": "top"
+      },
+      "retrorun": {
+        "family": "retrorun",
+        "incident": {
+          "materials": {
+            "cause": {
+              "len": 160,
+              "sha256": "c5d0523e532f3073221837134fbf649d997117e79000637924672afa827f0fa0"
+            },
+            "pre_fix_checker_stdout": {
+              "len": 25,
+              "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+            }
+          },
+          "note": null,
+          "present": true,
+          "subkeys": [
+            "cause",
+            "pre_fix_checker_stdout"
+          ]
+        },
+        "mtime_epoch": 1794197638,
+        "mtime_utc8": "2026-11-09 12:13:58 +08:00",
+        "sha256": "132a1fc0d0a79396d3982ea565c0c44144e3ad2e08cfe52d0fad02c1bda17716",
+        "size_bytes": 476,
+        "top_key_set": [
+          "assessed",
+          "checker_sha256",
+          "earned",
+          "judging_incident",
+          "possible",
+          "reported",
+          "reward",
+          "rule_version"
+        ],
+        "tuple": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 14,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "22ad9b19526ccdac5801d202fbcda2d83d8255905e3ad4745a24c5a608022a37",
+        "tuple_source": "top"
+      }
+    },
+    "dsh__bird-ca-schools-15__r2": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {
+            "cause": {
+              "len": 390,
+              "sha256": "9bee326882d0833fa4fa0f318b8d762cf4c6577b4c820433f1051e64f45d4728"
+            },
+            "pre_fix_checker_stdout": {
+              "len": 25,
+              "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+            }
+          },
+          "note": null,
+          "present": true,
+          "subkeys": [
+            "cause",
+            "pre_fix_checker_stdout"
+          ]
+        },
+        "mtime_epoch": 1794200950,
+        "mtime_utc8": "2026-11-09 13:09:10 +08:00",
+        "sha256": "1dbdcbd884a3a45d7aab8291e06d4ba7592683d8fc1677b217bea80e7efe39fa",
+        "size_bytes": 700,
+        "top_key_set": [
+          "assessed",
+          "checker_sha256",
+          "earned",
+          "judging_incident",
+          "possible",
+          "reported",
+          "reward",
+          "rule_version"
+        ],
+        "tuple": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "2897bf61917245a79e8fee99a99b38505f55e1e5bbe80de08966b91b2f4ab405",
+        "tuple_source": "top"
+      },
+      "retrorun": {
+        "family": "retrorun",
+        "incident": {
+          "materials": {
+            "cause": {
+              "len": 160,
+              "sha256": "c5d0523e532f3073221837134fbf649d997117e79000637924672afa827f0fa0"
+            },
+            "pre_fix_checker_stdout": {
+              "len": 25,
+              "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+            }
+          },
+          "note": null,
+          "present": true,
+          "subkeys": [
+            "cause",
+            "pre_fix_checker_stdout"
+          ]
+        },
+        "mtime_epoch": 1794197638,
+        "mtime_utc8": "2026-11-09 12:13:58 +08:00",
+        "sha256": "49d665753085e72112718c20ed5781f3ab8f4bebb4dad43241732b3051fb0559",
+        "size_bytes": 470,
+        "top_key_set": [
+          "assessed",
+          "checker_sha256",
+          "earned",
+          "judging_incident",
+          "possible",
+          "reported",
+          "reward",
+          "rule_version"
+        ],
+        "tuple": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "2897bf61917245a79e8fee99a99b38505f55e1e5bbe80de08966b91b2f4ab405",
+        "tuple_source": "top"
+      }
+    },
+    "dsh__bird-ca-schools-15__r3": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {
+            "cause": {
+              "len": 390,
+              "sha256": "9bee326882d0833fa4fa0f318b8d762cf4c6577b4c820433f1051e64f45d4728"
+            },
+            "pre_fix_checker_stdout": {
+              "len": 25,
+              "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+            }
+          },
+          "note": null,
+          "present": true,
+          "subkeys": [
+            "cause",
+            "pre_fix_checker_stdout"
+          ]
+        },
+        "mtime_epoch": 1794200950,
+        "mtime_utc8": "2026-11-09 13:09:10 +08:00",
+        "sha256": "1dbdcbd884a3a45d7aab8291e06d4ba7592683d8fc1677b217bea80e7efe39fa",
+        "size_bytes": 700,
+        "top_key_set": [
+          "assessed",
+          "checker_sha256",
+          "earned",
+          "judging_incident",
+          "possible",
+          "reported",
+          "reward",
+          "rule_version"
+        ],
+        "tuple": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "2897bf61917245a79e8fee99a99b38505f55e1e5bbe80de08966b91b2f4ab405",
+        "tuple_source": "top"
+      },
+      "retrorun": {
+        "family": "retrorun",
+        "incident": {
+          "materials": {
+            "cause": {
+              "len": 160,
+              "sha256": "c5d0523e532f3073221837134fbf649d997117e79000637924672afa827f0fa0"
+            },
+            "pre_fix_checker_stdout": {
+              "len": 25,
+              "sha256": "7b512ba7d7a5a32791c385b4b386c28da3cdb66361cb8bcd0f42e5c00b9addd9"
+            }
+          },
+          "note": null,
+          "present": true,
+          "subkeys": [
+            "cause",
+            "pre_fix_checker_stdout"
+          ]
+        },
+        "mtime_epoch": 1794197639,
+        "mtime_utc8": "2026-11-09 12:13:59 +08:00",
+        "sha256": "49d665753085e72112718c20ed5781f3ab8f4bebb4dad43241732b3051fb0559",
+        "size_bytes": 470,
+        "top_key_set": [
+          "assessed",
+          "checker_sha256",
+          "earned",
+          "judging_incident",
+          "possible",
+          "reported",
+          "reward",
+          "rule_version"
+        ],
+        "tuple": {
+          "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+          "earned": 15,
+          "possible": 15,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "2897bf61917245a79e8fee99a99b38505f55e1e5bbe80de08966b91b2f4ab405",
+        "tuple_source": "top"
+      }
+    },
+    "dsh__dabstep-payments-10__r1": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794197666,
+        "mtime_utc8": "2026-11-09 12:14:26 +08:00",
+        "sha256": "4fef974acb2b884f8e6a7fc2e7caf1917b6582be36d0cbdda4f819af30d72124",
+        "size_bytes": 9349,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "earned": 7,
+          "possible": 10,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "9c6df7fdd14e8cd904cfa0665883d7642b7fad55c18db2b3c7b459f694883006",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__dabstep-payments-10__r2": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794197920,
+        "mtime_utc8": "2026-11-09 12:18:40 +08:00",
+        "sha256": "0582136bc614ac62a63b7767fbdde5b58628950b368793f55647d862d9fe95de",
+        "size_bytes": 9349,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "earned": 7,
+          "possible": 10,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "9c6df7fdd14e8cd904cfa0665883d7642b7fad55c18db2b3c7b459f694883006",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__dabstep-payments-10__r3": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794198175,
+        "mtime_utc8": "2026-11-09 12:22:55 +08:00",
+        "sha256": "47ff55368c49728a627344ce8926645f52ff05f44bb3a630e373c2fd80206cb9",
+        "size_bytes": 9349,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+          "earned": 7,
+          "possible": 10,
+          "reward": 0,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "9c6df7fdd14e8cd904cfa0665883d7642b7fad55c18db2b3c7b459f694883006",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__exercism-py-6__r1": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794198211,
+        "mtime_utc8": "2026-11-09 12:23:31 +08:00",
+        "sha256": "4e77745b74ee1adebfe68d874d20afb470152548338ac834aa054394cdd98d91",
+        "size_bytes": 3365,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "earned": 6,
+          "possible": 6,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "f47ecbf4f9146b45374fafb8bbfce37dbc0cc9d72af0c523edf6c777b1751dc1",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__exercism-py-6__r2": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794198289,
+        "mtime_utc8": "2026-11-09 12:24:49 +08:00",
+        "sha256": "9e95cb4da1319311a1112ca0fddf005c70585a9ac24b9b9c2cf6e2a20ff7b3fd",
+        "size_bytes": 3365,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "earned": 6,
+          "possible": 6,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "f47ecbf4f9146b45374fafb8bbfce37dbc0cc9d72af0c523edf6c777b1751dc1",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__exercism-py-6__r3": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794198334,
+        "mtime_utc8": "2026-11-09 12:25:34 +08:00",
+        "sha256": "00c6aaaa5ddc27b7bbecb794e968e2af4e0d00b4a853fc6717d318093b16cd52",
+        "size_bytes": 3365,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "8d6208aba69fc4bddbfac612d52712f04e94638070046966fbaa7271eb5c4d30",
+          "earned": 6,
+          "possible": 6,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "f47ecbf4f9146b45374fafb8bbfce37dbc0cc9d72af0c523edf6c777b1751dc1",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__lcb-recent-hard-4__r1": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794198495,
+        "mtime_utc8": "2026-11-09 12:28:15 +08:00",
+        "sha256": "02e8527f158a93939c3dbb13169aad54d14af24536c3435d2d72ab9c5e2f3c5a",
+        "size_bytes": 2022,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "earned": 4,
+          "possible": 4,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "7e4199de0822d58cae4e63f4eddabf228cce2f45ef926ccbbbdaa84546ae9b2c",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__lcb-recent-hard-4__r2": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794198814,
+        "mtime_utc8": "2026-11-09 12:33:34 +08:00",
+        "sha256": "cba11654e965797d6caef3b72e4d56b35eaf88069564267b4c848a4fb9a724be",
+        "size_bytes": 2022,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "earned": 4,
+          "possible": 4,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "7e4199de0822d58cae4e63f4eddabf228cce2f45ef926ccbbbdaa84546ae9b2c",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__lcb-recent-hard-4__r3": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794199213,
+        "mtime_utc8": "2026-11-09 12:40:13 +08:00",
+        "sha256": "e2767b2fac7b9727b77d24351791874e617ebc97ad24e89709ec8ca5485da7de",
+        "size_bytes": 2022,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "63845361deb0949eba4193b7a2fff34569d7750d9e1b1b29405b28c0223b8ee9",
+          "earned": 4,
+          "possible": 4,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "7e4199de0822d58cae4e63f4eddabf228cce2f45ef926ccbbbdaa84546ae9b2c",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__tb-cargo-plan__r1": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794199776,
+        "mtime_utc8": "2026-11-09 12:49:36 +08:00",
+        "sha256": "a1e8ba62092e0810695474814d2b0ca44ab5ffe92397713226ba946c4eb77d2f",
+        "size_bytes": 3711,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "earned": 24,
+          "possible": 27,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "1f99c0bda6713e40ba29b0019ca488c4755dbbe65d613fb064646cca5ea55280",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__tb-cargo-plan__r2": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794200052,
+        "mtime_utc8": "2026-11-09 12:54:12 +08:00",
+        "sha256": "63f946865aac40e9416f659a67458815d8b2d7bda3189256c7f60897af87b428",
+        "size_bytes": 3711,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "earned": 24,
+          "possible": 27,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "1f99c0bda6713e40ba29b0019ca488c4755dbbe65d613fb064646cca5ea55280",
+        "tuple_source": "score"
+      }
+    },
+    "dsh__tb-cargo-plan__r3": {
+      "main": {
+        "family": "main",
+        "incident": {
+          "materials": {},
+          "note": null,
+          "present": false,
+          "subkeys": []
+        },
+        "mtime_epoch": 1794200224,
+        "mtime_utc8": "2026-11-09 12:57:04 +08:00",
+        "sha256": "f99ddfd50c13581afcfda370a2120e7fd1c7aa8cf3832e053f8574717f805794",
+        "size_bytes": 3711,
+        "top_key_set": [
+          "case",
+          "note",
+          "product",
+          "raw_checker_output",
+          "rep",
+          "run_id",
+          "score"
+        ],
+        "tuple": {
+          "checker_sha256": "d84b1111a79000a38b97f602b533a344b8e2562abda9ec44474290701a75c677",
+          "earned": 24,
+          "possible": 27,
+          "reward": 1,
+          "rule_version": "freeze-20261029-v2"
+        },
+        "tuple_group_key": "1f99c0bda6713e40ba29b0019ca488c4755dbbe65d613fb064646cca5ea55280",
+        "tuple_source": "score"
+      }
+    }
+  },
+  "retrorun_cases": [
+    "bird-ca-schools-15"
+  ],
+  "retrorun_existence_map": {
+    "dsh__bird-ca-schools-15__r1": true,
+    "dsh__bird-ca-schools-15__r2": true,
+    "dsh__bird-ca-schools-15__r3": true,
+    "dsh__dabstep-payments-10__r1": false,
+    "dsh__dabstep-payments-10__r2": false,
+    "dsh__dabstep-payments-10__r3": false,
+    "dsh__exercism-py-6__r1": false,
+    "dsh__exercism-py-6__r2": false,
+    "dsh__exercism-py-6__r3": false,
+    "dsh__lcb-recent-hard-4__r1": false,
+    "dsh__lcb-recent-hard-4__r2": false,
+    "dsh__lcb-recent-hard-4__r3": false,
+    "dsh__tb-cargo-plan__r1": false,
+    "dsh__tb-cargo-plan__r2": false,
+    "dsh__tb-cargo-plan__r3": false
+  },
+  "schema": "receipt-collapse-v1",
+  "score_impact": "none — read-only structural verification; no score/gate modification suggested or performed (prereg §5)",
+  "tuple_fields": [
+    "earned",
+    "possible",
+    "reward",
+    "rule_version",
+    "checker_sha256"
+  ],
+  "workspace": {
+    "dsh__bird-ca-schools-15__r1": {
+      "aggregate_sha256": "aea96f490e1e7ffcf85a88d728a6c08dbf0ee58f8b3aa6bc97ac68b0cbc59f79",
+      "exists": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "dc63632ad541ad481e17ca941b0f362100b11bac9083df96ccfacc5e73a29685",
+          "size_bytes": 5183
+        },
+        {
+          "path": "answers.jsonl",
+          "sha256": "44e3cc1ea1456145cea92f072f52a66e14855b3c8b2612e6c37692ae558cf347",
+          "size_bytes": 3061
+        }
+      ]
+    },
+    "dsh__bird-ca-schools-15__r2": {
+      "aggregate_sha256": "d467043a992efa3c78048b58272f94b3a6172705f4a92a8d3a92bda9087af640",
+      "exists": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "dc63632ad541ad481e17ca941b0f362100b11bac9083df96ccfacc5e73a29685",
+          "size_bytes": 5183
+        },
+        {
+          "path": "answers.jsonl",
+          "sha256": "a53015f170ef6148889c481bb902ea7cd334e8481149dc85f236ee14c0dfd538",
+          "size_bytes": 3098
+        }
+      ]
+    },
+    "dsh__bird-ca-schools-15__r3": {
+      "aggregate_sha256": "d467043a992efa3c78048b58272f94b3a6172705f4a92a8d3a92bda9087af640",
+      "exists": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "dc63632ad541ad481e17ca941b0f362100b11bac9083df96ccfacc5e73a29685",
+          "size_bytes": 5183
+        },
+        {
+          "path": "answers.jsonl",
+          "sha256": "a53015f170ef6148889c481bb902ea7cd334e8481149dc85f236ee14c0dfd538",
+          "size_bytes": 3098
+        }
+      ]
+    },
+    "dsh__dabstep-payments-10__r1": {
+      "aggregate_sha256": "9a1ecd15fe247d5f6d9f8d6cefa641da18108cc86942ae02430700af699c8b8a",
+      "exists": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "02c63f2aa6dbc4a690cc7e830809ec9b4ada8eab05f455e76c582fa35a0fc422",
+          "size_bytes": 4560
+        },
+        {
+          "path": "answers.jsonl",
+          "sha256": "e25bfb80e977467e6be8d4d299ddb4bc5182baf28783a2871f868c9fc7433937",
+          "size_bytes": 2623
+        }
+      ]
+    },
+    "dsh__dabstep-payments-10__r2": {
+      "aggregate_sha256": "9a1ecd15fe247d5f6d9f8d6cefa641da18108cc86942ae02430700af699c8b8a",
+      "exists": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "02c63f2aa6dbc4a690cc7e830809ec9b4ada8eab05f455e76c582fa35a0fc422",
+          "size_bytes": 4560
+        },
+        {
+          "path": "answers.jsonl",
+          "sha256": "e25bfb80e977467e6be8d4d299ddb4bc5182baf28783a2871f868c9fc7433937",
+          "size_bytes": 2623
+        }
+      ]
+    },
+    "dsh__dabstep-payments-10__r3": {
+      "aggregate_sha256": "9a1ecd15fe247d5f6d9f8d6cefa641da18108cc86942ae02430700af699c8b8a",
+      "exists": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "02c63f2aa6dbc4a690cc7e830809ec9b4ada8eab05f455e76c582fa35a0fc422",
+          "size_bytes": 4560
+        },
+        {
+          "path": "answers.jsonl",
+          "sha256": "e25bfb80e977467e6be8d4d299ddb4bc5182baf28783a2871f868c9fc7433937",
+          "size_bytes": 2623
+        }
+      ]
+    },
+    "dsh__exercism-py-6__r1": {
+      "aggregate_sha256": "3915f39abc9fcbc95cf0fbed2bf105dddc8f9991224560c873fc7612723b1cf4",
+      "exists": true,
+      "file_count": 1,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "c83906130b915403f3bbe25619a0c9ac07fed89a2a0a8c5194e3b9cdb66e102d",
+          "size_bytes": 3079
+        }
+      ]
+    },
+    "dsh__exercism-py-6__r2": {
+      "aggregate_sha256": "3915f39abc9fcbc95cf0fbed2bf105dddc8f9991224560c873fc7612723b1cf4",
+      "exists": true,
+      "file_count": 1,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "c83906130b915403f3bbe25619a0c9ac07fed89a2a0a8c5194e3b9cdb66e102d",
+          "size_bytes": 3079
+        }
+      ]
+    },
+    "dsh__exercism-py-6__r3": {
+      "aggregate_sha256": "3915f39abc9fcbc95cf0fbed2bf105dddc8f9991224560c873fc7612723b1cf4",
+      "exists": true,
+      "file_count": 1,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "c83906130b915403f3bbe25619a0c9ac07fed89a2a0a8c5194e3b9cdb66e102d",
+          "size_bytes": 3079
+        }
+      ]
+    },
+    "dsh__lcb-recent-hard-4__r1": {
+      "aggregate_sha256": "7aac8c22c7f056940b9ce10557246a6276dfd962d26f448a4f2ebdc7b6082666",
+      "exists": true,
+      "file_count": 5,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "320b6ca39004d9996e67ef699da0a2c91efb48cda3ff12b4c3073065f1c1e2a4",
+          "size_bytes": 3319
+        },
+        {
+          "path": "solutions/abc387_f.py",
+          "sha256": "950e8a95594926c6eb500eef931b180b6c938705363cbe411ae9625c509296c2",
+          "size_bytes": 1660
+        },
+        {
+          "path": "solutions/abc388_f.py",
+          "sha256": "517b27f6c3ad0143451a3554b43c10814609341d737e320926f9a2015ab5d3a5",
+          "size_bytes": 2200
+        },
+        {
+          "path": "solutions/abc388_g.py",
+          "sha256": "c6c9fe705d43f8f7dc9244b1d0cdf0c64045df88943e6521a2786991fb4a6004",
+          "size_bytes": 1677
+        },
+        {
+          "path": "solutions/abc389_g.py",
+          "sha256": "97d9704ab9a85eaeee3ffe5f38791e8104e0bb7e9dbf6141ceae03cccf3029b1",
+          "size_bytes": 3351
+        }
+      ]
+    },
+    "dsh__lcb-recent-hard-4__r2": {
+      "aggregate_sha256": "7ee531907c586c3bc1120684e7529fc686d37f564e59b2e144a76b3195865281",
+      "exists": true,
+      "file_count": 5,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "320b6ca39004d9996e67ef699da0a2c91efb48cda3ff12b4c3073065f1c1e2a4",
+          "size_bytes": 3319
+        },
+        {
+          "path": "solutions/abc387_f.py",
+          "sha256": "950e8a95594926c6eb500eef931b180b6c938705363cbe411ae9625c509296c2",
+          "size_bytes": 1660
+        },
+        {
+          "path": "solutions/abc388_f.py",
+          "sha256": "1abfae6071918e02143f5f6a08a6047db572238969396065a4759a43d09025fc",
+          "size_bytes": 2197
+        },
+        {
+          "path": "solutions/abc388_g.py",
+          "sha256": "c6c9fe705d43f8f7dc9244b1d0cdf0c64045df88943e6521a2786991fb4a6004",
+          "size_bytes": 1677
+        },
+        {
+          "path": "solutions/abc389_g.py",
+          "sha256": "97d9704ab9a85eaeee3ffe5f38791e8104e0bb7e9dbf6141ceae03cccf3029b1",
+          "size_bytes": 3351
+        }
+      ]
+    },
+    "dsh__lcb-recent-hard-4__r3": {
+      "aggregate_sha256": "7ee531907c586c3bc1120684e7529fc686d37f564e59b2e144a76b3195865281",
+      "exists": true,
+      "file_count": 5,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "320b6ca39004d9996e67ef699da0a2c91efb48cda3ff12b4c3073065f1c1e2a4",
+          "size_bytes": 3319
+        },
+        {
+          "path": "solutions/abc387_f.py",
+          "sha256": "950e8a95594926c6eb500eef931b180b6c938705363cbe411ae9625c509296c2",
+          "size_bytes": 1660
+        },
+        {
+          "path": "solutions/abc388_f.py",
+          "sha256": "1abfae6071918e02143f5f6a08a6047db572238969396065a4759a43d09025fc",
+          "size_bytes": 2197
+        },
+        {
+          "path": "solutions/abc388_g.py",
+          "sha256": "c6c9fe705d43f8f7dc9244b1d0cdf0c64045df88943e6521a2786991fb4a6004",
+          "size_bytes": 1677
+        },
+        {
+          "path": "solutions/abc389_g.py",
+          "sha256": "97d9704ab9a85eaeee3ffe5f38791e8104e0bb7e9dbf6141ceae03cccf3029b1",
+          "size_bytes": 3351
+        }
+      ]
+    },
+    "dsh__tb-cargo-plan__r1": {
+      "aggregate_sha256": "59669d880e7631e26dce2d305271c97370d35def111518a9fd744f198284d685",
+      "exists": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "3ff694e25e3729bcf69078f4994519135ec254a504b0fc0b0e69b136067f52b4",
+          "size_bytes": 2924
+        },
+        {
+          "path": "flight_plan.json",
+          "sha256": "72838dc1eed1f28c99c09ac2c905759c3022233ee5b69e5a584c953eb5f24607",
+          "size_bytes": 4410
+        }
+      ]
+    },
+    "dsh__tb-cargo-plan__r2": {
+      "aggregate_sha256": "59669d880e7631e26dce2d305271c97370d35def111518a9fd744f198284d685",
+      "exists": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "3ff694e25e3729bcf69078f4994519135ec254a504b0fc0b0e69b136067f52b4",
+          "size_bytes": 2924
+        },
+        {
+          "path": "flight_plan.json",
+          "sha256": "72838dc1eed1f28c99c09ac2c905759c3022233ee5b69e5a584c953eb5f24607",
+          "size_bytes": 4410
+        }
+      ]
+    },
+    "dsh__tb-cargo-plan__r3": {
+      "aggregate_sha256": "59669d880e7631e26dce2d305271c97370d35def111518a9fd744f198284d685",
+      "exists": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "TASK.md",
+          "sha256": "3ff694e25e3729bcf69078f4994519135ec254a504b0fc0b0e69b136067f52b4",
+          "size_bytes": 2924
+        },
+        {
+          "path": "flight_plan.json",
+          "sha256": "72838dc1eed1f28c99c09ac2c905759c3022233ee5b69e5a584c953eb5f24607",
+          "size_bytes": 4410
+        }
+      ]
+    }
+  },
+  "workspace_case_patterns": {
+    "bird-ca-schools-15": {
+      "aggregates": {
+        "1": "aea96f490e1e7ffcf85a88d728a6c08dbf0ee58f8b3aa6bc97ac68b0cbc59f79",
+        "2": "d467043a992efa3c78048b58272f94b3a6172705f4a92a8d3a92bda9087af640",
+        "3": "d467043a992efa3c78048b58272f94b3a6172705f4a92a8d3a92bda9087af640"
+      },
+      "all_reps_equal": false,
+      "distinct_count": 2,
+      "slots": {
+        "1": "dsh__bird-ca-schools-15__r1",
+        "2": "dsh__bird-ca-schools-15__r2",
+        "3": "dsh__bird-ca-schools-15__r3"
+      }
+    },
+    "dabstep-payments-10": {
+      "aggregates": {
+        "1": "9a1ecd15fe247d5f6d9f8d6cefa641da18108cc86942ae02430700af699c8b8a",
+        "2": "9a1ecd15fe247d5f6d9f8d6cefa641da18108cc86942ae02430700af699c8b8a",
+        "3": "9a1ecd15fe247d5f6d9f8d6cefa641da18108cc86942ae02430700af699c8b8a"
+      },
+      "all_reps_equal": true,
+      "distinct_count": 1,
+      "slots": {
+        "1": "dsh__dabstep-payments-10__r1",
+        "2": "dsh__dabstep-payments-10__r2",
+        "3": "dsh__dabstep-payments-10__r3"
+      }
+    },
+    "exercism-py-6": {
+      "aggregates": {
+        "1": "3915f39abc9fcbc95cf0fbed2bf105dddc8f9991224560c873fc7612723b1cf4",
+        "2": "3915f39abc9fcbc95cf0fbed2bf105dddc8f9991224560c873fc7612723b1cf4",
+        "3": "3915f39abc9fcbc95cf0fbed2bf105dddc8f9991224560c873fc7612723b1cf4"
+      },
+      "all_reps_equal": true,
+      "distinct_count": 1,
+      "slots": {
+        "1": "dsh__exercism-py-6__r1",
+        "2": "dsh__exercism-py-6__r2",
+        "3": "dsh__exercism-py-6__r3"
+      }
+    },
+    "lcb-recent-hard-4": {
+      "aggregates": {
+        "1": "7aac8c22c7f056940b9ce10557246a6276dfd962d26f448a4f2ebdc7b6082666",
+        "2": "7ee531907c586c3bc1120684e7529fc686d37f564e59b2e144a76b3195865281",
+        "3": "7ee531907c586c3bc1120684e7529fc686d37f564e59b2e144a76b3195865281"
+      },
+      "all_reps_equal": false,
+      "distinct_count": 2,
+      "slots": {
+        "1": "dsh__lcb-recent-hard-4__r1",
+        "2": "dsh__lcb-recent-hard-4__r2",
+        "3": "dsh__lcb-recent-hard-4__r3"
+      }
+    },
+    "tb-cargo-plan": {
+      "aggregates": {
+        "1": "59669d880e7631e26dce2d305271c97370d35def111518a9fd744f198284d685",
+        "2": "59669d880e7631e26dce2d305271c97370d35def111518a9fd744f198284d685",
+        "3": "59669d880e7631e26dce2d305271c97370d35def111518a9fd744f198284d685"
+      },
+      "all_reps_equal": true,
+      "distinct_count": 1,
+      "slots": {
+        "1": "dsh__tb-cargo-plan__r1",
+        "2": "dsh__tb-cargo-plan__r2",
+        "3": "dsh__tb-cargo-plan__r3"
+      }
+    }
+  },
+  "workspace_formula": "sha256 of UTF-8 \"\\n\".join(sorted(\"{relpath}\\x00{file_sha256}\")); empty file set aggregates sha256 of empty bytes"
+}
