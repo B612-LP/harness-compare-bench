@@ -1,0 +1,962 @@
+{
+  "analysis_rules": {
+    "cluster_fraction_unit": "占比分母=该 case 信封外漂移位置数（位置结构裁定的自然单位）；逐对实例口径同步披露于 branch.conditions_by_case.C1_instance_fraction_disclosed",
+    "context_window": "±16B 窗（不足取边界），剔除本事件漂移字节后其余字节聚合 SHA256",
+    "envelope_definition": "信封=W1 冻结开/闭标记的精确 span（标记字面以硬等参照 result.json 同名字段定义为准，此处不重复登记标记文本）",
+    "event_merge_rule": "相邻漂移位间距 ≤8B 并为同一漂移事件（与冻结 ≤8B 窄簇刻度一致）；事件级 context_sha 三 rep 一致 ⇒ isolated_substitution，否则 block_shift_candidate",
+    "pairwise_distinct": "逐位置三 rep 两两字节比较（布尔登记，不含字节值）；任一对相同 ⇒ 记非逐运行唯一（冻结 §2）；分支层「簇内三 rep 两两互异」按簇级（每对 rep 在簇内存在差异字节）断言",
+    "rel_position_definition": "rel_position = offset − 信封闭合（envelope span 终点）"
+  },
+  "archive_layout": {
+    "runs_rel": "runs/<slot>/trace/<session>.jsonl",
+    "slots_expected": [
+      "dabstep-payments-10__r1",
+      "dabstep-payments-10__r2",
+      "dabstep-payments-10__r3",
+      "tb-cargo-plan__r1",
+      "tb-cargo-plan__r2",
+      "tb-cargo-plan__r3"
+    ]
+  },
+  "baseline_commit": "d7e9cb766f6289fbc5803175750e4395a8b49ecb",
+  "branch": {
+    "block_shift_candidates_n": 0,
+    "cases_satisfying_all": 2,
+    "caveat": "逐位置两两互异例外已按冻结 §2 记录规则登记（非逐运行唯一位）；token 语义未知、位置结构已定；例外位不改变簇级与孤立位判定，见 positions 节",
+    "cluster_cross_case_consistent": true,
+    "cluster_width_within_8B": true,
+    "conditions_by_case": {
+      "dabstep-payments-10": {
+        "C1_cluster_position_fraction_ge_80pct": true,
+        "C1_instance_fraction_disclosed": 0.7857142857142857,
+        "C1_value": 0.8,
+        "C2_cluster_pairwise_distinguished_rep_pairs": true,
+        "C3_all_positions_isolated_substitution": true,
+        "C4_isolated_slot_fixed_distinct_substitution": true,
+        "case_satisfies_all": true
+      },
+      "tb-cargo-plan": {
+        "C1_cluster_position_fraction_ge_80pct": true,
+        "C1_instance_fraction_disclosed": 0.7857142857142857,
+        "C1_value": 0.8,
+        "C2_cluster_pairwise_distinguished_rep_pairs": true,
+        "C3_all_positions_isolated_substitution": true,
+        "C4_isolated_slot_fixed_distinct_substitution": true,
+        "case_satisfies_all": true
+      }
+    },
+    "non_unique_positions_n": 2,
+    "reason": "≥2 case 信封外漂移位 ≥80% 落在跨 case 相对位置一致、宽 ≤8B 的窄簇；簇内三 rep 两两互异（簇级）、全部漂移位 context_sha 三 rep 一致（孤立替换）、孤立位 case 内固定且三 rep 互异；漂移=固定位置逐运行变量 token（位置结构已定）",
+    "verdict": "B-FIXED-POSITION-TOKEN"
+  },
+  "case_analysis": {
+    "dabstep-payments-10": {
+      "envelope_close": 6330,
+      "envelope_span": [
+        [
+          0,
+          6330
+        ]
+      ],
+      "events": [
+        {
+          "all_equal": true,
+          "class": "isolated_substitution",
+          "event_id": 0,
+          "lane": "envelope_internal",
+          "per_rep_context_sha": {
+            "r1": "d226a314d351143611b0b0fc826fbd8733cf9d58696d329242c9418bf041dc1a",
+            "r2": "d226a314d351143611b0b0fc826fbd8733cf9d58696d329242c9418bf041dc1a",
+            "r3": "d226a314d351143611b0b0fc826fbd8733cf9d58696d329242c9418bf041dc1a"
+          },
+          "positions_offset": [
+            181
+          ],
+          "positions_rel": [
+            -6149
+          ],
+          "removed_n": 1,
+          "window": [
+            165,
+            198
+          ]
+        },
+        {
+          "all_equal": true,
+          "class": "isolated_substitution",
+          "event_id": 1,
+          "lane": "envelope_internal",
+          "per_rep_context_sha": {
+            "r1": "d226a314d351143611b0b0fc826fbd8733cf9d58696d329242c9418bf041dc1a",
+            "r2": "d226a314d351143611b0b0fc826fbd8733cf9d58696d329242c9418bf041dc1a",
+            "r3": "d226a314d351143611b0b0fc826fbd8733cf9d58696d329242c9418bf041dc1a"
+          },
+          "positions_offset": [
+            5558
+          ],
+          "positions_rel": [
+            -772
+          ],
+          "removed_n": 1,
+          "window": [
+            5542,
+            5575
+          ]
+        },
+        {
+          "all_equal": true,
+          "class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "per_rep_context_sha": {
+            "r1": "1123722a85790e7cf3b6a0ae67cdb9a1acbb250152839a0f33d7f7b9d8a7b8d0",
+            "r2": "1123722a85790e7cf3b6a0ae67cdb9a1acbb250152839a0f33d7f7b9d8a7b8d0",
+            "r3": "1123722a85790e7cf3b6a0ae67cdb9a1acbb250152839a0f33d7f7b9d8a7b8d0"
+          },
+          "positions_offset": [
+            6423,
+            6424,
+            6426,
+            6427
+          ],
+          "positions_rel": [
+            93,
+            94,
+            96,
+            97
+          ],
+          "removed_n": 4,
+          "window": [
+            6407,
+            6444
+          ]
+        },
+        {
+          "all_equal": true,
+          "class": "isolated_substitution",
+          "event_id": 3,
+          "lane": "envelope_external",
+          "per_rep_context_sha": {
+            "r1": "d226a314d351143611b0b0fc826fbd8733cf9d58696d329242c9418bf041dc1a",
+            "r2": "d226a314d351143611b0b0fc826fbd8733cf9d58696d329242c9418bf041dc1a",
+            "r3": "d226a314d351143611b0b0fc826fbd8733cf9d58696d329242c9418bf041dc1a"
+          },
+          "positions_offset": [
+            6660
+          ],
+          "positions_rel": [
+            330
+          ],
+          "removed_n": 1,
+          "window": [
+            6644,
+            6677
+          ]
+        }
+      ],
+      "external_positions_n": 5,
+      "internal_positions_n": 2,
+      "n_pair_instances": {
+        "r1r2": 6,
+        "r1r3": 7,
+        "r2r3": 7
+      },
+      "non_unique_positions": [
+        {
+          "equal_pairs": [
+            "r1r2"
+          ],
+          "registered": "非逐运行唯一（任一对字节相同，冻结 §2 记录规则）",
+          "rel_position": 93
+        }
+      ],
+      "positions": [
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 0,
+          "lane": "envelope_internal",
+          "offset": 181,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": -6149,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 1,
+          "lane": "envelope_internal",
+          "offset": 5558,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": -772,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "offset": 6423,
+          "pair_count": 2,
+          "pairs_differ": {
+            "r1r2": false,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": false,
+          "rel_position": 93,
+          "three_distinct": false
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "offset": 6424,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": 94,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "offset": 6426,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": 96,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "offset": 6427,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": 97,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 3,
+          "lane": "envelope_external",
+          "offset": 6660,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": 330,
+          "three_distinct": true
+        }
+      ],
+      "text_lengths_by_rep": {
+        "r1": 10959,
+        "r2": 10959,
+        "r3": 10959
+      },
+      "text_lengths_equal_cross_rep": true
+    },
+    "tb-cargo-plan": {
+      "envelope_close": 6286,
+      "envelope_span": [
+        [
+          0,
+          6286
+        ]
+      ],
+      "events": [
+        {
+          "all_equal": true,
+          "class": "isolated_substitution",
+          "event_id": 0,
+          "lane": "envelope_internal",
+          "per_rep_context_sha": {
+            "r1": "5986756224264d00de5d00279fde7d0212245c99378a01a3e4369607de47dffb",
+            "r2": "5986756224264d00de5d00279fde7d0212245c99378a01a3e4369607de47dffb",
+            "r3": "5986756224264d00de5d00279fde7d0212245c99378a01a3e4369607de47dffb"
+          },
+          "positions_offset": [
+            175
+          ],
+          "positions_rel": [
+            -6111
+          ],
+          "removed_n": 1,
+          "window": [
+            159,
+            192
+          ]
+        },
+        {
+          "all_equal": true,
+          "class": "isolated_substitution",
+          "event_id": 1,
+          "lane": "envelope_internal",
+          "per_rep_context_sha": {
+            "r1": "5986756224264d00de5d00279fde7d0212245c99378a01a3e4369607de47dffb",
+            "r2": "5986756224264d00de5d00279fde7d0212245c99378a01a3e4369607de47dffb",
+            "r3": "5986756224264d00de5d00279fde7d0212245c99378a01a3e4369607de47dffb"
+          },
+          "positions_offset": [
+            5540
+          ],
+          "positions_rel": [
+            -746
+          ],
+          "removed_n": 1,
+          "window": [
+            5524,
+            5557
+          ]
+        },
+        {
+          "all_equal": true,
+          "class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "per_rep_context_sha": {
+            "r1": "1123722a85790e7cf3b6a0ae67cdb9a1acbb250152839a0f33d7f7b9d8a7b8d0",
+            "r2": "1123722a85790e7cf3b6a0ae67cdb9a1acbb250152839a0f33d7f7b9d8a7b8d0",
+            "r3": "1123722a85790e7cf3b6a0ae67cdb9a1acbb250152839a0f33d7f7b9d8a7b8d0"
+          },
+          "positions_offset": [
+            6379,
+            6380,
+            6382,
+            6383
+          ],
+          "positions_rel": [
+            93,
+            94,
+            96,
+            97
+          ],
+          "removed_n": 4,
+          "window": [
+            6363,
+            6400
+          ]
+        },
+        {
+          "all_equal": true,
+          "class": "isolated_substitution",
+          "event_id": 3,
+          "lane": "envelope_external",
+          "per_rep_context_sha": {
+            "r1": "5986756224264d00de5d00279fde7d0212245c99378a01a3e4369607de47dffb",
+            "r2": "5986756224264d00de5d00279fde7d0212245c99378a01a3e4369607de47dffb",
+            "r3": "5986756224264d00de5d00279fde7d0212245c99378a01a3e4369607de47dffb"
+          },
+          "positions_offset": [
+            6604
+          ],
+          "positions_rel": [
+            318
+          ],
+          "removed_n": 1,
+          "window": [
+            6588,
+            6621
+          ]
+        }
+      ],
+      "external_positions_n": 5,
+      "internal_positions_n": 2,
+      "n_pair_instances": {
+        "r1r2": 7,
+        "r1r3": 7,
+        "r2r3": 6
+      },
+      "non_unique_positions": [
+        {
+          "equal_pairs": [
+            "r2r3"
+          ],
+          "registered": "非逐运行唯一（任一对字节相同，冻结 §2 记录规则）",
+          "rel_position": 93
+        }
+      ],
+      "positions": [
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 0,
+          "lane": "envelope_internal",
+          "offset": 175,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": -6111,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 1,
+          "lane": "envelope_internal",
+          "offset": 5540,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": -746,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "offset": 6379,
+          "pair_count": 2,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": false
+          },
+          "per_run_unique": false,
+          "rel_position": 93,
+          "three_distinct": false
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "offset": 6380,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": 94,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "offset": 6382,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": 96,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 2,
+          "lane": "envelope_external",
+          "offset": 6383,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": 97,
+          "three_distinct": true
+        },
+        {
+          "context_class": "isolated_substitution",
+          "event_id": 3,
+          "lane": "envelope_external",
+          "offset": 6604,
+          "pair_count": 3,
+          "pairs_differ": {
+            "r1r2": true,
+            "r1r3": true,
+            "r2r3": true
+          },
+          "per_run_unique": true,
+          "rel_position": 318,
+          "three_distinct": true
+        }
+      ],
+      "text_lengths_by_rep": {
+        "r1": 9273,
+        "r2": 9273,
+        "r3": 9273
+      },
+      "text_lengths_equal_cross_rep": true
+    }
+  },
+  "content_independence_statement": "内容无关边界声明：本结果仅登记计数、字节偏移、信封 span、字节数、SHA256 与逐对布尔比较位；不含任何信封或任务文本内容、任何差异字节值或 token 文本，不含私有档案绝对路径。",
+  "cross_case_cluster": {
+    "aligned_rel_positions": [
+      93,
+      94,
+      96,
+      97
+    ],
+    "cases": [
+      "dabstep-payments-10",
+      "tb-cargo-plan"
+    ],
+    "cluster_interval_cross_case_overlap": [
+      93,
+      97
+    ],
+    "cluster_relative_position_consistent": true,
+    "cluster_width_within_8B": true,
+    "per_case": {
+      "dabstep-payments-10": {
+        "cluster_inclusive_width_bytes": 5,
+        "cluster_instance_fraction": 0.7857142857142857,
+        "cluster_interval_rel": [
+          93,
+          97
+        ],
+        "cluster_position_fraction": 0.8,
+        "cluster_positions_rel": [
+          93,
+          94,
+          96,
+          97
+        ],
+        "external_positions_n": 5,
+        "isolated_slots": [
+          {
+            "case_fixed_across_pairs": true,
+            "context_class": "isolated_substitution",
+            "offset": 6660,
+            "pair_count": 3,
+            "rel_position": 330,
+            "three_distinct": true
+          }
+        ]
+      },
+      "tb-cargo-plan": {
+        "cluster_inclusive_width_bytes": 5,
+        "cluster_instance_fraction": 0.7857142857142857,
+        "cluster_interval_rel": [
+          93,
+          97
+        ],
+        "cluster_position_fraction": 0.8,
+        "cluster_positions_rel": [
+          93,
+          94,
+          96,
+          97
+        ],
+        "external_positions_n": 5,
+        "isolated_slots": [
+          {
+            "case_fixed_across_pairs": true,
+            "context_class": "isolated_substitution",
+            "offset": 6604,
+            "pair_count": 3,
+            "rel_position": 318,
+            "three_distinct": true
+          }
+        ]
+      }
+    }
+  },
+  "drift_instances": {
+    "by_lane": {
+      "envelope_external": 28,
+      "envelope_internal": 12
+    },
+    "items": [
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_internal",
+        "offset": 181,
+        "pair": "r1r2",
+        "rel_position": -6149
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_internal",
+        "offset": 5558,
+        "pair": "r1r2",
+        "rel_position": -772
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6424,
+        "pair": "r1r2",
+        "rel_position": 94
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6426,
+        "pair": "r1r2",
+        "rel_position": 96
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6427,
+        "pair": "r1r2",
+        "rel_position": 97
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6660,
+        "pair": "r1r2",
+        "rel_position": 330
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_internal",
+        "offset": 181,
+        "pair": "r1r3",
+        "rel_position": -6149
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_internal",
+        "offset": 5558,
+        "pair": "r1r3",
+        "rel_position": -772
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6423,
+        "pair": "r1r3",
+        "rel_position": 93
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6424,
+        "pair": "r1r3",
+        "rel_position": 94
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6426,
+        "pair": "r1r3",
+        "rel_position": 96
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6427,
+        "pair": "r1r3",
+        "rel_position": 97
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6660,
+        "pair": "r1r3",
+        "rel_position": 330
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_internal",
+        "offset": 181,
+        "pair": "r2r3",
+        "rel_position": -6149
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_internal",
+        "offset": 5558,
+        "pair": "r2r3",
+        "rel_position": -772
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6423,
+        "pair": "r2r3",
+        "rel_position": 93
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6424,
+        "pair": "r2r3",
+        "rel_position": 94
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6426,
+        "pair": "r2r3",
+        "rel_position": 96
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6427,
+        "pair": "r2r3",
+        "rel_position": 97
+      },
+      {
+        "case": "dabstep-payments-10",
+        "lane": "envelope_external",
+        "offset": 6660,
+        "pair": "r2r3",
+        "rel_position": 330
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_internal",
+        "offset": 175,
+        "pair": "r1r2",
+        "rel_position": -6111
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_internal",
+        "offset": 5540,
+        "pair": "r1r2",
+        "rel_position": -746
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6379,
+        "pair": "r1r2",
+        "rel_position": 93
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6380,
+        "pair": "r1r2",
+        "rel_position": 94
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6382,
+        "pair": "r1r2",
+        "rel_position": 96
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6383,
+        "pair": "r1r2",
+        "rel_position": 97
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6604,
+        "pair": "r1r2",
+        "rel_position": 318
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_internal",
+        "offset": 175,
+        "pair": "r1r3",
+        "rel_position": -6111
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_internal",
+        "offset": 5540,
+        "pair": "r1r3",
+        "rel_position": -746
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6379,
+        "pair": "r1r3",
+        "rel_position": 93
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6380,
+        "pair": "r1r3",
+        "rel_position": 94
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6382,
+        "pair": "r1r3",
+        "rel_position": 96
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6383,
+        "pair": "r1r3",
+        "rel_position": 97
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6604,
+        "pair": "r1r3",
+        "rel_position": 318
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_internal",
+        "offset": 175,
+        "pair": "r2r3",
+        "rel_position": -6111
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_internal",
+        "offset": 5540,
+        "pair": "r2r3",
+        "rel_position": -746
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6380,
+        "pair": "r2r3",
+        "rel_position": 94
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6382,
+        "pair": "r2r3",
+        "rel_position": 96
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6383,
+        "pair": "r2r3",
+        "rel_position": 97
+      },
+      {
+        "case": "tb-cargo-plan",
+        "lane": "envelope_external",
+        "offset": 6604,
+        "pair": "r2r3",
+        "rel_position": 318
+      }
+    ],
+    "total": 40
+  },
+  "exit_code": 0,
+  "extraction": {
+    "per_slot": {
+      "dabstep-payments-10__r1": {
+        "trace_file": "b363e658-08b1-4ff9-84c8-468e7744b02d.jsonl",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "0ae6064db57b71bcb5d4b584b0d713e1f1235f2230204240537c64a3d775a945"
+      },
+      "dabstep-payments-10__r2": {
+        "trace_file": "66e68d87-dfc8-41ff-9c39-00da7e109a5a.jsonl",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "85a633abf987bdb2b9a8a67007a66e41cc5487c0e1d1bd6a031a26424c8e2835"
+      },
+      "dabstep-payments-10__r3": {
+        "trace_file": "16a4dc87-780e-4b1b-9874-50a1a5e5ccd4.jsonl",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "13cfe2b00c327078b9eb257a4bd3d53d8517c523a74da37499f2a4874be23cd6"
+      },
+      "tb-cargo-plan__r1": {
+        "trace_file": "b70e9bf1-687b-47c7-b546-a5d120c69aeb.jsonl",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "6c75e82b29f79b47c61f9ba4e7aaaa24040eaca461c1403242d2951609cb1c7a"
+      },
+      "tb-cargo-plan__r2": {
+        "trace_file": "3a7c16b2-54e8-4080-b41c-82c21b95b354.jsonl",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "f07b3dffa44bc1f872f6085d9d7125a308cc09c2e9f09b18e6028fb71cbe3dfe"
+      },
+      "tb-cargo-plan__r3": {
+        "trace_file": "61c4c10c-bcd6-41a2-a6bc-2d28e47ecd9c.jsonl",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "056db0afc11f63bd418316827edbae8f8bd9a60873588d122f5d4471073f571d"
+      }
+    }
+  },
+  "package": "WB漂移字节位置结构-2026-11-16",
+  "prereg": {
+    "path_rel": "4-打分细则/WB漂移字节位置结构-2026-11-16/README.md",
+    "sha256": "c95d8e6d850ca3f517cc7295f51dc0fdde895506bdc58ecb2ae3817d579ba1b1",
+    "sha256_match": true
+  },
+  "reference_source": {
+    "path_rel": "4-打分细则/WB重复槽输入与交互量结构-2026-11-16/result.json",
+    "sha256": "97fbe9220ec2173b00b70bd3cdf28fadb20844b85aa144e04a773b3d3117e68e"
+  },
+  "schema": "wb-drift-loc-v1",
+  "survey_note_reconciliation": {
+    "items": [
+      "§1『W1 登记 33 处』与同句『dab 三对 6/7/7、tb 7/7/6』不自洽（6+7+7+7+7+6=40）；复算与硬等参照一致=40 处逐对差异实例，本包按 40 处逐处登记",
+      "§2『信封内差异 tb 2/2/3』复算为 2/2/2（参照 result.json n_offsets_outside_envelope 5/5/4 与 diff_offsets 7/7/6 推得），以复算为准",
+      "§1/§4 勘察『三 rep 两两互异』在簇内 +93 位不成立（两 case 各有一对 rep 同字节，见 case_analysis.non_unique_positions），按冻结 §2『任一对相同 ⇒ 记非逐运行唯一』登记为例外，不改变簇级/孤立位判定"
+    ],
+    "rule": "预注册勘察注记为冻结前事实，可被包内复算推翻（README 冻结行）；以下以复算为准"
+  },
+  "w1_hard_equal": {
+    "all_equal": true,
+    "groups": {
+      "dabstep-payments-10": {
+        "equal": true,
+        "fields": {
+          "classification": true,
+          "envelope_span_cross_rep_equal": true,
+          "pairs": true,
+          "spans_by_rep": true
+        }
+      },
+      "tb-cargo-plan": {
+        "equal": true,
+        "fields": {
+          "classification": true,
+          "envelope_span_cross_rep_equal": true,
+          "pairs": true,
+          "spans_by_rep": true
+        }
+      }
+    },
+    "reference_path_rel": "4-打分细则/WB重复槽输入与交互量结构-2026-11-16/result.json"
+  }
+}
