@@ -1,0 +1,1332 @@
+{
+  "baseline_commit": "8f0bb2930dd09926df472565f2d54daf0d20eb19",
+  "baseline_source": "resolved from .git HEAD without subprocess calls",
+  "canonical_convention": "len(canon(event)); canon = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',',':'), allow_nan=False).encode('utf-8'); DSH v4 events carry no payload wrapper, the event object itself is canonicalized (same convention as 机制重复口径澄清-2026-11-12 / 机制序列口径v2-2026-11-16)",
+  "contract": {
+    "arm": "dsh",
+    "case": "bird-ca-schools-15",
+    "corrected_r2_skeleton": {
+      "assistant/message": 9,
+      "tool/call": 16,
+      "user/message": 3
+    },
+    "frozen_public_skeleton": {
+      "assistant/message": [
+        29,
+        29,
+        27
+      ],
+      "tool/call": [
+        29,
+        29,
+        29
+      ],
+      "user/message": [
+        3,
+        3,
+        3
+      ]
+    },
+    "frozen_s4_pins": {
+      "dsh__bird-ca-schools-15__r1": 551905,
+      "dsh__bird-ca-schools-15__r2": 193745,
+      "dsh__bird-ca-schools-15__r3": 517142
+    },
+    "groups": 1,
+    "reps": 3,
+    "s4_types": [
+      "assistant/message",
+      "tool/call"
+    ],
+    "slots": [
+      "dsh__bird-ca-schools-15__r1",
+      "dsh__bird-ca-schools-15__r2",
+      "dsh__bird-ca-schools-15__r3"
+    ],
+    "window_rule": "step/start(data.step=k) -> step/end(data.step=k)"
+  },
+  "corrected_r2_aggregate_check": {
+    "ok": true,
+    "skeleton": {
+      "assistant/message": 9,
+      "tool/call": 16,
+      "user/message": 3
+    }
+  },
+  "cross_rep": {
+    "assistant_message_bytes_by_rep": {
+      "r1": 522517,
+      "r2": 176818,
+      "r3": 491492
+    },
+    "first_divergence": {
+      "call_index": 1,
+      "containing_round": {
+        "r1": 1,
+        "r2": 1,
+        "r3": 1
+      },
+      "containing_round_bytes": {
+        "r1": 4223,
+        "r2": 5406,
+        "r3": 5694
+      },
+      "names_at_divergence": {
+        "r1": "read",
+        "r2": "bash",
+        "r3": "read"
+      }
+    },
+    "lcp_pairwise": {
+      "r1-r2": 1,
+      "r1-r3": 2,
+      "r2-r3": 1
+    },
+    "lcp_three_way": 1,
+    "lcp_vs_half_min_rounds": true,
+    "min_round_count": 9,
+    "name_sequences_sha256": [
+      "078b4bcb78053fe0b66f7cb60161734b80acd55a9c155e3bc2650111e5d07d4e",
+      "e59693890cb9c6136404077b301de139c7b6386f8ee82cad01173bbfc26de9df",
+      "6ee0420eda8a4352c4f5259521e598db3d5084226d856f971b28f1dfb7fb7740"
+    ],
+    "shared_prefix_steps_bytes": [
+      {
+        "bytes": {
+          "r1": 4223,
+          "r2": 5406,
+          "r3": 5694
+        },
+        "step": 1
+      },
+      {
+        "bytes": {
+          "r1": 4959,
+          "r2": 3586,
+          "r3": 4905
+        },
+        "step": 2
+      },
+      {
+        "bytes": {
+          "r1": 39270,
+          "r2": 53271,
+          "r3": 52397
+        },
+        "step": 3
+      },
+      {
+        "bytes": {
+          "r1": 21048,
+          "r2": 27349,
+          "r3": 6620
+        },
+        "step": 4
+      },
+      {
+        "bytes": {
+          "r1": 6883,
+          "r2": 17752,
+          "r3": 5332
+        },
+        "step": 5
+      },
+      {
+        "bytes": {
+          "r1": 7199,
+          "r2": 21479,
+          "r3": 12287
+        },
+        "step": 6
+      },
+      {
+        "bytes": {
+          "r1": 13795,
+          "r2": 38016,
+          "r3": 14207
+        },
+        "step": 7
+      },
+      {
+        "bytes": {
+          "r1": 39301,
+          "r2": 24662,
+          "r3": 12726
+        },
+        "step": 8
+      },
+      {
+        "bytes": {
+          "r1": 22920,
+          "r2": 2224,
+          "r3": 9206
+        },
+        "step": 9
+      }
+    ],
+    "tool_name_byte_matrix": {
+      "bash": {
+        "r1": 29135,
+        "r2": 16927,
+        "r3": 24893
+      },
+      "read": {
+        "r1": 253,
+        "r2": 0,
+        "r3": 757
+      }
+    }
+  },
+  "limitations": [
+    "Content-free structure arithmetic only: types, canonical byte counts, tool names and SHAs; no message content, tool arguments, wire bytes, tokens or costs.",
+    "S4 bytes are canonical payload bytes, not tokens or cost; assistant/message and tool/call contributions are reported separately so the carrier is visible.",
+    "Public replay verifies projection arithmetic and source binding; private-archive authenticity is attested only by SHA pinning plus the batch trace-incident true-body record.",
+    "Score receipts are side-by-side context only; no causal claim between S4 structure and scores.",
+    "No new product runs; no scores rejudged; no pinned pages modified."
+  ],
+  "note": "S4 per-round structure decomposition of the three true-body archived DSH bird reps. Content-free: event types, canonical byte counts, tool names, SHAs only; no message content, tool arguments, tokens or costs. Score receipts are side-by-side context, no causal claim. The stale bw-retest r2 aggregate and the old summary slot-2 value (551905) are documented pre-correction residues (v1.1 erratum); the true-body pin is 193745.",
+  "prereg_sha256": "5b697126551d82265425cc1864da23a10f411cca4492651071cc390375661ee4",
+  "public_skeleton_check": {
+    "expected": {
+      "assistant/message": [
+        29,
+        29,
+        27
+      ],
+      "tool/call": [
+        29,
+        29,
+        29
+      ],
+      "user/message": [
+        3,
+        3,
+        3
+      ]
+    },
+    "ok": true,
+    "per_rep": {
+      "r1": {
+        "assistant/message": 29,
+        "tool/call": 29,
+        "user/message": 3
+      },
+      "r2": {
+        "assistant/message": 29,
+        "tool/call": 29,
+        "user/message": 3
+      },
+      "r3": {
+        "assistant/message": 27,
+        "tool/call": 29,
+        "user/message": 3
+      }
+    }
+  },
+  "public_source_bindings": [
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/dsh-s3-s4-summary.json",
+      "sha256": "bd5da97b71201475896f64f96434af108f4da7a3633361bfe9c1d26f3a66e03c",
+      "v11_evidence_pin": "bd5da97b71201475896f64f96434af108f4da7a3633361bfe9c1d26f3a66e03c"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-bird-ca-schools-15__r1.json",
+      "sha256": "542a54d439e585c6d5f966888e2f0c5f4615fa3da3a02063a69b5331633d4bfc",
+      "v11_evidence_pin": "542a54d439e585c6d5f966888e2f0c5f4615fa3da3a02063a69b5331633d4bfc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-bird-ca-schools-15__r2.json",
+      "sha256": "09a6598f086a0fa00e1da00c4c79abe6f04ad144836620afa2341c25734f80e8",
+      "v11_evidence_pin": null
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-bird-ca-schools-15__r3.json",
+      "sha256": "f6f8eff63eac2482b83b41b1671c0d382c0456917fff80436aacdad532076221",
+      "v11_evidence_pin": "f6f8eff63eac2482b83b41b1671c0d382c0456917fff80436aacdad532076221"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh__bird-ca-schools-15__r2.json",
+      "sha256": "501950e037a39cb739cf0b7186371ddc0d7bf7b8452282b5b889eb10066cb0fc",
+      "v11_evidence_pin": "501950e037a39cb739cf0b7186371ddc0d7bf7b8452282b5b889eb10066cb0fc"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__bird-ca-schools-15__r1/score-receipt.json",
+      "sha256": "bb54dbeae312e9dfd2cbfe5b5df9aa27344667042d3d68288f444320d4bfcab4",
+      "v11_evidence_pin": null
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__bird-ca-schools-15__r2/score-receipt.json",
+      "sha256": "1dbdcbd884a3a45d7aab8291e06d4ba7592683d8fc1677b217bea80e7efe39fa",
+      "v11_evidence_pin": null
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__bird-ca-schools-15__r3/score-receipt.json",
+      "sha256": "1dbdcbd884a3a45d7aab8291e06d4ba7592683d8fc1677b217bea80e7efe39fa",
+      "v11_evidence_pin": null
+    }
+  ],
+  "reps": [
+    {
+      "archive_relative_path": "dsh/runs/dsh__bird-ca-schools-15__r1/agent-session/session.v4.jsonl.zstd",
+      "assistant_message_bytes": 522517,
+      "concentration_verdict": "H-B diffuse",
+      "decompressed_bytes": 709319,
+      "event_count": 189,
+      "name_sequence": [
+        "bash",
+        "read",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash"
+      ],
+      "outside_window_bytes": {},
+      "outside_window_events": {},
+      "rep": "r1",
+      "round_bytes": [
+        4223,
+        4959,
+        39270,
+        21048,
+        6883,
+        7199,
+        13795,
+        39301,
+        22920,
+        11219,
+        7765,
+        10595,
+        20149,
+        10777,
+        14385,
+        13397,
+        27229,
+        9067,
+        17378,
+        13083,
+        11220,
+        15071,
+        53477,
+        14570,
+        70338,
+        19895,
+        18384,
+        32122,
+        2186
+      ],
+      "round_count": 29,
+      "round_events": {
+        "1": [
+          [
+            "assistant/message",
+            3717
+          ],
+          [
+            "bash",
+            253
+          ],
+          [
+            "read",
+            253
+          ]
+        ],
+        "10": [
+          [
+            "assistant/message",
+            9759
+          ],
+          [
+            "bash",
+            1460
+          ]
+        ],
+        "11": [
+          [
+            "assistant/message",
+            6664
+          ],
+          [
+            "bash",
+            1101
+          ]
+        ],
+        "12": [
+          [
+            "assistant/message",
+            9563
+          ],
+          [
+            "bash",
+            1032
+          ]
+        ],
+        "13": [
+          [
+            "assistant/message",
+            19257
+          ],
+          [
+            "bash",
+            892
+          ]
+        ],
+        "14": [
+          [
+            "assistant/message",
+            9214
+          ],
+          [
+            "bash",
+            1563
+          ]
+        ],
+        "15": [
+          [
+            "assistant/message",
+            13773
+          ],
+          [
+            "bash",
+            612
+          ]
+        ],
+        "16": [
+          [
+            "assistant/message",
+            12650
+          ],
+          [
+            "bash",
+            747
+          ]
+        ],
+        "17": [
+          [
+            "assistant/message",
+            26703
+          ],
+          [
+            "bash",
+            526
+          ]
+        ],
+        "18": [
+          [
+            "assistant/message",
+            7885
+          ],
+          [
+            "bash",
+            1182
+          ]
+        ],
+        "19": [
+          [
+            "assistant/message",
+            16490
+          ],
+          [
+            "bash",
+            888
+          ]
+        ],
+        "2": [
+          [
+            "assistant/message",
+            4461
+          ],
+          [
+            "bash",
+            498
+          ]
+        ],
+        "20": [
+          [
+            "assistant/message",
+            12493
+          ],
+          [
+            "bash",
+            590
+          ]
+        ],
+        "21": [
+          [
+            "assistant/message",
+            10116
+          ],
+          [
+            "bash",
+            1104
+          ]
+        ],
+        "22": [
+          [
+            "assistant/message",
+            13521
+          ],
+          [
+            "bash",
+            1550
+          ]
+        ],
+        "23": [
+          [
+            "assistant/message",
+            52907
+          ],
+          [
+            "bash",
+            570
+          ]
+        ],
+        "24": [
+          [
+            "assistant/message",
+            13980
+          ],
+          [
+            "bash",
+            590
+          ]
+        ],
+        "25": [
+          [
+            "assistant/message",
+            66535
+          ],
+          [
+            "bash",
+            3803
+          ]
+        ],
+        "26": [
+          [
+            "assistant/message",
+            18991
+          ],
+          [
+            "bash",
+            904
+          ]
+        ],
+        "27": [
+          [
+            "assistant/message",
+            17602
+          ],
+          [
+            "bash",
+            782
+          ]
+        ],
+        "28": [
+          [
+            "assistant/message",
+            31440
+          ],
+          [
+            "bash",
+            682
+          ]
+        ],
+        "29": [
+          [
+            "assistant/message",
+            2186
+          ]
+        ],
+        "3": [
+          [
+            "assistant/message",
+            38255
+          ],
+          [
+            "bash",
+            1015
+          ]
+        ],
+        "4": [
+          [
+            "assistant/message",
+            17719
+          ],
+          [
+            "bash",
+            3329
+          ]
+        ],
+        "5": [
+          [
+            "assistant/message",
+            6266
+          ],
+          [
+            "bash",
+            617
+          ]
+        ],
+        "6": [
+          [
+            "assistant/message",
+            6498
+          ],
+          [
+            "bash",
+            701
+          ]
+        ],
+        "7": [
+          [
+            "assistant/message",
+            13529
+          ],
+          [
+            "bash",
+            266
+          ]
+        ],
+        "8": [
+          [
+            "assistant/message",
+            38182
+          ],
+          [
+            "bash",
+            1119
+          ]
+        ],
+        "9": [
+          [
+            "assistant/message",
+            22161
+          ],
+          [
+            "bash",
+            759
+          ]
+        ]
+      },
+      "s4_hard_equal_ok": true,
+      "s4_total": 551905,
+      "slot": "dsh__bird-ca-schools-15__r1",
+      "tool_name_bytes": {
+        "bash": 29135,
+        "read": 253
+      },
+      "top5_round_bytes": [
+        70338,
+        53477,
+        39301,
+        39270,
+        32122
+      ],
+      "top5_share": 0.4249064603509662,
+      "trace_sha256": "205f35dddff641c5f002312e9de82d442b6654c40f3c1577c7977a6352c73cca",
+      "true_body_incident_verified": false,
+      "type_counts": {
+        "agent/inbox/spliced": 2,
+        "approval/policy": 1,
+        "assistant/message": 29,
+        "permission/preset": 1,
+        "request/context": 1,
+        "request/header": 1,
+        "sandbox/mode": 1,
+        "session": 1,
+        "session-log-deepseek/delivery-accepted": 29,
+        "session/title": 1,
+        "step/end": 29,
+        "step/start": 29,
+        "system/message": 1,
+        "tool/call": 29,
+        "tool/result": 29,
+        "turn/end": 1,
+        "turn/start": 1,
+        "user/message": 3
+      }
+    },
+    {
+      "archive_relative_path": "dsh/runs/dsh__bird-ca-schools-15__r2/agent-session/session.v4.jsonl.zstd",
+      "assistant_message_bytes": 176818,
+      "concentration_verdict": "H-A concentrated",
+      "decompressed_bytes": 290783,
+      "event_count": 83,
+      "name_sequence": [
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash"
+      ],
+      "outside_window_bytes": {},
+      "outside_window_events": {},
+      "rep": "r2",
+      "round_bytes": [
+        5406,
+        3586,
+        53271,
+        27349,
+        17752,
+        21479,
+        38016,
+        24662,
+        2224
+      ],
+      "round_count": 9,
+      "round_events": {
+        "1": [
+          [
+            "assistant/message",
+            4670
+          ],
+          [
+            "bash",
+            270
+          ],
+          [
+            "bash",
+            231
+          ],
+          [
+            "bash",
+            235
+          ]
+        ],
+        "2": [
+          [
+            "assistant/message",
+            3322
+          ],
+          [
+            "bash",
+            264
+          ]
+        ],
+        "3": [
+          [
+            "assistant/message",
+            49402
+          ],
+          [
+            "bash",
+            1441
+          ],
+          [
+            "bash",
+            1317
+          ],
+          [
+            "bash",
+            1111
+          ]
+        ],
+        "4": [
+          [
+            "assistant/message",
+            23857
+          ],
+          [
+            "bash",
+            968
+          ],
+          [
+            "bash",
+            1426
+          ],
+          [
+            "bash",
+            1098
+          ]
+        ],
+        "5": [
+          [
+            "assistant/message",
+            15729
+          ],
+          [
+            "bash",
+            718
+          ],
+          [
+            "bash",
+            1305
+          ]
+        ],
+        "6": [
+          [
+            "assistant/message",
+            19507
+          ],
+          [
+            "bash",
+            1038
+          ],
+          [
+            "bash",
+            934
+          ]
+        ],
+        "7": [
+          [
+            "assistant/message",
+            33810
+          ],
+          [
+            "bash",
+            4206
+          ]
+        ],
+        "8": [
+          [
+            "assistant/message",
+            24297
+          ],
+          [
+            "bash",
+            365
+          ]
+        ],
+        "9": [
+          [
+            "assistant/message",
+            2224
+          ]
+        ]
+      },
+      "s4_hard_equal_ok": true,
+      "s4_total": 193745,
+      "slot": "dsh__bird-ca-schools-15__r2",
+      "tool_name_bytes": {
+        "bash": 16927
+      },
+      "top5_round_bytes": [
+        53271,
+        38016,
+        27349,
+        24662,
+        21479
+      ],
+      "top5_share": 0.8504838834550569,
+      "trace_sha256": "27234833c35fdddf7050e96297f4a16c4d4979681b48083ac9a79bad0d5158c7",
+      "true_body_incident_verified": true,
+      "type_counts": {
+        "agent/inbox/spliced": 2,
+        "approval/policy": 1,
+        "assistant/message": 9,
+        "permission/preset": 1,
+        "request/context": 1,
+        "request/header": 1,
+        "sandbox/mode": 1,
+        "session": 1,
+        "session-log-deepseek/delivery-accepted": 9,
+        "session/title": 1,
+        "step/end": 9,
+        "step/start": 9,
+        "system/message": 1,
+        "tool/call": 16,
+        "tool/result": 16,
+        "turn/end": 1,
+        "turn/start": 1,
+        "user/message": 3
+      }
+    },
+    {
+      "archive_relative_path": "dsh/runs/dsh__bird-ca-schools-15__r3/agent-session/session.v4.jsonl.zstd",
+      "assistant_message_bytes": 491492,
+      "concentration_verdict": "H-B diffuse",
+      "decompressed_bytes": 683617,
+      "event_count": 181,
+      "name_sequence": [
+        "bash",
+        "read",
+        "read",
+        "bash",
+        "read",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash",
+        "bash"
+      ],
+      "outside_window_bytes": {},
+      "outside_window_events": {},
+      "rep": "r3",
+      "round_bytes": [
+        5694,
+        4905,
+        52397,
+        6620,
+        5332,
+        12287,
+        14207,
+        12726,
+        9206,
+        27604,
+        20259,
+        13866,
+        22102,
+        22931,
+        8088,
+        4708,
+        15762,
+        25432,
+        39889,
+        17429,
+        22096,
+        12926,
+        14357,
+        35882,
+        29949,
+        41520,
+        18968
+      ],
+      "round_count": 27,
+      "round_events": {
+        "1": [
+          [
+            "assistant/message",
+            4930
+          ],
+          [
+            "bash",
+            262
+          ],
+          [
+            "read",
+            249
+          ],
+          [
+            "read",
+            253
+          ]
+        ],
+        "10": [
+          [
+            "assistant/message",
+            26495
+          ],
+          [
+            "bash",
+            1109
+          ]
+        ],
+        "11": [
+          [
+            "assistant/message",
+            19219
+          ],
+          [
+            "bash",
+            1040
+          ]
+        ],
+        "12": [
+          [
+            "assistant/message",
+            12968
+          ],
+          [
+            "bash",
+            898
+          ]
+        ],
+        "13": [
+          [
+            "assistant/message",
+            20820
+          ],
+          [
+            "bash",
+            1282
+          ]
+        ],
+        "14": [
+          [
+            "assistant/message",
+            21419
+          ],
+          [
+            "bash",
+            1512
+          ]
+        ],
+        "15": [
+          [
+            "assistant/message",
+            7194
+          ],
+          [
+            "bash",
+            894
+          ]
+        ],
+        "16": [
+          [
+            "assistant/message",
+            4406
+          ],
+          [
+            "bash",
+            302
+          ]
+        ],
+        "17": [
+          [
+            "assistant/message",
+            14450
+          ],
+          [
+            "bash",
+            1312
+          ]
+        ],
+        "18": [
+          [
+            "assistant/message",
+            24349
+          ],
+          [
+            "bash",
+            1083
+          ]
+        ],
+        "19": [
+          [
+            "assistant/message",
+            38914
+          ],
+          [
+            "bash",
+            975
+          ]
+        ],
+        "2": [
+          [
+            "assistant/message",
+            4377
+          ],
+          [
+            "bash",
+            273
+          ],
+          [
+            "read",
+            255
+          ]
+        ],
+        "20": [
+          [
+            "assistant/message",
+            16282
+          ],
+          [
+            "bash",
+            1147
+          ]
+        ],
+        "21": [
+          [
+            "assistant/message",
+            21151
+          ],
+          [
+            "bash",
+            945
+          ]
+        ],
+        "22": [
+          [
+            "assistant/message",
+            11911
+          ],
+          [
+            "bash",
+            1015
+          ]
+        ],
+        "23": [
+          [
+            "assistant/message",
+            13512
+          ],
+          [
+            "bash",
+            845
+          ]
+        ],
+        "24": [
+          [
+            "assistant/message",
+            35061
+          ],
+          [
+            "bash",
+            821
+          ]
+        ],
+        "25": [
+          [
+            "assistant/message",
+            29096
+          ],
+          [
+            "bash",
+            853
+          ]
+        ],
+        "26": [
+          [
+            "assistant/message",
+            40999
+          ],
+          [
+            "bash",
+            521
+          ]
+        ],
+        "27": [
+          [
+            "assistant/message",
+            18968
+          ]
+        ],
+        "3": [
+          [
+            "assistant/message",
+            51199
+          ],
+          [
+            "bash",
+            1198
+          ]
+        ],
+        "4": [
+          [
+            "assistant/message",
+            5662
+          ],
+          [
+            "bash",
+            958
+          ]
+        ],
+        "5": [
+          [
+            "assistant/message",
+            4632
+          ],
+          [
+            "bash",
+            700
+          ]
+        ],
+        "6": [
+          [
+            "assistant/message",
+            11187
+          ],
+          [
+            "bash",
+            1100
+          ]
+        ],
+        "7": [
+          [
+            "assistant/message",
+            12881
+          ],
+          [
+            "bash",
+            1326
+          ]
+        ],
+        "8": [
+          [
+            "assistant/message",
+            11394
+          ],
+          [
+            "bash",
+            1332
+          ]
+        ],
+        "9": [
+          [
+            "assistant/message",
+            8016
+          ],
+          [
+            "bash",
+            1190
+          ]
+        ]
+      },
+      "s4_hard_equal_ok": true,
+      "s4_total": 517142,
+      "slot": "dsh__bird-ca-schools-15__r3",
+      "tool_name_bytes": {
+        "bash": 24893,
+        "read": 757
+      },
+      "top5_round_bytes": [
+        52397,
+        41520,
+        39889,
+        35882,
+        29949
+      ],
+      "top5_share": 0.386039037633764,
+      "trace_sha256": "e5a2bac26e524e4e2f619a96fae1bad9d1791c429950467975d61bb1fa4f6f68",
+      "true_body_incident_verified": false,
+      "type_counts": {
+        "agent/inbox/spliced": 2,
+        "approval/policy": 1,
+        "assistant/message": 27,
+        "permission/preset": 1,
+        "request/context": 1,
+        "request/header": 1,
+        "sandbox/mode": 1,
+        "session": 1,
+        "session-log-deepseek/delivery-accepted": 27,
+        "session/title": 1,
+        "step/end": 27,
+        "step/start": 27,
+        "system/message": 1,
+        "tool/call": 29,
+        "tool/result": 29,
+        "turn/end": 1,
+        "turn/start": 1,
+        "user/message": 3
+      }
+    }
+  ],
+  "schema": "bird-s4-structure-projection-v1",
+  "score_alignment": [
+    {
+      "assessed": 15,
+      "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+      "earned": 14,
+      "judging_incident_cause": "in-run judge ran before frozen-checkers truth/inputs completion (bird checker needs sibling truth.json+inputs); retro-judged with identical frozen checker bytes against the archived per-rep workspace copy (shared run workspace is overwritten by later reps, so the archive is the per-rep final state); run_dir in receipt points at the private archive, public derivative uses archive:// label",
+      "judging_incident_present": true,
+      "possible": 15,
+      "rep": "r1",
+      "reported": 93.33333333,
+      "reward": 1,
+      "round_count": 29,
+      "rule_version": "freeze-20261029-v2",
+      "s4_total": 551905
+    },
+    {
+      "assessed": 15,
+      "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+      "earned": 15,
+      "judging_incident_cause": "in-run judge ran before frozen-checkers truth/inputs completion (bird checker needs sibling truth.json+inputs); retro-judged with identical frozen checker bytes against the archived per-rep workspace copy (shared run workspace is overwritten by later reps, so the archive is the per-rep final state); run_dir in receipt points at the private archive, public derivative uses archive:// label",
+      "judging_incident_present": true,
+      "possible": 15,
+      "rep": "r2",
+      "reported": 100.0,
+      "reward": 1,
+      "round_count": 9,
+      "rule_version": "freeze-20261029-v2",
+      "s4_total": 193745
+    },
+    {
+      "assessed": 15,
+      "checker_sha256": "994be0b3b766e457b5b7d91de6b1ef814dbd6886c9e4a4f9ee63cded69abca54",
+      "earned": 15,
+      "judging_incident_cause": "in-run judge ran before frozen-checkers truth/inputs completion (bird checker needs sibling truth.json+inputs); retro-judged with identical frozen checker bytes against the archived per-rep workspace copy (shared run workspace is overwritten by later reps, so the archive is the per-rep final state); run_dir in receipt points at the private archive, public derivative uses archive:// label",
+      "judging_incident_present": true,
+      "possible": 15,
+      "rep": "r3",
+      "reported": 100.0,
+      "reward": 1,
+      "round_count": 27,
+      "rule_version": "freeze-20261029-v2",
+      "s4_total": 517142
+    }
+  ],
+  "stale_record": {
+    "explanation": "summary position 2 and the stale r2 aggregate retain the pre-correction mis-capture value; superseded by the v1.1 erratum pin 193745 (真源 S4)；not used as this package r2 pin, recorded verbatim for traceability",
+    "stale_r2_aggregate_s4": 551905,
+    "stale_r2_value_recorded": 551905,
+    "summary_path": "3-表现现场/r1109-bw-retest/observe/dsh-s3-s4-summary.json",
+    "summary_s4_output_bytes_recorded": [
+      551905,
+      551905,
+      517142
+    ]
+  },
+  "v11_reference": {
+    "evidence_path": "4-打分细则/机制重复口径澄清-2026-11-12/evidence.json",
+    "evidence_sha256": "925470d3b55b4226d70f5749d45d0c65a161703c4053fa21028ce0516fcd6b5c",
+    "group_output_bytes_equal_frozen_triple": true,
+    "result_path": "4-打分细则/机制重复口径澄清-2026-11-12/result.json",
+    "result_sha256": "abb3a4fc09f1210b30021f7896551b7d0b34502cabbfe08ad0777b87dddc4433"
+  },
+  "verdicts": {
+    "concentrated_reps": [
+      "r2"
+    ],
+    "concentration_verdict": "mixed: H-A concentrated in r2; H-B diffuse in r1,r3",
+    "diffuse_reps": [
+      "r1",
+      "r3"
+    ],
+    "first_divergence_magnitude_gap": false,
+    "structure_verdict": "early-divergence",
+    "verdict_sentence": "concentration: mixed: H-A concentrated in r2; H-B diffuse in r1,r3; structure: early-divergence; no >=2x in-round byte gap at first divergence"
+  }
+}
