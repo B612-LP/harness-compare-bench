@@ -10,7 +10,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CASE = ROOT / '2-用例/dabstep-payments-10'
 RUN = ROOT / '3-表现现场/r1030-formal-a1/runs/codex__dabstep-payments-10'
-ROLLOUT = RUN / 'agent-session/rollout-2026-10-29T02-15-39-01a183b9-94aa-7e73-9929-5afe43f84d11.jsonl'
+ROLLOUT_SHA = 'f7244ceab9e8754dcef93afdcd0c8f10402bba1d41d9fc4907eaf19e99f78132'
+
+
+def locate_rollout():
+    candidates = [p for p in (RUN / 'agent-session').glob('*.jsonl')
+                  if hashlib.sha256(p.read_bytes()).hexdigest() == ROLLOUT_SHA]
+    if len(candidates) != 1:
+        raise ValueError('expected exactly one recorded session matching the SHA-256')
+    return candidates[0]
+
+
+ROLLOUT = locate_rollout()
 SOURCES = {
     CASE / 'inputs/payments.csv': '5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25',
     CASE / 'inputs/manual.md': 'bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c',
@@ -44,12 +55,14 @@ def main():
         require(hashlib.sha256(path.read_bytes()).hexdigest() == expected,
                 'source hash mismatch: ' + str(path.relative_to(ROOT)))
     events = load_events(ROLLOUT)
-    definition_call = item(events, 'call_01_3ZLIBPD9a64Gz6mjpbJt6100', 'function_call')
-    defined = item(events, 'call_01_3ZLIBPD9a64Gz6mjpbJt6100', 'function_call_output')
-    compute = item(events, 'call_00_pKFjUlgAN1eVeGL0OMGA9781', 'function_call')
-    result = item(events, 'call_00_pKFjUlgAN1eVeGL0OMGA9781', 'function_call_output')
-    write = item(events, 'call_00_0HeUlCfnsgAwGvRezGsu1096', 'function_call')
-    done = item(events, 'call_00_0HeUlCfnsgAwGvRezGsu1096', 'function_call_output')
+    # Resolve pairing identifiers from the pinned evidence without copying them.
+    definition_id, compute_id, write_id = (events[i-1]['payload']['call_id'] for i in (47, 63, 207))
+    definition_call = item(events, definition_id, 'function_call')
+    defined = item(events, definition_id, 'function_call_output')
+    compute = item(events, compute_id, 'function_call')
+    result = item(events, compute_id, 'function_call_output')
+    write = item(events, write_id, 'function_call')
+    done = item(events, write_id, 'function_call_output')
     definition = defined['payload']['output']
     calculation = json.loads(compute['payload']['arguments'])['cmd']
     calculation_result = result['payload']['output']
