@@ -1,0 +1,348 @@
+{
+  "baseline_commit": "ad7ed0a3b48b5a419a39d93ae28bf19f9ec38dcd",
+  "baseline_source": "resolved from .git HEAD without subprocess calls",
+  "content_free_declaration": "本结果只含事件型、call_id、函数名、canonical 字节数与 SHA256；不含任何工具参数、工具输出内容、消息内容、token 或成本。",
+  "contract": {
+    "call_param_bytes": "len(canon({'name':…, 'arguments':…}))",
+    "counting_unit": "function_call_output 项（联结成立的单元两侧各计一项）",
+    "join": "call_id 全值（response_item 流内 function_call ↔ function_call_output；不做位置对齐或前缀部分匹配）",
+    "output_bytes": "len(canon(function_call_output payload))",
+    "pair_total": 4,
+    "pairs": [
+      "exercism_r1vsr2",
+      "exercism_r1vsr3",
+      "exercism_r2vsr3",
+      "dabstep_r2vsr3"
+    ],
+    "slot_total": 5,
+    "slots": [
+      "codex__exercism-py-6__r1",
+      "codex__exercism-py-6__r2",
+      "codex__exercism-py-6__r3",
+      "codex__dabstep-payments-10__r2",
+      "codex__dabstep-payments-10__r3"
+    ]
+  },
+  "limitations": [
+    "联结键冻结为 call_id 全值；Codex call_id 形如 call_<序号>_<随机后缀>，序号逐轮重置、后缀逐运行随机，跨槽零交集为联结面结构性事实。",
+    "未做位置对齐或 call_id 前缀部分匹配：预注册禁止猜测配对；如需序列对应判定须先出新预注册版本。",
+    "canonical JSON 字节非 wire 字节、token 或成本；公开复算不认证私档原件真实性。",
+    "纯事后算法判定：不新增运行、不改任何门判定；R3 与 v1.1 结论不回写。"
+  ],
+  "note": "Per-item tool-result downstream judgment over 4 preregistered comparison pairs (exercism-py-6 r1vsr2/r1vsr3/r2vsr3 + dabstep-payments-10 r2vsr3). Content-free: event types, call_id, function names, canonical byte counts and SHAs only; no tool arguments or output content. The only join key is the full call_id value inside the response_item streams; no positional alignment or partial-prefix matching is attempted. Public replay verifies content-free linkage arithmetic and source binding; private raw authenticity NOT certified. No new runs; no gate or score changes.",
+  "pairs": [
+    {
+      "calls_same_items": [],
+      "counts": {
+        "outputs_differ_calls_differ": 0,
+        "outputs_differ_calls_same": 0,
+        "outputs_same": 0
+      },
+      "cross_slot_call_id_intersection": 0,
+      "linked_units": 0,
+      "output_items": {
+        "slot_a": 15,
+        "slot_b": 9
+      },
+      "outputs_differ_total": 0,
+      "pair": "exercism_r1vsr2",
+      "slots": [
+        "codex__exercism-py-6__r1",
+        "codex__exercism-py-6__r2"
+      ],
+      "unlinked": 24,
+      "unlinked_reasons": {
+        "counterpart_missing_other_slot": 24
+      }
+    },
+    {
+      "calls_same_items": [],
+      "counts": {
+        "outputs_differ_calls_differ": 0,
+        "outputs_differ_calls_same": 0,
+        "outputs_same": 0
+      },
+      "cross_slot_call_id_intersection": 0,
+      "linked_units": 0,
+      "output_items": {
+        "slot_a": 15,
+        "slot_b": 10
+      },
+      "outputs_differ_total": 0,
+      "pair": "exercism_r1vsr3",
+      "slots": [
+        "codex__exercism-py-6__r1",
+        "codex__exercism-py-6__r3"
+      ],
+      "unlinked": 25,
+      "unlinked_reasons": {
+        "counterpart_missing_other_slot": 25
+      }
+    },
+    {
+      "calls_same_items": [],
+      "counts": {
+        "outputs_differ_calls_differ": 0,
+        "outputs_differ_calls_same": 0,
+        "outputs_same": 0
+      },
+      "cross_slot_call_id_intersection": 0,
+      "linked_units": 0,
+      "output_items": {
+        "slot_a": 9,
+        "slot_b": 10
+      },
+      "outputs_differ_total": 0,
+      "pair": "exercism_r2vsr3",
+      "slots": [
+        "codex__exercism-py-6__r2",
+        "codex__exercism-py-6__r3"
+      ],
+      "unlinked": 19,
+      "unlinked_reasons": {
+        "counterpart_missing_other_slot": 19
+      }
+    },
+    {
+      "calls_same_items": [],
+      "counts": {
+        "outputs_differ_calls_differ": 0,
+        "outputs_differ_calls_same": 0,
+        "outputs_same": 0
+      },
+      "cross_slot_call_id_intersection": 0,
+      "linked_units": 0,
+      "output_items": {
+        "slot_a": 43,
+        "slot_b": 35
+      },
+      "outputs_differ_total": 0,
+      "pair": "dabstep_r2vsr3",
+      "slots": [
+        "codex__dabstep-payments-10__r2",
+        "codex__dabstep-payments-10__r3"
+      ],
+      "unlinked": 78,
+      "unlinked_reasons": {
+        "counterpart_missing_other_slot": 78
+      }
+    }
+  ],
+  "prereg_sha256": "df7e86497676da79fe238824a5178dfd9dd8fc91eef0d8e9979d89245f38a3dd",
+  "r3_reference": {
+    "baseline_commit_at_r3_run": "4b5aaecc04a11fd47a04af47abdcb70a520657d7",
+    "frozen_targets": {
+      "codex__dabstep-payments-10__r2": {
+        "per_type_bytes": {
+          "function_call": 65049,
+          "function_call_output": 133869,
+          "message": 10617,
+          "reasoning": 125189
+        },
+        "r3_total_bytes": 334724
+      },
+      "codex__dabstep-payments-10__r3": {
+        "per_type_bytes": {
+          "function_call": 52273,
+          "function_call_output": 105274,
+          "message": 13625,
+          "reasoning": 115297
+        },
+        "r3_total_bytes": 286469
+      },
+      "codex__exercism-py-6__r1": {
+        "per_type_bytes": {
+          "function_call": 10475,
+          "function_call_output": 68188,
+          "message": 7239,
+          "reasoning": 5593
+        },
+        "r3_total_bytes": 91495
+      },
+      "codex__exercism-py-6__r2": {
+        "per_type_bytes": {
+          "function_call": 6318,
+          "function_call_output": 40782,
+          "message": 7246,
+          "reasoning": 5718
+        },
+        "r3_total_bytes": 60064
+      },
+      "codex__exercism-py-6__r3": {
+        "per_type_bytes": {
+          "function_call": 7174,
+          "function_call_output": 58562,
+          "message": 7200,
+          "reasoning": 7617
+        },
+        "r3_total_bytes": 80553
+      }
+    },
+    "hard_equal": true,
+    "hard_equal_slots": 5,
+    "package": "4-打分细则/R3不稳定来源分解-2026-11-16",
+    "result_sha256": "8b03be40cb53f0a562d8b6b8a006a8e97d1733d8a9da15df8dfc67b0fbb83188",
+    "rule": "recomputed == frozen constant == R3 result.json value, per slot, total and per-type; any drift exit 2",
+    "verify_sha256": "32607970570d086797562fd1805a88e0a4b9fcfc1afee67d86e7a5618020bc7b"
+  },
+  "schema": "tool-downstream-judgment-v1",
+  "slots": [
+    {
+      "call_id_field_present": true,
+      "call_id_namespace_sha256": "03fc7910016d13b32ae7b2ddd29173531bd3f4c59b64f6d141d0abe2cca8face",
+      "event_count": 85,
+      "function_call_count": 15,
+      "function_call_output_count": 15,
+      "intra_slot_linkage": {
+        "ambiguous_call_ids": 0,
+        "ambiguous_outputs": 0,
+        "calls_without_output": 0,
+        "linked_outputs": 15,
+        "orphan_outputs": 0,
+        "outputs_missing_call_id": 0
+      },
+      "r3_hard_equal": true,
+      "r3_recomputed": {
+        "per_type_bytes": {
+          "function_call": 10475,
+          "function_call_output": 68188,
+          "message": 7239,
+          "reasoning": 5593
+        },
+        "r3_total_bytes": 91495
+      },
+      "response_item_count": 43,
+      "slot": "codex__exercism-py-6__r1",
+      "trace_archive_relative_path": "codex/runs/codex__exercism-py-6__r1/agent-session/rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+      "trace_sha256": "e355baeb2cfcf644a5f9cf6e9017011a78d95e2050a11ce2d37acfc081639cac"
+    },
+    {
+      "call_id_field_present": true,
+      "call_id_namespace_sha256": "a5cd6f50b929b9c3cb6de8c83e874bfe183649a8c6fc8bf810105ca2ecfcc771",
+      "event_count": 67,
+      "function_call_count": 9,
+      "function_call_output_count": 9,
+      "intra_slot_linkage": {
+        "ambiguous_call_ids": 0,
+        "ambiguous_outputs": 0,
+        "calls_without_output": 0,
+        "linked_outputs": 9,
+        "orphan_outputs": 0,
+        "outputs_missing_call_id": 0
+      },
+      "r3_hard_equal": true,
+      "r3_recomputed": {
+        "per_type_bytes": {
+          "function_call": 6318,
+          "function_call_output": 40782,
+          "message": 7246,
+          "reasoning": 5718
+        },
+        "r3_total_bytes": 60064
+      },
+      "response_item_count": 31,
+      "slot": "codex__exercism-py-6__r2",
+      "trace_archive_relative_path": "codex/runs/codex__exercism-py-6__r2/agent-session/rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+      "trace_sha256": "a866cd55cc64db6b5ad69436bec7b1c3124d406d42541137bc1077ebd0412796"
+    },
+    {
+      "call_id_field_present": true,
+      "call_id_namespace_sha256": "b1a9cf6c7ee2a40711a8bf02502f8795d5e871e94af84d3f1f43d5af5738a8dd",
+      "event_count": 70,
+      "function_call_count": 10,
+      "function_call_output_count": 10,
+      "intra_slot_linkage": {
+        "ambiguous_call_ids": 0,
+        "ambiguous_outputs": 0,
+        "calls_without_output": 0,
+        "linked_outputs": 10,
+        "orphan_outputs": 0,
+        "outputs_missing_call_id": 0
+      },
+      "r3_hard_equal": true,
+      "r3_recomputed": {
+        "per_type_bytes": {
+          "function_call": 7174,
+          "function_call_output": 58562,
+          "message": 7200,
+          "reasoning": 7617
+        },
+        "r3_total_bytes": 80553
+      },
+      "response_item_count": 33,
+      "slot": "codex__exercism-py-6__r3",
+      "trace_archive_relative_path": "codex/runs/codex__exercism-py-6__r3/agent-session/rollout-2026-11-09T13-39-33-01a1bed1-a937-7a62-a054-84041d4c6f33.jsonl",
+      "trace_sha256": "0e64e0c436a0f24a5cd51cbabcf2425b4da559781d298e4447c8bf0db7f12c49"
+    },
+    {
+      "call_id_field_present": true,
+      "call_id_namespace_sha256": "42ec9b5fe4d387a1e51db725c1c98aa0eafd4384a460df1616f82ee072dde0ae",
+      "event_count": 251,
+      "function_call_count": 43,
+      "function_call_output_count": 43,
+      "intra_slot_linkage": {
+        "ambiguous_call_ids": 0,
+        "ambiguous_outputs": 0,
+        "calls_without_output": 0,
+        "linked_outputs": 43,
+        "orphan_outputs": 0,
+        "outputs_missing_call_id": 0
+      },
+      "r3_hard_equal": true,
+      "r3_recomputed": {
+        "per_type_bytes": {
+          "function_call": 65049,
+          "function_call_output": 133869,
+          "message": 10617,
+          "reasoning": 125189
+        },
+        "r3_total_bytes": 334724
+      },
+      "response_item_count": 121,
+      "slot": "codex__dabstep-payments-10__r2",
+      "trace_archive_relative_path": "codex/runs/codex__dabstep-payments-10__r2/agent-session/rollout-2026-11-09T13-27-41-01a1bec6-c9ba-7813-8188-781d6e4d7396.jsonl",
+      "trace_sha256": "e5ee7b2bdd44d0fbedf9ff55d27edd4cdb0db6457ba0335a6331d387b71457a9"
+    },
+    {
+      "call_id_field_present": true,
+      "call_id_namespace_sha256": "e19c159ab49e9971dac61d07d49adb5c73784e879e14126eb8c88e8888e93df7",
+      "event_count": 241,
+      "function_call_count": 35,
+      "function_call_output_count": 35,
+      "intra_slot_linkage": {
+        "ambiguous_call_ids": 0,
+        "ambiguous_outputs": 0,
+        "calls_without_output": 0,
+        "linked_outputs": 35,
+        "orphan_outputs": 0,
+        "outputs_missing_call_id": 0
+      },
+      "r3_hard_equal": true,
+      "r3_recomputed": {
+        "per_type_bytes": {
+          "function_call": 52273,
+          "function_call_output": 105274,
+          "message": 13625,
+          "reasoning": 115297
+        },
+        "r3_total_bytes": 286469
+      },
+      "response_item_count": 113,
+      "slot": "codex__dabstep-payments-10__r3",
+      "trace_archive_relative_path": "codex/runs/codex__dabstep-payments-10__r3/agent-session/rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+      "trace_sha256": "be045ce4457d98ac8934cfcaddfc0a1759ee3ce6cce79139822cac7490b66c2e"
+    }
+  ],
+  "verdicts": {
+    "branch": "D-STRUCTURAL-DEGRADED",
+    "branch_zh": "结构降级（降级为结构登记）",
+    "call_id_field_present_all_slots": true,
+    "calls_same_items_all_pairs": [],
+    "downstream_conclusion_issued": false,
+    "linked_unit_total": 0,
+    "outputs_differ_calls_same_total": 0,
+    "outputs_differ_total_all_pairs": 0,
+    "statement": "全部联结单元 unlinked（跨槽 call_id 命名空间零交集，联结面与预期不符）：按预注册 §3 降级为结构登记，如实报告联结结构，不给下游性结论。",
+    "unlinked_item_total": 146
+  }
+}
