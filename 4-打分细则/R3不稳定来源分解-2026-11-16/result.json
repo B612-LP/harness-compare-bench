@@ -1,0 +1,1699 @@
+{
+  "baseline_commit": "4b5aaecc04a11fd47a04af47abdcb70a520657d7",
+  "baseline_source": "resolved from .git HEAD without subprocess calls",
+  "contract": {
+    "arm": "codex",
+    "cases": [
+      "bird-ca-schools-15",
+      "dabstep-payments-10",
+      "exercism-py-6",
+      "lcb-recent-hard-4",
+      "tb-cargo-plan"
+    ],
+    "classification": {
+      "environment": [
+        "developer/user/system message",
+        "function_call_output",
+        "turn_context",
+        "其余非模型生成项（catch-all）"
+      ],
+      "fail_closed": "message payload without recognizable role stops the run",
+      "m_star": [
+        "assistant message",
+        "reasoning",
+        "function_call"
+      ]
+    },
+    "groups": 5,
+    "metric": "R3_payload_canonical",
+    "reps": [
+      1,
+      2,
+      3
+    ],
+    "slots": 15
+  },
+  "groups": [
+    {
+      "arm": "codex",
+      "delta": 154301,
+      "families": {
+        "environment": {
+          "dominant": false,
+          "net_contribution": 9725,
+          "share": 0.06302616314865102
+        },
+        "m_star": {
+          "dominant": true,
+          "net_contribution": 144576,
+          "share": 0.9369738368513489
+        }
+      },
+      "group": "bird-ca-schools-15",
+      "max_slot": "codex__bird-ca-schools-15__r2",
+      "message_by_role_max_slot": {
+        "assistant": 521,
+        "developer": 672,
+        "user": 6341
+      },
+      "message_by_role_min_slot": {
+        "assistant": 996,
+        "developer": 672,
+        "user": 6341
+      },
+      "min_slot": "codex__bird-ca-schools-15__r1",
+      "pairwise": [
+        {
+          "delta": 154301,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 9725,
+              "share": 0.06302616314865102
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 144576,
+              "share": 0.9369738368513489
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 6115,
+            "function_call_output": 9725,
+            "message": -475,
+            "reasoning": 138936
+          },
+          "reps": [
+            2,
+            1
+          ],
+          "slots": [
+            "codex__bird-ca-schools-15__r2",
+            "codex__bird-ca-schools-15__r1"
+          ]
+        },
+        {
+          "delta": 43616,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 4087,
+              "share": 0.09370414526779164
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 39529,
+              "share": 0.9062958547322084
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 772,
+            "function_call_output": 4087,
+            "message": 2756,
+            "reasoning": 36001
+          },
+          "reps": [
+            3,
+            1
+          ],
+          "slots": [
+            "codex__bird-ca-schools-15__r3",
+            "codex__bird-ca-schools-15__r1"
+          ]
+        },
+        {
+          "delta": 110685,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 5638,
+              "share": 0.05093734471698966
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 105047,
+              "share": 0.9490626552830104
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 5343,
+            "function_call_output": 5638,
+            "message": -3231,
+            "reasoning": 102935
+          },
+          "reps": [
+            2,
+            3
+          ],
+          "slots": [
+            "codex__bird-ca-schools-15__r2",
+            "codex__bird-ca-schools-15__r3"
+          ]
+        }
+      ],
+      "per_type": {
+        "function_call": {
+          "max_slot_bytes": 45496,
+          "min_slot_bytes": 39381,
+          "signed_contribution": 6115
+        },
+        "function_call_output": {
+          "max_slot_bytes": 92679,
+          "min_slot_bytes": 82954,
+          "signed_contribution": 9725
+        },
+        "message": {
+          "max_slot_bytes": 7534,
+          "min_slot_bytes": 8009,
+          "signed_contribution": -475
+        },
+        "reasoning": {
+          "max_slot_bytes": 233762,
+          "min_slot_bytes": 94826,
+          "signed_contribution": 138936
+        }
+      },
+      "per_type_sums_to_delta": true,
+      "r3_totals": [
+        225170,
+        379471,
+        268786
+      ],
+      "slots": [
+        "codex__bird-ca-schools-15__r1",
+        "codex__bird-ca-schools-15__r2",
+        "codex__bird-ca-schools-15__r3"
+      ],
+      "stable_core_ok": true,
+      "task_content_ok": true
+    },
+    {
+      "arm": "codex",
+      "delta": 296848,
+      "families": {
+        "environment": {
+          "dominant": false,
+          "net_contribution": 49682,
+          "share": 0.16736511615372177
+        },
+        "m_star": {
+          "dominant": true,
+          "net_contribution": 247166,
+          "share": 0.8326348838462783
+        }
+      },
+      "group": "dabstep-payments-10",
+      "max_slot": "codex__dabstep-payments-10__r1",
+      "message_by_role_max_slot": {
+        "assistant": 18914,
+        "developer": 672,
+        "user": 5711
+      },
+      "message_by_role_min_slot": {
+        "assistant": 7243,
+        "developer": 672,
+        "user": 5710
+      },
+      "min_slot": "codex__dabstep-payments-10__r3",
+      "pairwise": [
+        {
+          "delta": 248593,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 21086,
+              "share": 0.08482137469679356
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 227507,
+              "share": 0.9151786253032065
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 44671,
+            "function_call_output": 21086,
+            "message": 14680,
+            "reasoning": 168156
+          },
+          "reps": [
+            1,
+            2
+          ],
+          "slots": [
+            "codex__dabstep-payments-10__r1",
+            "codex__dabstep-payments-10__r2"
+          ]
+        },
+        {
+          "delta": 296848,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 49682,
+              "share": 0.16736511615372177
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 247166,
+              "share": 0.8326348838462783
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 57447,
+            "function_call_output": 49681,
+            "message": 11672,
+            "reasoning": 178048
+          },
+          "reps": [
+            1,
+            3
+          ],
+          "slots": [
+            "codex__dabstep-payments-10__r1",
+            "codex__dabstep-payments-10__r3"
+          ]
+        },
+        {
+          "delta": 48255,
+          "families": {
+            "environment": {
+              "dominant": true,
+              "net_contribution": 28596,
+              "share": 0.592601802921977
+            },
+            "m_star": {
+              "dominant": false,
+              "net_contribution": 19659,
+              "share": 0.407398197078023
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 12776,
+            "function_call_output": 28595,
+            "message": -3008,
+            "reasoning": 9892
+          },
+          "reps": [
+            2,
+            3
+          ],
+          "slots": [
+            "codex__dabstep-payments-10__r2",
+            "codex__dabstep-payments-10__r3"
+          ]
+        }
+      ],
+      "per_type": {
+        "function_call": {
+          "max_slot_bytes": 109720,
+          "min_slot_bytes": 52273,
+          "signed_contribution": 57447
+        },
+        "function_call_output": {
+          "max_slot_bytes": 154955,
+          "min_slot_bytes": 105274,
+          "signed_contribution": 49681
+        },
+        "message": {
+          "max_slot_bytes": 25297,
+          "min_slot_bytes": 13625,
+          "signed_contribution": 11672
+        },
+        "reasoning": {
+          "max_slot_bytes": 293345,
+          "min_slot_bytes": 115297,
+          "signed_contribution": 178048
+        }
+      },
+      "per_type_sums_to_delta": true,
+      "r3_totals": [
+        583317,
+        334724,
+        286469
+      ],
+      "slots": [
+        "codex__dabstep-payments-10__r1",
+        "codex__dabstep-payments-10__r2",
+        "codex__dabstep-payments-10__r3"
+      ],
+      "stable_core_ok": true,
+      "task_content_ok": true
+    },
+    {
+      "arm": "codex",
+      "delta": 31431,
+      "families": {
+        "environment": {
+          "dominant": true,
+          "net_contribution": 27407,
+          "share": 0.8719735293181891
+        },
+        "m_star": {
+          "dominant": false,
+          "net_contribution": 4024,
+          "share": 0.12802647068181094
+        }
+      },
+      "group": "exercism-py-6",
+      "max_slot": "codex__exercism-py-6__r1",
+      "message_by_role_max_slot": {
+        "assistant": 2386,
+        "developer": 672,
+        "user": 4181
+      },
+      "message_by_role_min_slot": {
+        "assistant": 2394,
+        "developer": 672,
+        "user": 4180
+      },
+      "min_slot": "codex__exercism-py-6__r2",
+      "pairwise": [
+        {
+          "delta": 31431,
+          "families": {
+            "environment": {
+              "dominant": true,
+              "net_contribution": 27407,
+              "share": 0.8719735293181891
+            },
+            "m_star": {
+              "dominant": false,
+              "net_contribution": 4024,
+              "share": 0.12802647068181094
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 4157,
+            "function_call_output": 27406,
+            "message": -7,
+            "reasoning": -125
+          },
+          "reps": [
+            1,
+            2
+          ],
+          "slots": [
+            "codex__exercism-py-6__r1",
+            "codex__exercism-py-6__r2"
+          ]
+        },
+        {
+          "delta": 10942,
+          "families": {
+            "environment": {
+              "dominant": true,
+              "net_contribution": 9626,
+              "share": 0.8797294827271066
+            },
+            "m_star": {
+              "dominant": false,
+              "net_contribution": 1316,
+              "share": 0.12027051727289344
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 3301,
+            "function_call_output": 9626,
+            "message": 39,
+            "reasoning": -2024
+          },
+          "reps": [
+            1,
+            3
+          ],
+          "slots": [
+            "codex__exercism-py-6__r1",
+            "codex__exercism-py-6__r3"
+          ]
+        },
+        {
+          "delta": 20489,
+          "families": {
+            "environment": {
+              "dominant": true,
+              "net_contribution": 17781,
+              "share": 0.8678315193518473
+            },
+            "m_star": {
+              "dominant": false,
+              "net_contribution": 2708,
+              "share": 0.13216848064815268
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 856,
+            "function_call_output": 17780,
+            "message": -46,
+            "reasoning": 1899
+          },
+          "reps": [
+            3,
+            2
+          ],
+          "slots": [
+            "codex__exercism-py-6__r3",
+            "codex__exercism-py-6__r2"
+          ]
+        }
+      ],
+      "per_type": {
+        "function_call": {
+          "max_slot_bytes": 10475,
+          "min_slot_bytes": 6318,
+          "signed_contribution": 4157
+        },
+        "function_call_output": {
+          "max_slot_bytes": 68188,
+          "min_slot_bytes": 40782,
+          "signed_contribution": 27406
+        },
+        "message": {
+          "max_slot_bytes": 7239,
+          "min_slot_bytes": 7246,
+          "signed_contribution": -7
+        },
+        "reasoning": {
+          "max_slot_bytes": 5593,
+          "min_slot_bytes": 5718,
+          "signed_contribution": -125
+        }
+      },
+      "per_type_sums_to_delta": true,
+      "r3_totals": [
+        91495,
+        60064,
+        80553
+      ],
+      "slots": [
+        "codex__exercism-py-6__r1",
+        "codex__exercism-py-6__r2",
+        "codex__exercism-py-6__r3"
+      ],
+      "stable_core_ok": true,
+      "task_content_ok": true
+    },
+    {
+      "arm": "codex",
+      "delta": 165538,
+      "families": {
+        "environment": {
+          "dominant": false,
+          "net_contribution": 9223,
+          "share": 0.05571530403895178
+        },
+        "m_star": {
+          "dominant": true,
+          "net_contribution": 156315,
+          "share": 0.9442846959610482
+        }
+      },
+      "group": "lcb-recent-hard-4",
+      "max_slot": "codex__lcb-recent-hard-4__r3",
+      "message_by_role_max_slot": {
+        "assistant": 3192,
+        "developer": 671,
+        "user": 4438
+      },
+      "message_by_role_min_slot": {
+        "assistant": 3472,
+        "developer": 672,
+        "user": 4438
+      },
+      "min_slot": "codex__lcb-recent-hard-4__r1",
+      "pairwise": [
+        {
+          "delta": 25242,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 7974,
+              "share": 0.3159020679819349
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 17268,
+              "share": 0.6840979320180651
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": -1354,
+            "function_call_output": 7974,
+            "message": -2841,
+            "reasoning": 21463
+          },
+          "reps": [
+            2,
+            1
+          ],
+          "slots": [
+            "codex__lcb-recent-hard-4__r2",
+            "codex__lcb-recent-hard-4__r1"
+          ]
+        },
+        {
+          "delta": 165538,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 9223,
+              "share": 0.05571530403895178
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 156315,
+              "share": 0.9442846959610482
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 36516,
+            "function_call_output": 9224,
+            "message": -281,
+            "reasoning": 120079
+          },
+          "reps": [
+            3,
+            1
+          ],
+          "slots": [
+            "codex__lcb-recent-hard-4__r3",
+            "codex__lcb-recent-hard-4__r1"
+          ]
+        },
+        {
+          "delta": 140296,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 1249,
+              "share": 0.008902605918914296
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 139047,
+              "share": 0.9910973940810857
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 37870,
+            "function_call_output": 1250,
+            "message": 2560,
+            "reasoning": 98616
+          },
+          "reps": [
+            3,
+            2
+          ],
+          "slots": [
+            "codex__lcb-recent-hard-4__r3",
+            "codex__lcb-recent-hard-4__r2"
+          ]
+        }
+      ],
+      "per_type": {
+        "function_call": {
+          "max_slot_bytes": 70381,
+          "min_slot_bytes": 33865,
+          "signed_contribution": 36516
+        },
+        "function_call_output": {
+          "max_slot_bytes": 41619,
+          "min_slot_bytes": 32395,
+          "signed_contribution": 9224
+        },
+        "message": {
+          "max_slot_bytes": 8301,
+          "min_slot_bytes": 8582,
+          "signed_contribution": -281
+        },
+        "reasoning": {
+          "max_slot_bytes": 176311,
+          "min_slot_bytes": 56232,
+          "signed_contribution": 120079
+        }
+      },
+      "per_type_sums_to_delta": true,
+      "r3_totals": [
+        131074,
+        156316,
+        296612
+      ],
+      "slots": [
+        "codex__lcb-recent-hard-4__r1",
+        "codex__lcb-recent-hard-4__r2",
+        "codex__lcb-recent-hard-4__r3"
+      ],
+      "stable_core_ok": true,
+      "task_content_ok": true
+    },
+    {
+      "arm": "codex",
+      "delta": 471897,
+      "families": {
+        "environment": {
+          "dominant": false,
+          "net_contribution": 49972,
+          "share": 0.10589599001477017
+        },
+        "m_star": {
+          "dominant": true,
+          "net_contribution": 421925,
+          "share": 0.8941040099852299
+        }
+      },
+      "group": "tb-cargo-plan",
+      "max_slot": "codex__tb-cargo-plan__r1",
+      "message_by_role_max_slot": {
+        "assistant": 1388,
+        "developer": 672,
+        "user": 4027
+      },
+      "message_by_role_min_slot": {
+        "assistant": 4496,
+        "developer": 672,
+        "user": 4027
+      },
+      "min_slot": "codex__tb-cargo-plan__r3",
+      "pairwise": [
+        {
+          "delta": 466523,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 49256,
+              "share": 0.10558107531675823
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 417267,
+              "share": 0.8944189246832418
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 131606,
+            "function_call_output": 49255,
+            "message": -1102,
+            "reasoning": 286764
+          },
+          "reps": [
+            1,
+            2
+          ],
+          "slots": [
+            "codex__tb-cargo-plan__r1",
+            "codex__tb-cargo-plan__r2"
+          ]
+        },
+        {
+          "delta": 471897,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 49972,
+              "share": 0.10589599001477017
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 421925,
+              "share": 0.8941040099852299
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": 123997,
+            "function_call_output": 49972,
+            "message": -3108,
+            "reasoning": 301036
+          },
+          "reps": [
+            1,
+            3
+          ],
+          "slots": [
+            "codex__tb-cargo-plan__r1",
+            "codex__tb-cargo-plan__r3"
+          ]
+        },
+        {
+          "delta": 5374,
+          "families": {
+            "environment": {
+              "dominant": false,
+              "net_contribution": 716,
+              "share": 0.13323409006326759
+            },
+            "m_star": {
+              "dominant": true,
+              "net_contribution": 4658,
+              "share": 0.8667659099367324
+            }
+          },
+          "orientation": "max_minus_min",
+          "per_type_signed_contribution": {
+            "function_call": -7609,
+            "function_call_output": 717,
+            "message": -2006,
+            "reasoning": 14272
+          },
+          "reps": [
+            2,
+            3
+          ],
+          "slots": [
+            "codex__tb-cargo-plan__r2",
+            "codex__tb-cargo-plan__r3"
+          ]
+        }
+      ],
+      "per_type": {
+        "function_call": {
+          "max_slot_bytes": 160148,
+          "min_slot_bytes": 36151,
+          "signed_contribution": 123997
+        },
+        "function_call_output": {
+          "max_slot_bytes": 129542,
+          "min_slot_bytes": 79570,
+          "signed_contribution": 49972
+        },
+        "message": {
+          "max_slot_bytes": 6087,
+          "min_slot_bytes": 9195,
+          "signed_contribution": -3108
+        },
+        "reasoning": {
+          "max_slot_bytes": 494036,
+          "min_slot_bytes": 193000,
+          "signed_contribution": 301036
+        }
+      },
+      "per_type_sums_to_delta": true,
+      "r3_totals": [
+        789813,
+        323290,
+        317916
+      ],
+      "slots": [
+        "codex__tb-cargo-plan__r1",
+        "codex__tb-cargo-plan__r2",
+        "codex__tb-cargo-plan__r3"
+      ],
+      "stable_core_ok": true,
+      "task_content_ok": true
+    }
+  ],
+  "limitations": [
+    "Post-hoc decomposition of an already-frozen observation; not retroactive preregistration.",
+    "Canonical payload bytes, not wire bytes, tokens, costs or controlled input.",
+    "Delta decompositions are exact integer identities over archived payloads; no sampling or approximation.",
+    "Unknown payload types fall to E by the frozen catch-all; only model-generation ambiguity stops the run."
+  ],
+  "prereg_sha256": "c4546f35114af3eebcc1a5ddb73521774dc4063b7606d6a123b232f554e6ea00",
+  "public_replay_scope": "Content-free projection arithmetic, public source binding and SHA-pinned archived-original identity binding only; private raw authenticity NOT certified. Raw rollouts are required for message-role classification.",
+  "public_sources": [
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/codex-r3-summary.json",
+      "sha256": "e78f5ea72d34cb57c628504d212bc8c1a2bc41ab3e4f905b47f855cf43bdbd63"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/dsh-s3-s4-summary.json",
+      "sha256": "bd5da97b71201475896f64f96434af108f4da7a3633361bfe9c1d26f3a66e03c"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r1.json",
+      "sha256": "d0b7d0fea0343537f1860e7678c9a16b39329412f9c735ce883fb0f2cff04a8f"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r2.json",
+      "sha256": "1e11cc4c48c86843638b684a770124205bf53aadef894d36288e9c501b888c2c"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r3.json",
+      "sha256": "d5898dbdb3d63d6a4f76a2d096c0f53722a811f886f3e3e5fde2f9d7afec7bcb"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r1.json",
+      "sha256": "66088f93c7b75280efe4648bf9d79dc6fdd4a5084ff522c4b4cb1938b05949f3"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r2.json",
+      "sha256": "26280b5cedda4b026587d8b5948da5763fc137714dd87647608160e9ccf9c5fc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r3.json",
+      "sha256": "521594e1c67e3b9ca003fa59f96ccb236839e3b9ad70196dba64929f9f60a348"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r1.json",
+      "sha256": "01baee8b135a7fc08de3c62224a45965abc68dfb84c4b8bfb97c080df82e423e"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r2.json",
+      "sha256": "89f2e6c00e3cb02148c36d67afb76c0afb7e7569af8034a337dc2c44cf182696"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r3.json",
+      "sha256": "450a776d4cf4dac6b4d8af87431bf75e39f84ed5d04a524ca92a87a2ddfafba3"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r1.json",
+      "sha256": "06fc0a2442b864a5fd0c7997e19c3f400b8d3767dc3740ee70d79c27bf8aca13"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r2.json",
+      "sha256": "475432c239b45b6d8a5d1c779a5c03ccdb36cd877bbcb4863982d434bec3d2f5"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r3.json",
+      "sha256": "b7d7e449c923503c250c2bed256af02c7cceb5cd33194e8ee73dcf536f8d19ab"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r1.json",
+      "sha256": "45f4333ebc5f225ca53618f5295c0cffe0d3152a3225a50d2bd3341dd21ae0cf"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r2.json",
+      "sha256": "d0beee4269ff5df57e7764b9c17d7e0caa8b2bb052ea817fdb87e14f7fb297ef"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r3.json",
+      "sha256": "bcbc222b62e72dce56f2b7e80eafd77476b70e4890503028fc41ad14af4345d9"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-bird-ca-schools-15__r1.json",
+      "sha256": "542a54d439e585c6d5f966888e2f0c5f4615fa3da3a02063a69b5331633d4bfc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-bird-ca-schools-15__r3.json",
+      "sha256": "f6f8eff63eac2482b83b41b1671c0d382c0456917fff80436aacdad532076221"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-dabstep-payments-10__r1.json",
+      "sha256": "8dda9c0fcc7deb553a65ec17382b8cf000cfb33c3ac2456dbe67383f9f97e277"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-dabstep-payments-10__r2.json",
+      "sha256": "9b63189e43eaf50749e14f99d01aee4024bf1a8b1ab495c9a430096b51aa9561"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-exercism-py-6__r1.json",
+      "sha256": "c3b738e5ad43a8b9545115a1c1fefdb962ee1092d4508d439fa728b9e239d20c"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-exercism-py-6__r2.json",
+      "sha256": "38f60f67b723bc4f9cf817f824e8f2d746755ee07c36319953cd0d2cdf07cdf8"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-exercism-py-6__r3.json",
+      "sha256": "6a09fe6ec7ad49ca583b9c8fc7eefa344d0d6492573101dc04e7adbdfd577bcc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-lcb-recent-hard-4__r1.json",
+      "sha256": "15bfad13275fd81102e8e9cac685bf562179c6303b4cd1e8042decaa265528cd"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-lcb-recent-hard-4__r2.json",
+      "sha256": "47bb77961c574b08f18a337121dbaa0013a1bd8456b992361e8c55929140a705"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-lcb-recent-hard-4__r3.json",
+      "sha256": "4bfa6b0bb5955e4e302e38eb27c9818292cfd7f135c406bd57a830d9fd8ff8a4"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-tb-cargo-plan__r1.json",
+      "sha256": "ab1f0e2d60cb43ea9057c69af58a20fc470f80319420d32f2875e5b4206708dc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh-tb-cargo-plan__r3.json",
+      "sha256": "21b982d232b1aa9b818de8316ab25a39a97b3a9435b021c353e82a8ab0d34b9e"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh__bird-ca-schools-15__r2.json",
+      "sha256": "501950e037a39cb739cf0b7186371ddc0d7bf7b8452282b5b889eb10066cb0fc"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh__dabstep-payments-10__r3.json",
+      "sha256": "9f1fb689fd52540bf89830425f030225dff6e2d6c7f46acabfe135ffd76bac6a"
+    },
+    {
+      "path": "3-表现现场/r1109-bw-retest/observe/session-dsh__tb-cargo-plan__r2.json",
+      "sha256": "b0cafe2fbf7f41d1992f6430f1e0366c5d08d008db86e25d3b1e0046c914992a"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/README.md",
+      "sha256": "a7d471b5d001f96237d099d3341ac586df89702abfae3dadf7a48cfbd78effa3"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/adjudications.json",
+      "sha256": "880bc15725505408d022345bdb0eeae794f5740129f8313bf4622df647b7e2dd"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/observe/trace-accounting-summary.json",
+      "sha256": "b29227d1273c984b8012c096a4eca25101203646dd02729d2cccaa4ec80e4b48"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__bird-ca-schools-15__r1/meta.public-derived.json",
+      "sha256": "02fe666ec6bc66d0f15bf7da90a750beb3032d71d5cc75057733792ffd56f8a2"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__bird-ca-schools-15__r2/meta.public-derived.json",
+      "sha256": "a2a9b526f6056c156532b91ce15e7b62824195491f7e67a520f222fca51ddb18"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__bird-ca-schools-15__r3/meta.public-derived.json",
+      "sha256": "561cfe04b7b78159ca64a183f1b0a3d3582308a4b8ce1db4d8b9baef49d6a89c"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__dabstep-payments-10__r1/meta.public-derived.json",
+      "sha256": "822788177e38c8ed7919a6fb24bf7560751b38f5a0477ed8bb5299b9653f8650"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__dabstep-payments-10__r2/meta.public-derived.json",
+      "sha256": "1ec912362406660fe133c6874d39734f7d684402ec959788e1ae1e00b6472de9"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__dabstep-payments-10__r3/meta.public-derived.json",
+      "sha256": "67c87b7e3c724e8bb15d27822536dea2940d53c3e67f36f25ea7165979c50c73"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__exercism-py-6__r1/meta.public-derived.json",
+      "sha256": "a9e49d6f87a16402a1709a2d0186eda591e21d7a838833a35aad2d81bf74d203"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__exercism-py-6__r2/meta.public-derived.json",
+      "sha256": "044bbcd6268c8fbfdaae17606a37f834b215837d3b5febd81d3043437c74d6ce"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__exercism-py-6__r3/meta.public-derived.json",
+      "sha256": "f0e4f038bab237852453338aae702f14a3d327b14ae1dc7c5f7d03d892e5a531"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__lcb-recent-hard-4__r1/meta.public-derived.json",
+      "sha256": "b45953b8f74d54072c440c0826bb29a4d25047ca3931d488540c95b3c4b164ae"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__lcb-recent-hard-4__r2/meta.public-derived.json",
+      "sha256": "3f0e54b0cadfcb05f0d0099245301f1444eb2b70ee3e6c1b0ee89198b01511d3"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__lcb-recent-hard-4__r3/meta.public-derived.json",
+      "sha256": "3fccbf1b1cd90c3c4e0ce880121fb094c2a944fdc085995a088c0d5217972f18"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__tb-cargo-plan__r1/meta.public-derived.json",
+      "sha256": "08a3a485b439588a213e6d66823a89c42a67cf6d5ed16eed134d1592ae74e192"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__tb-cargo-plan__r2/meta.public-derived.json",
+      "sha256": "1e69bfab7d067d53c5083027b0c6222e8f05bc8363faff1d181e41ad961f7456"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/codex__tb-cargo-plan__r3/meta.public-derived.json",
+      "sha256": "b1f37c9b8ec78c3606ad30d134ad78d5dfb7d53abbc288d641d687cc3fa12c71"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__bird-ca-schools-15__r1/meta.public-derived.json",
+      "sha256": "e17e1880cce56b8482474c745148c063777551a866729baf1e1e8cdfe3f4936a"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__bird-ca-schools-15__r2/meta.public-derived.json",
+      "sha256": "580392e8ddb7f12e85f454342d77f6875f4a036f8a5691927539335ac0e3c0da"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__bird-ca-schools-15__r3/meta.public-derived.json",
+      "sha256": "975a5e4e2e56e5d3b524fb83125d52d2e85694585895415e03a587b6797863e1"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__dabstep-payments-10__r1/meta.public-derived.json",
+      "sha256": "fb38291d4e42a8e7a3513b6214734269858f6acf1a5eb099954ea82d6f2d2b71"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__dabstep-payments-10__r2/meta.public-derived.json",
+      "sha256": "95c0f55f36a4531d9b71bdba81888b2f44b46144cc89fca80ca79d2981d8e245"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__dabstep-payments-10__r3/meta.public-derived.json",
+      "sha256": "efc13fa45973d04d808f0f5dfe925002bb27dd73bc7c8e9665e3b27554cabe61"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__exercism-py-6__r1/meta.public-derived.json",
+      "sha256": "261dfbc042e22c1c172770d4bd5e8411ed5e3d328280428b7dd57af102ffde8e"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__exercism-py-6__r2/meta.public-derived.json",
+      "sha256": "09e3fa8fa5f5efd029074202309e392870f30d0ceba0a3e9f7a9bc60144dc556"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__exercism-py-6__r3/meta.public-derived.json",
+      "sha256": "1fa5e986069ed2fc1a0a440801f8d969cde495a5649c755e814feb0bca60f7a0"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__lcb-recent-hard-4__r1/meta.public-derived.json",
+      "sha256": "5a16e35792bcc0eb79f7cc4d594f03d2da061fdc89f272d3c2414d5c999314ae"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__lcb-recent-hard-4__r2/meta.public-derived.json",
+      "sha256": "b1c914416150ed1fea5b9f6b1b7e9468f53105cd7fae962a795bb85dcf9aa5ef"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__lcb-recent-hard-4__r3/meta.public-derived.json",
+      "sha256": "eb5dcd89358f7bbbd364cb7b020aab0bdd90dea8002d7b8d3a6801528bc90652"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__tb-cargo-plan__r1/meta.public-derived.json",
+      "sha256": "f8bad3f7b82008952824a9f8d9ad575b9dc35baa4ecad277741423855aae166a"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__tb-cargo-plan__r2/meta.public-derived.json",
+      "sha256": "1939153d55c3a76c55cb982478a5649e254df70bda1e17e858a1e49a3e85e15f"
+    },
+    {
+      "path": "3-表现现场/r1109-mech-n3/runs/dsh__tb-cargo-plan__r3/meta.public-derived.json",
+      "sha256": "00933c22e7967615c2ddf89d3c291d3bcecc8c41b2142f53fea7947c619561f3"
+    },
+    {
+      "path": "4-打分细则/机制独立重复预注册-2026-11-08/README.md",
+      "sha256": "4c2d32bb55290af087fc46faf6b23bbcfd409d3b27bfc679e61a87f7c6dcabb3"
+    },
+    {
+      "path": "4-打分细则/请求侧观测规范-2026-11-08/README.md",
+      "sha256": "7bd025e6b4ebaae78210fd5a50bc06c7f9be12511269ad5dc282b350102fe735"
+    },
+    {
+      "path": "4-打分细则/请求侧观测规范-2026-11-08/tools-request-side-observe.py",
+      "sha256": "b5f2da70be440cd1178fed65405b2546372083642cf79b77c4b7bd9290064fd2"
+    },
+    {
+      "path": "4-打分细则/请求侧观测规范-2026-11-08/tools-session-trace-observe.py",
+      "sha256": "58e0c153ba436b39048962498a89a846559a60c7357843d80c1a1d988231420b"
+    }
+  ],
+  "schema": "r3-decomp-projection-v1",
+  "slots": [
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r1.json",
+      "case": "bird-ca-schools-15",
+      "closed_turns": 29,
+      "event_count": 223,
+      "family_bytes": {
+        "environment": 89967,
+        "m_star": 135203
+      },
+      "leading_role_content_sha256": "975cc3ca8d7b9a0a13abafb09fee6f34ca9bf0e1c6c3a99527eeb03e572f16a9",
+      "message_by_role_bytes": {
+        "assistant": 996,
+        "developer": 672,
+        "user": 6341
+      },
+      "per_type_bytes": {
+        "function_call": 39381,
+        "function_call_output": 82954,
+        "message": 8009,
+        "reasoning": 94826
+      },
+      "r3_total_bytes": 225170,
+      "rep": 1,
+      "response_item_count": 96,
+      "slot": "codex__bird-ca-schools-15__r1",
+      "task_content_sha256": "8bf9e454e6fbf3107f5b9e15708f1216da832bd8240c4def2b4fa21fc770b18a",
+      "trace_archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r1/agent-session/rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+      "trace_file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+      "trace_sha256": "302aadf648f1c33033f13d57c0df157db69c1acff4c05f5af422c7fd2b81e5c2"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r2.json",
+      "case": "bird-ca-schools-15",
+      "closed_turns": 41,
+      "event_count": 311,
+      "family_bytes": {
+        "environment": 99692,
+        "m_star": 279779
+      },
+      "leading_role_content_sha256": "975cc3ca8d7b9a0a13abafb09fee6f34ca9bf0e1c6c3a99527eeb03e572f16a9",
+      "message_by_role_bytes": {
+        "assistant": 521,
+        "developer": 672,
+        "user": 6341
+      },
+      "per_type_bytes": {
+        "function_call": 45496,
+        "function_call_output": 92679,
+        "message": 7534,
+        "reasoning": 233762
+      },
+      "r3_total_bytes": 379471,
+      "rep": 2,
+      "response_item_count": 135,
+      "slot": "codex__bird-ca-schools-15__r2",
+      "task_content_sha256": "8bf9e454e6fbf3107f5b9e15708f1216da832bd8240c4def2b4fa21fc770b18a",
+      "trace_archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r2/agent-session/rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+      "trace_file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+      "trace_sha256": "54bacf19266b99ebff0446caaa80b118addc36ad1bb9bac81522f22f28516f84"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-bird-ca-schools-15__r3.json",
+      "case": "bird-ca-schools-15",
+      "closed_turns": 19,
+      "event_count": 204,
+      "family_bytes": {
+        "environment": 94054,
+        "m_star": 174732
+      },
+      "leading_role_content_sha256": "975cc3ca8d7b9a0a13abafb09fee6f34ca9bf0e1c6c3a99527eeb03e572f16a9",
+      "message_by_role_bytes": {
+        "assistant": 3752,
+        "developer": 672,
+        "user": 6341
+      },
+      "per_type_bytes": {
+        "function_call": 40153,
+        "function_call_output": 87041,
+        "message": 10765,
+        "reasoning": 130827
+      },
+      "r3_total_bytes": 268786,
+      "rep": 3,
+      "response_item_count": 98,
+      "slot": "codex__bird-ca-schools-15__r3",
+      "task_content_sha256": "8bf9e454e6fbf3107f5b9e15708f1216da832bd8240c4def2b4fa21fc770b18a",
+      "trace_archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r3/agent-session/rollout-2026-11-09T13-09-35-01a1beb6-392b-79d0-9a49-edf3a02e90fc.jsonl",
+      "trace_file": "rollout-2026-11-09T13-09-35-01a1beb6-392b-79d0-9a49-edf3a02e90fc.jsonl",
+      "trace_sha256": "055436a333a22768972eaba3bc56b7519ae37a39494adb0789abd078e9bb3ec1"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r1.json",
+      "case": "dabstep-payments-10",
+      "closed_turns": 54,
+      "event_count": 484,
+      "family_bytes": {
+        "environment": 161338,
+        "m_star": 421979
+      },
+      "leading_role_content_sha256": "5f05696ae718404b6f79553073003048892e08e03b53fadc9b2971c4acfac828",
+      "message_by_role_bytes": {
+        "assistant": 18914,
+        "developer": 672,
+        "user": 5711
+      },
+      "per_type_bytes": {
+        "function_call": 109720,
+        "function_call_output": 154955,
+        "message": 25297,
+        "reasoning": 293345
+      },
+      "r3_total_bytes": 583317,
+      "rep": 1,
+      "response_item_count": 215,
+      "slot": "codex__dabstep-payments-10__r1",
+      "task_content_sha256": "364ecc66f2413da05f442c4527b78f6cf3de762dac5c475cd9a2937da3d959ee",
+      "trace_archive_relative_path": "codex/runs/codex__dabstep-payments-10__r1/agent-session/rollout-2026-11-09T13-15-08-01a1bebb-4ce6-70a2-b22d-a9b787e85946.jsonl",
+      "trace_file": "rollout-2026-11-09T13-15-08-01a1bebb-4ce6-70a2-b22d-a9b787e85946.jsonl",
+      "trace_sha256": "32d6d09316a5b5c2cb0c0e33e95e372fbe72f79cb97e02dfa11eae2cc3e06fa5"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r2.json",
+      "case": "dabstep-payments-10",
+      "closed_turns": 24,
+      "event_count": 251,
+      "family_bytes": {
+        "environment": 140252,
+        "m_star": 194472
+      },
+      "leading_role_content_sha256": "5f05696ae718404b6f79553073003048892e08e03b53fadc9b2971c4acfac828",
+      "message_by_role_bytes": {
+        "assistant": 4234,
+        "developer": 672,
+        "user": 5711
+      },
+      "per_type_bytes": {
+        "function_call": 65049,
+        "function_call_output": 133869,
+        "message": 10617,
+        "reasoning": 125189
+      },
+      "r3_total_bytes": 334724,
+      "rep": 2,
+      "response_item_count": 121,
+      "slot": "codex__dabstep-payments-10__r2",
+      "task_content_sha256": "364ecc66f2413da05f442c4527b78f6cf3de762dac5c475cd9a2937da3d959ee",
+      "trace_archive_relative_path": "codex/runs/codex__dabstep-payments-10__r2/agent-session/rollout-2026-11-09T13-27-41-01a1bec6-c9ba-7813-8188-781d6e4d7396.jsonl",
+      "trace_file": "rollout-2026-11-09T13-27-41-01a1bec6-c9ba-7813-8188-781d6e4d7396.jsonl",
+      "trace_sha256": "e5ee7b2bdd44d0fbedf9ff55d27edd4cdb0db6457ba0335a6331d387b71457a9"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-dabstep-payments-10__r3.json",
+      "case": "dabstep-payments-10",
+      "closed_turns": 23,
+      "event_count": 241,
+      "family_bytes": {
+        "environment": 111656,
+        "m_star": 174813
+      },
+      "leading_role_content_sha256": "5f05696ae718404b6f79553073003048892e08e03b53fadc9b2971c4acfac828",
+      "message_by_role_bytes": {
+        "assistant": 7243,
+        "developer": 672,
+        "user": 5710
+      },
+      "per_type_bytes": {
+        "function_call": 52273,
+        "function_call_output": 105274,
+        "message": 13625,
+        "reasoning": 115297
+      },
+      "r3_total_bytes": 286469,
+      "rep": 3,
+      "response_item_count": 113,
+      "slot": "codex__dabstep-payments-10__r3",
+      "task_content_sha256": "364ecc66f2413da05f442c4527b78f6cf3de762dac5c475cd9a2937da3d959ee",
+      "trace_archive_relative_path": "codex/runs/codex__dabstep-payments-10__r3/agent-session/rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+      "trace_file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+      "trace_sha256": "be045ce4457d98ac8934cfcaddfc0a1759ee3ce6cce79139822cac7490b66c2e"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r1.json",
+      "case": "exercism-py-6",
+      "closed_turns": 5,
+      "event_count": 85,
+      "family_bytes": {
+        "environment": 73041,
+        "m_star": 18454
+      },
+      "leading_role_content_sha256": "a1b0550f5b414c1bf8584eb80893dde8785d834ecdf2f665233935a6b4d2e491",
+      "message_by_role_bytes": {
+        "assistant": 2386,
+        "developer": 672,
+        "user": 4181
+      },
+      "per_type_bytes": {
+        "function_call": 10475,
+        "function_call_output": 68188,
+        "message": 7239,
+        "reasoning": 5593
+      },
+      "r3_total_bytes": 91495,
+      "rep": 1,
+      "response_item_count": 43,
+      "slot": "codex__exercism-py-6__r1",
+      "task_content_sha256": "abc7325ddd03006a268ead09c0d20edd7a0b662beb6bde00ea02eb6bad5ae972",
+      "trace_archive_relative_path": "codex/runs/codex__exercism-py-6__r1/agent-session/rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+      "trace_file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+      "trace_sha256": "e355baeb2cfcf644a5f9cf6e9017011a78d95e2050a11ce2d37acfc081639cac"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r2.json",
+      "case": "exercism-py-6",
+      "closed_turns": 5,
+      "event_count": 67,
+      "family_bytes": {
+        "environment": 45634,
+        "m_star": 14430
+      },
+      "leading_role_content_sha256": "a1b0550f5b414c1bf8584eb80893dde8785d834ecdf2f665233935a6b4d2e491",
+      "message_by_role_bytes": {
+        "assistant": 2394,
+        "developer": 672,
+        "user": 4180
+      },
+      "per_type_bytes": {
+        "function_call": 6318,
+        "function_call_output": 40782,
+        "message": 7246,
+        "reasoning": 5718
+      },
+      "r3_total_bytes": 60064,
+      "rep": 2,
+      "response_item_count": 31,
+      "slot": "codex__exercism-py-6__r2",
+      "task_content_sha256": "abc7325ddd03006a268ead09c0d20edd7a0b662beb6bde00ea02eb6bad5ae972",
+      "trace_archive_relative_path": "codex/runs/codex__exercism-py-6__r2/agent-session/rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+      "trace_file": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+      "trace_sha256": "a866cd55cc64db6b5ad69436bec7b1c3124d406d42541137bc1077ebd0412796"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-exercism-py-6__r3.json",
+      "case": "exercism-py-6",
+      "closed_turns": 5,
+      "event_count": 70,
+      "family_bytes": {
+        "environment": 63415,
+        "m_star": 17138
+      },
+      "leading_role_content_sha256": "a1b0550f5b414c1bf8584eb80893dde8785d834ecdf2f665233935a6b4d2e491",
+      "message_by_role_bytes": {
+        "assistant": 2347,
+        "developer": 672,
+        "user": 4181
+      },
+      "per_type_bytes": {
+        "function_call": 7174,
+        "function_call_output": 58562,
+        "message": 7200,
+        "reasoning": 7617
+      },
+      "r3_total_bytes": 80553,
+      "rep": 3,
+      "response_item_count": 33,
+      "slot": "codex__exercism-py-6__r3",
+      "task_content_sha256": "abc7325ddd03006a268ead09c0d20edd7a0b662beb6bde00ea02eb6bad5ae972",
+      "trace_archive_relative_path": "codex/runs/codex__exercism-py-6__r3/agent-session/rollout-2026-11-09T13-39-33-01a1bed1-a937-7a62-a054-84041d4c6f33.jsonl",
+      "trace_file": "rollout-2026-11-09T13-39-33-01a1bed1-a937-7a62-a054-84041d4c6f33.jsonl",
+      "trace_sha256": "0e64e0c436a0f24a5cd51cbabcf2425b4da559781d298e4447c8bf0db7f12c49"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r1.json",
+      "case": "lcb-recent-hard-4",
+      "closed_turns": 23,
+      "event_count": 199,
+      "family_bytes": {
+        "environment": 37505,
+        "m_star": 93569
+      },
+      "leading_role_content_sha256": "17f905696c81ca9cab16cb1078088c576f838bb34c12c63796eb6c4a13a70046",
+      "message_by_role_bytes": {
+        "assistant": 3472,
+        "developer": 672,
+        "user": 4438
+      },
+      "per_type_bytes": {
+        "function_call": 33865,
+        "function_call_output": 32395,
+        "message": 8582,
+        "reasoning": 56232
+      },
+      "r3_total_bytes": 131074,
+      "rep": 1,
+      "response_item_count": 91,
+      "slot": "codex__lcb-recent-hard-4__r1",
+      "task_content_sha256": "7d93a9b0f1e5737902cdbdbf61bc80341ac54fb4d2f15b837e1293d2f443e5a0",
+      "trace_archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r1/agent-session/rollout-2026-11-09T13-40-03-01a1bed2-1c87-7b92-8489-835286b9c4aa.jsonl",
+      "trace_file": "rollout-2026-11-09T13-40-03-01a1bed2-1c87-7b92-8489-835286b9c4aa.jsonl",
+      "trace_sha256": "96e3a8d498b8c36d73cd14db01ac9c5b4fbc1ccf47b705e0af4115342b3a8b94"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r2.json",
+      "case": "lcb-recent-hard-4",
+      "closed_turns": 21,
+      "event_count": 156,
+      "family_bytes": {
+        "environment": 45479,
+        "m_star": 110837
+      },
+      "leading_role_content_sha256": "17f905696c81ca9cab16cb1078088c576f838bb34c12c63796eb6c4a13a70046",
+      "message_by_role_bytes": {
+        "assistant": 631,
+        "developer": 672,
+        "user": 4438
+      },
+      "per_type_bytes": {
+        "function_call": 32511,
+        "function_call_output": 40369,
+        "message": 5741,
+        "reasoning": 77695
+      },
+      "r3_total_bytes": 156316,
+      "rep": 2,
+      "response_item_count": 65,
+      "slot": "codex__lcb-recent-hard-4__r2",
+      "task_content_sha256": "7d93a9b0f1e5737902cdbdbf61bc80341ac54fb4d2f15b837e1293d2f443e5a0",
+      "trace_archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r2/agent-session/rollout-2026-11-09T13-46-26-01a1bed7-f5ae-7570-9191-bf5bed786d55.jsonl",
+      "trace_file": "rollout-2026-11-09T13-46-26-01a1bed7-f5ae-7570-9191-bf5bed786d55.jsonl",
+      "trace_sha256": "4127b45493bcc49c23c4512fdb8e9c82a073d38fd10a7d9e49f1ace4d39dd6c8"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-lcb-recent-hard-4__r3.json",
+      "case": "lcb-recent-hard-4",
+      "closed_turns": 42,
+      "event_count": 312,
+      "family_bytes": {
+        "environment": 46728,
+        "m_star": 249884
+      },
+      "leading_role_content_sha256": "17f905696c81ca9cab16cb1078088c576f838bb34c12c63796eb6c4a13a70046",
+      "message_by_role_bytes": {
+        "assistant": 3192,
+        "developer": 671,
+        "user": 4438
+      },
+      "per_type_bytes": {
+        "function_call": 70381,
+        "function_call_output": 41619,
+        "message": 8301,
+        "reasoning": 176311
+      },
+      "r3_total_bytes": 296612,
+      "rep": 3,
+      "response_item_count": 133,
+      "slot": "codex__lcb-recent-hard-4__r3",
+      "task_content_sha256": "7d93a9b0f1e5737902cdbdbf61bc80341ac54fb4d2f15b837e1293d2f443e5a0",
+      "trace_archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r3/agent-session/rollout-2026-11-09T13-50-42-01a1bedb-dea8-77b1-8eb6-259c0f165db2.jsonl",
+      "trace_file": "rollout-2026-11-09T13-50-42-01a1bedb-dea8-77b1-8eb6-259c0f165db2.jsonl",
+      "trace_sha256": "b48451020b389f927507b2d7f8ee9afb6c048e8b11461379dcd97b5667588f1d"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r1.json",
+      "case": "tb-cargo-plan",
+      "closed_turns": 66,
+      "event_count": 496,
+      "family_bytes": {
+        "environment": 134241,
+        "m_star": 655572
+      },
+      "leading_role_content_sha256": "2c8e426f526d22265caf19052af37ed34e3af83bd301a42b5ed7f5294f246173",
+      "message_by_role_bytes": {
+        "assistant": 1388,
+        "developer": 672,
+        "user": 4027
+      },
+      "per_type_bytes": {
+        "function_call": 160148,
+        "function_call_output": 129542,
+        "message": 6087,
+        "reasoning": 494036
+      },
+      "r3_total_bytes": 789813,
+      "rep": 1,
+      "response_item_count": 217,
+      "slot": "codex__tb-cargo-plan__r1",
+      "task_content_sha256": "7a3a77c1cea5235e6c206565ba426985ddf09c3bfe3641568bd83f01ec0b486c",
+      "trace_archive_relative_path": "codex/runs/codex__tb-cargo-plan__r1/agent-session/rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+      "trace_file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+      "trace_sha256": "c3e4fa242b2deb54a9df232a6c366f027469bfe80eeefff26458e4d3ab916941"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r2.json",
+      "case": "tb-cargo-plan",
+      "closed_turns": 25,
+      "event_count": 196,
+      "family_bytes": {
+        "environment": 84985,
+        "m_star": 238305
+      },
+      "leading_role_content_sha256": "2c8e426f526d22265caf19052af37ed34e3af83bd301a42b5ed7f5294f246173",
+      "message_by_role_bytes": {
+        "assistant": 2491,
+        "developer": 672,
+        "user": 4026
+      },
+      "per_type_bytes": {
+        "function_call": 28542,
+        "function_call_output": 80287,
+        "message": 7189,
+        "reasoning": 207272
+      },
+      "r3_total_bytes": 323290,
+      "rep": 2,
+      "response_item_count": 84,
+      "slot": "codex__tb-cargo-plan__r2",
+      "task_content_sha256": "7a3a77c1cea5235e6c206565ba426985ddf09c3bfe3641568bd83f01ec0b486c",
+      "trace_archive_relative_path": "codex/runs/codex__tb-cargo-plan__r2/agent-session/rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+      "trace_file": "rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+      "trace_sha256": "911668a178b9da2b2a77ce276a0452c55073f33de0ffa90e4808109fad8aa092"
+    },
+    {
+      "aggregate_path": "3-表现现场/r1109-bw-retest/observe/reqside-codex-tb-cargo-plan__r3.json",
+      "case": "tb-cargo-plan",
+      "closed_turns": 24,
+      "event_count": 223,
+      "family_bytes": {
+        "environment": 84269,
+        "m_star": 233647
+      },
+      "leading_role_content_sha256": "2c8e426f526d22265caf19052af37ed34e3af83bd301a42b5ed7f5294f246173",
+      "message_by_role_bytes": {
+        "assistant": 4496,
+        "developer": 672,
+        "user": 4027
+      },
+      "per_type_bytes": {
+        "function_call": 36151,
+        "function_call_output": 79570,
+        "message": 9195,
+        "reasoning": 193000
+      },
+      "r3_total_bytes": 317916,
+      "rep": 3,
+      "response_item_count": 103,
+      "slot": "codex__tb-cargo-plan__r3",
+      "task_content_sha256": "7a3a77c1cea5235e6c206565ba426985ddf09c3bfe3641568bd83f01ec0b486c",
+      "trace_archive_relative_path": "codex/runs/codex__tb-cargo-plan__r3/agent-session/rollout-2026-11-09T14-29-13-01a1beff-20ac-7783-a4a4-3d69d4e90e2e.jsonl",
+      "trace_file": "rollout-2026-11-09T14-29-13-01a1beff-20ac-7783-a4a4-3d69d4e90e2e.jsonl",
+      "trace_sha256": "17857cbdf68fb736bfd9d85194cf967940389cf6f47d0a281e1e8c5e15fe78b8"
+    }
+  ],
+  "trace_bindings": [
+    {
+      "archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r1/agent-session/rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+      "file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+      "sha256": "302aadf648f1c33033f13d57c0df157db69c1acff4c05f5af422c7fd2b81e5c2",
+      "slot": "codex__bird-ca-schools-15__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r2/agent-session/rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+      "file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+      "sha256": "54bacf19266b99ebff0446caaa80b118addc36ad1bb9bac81522f22f28516f84",
+      "slot": "codex__bird-ca-schools-15__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r3/agent-session/rollout-2026-11-09T13-09-35-01a1beb6-392b-79d0-9a49-edf3a02e90fc.jsonl",
+      "file": "rollout-2026-11-09T13-09-35-01a1beb6-392b-79d0-9a49-edf3a02e90fc.jsonl",
+      "sha256": "055436a333a22768972eaba3bc56b7519ae37a39494adb0789abd078e9bb3ec1",
+      "slot": "codex__bird-ca-schools-15__r3"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__dabstep-payments-10__r1/agent-session/rollout-2026-11-09T13-15-08-01a1bebb-4ce6-70a2-b22d-a9b787e85946.jsonl",
+      "file": "rollout-2026-11-09T13-15-08-01a1bebb-4ce6-70a2-b22d-a9b787e85946.jsonl",
+      "sha256": "32d6d09316a5b5c2cb0c0e33e95e372fbe72f79cb97e02dfa11eae2cc3e06fa5",
+      "slot": "codex__dabstep-payments-10__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__dabstep-payments-10__r2/agent-session/rollout-2026-11-09T13-27-41-01a1bec6-c9ba-7813-8188-781d6e4d7396.jsonl",
+      "file": "rollout-2026-11-09T13-27-41-01a1bec6-c9ba-7813-8188-781d6e4d7396.jsonl",
+      "sha256": "e5ee7b2bdd44d0fbedf9ff55d27edd4cdb0db6457ba0335a6331d387b71457a9",
+      "slot": "codex__dabstep-payments-10__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__dabstep-payments-10__r3/agent-session/rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+      "file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+      "sha256": "be045ce4457d98ac8934cfcaddfc0a1759ee3ce6cce79139822cac7490b66c2e",
+      "slot": "codex__dabstep-payments-10__r3"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__exercism-py-6__r1/agent-session/rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+      "file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+      "sha256": "e355baeb2cfcf644a5f9cf6e9017011a78d95e2050a11ce2d37acfc081639cac",
+      "slot": "codex__exercism-py-6__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__exercism-py-6__r2/agent-session/rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+      "file": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+      "sha256": "a866cd55cc64db6b5ad69436bec7b1c3124d406d42541137bc1077ebd0412796",
+      "slot": "codex__exercism-py-6__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__exercism-py-6__r3/agent-session/rollout-2026-11-09T13-39-33-01a1bed1-a937-7a62-a054-84041d4c6f33.jsonl",
+      "file": "rollout-2026-11-09T13-39-33-01a1bed1-a937-7a62-a054-84041d4c6f33.jsonl",
+      "sha256": "0e64e0c436a0f24a5cd51cbabcf2425b4da559781d298e4447c8bf0db7f12c49",
+      "slot": "codex__exercism-py-6__r3"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r1/agent-session/rollout-2026-11-09T13-40-03-01a1bed2-1c87-7b92-8489-835286b9c4aa.jsonl",
+      "file": "rollout-2026-11-09T13-40-03-01a1bed2-1c87-7b92-8489-835286b9c4aa.jsonl",
+      "sha256": "96e3a8d498b8c36d73cd14db01ac9c5b4fbc1ccf47b705e0af4115342b3a8b94",
+      "slot": "codex__lcb-recent-hard-4__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r2/agent-session/rollout-2026-11-09T13-46-26-01a1bed7-f5ae-7570-9191-bf5bed786d55.jsonl",
+      "file": "rollout-2026-11-09T13-46-26-01a1bed7-f5ae-7570-9191-bf5bed786d55.jsonl",
+      "sha256": "4127b45493bcc49c23c4512fdb8e9c82a073d38fd10a7d9e49f1ace4d39dd6c8",
+      "slot": "codex__lcb-recent-hard-4__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r3/agent-session/rollout-2026-11-09T13-50-42-01a1bedb-dea8-77b1-8eb6-259c0f165db2.jsonl",
+      "file": "rollout-2026-11-09T13-50-42-01a1bedb-dea8-77b1-8eb6-259c0f165db2.jsonl",
+      "sha256": "b48451020b389f927507b2d7f8ee9afb6c048e8b11461379dcd97b5667588f1d",
+      "slot": "codex__lcb-recent-hard-4__r3"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__tb-cargo-plan__r1/agent-session/rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+      "file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+      "sha256": "c3e4fa242b2deb54a9df232a6c366f027469bfe80eeefff26458e4d3ab916941",
+      "slot": "codex__tb-cargo-plan__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__tb-cargo-plan__r2/agent-session/rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+      "file": "rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+      "sha256": "911668a178b9da2b2a77ce276a0452c55073f33de0ffa90e4808109fad8aa092",
+      "slot": "codex__tb-cargo-plan__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__tb-cargo-plan__r3/agent-session/rollout-2026-11-09T14-29-13-01a1beff-20ac-7783-a4a4-3d69d4e90e2e.jsonl",
+      "file": "rollout-2026-11-09T14-29-13-01a1beff-20ac-7783-a4a4-3d69d4e90e2e.jsonl",
+      "sha256": "17857cbdf68fb736bfd9d85194cf967940389cf6f47d0a281e1e8c5e15fe78b8",
+      "slot": "codex__tb-cargo-plan__r3"
+    }
+  ],
+  "v1_reference": {
+    "baseline_commit": "38b2e13f63c5aeacb58094d2e977980ab12e8041",
+    "evidence_sha256": "925470d3b55b4226d70f5749d45d0c65a161703c4053fa21028ce0516fcd6b5c",
+    "full_replay_reproduced": true,
+    "package": "4-打分细则/机制重复口径澄清-2026-11-12",
+    "result_sha256": "abb3a4fc09f1210b30021f7896551b7d0b34502cabbfe08ad0777b87dddc4433",
+    "verify_sha256": "045475f5dd05efdf56e102ceb8b2eb4e98f455d818b80a7b0af74fca6f0c0d1d"
+  },
+  "verdicts": {
+    "branch": "M_STAR_DOMINANT_IN_4_OF_5_GROUPS",
+    "environment_dominant_group_count": 1,
+    "environment_dominant_groups": [
+      "exercism-py-6"
+    ],
+    "groups_total": 5,
+    "m_star_dominant_group_count": 4,
+    "m_star_dominant_groups": [
+      "bird-ca-schools-15",
+      "dabstep-payments-10",
+      "lcb-recent-hard-4",
+      "tb-cargo-plan"
+    ],
+    "per_group_dominant_families": {
+      "bird-ca-schools-15": {
+        "environment": false,
+        "m_star": true
+      },
+      "dabstep-payments-10": {
+        "environment": false,
+        "m_star": true
+      },
+      "exercism-py-6": {
+        "environment": true,
+        "m_star": false
+      },
+      "lcb-recent-hard-4": {
+        "environment": false,
+        "m_star": true
+      },
+      "tb-cargo-plan": {
+        "environment": false,
+        "m_star": true
+      }
+    },
+    "statements": {
+      "E_DOMINANT_IN_SOME_GROUP": "A group shows real environment/task-side input drift; that group is narrowed honestly to input-side instability.",
+      "MIXED_NO_SINGLE_DOMINANT_FAMILY": "Families are comparable; no single-mechanism explanation is given.",
+      "M_STAR_DOMINANT_IN_4_OF_5_GROUPS": "H1: R3 observation plane mixes model-generated bytes; DSH S3 is stable because its definition excludes that side; the two are not horizontally comparable. No gate or score changes."
+    }
+  }
+}

@@ -43,3 +43,13 @@
 - `runs/<arm>__<case>__r<rep>/`：meta.public-derived.json（workspace 键去除；部分槽的嵌套 judge.run_dir / checker.stdout run_dir 键保留运行工作区路径，为公开惯例）、score-receipt、checker.stdout、adjudication、integrity-rescan、agent.jsonl.full、workspace/（TASK.md + answers.jsonl）。私档路径以 `archive://launch-r1109/` 标签替代。
 - `frozen-checkers/<case>/`：判卷所用 v2 冻结 checker/truth/instruction 副本（sha256 对 v2 config 快照核验）。
 - `preflight/`、`tools/`、`adjudications.json`、`integrity-rescan-summary.json`：发射前预检、两臂运行器与串行批脚本、逐槽裁决、逐槽扫描汇总。
+
+## R3 不稳定来源分解执行记录（2026-11-16）
+
+对本批 15 个 Codex 槽按冻结预注册（包 README SHA256 `c4546f35…e6ea00`，钉定不改）做 Δ=R3(max槽)−R3(min槽) 逐 payload 型带符号精确分解，包见 [4-打分细则/R3不稳定来源分解-2026-11-16](<../../4-打分细则/R3不稳定来源分解-2026-11-16/README.md>)：
+
+1. **M\*（assistant message+reasoning+function_call）4/5 组主导**：bird 93.70%（Δ=154,301）、dabstep 83.26%（Δ=296,848）、lcb 94.43%（Δ=165,538）、tb 89.41%（Δ=471,897）。
+2. **exercism-py-6 唯 E 族主导**：Δ=31,431 中 E 净 +27,407（87.20%），其中 `function_call_output` +27,406；三对两两分解均 E 主导（r1vsr3 对 Δ=10,942 中 E 占 9,626）。
+3. **对账**：逐组 Δ 与 v1.1 记录值全等；15 槽 R3 总和与 v1.1 result.json 逐槽硬等；五组首三条 message 哈希组内一致（稳定核复验通过）。robustness 附注：dabstep r2vsr3 对 E 族亦主导（28,596=59.26%），已如实入档。
+4. **解释边界**：族分类按 payload 类型机械划分；`function_call_output` 内容依赖模型所选调用，故 exercism 的 E 主导只把漂移定位在工具结果面，不构成环境独立漂移的证据。不动任何门判定与分数，无新增运行。
+5. 执行流程：builder 实现→Lead 验证（双模式 exit0、20/20 测试、`--output` 逐字节比对、隐私扫描）→非作者独审 PASS-WITH-FINDINGS（独立重算 15 槽 0 差、6 近错探针全安全向；MINOR-1=包 README 被钉定不可追加执行记录，故本记录记于本页）→Lead 验收。收据存私档，`archive://until12-20261116/loop2/` 定位。
