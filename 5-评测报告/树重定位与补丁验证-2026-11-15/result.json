@@ -1,0 +1,8104 @@
+{
+  "schema": "pov-derived-result-v1",
+  "scope": "current safe reconstructed bytes; not historical failed-test identity",
+  "versions": [
+    {
+      "canonical": {
+        "discovered": 15,
+        "errors": [],
+        "failures": [
+          "test_can_find_path_from_nodes_other_than_x",
+          "test_can_find_path_not_involving_root",
+          "test_can_find_path_to_cousin",
+          "test_can_find_path_to_parent",
+          "test_can_find_path_to_sibling",
+          "test_can_reroot_a_complex_tree_with_cousins",
+          "test_can_reroot_a_tree_with_a_parent_and_many_siblings",
+          "test_can_reroot_a_tree_with_a_parent_and_one_sibling",
+          "test_can_reroot_a_tree_with_new_root_deeply_nested_in_tree",
+          "test_moves_children_of_the_new_root_to_same_level_as_former_parent"
+        ],
+        "skipped": [],
+        "successes": 5,
+        "tests_run": 15
+      },
+      "oracle": {
+        "error_rows": [
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "singleton",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "singleton",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "singleton",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "shallow",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "shallow",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "shallow",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "chain3",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "chain3",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "chain3",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "branched",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "branched",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "branched",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          }
+        ],
+        "fixtures": {
+          "branched": [
+            "A",
+            [
+              [
+                "B",
+                [
+                  [
+                    "D",
+                    [
+                      [
+                        "G",
+                        []
+                      ],
+                      [
+                        "H",
+                        []
+                      ]
+                    ]
+                  ],
+                  [
+                    "E",
+                    []
+                  ]
+                ]
+              ],
+              [
+                "C",
+                [
+                  [
+                    "F",
+                    []
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "chain3": [
+            "A",
+            [
+              [
+                "B",
+                [
+                  [
+                    "C",
+                    []
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "shallow": [
+            "A",
+            [
+              [
+                "B",
+                []
+              ],
+              [
+                "C",
+                []
+              ],
+              [
+                "D",
+                []
+              ]
+            ]
+          ],
+          "singleton": [
+            "A",
+            []
+          ]
+        },
+        "path_rows": [
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "singleton",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "A",
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "A",
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "chain3",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B"
+            ],
+            "fixture": "chain3",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "C"
+            ],
+            "fixture": "chain3",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A"
+            ],
+            "fixture": "chain3",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B"
+            ],
+            "fixture": "chain3",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "C"
+            ],
+            "fixture": "chain3",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "B",
+              "A"
+            ],
+            "fixture": "chain3",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "B"
+            ],
+            "fixture": "chain3",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C"
+            ],
+            "fixture": "chain3",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          }
+        ],
+        "reroot_rows": [
+          {
+            "actual_edges": [],
+            "all_pair_paths_checked": 1,
+            "all_pair_paths_matching": 1,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [],
+            "fixture": "singleton",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "B"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "C"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "D"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "all_pair_paths_checked": 9,
+            "all_pair_paths_matching": 9,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "fixture": "chain3",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "all_pair_paths_checked": 9,
+            "all_pair_paths_matching": 9,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "fixture": "chain3",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "B"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "all_pair_paths_checked": 9,
+            "all_pair_paths_matching": 9,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "fixture": "chain3",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "C"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "B"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "C"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "D"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "E"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "F"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 3,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "G"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 3,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": false,
+            "target": "H"
+          }
+        ],
+        "summary": {
+          "error_checked": 12,
+          "error_passed": 12,
+          "original_immutable": true,
+          "path_checked": 90,
+          "path_passed": 16,
+          "reroot_checked": 16,
+          "reroot_passed": 4
+        }
+      },
+      "variant": "before",
+      "status": "observed",
+      "reason": null
+    },
+    {
+      "canonical": {
+        "discovered": 15,
+        "errors": [],
+        "failures": [
+          "test_can_find_path_to_cousin",
+          "test_can_reroot_a_complex_tree_with_cousins",
+          "test_can_reroot_a_tree_with_new_root_deeply_nested_in_tree"
+        ],
+        "skipped": [],
+        "successes": 12,
+        "tests_run": 15
+      },
+      "oracle": {
+        "error_rows": [
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "singleton",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "singleton",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "singleton",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "shallow",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "shallow",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "shallow",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "chain3",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "chain3",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "chain3",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "branched",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "branched",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "branched",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          }
+        ],
+        "fixtures": {
+          "branched": [
+            "A",
+            [
+              [
+                "B",
+                [
+                  [
+                    "D",
+                    [
+                      [
+                        "G",
+                        []
+                      ],
+                      [
+                        "H",
+                        []
+                      ]
+                    ]
+                  ],
+                  [
+                    "E",
+                    []
+                  ]
+                ]
+              ],
+              [
+                "C",
+                [
+                  [
+                    "F",
+                    []
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "chain3": [
+            "A",
+            [
+              [
+                "B",
+                [
+                  [
+                    "C",
+                    []
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "shallow": [
+            "A",
+            [
+              [
+                "B",
+                []
+              ],
+              [
+                "C",
+                []
+              ],
+              [
+                "D",
+                []
+              ]
+            ]
+          ],
+          "singleton": [
+            "A",
+            []
+          ]
+        },
+        "path_rows": [
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "singleton",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "A",
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "A",
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "chain3",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B"
+            ],
+            "fixture": "chain3",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "C"
+            ],
+            "fixture": "chain3",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A"
+            ],
+            "fixture": "chain3",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B"
+            ],
+            "fixture": "chain3",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "C"
+            ],
+            "fixture": "chain3",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "B",
+              "A"
+            ],
+            "fixture": "chain3",
+            "from": "C",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "C",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "B"
+            ],
+            "fixture": "chain3",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C"
+            ],
+            "fixture": "chain3",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "D",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "D",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "D",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "E",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "E",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "E",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "F",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "F",
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "F",
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "F",
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "F",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "F",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "G",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "G",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "G",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "G",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "G",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "H",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "H",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "H",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "H",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": false,
+            "observed": [
+              "H",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H"
+            ],
+            "to": "H"
+          }
+        ],
+        "reroot_rows": [
+          {
+            "actual_edges": [],
+            "all_pair_paths_checked": 1,
+            "all_pair_paths_matching": 1,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [],
+            "fixture": "singleton",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "B"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "C"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "D"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "all_pair_paths_checked": 9,
+            "all_pair_paths_matching": 9,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "fixture": "chain3",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "all_pair_paths_checked": 9,
+            "all_pair_paths_matching": 9,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "fixture": "chain3",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "B"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "all_pair_paths_checked": 9,
+            "all_pair_paths_matching": 5,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": false,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "fixture": "chain3",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "C"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "B"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "C"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 34,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": false,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "D"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "E"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 34,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": false,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "E"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "F"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 40,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": false,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "F"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "G"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "B",
+                "G"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 22,
+            "connected": true,
+            "depth": 3,
+            "edge_count_ok": true,
+            "edges_ok": false,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "G"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "H"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "B",
+                "H"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 22,
+            "connected": true,
+            "depth": 3,
+            "edge_count_ok": true,
+            "edges_ok": false,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "H"
+          }
+        ],
+        "summary": {
+          "error_checked": 12,
+          "error_passed": 12,
+          "original_immutable": true,
+          "path_checked": 90,
+          "path_passed": 67,
+          "reroot_checked": 16,
+          "reroot_passed": 10
+        }
+      },
+      "variant": "after",
+      "status": "observed",
+      "reason": null
+    },
+    {
+      "canonical": {
+        "discovered": 15,
+        "errors": [],
+        "failures": [],
+        "skipped": [],
+        "successes": 15,
+        "tests_run": 15
+      },
+      "oracle": {
+        "error_rows": [
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "singleton",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "singleton",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "singleton",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "shallow",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "shallow",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "shallow",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "chain3",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "chain3",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "chain3",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "branched",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "from_pov"
+          },
+          {
+            "args": [
+              "MISSING",
+              "A"
+            ],
+            "exception": "ValueError",
+            "fixture": "branched",
+            "immutable": true,
+            "match": true,
+            "message": "Tree could not be reoriented",
+            "method": "path_to"
+          },
+          {
+            "args": [
+              "A",
+              "MISSING"
+            ],
+            "exception": "ValueError",
+            "fixture": "branched",
+            "immutable": true,
+            "match": true,
+            "message": "No path found",
+            "method": "path_to"
+          }
+        ],
+        "fixtures": {
+          "branched": [
+            "A",
+            [
+              [
+                "B",
+                [
+                  [
+                    "D",
+                    [
+                      [
+                        "G",
+                        []
+                      ],
+                      [
+                        "H",
+                        []
+                      ]
+                    ]
+                  ],
+                  [
+                    "E",
+                    []
+                  ]
+                ]
+              ],
+              [
+                "C",
+                [
+                  [
+                    "F",
+                    []
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "chain3": [
+            "A",
+            [
+              [
+                "B",
+                [
+                  [
+                    "C",
+                    []
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "shallow": [
+            "A",
+            [
+              [
+                "B",
+                []
+              ],
+              [
+                "C",
+                []
+              ],
+              [
+                "D",
+                []
+              ]
+            ]
+          ],
+          "singleton": [
+            "A",
+            []
+          ]
+        },
+        "path_rows": [
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "singleton",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "A"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "A",
+              "B"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "A",
+              "C"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D"
+            ],
+            "fixture": "shallow",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "chain3",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B"
+            ],
+            "fixture": "chain3",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "C"
+            ],
+            "fixture": "chain3",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A"
+            ],
+            "fixture": "chain3",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B"
+            ],
+            "fixture": "chain3",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "C"
+            ],
+            "fixture": "chain3",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "B",
+              "A"
+            ],
+            "fixture": "chain3",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "B"
+            ],
+            "fixture": "chain3",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C"
+            ],
+            "fixture": "chain3",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "A",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "B",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "C",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "C",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "D",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "E",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "E",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "E",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F",
+              "C",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F",
+              "C",
+              "A",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "F",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "F",
+              "C",
+              "A",
+              "B",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G",
+              "D",
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G",
+              "D",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G",
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G",
+              "D",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G",
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "G",
+              "D",
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "G",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "G",
+              "D",
+              "H"
+            ],
+            "to": "H"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "A"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H",
+              "D",
+              "B",
+              "A"
+            ],
+            "to": "A"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H",
+              "D",
+              "B"
+            ],
+            "to": "B"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H",
+              "D",
+              "B",
+              "A",
+              "C"
+            ],
+            "to": "C"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H",
+              "D"
+            ],
+            "to": "D"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "E"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H",
+              "D",
+              "B",
+              "E"
+            ],
+            "to": "E"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H",
+              "D",
+              "B",
+              "A",
+              "C",
+              "F"
+            ],
+            "to": "F"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H",
+              "D",
+              "G"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H",
+              "D",
+              "G"
+            ],
+            "to": "G"
+          },
+          {
+            "exception": null,
+            "expected": [
+              "H"
+            ],
+            "fixture": "branched",
+            "from": "H",
+            "immutable": true,
+            "match": true,
+            "observed": [
+              "H"
+            ],
+            "to": "H"
+          }
+        ],
+        "reroot_rows": [
+          {
+            "actual_edges": [],
+            "all_pair_paths_checked": 1,
+            "all_pair_paths_matching": 1,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [],
+            "fixture": "singleton",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "B"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "C"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "all_pair_paths_checked": 16,
+            "all_pair_paths_matching": 16,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "A",
+                "D"
+              ]
+            ],
+            "fixture": "shallow",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "D"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "all_pair_paths_checked": 9,
+            "all_pair_paths_matching": 9,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "fixture": "chain3",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "all_pair_paths_checked": 9,
+            "all_pair_paths_matching": 9,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "fixture": "chain3",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "B"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "all_pair_paths_checked": 9,
+            "all_pair_paths_matching": 9,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "B",
+                "C"
+              ]
+            ],
+            "fixture": "chain3",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "C"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 0,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "A"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "B"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 1,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "C"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "D"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "E"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 2,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "F"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 3,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "G"
+          },
+          {
+            "actual_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "all_pair_paths_checked": 64,
+            "all_pair_paths_matching": 64,
+            "connected": true,
+            "depth": 3,
+            "edge_count_ok": true,
+            "edges_ok": true,
+            "exception": null,
+            "expected_edges": [
+              [
+                "A",
+                "B"
+              ],
+              [
+                "A",
+                "C"
+              ],
+              [
+                "B",
+                "D"
+              ],
+              [
+                "B",
+                "E"
+              ],
+              [
+                "C",
+                "F"
+              ],
+              [
+                "D",
+                "G"
+              ],
+              [
+                "D",
+                "H"
+              ]
+            ],
+            "fixture": "branched",
+            "immutable": true,
+            "nodes_ok": true,
+            "root_ok": true,
+            "target": "H"
+          }
+        ],
+        "summary": {
+          "error_checked": 12,
+          "error_passed": 12,
+          "original_immutable": true,
+          "path_checked": 90,
+          "path_passed": 90,
+          "reroot_checked": 16,
+          "reroot_passed": 16
+        }
+      },
+      "variant": "reference",
+      "status": "observed",
+      "reason": null
+    }
+  ],
+  "claims": {
+    "repair_complete": false,
+    "partial_topology_repair": true,
+    "historical_failed_test_ids": null,
+    "harness_cause": null
+  }
+}
