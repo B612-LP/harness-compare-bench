@@ -1,0 +1,1319 @@
+{
+  "analysis_rules": {
+    "byte_class_definition": "digit=ASCII 0-9；alpha=ASCII A-Z/a-z；other=其余全部字节（含 UTF-8 多字节序列、标点等）；bof=run 起点为文本首（无左邻，结构性取值）",
+    "cluster_caliper_disclosure": "『信封外簇』按勘察注记自身用法与环 11 簇定义取跨 case rel 对齐口径（DD?DD 群）；信封外孤立位（每 case 1 处）不属于簇、无 S 断言绑定但逐位登记。敏感性：若采『信封外簇=全部信封外漂移位』替代口径，信封外孤立位（run 长 1）将令 S1 破而翻为 B-SHAPE-VARIABLE；该口径差异如实披露，最终口径裁定权在预注册文本",
+    "envelope_definition": "信封=W1 冻结开/闭标记的精确 span（标记字面以环 11 包 analysis_rules 同名定义为准，此处不重复登记标记文本）",
+    "fail_closed_scope": "硬等失败、档案布局异常、trace/消息结构异常、rep 文本长度不等、信封 span 数≠1 或跨 rep 不等或与环 11 登记不符 ⇒ exit2 / B-INDETERMINATE（fail-closed）",
+    "rel_position_definition": "rel_position = offset − 信封闭合（envelope span 终点）",
+    "run_definition": "极大数字 run=文本中 byte_class==digit 的极大连续段 [起,止)；逐 offset×rep 独立计算",
+    "value_independence_boundary": "分隔字节与漂移字节值一律不读不登记；跨 rep 只比较 run 边界（起/止/长），不比较任何字节值是否相同"
+  },
+  "archive_layout": {
+    "runs_rel": "runs/<slot>/trace/<session>.jsonl",
+    "slots_expected": [
+      "dabstep-payments-10__r1",
+      "dabstep-payments-10__r2",
+      "dabstep-payments-10__r3",
+      "tb-cargo-plan__r1",
+      "tb-cargo-plan__r2",
+      "tb-cargo-plan__r3"
+    ]
+  },
+  "assertions": {
+    "S1": {
+      "cases": {
+        "dabstep-payments-10": {
+          "cluster_offsets": [
+            6423,
+            6424,
+            6426,
+            6427
+          ],
+          "pass": true,
+          "per_rep": {
+            "r1": {
+              "cluster_offsets_covered_exact": true,
+              "gap_byte_class": "other",
+              "gap_width_bytes": 1,
+              "n_runs": 2,
+              "no_run_offsets": [],
+              "run_lens": [
+                2,
+                2
+              ],
+              "shape_ok": true,
+              "shape_signature": "DD?DD"
+            },
+            "r2": {
+              "cluster_offsets_covered_exact": true,
+              "gap_byte_class": "other",
+              "gap_width_bytes": 1,
+              "n_runs": 2,
+              "no_run_offsets": [],
+              "run_lens": [
+                2,
+                2
+              ],
+              "shape_ok": true,
+              "shape_signature": "DD?DD"
+            },
+            "r3": {
+              "cluster_offsets_covered_exact": true,
+              "gap_byte_class": "other",
+              "gap_width_bytes": 1,
+              "n_runs": 2,
+              "no_run_offsets": [],
+              "run_lens": [
+                2,
+                2
+              ],
+              "shape_ok": true,
+              "shape_signature": "DD?DD"
+            }
+          },
+          "shape_signature": "DD?DD"
+        },
+        "tb-cargo-plan": {
+          "cluster_offsets": [
+            6379,
+            6380,
+            6382,
+            6383
+          ],
+          "pass": true,
+          "per_rep": {
+            "r1": {
+              "cluster_offsets_covered_exact": true,
+              "gap_byte_class": "other",
+              "gap_width_bytes": 1,
+              "n_runs": 2,
+              "no_run_offsets": [],
+              "run_lens": [
+                2,
+                2
+              ],
+              "shape_ok": true,
+              "shape_signature": "DD?DD"
+            },
+            "r2": {
+              "cluster_offsets_covered_exact": true,
+              "gap_byte_class": "other",
+              "gap_width_bytes": 1,
+              "n_runs": 2,
+              "no_run_offsets": [],
+              "run_lens": [
+                2,
+                2
+              ],
+              "shape_ok": true,
+              "shape_signature": "DD?DD"
+            },
+            "r3": {
+              "cluster_offsets_covered_exact": true,
+              "gap_byte_class": "other",
+              "gap_width_bytes": 1,
+              "n_runs": 2,
+              "no_run_offsets": [],
+              "run_lens": [
+                2,
+                2
+              ],
+              "shape_ok": true,
+              "shape_signature": "DD?DD"
+            }
+          },
+          "shape_signature": "DD?DD"
+        }
+      },
+      "cross_case_isomorphic": true,
+      "pass": true,
+      "rule": "信封外簇恰为两组 run、各长 2、run 字节与簇 offsets 恰合、中间隔恰 1 个非数字字节（DD?DD）、两 case 同构（逐 rep 断言）"
+    },
+    "S2": {
+      "cases": {
+        "dabstep-payments-10": {
+          "all_equal": true,
+          "per_offset": [
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  181,
+                  182,
+                  1
+                ],
+                "r2": [
+                  181,
+                  182,
+                  1
+                ],
+                "r3": [
+                  181,
+                  182,
+                  1
+                ]
+              },
+              "cluster_role": "internal",
+              "cross_rep_equal": true,
+              "offset": 181
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  5558,
+                  5559,
+                  1
+                ],
+                "r2": [
+                  5558,
+                  5559,
+                  1
+                ],
+                "r3": [
+                  5558,
+                  5559,
+                  1
+                ]
+              },
+              "cluster_role": "internal",
+              "cross_rep_equal": true,
+              "offset": 5558
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6423,
+                  6425,
+                  2
+                ],
+                "r2": [
+                  6423,
+                  6425,
+                  2
+                ],
+                "r3": [
+                  6423,
+                  6425,
+                  2
+                ]
+              },
+              "cluster_role": "cluster",
+              "cross_rep_equal": true,
+              "offset": 6423
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6423,
+                  6425,
+                  2
+                ],
+                "r2": [
+                  6423,
+                  6425,
+                  2
+                ],
+                "r3": [
+                  6423,
+                  6425,
+                  2
+                ]
+              },
+              "cluster_role": "cluster",
+              "cross_rep_equal": true,
+              "offset": 6424
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6426,
+                  6428,
+                  2
+                ],
+                "r2": [
+                  6426,
+                  6428,
+                  2
+                ],
+                "r3": [
+                  6426,
+                  6428,
+                  2
+                ]
+              },
+              "cluster_role": "cluster",
+              "cross_rep_equal": true,
+              "offset": 6426
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6426,
+                  6428,
+                  2
+                ],
+                "r2": [
+                  6426,
+                  6428,
+                  2
+                ],
+                "r3": [
+                  6426,
+                  6428,
+                  2
+                ]
+              },
+              "cluster_role": "cluster",
+              "cross_rep_equal": true,
+              "offset": 6427
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6660,
+                  6661,
+                  1
+                ],
+                "r2": [
+                  6660,
+                  6661,
+                  1
+                ],
+                "r3": [
+                  6660,
+                  6661,
+                  1
+                ]
+              },
+              "cluster_role": "isolated_external",
+              "cross_rep_equal": true,
+              "offset": 6660
+            }
+          ]
+        },
+        "tb-cargo-plan": {
+          "all_equal": true,
+          "per_offset": [
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  175,
+                  176,
+                  1
+                ],
+                "r2": [
+                  175,
+                  176,
+                  1
+                ],
+                "r3": [
+                  175,
+                  176,
+                  1
+                ]
+              },
+              "cluster_role": "internal",
+              "cross_rep_equal": true,
+              "offset": 175
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  5540,
+                  5541,
+                  1
+                ],
+                "r2": [
+                  5540,
+                  5541,
+                  1
+                ],
+                "r3": [
+                  5540,
+                  5541,
+                  1
+                ]
+              },
+              "cluster_role": "internal",
+              "cross_rep_equal": true,
+              "offset": 5540
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6379,
+                  6381,
+                  2
+                ],
+                "r2": [
+                  6379,
+                  6381,
+                  2
+                ],
+                "r3": [
+                  6379,
+                  6381,
+                  2
+                ]
+              },
+              "cluster_role": "cluster",
+              "cross_rep_equal": true,
+              "offset": 6379
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6379,
+                  6381,
+                  2
+                ],
+                "r2": [
+                  6379,
+                  6381,
+                  2
+                ],
+                "r3": [
+                  6379,
+                  6381,
+                  2
+                ]
+              },
+              "cluster_role": "cluster",
+              "cross_rep_equal": true,
+              "offset": 6380
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6382,
+                  6384,
+                  2
+                ],
+                "r2": [
+                  6382,
+                  6384,
+                  2
+                ],
+                "r3": [
+                  6382,
+                  6384,
+                  2
+                ]
+              },
+              "cluster_role": "cluster",
+              "cross_rep_equal": true,
+              "offset": 6382
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6382,
+                  6384,
+                  2
+                ],
+                "r2": [
+                  6382,
+                  6384,
+                  2
+                ],
+                "r3": [
+                  6382,
+                  6384,
+                  2
+                ]
+              },
+              "cluster_role": "cluster",
+              "cross_rep_equal": true,
+              "offset": 6383
+            },
+            {
+              "boundaries_by_rep": {
+                "r1": [
+                  6604,
+                  6605,
+                  1
+                ],
+                "r2": [
+                  6604,
+                  6605,
+                  1
+                ],
+                "r3": [
+                  6604,
+                  6605,
+                  1
+                ]
+              },
+              "cluster_role": "isolated_external",
+              "cross_rep_equal": true,
+              "offset": 6604
+            }
+          ]
+        }
+      },
+      "n_offsets_checked": 14,
+      "pass": true,
+      "rule": "全部漂移 run 的边界三 rep 相等（起点/止点/长度）"
+    },
+    "S3": {
+      "cases": {
+        "dabstep-payments-10": {
+          "details": [
+            {
+              "left_neighbor_class_by_rep": {
+                "r1": "alpha",
+                "r2": "alpha",
+                "r3": "alpha"
+              },
+              "offset": 181,
+              "pass": true,
+              "per_rep_pass": [
+                true,
+                true,
+                true
+              ],
+              "rel_position": -6149,
+              "run_len_by_rep": {
+                "r1": 1,
+                "r2": 1,
+                "r3": 1
+              }
+            },
+            {
+              "left_neighbor_class_by_rep": {
+                "r1": "alpha",
+                "r2": "alpha",
+                "r3": "alpha"
+              },
+              "offset": 5558,
+              "pass": true,
+              "per_rep_pass": [
+                true,
+                true,
+                true
+              ],
+              "rel_position": -772,
+              "run_len_by_rep": {
+                "r1": 1,
+                "r2": 1,
+                "r3": 1
+              }
+            }
+          ],
+          "n_internal": 2,
+          "pass": true
+        },
+        "tb-cargo-plan": {
+          "details": [
+            {
+              "left_neighbor_class_by_rep": {
+                "r1": "alpha",
+                "r2": "alpha",
+                "r3": "alpha"
+              },
+              "offset": 175,
+              "pass": true,
+              "per_rep_pass": [
+                true,
+                true,
+                true
+              ],
+              "rel_position": -6111,
+              "run_len_by_rep": {
+                "r1": 1,
+                "r2": 1,
+                "r3": 1
+              }
+            },
+            {
+              "left_neighbor_class_by_rep": {
+                "r1": "alpha",
+                "r2": "alpha",
+                "r3": "alpha"
+              },
+              "offset": 5540,
+              "pass": true,
+              "per_rep_pass": [
+                true,
+                true,
+                true
+              ],
+              "rel_position": -746,
+              "run_len_by_rep": {
+                "r1": 1,
+                "r2": 1,
+                "r3": 1
+              }
+            }
+          ],
+          "n_internal": 2,
+          "pass": true
+        }
+      },
+      "pass": true,
+      "rule": "信封内孤立位 run 长=1 且左邻=alpha（逐 rep）"
+    }
+  },
+  "baseline_commit": "8202648e9b00bca19cd21ebfea7871b64736760d",
+  "branch": {
+    "S1_pass": true,
+    "S2_pass": true,
+    "S3_pass": true,
+    "clock_compat_note": "DD?DD 的 ? 字节类=other：冒号类分隔与该形状在字节类层面相容；token 语义（时钟/序号/编码片段等）不判定",
+    "reason": "S1∧S2∧S3 全过：信封外漂移簇为定长 DD?DD 形状（两组长 2 数字 run、隔恰 1 非数字字节、gap 字节类=other），两 case 同构；全部漂移 run 边界三 rep 相等；信封内孤立位为字母邻接单个数字。排除跨 rep 长度可变 id 类候选；与秒/分时钟类相容性仅在字节类层面登记（? 为 other 类），语义不判定。",
+    "verdict": "B-DIGIT-RUN-FIXED-SHAPE"
+  },
+  "cluster_classification": {
+    "aligned_rels": [
+      93,
+      94,
+      96,
+      97
+    ],
+    "roles_count_by_case": {
+      "dabstep-payments-10": {
+        "cluster": 4,
+        "internal": 2,
+        "isolated_external": 1
+      },
+      "tb-cargo-plan": {
+        "cluster": 4,
+        "internal": 2,
+        "isolated_external": 1
+      }
+    },
+    "rule": "簇=信封外漂移位中 rel_position（offset−信封闭合）跨 case 对齐（交集）者（沿用环 11 cross-case 对齐规则，无阈值）；信封外其余=isolated_external；信封内=internal"
+  },
+  "envelope_span_check": {
+    "cases": {
+      "dabstep-payments-10": {
+        "cross_rep_equal": true,
+        "envelope_close": 6330,
+        "matches_reference": true,
+        "recomputed_by_rep": {
+          "r1": [
+            0,
+            6330
+          ],
+          "r2": [
+            0,
+            6330
+          ],
+          "r3": [
+            0,
+            6330
+          ]
+        },
+        "reference_span": [
+          [
+            0,
+            6330
+          ]
+        ]
+      },
+      "tb-cargo-plan": {
+        "cross_rep_equal": true,
+        "envelope_close": 6286,
+        "matches_reference": true,
+        "recomputed_by_rep": {
+          "r1": [
+            0,
+            6286
+          ],
+          "r2": [
+            0,
+            6286
+          ],
+          "r3": [
+            0,
+            6286
+          ]
+        },
+        "reference_span": [
+          [
+            0,
+            6286
+          ]
+        ]
+      }
+    },
+    "rule": "每 rep 恰 1 span、跨 rep 相等、且与环 11 result.json 登记的 envelope_span 一致（lane/rel 派生基准；不符视为数据结构不可信 exit2）"
+  },
+  "exit_code": 0,
+  "extraction": {
+    "per_slot": {
+      "dabstep-payments-10__r1": {
+        "trace_file": "b363e658-08b1-4ff9-84c8-468e7744b02d.jsonl",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "0ae6064db57b71bcb5d4b584b0d713e1f1235f2230204240537c64a3d775a945"
+      },
+      "dabstep-payments-10__r2": {
+        "trace_file": "66e68d87-dfc8-41ff-9c39-00da7e109a5a.jsonl",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "85a633abf987bdb2b9a8a67007a66e41cc5487c0e1d1bd6a031a26424c8e2835"
+      },
+      "dabstep-payments-10__r3": {
+        "trace_file": "16a4dc87-780e-4b1b-9874-50a1a5e5ccd4.jsonl",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "13cfe2b00c327078b9eb257a4bd3d53d8517c523a74da37499f2a4874be23cd6"
+      },
+      "tb-cargo-plan__r1": {
+        "trace_file": "b70e9bf1-687b-47c7-b546-a5d120c69aeb.jsonl",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "6c75e82b29f79b47c61f9ba4e7aaaa24040eaca461c1403242d2951609cb1c7a"
+      },
+      "tb-cargo-plan__r2": {
+        "trace_file": "3a7c16b2-54e8-4080-b41c-82c21b95b354.jsonl",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "f07b3dffa44bc1f872f6085d9d7125a308cc09c2e9f09b18e6028fb71cbe3dfe"
+      },
+      "tb-cargo-plan__r3": {
+        "trace_file": "61c4c10c-bcd6-41a2-a6bc-2d28e47ecd9c.jsonl",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "056db0afc11f63bd418316827edbae8f8bd9a60873588d122f5d4471073f571d"
+      }
+    },
+    "rule": "与环 6/11 同一 W1 提取：runs/<slot>/trace/*.jsonl（恰 1）、type=message 且 role=user（恰 1）、content 恰 1 block 且 type=input_text、text 的 UTF-8 字节"
+  },
+  "isolated_positions_disclosure": {
+    "cases": {
+      "dabstep-payments-10": [
+        {
+          "cluster_role": "internal",
+          "left_neighbor_class_by_rep": {
+            "r1": "alpha",
+            "r2": "alpha",
+            "r3": "alpha"
+          },
+          "offset": 181,
+          "rel_position": -6149,
+          "run_boundaries_cross_rep_equal": true,
+          "run_len_by_rep": {
+            "r1": 1,
+            "r2": 1,
+            "r3": 1
+          }
+        },
+        {
+          "cluster_role": "internal",
+          "left_neighbor_class_by_rep": {
+            "r1": "alpha",
+            "r2": "alpha",
+            "r3": "alpha"
+          },
+          "offset": 5558,
+          "rel_position": -772,
+          "run_boundaries_cross_rep_equal": true,
+          "run_len_by_rep": {
+            "r1": 1,
+            "r2": 1,
+            "r3": 1
+          }
+        },
+        {
+          "cluster_role": "isolated_external",
+          "left_neighbor_class_by_rep": {
+            "r1": "alpha",
+            "r2": "alpha",
+            "r3": "alpha"
+          },
+          "offset": 6660,
+          "rel_position": 330,
+          "run_boundaries_cross_rep_equal": true,
+          "run_len_by_rep": {
+            "r1": 1,
+            "r2": 1,
+            "r3": 1
+          }
+        }
+      ],
+      "tb-cargo-plan": [
+        {
+          "cluster_role": "internal",
+          "left_neighbor_class_by_rep": {
+            "r1": "alpha",
+            "r2": "alpha",
+            "r3": "alpha"
+          },
+          "offset": 175,
+          "rel_position": -6111,
+          "run_boundaries_cross_rep_equal": true,
+          "run_len_by_rep": {
+            "r1": 1,
+            "r2": 1,
+            "r3": 1
+          }
+        },
+        {
+          "cluster_role": "internal",
+          "left_neighbor_class_by_rep": {
+            "r1": "alpha",
+            "r2": "alpha",
+            "r3": "alpha"
+          },
+          "offset": 5540,
+          "rel_position": -746,
+          "run_boundaries_cross_rep_equal": true,
+          "run_len_by_rep": {
+            "r1": 1,
+            "r2": 1,
+            "r3": 1
+          }
+        },
+        {
+          "cluster_role": "isolated_external",
+          "left_neighbor_class_by_rep": {
+            "r1": "alpha",
+            "r2": "alpha",
+            "r3": "alpha"
+          },
+          "offset": 6604,
+          "rel_position": 318,
+          "run_boundaries_cross_rep_equal": true,
+          "run_len_by_rep": {
+            "r1": 1,
+            "r2": 1,
+            "r3": 1
+          }
+        }
+      ]
+    },
+    "rule": "信封内/外孤立位（非簇）逐位形状登记（冻结 S3 只断言信封内；信封外孤立位形状如实披露供复核）"
+  },
+  "offsets_hard_equal": {
+    "all_equal": true,
+    "cases": {
+      "dabstep-payments-10": {
+        "equal": true,
+        "n_offsets": 7,
+        "recomputed_sorted": [
+          181,
+          5558,
+          6423,
+          6424,
+          6426,
+          6427,
+          6660
+        ],
+        "reference_sorted": [
+          181,
+          5558,
+          6423,
+          6424,
+          6426,
+          6427,
+          6660
+        ]
+      },
+      "tb-cargo-plan": {
+        "equal": true,
+        "n_offsets": 7,
+        "recomputed_sorted": [
+          175,
+          5540,
+          6379,
+          6380,
+          6382,
+          6383,
+          6604
+        ],
+        "reference_sorted": [
+          175,
+          5540,
+          6379,
+          6380,
+          6382,
+          6383,
+          6604
+        ]
+      }
+    },
+    "reference_path_rel": "4-打分细则/WB漂移字节位置结构-2026-11-16/result.json",
+    "rule": "复算=逐 case 三对逐字节差异并集；硬等=环 11 result.json case_analysis.<case>.events[*].positions_offset 全集；不等即 exit2"
+  },
+  "package": "WB漂移token形状-2026-11-16",
+  "prereg": {
+    "path_rel": "4-打分细则/WB漂移token形状-2026-11-16/README.md",
+    "sha256": "c7fee55520d54ee24ba99a9c0a7c6f35018864511085b0ec02e30f377a9a8ee8",
+    "sha256_match": true
+  },
+  "reference_source": {
+    "path_rel": "4-打分细则/WB漂移字节位置结构-2026-11-16/result.json",
+    "sha256": "8ba0e34a50ed3f65e96055d3973114bfbdc91624ec5c1e72ce3042da14bc1f5a"
+  },
+  "run_registration": {
+    "cases": {
+      "dabstep-payments-10": [
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 182,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 181
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 182,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 181
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 182,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 181
+            }
+          },
+          "cluster_role": "internal",
+          "lane": "envelope_internal",
+          "offset": 181,
+          "rel_position": -6149
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 5559,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 5558
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 5559,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 5558
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 5559,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 5558
+            }
+          },
+          "cluster_role": "internal",
+          "lane": "envelope_internal",
+          "offset": 5558,
+          "rel_position": -772
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6425,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6423
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6425,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6423
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6425,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6423
+            }
+          },
+          "cluster_role": "cluster",
+          "lane": "envelope_external",
+          "offset": 6423,
+          "rel_position": 93
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6425,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6423
+            },
+            "r2": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6425,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6423
+            },
+            "r3": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6425,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6423
+            }
+          },
+          "cluster_role": "cluster",
+          "lane": "envelope_external",
+          "offset": 6424,
+          "rel_position": 94
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6428,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6426
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6428,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6426
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6428,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6426
+            }
+          },
+          "cluster_role": "cluster",
+          "lane": "envelope_external",
+          "offset": 6426,
+          "rel_position": 96
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6428,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6426
+            },
+            "r2": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6428,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6426
+            },
+            "r3": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6428,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6426
+            }
+          },
+          "cluster_role": "cluster",
+          "lane": "envelope_external",
+          "offset": 6427,
+          "rel_position": 97
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 6661,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 6660
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 6661,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 6660
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 6661,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 6660
+            }
+          },
+          "cluster_role": "isolated_external",
+          "lane": "envelope_external",
+          "offset": 6660,
+          "rel_position": 330
+        }
+      ],
+      "tb-cargo-plan": [
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 176,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 175
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 176,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 175
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 176,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 175
+            }
+          },
+          "cluster_role": "internal",
+          "lane": "envelope_internal",
+          "offset": 175,
+          "rel_position": -6111
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 5541,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 5540
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 5541,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 5540
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 5541,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 5540
+            }
+          },
+          "cluster_role": "internal",
+          "lane": "envelope_internal",
+          "offset": 5540,
+          "rel_position": -746
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6381,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6379
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6381,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6379
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6381,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6379
+            }
+          },
+          "cluster_role": "cluster",
+          "lane": "envelope_external",
+          "offset": 6379,
+          "rel_position": 93
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6381,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6379
+            },
+            "r2": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6381,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6379
+            },
+            "r3": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6381,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6379
+            }
+          },
+          "cluster_role": "cluster",
+          "lane": "envelope_external",
+          "offset": 6380,
+          "rel_position": 94
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6384,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6382
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6384,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6382
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "other",
+              "run_end": 6384,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6382
+            }
+          },
+          "cluster_role": "cluster",
+          "lane": "envelope_external",
+          "offset": 6382,
+          "rel_position": 96
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6384,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6382
+            },
+            "r2": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6384,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6382
+            },
+            "r3": {
+              "drift_index_in_run": 1,
+              "left_neighbor_class": "other",
+              "run_end": 6384,
+              "run_found": true,
+              "run_len": 2,
+              "run_start": 6382
+            }
+          },
+          "cluster_role": "cluster",
+          "lane": "envelope_external",
+          "offset": 6383,
+          "rel_position": 97
+        },
+        {
+          "by_rep": {
+            "r1": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 6605,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 6604
+            },
+            "r2": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 6605,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 6604
+            },
+            "r3": {
+              "drift_index_in_run": 0,
+              "left_neighbor_class": "alpha",
+              "run_end": 6605,
+              "run_found": true,
+              "run_len": 1,
+              "run_start": 6604
+            }
+          },
+          "cluster_role": "isolated_external",
+          "lane": "envelope_external",
+          "offset": 6604,
+          "rel_position": 318
+        }
+      ]
+    },
+    "class_vocab": [
+      "digit",
+      "alpha",
+      "other",
+      "bof"
+    ],
+    "entries_total": 42,
+    "offsets_total": 14,
+    "rule": "逐 offset×rep：包含该漂移字节的极大数字 run（byte_class==digit 的极大连续段）之 [起,止)、长、漂移字节在 run 内 index、run 左邻字节类（digit/alpha/other；bof=文本首）；漂移字节非 digit 时 run_found=false 只登记该字节类；分隔字节只登记类不登记值",
+    "run_found_false_n": 0
+  },
+  "schema": "wb-token-shape-v1",
+  "survey_note_reconciliation": {
+    "items": [
+      "勘察注记称『信封内 3 孤立位（dab 181/5558/6660、tb 175/5540/6604）』；复算信封 span（dab [0,6330)、tb [0,6286)，与环 11 result.json 登记一致）下 6660/6604 为信封外（rel +330/+318，与环 11 positions 登记的 rel_position 一致）；信封内孤立位实为每 case 2 处（dab 181/5558、tb 175/5540）。按冻结行以复算 lane 为准；S3 按复算信封内集合断言（2×2 处全过）；孤立位形状（run 长 1、左邻 alpha）在全部 3+3 处成立，形状结论不受 lane 标注差异影响",
+      "簇形状复现：dab [6423,6425)+[6426,6428)、tb [6379,6381)+[6382,6384)，各两组长 2 数字 run、隔恰 1 非数字字节（类=other），与勘察注记一致",
+      "三 rep run 边界逐字节一致复现（全部漂移 offset 的 run 起/止/长三 rep 相等）"
+    ],
+    "rule": "预注册勘察注记为冻结前事实，可被复算推翻（README 冻结行）；以下以复算为准"
+  },
+  "value_independence_statement": "值无关边界声明：本结果只登记 run 边界（起/止/长）、漂移字节在 run 内 index、字节类（digit/alpha/other/bof）、offset/rel_position、计数、SHA256 与布尔比较位；不读不登记任何漂移字节或分隔字节的字节值，不比对分隔字节/漂移字节跨 rep 是否同值，不含信封或任务文本内容、不含私有档案绝对路径。"
+}
