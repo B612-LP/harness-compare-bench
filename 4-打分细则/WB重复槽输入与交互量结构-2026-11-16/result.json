@@ -1,0 +1,664 @@
+{
+  "archive_layout": {
+    "grading_rel": "evidence-tools/grading/<slot>/execution.json",
+    "runs_rel": "runs/<slot>/trace/<session>.jsonl",
+    "slots_expected": [
+      "dabstep-payments-10__r1",
+      "dabstep-payments-10__r2",
+      "dabstep-payments-10__r3",
+      "tb-cargo-plan__r1",
+      "tb-cargo-plan__r2",
+      "tb-cargo-plan__r3"
+    ]
+  },
+  "baseline_commit": "f14a5150c0218f4e74d23c82132941172b7fc386",
+  "canonical_projection": {
+    "json_options": "sort_keys=True, ensure_ascii=False, separators=(',', ':')",
+    "scope": "逐事件投影字节数，按事件型合计",
+    "stripped_keys_rationale": "id/parentId/callId/messageId/sessionId=标识；timestamp=时间戳；cwd=逐会话本地路径；_meta=traceparent/baggage；__codebuddyLocal=本地标记；providerData=请求级 provider 元数据信封（conversationRequestId/messageId/traceId/stepSeq 等）；均属逐会话易变外层元数据",
+    "stripped_top_level_keys": [
+      "__codebuddyLocal",
+      "_meta",
+      "callId",
+      "cwd",
+      "id",
+      "messageId",
+      "parentId",
+      "providerData",
+      "sessionId",
+      "timestamp"
+    ]
+  },
+  "content_independence_statement": "内容无关边界声明：本结果仅登记计数、字节偏移、信封 span、字节数与 SHA256；不含任何信封或任务文本内容、差异字节值，不含私有档案绝对路径。",
+  "package": "WB重复槽输入与交互量结构-2026-11-16",
+  "prereg": {
+    "path_rel": "4-打分细则/WB重复槽输入与交互量结构-2026-11-16/README.md",
+    "sha256": "2957a69b066d6c4c73c66372e2661244ebf80f93436a9f2c6cc99712096b3584",
+    "sha256_match": true
+  },
+  "public_page_source": {
+    "path_rel": "3-表现现场/r1109-bw-retest/README.md",
+    "rows_reward_weighted_r1_r2_r3": {
+      "dabstep-payments-10": [
+        "0 / 50.0",
+        "0 / 70.0",
+        "0 / 70.0"
+      ],
+      "tb-cargo-plan": [
+        "0 / 0.0",
+        "0 / 70.37",
+        "0 / 70.37"
+      ]
+    }
+  },
+  "verdict": {
+    "all_checks_passed": true,
+    "w1_global_branch": "B-W1-TASK-DRIFT"
+  },
+  "w1": {
+    "definition_note": "信封=精确标记 <system-reminder data-role=\"user-context\"> 的 span；逐组三对两两逐字节比较",
+    "global_branch": "B-W1-TASK-DRIFT",
+    "global_branch_reason": "任一组出现信封外差异（预注册 §3 最重发现分支）",
+    "groups": {
+      "dabstep-payments-10": {
+        "classification": "w1_task_text_drift",
+        "envelope_span_cross_rep_equal": true,
+        "pairs": [
+          {
+            "byte_equal": false,
+            "diff_offsets": [
+              181,
+              5558,
+              6424,
+              6426,
+              6427,
+              6660
+            ],
+            "n_diff_offsets": 6,
+            "n_offsets_outside_envelope": 4,
+            "offsets_outside_envelope": [
+              6424,
+              6426,
+              6427,
+              6660
+            ],
+            "pair": [
+              "r1",
+              "r2"
+            ],
+            "pair_result": "env_external_diff"
+          },
+          {
+            "byte_equal": false,
+            "diff_offsets": [
+              181,
+              5558,
+              6423,
+              6424,
+              6426,
+              6427,
+              6660
+            ],
+            "n_diff_offsets": 7,
+            "n_offsets_outside_envelope": 5,
+            "offsets_outside_envelope": [
+              6423,
+              6424,
+              6426,
+              6427,
+              6660
+            ],
+            "pair": [
+              "r1",
+              "r3"
+            ],
+            "pair_result": "env_external_diff"
+          },
+          {
+            "byte_equal": false,
+            "diff_offsets": [
+              181,
+              5558,
+              6423,
+              6424,
+              6426,
+              6427,
+              6660
+            ],
+            "n_diff_offsets": 7,
+            "n_offsets_outside_envelope": 5,
+            "offsets_outside_envelope": [
+              6423,
+              6424,
+              6426,
+              6427,
+              6660
+            ],
+            "pair": [
+              "r2",
+              "r3"
+            ],
+            "pair_result": "env_external_diff"
+          }
+        ],
+        "spans_by_rep": {
+          "r1": [
+            [
+              0,
+              6330
+            ]
+          ],
+          "r2": [
+            [
+              0,
+              6330
+            ]
+          ],
+          "r3": [
+            [
+              0,
+              6330
+            ]
+          ]
+        }
+      },
+      "tb-cargo-plan": {
+        "classification": "w1_task_text_drift",
+        "envelope_span_cross_rep_equal": true,
+        "pairs": [
+          {
+            "byte_equal": false,
+            "diff_offsets": [
+              175,
+              5540,
+              6379,
+              6380,
+              6382,
+              6383,
+              6604
+            ],
+            "n_diff_offsets": 7,
+            "n_offsets_outside_envelope": 5,
+            "offsets_outside_envelope": [
+              6379,
+              6380,
+              6382,
+              6383,
+              6604
+            ],
+            "pair": [
+              "r1",
+              "r2"
+            ],
+            "pair_result": "env_external_diff"
+          },
+          {
+            "byte_equal": false,
+            "diff_offsets": [
+              175,
+              5540,
+              6379,
+              6380,
+              6382,
+              6383,
+              6604
+            ],
+            "n_diff_offsets": 7,
+            "n_offsets_outside_envelope": 5,
+            "offsets_outside_envelope": [
+              6379,
+              6380,
+              6382,
+              6383,
+              6604
+            ],
+            "pair": [
+              "r1",
+              "r3"
+            ],
+            "pair_result": "env_external_diff"
+          },
+          {
+            "byte_equal": false,
+            "diff_offsets": [
+              175,
+              5540,
+              6380,
+              6382,
+              6383,
+              6604
+            ],
+            "n_diff_offsets": 6,
+            "n_offsets_outside_envelope": 4,
+            "offsets_outside_envelope": [
+              6380,
+              6382,
+              6383,
+              6604
+            ],
+            "pair": [
+              "r2",
+              "r3"
+            ],
+            "pair_result": "env_external_diff"
+          }
+        ],
+        "spans_by_rep": {
+          "r1": [
+            [
+              0,
+              6286
+            ]
+          ],
+          "r2": [
+            [
+              0,
+              6286
+            ]
+          ],
+          "r3": [
+            [
+              0,
+              6286
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "w2": {
+    "descriptive_only": true,
+    "groups": {
+      "dabstep-payments-10": {
+        "canonical_bytes_by_type_cross_rep": {
+          "ai-title": {
+            "all_equal": false,
+            "canonical_bytes": [
+              62,
+              77,
+              62
+            ],
+            "max_abs_delta": 15
+          },
+          "file-history-snapshot": {
+            "all_equal": false,
+            "canonical_bytes": [
+              145,
+              145,
+              362
+            ],
+            "max_abs_delta": 217
+          },
+          "function_call": {
+            "all_equal": false,
+            "canonical_bytes": [
+              32417,
+              33895,
+              29070
+            ],
+            "max_abs_delta": 4825
+          },
+          "function_call_result": {
+            "all_equal": false,
+            "canonical_bytes": [
+              77776,
+              91169,
+              73546
+            ],
+            "max_abs_delta": 17623
+          },
+          "message": {
+            "all_equal": false,
+            "canonical_bytes": [
+              14321,
+              14243,
+              13815
+            ],
+            "max_abs_delta": 506
+          },
+          "reasoning": {
+            "all_equal": false,
+            "canonical_bytes": [
+              89126,
+              81862,
+              46183
+            ],
+            "max_abs_delta": 42943
+          },
+          "session-meta": {
+            "all_equal": true,
+            "canonical_bytes": [
+              132,
+              132,
+              132
+            ],
+            "max_abs_delta": 0
+          }
+        },
+        "counts_cross_rep_equal_note": "逐槽计数表见 w2.slots；本节仅登记，不设门"
+      },
+      "tb-cargo-plan": {
+        "canonical_bytes_by_type_cross_rep": {
+          "ai-title": {
+            "all_equal": false,
+            "canonical_bytes": [
+              65,
+              71,
+              65
+            ],
+            "max_abs_delta": 6
+          },
+          "file-history-snapshot": {
+            "all_equal": true,
+            "canonical_bytes": [
+              1342,
+              1342,
+              1342
+            ],
+            "max_abs_delta": 0
+          },
+          "function_call": {
+            "all_equal": false,
+            "canonical_bytes": [
+              57787,
+              41342,
+              55797
+            ],
+            "max_abs_delta": 16445
+          },
+          "function_call_result": {
+            "all_equal": false,
+            "canonical_bytes": [
+              62596,
+              56049,
+              80573
+            ],
+            "max_abs_delta": 24524
+          },
+          "message": {
+            "all_equal": false,
+            "canonical_bytes": [
+              14067,
+              13975,
+              13380
+            ],
+            "max_abs_delta": 687
+          },
+          "reasoning": {
+            "all_equal": false,
+            "canonical_bytes": [
+              97810,
+              75961,
+              107158
+            ],
+            "max_abs_delta": 31197
+          },
+          "session-meta": {
+            "all_equal": true,
+            "canonical_bytes": [
+              132,
+              132,
+              132
+            ],
+            "max_abs_delta": 0
+          }
+        },
+        "counts_cross_rep_equal_note": "逐槽计数表见 w2.slots；本节仅登记，不设门"
+      }
+    },
+    "slots": {
+      "dabstep-payments-10__r1": {
+        "canonical_bytes_by_type": {
+          "ai-title": 62,
+          "file-history-snapshot": 145,
+          "function_call": 32417,
+          "function_call_result": 77776,
+          "message": 14321,
+          "reasoning": 89126,
+          "session-meta": 132
+        },
+        "canonical_total_bytes": 213979,
+        "counts": {
+          "ai-title": 1,
+          "file-history-snapshot": 1,
+          "function_call": 27,
+          "function_call_result": 27,
+          "message": 3,
+          "reasoning": 24,
+          "session-meta": 2
+        },
+        "fc_fcr_count_equal": true,
+        "message_roles": {
+          "assistant": 2,
+          "user": 1
+        },
+        "trace_bytes": 490524,
+        "trace_file": "b363e658-08b1-4ff9-84c8-468e7744b02d.jsonl",
+        "trace_sha256": "4ad625f691446c416f98ae094d483d271d45a961a12d85ff2e8f07bbf3747ea3",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "0ae6064db57b71bcb5d4b584b0d713e1f1235f2230204240537c64a3d775a945"
+      },
+      "dabstep-payments-10__r2": {
+        "canonical_bytes_by_type": {
+          "ai-title": 77,
+          "file-history-snapshot": 145,
+          "function_call": 33895,
+          "function_call_result": 91169,
+          "message": 14243,
+          "reasoning": 81862,
+          "session-meta": 132
+        },
+        "canonical_total_bytes": 221523,
+        "counts": {
+          "ai-title": 1,
+          "file-history-snapshot": 1,
+          "function_call": 24,
+          "function_call_result": 24,
+          "message": 5,
+          "reasoning": 23,
+          "session-meta": 2
+        },
+        "fc_fcr_count_equal": true,
+        "message_roles": {
+          "assistant": 4,
+          "user": 1
+        },
+        "trace_bytes": 485980,
+        "trace_file": "66e68d87-dfc8-41ff-9c39-00da7e109a5a.jsonl",
+        "trace_sha256": "8ebff581736ae6cf24c7cc5335c5a5b06bf3e4f1f7bac2026b61db9a00454da5",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "85a633abf987bdb2b9a8a67007a66e41cc5487c0e1d1bd6a031a26424c8e2835"
+      },
+      "dabstep-payments-10__r3": {
+        "canonical_bytes_by_type": {
+          "ai-title": 62,
+          "file-history-snapshot": 362,
+          "function_call": 29070,
+          "function_call_result": 73546,
+          "message": 13815,
+          "reasoning": 46183,
+          "session-meta": 132
+        },
+        "canonical_total_bytes": 163170,
+        "counts": {
+          "ai-title": 1,
+          "file-history-snapshot": 2,
+          "function_call": 27,
+          "function_call_result": 27,
+          "message": 3,
+          "reasoning": 25,
+          "session-meta": 2
+        },
+        "fc_fcr_count_equal": true,
+        "message_roles": {
+          "assistant": 2,
+          "user": 1
+        },
+        "trace_bytes": 388833,
+        "trace_file": "16a4dc87-780e-4b1b-9874-50a1a5e5ccd4.jsonl",
+        "trace_sha256": "63fb382e73c0e48c0f355efa13fb33b8f6347b98f075684cd54458a5c4a310d0",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "13cfe2b00c327078b9eb257a4bd3d53d8517c523a74da37499f2a4874be23cd6"
+      },
+      "tb-cargo-plan__r1": {
+        "canonical_bytes_by_type": {
+          "ai-title": 65,
+          "file-history-snapshot": 1342,
+          "function_call": 57787,
+          "function_call_result": 62596,
+          "message": 14067,
+          "reasoning": 97810,
+          "session-meta": 132
+        },
+        "canonical_total_bytes": 233799,
+        "counts": {
+          "ai-title": 1,
+          "file-history-snapshot": 4,
+          "function_call": 30,
+          "function_call_result": 30,
+          "message": 6,
+          "reasoning": 19,
+          "session-meta": 2
+        },
+        "fc_fcr_count_equal": true,
+        "message_roles": {
+          "assistant": 5,
+          "user": 1
+        },
+        "trace_bytes": 518523,
+        "trace_file": "b70e9bf1-687b-47c7-b546-a5d120c69aeb.jsonl",
+        "trace_sha256": "379b8b52ba904fe927f3585f346ea9ee303dd5d02e51a8f5cf0e3db48191d0c7",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "6c75e82b29f79b47c61f9ba4e7aaaa24040eaca461c1403242d2951609cb1c7a"
+      },
+      "tb-cargo-plan__r2": {
+        "canonical_bytes_by_type": {
+          "ai-title": 71,
+          "file-history-snapshot": 1342,
+          "function_call": 41342,
+          "function_call_result": 56049,
+          "message": 13975,
+          "reasoning": 75961,
+          "session-meta": 132
+        },
+        "canonical_total_bytes": 188872,
+        "counts": {
+          "ai-title": 1,
+          "file-history-snapshot": 4,
+          "function_call": 22,
+          "function_call_result": 22,
+          "message": 9,
+          "reasoning": 15,
+          "session-meta": 2
+        },
+        "fc_fcr_count_equal": true,
+        "message_roles": {
+          "assistant": 8,
+          "user": 1
+        },
+        "trace_bytes": 419694,
+        "trace_file": "3a7c16b2-54e8-4080-b41c-82c21b95b354.jsonl",
+        "trace_sha256": "4c0c9c83ea8e09d661efca137519e3bee5354dc8b87c328add2cb25cd2f603d9",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "f07b3dffa44bc1f872f6085d9d7125a308cc09c2e9f09b18e6028fb71cbe3dfe"
+      },
+      "tb-cargo-plan__r3": {
+        "canonical_bytes_by_type": {
+          "ai-title": 65,
+          "file-history-snapshot": 1342,
+          "function_call": 55797,
+          "function_call_result": 80573,
+          "message": 13380,
+          "reasoning": 107158,
+          "session-meta": 132
+        },
+        "canonical_total_bytes": 258447,
+        "counts": {
+          "ai-title": 1,
+          "file-history-snapshot": 4,
+          "function_call": 40,
+          "function_call_result": 40,
+          "message": 4,
+          "reasoning": 27,
+          "session-meta": 2
+        },
+        "fc_fcr_count_equal": true,
+        "message_roles": {
+          "assistant": 3,
+          "user": 1
+        },
+        "trace_bytes": 603325,
+        "trace_file": "61c4c10c-bcd6-41a2-a6bc-2d28e47ecd9c.jsonl",
+        "trace_sha256": "7b2cb21a0c6f6a7555e4e17a22604159716b1531649c677638dc9349758c180b",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "056db0afc11f63bd418316827edbae8f8bd9a60873588d122f5d4471073f571d"
+      }
+    }
+  },
+  "w3": {
+    "all_passed": true,
+    "hard_equality": true,
+    "slots": {
+      "dabstep-payments-10__r1": {
+        "archived_reward": 0,
+        "archived_weighted": 50.0,
+        "grading_file_rel": "evidence-tools/grading/dabstep-payments-10__r1/execution.json",
+        "grading_sha256": "9c23b531e2bb8d61e5637a0fbb815116af52926a657ec8ffdee0aea26c12dd4a",
+        "pinned_reward": 0,
+        "pinned_weighted": 50.0,
+        "reward_hard_equal": true,
+        "weighted_hard_equal": true
+      },
+      "dabstep-payments-10__r2": {
+        "archived_reward": 0,
+        "archived_weighted": 70.0,
+        "grading_file_rel": "evidence-tools/grading/dabstep-payments-10__r2/execution.json",
+        "grading_sha256": "d2bb228aaeabf084fdac3e4a92ccc6be6391b57ca6978c4eb245f3b5909d6b6d",
+        "pinned_reward": 0,
+        "pinned_weighted": 70.0,
+        "reward_hard_equal": true,
+        "weighted_hard_equal": true
+      },
+      "dabstep-payments-10__r3": {
+        "archived_reward": 0,
+        "archived_weighted": 70.0,
+        "grading_file_rel": "evidence-tools/grading/dabstep-payments-10__r3/execution.json",
+        "grading_sha256": "6e09f774ca94de47a4882612979661a6059cfe8bf37f5b92072fd3aeaf5efd0d",
+        "pinned_reward": 0,
+        "pinned_weighted": 70.0,
+        "reward_hard_equal": true,
+        "weighted_hard_equal": true
+      },
+      "tb-cargo-plan__r1": {
+        "archived_reward": 0,
+        "archived_weighted": 0.0,
+        "grading_file_rel": "evidence-tools/grading/tb-cargo-plan__r1/execution.json",
+        "grading_sha256": "0300bdfd4bc79bd208dc325b6af8531b2cb6b1ae41454054da2d71455c54d9b7",
+        "pinned_reward": 0,
+        "pinned_weighted": 0.0,
+        "reward_hard_equal": true,
+        "weighted_hard_equal": true
+      },
+      "tb-cargo-plan__r2": {
+        "archived_reward": 0,
+        "archived_weighted": 70.37,
+        "grading_file_rel": "evidence-tools/grading/tb-cargo-plan__r2/execution.json",
+        "grading_sha256": "e9714e5ff2c0a033cd6cc8232cf2b23257e64c705f32ac72fd20d0c3a5b5b15a",
+        "pinned_reward": 0,
+        "pinned_weighted": 70.37,
+        "reward_hard_equal": true,
+        "weighted_hard_equal": true
+      },
+      "tb-cargo-plan__r3": {
+        "archived_reward": 0,
+        "archived_weighted": 70.37,
+        "grading_file_rel": "evidence-tools/grading/tb-cargo-plan__r3/execution.json",
+        "grading_sha256": "5f74d744c08e6de778cce9b667cd3cb4321ebe8a6667c7fda0d52c5ab313add7",
+        "pinned_reward": 0,
+        "pinned_weighted": 70.37,
+        "reward_hard_equal": true,
+        "weighted_hard_equal": true
+      }
+    }
+  }
+}
