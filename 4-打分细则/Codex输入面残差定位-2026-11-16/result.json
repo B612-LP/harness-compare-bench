@@ -1,0 +1,4399 @@
+{
+  "baseline_commit": "8c5a481ccccf1d0109adf570a1c437db01fc6439",
+  "branch": "B-CONTENT-DRIFT",
+  "classification_counts": {
+    "content_drift": 10
+  },
+  "content_anywhere": true,
+  "content_free_statement": "内容无关纪律：本包只记录槽内条数、流内序位、canonical 字节合计、逐差异字节偏移与长度、JSON 键路径（键名与数组下标为结构量）、trace 文件 SHA256 与提交号；不记录任何 payload 值、文本片段或内容派生摘要。",
+  "content_keys_pinned": {
+    "content_keys": [
+      "arguments",
+      "content",
+      "text"
+    ],
+    "metadata_top_level_keys": [
+      "call_id",
+      "id",
+      "name",
+      "role",
+      "type"
+    ],
+    "observed_nested_keys": [
+      "content[].text",
+      "content[].type",
+      "internal_chat_message_metadata_passthrough.content_item_kinds",
+      "internal_chat_message_metadata_passthrough.create_time",
+      "internal_chat_message_metadata_passthrough.turn_id"
+    ],
+    "observed_top_level_keys": [
+      "content",
+      "id",
+      "internal_chat_message_metadata_passthrough",
+      "role",
+      "type"
+    ],
+    "rule": "content side = any path touching a pinned content key at any depth, plus every ambiguous key (nested or unknown) per the frozen conservative tie-break; metadata side = single top-level segment whose key is a pinned envelope key or timestamp-class name",
+    "timestamp_key_rule": "top-level keys matching TIMESTAMP_KEY_RE (timestamp-class)"
+  },
+  "groups": {
+    "bird-ca-schools-15": {
+      "developer": {
+        "aligned_ks": 1,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__bird-ca-schools-15__r1": 1,
+          "codex__bird-ca-schools-15__r2": 1,
+          "codex__bird-ca-schools-15__r3": 1
+        },
+        "differing_ks": [
+          0
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__bird-ca-schools-15__r1": 672,
+                  "codex__bird-ca-schools-15__r2": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__bird-ca-schools-15__r1",
+                  "codex__bird-ca-schools-15__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__bird-ca-schools-15__r1": 672,
+                  "codex__bird-ca-schools-15__r3": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__bird-ca-schools-15__r1",
+                  "codex__bird-ca-schools-15__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__bird-ca-schools-15__r2": 672,
+                  "codex__bird-ca-schools-15__r3": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__bird-ca-schools-15__r2",
+                  "codex__bird-ca-schools-15__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__bird-ca-schools-15__r1",
+          "codex__bird-ca-schools-15__r2",
+          "codex__bird-ca-schools-15__r3"
+        ]
+      },
+      "user": {
+        "aligned_ks": 2,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__bird-ca-schools-15__r1": 2,
+          "codex__bird-ca-schools-15__r2": 2,
+          "codex__bird-ca-schools-15__r3": 2
+        },
+        "differing_ks": [
+          0,
+          1
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__bird-ca-schools-15__r1": 770,
+                  "codex__bird-ca-schools-15__r2": 770
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 42,
+                        "offset": 510
+                      },
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 42,
+                        "offset": 510
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 17,
+                        "offset": 671
+                      },
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 17,
+                        "offset": 671
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 38,
+                        "offset": 699
+                      },
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 38,
+                        "offset": 699
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__bird-ca-schools-15__r1",
+                  "codex__bird-ca-schools-15__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__bird-ca-schools-15__r1": 770,
+                  "codex__bird-ca-schools-15__r3": 770
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 42,
+                        "offset": 510
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 42,
+                        "offset": 510
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 17,
+                        "offset": 671
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 17,
+                        "offset": 671
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 38,
+                        "offset": 699
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 38,
+                        "offset": 699
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__bird-ca-schools-15__r1",
+                  "codex__bird-ca-schools-15__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__bird-ca-schools-15__r2": 770,
+                  "codex__bird-ca-schools-15__r3": 770
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 42,
+                        "offset": 510
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 42,
+                        "offset": 510
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 17,
+                        "offset": 671
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 17,
+                        "offset": 671
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 38,
+                        "offset": 699
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 38,
+                        "offset": 699
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__bird-ca-schools-15__r2",
+                  "codex__bird-ca-schools-15__r3"
+                ]
+              }
+            ]
+          },
+          {
+            "k": 1,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__bird-ca-schools-15__r1": 5571,
+                  "codex__bird-ca-schools-15__r2": 5571
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 42,
+                        "offset": 5334
+                      },
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 42,
+                        "offset": 5334
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 17,
+                        "offset": 5472
+                      },
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 17,
+                        "offset": 5472
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 38,
+                        "offset": 5500
+                      },
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 38,
+                        "offset": 5500
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__bird-ca-schools-15__r1",
+                  "codex__bird-ca-schools-15__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__bird-ca-schools-15__r1": 5571,
+                  "codex__bird-ca-schools-15__r3": 5571
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 42,
+                        "offset": 5334
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 42,
+                        "offset": 5334
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 17,
+                        "offset": 5472
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 17,
+                        "offset": 5472
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r1": {
+                        "length": 38,
+                        "offset": 5500
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 38,
+                        "offset": 5500
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__bird-ca-schools-15__r1",
+                  "codex__bird-ca-schools-15__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__bird-ca-schools-15__r2": 5571,
+                  "codex__bird-ca-schools-15__r3": 5571
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 42,
+                        "offset": 5334
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 42,
+                        "offset": 5334
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 17,
+                        "offset": 5472
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 17,
+                        "offset": 5472
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__bird-ca-schools-15__r2": {
+                        "length": 38,
+                        "offset": 5500
+                      },
+                      "codex__bird-ca-schools-15__r3": {
+                        "length": 38,
+                        "offset": 5500
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__bird-ca-schools-15__r2",
+                  "codex__bird-ca-schools-15__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__bird-ca-schools-15__r1",
+          "codex__bird-ca-schools-15__r2",
+          "codex__bird-ca-schools-15__r3"
+        ]
+      }
+    },
+    "dabstep-payments-10": {
+      "developer": {
+        "aligned_ks": 1,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__dabstep-payments-10__r1": 1,
+          "codex__dabstep-payments-10__r2": 1,
+          "codex__dabstep-payments-10__r3": 1
+        },
+        "differing_ks": [
+          0
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__dabstep-payments-10__r1": 672,
+                  "codex__dabstep-payments-10__r2": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__dabstep-payments-10__r1",
+                  "codex__dabstep-payments-10__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__dabstep-payments-10__r1": 672,
+                  "codex__dabstep-payments-10__r3": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__dabstep-payments-10__r1",
+                  "codex__dabstep-payments-10__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__dabstep-payments-10__r2": 672,
+                  "codex__dabstep-payments-10__r3": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__dabstep-payments-10__r2",
+                  "codex__dabstep-payments-10__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__dabstep-payments-10__r1",
+          "codex__dabstep-payments-10__r2",
+          "codex__dabstep-payments-10__r3"
+        ]
+      },
+      "user": {
+        "aligned_ks": 2,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__dabstep-payments-10__r1": 2,
+          "codex__dabstep-payments-10__r2": 2,
+          "codex__dabstep-payments-10__r3": 2
+        },
+        "differing_ks": [
+          0,
+          1
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__dabstep-payments-10__r1": 772,
+                  "codex__dabstep-payments-10__r2": 772
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 42,
+                        "offset": 512
+                      },
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 42,
+                        "offset": 512
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 17,
+                        "offset": 673
+                      },
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 17,
+                        "offset": 673
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 38,
+                        "offset": 701
+                      },
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 38,
+                        "offset": 701
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__dabstep-payments-10__r1",
+                  "codex__dabstep-payments-10__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__dabstep-payments-10__r1": 772,
+                  "codex__dabstep-payments-10__r3": 772
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 42,
+                        "offset": 512
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 42,
+                        "offset": 512
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 17,
+                        "offset": 673
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 17,
+                        "offset": 673
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 38,
+                        "offset": 701
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 38,
+                        "offset": 701
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__dabstep-payments-10__r1",
+                  "codex__dabstep-payments-10__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__dabstep-payments-10__r2": 772,
+                  "codex__dabstep-payments-10__r3": 772
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 42,
+                        "offset": 512
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 42,
+                        "offset": 512
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 17,
+                        "offset": 673
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 17,
+                        "offset": 673
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 38,
+                        "offset": 701
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 38,
+                        "offset": 701
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__dabstep-payments-10__r2",
+                  "codex__dabstep-payments-10__r3"
+                ]
+              }
+            ]
+          },
+          {
+            "k": 1,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__dabstep-payments-10__r1": 4939,
+                  "codex__dabstep-payments-10__r2": 4939
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 42,
+                        "offset": 4702
+                      },
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 42,
+                        "offset": 4702
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 17,
+                        "offset": 4840
+                      },
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 17,
+                        "offset": 4840
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 38,
+                        "offset": 4868
+                      },
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 38,
+                        "offset": 4868
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__dabstep-payments-10__r1",
+                  "codex__dabstep-payments-10__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__dabstep-payments-10__r1": 4939,
+                  "codex__dabstep-payments-10__r3": 4938
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 42,
+                        "offset": 4702
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 42,
+                        "offset": 4702
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 17,
+                        "offset": 4840
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 16,
+                        "offset": 4840
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r1": {
+                        "length": 38,
+                        "offset": 4868
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 38,
+                        "offset": 4867
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__dabstep-payments-10__r1",
+                  "codex__dabstep-payments-10__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__dabstep-payments-10__r2": 4939,
+                  "codex__dabstep-payments-10__r3": 4938
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 42,
+                        "offset": 4702
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 42,
+                        "offset": 4702
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 17,
+                        "offset": 4840
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 16,
+                        "offset": 4840
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__dabstep-payments-10__r2": {
+                        "length": 38,
+                        "offset": 4868
+                      },
+                      "codex__dabstep-payments-10__r3": {
+                        "length": 38,
+                        "offset": 4867
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__dabstep-payments-10__r2",
+                  "codex__dabstep-payments-10__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__dabstep-payments-10__r1",
+          "codex__dabstep-payments-10__r2",
+          "codex__dabstep-payments-10__r3"
+        ]
+      }
+    },
+    "exercism-py-6": {
+      "developer": {
+        "aligned_ks": 1,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__exercism-py-6__r1": 1,
+          "codex__exercism-py-6__r2": 1,
+          "codex__exercism-py-6__r3": 1
+        },
+        "differing_ks": [
+          0
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__exercism-py-6__r1": 672,
+                  "codex__exercism-py-6__r2": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__exercism-py-6__r2": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__exercism-py-6__r2": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__exercism-py-6__r2": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__exercism-py-6__r1",
+                  "codex__exercism-py-6__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__exercism-py-6__r1": 672,
+                  "codex__exercism-py-6__r3": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__exercism-py-6__r1",
+                  "codex__exercism-py-6__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__exercism-py-6__r2": 672,
+                  "codex__exercism-py-6__r3": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r2": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r2": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r2": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__exercism-py-6__r2",
+                  "codex__exercism-py-6__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__exercism-py-6__r1",
+          "codex__exercism-py-6__r2",
+          "codex__exercism-py-6__r3"
+        ]
+      },
+      "user": {
+        "aligned_ks": 2,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__exercism-py-6__r1": 2,
+          "codex__exercism-py-6__r2": 2,
+          "codex__exercism-py-6__r3": 2
+        },
+        "differing_ks": [
+          0,
+          1
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__exercism-py-6__r1": 760,
+                  "codex__exercism-py-6__r2": 760
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 42,
+                        "offset": 500
+                      },
+                      "codex__exercism-py-6__r2": {
+                        "length": 42,
+                        "offset": 500
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 17,
+                        "offset": 661
+                      },
+                      "codex__exercism-py-6__r2": {
+                        "length": 17,
+                        "offset": 661
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 38,
+                        "offset": 689
+                      },
+                      "codex__exercism-py-6__r2": {
+                        "length": 38,
+                        "offset": 689
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__exercism-py-6__r1",
+                  "codex__exercism-py-6__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__exercism-py-6__r1": 760,
+                  "codex__exercism-py-6__r3": 760
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 42,
+                        "offset": 500
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 42,
+                        "offset": 500
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 17,
+                        "offset": 661
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 17,
+                        "offset": 661
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 38,
+                        "offset": 689
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 38,
+                        "offset": 689
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__exercism-py-6__r1",
+                  "codex__exercism-py-6__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__exercism-py-6__r2": 760,
+                  "codex__exercism-py-6__r3": 760
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r2": {
+                        "length": 42,
+                        "offset": 500
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 42,
+                        "offset": 500
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r2": {
+                        "length": 17,
+                        "offset": 661
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 17,
+                        "offset": 661
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r2": {
+                        "length": 38,
+                        "offset": 689
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 38,
+                        "offset": 689
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__exercism-py-6__r2",
+                  "codex__exercism-py-6__r3"
+                ]
+              }
+            ]
+          },
+          {
+            "k": 1,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__exercism-py-6__r1": 3421,
+                  "codex__exercism-py-6__r2": 3420
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 42,
+                        "offset": 3184
+                      },
+                      "codex__exercism-py-6__r2": {
+                        "length": 42,
+                        "offset": 3184
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 17,
+                        "offset": 3322
+                      },
+                      "codex__exercism-py-6__r2": {
+                        "length": 16,
+                        "offset": 3322
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 38,
+                        "offset": 3350
+                      },
+                      "codex__exercism-py-6__r2": {
+                        "length": 38,
+                        "offset": 3349
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__exercism-py-6__r1",
+                  "codex__exercism-py-6__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__exercism-py-6__r1": 3421,
+                  "codex__exercism-py-6__r3": 3421
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 42,
+                        "offset": 3184
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 42,
+                        "offset": 3184
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 17,
+                        "offset": 3322
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 17,
+                        "offset": 3322
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r1": {
+                        "length": 38,
+                        "offset": 3350
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 38,
+                        "offset": 3350
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__exercism-py-6__r1",
+                  "codex__exercism-py-6__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__exercism-py-6__r2": 3420,
+                  "codex__exercism-py-6__r3": 3421
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r2": {
+                        "length": 42,
+                        "offset": 3184
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 42,
+                        "offset": 3184
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r2": {
+                        "length": 16,
+                        "offset": 3322
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 17,
+                        "offset": 3322
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__exercism-py-6__r2": {
+                        "length": 38,
+                        "offset": 3349
+                      },
+                      "codex__exercism-py-6__r3": {
+                        "length": 38,
+                        "offset": 3350
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__exercism-py-6__r2",
+                  "codex__exercism-py-6__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__exercism-py-6__r1",
+          "codex__exercism-py-6__r2",
+          "codex__exercism-py-6__r3"
+        ]
+      }
+    },
+    "lcb-recent-hard-4": {
+      "developer": {
+        "aligned_ks": 1,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__lcb-recent-hard-4__r1": 1,
+          "codex__lcb-recent-hard-4__r2": 1,
+          "codex__lcb-recent-hard-4__r3": 1
+        },
+        "differing_ks": [
+          0
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__lcb-recent-hard-4__r1": 672,
+                  "codex__lcb-recent-hard-4__r2": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__lcb-recent-hard-4__r1",
+                  "codex__lcb-recent-hard-4__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__lcb-recent-hard-4__r1": 672,
+                  "codex__lcb-recent-hard-4__r3": 671
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 16,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 38,
+                        "offset": 595
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__lcb-recent-hard-4__r1",
+                  "codex__lcb-recent-hard-4__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__lcb-recent-hard-4__r2": 672,
+                  "codex__lcb-recent-hard-4__r3": 671
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 16,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 38,
+                        "offset": 595
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__lcb-recent-hard-4__r2",
+                  "codex__lcb-recent-hard-4__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__lcb-recent-hard-4__r1",
+          "codex__lcb-recent-hard-4__r2",
+          "codex__lcb-recent-hard-4__r3"
+        ]
+      },
+      "user": {
+        "aligned_ks": 2,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__lcb-recent-hard-4__r1": 2,
+          "codex__lcb-recent-hard-4__r2": 2,
+          "codex__lcb-recent-hard-4__r3": 2
+        },
+        "differing_ks": [
+          0,
+          1
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__lcb-recent-hard-4__r1": 768,
+                  "codex__lcb-recent-hard-4__r2": 768
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 42,
+                        "offset": 508
+                      },
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 42,
+                        "offset": 508
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 17,
+                        "offset": 669
+                      },
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 17,
+                        "offset": 669
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 38,
+                        "offset": 697
+                      },
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 38,
+                        "offset": 697
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__lcb-recent-hard-4__r1",
+                  "codex__lcb-recent-hard-4__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__lcb-recent-hard-4__r1": 768,
+                  "codex__lcb-recent-hard-4__r3": 768
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 42,
+                        "offset": 508
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 42,
+                        "offset": 508
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 17,
+                        "offset": 669
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 17,
+                        "offset": 669
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 38,
+                        "offset": 697
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 38,
+                        "offset": 697
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__lcb-recent-hard-4__r1",
+                  "codex__lcb-recent-hard-4__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__lcb-recent-hard-4__r2": 768,
+                  "codex__lcb-recent-hard-4__r3": 768
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 42,
+                        "offset": 508
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 42,
+                        "offset": 508
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 17,
+                        "offset": 669
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 17,
+                        "offset": 669
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 38,
+                        "offset": 697
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 38,
+                        "offset": 697
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__lcb-recent-hard-4__r2",
+                  "codex__lcb-recent-hard-4__r3"
+                ]
+              }
+            ]
+          },
+          {
+            "k": 1,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__lcb-recent-hard-4__r1": 3670,
+                  "codex__lcb-recent-hard-4__r2": 3670
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 42,
+                        "offset": 3433
+                      },
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 42,
+                        "offset": 3433
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 17,
+                        "offset": 3571
+                      },
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 17,
+                        "offset": 3571
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 38,
+                        "offset": 3599
+                      },
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 38,
+                        "offset": 3599
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__lcb-recent-hard-4__r1",
+                  "codex__lcb-recent-hard-4__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__lcb-recent-hard-4__r1": 3670,
+                  "codex__lcb-recent-hard-4__r3": 3670
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 42,
+                        "offset": 3433
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 42,
+                        "offset": 3433
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 17,
+                        "offset": 3571
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 17,
+                        "offset": 3571
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r1": {
+                        "length": 38,
+                        "offset": 3599
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 38,
+                        "offset": 3599
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__lcb-recent-hard-4__r1",
+                  "codex__lcb-recent-hard-4__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__lcb-recent-hard-4__r2": 3670,
+                  "codex__lcb-recent-hard-4__r3": 3670
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 42,
+                        "offset": 3433
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 42,
+                        "offset": 3433
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 17,
+                        "offset": 3571
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 17,
+                        "offset": 3571
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__lcb-recent-hard-4__r2": {
+                        "length": 38,
+                        "offset": 3599
+                      },
+                      "codex__lcb-recent-hard-4__r3": {
+                        "length": 38,
+                        "offset": 3599
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__lcb-recent-hard-4__r2",
+                  "codex__lcb-recent-hard-4__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__lcb-recent-hard-4__r1",
+          "codex__lcb-recent-hard-4__r2",
+          "codex__lcb-recent-hard-4__r3"
+        ]
+      }
+    },
+    "tb-cargo-plan": {
+      "developer": {
+        "aligned_ks": 1,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__tb-cargo-plan__r1": 1,
+          "codex__tb-cargo-plan__r2": 1,
+          "codex__tb-cargo-plan__r3": 1
+        },
+        "differing_ks": [
+          0
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__tb-cargo-plan__r1": 672,
+                  "codex__tb-cargo-plan__r2": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__tb-cargo-plan__r1",
+                  "codex__tb-cargo-plan__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__tb-cargo-plan__r1": 672,
+                  "codex__tb-cargo-plan__r3": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__tb-cargo-plan__r1",
+                  "codex__tb-cargo-plan__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__tb-cargo-plan__r2": 672,
+                  "codex__tb-cargo-plan__r3": 672
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 42,
+                        "offset": 415
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 42,
+                        "offset": 415
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 17,
+                        "offset": 568
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 17,
+                        "offset": 568
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 38,
+                        "offset": 596
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 38,
+                        "offset": 596
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__tb-cargo-plan__r2",
+                  "codex__tb-cargo-plan__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__tb-cargo-plan__r1",
+          "codex__tb-cargo-plan__r2",
+          "codex__tb-cargo-plan__r3"
+        ]
+      },
+      "user": {
+        "aligned_ks": 2,
+        "classification": "content_drift",
+        "count_mismatch": false,
+        "counts": {
+          "codex__tb-cargo-plan__r1": 2,
+          "codex__tb-cargo-plan__r2": 2,
+          "codex__tb-cargo-plan__r3": 2
+        },
+        "differing_ks": [
+          0,
+          1
+        ],
+        "diffs": [
+          {
+            "k": 0,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__tb-cargo-plan__r1": 760,
+                  "codex__tb-cargo-plan__r2": 759
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 42,
+                        "offset": 500
+                      },
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 42,
+                        "offset": 500
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 17,
+                        "offset": 661
+                      },
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 16,
+                        "offset": 661
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 38,
+                        "offset": 689
+                      },
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 38,
+                        "offset": 688
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__tb-cargo-plan__r1",
+                  "codex__tb-cargo-plan__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__tb-cargo-plan__r1": 760,
+                  "codex__tb-cargo-plan__r3": 760
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 42,
+                        "offset": 500
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 42,
+                        "offset": 500
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 17,
+                        "offset": 661
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 17,
+                        "offset": 661
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 38,
+                        "offset": 689
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 38,
+                        "offset": 689
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__tb-cargo-plan__r1",
+                  "codex__tb-cargo-plan__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__tb-cargo-plan__r2": 759,
+                  "codex__tb-cargo-plan__r3": 760
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 42,
+                        "offset": 500
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 42,
+                        "offset": 500
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 16,
+                        "offset": 661
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 17,
+                        "offset": 661
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 38,
+                        "offset": 688
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 38,
+                        "offset": 689
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__tb-cargo-plan__r2",
+                  "codex__tb-cargo-plan__r3"
+                ]
+              }
+            ]
+          },
+          {
+            "k": 1,
+            "slot_pairs": [
+              {
+                "byte_lengths": {
+                  "codex__tb-cargo-plan__r1": 3267,
+                  "codex__tb-cargo-plan__r2": 3267
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 42,
+                        "offset": 3030
+                      },
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 42,
+                        "offset": 3030
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 17,
+                        "offset": 3168
+                      },
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 17,
+                        "offset": 3168
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 38,
+                        "offset": 3196
+                      },
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 38,
+                        "offset": 3196
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__tb-cargo-plan__r1",
+                  "codex__tb-cargo-plan__r2"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__tb-cargo-plan__r1": 3267,
+                  "codex__tb-cargo-plan__r3": 3267
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 42,
+                        "offset": 3030
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 42,
+                        "offset": 3030
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 17,
+                        "offset": 3168
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 17,
+                        "offset": 3168
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r1": {
+                        "length": 38,
+                        "offset": 3196
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 38,
+                        "offset": 3196
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__tb-cargo-plan__r1",
+                  "codex__tb-cargo-plan__r3"
+                ]
+              },
+              {
+                "byte_lengths": {
+                  "codex__tb-cargo-plan__r2": 3267,
+                  "codex__tb-cargo-plan__r3": 3267
+                },
+                "entries": [
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 42,
+                        "offset": 3030
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 42,
+                        "offset": 3030
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.id",
+                    "segments": [
+                      "id"
+                    ],
+                    "side": "metadata",
+                    "side_reason": "top-level pinned envelope key: id"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 17,
+                        "offset": 3168
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 17,
+                        "offset": 3168
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "create_time"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  },
+                  {
+                    "byte_offsets": {
+                      "codex__tb-cargo-plan__r2": {
+                        "length": 38,
+                        "offset": 3196
+                      },
+                      "codex__tb-cargo-plan__r3": {
+                        "length": 38,
+                        "offset": 3196
+                      }
+                    },
+                    "kind": "value",
+                    "path": "payload.internal_chat_message_metadata_passthrough.turn_id",
+                    "segments": [
+                      "internal_chat_message_metadata_passthrough",
+                      "turn_id"
+                    ],
+                    "side": "content",
+                    "side_reason": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+                  }
+                ],
+                "slots": [
+                  "codex__tb-cargo-plan__r2",
+                  "codex__tb-cargo-plan__r3"
+                ]
+              }
+            ]
+          }
+        ],
+        "excluded_tails": {},
+        "identical_ks": [],
+        "paths_content": {
+          "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+          "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+        },
+        "paths_metadata": {
+          "payload.id": "top-level pinned envelope key: id"
+        },
+        "slot_names": [
+          "codex__tb-cargo-plan__r1",
+          "codex__tb-cargo-plan__r2",
+          "codex__tb-cargo-plan__r3"
+        ]
+      }
+    }
+  },
+  "hard_equality": {
+    "checks": [
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 6341,
+        "ok": true,
+        "reference_bytes": 6341,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__bird-ca-schools-15__r1"
+      },
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__bird-ca-schools-15__r1"
+      },
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 6341,
+        "ok": true,
+        "reference_bytes": 6341,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__bird-ca-schools-15__r2"
+      },
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__bird-ca-schools-15__r2"
+      },
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 6341,
+        "ok": true,
+        "reference_bytes": 6341,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__bird-ca-schools-15__r3"
+      },
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__bird-ca-schools-15__r3"
+      },
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 6341,
+        "ok": true,
+        "reference_bytes": 6341,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "user",
+        "slot": "codex__bird-ca-schools-15__r2"
+      },
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "developer",
+        "slot": "codex__bird-ca-schools-15__r2"
+      },
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 6341,
+        "ok": true,
+        "reference_bytes": 6341,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "user",
+        "slot": "codex__bird-ca-schools-15__r1"
+      },
+      {
+        "group": "bird-ca-schools-15",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "developer",
+        "slot": "codex__bird-ca-schools-15__r1"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 5711,
+        "ok": true,
+        "reference_bytes": 5711,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__dabstep-payments-10__r1"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__dabstep-payments-10__r1"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 5711,
+        "ok": true,
+        "reference_bytes": 5711,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__dabstep-payments-10__r2"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__dabstep-payments-10__r2"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 5710,
+        "ok": true,
+        "reference_bytes": 5710,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__dabstep-payments-10__r3"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__dabstep-payments-10__r3"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 5711,
+        "ok": true,
+        "reference_bytes": 5711,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "user",
+        "slot": "codex__dabstep-payments-10__r1"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "developer",
+        "slot": "codex__dabstep-payments-10__r1"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 5710,
+        "ok": true,
+        "reference_bytes": 5710,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "user",
+        "slot": "codex__dabstep-payments-10__r3"
+      },
+      {
+        "group": "dabstep-payments-10",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "developer",
+        "slot": "codex__dabstep-payments-10__r3"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 4181,
+        "ok": true,
+        "reference_bytes": 4181,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__exercism-py-6__r1"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__exercism-py-6__r1"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 4180,
+        "ok": true,
+        "reference_bytes": 4180,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__exercism-py-6__r2"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__exercism-py-6__r2"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 4181,
+        "ok": true,
+        "reference_bytes": 4181,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__exercism-py-6__r3"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__exercism-py-6__r3"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 4181,
+        "ok": true,
+        "reference_bytes": 4181,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "user",
+        "slot": "codex__exercism-py-6__r1"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "developer",
+        "slot": "codex__exercism-py-6__r1"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 4180,
+        "ok": true,
+        "reference_bytes": 4180,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "user",
+        "slot": "codex__exercism-py-6__r2"
+      },
+      {
+        "group": "exercism-py-6",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "developer",
+        "slot": "codex__exercism-py-6__r2"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 4438,
+        "ok": true,
+        "reference_bytes": 4438,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__lcb-recent-hard-4__r1"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__lcb-recent-hard-4__r1"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 4438,
+        "ok": true,
+        "reference_bytes": 4438,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__lcb-recent-hard-4__r2"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__lcb-recent-hard-4__r2"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 4438,
+        "ok": true,
+        "reference_bytes": 4438,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__lcb-recent-hard-4__r3"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 671,
+        "ok": true,
+        "reference_bytes": 671,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__lcb-recent-hard-4__r3"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 4438,
+        "ok": true,
+        "reference_bytes": 4438,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "user",
+        "slot": "codex__lcb-recent-hard-4__r3"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 671,
+        "ok": true,
+        "reference_bytes": 671,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "developer",
+        "slot": "codex__lcb-recent-hard-4__r3"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 4438,
+        "ok": true,
+        "reference_bytes": 4438,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "user",
+        "slot": "codex__lcb-recent-hard-4__r1"
+      },
+      {
+        "group": "lcb-recent-hard-4",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "developer",
+        "slot": "codex__lcb-recent-hard-4__r1"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 4027,
+        "ok": true,
+        "reference_bytes": 4027,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__tb-cargo-plan__r1"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__tb-cargo-plan__r1"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 4026,
+        "ok": true,
+        "reference_bytes": 4026,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__tb-cargo-plan__r2"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__tb-cargo-plan__r2"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 4027,
+        "ok": true,
+        "reference_bytes": 4027,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "user",
+        "slot": "codex__tb-cargo-plan__r3"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "slots[].message_by_role_bytes",
+        "role": "developer",
+        "slot": "codex__tb-cargo-plan__r3"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 4027,
+        "ok": true,
+        "reference_bytes": 4027,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "user",
+        "slot": "codex__tb-cargo-plan__r1"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "groups[].message_by_role_max_slot",
+        "role": "developer",
+        "slot": "codex__tb-cargo-plan__r1"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 4027,
+        "ok": true,
+        "reference_bytes": 4027,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "user",
+        "slot": "codex__tb-cargo-plan__r3"
+      },
+      {
+        "group": "tb-cargo-plan",
+        "observed_bytes": 672,
+        "ok": true,
+        "reference_bytes": 672,
+        "reference_source": "groups[].message_by_role_min_slot",
+        "role": "developer",
+        "slot": "codex__tb-cargo-plan__r3"
+      }
+    ],
+    "checks_total": 50,
+    "passed": true
+  },
+  "inputs": {
+    "archive_root_marker": "launch-r1109",
+    "groups": [
+      "bird-ca-schools-15",
+      "dabstep-payments-10",
+      "exercism-py-6",
+      "lcb-recent-hard-4",
+      "tb-cargo-plan"
+    ],
+    "r3_prereg_sha256": "c4546f35114af3eebcc1a5ddb73521774dc4063b7606d6a123b232f554e6ea00",
+    "r3_reference_package": "4-打分细则/R3不稳定来源分解-2026-11-16",
+    "r3_schema": "r3-decomp-projection-v1",
+    "reps": [
+      1,
+      2,
+      3
+    ],
+    "roles_compared": [
+      "user",
+      "developer"
+    ],
+    "target_residuals": [
+      [
+        "lcb-recent-hard-4",
+        "developer"
+      ],
+      [
+        "dabstep-payments-10",
+        "user"
+      ],
+      [
+        "exercism-py-6",
+        "user"
+      ]
+    ]
+  },
+  "notes": [
+    "分类保守口径（冻结）：预注册 §2 元数据判据字面为「键路径仅触及 payload 顶层非内容键」。实测 payload 存在嵌套封装层 internal_chat_message_metadata_passthrough，其嵌套键（create_time/turn_id）不在顶层判据与钉定封装键清单内，属歧义键，按冻结规则归内容侧。content[].text 等承载文本键在全部 15 槽逐字节稳定，零差异触及；本保守分类不改变任何分数，只登记证据。",
+    "登记说明：R3 的 max/min 槽位级合计只暴露三处目标残差；本包按预注册 §2 对全部三槽逐 k 比较，因此同时登记了成对合计相等的组内字节级漂移（例如 tb user r2 槽合计 4026，而 R3 记录的 max/min 两槽同为 4027）。这是同一冻结档案的事后定位登记，不是新批次。",
+    "对齐说明：实测 15 槽 message 条数全部为 developer=1、user=2，无 count_mismatch；该分支仍按冻结口径实现并由合成测试覆盖。"
+  ],
+  "preregistration": {
+    "package": "4-打分细则/Codex输入面残差定位-2026-11-16",
+    "readme_file": "README.md",
+    "sha256": "4773ef6eea26af4bd057cceea03dadb608ae2a2bb0e2f879c490ee415fe05088",
+    "sha256_verified": true
+  },
+  "schema": "codex-input-residual-localization-v1",
+  "target_residuals": [
+    {
+      "aligned_ks": 1,
+      "classification": "content_drift",
+      "count_mismatch": false,
+      "differing_ks": [
+        0
+      ],
+      "group": "lcb-recent-hard-4",
+      "path_side_reasons": {
+        "payload.id": "top-level pinned envelope key: id",
+        "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+        "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+      },
+      "paths_content": [
+        "payload.internal_chat_message_metadata_passthrough.create_time",
+        "payload.internal_chat_message_metadata_passthrough.turn_id"
+      ],
+      "paths_metadata": [
+        "payload.id"
+      ],
+      "role": "developer",
+      "slot_byte_totals": {
+        "codex__lcb-recent-hard-4__r1": 672,
+        "codex__lcb-recent-hard-4__r2": 672,
+        "codex__lcb-recent-hard-4__r3": 671
+      },
+      "slot_pair_deltas": {
+        "codex__lcb-recent-hard-4__r1|codex__lcb-recent-hard-4__r2": 0,
+        "codex__lcb-recent-hard-4__r1|codex__lcb-recent-hard-4__r3": -1,
+        "codex__lcb-recent-hard-4__r2|codex__lcb-recent-hard-4__r3": -1
+      },
+      "status": "localized_content",
+      "sum_delta_anchor_entries": [
+        {
+          "byte_lengths": {
+            "codex__lcb-recent-hard-4__r1": 17,
+            "codex__lcb-recent-hard-4__r3": 16
+          },
+          "k": 0,
+          "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+          "side": "content",
+          "slots": [
+            "codex__lcb-recent-hard-4__r1",
+            "codex__lcb-recent-hard-4__r3"
+          ]
+        },
+        {
+          "byte_lengths": {
+            "codex__lcb-recent-hard-4__r2": 17,
+            "codex__lcb-recent-hard-4__r3": 16
+          },
+          "k": 0,
+          "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+          "side": "content",
+          "slots": [
+            "codex__lcb-recent-hard-4__r2",
+            "codex__lcb-recent-hard-4__r3"
+          ]
+        }
+      ]
+    },
+    {
+      "aligned_ks": 2,
+      "classification": "content_drift",
+      "count_mismatch": false,
+      "differing_ks": [
+        0,
+        1
+      ],
+      "group": "dabstep-payments-10",
+      "path_side_reasons": {
+        "payload.id": "top-level pinned envelope key: id",
+        "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+        "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+      },
+      "paths_content": [
+        "payload.internal_chat_message_metadata_passthrough.create_time",
+        "payload.internal_chat_message_metadata_passthrough.turn_id"
+      ],
+      "paths_metadata": [
+        "payload.id"
+      ],
+      "role": "user",
+      "slot_byte_totals": {
+        "codex__dabstep-payments-10__r1": 5711,
+        "codex__dabstep-payments-10__r2": 5711,
+        "codex__dabstep-payments-10__r3": 5710
+      },
+      "slot_pair_deltas": {
+        "codex__dabstep-payments-10__r1|codex__dabstep-payments-10__r2": 0,
+        "codex__dabstep-payments-10__r1|codex__dabstep-payments-10__r3": -1,
+        "codex__dabstep-payments-10__r2|codex__dabstep-payments-10__r3": -1
+      },
+      "status": "localized_content",
+      "sum_delta_anchor_entries": [
+        {
+          "byte_lengths": {
+            "codex__dabstep-payments-10__r1": 17,
+            "codex__dabstep-payments-10__r3": 16
+          },
+          "k": 1,
+          "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+          "side": "content",
+          "slots": [
+            "codex__dabstep-payments-10__r1",
+            "codex__dabstep-payments-10__r3"
+          ]
+        },
+        {
+          "byte_lengths": {
+            "codex__dabstep-payments-10__r2": 17,
+            "codex__dabstep-payments-10__r3": 16
+          },
+          "k": 1,
+          "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+          "side": "content",
+          "slots": [
+            "codex__dabstep-payments-10__r2",
+            "codex__dabstep-payments-10__r3"
+          ]
+        }
+      ]
+    },
+    {
+      "aligned_ks": 2,
+      "classification": "content_drift",
+      "count_mismatch": false,
+      "differing_ks": [
+        0,
+        1
+      ],
+      "group": "exercism-py-6",
+      "path_side_reasons": {
+        "payload.id": "top-level pinned envelope key: id",
+        "payload.internal_chat_message_metadata_passthrough.create_time": "ambiguous under the frozen letter (nested or unknown key); conservative content side",
+        "payload.internal_chat_message_metadata_passthrough.turn_id": "ambiguous under the frozen letter (nested or unknown key); conservative content side"
+      },
+      "paths_content": [
+        "payload.internal_chat_message_metadata_passthrough.create_time",
+        "payload.internal_chat_message_metadata_passthrough.turn_id"
+      ],
+      "paths_metadata": [
+        "payload.id"
+      ],
+      "role": "user",
+      "slot_byte_totals": {
+        "codex__exercism-py-6__r1": 4181,
+        "codex__exercism-py-6__r2": 4180,
+        "codex__exercism-py-6__r3": 4181
+      },
+      "slot_pair_deltas": {
+        "codex__exercism-py-6__r1|codex__exercism-py-6__r2": -1,
+        "codex__exercism-py-6__r1|codex__exercism-py-6__r3": 0,
+        "codex__exercism-py-6__r2|codex__exercism-py-6__r3": 1
+      },
+      "status": "localized_content",
+      "sum_delta_anchor_entries": [
+        {
+          "byte_lengths": {
+            "codex__exercism-py-6__r1": 17,
+            "codex__exercism-py-6__r2": 16
+          },
+          "k": 1,
+          "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+          "side": "content",
+          "slots": [
+            "codex__exercism-py-6__r1",
+            "codex__exercism-py-6__r2"
+          ]
+        },
+        {
+          "byte_lengths": {
+            "codex__exercism-py-6__r2": 16,
+            "codex__exercism-py-6__r3": 17
+          },
+          "k": 1,
+          "path": "payload.internal_chat_message_metadata_passthrough.create_time",
+          "side": "content",
+          "slots": [
+            "codex__exercism-py-6__r2",
+            "codex__exercism-py-6__r3"
+          ]
+        }
+      ]
+    }
+  ],
+  "trace_bindings_verified": [
+    {
+      "archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r1/agent-session/rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+      "file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+      "sha256_verified": "302aadf648f1c33033f13d57c0df157db69c1acff4c05f5af422c7fd2b81e5c2",
+      "slot": "codex__bird-ca-schools-15__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r2/agent-session/rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+      "file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+      "sha256_verified": "54bacf19266b99ebff0446caaa80b118addc36ad1bb9bac81522f22f28516f84",
+      "slot": "codex__bird-ca-schools-15__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r3/agent-session/rollout-2026-11-09T13-09-35-01a1beb6-392b-79d0-9a49-edf3a02e90fc.jsonl",
+      "file": "rollout-2026-11-09T13-09-35-01a1beb6-392b-79d0-9a49-edf3a02e90fc.jsonl",
+      "sha256_verified": "055436a333a22768972eaba3bc56b7519ae37a39494adb0789abd078e9bb3ec1",
+      "slot": "codex__bird-ca-schools-15__r3"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__dabstep-payments-10__r1/agent-session/rollout-2026-11-09T13-15-08-01a1bebb-4ce6-70a2-b22d-a9b787e85946.jsonl",
+      "file": "rollout-2026-11-09T13-15-08-01a1bebb-4ce6-70a2-b22d-a9b787e85946.jsonl",
+      "sha256_verified": "32d6d09316a5b5c2cb0c0e33e95e372fbe72f79cb97e02dfa11eae2cc3e06fa5",
+      "slot": "codex__dabstep-payments-10__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__dabstep-payments-10__r2/agent-session/rollout-2026-11-09T13-27-41-01a1bec6-c9ba-7813-8188-781d6e4d7396.jsonl",
+      "file": "rollout-2026-11-09T13-27-41-01a1bec6-c9ba-7813-8188-781d6e4d7396.jsonl",
+      "sha256_verified": "e5ee7b2bdd44d0fbedf9ff55d27edd4cdb0db6457ba0335a6331d387b71457a9",
+      "slot": "codex__dabstep-payments-10__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__dabstep-payments-10__r3/agent-session/rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+      "file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+      "sha256_verified": "be045ce4457d98ac8934cfcaddfc0a1759ee3ce6cce79139822cac7490b66c2e",
+      "slot": "codex__dabstep-payments-10__r3"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__exercism-py-6__r1/agent-session/rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+      "file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+      "sha256_verified": "e355baeb2cfcf644a5f9cf6e9017011a78d95e2050a11ce2d37acfc081639cac",
+      "slot": "codex__exercism-py-6__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__exercism-py-6__r2/agent-session/rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+      "file": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+      "sha256_verified": "a866cd55cc64db6b5ad69436bec7b1c3124d406d42541137bc1077ebd0412796",
+      "slot": "codex__exercism-py-6__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__exercism-py-6__r3/agent-session/rollout-2026-11-09T13-39-33-01a1bed1-a937-7a62-a054-84041d4c6f33.jsonl",
+      "file": "rollout-2026-11-09T13-39-33-01a1bed1-a937-7a62-a054-84041d4c6f33.jsonl",
+      "sha256_verified": "0e64e0c436a0f24a5cd51cbabcf2425b4da559781d298e4447c8bf0db7f12c49",
+      "slot": "codex__exercism-py-6__r3"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r1/agent-session/rollout-2026-11-09T13-40-03-01a1bed2-1c87-7b92-8489-835286b9c4aa.jsonl",
+      "file": "rollout-2026-11-09T13-40-03-01a1bed2-1c87-7b92-8489-835286b9c4aa.jsonl",
+      "sha256_verified": "96e3a8d498b8c36d73cd14db01ac9c5b4fbc1ccf47b705e0af4115342b3a8b94",
+      "slot": "codex__lcb-recent-hard-4__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r2/agent-session/rollout-2026-11-09T13-46-26-01a1bed7-f5ae-7570-9191-bf5bed786d55.jsonl",
+      "file": "rollout-2026-11-09T13-46-26-01a1bed7-f5ae-7570-9191-bf5bed786d55.jsonl",
+      "sha256_verified": "4127b45493bcc49c23c4512fdb8e9c82a073d38fd10a7d9e49f1ace4d39dd6c8",
+      "slot": "codex__lcb-recent-hard-4__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r3/agent-session/rollout-2026-11-09T13-50-42-01a1bedb-dea8-77b1-8eb6-259c0f165db2.jsonl",
+      "file": "rollout-2026-11-09T13-50-42-01a1bedb-dea8-77b1-8eb6-259c0f165db2.jsonl",
+      "sha256_verified": "b48451020b389f927507b2d7f8ee9afb6c048e8b11461379dcd97b5667588f1d",
+      "slot": "codex__lcb-recent-hard-4__r3"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__tb-cargo-plan__r1/agent-session/rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+      "file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+      "sha256_verified": "c3e4fa242b2deb54a9df232a6c366f027469bfe80eeefff26458e4d3ab916941",
+      "slot": "codex__tb-cargo-plan__r1"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__tb-cargo-plan__r2/agent-session/rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+      "file": "rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+      "sha256_verified": "911668a178b9da2b2a77ce276a0452c55073f33de0ffa90e4808109fad8aa092",
+      "slot": "codex__tb-cargo-plan__r2"
+    },
+    {
+      "archive_relative_path": "codex/runs/codex__tb-cargo-plan__r3/agent-session/rollout-2026-11-09T14-29-13-01a1beff-20ac-7783-a4a4-3d69d4e90e2e.jsonl",
+      "file": "rollout-2026-11-09T14-29-13-01a1beff-20ac-7783-a4a4-3d69d4e90e2e.jsonl",
+      "sha256_verified": "17857cbdf68fb736bfd9d85194cf967940389cf6f47d0a281e1e8c5e15fe78b8",
+      "slot": "codex__tb-cargo-plan__r3"
+    }
+  ]
+}
