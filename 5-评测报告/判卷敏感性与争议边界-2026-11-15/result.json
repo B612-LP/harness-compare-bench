@@ -1,0 +1,6796 @@
+{
+  "nature": "post-hoc offline sensitivity, not rescoring",
+  "inputs_sha256": {
+    "old_calculator": "428bd0f58d245433f319efef4d988294a7284ccd788b739c606c223c8b0ff44c",
+    "checker": "01dfc97624f27ca712968aeba6c71d21d79c1bfd91417f3b114cbf5f9c8d5d94",
+    "truth": "9e6e395fc7b0e5cf60238b8c3ab30fdaa399422fc047f554f0198488156e46d8",
+    "fees": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+    "payments": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+    "merchant_data": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+    "questions": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730"
+  },
+  "limitations": [
+    "unmatched treated as zero in old calculator; not evidence zero cost is valid",
+    "two-decimal formatted strings only; 216 parameter combinations, not independent products or all possible answers",
+    "first_by_ID delegates to old implementation vals[0] and assumes source order",
+    "model answers do not establish underlying algorithm"
+  ],
+  "case_count": 216,
+  "e_compat_count": 0,
+  "winner_compat_count": 0,
+  "all_candidate_compat_count": 0,
+  "e_exact_count": 0,
+  "winner_examples_compat": [],
+  "min_abs_E_gap": 3.0599999999999987,
+  "min_abs_any_candidate_gap": 0.9199999999999999,
+  "probe": {
+    "E:13.57": true,
+    "NexPay:13.57": true,
+    "E:-13.57": true,
+    "E:13.6": true,
+    "E:16.63": false,
+    "B:54.21": false
+  },
+  "receipts": {
+    "codex": {
+      "sha256": "9f040885cd97322be3d1fcdb4fc1d9ac0cb11944c074bb6c8f3b2b9bd908615f",
+      "gates": {
+        "answers_format": true,
+        "input_integrity": true
+      },
+      "modes": {
+        "official_compat": {
+          "correct": 7,
+          "out_of": 10,
+          "q1871_pass": true,
+          "q2697_pass": false,
+          "original_reward": 0,
+          "omit_q2697_rate": 0.7777777777777778,
+          "omit_rate_threshold_pass": false,
+          "hypothetical_q2697_pass_rate": 0.8,
+          "hypothetical_rate_threshold_pass": true
+        },
+        "strict_contract": {
+          "correct": 6,
+          "out_of": 10,
+          "q1871_pass": false,
+          "q2697_pass": false,
+          "original_reward": 0,
+          "omit_q2697_rate": 0.6666666666666666,
+          "omit_rate_threshold_pass": false,
+          "hypothetical_q2697_pass_rate": 0.7,
+          "hypothetical_rate_threshold_pass": false
+        }
+      }
+    },
+    "dsh": {
+      "sha256": "59db105115925b433361f07b7d90429bd61c720124a42ba63e2ea8bcec1eef23",
+      "gates": {
+        "answers_format": true,
+        "input_integrity": true
+      },
+      "modes": {
+        "official_compat": {
+          "correct": 7,
+          "out_of": 10,
+          "q1871_pass": true,
+          "q2697_pass": false,
+          "original_reward": 0,
+          "omit_q2697_rate": 0.7777777777777778,
+          "omit_rate_threshold_pass": false,
+          "hypothetical_q2697_pass_rate": 0.8,
+          "hypothetical_rate_threshold_pass": true
+        },
+        "strict_contract": {
+          "correct": 7,
+          "out_of": 10,
+          "q1871_pass": true,
+          "q2697_pass": false,
+          "original_reward": 0,
+          "omit_q2697_rate": 0.7777777777777778,
+          "omit_rate_threshold_pass": false,
+          "hypothetical_q2697_pass_rate": 0.8,
+          "hypothetical_rate_threshold_pass": true
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 81.81,
+        "B": 54.21,
+        "C": 81.04,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 20.76,
+        "B": 54.21,
+        "C": 19.99,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 89.05,
+        "B": 84.92,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 28.0,
+        "B": 23.87,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 81.81,
+        "B": 56.64,
+        "C": 81.04,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 20.76,
+        "B": 56.64,
+        "C": 19.99,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 89.05,
+        "B": 78.1,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 28.0,
+        "B": 17.05,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 81.81,
+        "B": 56.64,
+        "C": 81.04,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 20.76,
+        "B": 56.64,
+        "C": 19.99,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 89.05,
+        "B": 78.1,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 28.0,
+        "B": 17.05,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 95.81,
+        "B": 99.14,
+        "C": 93.83,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 34.76,
+        "B": 77.15,
+        "C": 32.78,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 89.05,
+        "B": 93.66,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 28.0,
+        "B": 32.6,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 96.45,
+        "B": 99.85,
+        "C": 95.02,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 35.4,
+        "B": 77.86,
+        "C": 33.97,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 89.05,
+        "B": 86.84,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 28.0,
+        "B": 25.79,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 95.81,
+        "B": 99.14,
+        "C": 93.83,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 34.76,
+        "B": 77.15,
+        "C": 32.78,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 89.05,
+        "B": 86.84,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 28.0,
+        "B": 25.79,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 88.7,
+        "B": 75.91,
+        "C": 86.49,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 27.65,
+        "B": 75.91,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 89.05,
+        "B": 93.57,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 28.0,
+        "B": 32.52,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 88.7,
+        "B": 75.91,
+        "C": 86.49,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 27.65,
+        "B": 75.91,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 89.05,
+        "B": 86.76,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 28.0,
+        "B": 25.7,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 88.7,
+        "B": 75.91,
+        "C": 86.49,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 27.65,
+        "B": 75.91,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 89.05,
+        "B": 86.76,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 28.0,
+        "B": 25.7,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "<3",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 88.24,
+        "B": 63.83,
+        "C": 86.49,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 55.86
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 88.24,
+        "B": 63.83,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 55.86
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 78.1,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 75.54
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 17.05,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 14.49
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 88.24,
+        "B": 63.83,
+        "C": 81.64,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 55.86
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 88.24,
+        "B": 63.83,
+        "C": 20.59,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 55.86
+      },
+      "selected_aci_old_tie_break": "C",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "C:20.59",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 78.1,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 75.54
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 17.05,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 14.49
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 88.24,
+        "B": 63.83,
+        "C": 86.49,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 55.86
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 88.24,
+        "B": 63.83,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 55.86
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 78.1,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 75.54
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 17.05,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 14.49
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 95.81,
+        "B": 112.93,
+        "C": 109.08,
+        "D": 68.03,
+        "E": 75.25,
+        "F": 86.22
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:75.25",
+      "E_compat": false,
+      "winner_string": "D:68.03",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 90.61,
+        "B": 90.93,
+        "C": 48.03,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 58.73
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.84,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 75.54
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 25.79,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 14.49
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 105.61,
+        "B": 113.66,
+        "C": 110.3,
+        "D": 68.03,
+        "E": 75.25,
+        "F": 86.22
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:75.25",
+      "E_compat": false,
+      "winner_string": "D:68.03",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 100.41,
+        "B": 91.67,
+        "C": 49.24,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 58.73
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.84,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 75.54
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 25.79,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 14.49
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 95.81,
+        "B": 112.93,
+        "C": 109.08,
+        "D": 68.03,
+        "E": 75.25,
+        "F": 86.22
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:75.25",
+      "E_compat": false,
+      "winner_string": "D:68.03",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 90.61,
+        "B": 90.93,
+        "C": 48.03,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 58.73
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.84,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 75.54
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 25.79,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 14.49
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 94.91,
+        "B": 75.91,
+        "C": 86.49,
+        "D": 68.03,
+        "E": 75.25,
+        "F": 83.35
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:75.25",
+      "E_compat": false,
+      "winner_string": "D:68.03",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 89.71,
+        "B": 75.91,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 55.86
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.76,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 75.54
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 25.7,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 14.49
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 104.07,
+        "B": 85.07,
+        "C": 97.07,
+        "D": 68.03,
+        "E": 75.25,
+        "F": 83.35
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:75.25",
+      "E_compat": false,
+      "winner_string": "D:68.03",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 98.87,
+        "B": 85.07,
+        "C": 36.02,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 55.86
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.76,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 75.54
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 25.7,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 14.49
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 94.91,
+        "B": 75.91,
+        "C": 86.49,
+        "D": 68.03,
+        "E": 75.25,
+        "F": 83.35
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:75.25",
+      "E_compat": false,
+      "winner_string": "D:68.03",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 89.71,
+        "B": 75.91,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 25.19,
+        "F": 55.86
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:25.19",
+      "E_compat": false,
+      "winner_string": "E:25.19",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.76,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 75.54
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 72.26,
+        "B": 25.7,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 14.49
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "immediate",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 93.44,
+        "B": 63.83,
+        "C": 86.49,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 32.39,
+        "B": 63.83,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 78.1,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 16.41,
+        "B": 17.05,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 93.44,
+        "B": 63.83,
+        "C": 86.49,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 32.39,
+        "B": 63.83,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 78.1,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 16.41,
+        "B": 17.05,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 93.44,
+        "B": 63.83,
+        "C": 86.49,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 32.39,
+        "B": 63.83,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 78.1,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 16.41,
+        "B": 17.05,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "min",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 95.81,
+        "B": 99.14,
+        "C": 93.83,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 34.76,
+        "B": 77.15,
+        "C": 32.78,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.84,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 16.41,
+        "B": 25.79,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 96.45,
+        "B": 99.85,
+        "C": 95.02,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 35.4,
+        "B": 77.86,
+        "C": 33.97,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.84,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 16.41,
+        "B": 25.79,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 95.81,
+        "B": 99.14,
+        "C": 93.83,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 34.76,
+        "B": 77.15,
+        "C": 32.78,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.84,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 16.41,
+        "B": 25.79,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "max",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 94.91,
+        "B": 75.91,
+        "C": 86.49,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 33.85,
+        "B": 75.91,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.76,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 16.41,
+        "B": 25.7,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "amount",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 94.91,
+        "B": 75.91,
+        "C": 86.49,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 33.85,
+        "B": 75.91,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.76,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 16.41,
+        "B": 25.7,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "count",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 94.91,
+        "B": 75.91,
+        "C": 86.49,
+        "D": 68.03,
+        "E": 66.69,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "F",
+      "E_string": "E:66.69",
+      "E_compat": false,
+      "winner_string": "F:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 33.85,
+        "B": 75.91,
+        "C": 25.44,
+        "D": 36.62,
+        "E": 16.63,
+        "F": 33.56
+      },
+      "selected_aci_old_tie_break": "E",
+      "E_string": "E:16.63",
+      "E_compat": false,
+      "winner_string": "E:16.63",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": true,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 77.46,
+        "B": 86.76,
+        "C": 84.77,
+        "D": 61.05,
+        "E": 61.05,
+        "F": 61.05
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:61.05",
+      "E_compat": false,
+      "winner_string": "D:61.05",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": true,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 16.41,
+        "B": 25.7,
+        "C": 23.72,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "D",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "D:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": true
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    },
+    {
+      "capture": "only_null",
+      "multi": "first_by_ID",
+      "fraud_mode": "none_only",
+      "flags": {
+        "at_empty_wild": false,
+        "mcc_empty_wild": false,
+        "aci_empty_wild": false
+      },
+      "fees": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 0.0,
+        "F": 0.0
+      },
+      "selected_aci_old_tie_break": "A",
+      "E_string": "E:0.00",
+      "E_compat": false,
+      "winner_string": "A:0.00",
+      "winner_compat": false,
+      "all_candidate_compat": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": false,
+        "F": false
+      }
+    }
+  ]
+}
