@@ -1,0 +1,596 @@
+{
+  "schema": "q1871-overlap-posthoc-v1",
+  "sources_sha256": {
+    "2-用例/dabstep-payments-10/inputs/questions.jsonl": "d99d3109e216b8e091d478602fce7cb687b47c40338ce8d016300c9ee7013730",
+    "2-用例/dabstep-payments-10/inputs/fees.json": "9a833666ae9be5a8e756dd1fe076c72e7c502d64161315ffa8fee9e5bf2599dc",
+    "2-用例/dabstep-payments-10/inputs/payments.csv": "5fbb26210a45427d7a6560cfab3a362a08e4067f27cd03695f211a51c47ffc25",
+    "2-用例/dabstep-payments-10/inputs/manual.md": "bb7f4ca6fdc759af1f480702b3a3b12e17e9293b0d38a1dbfbbc8ffc1e572d2c",
+    "2-用例/dabstep-payments-10/inputs/merchant_data.json": "f158e834de27ee8407e99d9c32da690357981d2770958fd302a9bb79ced83581",
+    "2-用例/dabstep-payments-10/truth.json": "9e6e395fc7b0e5cf60238b8c3ab30fdaa399422fc047f554f0198488156e46d8",
+    "3-表现现场/r20261031-wb-replacement/runs/dabstep-payments-10/trace.public-derived.jsonl": "cbbfa329c91509e704f11b47fa0c6cddb0a8ca6bd51aacb00fff1134fc5a81ab",
+    "3-表现现场/r20261031-wb-replacement/runs/dabstep-payments-10/artifacts/answers.jsonl": "5c71f55a5f1a0500587bd61a8955588288011e50dac1c12d1b813ba672d70c89",
+    "3-表现现场/r20261031-wb-replacement/runs/dabstep-payments-10/checker.stdout.json": "c9d8b3432b9db19ed99e8c52a4079597bdcec875f42f9848c4c274cb5ac20b17",
+    "3-表现现场/r20261031-wb-replacement/runs/dabstep-payments-10/derivation.json": "cf7a85d78131383dab13b5344a85f4dddc55ed8ceacbeebd6540db4a8844a882"
+  },
+  "analysis": {
+    "payment_rows_validated": 138236,
+    "fee_rules_enumerated_per_payment": 1000,
+    "january_payment_count": 1201,
+    "january_volume_eur": "113260.42",
+    "january_fraud_volume_eur": "11680.62",
+    "context": {
+      "capture_delay": "<3",
+      "monthly_volume": "100k-1m",
+      "monthly_fraud_level": ">8.3%"
+    },
+    "relevant_rules": [
+      {
+        "ID": 95,
+        "card_scheme": "NexPay",
+        "account_type": [],
+        "capture_delay": "immediate",
+        "monthly_fraud_level": "7.7%-8.3%",
+        "monthly_volume": null,
+        "merchant_category_code": [],
+        "is_credit": true,
+        "aci": [
+          "A",
+          "B",
+          "C"
+        ],
+        "fixed_amount": "0.13",
+        "rate": 64,
+        "intracountry": null
+      },
+      {
+        "ID": 231,
+        "card_scheme": "NexPay",
+        "account_type": [
+          "S",
+          "R"
+        ],
+        "capture_delay": null,
+        "monthly_fraud_level": null,
+        "monthly_volume": null,
+        "merchant_category_code": [],
+        "is_credit": true,
+        "aci": [
+          "A",
+          "B"
+        ],
+        "fixed_amount": "0.02",
+        "rate": 25,
+        "intracountry": null
+      },
+      {
+        "ID": 384,
+        "card_scheme": "NexPay",
+        "account_type": [],
+        "capture_delay": null,
+        "monthly_fraud_level": null,
+        "monthly_volume": null,
+        "merchant_category_code": [],
+        "is_credit": true,
+        "aci": [
+          "C",
+          "B"
+        ],
+        "fixed_amount": "0.05",
+        "rate": 14,
+        "intracountry": null
+      },
+      {
+        "ID": 471,
+        "card_scheme": "NexPay",
+        "account_type": [],
+        "capture_delay": null,
+        "monthly_fraud_level": "<7.2%",
+        "monthly_volume": null,
+        "merchant_category_code": [],
+        "is_credit": true,
+        "aci": [
+          "B"
+        ],
+        "fixed_amount": "0.03",
+        "rate": 53,
+        "intracountry": null
+      },
+      {
+        "ID": 603,
+        "card_scheme": "NexPay",
+        "account_type": [],
+        "capture_delay": "3-5",
+        "monthly_fraud_level": null,
+        "monthly_volume": null,
+        "merchant_category_code": [],
+        "is_credit": true,
+        "aci": [
+          "A",
+          "B",
+          "C"
+        ],
+        "fixed_amount": "0.11",
+        "rate": 77,
+        "intracountry": null
+      },
+      {
+        "ID": 804,
+        "card_scheme": "NexPay",
+        "account_type": [],
+        "capture_delay": "immediate",
+        "monthly_fraud_level": null,
+        "monthly_volume": null,
+        "merchant_category_code": [],
+        "is_credit": true,
+        "aci": [
+          "C",
+          "B"
+        ],
+        "fixed_amount": "0.07",
+        "rate": 96,
+        "intracountry": null
+      },
+      {
+        "ID": 870,
+        "card_scheme": "NexPay",
+        "account_type": [],
+        "capture_delay": "immediate",
+        "monthly_fraud_level": null,
+        "monthly_volume": null,
+        "merchant_category_code": [],
+        "is_credit": true,
+        "aci": [
+          "C"
+        ],
+        "fixed_amount": "0.03",
+        "rate": 47,
+        "intracountry": "0.0"
+      }
+    ],
+    "empty_list_semantics": "unknown; wildcard is a conditional reconstruction of the visible W path",
+    "empty_reject_target_support_count": 0,
+    "empty_unknown_target_support_count": 12,
+    "affected_count": 12,
+    "affected_amount_eur": "729.31",
+    "groups": [
+      {
+        "denominator": 1,
+        "count": 8,
+        "amount_eur": "615.80"
+      },
+      {
+        "denominator": 2,
+        "count": 4,
+        "amount_eur": "113.51"
+      }
+    ],
+    "payments": [
+      {
+        "csv_line": 1529,
+        "day_of_year": 9,
+        "amount_eur": "27.28",
+        "aci": "B",
+        "matching_rule_ids": [
+          231,
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          231,
+          384,
+          471,
+          603,
+          804
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "471": [
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 2
+      },
+      {
+        "csv_line": 6569,
+        "day_of_year": 28,
+        "amount_eur": "28.87",
+        "aci": "B",
+        "matching_rule_ids": [
+          231,
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          231,
+          384,
+          471,
+          603,
+          804
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "471": [
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 2
+      },
+      {
+        "csv_line": 6670,
+        "day_of_year": 16,
+        "amount_eur": "11.40",
+        "aci": "C",
+        "matching_rule_ids": [
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          384,
+          603,
+          804,
+          870
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ],
+          "870": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 1
+      },
+      {
+        "csv_line": 9674,
+        "day_of_year": 7,
+        "amount_eur": "66.86",
+        "aci": "C",
+        "matching_rule_ids": [
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          384,
+          603,
+          804,
+          870
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ],
+          "870": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 1
+      },
+      {
+        "csv_line": 14077,
+        "day_of_year": 23,
+        "amount_eur": "95.36",
+        "aci": "C",
+        "matching_rule_ids": [
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          384,
+          603,
+          804,
+          870
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ],
+          "870": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 1
+      },
+      {
+        "csv_line": 34127,
+        "day_of_year": 18,
+        "amount_eur": "19.62",
+        "aci": "C",
+        "matching_rule_ids": [
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          384,
+          603,
+          804,
+          870
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ],
+          "870": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 1
+      },
+      {
+        "csv_line": 95015,
+        "day_of_year": 13,
+        "amount_eur": "36.37",
+        "aci": "B",
+        "matching_rule_ids": [
+          231,
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          231,
+          384,
+          471,
+          603,
+          804
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "471": [
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 2
+      },
+      {
+        "csv_line": 98087,
+        "day_of_year": 8,
+        "amount_eur": "117.62",
+        "aci": "C",
+        "matching_rule_ids": [
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          384,
+          603,
+          804,
+          870
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ],
+          "870": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 1
+      },
+      {
+        "csv_line": 104157,
+        "day_of_year": 14,
+        "amount_eur": "38.37",
+        "aci": "C",
+        "matching_rule_ids": [
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          384,
+          603,
+          804,
+          870
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ],
+          "870": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 1
+      },
+      {
+        "csv_line": 109833,
+        "day_of_year": 25,
+        "amount_eur": "20.99",
+        "aci": "B",
+        "matching_rule_ids": [
+          231,
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          231,
+          384,
+          471,
+          603,
+          804
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "471": [
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 2
+      },
+      {
+        "csv_line": 110031,
+        "day_of_year": 27,
+        "amount_eur": "197.71",
+        "aci": "C",
+        "matching_rule_ids": [
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          384,
+          603,
+          804,
+          870
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ],
+          "870": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 1
+      },
+      {
+        "csv_line": 121668,
+        "day_of_year": 2,
+        "amount_eur": "68.86",
+        "aci": "C",
+        "matching_rule_ids": [
+          384
+        ],
+        "static_candidate_ids": [
+          95,
+          384,
+          603,
+          804,
+          870
+        ],
+        "excluded_by_context": {
+          "95": [
+            "capture_delay",
+            "monthly_fraud_level"
+          ],
+          "603": [
+            "capture_delay"
+          ],
+          "804": [
+            "capture_delay"
+          ],
+          "870": [
+            "capture_delay"
+          ]
+        },
+        "denominator": 1
+      }
+    ],
+    "delta_sum_eur": "-0.948103",
+    "delta_mean_eur": "-0.8743215",
+    "mean_minus_sum_eur": "0.0737815"
+  },
+  "evidence_binding": {
+    "trace_lines": [
+      53,
+      54,
+      55,
+      65,
+      66,
+      69
+    ],
+    "trace54_id": "01a191ed-1435-7173-9e04-e50cc731a6da",
+    "trace55_parent_id": "01a191ed-1435-7173-9e04-e50cc731a6da",
+    "answer_line": 9,
+    "answer": "-0.8743215",
+    "gold": "-0.94810300000017",
+    "gold_minus_sum_eur": "-1.7E-13",
+    "historical_receipts": {
+      "official_compat": {
+        "q1871_pass": false,
+        "weighted": "60.0",
+        "reward": 0
+      },
+      "strict_contract": {
+        "q1871_pass": false,
+        "weighted": "60.0",
+        "reward": 0
+      }
+    },
+    "aggregation_norm": null,
+    "harness_cause": null,
+    "historical_input_identity_independently_authenticated": false
+  }
+}

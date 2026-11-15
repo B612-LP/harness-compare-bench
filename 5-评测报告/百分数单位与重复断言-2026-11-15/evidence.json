@@ -1,0 +1,158 @@
+{
+  "answer_forms": [
+    {
+      "count": "COUNT(*)",
+      "formula": "free * 1.0 / enroll < 0.18",
+      "slot": "r1",
+      "table_filter": "F"
+    },
+    {
+      "count": "COUNT(*)",
+      "formula": "free * 100 / enroll < 0.18",
+      "slot": "r2",
+      "table_filter": "J"
+    },
+    {
+      "count": "COUNT(*)",
+      "formula": "free * 100 / enroll < 0.18",
+      "slot": "r3",
+      "table_filter": "J"
+    }
+  ],
+  "checker_version": "1.2-q26-frpm",
+  "current_chain_checks": {
+    "after_answer_and_inputs_match": true,
+    "execution_after_match": true,
+    "public_receipt_execution_and_session_match": true,
+    "slot_inputs_equal_canonical": true,
+    "trace_session_ids_match": true
+  },
+  "historical_weighted": [
+    93.33,
+    100.0,
+    100.0
+  ],
+  "identity": "selected anonymous derivatives, not complete original trajectories",
+  "q62_pass": [
+    false,
+    true,
+    true
+  ],
+  "source_anchors": [
+    {
+      "anchors": {
+        "after": {
+          "bytes": 847,
+          "sha256": "5e1af436fe765057f4620d7301b86840d26fe3922a64ca5e6df25ab6113e11ed"
+        },
+        "answer": {
+          "bytes": 3333,
+          "sha256": "8c3188ff84c64631eaf9510acf67f224bd3cf307b0dc6fc34b83288d4f8a8907"
+        },
+        "execution": {
+          "bytes": 3759,
+          "sha256": "9b90f8332d39a4cef93b6e8838d5d940db6e2650aa98a9cddf65aeedf7600db5"
+        },
+        "trace": {
+          "bytes": 229995,
+          "sha256": "39ee0555a747f40f256b3cf57219b2b205d009015869368bbab0abdff3d8330d"
+        }
+      },
+      "slot": "r1"
+    },
+    {
+      "anchors": {
+        "after": {
+          "bytes": 765,
+          "sha256": "03baa24580815b98ea41667c1d6e410e2c8e9812ee4e213497f13a7b9b54baf9"
+        },
+        "answer": {
+          "bytes": 3420,
+          "sha256": "0deecc834378a68d824202c7ac4e4349cd6a7c9182e88e31a0f3f2e17ce79576"
+        },
+        "execution": {
+          "bytes": 3725,
+          "sha256": "25a07363670a878e5ff6564e04feda092bb58866c02360f4b68cef63b5678db3"
+        },
+        "trace": {
+          "bytes": 229196,
+          "sha256": "c27e552d22c38b9299d2db493369c778089b2fa712b283c1b88f7e6264dd486b"
+        }
+      },
+      "slot": "r2"
+    },
+    {
+      "anchors": {
+        "after": {
+          "bytes": 855,
+          "sha256": "63ca7e5a69fc7a3ec89e57bd8db4cc8edb8079ef39f1819d985f63d698507680"
+        },
+        "answer": {
+          "bytes": 3300,
+          "sha256": "2b7fbd6cb81215eeea2054f53667d3c34bb7974527cb70194196e2a07daaa318"
+        },
+        "execution": {
+          "bytes": 3725,
+          "sha256": "72bf90acaad78af3a57e240067179ef154cf2380bb7b80d2805c03f0cecbc153"
+        },
+        "trace": {
+          "bytes": 248113,
+          "sha256": "44f7ac95a9996d3f384ecf876895a88a95c01188cf14f1c279fc90a90d0460b1"
+        }
+      },
+      "slot": "r3"
+    }
+  ],
+  "source_authentication": "current_byte_chain_only",
+  "unverified": [
+    "historical execution authenticity",
+    "hidden reasoning causality",
+    "claimed upstream gold or training memory",
+    "backend model identity",
+    "Harness causality"
+  ],
+  "visible_excerpts": [
+    {
+      "layer": "exported_visible_reasoning_not_hidden_causality",
+      "quote": "which equals ratio<0.0018.",
+      "slot": "r1",
+      "trace_line": 16
+    },
+    {
+      "layer": "exported_visible_reasoning_not_hidden_causality",
+      "quote": "Since gold maintained, and both ratio<0.18 and percent column<0.18 give 201, I should choose 201.",
+      "slot": "r1",
+      "trace_line": 25
+    },
+    {
+      "layer": "exported_visible_reasoning_not_hidden_causality",
+      "quote": "I'll use f.FreeMeal*1.0/Enrollment < 0.18 (same as percent column).",
+      "slot": "r1",
+      "trace_line": 25
+    },
+    {
+      "layer": "exported_visible_reasoning_not_hidden_causality",
+      "quote": "Reason: evidence explicitly gives the formula, and evidence for this question is the strongest hint provided in the task.",
+      "slot": "r2",
+      "trace_line": 35
+    },
+    {
+      "layer": "exported_visible_reasoning_not_hidden_causality",
+      "quote": "Going with 1 (the *100 version).",
+      "slot": "r2",
+      "trace_line": 35
+    },
+    {
+      "layer": "exported_visible_reasoning_not_hidden_causality",
+      "quote": "Note: percent computed *100/enrollment < 0.18.",
+      "slot": "r3",
+      "trace_line": 20
+    },
+    {
+      "layer": "exported_visible_reasoning_not_hidden_causality",
+      "quote": "q62: count = 1. LA county, Charter=0, pct<0.18. Fine.",
+      "slot": "r3",
+      "trace_line": 29
+    }
+  ]
+}

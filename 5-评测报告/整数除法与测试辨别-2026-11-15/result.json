@@ -1,0 +1,605 @@
+{
+  "analysis_kind": "post_hoc_selected_source_execution_not_regrading",
+  "canonical_division_calls": [
+    {
+      "programs": [
+        "12 3 /"
+      ],
+      "test": "test_division_can_divide_two_numbers"
+    },
+    {
+      "programs": [
+        "8 3 /"
+      ],
+      "test": "test_division_performs_integer_division"
+    },
+    {
+      "programs": [
+        "4 0 /"
+      ],
+      "test": "test_division_errors_if_dividing_by_zero"
+    },
+    {
+      "programs": [
+        "/"
+      ],
+      "test": "test_division_errors_if_there_is_nothing_on_the_stack"
+    },
+    {
+      "programs": [
+        "1 /"
+      ],
+      "test": "test_division_errors_if_there_is_only_one_value_on_the_stack"
+    },
+    {
+      "programs": [
+        "1 12 3 /"
+      ],
+      "test": "test_division_more_than_two_values_on_the_stack"
+    },
+    {
+      "programs": [
+        "2 4 * 3 /"
+      ],
+      "test": "test_combined_arithmetic_multiplication_and_division"
+    }
+  ],
+  "historical_receipts": {
+    "bare_r1": {
+      "case_reward": 1,
+      "case_weighted": 83.33,
+      "forth_completion": {
+        "complete": true,
+        "discovered": 54,
+        "errors": 0,
+        "expected": 54,
+        "failures": 2,
+        "identities_match": false,
+        "skipped": 0,
+        "started": 54,
+        "stopped": 54,
+        "succeeded": 52,
+        "tests_run": 54
+      },
+      "forth_pass": false
+    },
+    "bare_r2": {
+      "case_reward": 1,
+      "case_weighted": 100.0,
+      "forth_completion": {
+        "complete": true,
+        "discovered": 54,
+        "errors": 0,
+        "expected": 54,
+        "failures": 0,
+        "identities_match": true,
+        "skipped": 0,
+        "started": 54,
+        "stopped": 54,
+        "succeeded": 54,
+        "tests_run": 54
+      },
+      "forth_pass": true
+    },
+    "bare_r3": {
+      "case_reward": 1,
+      "case_weighted": 100.0,
+      "forth_completion": {
+        "complete": true,
+        "discovered": 54,
+        "errors": 0,
+        "expected": 54,
+        "failures": 0,
+        "identities_match": true,
+        "skipped": 0,
+        "started": 54,
+        "stopped": 54,
+        "succeeded": 54,
+        "tests_run": 54
+      },
+      "forth_pass": true
+    }
+  },
+  "probes": [
+    {
+      "denominator": 3,
+      "floor": 4,
+      "id": "positive_exact",
+      "numerator": 12,
+      "program": "12 3 /",
+      "stratum": "canonical_positive",
+      "trunc": 4
+    },
+    {
+      "denominator": 3,
+      "floor": 2,
+      "id": "positive_remainder",
+      "numerator": 8,
+      "program": "8 3 /",
+      "stratum": "canonical_positive",
+      "trunc": 2
+    },
+    {
+      "denominator": 3,
+      "floor": -3,
+      "id": "negative_numerator",
+      "numerator": -8,
+      "program": "-8 3 /",
+      "stratum": "signed_convention",
+      "trunc": -2
+    },
+    {
+      "denominator": -3,
+      "floor": -3,
+      "id": "negative_denominator",
+      "numerator": 8,
+      "program": "8 -3 /",
+      "stratum": "signed_convention",
+      "trunc": -2
+    },
+    {
+      "denominator": -3,
+      "floor": 2,
+      "id": "both_negative",
+      "numerator": -8,
+      "program": "-8 -3 /",
+      "stratum": "signed_convention",
+      "trunc": 2
+    },
+    {
+      "denominator": 1,
+      "floor": 9007199254740993,
+      "id": "positive_large_identity",
+      "numerator": 9007199254740993,
+      "program": "9007199254740993 1 /",
+      "stratum": "large_positive",
+      "trunc": 9007199254740993
+    },
+    {
+      "denominator": 3,
+      "floor": 3002399751580331,
+      "id": "positive_large_remainder",
+      "numerator": 9007199254740995,
+      "program": "9007199254740995 3 /",
+      "stratum": "large_positive",
+      "trunc": 3002399751580331
+    },
+    {
+      "denominator": 1,
+      "floor": 9007199254740993,
+      "id": "constructed_large_identity",
+      "numerator": 9007199254740993,
+      "program": "2 dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + dup + 1 + 1 /",
+      "stratum": "large_positive_small_literals",
+      "trunc": 9007199254740993
+    }
+  ],
+  "real_product_runs": 0,
+  "schema": "forth-offline-identifiability-v1",
+  "selected_sources": {
+    "bare_r1": {
+      "current_copy": {
+        "errors": [],
+        "failures": [
+          "forth_test.ForthTest.test_user_defined_words_cannot_redefine_negative_numbers",
+          "forth_test.ForthTest.test_user_defined_words_cannot_redefine_non_negative_numbers"
+        ],
+        "probes": [
+          {
+            "id": "positive_exact",
+            "state": "returned",
+            "value": [
+              4
+            ]
+          },
+          {
+            "id": "positive_remainder",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "negative_numerator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "negative_denominator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "both_negative",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "positive_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740992
+            ]
+          },
+          {
+            "id": "positive_large_remainder",
+            "state": "returned",
+            "value": [
+              3002399751580331
+            ]
+          },
+          {
+            "id": "constructed_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740992
+            ]
+          }
+        ],
+        "skipped": [],
+        "successful": false,
+        "tests_run": 54
+      },
+      "state": "complete"
+    },
+    "bare_r2": {
+      "current_copy": {
+        "errors": [],
+        "failures": [],
+        "probes": [
+          {
+            "id": "positive_exact",
+            "state": "returned",
+            "value": [
+              4
+            ]
+          },
+          {
+            "id": "positive_remainder",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "negative_numerator",
+            "state": "returned",
+            "value": [
+              -3
+            ]
+          },
+          {
+            "id": "negative_denominator",
+            "state": "returned",
+            "value": [
+              -3
+            ]
+          },
+          {
+            "id": "both_negative",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "positive_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740993
+            ]
+          },
+          {
+            "id": "positive_large_remainder",
+            "state": "returned",
+            "value": [
+              3002399751580331
+            ]
+          },
+          {
+            "id": "constructed_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740993
+            ]
+          }
+        ],
+        "skipped": [],
+        "successful": true,
+        "tests_run": 54
+      },
+      "state": "complete"
+    },
+    "bare_r3": {
+      "current_copy": {
+        "errors": [],
+        "failures": [],
+        "probes": [
+          {
+            "id": "positive_exact",
+            "state": "returned",
+            "value": [
+              4
+            ]
+          },
+          {
+            "id": "positive_remainder",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "negative_numerator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "negative_denominator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "both_negative",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "positive_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740993
+            ]
+          },
+          {
+            "id": "positive_large_remainder",
+            "state": "returned",
+            "value": [
+              3002399751580331
+            ]
+          },
+          {
+            "id": "constructed_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740993
+            ]
+          }
+        ],
+        "skipped": [],
+        "successful": true,
+        "tests_run": 54
+      },
+      "state": "complete"
+    },
+    "reference": {
+      "current_copy": {
+        "errors": [],
+        "failures": [],
+        "probes": [
+          {
+            "id": "positive_exact",
+            "state": "returned",
+            "value": [
+              4
+            ]
+          },
+          {
+            "id": "positive_remainder",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "negative_numerator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "negative_denominator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "both_negative",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "positive_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740993
+            ]
+          },
+          {
+            "id": "positive_large_remainder",
+            "state": "returned",
+            "value": [
+              3002399751580331
+            ]
+          },
+          {
+            "id": "constructed_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740993
+            ]
+          }
+        ],
+        "skipped": [],
+        "successful": true,
+        "tests_run": 54
+      },
+      "state": "complete"
+    },
+    "wb_formal_archive": {
+      "current_copy": {
+        "errors": [],
+        "failures": [],
+        "probes": [
+          {
+            "id": "positive_exact",
+            "state": "returned",
+            "value": [
+              4
+            ]
+          },
+          {
+            "id": "positive_remainder",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "negative_numerator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "negative_denominator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "both_negative",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "positive_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740993
+            ]
+          },
+          {
+            "id": "positive_large_remainder",
+            "state": "returned",
+            "value": [
+              3002399751580331
+            ]
+          },
+          {
+            "id": "constructed_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740993
+            ]
+          }
+        ],
+        "skipped": [],
+        "successful": true,
+        "tests_run": 54
+      },
+      "state": "complete"
+    },
+    "wb_legacy_archive": {
+      "current_copy": {
+        "errors": [],
+        "failures": [],
+        "probes": [
+          {
+            "id": "positive_exact",
+            "state": "returned",
+            "value": [
+              4
+            ]
+          },
+          {
+            "id": "positive_remainder",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "negative_numerator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "negative_denominator",
+            "state": "returned",
+            "value": [
+              -2
+            ]
+          },
+          {
+            "id": "both_negative",
+            "state": "returned",
+            "value": [
+              2
+            ]
+          },
+          {
+            "id": "positive_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740992
+            ]
+          },
+          {
+            "id": "positive_large_remainder",
+            "state": "returned",
+            "value": [
+              3002399751580331
+            ]
+          },
+          {
+            "id": "constructed_large_identity",
+            "state": "returned",
+            "value": [
+              9007199254740992
+            ]
+          }
+        ],
+        "skipped": [],
+        "successful": true,
+        "tests_run": 54
+      },
+      "state": "complete"
+    }
+  },
+  "source_pins": {
+    "2-用例/exercism-py-6/inputs/exercises/forth/README.md": "0480b8a2eef97049ddff262b0bc21f5b31167561325c402918b5ceb0c37b466a",
+    "2-用例/exercism-py-6/solution/forth/forth.py": "f0ddec3d8be41d304e82bc7f7b6531af44f8da1c3919a296d683ba0b97946613",
+    "2-用例/exercism-py-6/tests/forth_test.py": "05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c",
+    "3-表现现场/r1029-desktop-auto/runs/workbuddy/exercism-py-6/workspace/inputs/exercises/forth/forth.py": "59af41a405ff45da9961ba795e3832324612b9e7c6c237074739434a2e19e970",
+    "3-表现现场/r1105-bare-matrix/runs/inline-low/exercism-py-6__r1/RESULTS_JSON/result.json": "eeb675ef56b20542914ad1960a93c422e7b2a67c4cd49618c9f56af49aa887ed",
+    "3-表现现场/r1105-bare-matrix/runs/inline-low/exercism-py-6__r1/inputs/exercises/forth/forth.py": "bf736d64002551bfd0ea244b0f5d19f35316863bede81121296ca0d47b7aafe2",
+    "3-表现现场/r1105-bare-matrix/runs/inline-low/exercism-py-6__r2/RESULTS_JSON/result.json": "a7c61b2c4c75636e31de56b4e002566ea0dd1c755cbe73556f5143ddc27fc1a6",
+    "3-表现现场/r1105-bare-matrix/runs/inline-low/exercism-py-6__r2/inputs/exercises/forth/forth.py": "ca1a95a04784de5af32ead5abaeb4b23dab38d8d23d174c8e23359282df8f7cb",
+    "3-表现现场/r1105-bare-matrix/runs/inline-low/exercism-py-6__r3/RESULTS_JSON/result.json": "a7c61b2c4c75636e31de56b4e002566ea0dd1c755cbe73556f5143ddc27fc1a6",
+    "3-表现现场/r1105-bare-matrix/runs/inline-low/exercism-py-6__r3/inputs/exercises/forth/forth.py": "68fbe21b2f0fc7de7576e7594f37d20e8f3c4d46ab7112b76c8cb3875c5ed427",
+    "3-表现现场/r20261031-wb-formal/runs/exercism-py-6/artifacts/inputs/exercises/forth/forth.py": "096de3d7cf2e6e39cba7d0bed1e215a5cae0905dbdc15f7b65cb4e3e19e2626a"
+  }
+}
