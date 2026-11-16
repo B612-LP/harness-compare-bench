@@ -1,0 +1,183 @@
+{
+  "adapter_fields_unknown": [
+    "stream",
+    "stream_options",
+    "thinking",
+    "tool_stream"
+  ],
+  "assistant": {
+    "blocks": 2,
+    "pairs_exact": 2,
+    "tool_call_id_exact": 2,
+    "wire_content_null": true
+  },
+  "baseline_commit": "004d7cd90dbc67a2f4006151fa15805c978757c7",
+  "content_exact_count": 8,
+  "evidence_sha256": null,
+  "limits": [
+    "n=1 captured run, one provider, session-log format v4; no generalization to other runs, providers, or products",
+    "content exactness was computed on private bytes; public files store only booleans, byte counts, seq pairs, and shape descriptors",
+    "assistant semantic equivalence is not judged; only structural identity of ids, names, argument strings, and null content",
+    "P5 adapter-level wire fields are not present in the session event stream and stay unknown",
+    "injected user messages (agent instructions / runtime context / skill catalog) are generated at request build time; their provenance is the source metadata inside the events, not an earlier event"
+  ],
+  "mapped_messages": [
+    {
+      "content_exact": true,
+      "event_seq": 7,
+      "role": "system",
+      "transform": "single_text_block_identity",
+      "wire_bytes": 2593,
+      "wire_index": 0,
+      "wire_request": 1
+    },
+    {
+      "content_exact": true,
+      "event_seq": 8,
+      "role": "user",
+      "transform": "single_text_block_identity",
+      "wire_bytes": 214,
+      "wire_index": 1,
+      "wire_request": 1
+    },
+    {
+      "content_exact": true,
+      "event_seq": 9,
+      "role": "user",
+      "transform": "single_text_block_identity",
+      "wire_bytes": 3111,
+      "wire_index": 2,
+      "wire_request": 1
+    },
+    {
+      "content_exact": true,
+      "event_seq": 10,
+      "role": "user",
+      "transform": "single_text_block_identity",
+      "wire_bytes": 679,
+      "wire_index": 3,
+      "wire_request": 1
+    },
+    {
+      "content_exact": true,
+      "event_seq": 11,
+      "role": "user",
+      "transform": "single_text_block_identity",
+      "wire_bytes": 5525,
+      "wire_index": 4,
+      "wire_request": 1
+    },
+    {
+      "content_exact": true,
+      "event_seq": 17,
+      "role": "assistant",
+      "transform": "tool_call_blocks_to_wire_tool_calls",
+      "wire_bytes": 0,
+      "wire_index": 5,
+      "wire_request": 3
+    },
+    {
+      "content_exact": true,
+      "event_seq": 20,
+      "role": "tool",
+      "transform": "tool_result_text_identity",
+      "wire_bytes": 227,
+      "wire_index": 6,
+      "wire_request": 3
+    },
+    {
+      "content_exact": true,
+      "event_seq": 21,
+      "role": "tool",
+      "transform": "tool_result_text_identity",
+      "wire_bytes": 203,
+      "wire_index": 7,
+      "wire_request": 3
+    }
+  ],
+  "request_level": {
+    "context_model_exact": true,
+    "context_window_in_event_only": true,
+    "max_tokens_exact": true,
+    "model_exact": true
+  },
+  "schema": "capture-session-provenance-evidence-v1",
+  "session_events": 29,
+  "session_frames": 11,
+  "sources": {
+    "4-打分细则/DSH请求侧最小捕获-2026-11-16/README.md": "a26c7ec7df5dc052ce708434a3cbfa2b50deca2745effa1b91a5877f279c04e7",
+    "4-打分细则/DSH请求侧最小捕获-2026-11-16/evidence.json": "f3e4fab3cd0d742ce4840f1e3b57423b62094c4cd8b7a939b3b347658b4aeaa1",
+    "4-打分细则/DSH请求侧最小捕获-2026-11-16/result.json": "3de57557fe7f3c74e6abc041e5181fc415595299b9678ed59d271f8abe596357",
+    "requests/001.request.bin": "92220699f215bbdfe0faa392587b8fc43ad6793f10da6baf8b7541518120ac10",
+    "requests/002.request.bin": "9f2b6b3e9b76dde704dd763efc1e60992ec2c798c987ae577c784ddd63e34e76",
+    "requests/003.request.bin": "19e98d96ebfb3ade2dac6315b2f61f8fe45d50dcc9dca9fb8c888213cf06b8b4",
+    "session.v4.jsonl.zstd": "5c2bf4d4840525c0df59932b705f44615d9ae3888c4d66b3347b19670e339ba4"
+  },
+  "spliced": [
+    {
+      "inserted_count": 1,
+      "removed_count": null,
+      "seq": 3,
+      "start": 0,
+      "target": "next-turn"
+    },
+    {
+      "inserted_count": 0,
+      "removed_count": 1,
+      "seq": 5,
+      "start": 0,
+      "target": "next-turn"
+    }
+  ],
+  "task_prompt_inserted_by_spliced_3": true,
+  "title_request": {
+    "max_tokens_exact": true,
+    "route_exact": true,
+    "system_exact": true,
+    "user_exact": true
+  },
+  "tools": {
+    "fields_exact": 22,
+    "local_count": 22,
+    "names_equal": true,
+    "wire_count": 22
+  },
+  "wire_message_bytes": {
+    "1": [
+      {
+        "bytes": 2593,
+        "wire_index": 0
+      },
+      {
+        "bytes": 214,
+        "wire_index": 1
+      },
+      {
+        "bytes": 3111,
+        "wire_index": 2
+      },
+      {
+        "bytes": 679,
+        "wire_index": 3
+      },
+      {
+        "bytes": 5525,
+        "wire_index": 4
+      }
+    ],
+    "3": [
+      {
+        "bytes": 0,
+        "wire_index": 5
+      },
+      {
+        "bytes": 227,
+        "wire_index": 6
+      },
+      {
+        "bytes": 203,
+        "wire_index": 7
+      }
+    ]
+  }
+}

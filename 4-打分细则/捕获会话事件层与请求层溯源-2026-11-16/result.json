@@ -1,0 +1,40 @@
+{
+  "baseline_commit": "004d7cd90dbc67a2f4006151fa15805c978757c7",
+  "cross_binding": {
+    "req1_message_bytes_match_capture_evidence": true,
+    "req3_appended_roles_match_capture_evidence": true
+  },
+  "endpoints": {
+    "p1_loop_message_content_exact": "8/8",
+    "p2_assistant_transform_exact": "2/2",
+    "p2_tool_call_id_exact": "2/2",
+    "p3_names_equal": true,
+    "p3_tool_declarations_field_exact": "22/22",
+    "p4_request_level": {
+      "max_tokens_exact": true,
+      "model_exact": true
+    },
+    "p4_title_request": {
+      "max_tokens_exact": true,
+      "route_exact": true,
+      "system_exact": true,
+      "user_exact": true
+    },
+    "p5_adapter_fields_unknown": [
+      "stream",
+      "stream_options",
+      "thinking",
+      "tool_stream"
+    ]
+  },
+  "evidence_sha256": "bc8f77d265f195062b28d264adde2dc2e12fe83eeab33821dab2c9c42dd5b1a2",
+  "limits": [
+    "n=1 captured run, one provider, session-log format v4; no generalization to other runs, providers, or products",
+    "content exactness was computed on private bytes; public files store only booleans, byte counts, seq pairs, and shape descriptors",
+    "assistant semantic equivalence is not judged; only structural identity of ids, names, argument strings, and null content",
+    "P5 adapter-level wire fields are not present in the session event stream and stay unknown",
+    "injected user messages (agent instructions / runtime context / skill catalog) are generated at request build time; their provenance is the source metadata inside the events, not an earlier event"
+  ],
+  "schema": "capture-session-provenance-result-v1",
+  "verdict_summary": "descriptive provenance for one captured run; see limits; no generalization"
+}
