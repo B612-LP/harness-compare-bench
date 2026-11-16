@@ -1,0 +1,44 @@
+{
+ "baseline": "59f00f4be7850d119d60b2001aa443a622d63000",
+ "endpoints": {
+  "error_pair": {
+   "assistant_tool": "bash",
+   "constant_in_run1": true,
+   "tool_content_prefix": "Error: invalid arguments: missing required p"
+  },
+  "final_request_text_lines": {
+   "equal": true,
+   "t3-r1": 11,
+   "t3-r2": 11
+  },
+  "prefix_ok": {
+   "t3-r1": 14,
+   "t3-r2": 13
+  },
+  "prefix_steps": {
+   "t3-r1": 14,
+   "t3-r2": 13
+  },
+  "raw_followup_equal": 0,
+  "req1_byte_equal": true,
+  "skip_error_alignment": {
+   "equal": 13,
+   "pairs": 13
+  },
+  "title_byte_equal": true
+ },
+ "evidence_sha256": "73f83c13e25e8690838500b129056502fd83610f9fbbaa03e400168b3ec3b403",
+ "limits": [
+  "n=2 run对、单任务t3、单模型glm-5.3-flash、同日（跨0点）；链长15/14主请求仍有限，不外推更长会话或其他任务。",
+  "跨run字节恒等仅在req1与标题请求成立；续请求因run1一次模型行为分叉（bash误调用及其Error返回）在仅追加语义下永久分流， skip-error-pair结构对齐13/13。",
+  "bytes非token/成本；响应体（模型输出）不在终点，轮间文本仅计数与相等性登记。",
+  "公开重放只核封印/算术/schema；真档重建需私有loop8两run归档；不认证provider服务端内部与私档历史真实性。",
+  "请求与响应原文只私档；公开层无正文/路径/完整ID/凭据。"
+ ],
+ "pins": {
+  "chain_ra3_dir": "../请求侧多轮链捕获-2026-11-16/README.md",
+  "freeze_ra4": "c22764318b1f987333c782b3994a1664896411d8d8c0f5e69f2823cc5ed7bed3",
+  "prereg_v3": "fb9a8c4a712566f080b3ecd0453a20c2a844362921a6f4eade7619c7c5a7478e"
+ },
+ "schema": "ra4-deep-chain-result-v1"
+}
