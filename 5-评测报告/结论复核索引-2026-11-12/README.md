@@ -1,6 +1,6 @@
 # 一页结论—固定版本—复算—缺口
 
-按[第四周要求](<../../反馈/2026-11-11-第四轮/验收条款-公开版.md>)压缩路由；正式成绩见[整合报告 v1.74](<../竞品评测报告-v1.74.md>)。下列短码均链接确切40位提交，按该代说明复算，不能换成任意HEAD；本页不新增样本或改旧分。
+按[第四周要求](<../../反馈/2026-11-11-第四轮/验收条款-公开版.md>)压缩路由；正式成绩见[整合报告 v1.75](<../竞品评测报告-v1.75.md>)。下列短码均链接确切40位提交，按该代说明复算，不能换成任意HEAD；本页不新增样本或改旧分。
 
 | 结论范围 | 当前可说什么 | 固定提交 | 公开复算入口 | 私档／未识别缺口 |
 |---|---|---|---|---|
@@ -22,5 +22,6 @@
 | Codex 请求组装稳定吗？ | 首请求跨 run 差异恰 11 叶全 id 类、归一后逐字节恒等（codex_assembly_stable_ids_generated）；store=false+加密推理回放；任务消息 214B 与 DSH 逐字节相同（单任务单模型 n=2 run 对，不外推） | [`4526792a`](https://github.com/B612-LP/harness-compare-bench/commit/4526792a) | [执行报告](<../../4-打分细则/Codex请求侧最小捕获-2026-11-17/EXECUTION-RECORD.md>) · [公开重放](<../../4-打分细则/Codex请求侧最小捕获-2026-11-17/result.json>) | id 归一为比较定义非 provider 认证；公开重放只核封印一致性；私档真实性不经公开层认证；模型为 deepseek-flash 官方 API id（非桌面账号路由） |
 | Codex 深链任务（12文件） | 链组装仍跨 run 稳定（首请求差异恰 11 叶全 id 类、归一恒等）；同链位加密推理回放跨 run 互异而 summary 恒等（空对空观测）=逐请求生成物，会话状态加密层不可跨 run 复现 | [3d66ef7f5d9052950bf1a2bc05568f498eaaed89](<https://github.com/B612-LP/harness-compare-bench/commit/3d66ef7f5d9052950bf1a2bc05568f498eaaed89>) | [冻结页](<../../4-打分细则/Codex深链与加密推理回放-2026-11-17/README.md>)·[结果](<../../4-打分细则/Codex深链与加密推理回放-2026-11-17/result.json>) | 加密内容与请求原文只在私档；单任务单模型 n=2 run 对；链长与 DSH 不可比 |
 | Codex 侧响应计数（缓存抖动） | 复用 Codex 两环捕获 4 run×11 响应（0 新运行）：同条件 req1 对 input_tokens 2/2 逐值相等（8117/8117、8078/8078）；cached_tokens 2/2 互异（4608↔7936、7808↔7936）且两 run 首请求 cached>0——prompt 稳定/cache 波动延伸到 Codex 直连通道（product-reported，事后描述性确认非盲预测） | [aacb10fa](<https://github.com/B612-LP/harness-compare-bench/commit/aacb10faee92c7a618c5d8f0dd98648415990a45>) | [usage 复算](<https://github.com/B612-LP/harness-compare-bench/blob/aacb10faee92c7a618c5d8f0dd98648415990a45/4-打分细则/Codex响应侧计数与缓存抖动-2026-11-17/README.md>) | 响应原文只在私档；req1 对条件弱于同字节对（长度相等+id归一恒等）；不认证计费/KV复用/缓存机制/实际摄入 |
+| 缺参 bash 调用的源头 | 同次捕获 SSE 已缺 command（85B 参数对象），W/L/H 三层 canonical 恒等、逐值保持——旧「模型首轮误调」升级为「捕获响应已缺参」；单次调用不外推，不认证模型内部/provider | [8b2eb903](<https://github.com/B612-LP/harness-compare-bench/commit/8b2eb903ede5d525f4b660d35dd6c6be58093ccc>) | [响应侧复算](<https://github.com/B612-LP/harness-compare-bench/blob/8b2eb903ede5d525f4b660d35dd6c6be58093ccc/4-打分细则/响应侧工具参数源头-2026-11-17/verify.py>) | SSE 原文/命令文本只在私档；捕获上游真实性不可由哈希认证；L/H 同值不升级为不可见中间模块无变换 |
 
 公档PASS只说明各包声明的公开字节／投影算术相符，不认证私原或实际模型摄入。其余既有研究、勘误、完整提交与命令保留于[原字节详细索引](<snapshot-v1.58-2026-11-16.md>)，不以本页覆盖历史版本。
