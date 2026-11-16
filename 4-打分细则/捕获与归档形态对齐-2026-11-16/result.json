@@ -1,0 +1,61 @@
+{
+  "baseline_commit": "61614b54801800d29aa70eaf8d725ce89285ea87",
+  "endpoints": {
+    "p1_capture_user_vs_archived": {
+      "archived_max": 9977,
+      "archived_min": 7349,
+      "percentile_below": 73.3,
+      "verdict": "in_range"
+    },
+    "p2_capture_system_vs_archived": {
+      "archived_max": 2541,
+      "archived_min": 2535,
+      "percentile_below": 100.0,
+      "verdict": "out_of_range"
+    },
+    "p3_aligned_sum_vs_archived": {
+      "archived_max": 12518,
+      "archived_median_aligned_bytes": 10291,
+      "archived_min": 9884,
+      "capture_aligned_bytes": 12122,
+      "percentile_below": 73.3,
+      "ratio_vs_median": 1.1779,
+      "verdict": "in_range"
+    },
+    "p4_same_task_user_gap": {
+      "capture_user_bytes": 9529,
+      "ratio_capture_vs_same_task_median": 1.27,
+      "same_task": "dsh__exercism-py-6",
+      "same_task_user_bytes": [
+        7503,
+        7503,
+        7503
+      ]
+    },
+    "p5_tool_result_growth": {
+      "growth_factors_pairing_unverified": [
+        2.671,
+        5.971
+      ],
+      "tool_result_bytes": [
+        227,
+        203
+      ],
+      "workspace_file_bytes": {
+        "TASK.md": 85,
+        "inputs/exercises/dominoes/dominoes.py": 34
+      }
+    }
+  },
+  "evidence_sha256": "338da89359a6790fd2c187bd4846a1c97ea561063de91cd1664c53b876f894d2",
+  "limits": [
+    "layer mismatch: archived side is harness I-event bytes; capture side is provider wire message bytes; only system/user subsets are aligned",
+    "model/provider/task packaging differ between the captured run and the archived batch (capture package README known-differences); P2 out-of-range is a finding, not a defect",
+    "n=1 captured run; verdicts describe this data only, no representativeness, causal, or universality claim",
+    "bytes are not tokens or cost; provider cache semantics are not authenticated",
+    "P5 pairing of the two tool results to the two files is not authenticated from public data; only growth factors are reported",
+    "public files are re-read from the repo pins; raw and public modes share the same inputs and must agree byte-for-byte"
+  ],
+  "schema": "capture-archived-alignment-result-v1",
+  "verdict_summary": "descriptive only: see limits; no representativeness or causal claim"
+}
