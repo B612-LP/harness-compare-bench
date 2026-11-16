@@ -1,0 +1,281 @@
+{
+  "agent_steps": [
+    {
+      "step": 1,
+      "usage": {
+        "inputTokens": 7620,
+        "outputTokens": 62,
+        "totalTokens": 7682
+      }
+    },
+    {
+      "step": 2,
+      "usage": {
+        "cacheReadTokens": 7616,
+        "inputTokens": 211,
+        "outputTokens": 9,
+        "totalTokens": 7836
+      }
+    }
+  ],
+  "baseline": "50c073c084006c0bfd5f8b79db3bc495e842847b",
+  "capture": {
+    "listen": "127.0.0.1:8791",
+    "requests": [
+      {
+        "duration_ms": 5862,
+        "kind": "loop",
+        "max_tokens": 128000,
+        "model": "glm-5.3-flash",
+        "n_messages": 5,
+        "n_tools": 22,
+        "request_bytes": 33091,
+        "request_sha256": "92220699f215bbdfe0faa392587b8fc43ad6793f10da6baf8b7541518120ac10",
+        "response_bytes": 13203,
+        "response_sha256": "be174191c114e86d1e77d982adfa66aa3e36256bafdbac016d63c26e271475a2",
+        "roles": [
+          [
+            "system",
+            "str",
+            2593
+          ],
+          [
+            "user",
+            "str",
+            214
+          ],
+          [
+            "user",
+            "str",
+            3111
+          ],
+          [
+            "user",
+            "str",
+            679
+          ],
+          [
+            "user",
+            "str",
+            5525
+          ]
+        ],
+        "seq": 1,
+        "stream": true,
+        "stream_options_present": true,
+        "thinking_type": "disabled",
+        "tool_names": [
+          "bash",
+          "create_goal",
+          "edit",
+          "get_goal",
+          "glob",
+          "grep",
+          "job_kill",
+          "job_list",
+          "job_output",
+          "list_agents",
+          "read",
+          "read_image",
+          "send_message",
+          "skill",
+          "subagent",
+          "subagent_fork",
+          "todo_write",
+          "update_goal",
+          "wait_agent",
+          "workflow",
+          "working_directory",
+          "write"
+        ],
+        "top_keys": [
+          "max_tokens",
+          "messages",
+          "model",
+          "stream",
+          "stream_options",
+          "thinking",
+          "tool_stream",
+          "tools"
+        ],
+        "upstream_status": 200
+      },
+      {
+        "duration_ms": 1161,
+        "kind": "auxiliary",
+        "max_tokens": 4096,
+        "model": "glm-5.3-flash",
+        "n_messages": 2,
+        "n_tools": 0,
+        "request_bytes": 1042,
+        "request_sha256": "9f2b6b3e9b76dde704dd763efc1e60992ec2c798c987ae577c784ddd63e34e76",
+        "response_bytes": 1570,
+        "response_sha256": "9e897585e1dd40d59bf6035fa94855090b73eaaa3d3be7f1430161a35dca837c",
+        "roles": [
+          [
+            "system",
+            "str",
+            481
+          ],
+          [
+            "user",
+            "str",
+            302
+          ]
+        ],
+        "seq": 2,
+        "stream": true,
+        "stream_options_present": true,
+        "thinking_type": "enabled",
+        "tool_names": [],
+        "top_keys": [
+          "max_tokens",
+          "messages",
+          "model",
+          "reasoning_effort",
+          "stream",
+          "stream_options",
+          "thinking"
+        ],
+        "upstream_status": 200
+      },
+      {
+        "duration_ms": 2241,
+        "kind": "loop",
+        "max_tokens": 128000,
+        "model": "glm-5.3-flash",
+        "n_messages": 8,
+        "n_tools": 22,
+        "request_bytes": 34107,
+        "request_sha256": "19e98d96ebfb3ade2dac6315b2f61f8fe45d50dcc9dca9fb8c888213cf06b8b4",
+        "response_bytes": 1765,
+        "response_sha256": "28c8c9d020e0534ed492ae6393be82a99a2577df3cecc675b0e9e2ae44d51e56",
+        "roles": [
+          [
+            "system",
+            "str",
+            2593
+          ],
+          [
+            "user",
+            "str",
+            214
+          ],
+          [
+            "user",
+            "str",
+            3111
+          ],
+          [
+            "user",
+            "str",
+            679
+          ],
+          [
+            "user",
+            "str",
+            5525
+          ],
+          [
+            "assistant",
+            "none",
+            0
+          ],
+          [
+            "tool",
+            "str",
+            227
+          ],
+          [
+            "tool",
+            "str",
+            203
+          ]
+        ],
+        "seq": 3,
+        "stream": true,
+        "stream_options_present": true,
+        "thinking_type": "disabled",
+        "tool_names": [
+          "bash",
+          "create_goal",
+          "edit",
+          "get_goal",
+          "glob",
+          "grep",
+          "job_kill",
+          "job_list",
+          "job_output",
+          "list_agents",
+          "read",
+          "read_image",
+          "send_message",
+          "skill",
+          "subagent",
+          "subagent_fork",
+          "todo_write",
+          "update_goal",
+          "wait_agent",
+          "workflow",
+          "working_directory",
+          "write"
+        ],
+        "top_keys": [
+          "max_tokens",
+          "messages",
+          "model",
+          "stream",
+          "stream_options",
+          "thinking",
+          "tool_stream",
+          "tools"
+        ],
+        "upstream_status": 200
+      }
+    ],
+    "upstream": "https://open.bigmodel.cn:443"
+  },
+  "final_text_sha256": "edd9ba718883d2daf931ef2590c16f08688381a947169aa56c7be18ebc656a2d",
+  "generated_from": {
+    "archive_layout": "capture/{PROXY-START.json,summary.jsonl,requests/*.request.bin,responses/*.response.bin*}",
+    "private_pins": {
+      "capture_dir": "b7711d539fc020c5710b68b7313d24a05e63f7b03a94a79b3528008072a7afee",
+      "proxy_script": "2ccb12408049ad08f4774335fc5f339789391a269f5fea1c93d5f767c1b0c8cc",
+      "run_stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run_stdout": "8302669a7c670a9590de8a649bab272aef561ea693efa82c6ba788ba8de02107"
+    }
+  },
+  "prefix_identity": {
+    "delta_request_bytes": 1016,
+    "req1_prefix_of_req3": true,
+    "req3_appended_roles": [
+      [
+        "assistant",
+        "none",
+        0
+      ],
+      [
+        "tool",
+        "str",
+        227
+      ],
+      [
+        "tool",
+        "str",
+        203
+      ]
+    ]
+  },
+  "schema": "dsh-request-capture-evidence-v1",
+  "session_id_sha256": "18eafa3b22511935b20c27628ff0a2a9c54785394954e637b31866a46a3f94d8",
+  "workspace": {
+    "TASK.md": {
+      "bytes": 85,
+      "sha256": "68599aec2f4a1201c6eb9e46ba92a76d5b68a3cb96f1154e24d8edbe588c3f2c"
+    },
+    "inputs/exercises/dominoes/dominoes.py": {
+      "bytes": 34,
+      "sha256": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b"
+    }
+  }
+}

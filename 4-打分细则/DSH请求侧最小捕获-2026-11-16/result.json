@@ -1,0 +1,73 @@
+{
+  "baseline": "50c073c084006c0bfd5f8b79db3bc495e842847b",
+  "endpoints": {
+    "q1_history_overflow": {
+      "appended_roles": [
+        [
+          "assistant",
+          "none",
+          0
+        ],
+        [
+          "tool",
+          "str",
+          227
+        ],
+        [
+          "tool",
+          "str",
+          203
+        ]
+      ],
+      "n_messages_req1": 5,
+      "n_messages_req3": 8,
+      "req1_prefix_of_req3": true,
+      "verdict": "append_only_prefix_extended"
+    },
+    "q2_truncation_reorg": {
+      "delta_request_bytes": 1016,
+      "verdict": "no_truncation_or_reorg_witness_in_this_run"
+    },
+    "q3_bytes_vs_reported_tokens": {
+      "rows": [
+        {
+          "request_bytes": 33091,
+          "seq": 1,
+          "step1_reported_input_tokens": 7620
+        },
+        {
+          "request_bytes": 34107,
+          "seq": 3,
+          "step2_reported_cache_read_tokens": 7616,
+          "step2_reported_input_tokens": 211
+        }
+      ],
+      "verdict": "descriptive_only_n1"
+    },
+    "q4_system_and_tools": {
+      "aux_title_request": {
+        "max_tokens": 4096,
+        "n_tools": 0,
+        "seq": 2,
+        "thinking_type": "enabled"
+      },
+      "n_tools": 22,
+      "system_role_bytes_req1": 2593,
+      "verdict": "structure_only"
+    }
+  },
+  "evidence_sha256": "f3e4fab3cd0d742ce4840f1e3b57423b62094c4cd8b7a939b3b347658b4aeaa1",
+  "limits": [
+    "n=1 single task; no generalization to other tasks or providers",
+    "public evidence contains no request/response content; only structure, byte counts and hashes",
+    "prefix verdict computed at build time from full message content; public replay re-checks shape-level prefix only (byte truth carried by pinned request hashes)",
+    "auxiliary request purpose inferred from shape (no tools, small max_tokens, thinking enabled), not from product source claims",
+    "bytes are transport-level; no claim about provider-side tokenization or cache semantics"
+  ],
+  "run": {
+    "product": "dsh-headless",
+    "provider_declared": "zai-coding-cn/glm-5.3-flash (default deepseek-official route bypassed by design, see README)",
+    "real_runs": 1
+  },
+  "schema": "dsh-request-capture-result-v1"
+}
