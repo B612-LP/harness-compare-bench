@@ -1,0 +1,205 @@
+{
+  "baseline_commit": "50c073c084006c0bfd5f8b79db3bc495e842847b",
+  "coverage": {
+    "aligned_pairs": 13,
+    "groups": 5,
+    "pairs": 15,
+    "slots": 15
+  },
+  "diagnostic_path_counts": [
+    {
+      "event_pair_occurrences": 13,
+      "event_type": "agent/inbox/spliced",
+      "layer": "L0",
+      "path": "/data/inserted/0/id"
+    },
+    {
+      "event_pair_occurrences": 26,
+      "event_type": "agent/inbox/spliced",
+      "layer": "L0",
+      "path": "/time"
+    },
+    {
+      "event_pair_occurrences": 13,
+      "event_type": "request/context",
+      "layer": "L0",
+      "path": "/time"
+    },
+    {
+      "event_pair_occurrences": 13,
+      "event_type": "request/header",
+      "layer": "L0",
+      "path": "/time"
+    },
+    {
+      "event_pair_occurrences": 13,
+      "event_type": "system/message",
+      "layer": "L0",
+      "path": "/data/message/id"
+    },
+    {
+      "event_pair_occurrences": 13,
+      "event_type": "system/message",
+      "layer": "L0",
+      "path": "/time"
+    },
+    {
+      "event_pair_occurrences": 39,
+      "event_type": "user/message",
+      "layer": "L0",
+      "path": "/data/id"
+    },
+    {
+      "event_pair_occurrences": 39,
+      "event_type": "user/message",
+      "layer": "L0",
+      "path": "/time"
+    },
+    {
+      "event_pair_occurrences": 13,
+      "event_type": "agent/inbox/spliced",
+      "layer": "L1",
+      "path": "/inserted/0/id"
+    },
+    {
+      "event_pair_occurrences": 13,
+      "event_type": "system/message",
+      "layer": "L1",
+      "path": "/message/id"
+    },
+    {
+      "event_pair_occurrences": 39,
+      "event_type": "user/message",
+      "layer": "L1",
+      "path": "/id"
+    }
+  ],
+  "evidence_sha256": "1c08b72b7b218bc5960ae97f15e41451452ddc74457210c58aa0bd5bf96729b5",
+  "groups": [
+    {
+      "branch": "ENVELOPE-OR-PROVENANCE-DIFFERENCE",
+      "case": "bird-ca-schools-15",
+      "layer_all_equal": {
+        "L0": false,
+        "L1": false,
+        "L2": true
+      },
+      "prior_v2": {
+        "b1_max_minus_min": 0,
+        "b1_pass": true,
+        "b2_max_minus_min": 0,
+        "b2_pass": true,
+        "gate_v2": "pass",
+        "s1_pass": true
+      },
+      "rep": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "branch": "NOT-ALIGNABLE",
+      "case": "dabstep-payments-10",
+      "layer_all_equal": {
+        "L0": false,
+        "L1": false,
+        "L2": false
+      },
+      "prior_v2": {
+        "b1_max_minus_min": 956,
+        "b1_pass": false,
+        "b2_max_minus_min": 2240,
+        "b2_pass": false,
+        "gate_v2": "fail",
+        "s1_pass": false
+      },
+      "rep": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "branch": "ENVELOPE-OR-PROVENANCE-DIFFERENCE",
+      "case": "exercism-py-6",
+      "layer_all_equal": {
+        "L0": false,
+        "L1": false,
+        "L2": true
+      },
+      "prior_v2": {
+        "b1_max_minus_min": 0,
+        "b1_pass": true,
+        "b2_max_minus_min": 0,
+        "b2_pass": true,
+        "gate_v2": "pass",
+        "s1_pass": true
+      },
+      "rep": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "branch": "ENVELOPE-OR-PROVENANCE-DIFFERENCE",
+      "case": "lcb-recent-hard-4",
+      "layer_all_equal": {
+        "L0": false,
+        "L1": false,
+        "L2": true
+      },
+      "prior_v2": {
+        "b1_max_minus_min": 0,
+        "b1_pass": true,
+        "b2_max_minus_min": 0,
+        "b2_pass": true,
+        "gate_v2": "pass",
+        "s1_pass": true
+      },
+      "rep": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "branch": "ENVELOPE-OR-PROVENANCE-DIFFERENCE",
+      "case": "tb-cargo-plan",
+      "layer_all_equal": {
+        "L0": false,
+        "L1": false,
+        "L2": true
+      },
+      "prior_v2": {
+        "b1_max_minus_min": 0,
+        "b1_pass": true,
+        "b2_max_minus_min": 0,
+        "b2_pass": true,
+        "gate_v2": "pass",
+        "s1_pass": true
+      },
+      "rep": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "limitations": [
+    "Public mode validates hash/length/path witness arithmetic, not raw authenticity.",
+    "L2 is a frozen diagnostic projection, not a captured HTTP request or semantic equivalence.",
+    "v2 length/sequence gate remains unchanged; no new product runs or score edits."
+  ],
+  "primary": {
+    "L0_identical_groups": 0,
+    "old_v2_pass_groups": 4
+  },
+  "schema": "input-event-identity-result-v1",
+  "source_bindings": {
+    "4-打分细则/机制序列口径v2-2026-11-16/result.json": "c95f932719477625c473b02e1dd1ec4a7f7d5b191b6b79be22e8a4ab45507609",
+    "4-打分细则/机制重复口径澄清-2026-11-12/evidence.json": "925470d3b55b4226d70f5749d45d0c65a161703c4053fa21028ce0516fcd6b5c",
+    "4-打分细则/输入事件等长与同一性-2026-11-16/README.md": "0bf50230ec6f55fa7e7f6a0278ef96ceffbfce87881cad1616a9c7ab80049170"
+  }
+}
