@@ -1,0 +1,695 @@
+{
+  "analysis_rules": {
+    "branch_rule": "冻结 §3 字面：V1∧V2 ⇒ B-CLOCK-CONFIRMED；V1 全过∧V2 破 ⇒ B-COUNTER-OTHER；V1 破但 6 token 定长同格式 ⇒ B-COUNTER-OTHER；否则 ⇒ B-INDETERMINATE / exit2",
+    "byte_class_definition": "digit=ASCII 0-9；alpha=ASCII A-Z/a-z；other=其余全部字节（含 UTF-8 多字节序列、标点等）；bof=run 起点为文本首（无左邻，结构性取值）",
+    "envelope_definition": "信封=W1 冻结开/闭标记的精确 span（标记字面以环 11 包 analysis_rules 同名定义为准，此处不重复登记标记文本）",
+    "fail_closed_scope": "预注册封印不符、双硬等（offsets/run 边界）失败、档案布局异常、trace/消息结构异常、时区偏移不一致或缺失、信封 span 数≠1 或与环 11 不符、孤立位非单数字、token 非 5 ASCII 字节 ⇒ exit2 / B-INDETERMINATE",
+    "fixed_format_definition": "定长同格式 = 6 token 字节长度集合单值 ∧ 逐位置字节类序列全体相等 ∧ 分隔字节值全体相等",
+    "rel_position_definition": "rel_position = offset − 信封闭合（envelope span 终点）",
+    "run_definition": "极大数字 run=文本中 byte_class==digit 的极大连续段 [起,止)；逐 offset×rep 独立计算",
+    "token_definition": "见 tokens.rule；token 字节含非 ASCII 即 fail-closed（值发布边界：只发布 4 数字+1 分隔的 5 字节值）",
+    "v1_rule": "V1 = 全部 6 token 匹配 ^([01]\\d|2[0-3]):[0-5]\\d$ 且分隔字节值 6/6 同一",
+    "v2_rule": "V2 = 逐 rep：token 的 HH:MM 与该 run 首消息 HH:MM 的 naive 分钟差 |Δ|≤1（逐 rep 登记 signed Δ、|Δ|、午夜循环差、方向窗 [-1,+5]min 布尔）；token 不满足 HH:MM 文法时 v2_evaluable=false、Δ=null；V2_pass = 6/6 可评且全过",
+    "v3_rule": "V3 = 孤立位（信封内 2 + 信封外 1，共 6 处）单数字字节值逐 rep 登记，不判语义；非单数字结构即 fail-closed",
+    "value_publication_boundary": "值发布边界声明：本包读取 W1 提取文本与同 run 轨迹消息时间戳字段；发布仅限——漂移 token 的 5 字节值（4 数字+1 分隔）、分隔字节值、孤立位单数字字节值、消息时间戳的 HH:MM（分钟精度墙钟，秒/毫秒与日期不发布）、字段名与换算规则；字母序列/多字节序列/信封或任务正文任何切片零发布；结果不含私有档案绝对路径。"
+  },
+  "archive_layout": {
+    "runs_rel": "runs/<slot>/trace/<session>.jsonl",
+    "slots_expected": [
+      "dabstep-payments-10__r1",
+      "dabstep-payments-10__r2",
+      "dabstep-payments-10__r3",
+      "tb-cargo-plan__r1",
+      "tb-cargo-plan__r2",
+      "tb-cargo-plan__r3"
+    ]
+  },
+  "baseline_commit": "8b657e84c2a07436ca9a0ca62a3d55bad0abf964",
+  "branch": {
+    "V1_pass": false,
+    "V2_pass": false,
+    "V3": "registered_no_semantics",
+    "clock_class_note": "时钟类相容在环 15 仅字节类层面成立；本包在值面按冻结判据裁定：否证",
+    "exit_code": 0,
+    "fixed_format": true,
+    "reason": "V1 破但 6 token 定长同格式（长度/字节类序列/分隔字节值全体一致） ⇒ 登记格式特征，时钟类否证（按冻结 §3 第二析支）。",
+    "verdict": "B-COUNTER-OTHER"
+  },
+  "exit_code": 0,
+  "extraction": {
+    "per_slot": {
+      "dabstep-payments-10__r1": {
+        "trace_file": "b363e658-08b1-4ff9-84c8-468e7744b02d.jsonl",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "0ae6064db57b71bcb5d4b584b0d713e1f1235f2230204240537c64a3d775a945"
+      },
+      "dabstep-payments-10__r2": {
+        "trace_file": "66e68d87-dfc8-41ff-9c39-00da7e109a5a.jsonl",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "85a633abf987bdb2b9a8a67007a66e41cc5487c0e1d1bd6a031a26424c8e2835"
+      },
+      "dabstep-payments-10__r3": {
+        "trace_file": "16a4dc87-780e-4b1b-9874-50a1a5e5ccd4.jsonl",
+        "user_text_bytes": 10959,
+        "user_text_sha256": "13cfe2b00c327078b9eb257a4bd3d53d8517c523a74da37499f2a4874be23cd6"
+      },
+      "tb-cargo-plan__r1": {
+        "trace_file": "b70e9bf1-687b-47c7-b546-a5d120c69aeb.jsonl",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "6c75e82b29f79b47c61f9ba4e7aaaa24040eaca461c1403242d2951609cb1c7a"
+      },
+      "tb-cargo-plan__r2": {
+        "trace_file": "3a7c16b2-54e8-4080-b41c-82c21b95b354.jsonl",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "f07b3dffa44bc1f872f6085d9d7125a308cc09c2e9f09b18e6028fb71cbe3dfe"
+      },
+      "tb-cargo-plan__r3": {
+        "trace_file": "61c4c10c-bcd6-41a2-a6bc-2d28e47ecd9c.jsonl",
+        "user_text_bytes": 9273,
+        "user_text_sha256": "056db0afc11f63bd418316827edbae8f8bd9a60873588d122f5d4471073f571d"
+      }
+    },
+    "rule": "与环 6/11/15 同一 W1 提取：runs/<slot>/trace/*.jsonl（恰 1）、type=message 且 role=user（恰 1）、content 恰 1 block 且 type=input_text、text 的 UTF-8 字节"
+  },
+  "format_registration": {
+    "class_pattern": [
+      "digit",
+      "digit",
+      "other",
+      "digit",
+      "digit"
+    ],
+    "class_pattern_all_equal": true,
+    "class_pattern_signature": "DD?DD",
+    "definition": "定长同格式 = 6 token 字节长度集合单值 ∧ 逐位置字节类序列全体相等 ∧ 分隔字节值全体相等",
+    "fixed_format": true,
+    "separator_values_all_equal": true,
+    "token_len_set": [
+      5
+    ]
+  },
+  "hard_equal": {
+    "envelope_span": {
+      "cases": {
+        "dabstep-payments-10": {
+          "cross_rep_equal": true,
+          "envelope_close": 6330,
+          "matches_reference": true,
+          "recomputed_by_rep": {
+            "r1": [
+              0,
+              6330
+            ],
+            "r2": [
+              0,
+              6330
+            ],
+            "r3": [
+              0,
+              6330
+            ]
+          },
+          "reference_span": [
+            [
+              0,
+              6330
+            ]
+          ]
+        },
+        "tb-cargo-plan": {
+          "cross_rep_equal": true,
+          "envelope_close": 6286,
+          "matches_reference": true,
+          "recomputed_by_rep": {
+            "r1": [
+              0,
+              6286
+            ],
+            "r2": [
+              0,
+              6286
+            ],
+            "r3": [
+              0,
+              6286
+            ]
+          },
+          "reference_span": [
+            [
+              0,
+              6286
+            ]
+          ]
+        }
+      },
+      "rule": "每 rep 恰 1 span、跨 rep 相等、且与环 11 result.json 登记的 envelope_span 一致（lane/rel 派生基准；不符视为数据结构不可信 exit2）"
+    },
+    "offsets": {
+      "all_equal": true,
+      "cases": {
+        "dabstep-payments-10": {
+          "equal": true,
+          "n_offsets": 7,
+          "recomputed_sorted": [
+            181,
+            5558,
+            6423,
+            6424,
+            6426,
+            6427,
+            6660
+          ],
+          "reference_sorted": [
+            181,
+            5558,
+            6423,
+            6424,
+            6426,
+            6427,
+            6660
+          ]
+        },
+        "tb-cargo-plan": {
+          "equal": true,
+          "n_offsets": 7,
+          "recomputed_sorted": [
+            175,
+            5540,
+            6379,
+            6380,
+            6382,
+            6383,
+            6604
+          ],
+          "reference_sorted": [
+            175,
+            5540,
+            6379,
+            6380,
+            6382,
+            6383,
+            6604
+          ]
+        }
+      },
+      "reference_path_rel": "4-打分细则/WB漂移字节位置结构-2026-11-16/result.json",
+      "rule": "复算=逐 case 三对逐字节差异并集；硬等=环 11 result.json case_analysis.<case>.events[*].positions_offset 全集；不等即 exit2"
+    },
+    "run_boundaries": {
+      "all_equal": true,
+      "cases": {
+        "dabstep-payments-10": {
+          "all_equal": true,
+          "n_entries": 7,
+          "per_entry_equal": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "tb-cargo-plan": {
+          "all_equal": true,
+          "n_entries": 7,
+          "per_entry_equal": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      "reference_path_rel": "4-打分细则/WB漂移token形状-2026-11-16/result.json",
+      "rule": "复算=逐 offset×rep 极大数字 run 全字段（run_found/起/止/长/run 内 index/左邻类）；硬等=环 15 result.json run_registration.cases.<case> 条目 by_rep 登记全集；不等即 exit2"
+    }
+  },
+  "package": "WB漂移token值语义-2026-11-16",
+  "post_hoc_semantics_disclosure": {
+    "items": [
+      "token 值面（'03:24'、'08:19'、'12:46'、'16:04'、'21:23'、'25:55'）：冻结 HH:MM 文法下 5/6 合法（不合者：'25:55'）；与首消息 HH:MM 的 |Δ|∈[34,542] 分钟（1 处不可解析，Δ=null） ⇒ 按冻结判据时钟类否证",
+      "定性观察（超出冻结判据，不裁定）：6 token 值逐 rep 字典序严格递增（dabstep-payments-10 '03:24'→'08:19'→'12:46'；tb-cargo-plan '16:04'→'21:23'→'25:55'），与『逐 rep 递增计数/时刻递进』候选相容；其单位语义（时钟/计数器）按冻结判据裁定见 branch",
+      "孤立位单数字值呈『逐 rep 相异、同 rep 内 6 处一致』（r1 处处='1'、r2 处处='2'、r3 处处='3'）——与 rep 序号类标记候选相容；V3 按冻结仅登记不判语义"
+    ],
+    "rule": "超出冻结判据的定性披露（不改变分支裁定、不发布秒级值）；检验其中任何候选语义须另立预注册"
+  },
+  "prereg": {
+    "path_rel": "4-打分细则/WB漂移token值语义-2026-11-16/README.md",
+    "sha256": "b2e891a79eba14558b116627110dc4bd1f90db20e52700b0fb1b93f3b78643b6",
+    "sha256_match": true
+  },
+  "reference_sources": {
+    "offsets": {
+      "path_rel": "4-打分细则/WB漂移字节位置结构-2026-11-16/result.json",
+      "sha256": "8ba0e34a50ed3f65e96055d3973114bfbdc91624ec5c1e72ce3042da14bc1f5a"
+    },
+    "run_boundaries": {
+      "path_rel": "4-打分细则/WB漂移token形状-2026-11-16/result.json",
+      "sha256": "70850b1a0cb9fff3cfe7989a0bab26b879132b8fea4beb62290cd97868431c9f"
+    }
+  },
+  "schema": "wb-token-sem-v1",
+  "survey_note_reconciliation": {
+    "items": [
+      "勘察注记称时间戳为『ISO-8601 字符串』；复算实际 schema：轨迹 jsonl 消息事件字段名 timestamp = epoch 毫秒整数（按任务授权以实际 schema 为准，字段名登记见 timestamp_semantics）；HH:MM 换算采用固定 UTC 偏移，偏移取档案自身 trace/collect-meta.json 的 collected_at（ISO-8601 含偏移）之 utcoffset，6 槽一致方有效（任一不一致即 fail-closed）",
+      "V2 差值同时登记 naive 分钟差与午夜循环差 min(|Δ|,1440−|Δ|)（无午夜跨越时两者一致，本包不假设二者相等）；token 不满足 HH:MM 文法时Δ=null（v2_evaluable=false），不强行按非法时刻求差",
+      "首消息=该 run 轨迹第一条 type=message 事件（复算 role=user，逐槽断言）；消息时间戳逐槽单调不减（逐槽断言）；逐槽消息数见 timestamp_semantics.per_slot（仅计数，不含内容）"
+    ],
+    "rule": "预注册勘察注记为冻结前事实，可被复算推翻（README 冻结行）；以下以复算为准"
+  },
+  "timestamp_semantics": {
+    "conversion": "HH:MM = fromtimestamp(epoch_ms // 1000, 固定偏移) 取 %H:%M；发布仅分钟精度（秒/毫秒与日期不发布）",
+    "field_name": "timestamp",
+    "format": "epoch_milliseconds",
+    "per_slot": {
+      "dabstep-payments-10__r1": {
+        "first_message_role": "user",
+        "first_ts_hhmm": "12:03",
+        "last_ts_hhmm": "12:08",
+        "monotonic_non_decreasing": true,
+        "n_messages": 3
+      },
+      "dabstep-payments-10__r2": {
+        "first_message_role": "user",
+        "first_ts_hhmm": "12:08",
+        "last_ts_hhmm": "12:12",
+        "monotonic_non_decreasing": true,
+        "n_messages": 5
+      },
+      "dabstep-payments-10__r3": {
+        "first_message_role": "user",
+        "first_ts_hhmm": "12:12",
+        "last_ts_hhmm": "12:15",
+        "monotonic_non_decreasing": true,
+        "n_messages": 3
+      },
+      "tb-cargo-plan__r1": {
+        "first_message_role": "user",
+        "first_ts_hhmm": "12:16",
+        "last_ts_hhmm": "12:21",
+        "monotonic_non_decreasing": true,
+        "n_messages": 6
+      },
+      "tb-cargo-plan__r2": {
+        "first_message_role": "user",
+        "first_ts_hhmm": "12:21",
+        "last_ts_hhmm": "12:25",
+        "monotonic_non_decreasing": true,
+        "n_messages": 9
+      },
+      "tb-cargo-plan__r3": {
+        "first_message_role": "user",
+        "first_ts_hhmm": "12:25",
+        "last_ts_hhmm": "12:31",
+        "monotonic_non_decreasing": true,
+        "n_messages": 4
+      }
+    },
+    "survey_note": "预注册勘察注记称『ISO-8601 字符串』；实际 schema 为 epoch 毫秒整数（以复算为准，字段名登记如上）",
+    "timezone_offset": "+08:00",
+    "timezone_rule": "固定 UTC 偏移取档案自身 runs/<slot>/collect-meta.json 的 collected_at（ISO-8601 含偏移）之 utcoffset；6 槽必须一致，否则 fail-closed",
+    "timezone_slots_consistent": true
+  },
+  "tokens": {
+    "cases": {
+      "dabstep-payments-10": {
+        "by_rep": {
+          "r1": {
+            "byte_classes": [
+              "digit",
+              "digit",
+              "other",
+              "digit",
+              "digit"
+            ],
+            "run1": [
+              6423,
+              6425
+            ],
+            "run2": [
+              6426,
+              6428
+            ],
+            "separator": {
+              "offset": 6425,
+              "rel_position": 95,
+              "value": ":"
+            },
+            "slot": "dabstep-payments-10__r1",
+            "token": "03:24",
+            "token_len": 5
+          },
+          "r2": {
+            "byte_classes": [
+              "digit",
+              "digit",
+              "other",
+              "digit",
+              "digit"
+            ],
+            "run1": [
+              6423,
+              6425
+            ],
+            "run2": [
+              6426,
+              6428
+            ],
+            "separator": {
+              "offset": 6425,
+              "rel_position": 95,
+              "value": ":"
+            },
+            "slot": "dabstep-payments-10__r2",
+            "token": "08:19",
+            "token_len": 5
+          },
+          "r3": {
+            "byte_classes": [
+              "digit",
+              "digit",
+              "other",
+              "digit",
+              "digit"
+            ],
+            "run1": [
+              6423,
+              6425
+            ],
+            "run2": [
+              6426,
+              6428
+            ],
+            "separator": {
+              "offset": 6425,
+              "rel_position": 95,
+              "value": ":"
+            },
+            "slot": "dabstep-payments-10__r3",
+            "token": "12:46",
+            "token_len": 5
+          }
+        },
+        "cluster_rels": [
+          93,
+          94,
+          96,
+          97
+        ]
+      },
+      "tb-cargo-plan": {
+        "by_rep": {
+          "r1": {
+            "byte_classes": [
+              "digit",
+              "digit",
+              "other",
+              "digit",
+              "digit"
+            ],
+            "run1": [
+              6379,
+              6381
+            ],
+            "run2": [
+              6382,
+              6384
+            ],
+            "separator": {
+              "offset": 6381,
+              "rel_position": 95,
+              "value": ":"
+            },
+            "slot": "tb-cargo-plan__r1",
+            "token": "16:04",
+            "token_len": 5
+          },
+          "r2": {
+            "byte_classes": [
+              "digit",
+              "digit",
+              "other",
+              "digit",
+              "digit"
+            ],
+            "run1": [
+              6379,
+              6381
+            ],
+            "run2": [
+              6382,
+              6384
+            ],
+            "separator": {
+              "offset": 6381,
+              "rel_position": 95,
+              "value": ":"
+            },
+            "slot": "tb-cargo-plan__r2",
+            "token": "21:23",
+            "token_len": 5
+          },
+          "r3": {
+            "byte_classes": [
+              "digit",
+              "digit",
+              "other",
+              "digit",
+              "digit"
+            ],
+            "run1": [
+              6379,
+              6381
+            ],
+            "run2": [
+              6382,
+              6384
+            ],
+            "separator": {
+              "offset": 6381,
+              "rel_position": 95,
+              "value": ":"
+            },
+            "slot": "tb-cargo-plan__r3",
+            "token": "25:55",
+            "token_len": 5
+          }
+        },
+        "cluster_rels": [
+          93,
+          94,
+          96,
+          97
+        ]
+      }
+    },
+    "rule": "token = 环 15 簇两组数字 run 的合并字节段 [run1.start, run2.end)，恰 5 字节（4 数字+1 分隔）；分隔字节=两 run 之间恰 1 字节（offset=run1.end）；逐 rep 从硬等后的参照边界独立提取"
+  },
+  "v1": {
+    "pass": false,
+    "per_token": [
+      {
+        "case": "dabstep-payments-10",
+        "regex_match": true,
+        "rep": "r1",
+        "token": "03:24"
+      },
+      {
+        "case": "dabstep-payments-10",
+        "regex_match": true,
+        "rep": "r2",
+        "token": "08:19"
+      },
+      {
+        "case": "dabstep-payments-10",
+        "regex_match": true,
+        "rep": "r3",
+        "token": "12:46"
+      },
+      {
+        "case": "tb-cargo-plan",
+        "regex_match": true,
+        "rep": "r1",
+        "token": "16:04"
+      },
+      {
+        "case": "tb-cargo-plan",
+        "regex_match": true,
+        "rep": "r2",
+        "token": "21:23"
+      },
+      {
+        "case": "tb-cargo-plan",
+        "regex_match": false,
+        "rep": "r3",
+        "token": "25:55"
+      }
+    ],
+    "regex_match_count": "5/6",
+    "rule": "V1 = 全部 6 token 匹配 ^([01]\\d|2[0-3]):[0-5]\\d$ 且分隔字节值 6/6 同一",
+    "separator_all_same": true,
+    "separator_same_count": "6/6",
+    "separator_value": ":"
+  },
+  "v2": {
+    "direction_window_pass_count": "0/5",
+    "evaluable_count": "5/6",
+    "main_pass_count": "0/5",
+    "matrix": {
+      "dabstep-payments-10": {
+        "r1": {
+          "delta_minutes_abs": 519,
+          "delta_minutes_circular": 519,
+          "delta_minutes_signed": -519,
+          "direction_window_pass": false,
+          "first_ts_hhmm": "12:03",
+          "last_ts_hhmm": "12:08",
+          "main_pass_abs_le_1min": false,
+          "token": "03:24",
+          "v2_evaluable": true
+        },
+        "r2": {
+          "delta_minutes_abs": 229,
+          "delta_minutes_circular": 229,
+          "delta_minutes_signed": -229,
+          "direction_window_pass": false,
+          "first_ts_hhmm": "12:08",
+          "last_ts_hhmm": "12:12",
+          "main_pass_abs_le_1min": false,
+          "token": "08:19",
+          "v2_evaluable": true
+        },
+        "r3": {
+          "delta_minutes_abs": 34,
+          "delta_minutes_circular": 34,
+          "delta_minutes_signed": 34,
+          "direction_window_pass": false,
+          "first_ts_hhmm": "12:12",
+          "last_ts_hhmm": "12:15",
+          "main_pass_abs_le_1min": false,
+          "token": "12:46",
+          "v2_evaluable": true
+        }
+      },
+      "tb-cargo-plan": {
+        "r1": {
+          "delta_minutes_abs": 228,
+          "delta_minutes_circular": 228,
+          "delta_minutes_signed": 228,
+          "direction_window_pass": false,
+          "first_ts_hhmm": "12:16",
+          "last_ts_hhmm": "12:21",
+          "main_pass_abs_le_1min": false,
+          "token": "16:04",
+          "v2_evaluable": true
+        },
+        "r2": {
+          "delta_minutes_abs": 542,
+          "delta_minutes_circular": 542,
+          "delta_minutes_signed": 542,
+          "direction_window_pass": false,
+          "first_ts_hhmm": "12:21",
+          "last_ts_hhmm": "12:25",
+          "main_pass_abs_le_1min": false,
+          "token": "21:23",
+          "v2_evaluable": true
+        },
+        "r3": {
+          "delta_minutes_abs": null,
+          "delta_minutes_circular": null,
+          "delta_minutes_signed": null,
+          "direction_window_pass": false,
+          "first_ts_hhmm": "12:25",
+          "last_ts_hhmm": "12:31",
+          "main_pass_abs_le_1min": false,
+          "token": "25:55",
+          "v2_evaluable": false
+        }
+      }
+    },
+    "pass": false,
+    "rule": "V2 = 逐 rep：token 的 HH:MM 与该 run 首消息 HH:MM 的 naive 分钟差 |Δ|≤1（逐 rep 登记 signed Δ、|Δ|、午夜循环差、方向窗 [-1,+5]min 布尔）；token 不满足 HH:MM 文法时 v2_evaluable=false、Δ=null；V2_pass = 6/6 可评且全过"
+  },
+  "v3": {
+    "cases": {
+      "dabstep-payments-10": [
+        {
+          "cluster_role": "internal",
+          "digit_by_rep": {
+            "r1": "1",
+            "r2": "2",
+            "r3": "3"
+          },
+          "lane": "envelope_internal",
+          "offset": 181,
+          "rel_position": -6149
+        },
+        {
+          "cluster_role": "internal",
+          "digit_by_rep": {
+            "r1": "1",
+            "r2": "2",
+            "r3": "3"
+          },
+          "lane": "envelope_internal",
+          "offset": 5558,
+          "rel_position": -772
+        },
+        {
+          "cluster_role": "isolated_external",
+          "digit_by_rep": {
+            "r1": "1",
+            "r2": "2",
+            "r3": "3"
+          },
+          "lane": "envelope_external",
+          "offset": 6660,
+          "rel_position": 330
+        }
+      ],
+      "tb-cargo-plan": [
+        {
+          "cluster_role": "internal",
+          "digit_by_rep": {
+            "r1": "1",
+            "r2": "2",
+            "r3": "3"
+          },
+          "lane": "envelope_internal",
+          "offset": 175,
+          "rel_position": -6111
+        },
+        {
+          "cluster_role": "internal",
+          "digit_by_rep": {
+            "r1": "1",
+            "r2": "2",
+            "r3": "3"
+          },
+          "lane": "envelope_internal",
+          "offset": 5540,
+          "rel_position": -746
+        },
+        {
+          "cluster_role": "isolated_external",
+          "digit_by_rep": {
+            "r1": "1",
+            "r2": "2",
+            "r3": "3"
+          },
+          "lane": "envelope_external",
+          "offset": 6604,
+          "rel_position": 318
+        }
+      ]
+    },
+    "n_positions": 6,
+    "rule": "V3 = 孤立位（信封内 2 + 信封外 1，共 6 处）单数字字节值逐 rep 登记，不判语义；非单数字结构即 fail-closed"
+  },
+  "value_publication_boundary": "值发布边界声明：本包读取 W1 提取文本与同 run 轨迹消息时间戳字段；发布仅限——漂移 token 的 5 字节值（4 数字+1 分隔）、分隔字节值、孤立位单数字字节值、消息时间戳的 HH:MM（分钟精度墙钟，秒/毫秒与日期不发布）、字段名与换算规则；字母序列/多字节序列/信封或任务正文任何切片零发布；结果不含私有档案绝对路径。"
+}
