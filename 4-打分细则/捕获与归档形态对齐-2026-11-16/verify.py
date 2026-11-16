@@ -204,19 +204,20 @@ def document(obj):
     return (json.dumps(obj, ensure_ascii=False, sort_keys=True, indent=2) + '\n').encode()
 
 
-def exclusive(path, raw):
+def exclusive(path, raw, forbidden_roots=()):
     path = Path(path)
     require(not path.exists(), 'output exists: %s' % path)
-    parent = path.resolve().parent
-    resolved = parent.resolve()
-    repo = HERE.parents[1]
-    require(repo == resolved or repo in resolved.parents, 'output outside repository roots denied')
+    resolved = path.resolve()
+    for root in forbidden_roots:
+        base = Path(root).resolve()
+        require(not (base == resolved or base in resolved.parents),
+                'output inside protected input root denied')
     with path.open('xb') as handle:
         handle.write(raw)
 
 
-def dump(path, value):
-    exclusive(Path(path), document(value))
+def dump(path, value, forbidden_roots=()):
+    exclusive(Path(path), document(value), forbidden_roots)
 
 
 def safe_join(root, relative):
@@ -238,7 +239,7 @@ def main(argv=None):
         if args.build_evidence:
             evidence, result = build(root)
             evidence['evidence_sha256'] = None
-            dump(args.build_evidence, evidence)
+            dump(args.build_evidence, evidence, forbidden_roots=(root,))
             blob = document(evidence)
             result['evidence_sha256'] = sha(blob)
             dump(args.output, result)

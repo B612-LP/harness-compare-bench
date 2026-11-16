@@ -219,22 +219,22 @@ class PathTests(Common):
         with self.assertRaises(ValueError):
             verify.safe_join(HERE, '../AGENTS.md')
 
+    def test_exclusive_denies_protected_root(self):
+        protected = REPO / 'should-not-be-written.json'
+        with self.assertRaises(ValueError):
+            verify.exclusive(protected, b'y', forbidden_roots=(REPO,))
+        self.assertFalse(protected.exists())
+
+    def test_exclusive_allows_outside_when_unprotected(self):
+        outside = self.tmp / 'replay-out.json'
+        verify.exclusive(outside, b'payload')
+        self.assertEqual(outside.read_bytes(), b'payload')
+
     def test_exclusive_rejects_existing(self):
         target = self.tmp / 'out.json'
         target.write_bytes(b'x')
         with self.assertRaises(ValueError):
             verify.exclusive(target, b'y')
-
-    def test_exclusive_rejects_outside_repo(self):
-        outside = REPO.parent / 'should-not-be-written.json'
-        with self.assertRaises(ValueError):
-            verify.exclusive(outside, b'y')
-        self.assertFalse(outside.exists())
-
-    def test_exclusive_writes_inside_repo(self):
-        target = self.tmp / 'out.json'
-        verify.exclusive(target, b'payload')
-        self.assertEqual(target.read_bytes(), b'payload')
 
 
 class PinTests(Common):
@@ -278,8 +278,14 @@ class RealDataTests(Common):
 
 
 class CliTests(Common):
+    def setUp(self):
+        super().setUp()
+        import shutil
+        self.system_tmp = Path(tempfile.mkdtemp(prefix='align-cli-'))
+        self.addCleanup(shutil.rmtree, self.system_tmp, True)
+
     def test_build_mode_writes_pair_then_refuses_overwrite(self):
-        out = self.tmp
+        out = self.system_tmp
         rc = verify.main(['--root', str(REPO), '--build-evidence', str(out / 'e.json'),
                           '--output', str(out / 'r.json')])
         self.assertEqual(rc, 0)
