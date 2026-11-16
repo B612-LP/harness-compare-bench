@@ -1,0 +1,1264 @@
+{
+ "baseline_commit": "82a18e777b73ee27ceffbec6d94b8a44c268de96",
+ "branch": "B-METADATA-CONFIRMED",
+ "branch_rule": "冻结 §3：V1 ∧ V2(≥14/15 槽) ∧ V4=100% ⇒ B-METADATA-CONFIRMED；部分成立 ⇒ B-MIXED（逐键判定）；否则 ⇒ B-REFUTED；硬等失败 ⇒ exit2（不产出分支结论）",
+ "evidence_grade": "证据等级声明（冻结 README 事后性条款）：三键值语义假设由环 7 键路径定位自然引出（路径名即语义提示，declared_in_prereg=true）；但「create_time 是否≈该 rep rollout 起始时刻（有界差）」「turn_id 是否跨 rep 重排」「payload.id 是否同槽三 rep 全异」为本包首次检验（first_value_test=true），非验证期已见答案的确认。本包为事后值面登记（post-hoc value-plane registration over the frozen r1109 archive），0 新运行、0 新模型调用；值相关不构成因果（构建时刻与记录时刻先后不判）；n=15 槽。",
+ "hard_equality": {
+  "content_text_zero_diff": {
+   "checks_ok": 15,
+   "checks_total": 15,
+   "passed": true,
+   "per_unit": [
+    {
+     "byte_identical_across_reps": true,
+     "case": "bird-ca-schools-15",
+     "k": 0,
+     "role": "developer",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "bird-ca-schools-15",
+     "k": 0,
+     "role": "user",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "bird-ca-schools-15",
+     "k": 1,
+     "role": "user",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "dabstep-payments-10",
+     "k": 0,
+     "role": "developer",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "dabstep-payments-10",
+     "k": 0,
+     "role": "user",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "dabstep-payments-10",
+     "k": 1,
+     "role": "user",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "exercism-py-6",
+     "k": 0,
+     "role": "developer",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "exercism-py-6",
+     "k": 0,
+     "role": "user",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "exercism-py-6",
+     "k": 1,
+     "role": "user",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "lcb-recent-hard-4",
+     "k": 0,
+     "role": "developer",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "lcb-recent-hard-4",
+     "k": 0,
+     "role": "user",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "lcb-recent-hard-4",
+     "k": 1,
+     "role": "user",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "tb-cargo-plan",
+     "k": 0,
+     "role": "developer",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "tb-cargo-plan",
+     "k": 0,
+     "role": "user",
+     "text_items": 1
+    },
+    {
+     "byte_identical_across_reps": true,
+     "case": "tb-cargo-plan",
+     "k": 1,
+     "role": "user",
+     "text_items": 1
+    }
+   ],
+   "rule": "content[].text 跨 rep 同位置逐字节零差异复验（环 7 结论的再确认）；破即 exit2；text 值零提取零发布，仅登记布尔与条数"
+  },
+  "key_paths_vs_ring7": {
+   "checks_ok": 10,
+   "checks_total": 10,
+   "passed": true,
+   "per_unit": [
+    {
+     "case": "bird-ca-schools-15",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "developer"
+    },
+    {
+     "case": "bird-ca-schools-15",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "user"
+    },
+    {
+     "case": "dabstep-payments-10",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "developer"
+    },
+    {
+     "case": "dabstep-payments-10",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "user"
+    },
+    {
+     "case": "exercism-py-6",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "developer"
+    },
+    {
+     "case": "exercism-py-6",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "user"
+    },
+    {
+     "case": "lcb-recent-hard-4",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "developer"
+    },
+    {
+     "case": "lcb-recent-hard-4",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "user"
+    },
+    {
+     "case": "tb-cargo-plan",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "developer"
+    },
+    {
+     "case": "tb-cargo-plan",
+     "observed_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "ok": true,
+     "registered_paths": [
+      "payload.id",
+      "payload.internal_chat_message_metadata_passthrough.create_time",
+      "payload.internal_chat_message_metadata_passthrough.turn_id"
+     ],
+     "role": "user"
+    }
+   ],
+   "rule": "每 (case,role) 单元的重提取值差路径集合必须与环 7 result.json 登记的 paths_metadata ∪ paths_content 逐单元相等；漂移即 exit2"
+  },
+  "trace_bindings_verified": [
+   {
+    "archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r1/agent-session/rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "file": "rollout-2026-11-09T12-57-04-01a1beaa-c3ba-7121-b830-c093640576d9.jsonl",
+    "sha256_verified": "302aadf648f1c33033f13d57c0df157db69c1acff4c05f5af422c7fd2b81e5c2",
+    "slot": "codex__bird-ca-schools-15__r1"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r2/agent-session/rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "file": "rollout-2026-11-09T13-01-02-01a1beae-646a-7de1-a3bd-033f8832cbf1.jsonl",
+    "sha256_verified": "54bacf19266b99ebff0446caaa80b118addc36ad1bb9bac81522f22f28516f84",
+    "slot": "codex__bird-ca-schools-15__r2"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__bird-ca-schools-15__r3/agent-session/rollout-2026-11-09T13-09-35-01a1beb6-392b-79d0-9a49-edf3a02e90fc.jsonl",
+    "file": "rollout-2026-11-09T13-09-35-01a1beb6-392b-79d0-9a49-edf3a02e90fc.jsonl",
+    "sha256_verified": "055436a333a22768972eaba3bc56b7519ae37a39494adb0789abd078e9bb3ec1",
+    "slot": "codex__bird-ca-schools-15__r3"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__dabstep-payments-10__r1/agent-session/rollout-2026-11-09T13-15-08-01a1bebb-4ce6-70a2-b22d-a9b787e85946.jsonl",
+    "file": "rollout-2026-11-09T13-15-08-01a1bebb-4ce6-70a2-b22d-a9b787e85946.jsonl",
+    "sha256_verified": "32d6d09316a5b5c2cb0c0e33e95e372fbe72f79cb97e02dfa11eae2cc3e06fa5",
+    "slot": "codex__dabstep-payments-10__r1"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__dabstep-payments-10__r2/agent-session/rollout-2026-11-09T13-27-41-01a1bec6-c9ba-7813-8188-781d6e4d7396.jsonl",
+    "file": "rollout-2026-11-09T13-27-41-01a1bec6-c9ba-7813-8188-781d6e4d7396.jsonl",
+    "sha256_verified": "e5ee7b2bdd44d0fbedf9ff55d27edd4cdb0db6457ba0335a6331d387b71457a9",
+    "slot": "codex__dabstep-payments-10__r2"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__dabstep-payments-10__r3/agent-session/rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "file": "rollout-2026-11-09T13-33-42-01a1becc-4bf9-79a3-a988-6c97b6ccba16.jsonl",
+    "sha256_verified": "be045ce4457d98ac8934cfcaddfc0a1759ee3ce6cce79139822cac7490b66c2e",
+    "slot": "codex__dabstep-payments-10__r3"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__exercism-py-6__r1/agent-session/rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "file": "rollout-2026-11-09T13-38-41-01a1bed0-dc97-7b41-b228-5d6153a1118c.jsonl",
+    "sha256_verified": "e355baeb2cfcf644a5f9cf6e9017011a78d95e2050a11ce2d37acfc081639cac",
+    "slot": "codex__exercism-py-6__r1"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__exercism-py-6__r2/agent-session/rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+    "file": "rollout-2026-11-09T13-39-10-01a1bed1-4f76-72f1-9b82-6a08a5a4e671.jsonl",
+    "sha256_verified": "a866cd55cc64db6b5ad69436bec7b1c3124d406d42541137bc1077ebd0412796",
+    "slot": "codex__exercism-py-6__r2"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__exercism-py-6__r3/agent-session/rollout-2026-11-09T13-39-33-01a1bed1-a937-7a62-a054-84041d4c6f33.jsonl",
+    "file": "rollout-2026-11-09T13-39-33-01a1bed1-a937-7a62-a054-84041d4c6f33.jsonl",
+    "sha256_verified": "0e64e0c436a0f24a5cd51cbabcf2425b4da559781d298e4447c8bf0db7f12c49",
+    "slot": "codex__exercism-py-6__r3"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r1/agent-session/rollout-2026-11-09T13-40-03-01a1bed2-1c87-7b92-8489-835286b9c4aa.jsonl",
+    "file": "rollout-2026-11-09T13-40-03-01a1bed2-1c87-7b92-8489-835286b9c4aa.jsonl",
+    "sha256_verified": "96e3a8d498b8c36d73cd14db01ac9c5b4fbc1ccf47b705e0af4115342b3a8b94",
+    "slot": "codex__lcb-recent-hard-4__r1"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r2/agent-session/rollout-2026-11-09T13-46-26-01a1bed7-f5ae-7570-9191-bf5bed786d55.jsonl",
+    "file": "rollout-2026-11-09T13-46-26-01a1bed7-f5ae-7570-9191-bf5bed786d55.jsonl",
+    "sha256_verified": "4127b45493bcc49c23c4512fdb8e9c82a073d38fd10a7d9e49f1ace4d39dd6c8",
+    "slot": "codex__lcb-recent-hard-4__r2"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__lcb-recent-hard-4__r3/agent-session/rollout-2026-11-09T13-50-42-01a1bedb-dea8-77b1-8eb6-259c0f165db2.jsonl",
+    "file": "rollout-2026-11-09T13-50-42-01a1bedb-dea8-77b1-8eb6-259c0f165db2.jsonl",
+    "sha256_verified": "b48451020b389f927507b2d7f8ee9afb6c048e8b11461379dcd97b5667588f1d",
+    "slot": "codex__lcb-recent-hard-4__r3"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__tb-cargo-plan__r1/agent-session/rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "file": "rollout-2026-11-09T14-00-18-01a1bee4-a78d-7231-bde6-5cdfbada59b0.jsonl",
+    "sha256_verified": "c3e4fa242b2deb54a9df232a6c366f027469bfe80eeefff26458e4d3ab916941",
+    "slot": "codex__tb-cargo-plan__r1"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__tb-cargo-plan__r2/agent-session/rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+    "file": "rollout-2026-11-09T14-21-11-01a1bef7-c74e-7f22-8e53-b847dd7c3f9d.jsonl",
+    "sha256_verified": "911668a178b9da2b2a77ce276a0452c55073f33de0ffa90e4808109fad8aa092",
+    "slot": "codex__tb-cargo-plan__r2"
+   },
+   {
+    "archive_relative_path": "codex/runs/codex__tb-cargo-plan__r3/agent-session/rollout-2026-11-09T14-29-13-01a1beff-20ac-7783-a4a4-3d69d4e90e2e.jsonl",
+    "file": "rollout-2026-11-09T14-29-13-01a1beff-20ac-7783-a4a4-3d69d4e90e2e.jsonl",
+    "sha256_verified": "17857cbdf68fb736bfd9d85194cf967940389cf6f47d0a281e1e8c5e15fe78b8",
+    "slot": "codex__tb-cargo-plan__r3"
+   }
+  ]
+ },
+ "inputs": {
+  "archive_root_marker": "launch-r1109",
+  "groups": [
+   "bird-ca-schools-15",
+   "dabstep-payments-10",
+   "exercism-py-6",
+   "lcb-recent-hard-4",
+   "tb-cargo-plan"
+  ],
+  "key_paths_under_test": [
+   "payload.id",
+   "payload.internal_chat_message_metadata_passthrough.create_time",
+   "payload.internal_chat_message_metadata_passthrough.turn_id"
+  ],
+  "reps": [
+   1,
+   2,
+   3
+  ],
+  "roles_compared": [
+   "developer",
+   "user"
+  ],
+  "upstream_baseline_commit": "8c5a481ccccf1d0109adf570a1c437db01fc6439",
+  "upstream_branch": "B-CONTENT-DRIFT",
+  "upstream_package": "4-打分细则/Codex输入面残差定位-2026-11-16",
+  "upstream_prereg_sha256": "4773ef6eea26af4bd057cceea03dadb608ae2a2bb0e2f879c490ee415fe05088",
+  "upstream_schema": "codex-input-residual-localization-v1"
+ },
+ "notes": [
+  "单位对齐说明：create_time 以 JSON 数值承载，按量级判定单位（|v|≥1e11 判毫秒并除以 1000，否则判秒）；rollout 首事件 timestamp 为 ISO8601 UTC 字符串，解析为 epoch 秒后与 create_time 对齐比较。两处单位判定依据均逐值登记于 value_matrix。",
+  "V5 说明：稳定槽对取自环 7 result.json 的 diffs[].slot_pairs[] 中 canonical 字节长度相等的槽对（37 对，含 lcb developer r1|r2、bird user 全对、tb user k1 全对等）；这些槽对在槽级字节合计投影下不可区分，但其三键值逐 rep 仍互异 ⇒ 漂移检测以值差为准而非键路径/合计投影；该断言为登记性，不破分支。"
+ ],
+ "per_key_verdict": {
+  "payload.id": {
+   "v4": true
+  },
+  "payload.internal_chat_message_metadata_passthrough.create_time": {
+   "v1": true,
+   "v2": true
+  },
+  "payload.internal_chat_message_metadata_passthrough.turn_id": {
+   "cross_slot_consistent": true,
+   "v3_registered": true
+  }
+ },
+ "preregistration": {
+  "package": "4-打分细则/Codex元数据值语义-2026-11-16",
+  "readme_file": "README.md",
+  "sha256": "824bfc0e4bb48a8fcb3377900e3783beb72b2f6108fab4cad61e9bfe2b5cd9db",
+  "sha256_verified": true
+ },
+ "release_boundary_statement": "发布边界（冻结）：payload.id / internal_chat_message_metadata_passthrough.create_time / .turn_id 的原值、与 rollout 首事件的时间差、turn_id 模式、payload.id 全异布尔为元数据面，可发布；content[].text 与消息正文零提取、零发布、零摘要；私有档案根仅以 launch-r1109 标记指代，不出现真实路径。",
+ "schema": "codex-meta-sem-v1",
+ "v1": {
+  "parseable_values": 45,
+  "pass": true,
+  "registered_formats": {
+   "epoch_seconds": 45
+  },
+  "total_values": 45
+ },
+ "v2": {
+  "bound_seconds": 120.0,
+  "create_time_units": {
+   "epoch_seconds": 45
+  },
+  "first_event_units": {
+   "codex__bird-ca-schools-15__r1": "iso8601_utc",
+   "codex__bird-ca-schools-15__r2": "iso8601_utc",
+   "codex__bird-ca-schools-15__r3": "iso8601_utc",
+   "codex__dabstep-payments-10__r1": "iso8601_utc",
+   "codex__dabstep-payments-10__r2": "iso8601_utc",
+   "codex__dabstep-payments-10__r3": "iso8601_utc",
+   "codex__exercism-py-6__r1": "iso8601_utc",
+   "codex__exercism-py-6__r2": "iso8601_utc",
+   "codex__exercism-py-6__r3": "iso8601_utc",
+   "codex__lcb-recent-hard-4__r1": "iso8601_utc",
+   "codex__lcb-recent-hard-4__r2": "iso8601_utc",
+   "codex__lcb-recent-hard-4__r3": "iso8601_utc",
+   "codex__tb-cargo-plan__r1": "iso8601_utc",
+   "codex__tb-cargo-plan__r2": "iso8601_utc",
+   "codex__tb-cargo-plan__r3": "iso8601_utc"
+  },
+  "min_required": 14,
+  "pass": true,
+  "slots_total": 15,
+  "slots_within_bound": 15,
+  "worst_abs_delta_seconds": 0.087858
+ },
+ "v3": {
+  "across_rep": {
+   "bird-ca-schools-15": {
+    "per_rep_turn_id_sets_disjoint": true,
+    "slot_patterns": [
+     "equal",
+     "equal",
+     "equal"
+    ]
+   },
+   "dabstep-payments-10": {
+    "per_rep_turn_id_sets_disjoint": true,
+    "slot_patterns": [
+     "equal",
+     "equal",
+     "equal"
+    ]
+   },
+   "exercism-py-6": {
+    "per_rep_turn_id_sets_disjoint": true,
+    "slot_patterns": [
+     "equal",
+     "equal",
+     "equal"
+    ]
+   },
+   "lcb-recent-hard-4": {
+    "per_rep_turn_id_sets_disjoint": true,
+    "slot_patterns": [
+     "equal",
+     "equal",
+     "equal"
+    ]
+   },
+   "tb-cargo-plan": {
+    "per_rep_turn_id_sets_disjoint": true,
+    "slot_patterns": [
+     "equal",
+     "equal",
+     "equal"
+    ]
+   }
+  },
+  "cross_slot_consistent": true,
+  "pattern_multiset": {
+   "equal": 15
+  },
+  "per_slot_pattern": {
+   "codex__bird-ca-schools-15__r1": "equal",
+   "codex__bird-ca-schools-15__r2": "equal",
+   "codex__bird-ca-schools-15__r3": "equal",
+   "codex__dabstep-payments-10__r1": "equal",
+   "codex__dabstep-payments-10__r2": "equal",
+   "codex__dabstep-payments-10__r3": "equal",
+   "codex__exercism-py-6__r1": "equal",
+   "codex__exercism-py-6__r2": "equal",
+   "codex__exercism-py-6__r3": "equal",
+   "codex__lcb-recent-hard-4__r1": "equal",
+   "codex__lcb-recent-hard-4__r2": "equal",
+   "codex__lcb-recent-hard-4__r3": "equal",
+   "codex__tb-cargo-plan__r1": "equal",
+   "codex__tb-cargo-plan__r2": "equal",
+   "codex__tb-cargo-plan__r3": "equal"
+  }
+ },
+ "v4": {
+  "all_distinct_groups": 15,
+  "pass": true,
+  "per_group": {
+   "bird-ca-schools-15/developer/k0": true,
+   "bird-ca-schools-15/user/k0": true,
+   "bird-ca-schools-15/user/k1": true,
+   "dabstep-payments-10/developer/k0": true,
+   "dabstep-payments-10/user/k0": true,
+   "dabstep-payments-10/user/k1": true,
+   "exercism-py-6/developer/k0": true,
+   "exercism-py-6/user/k0": true,
+   "exercism-py-6/user/k1": true,
+   "lcb-recent-hard-4/developer/k0": true,
+   "lcb-recent-hard-4/user/k0": true,
+   "lcb-recent-hard-4/user/k1": true,
+   "tb-cargo-plan/developer/k0": true,
+   "tb-cargo-plan/user/k0": true,
+   "tb-cargo-plan/user/k1": true
+  },
+  "rate": 1.0,
+  "total_groups": 15
+ },
+ "v5": {
+  "checks": 111,
+  "pairwise_distinct_checks": 111,
+  "per_pair_keys": [],
+  "registrational_only": true,
+  "stable_pairs": 37,
+  "supported": true
+ },
+ "value_matrix": {
+  "codex__bird-ca-schools-15__r1": {
+   "first_event_epoch_seconds": 1794200224.786,
+   "first_event_timestamp": "2026-11-09T04:57:04.786Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794200224.818275,
+      "create_time_parse": {
+       "epoch_seconds": 1794200224.818275,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1beaa-c432-76b1-a311-5f0ee2a079cd",
+      "role": "developer",
+      "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+      "v2_delta_seconds": 0.032275
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794200224.818528,
+      "create_time_parse": {
+       "epoch_seconds": 1794200224.818528,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1beaa-c432-76b1-a311-5f17d272e0bf",
+      "role": "user",
+      "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+      "v2_delta_seconds": 0.032528
+     },
+     {
+      "create_time": 1794200224.834126,
+      "create_time_parse": {
+       "epoch_seconds": 1794200224.834126,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1beaa-c442-72e1-8b5c-062be66a14f1",
+      "role": "user",
+      "turn_id": "01a1beaa-c406-7182-b6db-d000bd84f45d",
+      "v2_delta_seconds": 0.048126
+     }
+    ]
+   }
+  },
+  "codex__bird-ca-schools-15__r2": {
+   "first_event_epoch_seconds": 1794200462.483,
+   "first_event_timestamp": "2026-11-09T05:01:02.483Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794200462.492532,
+      "create_time_parse": {
+       "epoch_seconds": 1794200462.492532,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1beae-649c-7922-b791-93badf670de2",
+      "role": "developer",
+      "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+      "v2_delta_seconds": 0.009532
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794200462.492535,
+      "create_time_parse": {
+       "epoch_seconds": 1794200462.492535,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1beae-649c-7922-b791-93ceb78220af",
+      "role": "user",
+      "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+      "v2_delta_seconds": 0.009535
+     },
+     {
+      "create_time": 1794200462.496659,
+      "create_time_parse": {
+       "epoch_seconds": 1794200462.496659,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1beae-64a0-7743-aa3d-b486455d5b2c",
+      "role": "user",
+      "turn_id": "01a1beae-6490-7b51-b2fd-09e7735f1ce1",
+      "v2_delta_seconds": 0.013659
+     }
+    ]
+   }
+  },
+  "codex__bird-ca-schools-15__r3": {
+   "first_event_epoch_seconds": 1794200975.73,
+   "first_event_timestamp": "2026-11-09T05:09:35.730Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794200975.739181,
+      "create_time_parse": {
+       "epoch_seconds": 1794200975.739181,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1beb6-397b-76c3-a347-857c9024bded",
+      "role": "developer",
+      "turn_id": "01a1beb6-396d-73c0-8b6d-c42544c5b83d",
+      "v2_delta_seconds": 0.009181
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794200975.739184,
+      "create_time_parse": {
+       "epoch_seconds": 1794200975.739184,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1beb6-397b-76c3-a347-858114c6820d",
+      "role": "user",
+      "turn_id": "01a1beb6-396d-73c0-8b6d-c42544c5b83d",
+      "v2_delta_seconds": 0.009184
+     },
+     {
+      "create_time": 1794200975.744325,
+      "create_time_parse": {
+       "epoch_seconds": 1794200975.744325,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1beb6-3980-71f2-a926-feb2383ad7be",
+      "role": "user",
+      "turn_id": "01a1beb6-396d-73c0-8b6d-c42544c5b83d",
+      "v2_delta_seconds": 0.014325
+     }
+    ]
+   }
+  },
+  "codex__dabstep-payments-10__r1": {
+   "first_event_epoch_seconds": 1794201308.452,
+   "first_event_timestamp": "2026-11-09T05:15:08.452Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794201308.464195,
+      "create_time_parse": {
+       "epoch_seconds": 1794201308.464195,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bebb-4d30-70f3-8cce-ec50886b094a",
+      "role": "developer",
+      "turn_id": "01a1bebb-4d1f-7593-b991-7104df611ccb",
+      "v2_delta_seconds": 0.012195
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794201308.464198,
+      "create_time_parse": {
+       "epoch_seconds": 1794201308.464198,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bebb-4d30-70f3-8cce-ec679c12f76c",
+      "role": "user",
+      "turn_id": "01a1bebb-4d1f-7593-b991-7104df611ccb",
+      "v2_delta_seconds": 0.012198
+     },
+     {
+      "create_time": 1794201308.470059,
+      "create_time_parse": {
+       "epoch_seconds": 1794201308.470059,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bebb-4d36-7393-a656-ec10ea9485e4",
+      "role": "user",
+      "turn_id": "01a1bebb-4d1f-7593-b991-7104df611ccb",
+      "v2_delta_seconds": 0.018059
+     }
+    ]
+   }
+  },
+  "codex__dabstep-payments-10__r2": {
+   "first_event_epoch_seconds": 1794202061.316,
+   "first_event_timestamp": "2026-11-09T05:27:41.316Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794202061.332422,
+      "create_time_parse": {
+       "epoch_seconds": 1794202061.332422,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bec6-ca14-7820-90f0-ac51671f7fb4",
+      "role": "developer",
+      "turn_id": "01a1bec6-c9ff-77f0-b9b4-9789b9e3552b",
+      "v2_delta_seconds": 0.016422
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794202061.332425,
+      "create_time_parse": {
+       "epoch_seconds": 1794202061.332425,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bec6-ca14-7820-90f0-ac6fb47915af",
+      "role": "user",
+      "turn_id": "01a1bec6-c9ff-77f0-b9b4-9789b9e3552b",
+      "v2_delta_seconds": 0.016425
+     },
+     {
+      "create_time": 1794202061.339442,
+      "create_time_parse": {
+       "epoch_seconds": 1794202061.339442,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bec6-ca1b-7f62-ad51-d1e9265c4cda",
+      "role": "user",
+      "turn_id": "01a1bec6-c9ff-77f0-b9b4-9789b9e3552b",
+      "v2_delta_seconds": 0.023442
+     }
+    ]
+   }
+  },
+  "codex__dabstep-payments-10__r3": {
+   "first_event_epoch_seconds": 1794202422.327,
+   "first_event_timestamp": "2026-11-09T05:33:42.327Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794202422.347969,
+      "create_time_parse": {
+       "epoch_seconds": 1794202422.347969,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1becc-4c4b-7a01-a120-3acdb87085bb",
+      "role": "developer",
+      "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+      "v2_delta_seconds": 0.020969
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794202422.347972,
+      "create_time_parse": {
+       "epoch_seconds": 1794202422.347972,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1becc-4c4b-7a01-a120-3ada3c4e5585",
+      "role": "user",
+      "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+      "v2_delta_seconds": 0.020972
+     },
+     {
+      "create_time": 1794202422.35393,
+      "create_time_parse": {
+       "epoch_seconds": 1794202422.35393,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1becc-4c51-7383-a284-f8f05c9469d3",
+      "role": "user",
+      "turn_id": "01a1becc-4c33-71d2-a7c4-0a450f30c833",
+      "v2_delta_seconds": 0.02693
+     }
+    ]
+   }
+  },
+  "codex__exercism-py-6__r1": {
+   "first_event_epoch_seconds": 1794202721.481,
+   "first_event_timestamp": "2026-11-09T05:38:41.481Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794202721.499372,
+      "create_time_parse": {
+       "epoch_seconds": 1794202721.499372,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed0-dcdb-7401-a051-ece454419401",
+      "role": "developer",
+      "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+      "v2_delta_seconds": 0.018372
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794202721.499374,
+      "create_time_parse": {
+       "epoch_seconds": 1794202721.499374,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed0-dcdb-7401-a051-ecfbcec6339e",
+      "role": "user",
+      "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+      "v2_delta_seconds": 0.018374
+     },
+     {
+      "create_time": 1794202721.503183,
+      "create_time_parse": {
+       "epoch_seconds": 1794202721.503183,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bed0-dcdf-7d71-9f07-6183eddc085e",
+      "role": "user",
+      "turn_id": "01a1bed0-dcc6-73e0-9198-7557813ee501",
+      "v2_delta_seconds": 0.022183
+     }
+    ]
+   }
+  },
+  "codex__exercism-py-6__r2": {
+   "first_event_epoch_seconds": 1794202750.869,
+   "first_event_timestamp": "2026-11-09T05:39:10.869Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794202750.872926,
+      "create_time_parse": {
+       "epoch_seconds": 1794202750.872926,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed1-4f98-7ff1-a779-f37a77e0e402",
+      "role": "developer",
+      "turn_id": "01a1bed1-4f94-7573-a821-a7b43e417394",
+      "v2_delta_seconds": 0.003926
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794202750.872928,
+      "create_time_parse": {
+       "epoch_seconds": 1794202750.872928,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed1-4f98-7ff1-a779-f3818b35c905",
+      "role": "user",
+      "turn_id": "01a1bed1-4f94-7573-a821-a7b43e417394",
+      "v2_delta_seconds": 0.003928
+     },
+     {
+      "create_time": 1794202750.87455,
+      "create_time_parse": {
+       "epoch_seconds": 1794202750.87455,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bed1-4f9a-7720-babd-a299cf114f57",
+      "role": "user",
+      "turn_id": "01a1bed1-4f94-7573-a821-a7b43e417394",
+      "v2_delta_seconds": 0.00555
+     }
+    ]
+   }
+  },
+  "codex__exercism-py-6__r3": {
+   "first_event_epoch_seconds": 1794202773.844,
+   "first_event_timestamp": "2026-11-09T05:39:33.844Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794202773.848356,
+      "create_time_parse": {
+       "epoch_seconds": 1794202773.848356,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed1-a958-7402-97af-7d7aec3a362c",
+      "role": "developer",
+      "turn_id": "01a1bed1-a953-7d02-b1d5-b4403d3eae05",
+      "v2_delta_seconds": 0.004356
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794202773.848358,
+      "create_time_parse": {
+       "epoch_seconds": 1794202773.848358,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed1-a958-7402-97af-7d8796f6b348",
+      "role": "user",
+      "turn_id": "01a1bed1-a953-7d02-b1d5-b4403d3eae05",
+      "v2_delta_seconds": 0.004358
+     },
+     {
+      "create_time": 1794202773.849974,
+      "create_time_parse": {
+       "epoch_seconds": 1794202773.849974,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bed1-a959-72b1-acd0-a5074fde731e",
+      "role": "user",
+      "turn_id": "01a1bed1-a953-7d02-b1d5-b4403d3eae05",
+      "v2_delta_seconds": 0.005974
+     }
+    ]
+   }
+  },
+  "codex__lcb-recent-hard-4__r1": {
+   "first_event_epoch_seconds": 1794202803.366,
+   "first_event_timestamp": "2026-11-09T05:40:03.366Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794202803.369901,
+      "create_time_parse": {
+       "epoch_seconds": 1794202803.369901,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed2-1ca9-73f2-bbe3-fe3644c76759",
+      "role": "developer",
+      "turn_id": "01a1bed2-1ca4-70c0-82ed-ec0fac459a37",
+      "v2_delta_seconds": 0.003901
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794202803.369902,
+      "create_time_parse": {
+       "epoch_seconds": 1794202803.369902,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed2-1ca9-73f2-bbe3-fe400d04f385",
+      "role": "user",
+      "turn_id": "01a1bed2-1ca4-70c0-82ed-ec0fac459a37",
+      "v2_delta_seconds": 0.003902
+     },
+     {
+      "create_time": 1794202803.371522,
+      "create_time_parse": {
+       "epoch_seconds": 1794202803.371522,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bed2-1cab-7802-8db3-efa2be50cb10",
+      "role": "user",
+      "turn_id": "01a1bed2-1ca4-70c0-82ed-ec0fac459a37",
+      "v2_delta_seconds": 0.005522
+     }
+    ]
+   }
+  },
+  "codex__lcb-recent-hard-4__r2": {
+   "first_event_epoch_seconds": 1794203186.636,
+   "first_event_timestamp": "2026-11-09T05:46:26.636Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794203186.640911,
+      "create_time_parse": {
+       "epoch_seconds": 1794203186.640911,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed7-f5d0-7263-b2d1-bce85cb914c7",
+      "role": "developer",
+      "turn_id": "01a1bed7-f5ca-7da2-ad4e-83cba3c3c2ed",
+      "v2_delta_seconds": 0.004911
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794203186.640913,
+      "create_time_parse": {
+       "epoch_seconds": 1794203186.640913,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bed7-f5d0-7263-b2d1-bcf529540c79",
+      "role": "user",
+      "turn_id": "01a1bed7-f5ca-7da2-ad4e-83cba3c3c2ed",
+      "v2_delta_seconds": 0.004913
+     },
+     {
+      "create_time": 1794203186.642486,
+      "create_time_parse": {
+       "epoch_seconds": 1794203186.642486,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bed7-f5d2-7c90-a6a4-daeeb5163ae1",
+      "role": "user",
+      "turn_id": "01a1bed7-f5ca-7da2-ad4e-83cba3c3c2ed",
+      "v2_delta_seconds": 0.006486
+     }
+    ]
+   }
+  },
+  "codex__lcb-recent-hard-4__r3": {
+   "first_event_epoch_seconds": 1794203442.951,
+   "first_event_timestamp": "2026-11-09T05:50:42.951Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794203442.99166,
+      "create_time_parse": {
+       "epoch_seconds": 1794203442.99166,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bedb-df2f-7092-89ea-645f67480f6a",
+      "role": "developer",
+      "turn_id": "01a1bedb-defe-7d33-9372-abafda32b250",
+      "v2_delta_seconds": 0.04066
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794203442.991821,
+      "create_time_parse": {
+       "epoch_seconds": 1794203442.991821,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bedb-df2f-7092-89ea-6461913726a4",
+      "role": "user",
+      "turn_id": "01a1bedb-defe-7d33-9372-abafda32b250",
+      "v2_delta_seconds": 0.040821
+     },
+     {
+      "create_time": 1794203443.000244,
+      "create_time_parse": {
+       "epoch_seconds": 1794203443.000244,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bedb-df38-7b82-999e-8f935f1e383e",
+      "role": "user",
+      "turn_id": "01a1bedb-defe-7d33-9372-abafda32b250",
+      "v2_delta_seconds": 0.049244
+     }
+    ]
+   }
+  },
+  "codex__tb-cargo-plan__r1": {
+   "first_event_epoch_seconds": 1794204018.732,
+   "first_event_timestamp": "2026-11-09T06:00:18.732Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794204018.808154,
+      "create_time_parse": {
+       "epoch_seconds": 1794204018.808154,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bee4-a878-7cf0-99f9-c5216d9f3927",
+      "role": "developer",
+      "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+      "v2_delta_seconds": 0.076154
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794204018.808424,
+      "create_time_parse": {
+       "epoch_seconds": 1794204018.808424,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bee4-a878-7cf0-99f9-c53c1b09a7cf",
+      "role": "user",
+      "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+      "v2_delta_seconds": 0.076424
+     },
+     {
+      "create_time": 1794204018.819858,
+      "create_time_parse": {
+       "epoch_seconds": 1794204018.819858,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bee4-a883-7103-a4cc-6d221376ee6c",
+      "role": "user",
+      "turn_id": "01a1bee4-a81d-7430-89d4-09fcb6fde0a8",
+      "v2_delta_seconds": 0.087858
+     }
+    ]
+   }
+  },
+  "codex__tb-cargo-plan__r2": {
+   "first_event_epoch_seconds": 1794205271.947,
+   "first_event_timestamp": "2026-11-09T06:21:11.947Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794205271.982447,
+      "create_time_parse": {
+       "epoch_seconds": 1794205271.982447,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bef7-c7ae-7fd1-825b-313bb2e6942d",
+      "role": "developer",
+      "turn_id": "01a1bef7-c787-74b2-8db5-da92ed9a1491",
+      "v2_delta_seconds": 0.035447
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794205271.98245,
+      "create_time_parse": {
+       "epoch_seconds": 1794205271.98245,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1bef7-c7ae-7fd1-825b-3147449dcaa8",
+      "role": "user",
+      "turn_id": "01a1bef7-c787-74b2-8db5-da92ed9a1491",
+      "v2_delta_seconds": 0.03545
+     },
+     {
+      "create_time": 1794205271.988195,
+      "create_time_parse": {
+       "epoch_seconds": 1794205271.988195,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1bef7-c7b4-7cb0-93ec-3ba62b13883b",
+      "role": "user",
+      "turn_id": "01a1bef7-c787-74b2-8db5-da92ed9a1491",
+      "v2_delta_seconds": 0.041195
+     }
+    ]
+   }
+  },
+  "codex__tb-cargo-plan__r3": {
+   "first_event_epoch_seconds": 1794205753.602,
+   "first_event_timestamp": "2026-11-09T06:29:13.602Z",
+   "first_event_unit": "iso8601_utc",
+   "messages": {
+    "developer": [
+     {
+      "create_time": 1794205753.660798,
+      "create_time_parse": {
+       "epoch_seconds": 1794205753.660798,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1beff-213c-7a10-89f2-5b0fb6bfb31c",
+      "role": "developer",
+      "turn_id": "01a1beff-20fa-7720-9b89-21ba9d5657f6",
+      "v2_delta_seconds": 0.058798
+     }
+    ],
+    "user": [
+     {
+      "create_time": 1794205753.660802,
+      "create_time_parse": {
+       "epoch_seconds": 1794205753.660802,
+       "unit": "epoch_seconds"
+      },
+      "k": 0,
+      "payload_id": "msg_01a1beff-213c-7a10-89f2-5b1f37fd0581",
+      "role": "user",
+      "turn_id": "01a1beff-20fa-7720-9b89-21ba9d5657f6",
+      "v2_delta_seconds": 0.058802
+     },
+     {
+      "create_time": 1794205753.679742,
+      "create_time_parse": {
+       "epoch_seconds": 1794205753.679742,
+       "unit": "epoch_seconds"
+      },
+      "k": 1,
+      "payload_id": "msg_01a1beff-214f-7770-89f1-2dcdca6ac4ab",
+      "role": "user",
+      "turn_id": "01a1beff-20fa-7720-9b89-21ba9d5657f6",
+      "v2_delta_seconds": 0.077742
+     }
+    ]
+   }
+  }
+ }
+}
