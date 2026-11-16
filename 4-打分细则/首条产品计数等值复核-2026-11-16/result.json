@@ -1,0 +1,539 @@
+{
+  "analysis_identity": "post-exploration fixed replay; prior all-group results exposed; not a new trial or provider attestation",
+  "baseline_commit": "50c073c084006c0bfd5f8b79db3bc495e842847b",
+  "coverage": {
+    "cli_final_matches": 15,
+    "cli_total_tokens_availability": "NOT_PROVIDED",
+    "groups": 5,
+    "meta_extra_rows_not_trials": 296,
+    "meta_known_other_slot_prefix": 11,
+    "meta_listed_rows": 702,
+    "meta_own_slot_only": 4,
+    "meta_unknown_prefix": 0,
+    "mirror_duplicate_views": 406,
+    "native_usage_records": 406,
+    "public_dependencies_pinned": 69,
+    "r3_payload_bytes": 4325070,
+    "r3_response_items": 1578,
+    "slots": 15
+  },
+  "endpoints": {
+    "first_cached": {
+      "eligible_groups": 5,
+      "equal_groups": 0,
+      "fixed_groups": 5,
+      "not_equal_groups": 5,
+      "unknown_groups": 0
+    },
+    "first_input": {
+      "eligible_groups": 5,
+      "equal_groups": 5,
+      "fixed_groups": 5,
+      "not_equal_groups": 0,
+      "unknown_groups": 0
+    },
+    "first_reasoning": {
+      "eligible_groups": 5,
+      "equal_groups": 0,
+      "fixed_groups": 5,
+      "not_equal_groups": 5,
+      "unknown_groups": 0
+    }
+  },
+  "evidence_sha256": "e59f2538e565722680cb41c832a990e85b9d25e545b6703fb473d53452ba5357",
+  "field_states": {
+    "cache_write_input_tokens": {
+      "explicit_zero": 406,
+      "missing": 0,
+      "null": 0,
+      "present_nonzero": 0
+    },
+    "cached_input_tokens": {
+      "explicit_zero": 0,
+      "missing": 0,
+      "null": 0,
+      "present_nonzero": 406
+    },
+    "input_tokens": {
+      "explicit_zero": 0,
+      "missing": 0,
+      "null": 0,
+      "present_nonzero": 406
+    },
+    "output_tokens": {
+      "explicit_zero": 0,
+      "missing": 0,
+      "null": 0,
+      "present_nonzero": 406
+    },
+    "reasoning_output_tokens": {
+      "explicit_zero": 0,
+      "missing": 0,
+      "null": 0,
+      "present_nonzero": 406
+    },
+    "total_tokens": {
+      "explicit_zero": 0,
+      "missing": 0,
+      "null": 0,
+      "present_nonzero": 406
+    }
+  },
+  "groups": [
+    {
+      "case": "bird-ca-schools-15",
+      "first_cached": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          3584,
+          9344,
+          9344
+        ]
+      },
+      "first_input": {
+        "equal": true,
+        "status": "EQUAL",
+        "values": [
+          9567,
+          9567,
+          9567
+        ]
+      },
+      "first_reasoning": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          9,
+          8,
+          46
+        ]
+      }
+    },
+    {
+      "case": "dabstep-payments-10",
+      "first_cached": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          7808,
+          9088,
+          9088
+        ]
+      },
+      "first_input": {
+        "equal": true,
+        "status": "EQUAL",
+        "values": [
+          9319,
+          9319,
+          9319
+        ]
+      },
+      "first_reasoning": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          15,
+          31,
+          42
+        ]
+      }
+    },
+    {
+      "case": "exercism-py-6",
+      "first_cached": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          7808,
+          8704,
+          8704
+        ]
+      },
+      "first_input": {
+        "equal": true,
+        "status": "EQUAL",
+        "values": [
+          8923,
+          8923,
+          8923
+        ]
+      },
+      "first_reasoning": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          53,
+          97,
+          68
+        ]
+      }
+    },
+    {
+      "case": "lcb-recent-hard-4",
+      "first_cached": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          7808,
+          8832,
+          8832
+        ]
+      },
+      "first_input": {
+        "equal": true,
+        "status": "EQUAL",
+        "values": [
+          9033,
+          9033,
+          9033
+        ]
+      },
+      "first_reasoning": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          40,
+          9,
+          51
+        ]
+      }
+    },
+    {
+      "case": "tb-cargo-plan",
+      "first_cached": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          7808,
+          8576,
+          8576
+        ]
+      },
+      "first_input": {
+        "equal": true,
+        "status": "EQUAL",
+        "values": [
+          8809,
+          8809,
+          8809
+        ]
+      },
+      "first_reasoning": {
+        "equal": false,
+        "status": "NOT_EQUAL",
+        "values": [
+          13,
+          30,
+          24
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Product counters and duplicated local views do not authenticate provider usage, estimation method, HTTP attempts or actual thinking/cache.",
+    "Equal first input counts do not imply equal bytes, text or backend context.",
+    "Meta aggregate includes all listed rows; known extra prefixes are not additional trials; original metadata is unchanged.",
+    "No causal warming/Harness/model/cost claim; R3 payload bytes, reported counts and unknown request bytes remain separate.",
+    "Missing/null/invalid identity/cumulative/terminal is hard failure or UNKNOWN, never a zero unequal-group result.",
+    "Public replay checks sealed projection arithmetic; archive rebuild checks actual source relations; neither authenticates historical originals."
+  ],
+  "protocol_sha256": "d86cf15e8196dbe98fa3e4dfec880b743677a7bee01b60e09591c5960a2feaef",
+  "schema": "first-product-usage-result-v1",
+  "slot_accounting": [
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [],
+      "meta_scope": "NONE",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 1131648,
+        "input_tokens": 1165441,
+        "output_tokens": 35034,
+        "reasoning_output_tokens": 23118,
+        "total_tokens": 1200475
+      },
+      "r3_payload_bytes": 225170,
+      "slot": "codex__bird-ca-schools-15__r1"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__bird-ca-schools-15__r1"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 2291200,
+        "input_tokens": 2319888,
+        "output_tokens": 70142,
+        "reasoning_output_tokens": 57081,
+        "total_tokens": 2390030
+      },
+      "r3_payload_bytes": 379471,
+      "slot": "codex__bird-ca-schools-15__r2"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__bird-ca-schools-15__r2"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 885248,
+        "input_tokens": 911572,
+        "output_tokens": 46092,
+        "reasoning_output_tokens": 31555,
+        "total_tokens": 957664
+      },
+      "r3_payload_bytes": 268786,
+      "slot": "codex__bird-ca-schools-15__r3"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__bird-ca-schools-15__r3"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 4605952,
+        "input_tokens": 4663184,
+        "output_tokens": 103912,
+        "reasoning_output_tokens": 68547,
+        "total_tokens": 4767096
+      },
+      "r3_payload_bytes": 583317,
+      "slot": "codex__dabstep-payments-10__r1"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__dabstep-payments-10__r1"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 1450496,
+        "input_tokens": 1494767,
+        "output_tokens": 50761,
+        "reasoning_output_tokens": 27601,
+        "total_tokens": 1545528
+      },
+      "r3_payload_bytes": 334724,
+      "slot": "codex__dabstep-payments-10__r2"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__dabstep-payments-10__r2"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 1145856,
+        "input_tokens": 1179934,
+        "output_tokens": 42534,
+        "reasoning_output_tokens": 26551,
+        "total_tokens": 1222468
+      },
+      "r3_payload_bytes": 286469,
+      "slot": "codex__dabstep-payments-10__r3"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__dabstep-payments-10__r3"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 89600,
+        "input_tokens": 108611,
+        "output_tokens": 4886,
+        "reasoning_output_tokens": 852,
+        "total_tokens": 113497
+      },
+      "r3_payload_bytes": 91495,
+      "slot": "codex__exercism-py-6__r1"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__exercism-py-6__r1"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 74112,
+        "input_tokens": 83603,
+        "output_tokens": 3363,
+        "reasoning_output_tokens": 846,
+        "total_tokens": 86966
+      },
+      "r3_payload_bytes": 60064,
+      "slot": "codex__exercism-py-6__r2"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__exercism-py-6__r2"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 76032,
+        "input_tokens": 89720,
+        "output_tokens": 4116,
+        "reasoning_output_tokens": 1297,
+        "total_tokens": 93836
+      },
+      "r3_payload_bytes": 80553,
+      "slot": "codex__exercism-py-6__r3"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__exercism-py-6__r3"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 639104,
+        "input_tokens": 651063,
+        "output_tokens": 25733,
+        "reasoning_output_tokens": 13111,
+        "total_tokens": 676796
+      },
+      "r3_payload_bytes": 131074,
+      "slot": "codex__lcb-recent-hard-4__r1"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [],
+      "meta_scope": "NONE",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 617472,
+        "input_tokens": 630726,
+        "output_tokens": 28876,
+        "reasoning_output_tokens": 18806,
+        "total_tokens": 659602
+      },
+      "r3_payload_bytes": 156316,
+      "slot": "codex__lcb-recent-hard-4__r2"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [],
+      "meta_scope": "NONE",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 2550400,
+        "input_tokens": 2566154,
+        "output_tokens": 70653,
+        "reasoning_output_tokens": 45888,
+        "total_tokens": 2636807
+      },
+      "r3_payload_bytes": 296612,
+      "slot": "codex__lcb-recent-hard-4__r3"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [],
+      "meta_scope": "NONE",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 8533504,
+        "input_tokens": 8582575,
+        "output_tokens": 170666,
+        "reasoning_output_tokens": 119806,
+        "total_tokens": 8753241
+      },
+      "r3_payload_bytes": 789813,
+      "slot": "codex__tb-cargo-plan__r1"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__tb-cargo-plan__r1"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 1108224,
+        "input_tokens": 1133754,
+        "output_tokens": 55895,
+        "reasoning_output_tokens": 47799,
+        "total_tokens": 1189649
+      },
+      "r3_payload_bytes": 323290,
+      "slot": "codex__tb-cargo-plan__r2"
+    },
+    {
+      "actual_request_bytes": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "meta_prefix_matches_slots": [
+        "codex__tb-cargo-plan__r2"
+      ],
+      "meta_scope": "KNOWN_SLOT_PREFIX",
+      "product_reported_terminal": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 1245440,
+        "input_tokens": 1274780,
+        "output_tokens": 56702,
+        "reasoning_output_tokens": 43726,
+        "total_tokens": 1331482
+      },
+      "r3_payload_bytes": 317916,
+      "slot": "codex__tb-cargo-plan__r3"
+    }
+  ],
+  "sources_sha256": "09efcb05cd8fa8ba9fc7c3880f44c7f348ac0c9f06668b5f57bae39b178b6c72"
+}
