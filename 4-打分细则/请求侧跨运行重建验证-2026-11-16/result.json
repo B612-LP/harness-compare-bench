@@ -1,0 +1,55 @@
+{
+ "schema": "req-side-rebuild-result-v1",
+ "evidence_sha256": "6cd2101ef6277dfa0b47dd045f8677536e921e18ebf998f0e94da330718e49c5",
+ "readme_sha256": "a6206a2a122d2acb825bf7e30142e1b5a01d0ea6a04fc33bce9ea7e9859d3aff",
+ "baseline": "6eec2ace862a41f03d2b0bfebfd387a48e08d0cd",
+ "primary_verdict": "identity_assembly_stable",
+ "req1": {
+  "equal": true,
+  "sha256": "92220699f215bbdfe0faa392587b8fc43ad6793f10da6baf8b7541518120ac10"
+ },
+ "req2": {
+  "equal": true,
+  "sha256": "9f2b6b3e9b76dde704dd763efc1e60992ec2c798c987ae577c784ddd63e34e76"
+ },
+ "req3": {
+  "equal": false,
+  "sha256_run1": "19e98d96ebfb3ade2dac6315b2f61f8fe45d50dcc9dca9fb8c888213cf06b8b4",
+  "sha256_run2": "e14ff634dc415fc31ec9bdb387afdb4e2139bfd3ed475c895af84256b777bf67",
+  "diff_leaf_count": 4,
+  "diff_class": "provider_call_id_only"
+ },
+ "run2_prefix_identity": true,
+ "appended_descriptors": [
+  [
+   "assistant",
+   "none",
+   0
+  ],
+  [
+   "tool",
+   "str",
+   227
+  ],
+  [
+   "tool",
+   "str",
+   203
+  ]
+ ],
+ "append_byte_delta": {
+  "run1": 1016,
+  "run2": 1016
+ },
+ "run2_statuses": [
+  200,
+  200,
+  200
+ ],
+ "limits": [
+  "n=1 run pair; same task/workspace/profile-chain/model only; no generalization",
+  "bytes not tokens; response bodies are model outputs and out of scope",
+  "public evidence carries SHA pins and structure only, not request bodies",
+  "byte identity of req1/req2 recorded as equal-SHA fact; bodies stay private"
+ ]
+}
