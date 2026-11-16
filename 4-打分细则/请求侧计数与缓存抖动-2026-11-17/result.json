@@ -1,0 +1,49 @@
+{
+ "byte_per_prompt_token": {
+  "ds_req1": 4.17,
+  "glm_req1": 4.34,
+  "glm_req3": 4.36
+ },
+ "cached_varies_runs": {
+  "ds_req1": [
+   0,
+   7936
+  ],
+  "ds_req2": [
+   0
+  ],
+  "ds_req3": [
+   8192
+  ],
+  "glm_req1": [
+   0,
+   7616
+  ],
+  "glm_req2": [
+   0,
+   128
+  ],
+  "glm_req3": [
+   7616,
+   7808
+  ]
+ },
+ "endpoints": {
+  "e1_prompt_tokens_stable": "24/24",
+  "e2_cached_tokens_volatile": true,
+  "e3_ratio_descriptive_only": true,
+  "e4_dialect_split": {
+   "ds": "hit/miss + cached mirror",
+   "glm": "cached_tokens"
+  },
+  "e5_completion_not_scored": true
+ },
+ "evidence_sha256": "d32962b1a265bcdefa31e6255f8db1cace75ec87bc6197efe6bc22cad93e1d2b",
+ "limits": [
+  "n=1 task x 2 providers; product-reported counters only; raw response bodies stay private (response_body_sha256 bound); cache semantics defined by the provider; no cost conversion",
+  "prompt_tokens stable under byte-identical requests (24/24); cached_tokens volatile across runs for the same bytes; completion tokens vary on the response side and are not scored",
+  "public replay re-checks evidence-internal arithmetic and shape pins only; it cannot certify private archive authenticity"
+ ],
+ "schema": "capture-usage-volatility-evidence-v1-result-v1",
+ "verdict": "usage_stable_cache_volatile"
+}
