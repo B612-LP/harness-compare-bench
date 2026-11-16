@@ -1,0 +1,24 @@
+{
+ "schema": "sysprompt-tools-crossbuild-alignment-evidence-v1-result-v1",
+ "evidence_sha256": "fb27b261214cb90049c4daf697277d4c1ef1a21ad7acf60b17cf3cc4bad3d010",
+ "verdict": {
+  "archive_template": "single_template_with_workspace_path_slot",
+  "capture_vs_archive": "cross_build_drift_localized_to_six_hunks",
+  "tools": "set_drift_2_removed_3_added_7_of_19_evolved",
+  "alignment_correction": "category_mismatch_confirmed_envelope_vs_raw"
+ },
+ "endpoints": {
+  "p1_archive_groups": 1,
+  "p1_within_task_byte_equal": "15/15",
+  "p2_hunk_count": 6,
+  "p2_net_delta": 323,
+  "p3_common_equal": 12,
+  "p3_common_evolved": 7
+ },
+ "limits": [
+  "evidence/public replay re-check pins and internal arithmetic only; private archive authenticity not certified",
+  "build-boundary attribution: differences localize to DSH build change, not provider/model effects",
+  "n=1 capture run; byte counts are not tokens or cost",
+  "no prose values published; tool names and class words only"
+ ]
+}
