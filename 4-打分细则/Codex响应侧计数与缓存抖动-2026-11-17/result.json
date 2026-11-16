@@ -1,0 +1,121 @@
+{
+ "baseline": "b40ce6e346597846c6b451f7e1296128ae9a3247",
+ "endpoints": {
+  "chain_deltas": [
+   {
+    "delta_input_tokens": 416,
+    "delta_request_bytes": 1534,
+    "from_seq": 1,
+    "run": "r1",
+    "task": "codex-t1",
+    "to_seq": 2
+   },
+   {
+    "delta_input_tokens": 288,
+    "delta_request_bytes": 882,
+    "from_seq": 2,
+    "run": "r1",
+    "task": "codex-t1",
+    "to_seq": 3
+   },
+   {
+    "delta_input_tokens": 608,
+    "delta_request_bytes": 1855,
+    "from_seq": 1,
+    "run": "r2",
+    "task": "codex-t1",
+    "to_seq": 2
+   },
+   {
+    "delta_input_tokens": 377,
+    "delta_request_bytes": 1276,
+    "from_seq": 1,
+    "run": "r1",
+    "task": "codex-t3",
+    "to_seq": 2
+   },
+   {
+    "delta_input_tokens": 337,
+    "delta_request_bytes": 1159,
+    "from_seq": 2,
+    "run": "r1",
+    "task": "codex-t3",
+    "to_seq": 3
+   },
+   {
+    "delta_input_tokens": 851,
+    "delta_request_bytes": 2855,
+    "from_seq": 1,
+    "run": "r2",
+    "task": "codex-t3",
+    "to_seq": 2
+   },
+   {
+    "delta_input_tokens": 494,
+    "delta_request_bytes": 1887,
+    "from_seq": 2,
+    "run": "r2",
+    "task": "codex-t3",
+    "to_seq": 3
+   }
+  ],
+  "e1_input_equal_pairs": 2,
+  "e1_pairs": [
+   {
+    "equal": true,
+    "task": "codex-t1",
+    "values": [
+     8117,
+     8117
+    ]
+   },
+   {
+    "equal": true,
+    "task": "codex-t3",
+    "values": [
+     8078,
+     8078
+    ]
+   }
+  ],
+  "e1_total": 2,
+  "e2_cached_differ_pairs": 2,
+  "e2_pairs": [
+   {
+    "differ": true,
+    "task": "codex-t1",
+    "values": [
+     4608,
+     7936
+    ]
+   },
+   {
+    "differ": true,
+    "task": "codex-t3",
+    "values": [
+     7808,
+     7936
+    ]
+   }
+  ],
+  "e2_total": 2,
+  "first_request_cached_tokens": {
+   "codex-t1/r1": 4608,
+   "codex-t1/r2": 7936,
+   "codex-t3/r1": 7808,
+   "codex-t3/r2": 7936
+  }
+ },
+ "evidence_sha256": "2bddde198863d965fd551b34d07267225095226796bf3796b662b9d3f5b19ce7",
+ "limits": [
+  "product-reported counters only; no billing/kv-reuse/cache-mechanism claim",
+  "codex req1 pairs are equal-length + id-normalized identical, weaker than dsh same-byte pairs",
+  "bytes are not tokens; chain deltas are registered, not modeled",
+  "usage rows bind to published request sha lists; response bodies remain private",
+  "public replay re-checks arithmetic and bindings only; private responses not authenticated",
+  "dual-output writes are sequential, not transactional"
+ ],
+ "rows_count": 11,
+ "schema": "codex-usage-result-v1",
+ "verdict": "usage_stable_cache_volatile_codex_side"
+}
