@@ -1,6 +1,6 @@
 # 一页结论—固定版本—复算—缺口
 
-按[第四周要求](<../../反馈/2026-11-11-第四轮/验收条款-公开版.md>)压缩路由；正式成绩见[整合报告 v1.69](<../竞品评测报告-v1.69.md>)。下列短码均链接确切40位提交，按该代说明复算，不能换成任意HEAD；本页不新增样本或改旧分。
+按[第四周要求](<../../反馈/2026-11-11-第四轮/验收条款-公开版.md>)压缩路由；正式成绩见[整合报告 v1.70](<../竞品评测报告-v1.70.md>)。下列短码均链接确切40位提交，按该代说明复算，不能换成任意HEAD；本页不新增样本或改旧分。
 
 | 结论范围 | 当前可说什么 | 固定提交 | 公开复算入口 | 私档／未识别缺口 |
 |---|---|---|---|---|
@@ -17,5 +17,6 @@
 | 跨日重建复核（首/标题请求跨日恒等） | 按同一预注册协议次日再跑同任务（r6，3/3上游200）：req1跨日与五旧run逐字节恒等（5/5对）、req2同（5/5）；req3与各旧run恰4差异叶全为逐请求call_id、归一后恒等；delta=1016、运行内前缀与追加形状同旧；结局cross_day_stable | 协议[f899d1d](<https://github.com/B612-LP/harness-compare-bench/commit/f899d1d3567dfdf394f96c3498106d0a083e44d7>) | [跨日重建复核README](<https://github.com/B612-LP/harness-compare-bench/blob/f899d1d3567dfdf394f96c3498106d0a083e44d7/4-打分细则/请求侧跨日重建复核-2026-11-17/README.md>)、[公开重放](<https://github.com/B612-LP/harness-compare-bench/blob/f899d1d3567dfdf394f96c3498106d0a083e44d7/4-打分细则/请求侧跨日重建复核-2026-11-17/result.json>) | 事后维度扩展（作者已见五run结果，非盲前预注册）；公开重放只核封印算术，不认证私档真实性；bytes非token；单任务单模型n=6；不认证provider内部 |
 | 跨 provider 请求组装（换模型） | 描述性：换 DeepSeek 官方 API 两 run，req1/req2 跨 run 逐字节恒等，req3 差异恰 4 个逐请求 id（DS 形状 call_NN_〈base62〉）归一恒等；user 消息 1–4 跨 provider 逐字节相同，system/工具面/字段名随模型适配 | [9149051](<https://github.com/B612-LP/harness-compare-bench/commit/9149051d2ea25f85349c6fbe28a427608d385286>) | [执行报告](<../../4-打分细则/请求侧跨模型捕获-2026-11-17/EXECUTION-RECORD.md>)·[公开重放](<../../4-打分细则/请求侧跨模型捕获-2026-11-17/verify.py>) | n=2 run 对、单任务单构建；deepseek-chat≠账号路由；响应体不在终点；私档真实性不经公档认证 |
 | 归档批↔捕获的 system/工具差异（跨版本对齐） | 同层描述：归档 15 槽 system 原文=单模板+workspace 路径槽（2265–2271B，每任务 3 rep 同文、路径归一后 1 模板）；capture 跨 build 差异六块净 +323B 逐块可归因（模型槽 1/模板演进 4/路径行移出 1）；工具 21→22（−2/+3，共同 19 中 12 等值 7 演进）；修正旧对齐包 P2 的信封 canonical vs wire 原文层别错配 | [98bb1fe](<https://github.com/B612-LP/harness-compare-bench/commit/98bb1fe8dde7e63af570c07375a4e5a65ac76751>) | [执行报告](<../../4-打分细则/系统提示与工具集跨版本对齐-2026-11-17/EXECUTION-RECORD.md>)·[公开重放](<../../4-打分细则/系统提示与工具集跨版本对齐-2026-11-17/verify.py>) | 仅 system/工具两层；字节非 token；无新增运行；私档真实性不经公档认证 |
+| 同字节请求的产品计数（缓存抖动） | 复用 8 个已捕获真实 run×3 请求=24 行：prompt_tokens 同字节恒定 24/24（GLM 7620/190/7827×6、DS 8089/188/8361×2），cached_tokens 跨 run 波动（GLM req1 {0,7616}、DS req1 {0,7936} 等），total=prompt+completion 恒等式全过，DS hit/miss 与 cached 镜像；字节/计数比值仅描述（≈4.34/4.17 B/token，含 envelope 不换算成本）；completion 不计分 | [f2393ee](<https://github.com/B612-LP/harness-compare-bench/commit/f2393eeffb59807163e24f4947d44d6d23b48984>) | [执行报告](<../../4-打分细则/请求侧计数与缓存抖动-2026-11-17/EXECUTION-RECORD.md>)·[公开重放](<../../4-打分细则/请求侧计数与缓存抖动-2026-11-17/verify.py>) | 零新运行；product-reported 计数不认证后端语义；响应体不在终点；私档真实性不经公档认证；公开重放只核封印算术 |
 
 公档PASS只说明各包声明的公开字节／投影算术相符，不认证私原或实际模型摄入。其余既有研究、勘误、完整提交与命令保留于[原字节详细索引](<snapshot-v1.58-2026-11-16.md>)，不以本页覆盖历史版本。
