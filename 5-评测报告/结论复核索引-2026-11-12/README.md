@@ -1,6 +1,6 @@
 # 一页结论—固定版本—复算—缺口
 
-按[第四周要求](<../../反馈/2026-11-11-第四轮/验收条款-公开版.md>)压缩路由；正式成绩见[整合报告 v1.77](<../竞品评测报告-v1.77.md>)。下列短码均链接确切40位提交，按该代说明复算，不能换成任意HEAD；本页不新增样本或改旧分。
+按[第四周要求](<../../反馈/2026-11-11-第四轮/验收条款-公开版.md>)压缩路由；正式成绩见[整合报告 v1.78](<../竞品评测报告-v1.78.md>)。下列短码均链接确切40位提交，按该代说明复算，不能换成任意HEAD；本页不新增样本或改旧分。
 
 | 结论范围 | 当前可说什么 | 固定提交 | 公开复算入口 | 私档／未识别缺口 |
 |---|---|---|---|---|
@@ -25,5 +25,6 @@
 | 缺参 bash 调用的源头 | 同次捕获 SSE 已缺 command（85B 参数对象），W/L/H 三层 canonical 恒等、逐值保持——旧「模型首轮误调」升级为「捕获响应已缺参」；单次调用不外推，不认证模型内部/provider | [8b2eb903](<https://github.com/B612-LP/harness-compare-bench/commit/8b2eb903ede5d525f4b660d35dd6c6be58093ccc>) | [响应侧复算](<https://github.com/B612-LP/harness-compare-bench/blob/8b2eb903ede5d525f4b660d35dd6c6be58093ccc/4-打分细则/响应侧工具参数源头-2026-11-17/verify.py>) | SSE 原文/命令文本只在私档；捕获上游真实性不可由哈希认证；L/H 同值不升级为不可见中间模块无变换 |
 | 深链的请求计量稳定吗？ | DSH 深链 t2 两 run（7请求×2，0新运行）：prompt_tokens 7/7 逐位置相等（7597/167/7816/7927/8034/8141/8174），cached_tokens 跨 run 6/7 互异且第二 run 首请求即报命中 7552（跨 run 前缀缓存复用的响应侧见证，product-reported） | [5aa43ff9](<https://github.com/B612-LP/harness-compare-bench/commit/5aa43ff92766be6d8c8280ce0b01278b4843979c>) | [深链复算](<https://github.com/B612-LP/harness-compare-bench/blob/5aa43ff92766be6d8c8280ce0b01278b4843979c/4-打分细则/深链响应侧计数与缓存-2026-11-17/verify.py>) | SSE 响应原文只在私档；product-reported 计数不认证后端缓存/成本；单任务单模型不外推 |
 | 深链错误对驻留的请求侧确认 | r1 003–016 全部14条后续请求恒含错误对两要素（位置5/6、字节全同14/14），r2 整run未现且事件层一致（PRESENT_IN_ONE_RUN；sha锚定、0新运行） | [91b95cae](<https://github.com/B612-LP/harness-compare-bench/commit/91b95cae4c3354af94884d49748dffa78b7dacec>) | [错误对驻留复算](<https://github.com/B612-LP/harness-compare-bench/blob/91b95cae4c3354af94884d49748dffa78b7dacec/4-打分细则/深链错误对请求侧驻留-2026-11-17/verify.py>) | 事件层 zstd 原档与请求捕获原件在私档；公开重放不重建事件层；单任务单模型不外推 |
+| Codex 环境对照（信封+行级） | developer层(17374B+398B)/工具面跨两套HOME逐字节稳定，453B环境层被定位且行级差异恰2行（line6含workspace_roots路径行PATH_LIKE）、5行恒等（env_line_5_2_1_7；DSH system/tools三会话恒等旁证；0新运行） | [b938ec4](<https://github.com/B612-LP/harness-compare-bench/commit/b938ec4a8c1f8a254443a01215b2eea6a4f7ccfa>) | [信封层复算](<https://github.com/B612-LP/harness-compare-bench/blob/b938ec4a8c1f8a254443a01215b2eea6a4f7ccfa/4-打分细则/Codex信封层跨环境对照-2026-11-17/verify.py>) | req1捕获原件在私档；公开档只含逐item/行role与bytes/sha256与标签域；453B未拆字段级以下；单版本单通道不外推 |
 
 公档PASS只说明各包声明的公开字节／投影算术相符，不认证私原或实际模型摄入。其余既有研究、勘误、完整提交与命令保留于[原字节详细索引](<snapshot-v1.58-2026-11-16.md>)，不以本页覆盖历史版本。
