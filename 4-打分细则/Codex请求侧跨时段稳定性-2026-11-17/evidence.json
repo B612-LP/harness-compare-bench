@@ -1,0 +1,87 @@
+{
+ "schema": "codex-timeofday-stability-evidence-v1",
+ "baseline_head": "d88e9d3d0807575110482c26cbaefbebf86813d3",
+ "meta": {
+  "app_version": "codex-cli 0.163.0",
+  "proxy_listen": "127.0.0.1:8800",
+  "upstream": "https://api.deepseek.com:443",
+  "prompt_sha256": "7a7c57c759d2aaccbdab600e4cb4c7b429bb820268a801f97967f82565ecb765",
+  "prompt_bytes": 214,
+  "workspace_files": {
+   "TASK.md": "68599aec2f4a1201c6eb9e46ba92a76d5b68a3cb96f1154e24d8edbe588c3f2c",
+   "dominoes.py": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b"
+  },
+  "morning_req1_sha256": "6a156cdb57c908fc385076e840ef281ca6f75573b5881af10fbeda73fa08ced9"
+ },
+ "e1_timeofday_req1": {
+  "evening_sha256": "55db3139fa5fc4c0eb4164966f830615943c63f7c03488f2ca09227a22c9255f",
+  "evening_bytes": 37568,
+  "same_bytes_as_morning": true,
+  "diff": {
+   "leaves": 11,
+   "fields": {
+    "client_metadata": 6,
+    "input_item_id": 4,
+    "prompt_cache_key": 1
+   },
+   "other": []
+  }
+ },
+ "e1b_timeofday_req1_run2": {
+  "evening_sha256": "be9a5ab68fb648325da217f22398ab76a77950205f5318d987d64b9516f53d84",
+  "diff": {
+   "leaves": 11,
+   "fields": {
+    "client_metadata": 6,
+    "input_item_id": 4,
+    "prompt_cache_key": 1
+   },
+   "other": []
+  },
+  "pair_diff": {
+   "leaves": 11,
+   "fields": {
+    "client_metadata": 6,
+    "input_item_id": 4,
+    "prompt_cache_key": 1
+   },
+   "other": []
+  }
+ },
+ "e2_normalized_identity": {
+  "id_normalized_canonical_sha256": "351bc9383e483c876fdeafb7e73fd5f45da4eb40b53512cc5fe2066f02476d4e",
+  "evening_run1": "351bc9383e483c876fdeafb7e73fd5f45da4eb40b53512cc5fe2066f02476d4e",
+  "evening_run2": "351bc9383e483c876fdeafb7e73fd5f45da4eb40b53512cc5fe2066f02476d4e",
+  "morning": "351bc9383e483c876fdeafb7e73fd5f45da4eb40b53512cc5fe2066f02476d4e",
+  "all_equal": true
+ },
+ "e3_inrun_prefix": {
+  "e1": {
+   "prefix_equal": true,
+   "appended": 5
+  },
+  "e2": {
+   "prefix_equal": true,
+   "appended": 4
+  }
+ },
+ "e3b_second_main_request_bytes": {
+  "e1": 39266,
+  "e2": 38653,
+  "morning": 39102,
+  "note": "second-main shapes vary run-to-run (model freedom); descriptive only, not pinned as identity"
+ },
+ "attribution": {
+  "expectation_met": true,
+  "falsifier_triggered": false,
+  "classification": "codex_timeofday_stable_ids_generated"
+ },
+ "boundaries": [
+  "time-of-day within one day, not cross-day",
+  "n=1 per arm",
+  "bytes are transport-level, not tokens",
+  "identity does not prove model behavior unchanged",
+  "second-main request shapes are model freedom and not scored"
+ ],
+ "readme_sha256": "cacb866d33685aac24757fdaae66b540796bb66e0acabc43d15ddeb969b2fa6a"
+}

@@ -1,0 +1,30 @@
+{
+ "schema": "codex-timeofday-stability-result-v1",
+ "baseline_head": "d88e9d3d0807575110482c26cbaefbebf86813d3",
+ "evidence_sha256": "f73e8fcce8fc3bbdfab8ede2ab87fca3af09927cc310ba8bafc958beb29bc49a",
+ "verdict": "codex_timeofday_stable_ids_generated",
+ "expectation_met": true,
+ "falsifier_triggered": false,
+ "req1_diff_leaves": 11,
+ "req1_diff_fields": {
+  "client_metadata": 6,
+  "input_item_id": 4,
+  "prompt_cache_key": 1
+ },
+ "id_normalized_all_equal": true,
+ "inrun_prefix": {
+  "e1": true,
+  "e2": true
+ },
+ "boundaries": [
+  "time-of-day within one day, not cross-day",
+  "n=1 per arm",
+  "bytes are transport-level, not tokens",
+  "identity does not prove model behavior unchanged",
+  "second-main request shapes are model freedom and not scored"
+ ],
+ "limits": [
+  "public replay re-checks frozen pins only; original bytes live in the private archive",
+  "evidence/result are sequential outputs, not atomic"
+ ]
+}
