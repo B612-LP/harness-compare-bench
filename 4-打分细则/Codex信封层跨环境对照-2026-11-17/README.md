@@ -6,7 +6,7 @@
 §4.62 在单一捕获环境（loop14 CODEX_HOME）内确认 Codex 把任务消息用 instructions（developer 层）+permissions+env_context 包裹、任务面与 DSH messages[1] 逐字节恒等。**未回答**：这些信封层里哪些字节是随捕获环境（CODEX_HOME/工作区/任务）变化的、哪些在同一环境跨 run 稳定——即「Harness 包裹层」自身的归因分解（binary/config 固定 vs 运行时生成）。DSH 侧已有跨 build 系统提示对照（§4.60），但缺**同 build 跨会话**的请求侧信封控制组。
 
 ## 数据面（全部既有捕获档，只读）
-- Codex：loop14/capture-codex-r1（3 请求）/capture-codex-r2（2 请求）；loop15/codex-t3-r1（3）/codex-t3-r2（3）——两套不同 CODEX_HOME、同 codex 0.163.0。
+- Codex：loop14/capture-codex-r1（3 请求）/capture-codex-r2（2 请求）；loop15/codex-t3-r1（3）/codex-t3-r2（3）——同 codex 0.163.0。〔发布后订正 2026-11-17：初稿写「两套不同 CODEX_HOME」，与环14/环15 EXECUTION-RECORD 均声明同一 CODEX_HOME=~/.codex-capture-loop14 的执行记录冲突；本对照实际为同一声明 HOME 下不同 workspace（capture-r1 vs capture-t3）的两 run 对照，运行时 HOME 身份无收据、不认证。科学行（role/bytes/sha256）与 verdict 不受影响。〕
 - DSH 控制：loop1/capture（capture-r1，3 请求）；loop7/t2-r1（7）；loop8/t3-r1（16）——同 DSH build 时代跨会话/跨任务。
 - 每请求取 req1（首个请求文件）；DSH 侧另取 messages[0] 与 tools。
 

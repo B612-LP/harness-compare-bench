@@ -23,3 +23,12 @@
 - root_path_like 是标签域标记（`<root>…</root>` 出现即标记），不是完整 XML 解析器。
 - 单任务面（capture-r1 vs t3-r1 的环境层）、单 codex 版本；不外推。
 - 公开 evidence 含逐行 sha——哈希表可整体伪造；公开重放拒收与 pin 不符档但不认证私档原始性；纵深防御=SELF-ACCEPT 封印+独审。
+
+## 发布后订正披露（2026-11-17，修订二）
+- 非作者只读复核（scout，私档 discovery-round9/：RESEARCH-FINDINGS.md 37b18b3c…、probe 98c65dcb…、environment-paths-result.json f2c071df…）实证 line2=XML `<cwd>` 路径行（两侧 55B 同长异值、值=42B 绝对 workspace 路径）；初版 ROOT_RE 仅匹配 `<root>` 致 line2 标非路径、verdict=env_line_5_2_1_7。Lead 独立抽取两档 410B 文本逐行核对确认。
+- 订正：PATH_LIKE 规则扩展 `<cwd>`；FROZEN line2 flag→True；verdict→env_line_5_2_2_7；evidence/result 幂等重建（build→install→replay normal/-O cmp 同）；套件 fixture 同步改 cwd 行，11×3 档 OK（+env 普通/-O、无 env skip=1）。背景框架同步订正：两 run 为同一声明 CODEX_HOME（环14/15 EXEC 均写 ~/.codex-capture-loop14）不同 workspace，非两套 HOME；运行时 HOME 身份无收据。
+- 归一化观察（私档）：4 run×11 请求 cwd+root 值归一后整段逐字节同（SHA 5a3ef8b4…）——环境层差异全部为 workspace 路径值。原字节归档 loop21/pre-delta2/。
+
+### 修订二b（delta复核D1后终态订正，2026-11-17 10:06）
+- delta独审发现D1：README 修订二落盘后 evidence/result 仍 pin 修订前 README（61d065c3…），公开重放入口 rc=2、真档套件 FAILED——终态声明与现状态矛盾（中间时序为真、终态未重建）。按审计路径以现 README（f722c778…）在位重新 build→install：evidence bd8cfd262d8dfda361b5c1e54efcaf950c46ba6c97d5853eca610e3f338f6631、result b0cae8867624551a177ef591fe93afc81038c2732e91280452a30e90624206e6；四路复验（build临时cmp/安装/replay normal/-O cmp）全过、套件三档 OK（env 普通/-O、无env skip=1）。上一节「四路全过/三档OK」句的首次执行早于 README 落盘，以本节为准。
+- 次要补充（审计观察）：line2 55B = 2 缩进 + `<cwd>`(5) + 42B 路径值 + `</cwd>`(6)。

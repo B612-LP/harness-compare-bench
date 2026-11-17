@@ -7,8 +7,8 @@ sys.path.insert(0, HERE)
 import verify as v
 
 L1 = "the quick brown fox"                      # 21B same
-L2A = "home-marker-alpha"                        # 55B-ish differs
-L2B = "home-marker-beta"
+L2A = "<cwd>/tmp/wsA-project</cwd>" + "p" * 20   # 修订二: cwd 行同为路径样式（55B-ish differs）
+L2B = "<cwd>/tmp/wsB-project</cwd>" + "q" * 20
 L3 = "sandbox workspace-write"                   # 20B
 L4 = "approval policy: on-request"               # 41B-ish
 L5 = "shell: zsh"                                # 36B-ish
@@ -78,7 +78,7 @@ class Grammar(Common):
         v.FROZEN_LINE_COUNT = 7
         # 冻结行由分类函数动态生成（本测试重点是管线与终点）
         ev, res = v.build(self.root)
-        self.assertEqual(res["verdict"], "env_line_5_2_1_7")
+        self.assertEqual(res["verdict"], "env_line_5_2_2_7")
         self.assertEqual(res["endpoints"]["differs_at_lines"], [2, 6])
 
     def test_02_line_count_mismatch(self):

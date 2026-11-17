@@ -3,7 +3,7 @@
 ## 状态：已冻结，未读取目标载荷内容（本页先于内容读取落盘）
 
 ## 背景与缺口
-环20（§4.68/Codex信封层跨环境对照）发现跨两套 CODEX_HOME 的 user 环境消息（input[2]）同字节数（453B）而内容互异，但公开档仅含 (role,kind,bytes,sha256)，**字段级差异未拆分**——这是该包 EXECUTION-RECORD 已声明的限制。本协议离线复用既有捕获档拆分该层，0 新运行。
+环20（§4.68/Codex信封层跨环境对照）发现跨 run（同一声明 CODEX_HOME、不同 workspace；〔修订二订正：原稿误写「跨两套 CODEX_HOME」，与环14/15 执行记录冲突〕）的 user 环境消息（input[2]）同字节数（453B）而内容互异，但公开档仅含 (role,kind,bytes,sha256)，**字段级差异未拆分**——这是该包 EXECUTION-RECORD 已声明的限制。本协议离线复用既有捕获档拆分该层，0 新运行。
 
 ## 数据面（冻结锚）
 - 环境A：`loop14/capture-codex-r1/requests/001.request.bin`
@@ -34,5 +34,6 @@
 首读发现 `input[2].content` 是 **content-part 列表**（非字符串；恰 1 个 part，type=`input_text`，text 为 410 字符纯文本块），规则 1–2 的"content 字符串 + json.loads"不适用。按以下修正执行（不回改上文，差异如实披露）：
 - 叶表 = **行级**：`line<k>`（k=1 起），每行 (type=str, UTF-8 字节数, sha256)；行数须两档相等否则分类失败。
 - 补充提取：对含 `<workspace_roots>` 的行，抽取 `<root>…</root>` 内文本标记 PATH_LIKE（只发 sha 不发值）；同时按行级 sha 判 identical/differs。
+- 〔修订二，发布后 2026-11-17〕PATH_LIKE 检测扩展至 `<cwd>…</cwd>` 行；line2（cwd）判 PATH_LIKE，verdict=`env_line_5_2_2_7`（2 行差异均为路径样式行）取代初版 `env_line_5_2_1_7`。两 run 的 410B 环境文本在把 cwd/workspace_roots 路径值归一后逐字节相同（4 run×11 请求 11/11 同串，私档 SHA 5a3ef8b4efb5504a33c86d7bac1877d06275ff0bf645e5f65a10f09614e6998e）。触发=非作者只读复核（私档 discovery-round9 收据），原字节先归档 loop21/pre-delta2/。运行时 HOME 身份无进程收据，不作主张。
 - 解析仅用于确认 part 结构；文本不做 json 解析。
 - 首读仅定位到行级结构，未展开任何行值到公开材料；上表方法中 json 相关步骤作废。
