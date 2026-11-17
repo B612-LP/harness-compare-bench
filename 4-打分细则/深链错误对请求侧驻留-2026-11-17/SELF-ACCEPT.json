@@ -1,0 +1,44 @@
+{
+ "pack": "深链错误对请求侧驻留-2026-11-17",
+ "files_sha256": {
+  "README.md": "363831393e28b6c22f88fc8f8de44b51f5a20d36ca443b9f08a4f6b54c254295",
+  "verify.py": "6cda0c01570d3ea8f6ac5ba960997779613ff4b6a084de1276d7bcf6f132ef3b",
+  "test_verify.py": "1051bd546c779a71801ccdf3d3a34755fa722c77ee6bf70e7e029c1fbfb80741",
+  "evidence.json": "4580cf219638d226555fe58f93e438ffa323792eb6f16e0b7877ef6521f6b886",
+  "result.json": "1bdc5800b2e0c02addd78cf65b9c6bf3de01c29a0ca86a472cfd1e51d6c3a72c",
+  "EXECUTION-RECORD.md": "a98bab36ec18eef838d4c3e134a4f4b2e1015b809106b83154bd7bc7d6a6bc93"
+ },
+ "four_way_identical": [
+  "build-normal",
+  "build-O",
+  "replay-normal",
+  "replay-O"
+ ],
+ "tests": {
+  "normal": "19 OK (env)",
+  "O": "19 OK (env)",
+  "noenv_normal": "19 OK skipped=1",
+  "noenv_O": "19 OK skipped=1"
+ },
+ "baseline_commit": "63585d1b7f07596f0a6c6ab479cec7e6ff076bbb",
+ "runs_this_loop": 0,
+ "independent_audit": "PASS 2026-11-17T08:04 (task-46) + delta re-check pending",
+ "delta_note": {
+  "round": 2,
+  "reasons": [
+   "auditor L1 n_messages descriptive field now pinned per-row",
+   "auditor L2 test-source raw anchor literals reconstructed as fragments"
+  ],
+  "pre_delta_sha256": {
+   "verify.py": "35f0a400efe5d6b30868a516f4d6fe7414e39842951c0a063461c01083805e8b",
+   "test_verify.py": "28e6c1ee1d27faecc5f6bbedb9b5cf9797929b38203eb6e7b19f3c3e7da30fb6",
+   "EXECUTION-RECORD.md": "c91eea7e3fc4c057724b39ddc682381bff1c84b8118fd58a29cfe5da5b05113a",
+   "SELF-ACCEPT.json": "0f13b75f4993237adaefb7727f8089e8ebfb011880f7704acf6df67ef5d2eca1"
+  }
+ },
+ "prior_exposure_disclosure": [
+  "t2/loop1/loop5 negative probes before amendment-2",
+  "loop17 H (first follow-up) known",
+  "heuristic misread corrected by sha-anchor during implementation (disclosed in EXEC)"
+ ]
+}

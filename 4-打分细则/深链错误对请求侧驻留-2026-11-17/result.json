@@ -1,0 +1,31 @@
+{
+ "schema": "dsh-deeppair-request-side-persistence-evidence-v1-result",
+ "evidence_sha256": "4580cf219638d226555fe58f93e438ffa323792eb6f16e0b7877ef6521f6b886",
+ "baseline_commit": "63585d1b7f07596f0a6c6ab479cec7e6ff076bbb",
+ "endpoints": {
+  "D1_placement": {
+   "r1_first_pair_seq": 3,
+   "r1_present_all_followups": true,
+   "r1_positions_constant": true,
+   "r2_pair_absent_all": true
+  },
+  "D2_byte_identity": {
+   "r1_assistant_occurrences": 14,
+   "r1_error_occurrences": 14,
+   "r1_elements_byte_stable": true
+  },
+  "D3_cross_run": {
+   "classification": "PRESENT_IN_ONE_RUN"
+  },
+  "D4_event_layer": {
+   "r1_event_layer_matches_request_side": true,
+   "r2_event_layer_has_no_pair": true
+  }
+ },
+ "verdict": "wire_pair_persistent_r1_only_byte_stable",
+ "boundaries": [
+  "product-archived byte observation; no model-internal/provider/HTTP-server claims",
+  "placement constancy is implied by append-only history assembly; new measurements are full-chain persistence, cross-run behavioral difference, and event-layer consistency counts",
+  "single task (t3), two runs, one model channel; no extrapolation"
+ ]
+}
