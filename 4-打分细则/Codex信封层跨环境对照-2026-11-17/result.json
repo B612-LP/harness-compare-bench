@@ -1,0 +1,127 @@
+{
+ "baseline_commit": "7986effb2befe7a08a0d1a3769b6480cdc0ac1ec",
+ "boundaries": [
+  "product-archived wire bytes only; no model/provider/HTTP/server authentication",
+  "stable means byte-identical; varying does not locate the changing field",
+  "task message excluded by structural rule (last item / messages[1]); layout mismatch would surface as classification failure",
+  "single task faces and single model channel; no extrapolation"
+ ],
+ "endpoints": {
+  "E2_cross_home": {
+   "instructions_field": "absent",
+   "layers": [
+    {
+     "classification": "identical",
+     "index": 0,
+     "role_a": "developer",
+     "role_b": "developer"
+    },
+    {
+     "classification": "identical",
+     "index": 1,
+     "role_a": "developer",
+     "role_b": "developer"
+    },
+    {
+     "classification": "differs",
+     "index": 2,
+     "role_a": "user",
+     "role_b": "user"
+    }
+   ],
+   "pair": [
+    "loop14/capture-codex-r1",
+    "loop15/codex-t3-r1"
+   ],
+   "tools": "identical"
+  },
+  "E3_within_home": [
+   {
+    "instructions_field": "absent",
+    "layers": [
+     {
+      "classification": "identical",
+      "index": 0,
+      "role_a": "developer",
+      "role_b": "developer"
+     },
+     {
+      "classification": "identical",
+      "index": 1,
+      "role_a": "developer",
+      "role_b": "developer"
+     },
+     {
+      "classification": "identical",
+      "index": 2,
+      "role_a": "user",
+      "role_b": "user"
+     }
+    ],
+    "pair": [
+     "loop14/capture-codex-r1",
+     "loop14/capture-codex-r2"
+    ],
+    "tools": "identical"
+   },
+   {
+    "instructions_field": "absent",
+    "layers": [
+     {
+      "classification": "identical",
+      "index": 0,
+      "role_a": "developer",
+      "role_b": "developer"
+     },
+     {
+      "classification": "identical",
+      "index": 1,
+      "role_a": "developer",
+      "role_b": "developer"
+     },
+     {
+      "classification": "identical",
+      "index": 2,
+      "role_a": "user",
+      "role_b": "user"
+     }
+    ],
+    "pair": [
+     "loop15/codex-t3-r1",
+     "loop15/codex-t3-r2"
+    ],
+    "tools": "identical"
+   }
+  ],
+  "E4_dsh_cross_session": [
+   {
+    "pair": [
+     "loop1/capture",
+     "loop7/t2-r1"
+    ],
+    "system": "identical",
+    "tools": "identical"
+   },
+   {
+    "pair": [
+     "loop1/capture",
+     "loop8/t3-r1"
+    ],
+    "system": "identical",
+    "tools": "identical"
+   },
+   {
+    "pair": [
+     "loop7/t2-r1",
+     "loop8/t3-r1"
+    ],
+    "system": "identical",
+    "tools": "identical"
+   }
+  ]
+ },
+ "evidence_sha256": "f3a8702ac727d928254a99e97470d81a139e30d5371f388f8fad6dbdf5df99b7",
+ "readme_sha256": "f496c5bf45c428d7774f8e5cd47f660157574051f08b8f9b19005f5a16a9d6df",
+ "schema": "codex-envelope-crosshome-evidence-v1:result",
+ "verdict": "codex_inputenv_mixed_tools_stable__dsh_sys_stable_tools_stable"
+}
