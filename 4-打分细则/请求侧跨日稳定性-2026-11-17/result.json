@@ -1,0 +1,22 @@
+{
+ "baseline_head": "7b0353b2389121ef5d46dd0eea23fa32d11c09aa",
+ "boundaries": [
+  "n=1 per arm",
+  "bytes are transport-level, not tokens",
+  "identity does not prove model behavior unchanged",
+  "web tools present != web tools used"
+ ],
+ "classification": "cross_day_drift_attributed_to_credential_conditional_web_tool_surface",
+ "evidence_sha256": "d0b9995a71f783be14ae0294c7f465145833fcadeddab979851fe78197144141",
+ "limits": [
+  "public replay re-checks pins and structure only; content-level comparisons were computed at build time from private archives",
+  "result-only fields are not covered by the evidence seal"
+ ],
+ "schema": "crossday-stability-result-v1",
+ "verdicts": {
+  "attribution": "drift_attributed_to_credential_conditional_web_tool_surface",
+  "e1_with_credentials": "cross_day_drift_vs_prior",
+  "e1b_fixed_credential": "cross_day_runtime_stable",
+  "falsifier": "not_triggered"
+ }
+}

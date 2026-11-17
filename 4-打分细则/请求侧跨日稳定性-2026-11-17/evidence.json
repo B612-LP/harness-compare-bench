@@ -1,0 +1,300 @@
+{
+ "attribution": {
+  "classification": "cross_day_drift_attributed_to_credential_conditional_web_tool_surface",
+  "expectation_met": true,
+  "falsifier_triggered": false
+ },
+ "baseline_head": "7b0353b2389121ef5d46dd0eea23fa32d11c09aa",
+ "boundaries": [
+  "n=1 per arm",
+  "bytes are transport-level, not tokens",
+  "identity does not prove model behavior unchanged",
+  "web tools present != web tools used"
+ ],
+ "e1_crossday_with_credentials": {
+  "identical_to_prior": false,
+  "params_non_message_identical": true,
+  "req1_bytes": 34126,
+  "req1_sha256": "dd959dfa2e1454c339601c8e06f8b1b47ee7f6bb3b95093bf147ba8305e1758d",
+  "system_added_line_bytes": [
+   [
+    "added",
+    215
+   ],
+   [
+    "added",
+    150
+   ]
+  ],
+  "system_removed_lines": 0,
+  "tool_names_added": [
+   "web_fetch",
+   "web_search"
+  ],
+  "tools_count": [
+   22,
+   24
+  ],
+  "user_messages_1_to_4_identical": true
+ },
+ "e1b_crossday_fixed_credential": {
+  "aux_identical": true,
+  "req1_identical": true,
+  "req3_diff_leaves": [
+   [
+    "/messages/5/tool_calls/0/id",
+    "value"
+   ],
+   [
+    "/messages/5/tool_calls/1/id",
+    "value"
+   ],
+   [
+    "/messages/6/tool_call_id",
+    "value"
+   ],
+   [
+    "/messages/7/tool_call_id",
+    "value"
+   ]
+  ],
+  "req3_same_bytes": true
+ },
+ "meta": {
+  "app_asar_mtime": "2026-11-13 15:31:48",
+  "app_version": "0.2.2-rc.3",
+  "prior_req1_sha256": "92220699f215bbdfe0faa392587b8fc43ad6793f10da6baf8b7541518120ac10",
+  "profile": "capture-r1",
+  "prompt_bytes": 214,
+  "prompt_sha256": "7a7c57c759d2aaccbdab600e4cb4c7b429bb820268a801f97967f82565ecb765",
+  "proxy_listen": "127.0.0.1:8791",
+  "upstream": "https://open.bigmodel.cn:443",
+  "workspace_files": {
+   "TASK.md": "68599aec2f4a1201c6eb9e46ba92a76d5b68a3cb96f1154e24d8edbe588c3f2c",
+   "inputs/exercises/dominoes/dominoes.py": "89f1fede34db8dbd73fb7103476080307e769425049014bf60b7d5e632f9743b"
+  }
+ },
+ "runs": {
+  "runA": {
+   "env_deepseek_key": true,
+   "prefix": {
+    "appended_messages": 3,
+    "delta_bytes": 1016,
+    "non_message_keys_equal": true,
+    "prefix_messages_equal": true
+   },
+   "requests": [
+    {
+     "bytes": 34126,
+     "max_tokens": 128000,
+     "n_messages": 5,
+     "params_other_digest": "1e71f581abfb324066aa4324afe1e95645afbfbeee621440270d6640cbf6b1dd",
+     "roles": [
+      [
+       "system",
+       2962
+      ],
+      [
+       "user",
+       214
+      ],
+      [
+       "user",
+       3111
+      ],
+      [
+       "user",
+       679
+      ],
+      [
+       "user",
+       5525
+      ]
+     ],
+     "seq": 1,
+     "sha256": "dd959dfa2e1454c339601c8e06f8b1b47ee7f6bb3b95093bf147ba8305e1758d",
+     "thinking_type": "disabled",
+     "tools_count": 24,
+     "tools_digest": "6d15a85031923f1777fa5e3ad758ab3f54dd4dba66e39b48c9ed967ca9d753dd"
+    },
+    {
+     "bytes": 1042,
+     "max_tokens": 4096,
+     "n_messages": 2,
+     "params_other_digest": "ba048a40598bcc96906b86d1105390f59afd306d0a470c78cfacfd08ec2fc7c5",
+     "roles": [
+      [
+       "system",
+       481
+      ],
+      [
+       "user",
+       302
+      ]
+     ],
+     "seq": 2,
+     "sha256": "9f2b6b3e9b76dde704dd763efc1e60992ec2c798c987ae577c784ddd63e34e76",
+     "thinking_type": "enabled",
+     "tools_count": 0,
+     "tools_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+     "bytes": 35142,
+     "max_tokens": 128000,
+     "n_messages": 8,
+     "params_other_digest": "1e71f581abfb324066aa4324afe1e95645afbfbeee621440270d6640cbf6b1dd",
+     "roles": [
+      [
+       "system",
+       2962
+      ],
+      [
+       "user",
+       214
+      ],
+      [
+       "user",
+       3111
+      ],
+      [
+       "user",
+       679
+      ],
+      [
+       "user",
+       5525
+      ],
+      [
+       "assistant",
+       0
+      ],
+      [
+       "tool",
+       227
+      ],
+      [
+       "tool",
+       203
+      ]
+     ],
+     "seq": 3,
+     "sha256": "f4c56d6c8bfbd0f53794cf5f424e100acc11ecbca7f7cd2b7a27f87e6abf97b2",
+     "thinking_type": "disabled",
+     "tools_count": 24,
+     "tools_digest": "6d15a85031923f1777fa5e3ad758ab3f54dd4dba66e39b48c9ed967ca9d753dd"
+    }
+   ]
+  },
+  "runB": {
+   "env_deepseek_key": false,
+   "prefix": {
+    "appended_messages": 3,
+    "delta_bytes": 1016,
+    "non_message_keys_equal": true,
+    "prefix_messages_equal": true
+   },
+   "requests": [
+    {
+     "bytes": 33091,
+     "max_tokens": 128000,
+     "n_messages": 5,
+     "params_other_digest": "1e71f581abfb324066aa4324afe1e95645afbfbeee621440270d6640cbf6b1dd",
+     "roles": [
+      [
+       "system",
+       2593
+      ],
+      [
+       "user",
+       214
+      ],
+      [
+       "user",
+       3111
+      ],
+      [
+       "user",
+       679
+      ],
+      [
+       "user",
+       5525
+      ]
+     ],
+     "seq": 4,
+     "sha256": "92220699f215bbdfe0faa392587b8fc43ad6793f10da6baf8b7541518120ac10",
+     "thinking_type": "disabled",
+     "tools_count": 22,
+     "tools_digest": "98994fb51cbd7a5fc1c2fe67d3a55c2b94a3f493d7ac347742e1290a14b14428"
+    },
+    {
+     "bytes": 1042,
+     "max_tokens": 4096,
+     "n_messages": 2,
+     "params_other_digest": "ba048a40598bcc96906b86d1105390f59afd306d0a470c78cfacfd08ec2fc7c5",
+     "roles": [
+      [
+       "system",
+       481
+      ],
+      [
+       "user",
+       302
+      ]
+     ],
+     "seq": 5,
+     "sha256": "9f2b6b3e9b76dde704dd763efc1e60992ec2c798c987ae577c784ddd63e34e76",
+     "thinking_type": "enabled",
+     "tools_count": 0,
+     "tools_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+     "bytes": 34107,
+     "max_tokens": 128000,
+     "n_messages": 8,
+     "params_other_digest": "1e71f581abfb324066aa4324afe1e95645afbfbeee621440270d6640cbf6b1dd",
+     "roles": [
+      [
+       "system",
+       2593
+      ],
+      [
+       "user",
+       214
+      ],
+      [
+       "user",
+       3111
+      ],
+      [
+       "user",
+       679
+      ],
+      [
+       "user",
+       5525
+      ],
+      [
+       "assistant",
+       0
+      ],
+      [
+       "tool",
+       227
+      ],
+      [
+       "tool",
+       203
+      ]
+     ],
+     "seq": 6,
+     "sha256": "13d81085c9c871cd6d4043289b690ab64a7362ad378d2b14f519e7ef3a5026c2",
+     "thinking_type": "disabled",
+     "tools_count": 22,
+     "tools_digest": "98994fb51cbd7a5fc1c2fe67d3a55c2b94a3f493d7ac347742e1290a14b14428"
+    }
+   ]
+  }
+ },
+ "schema": "crossday-stability-evidence-v1"
+}
