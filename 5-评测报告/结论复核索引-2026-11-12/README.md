@@ -1,6 +1,6 @@
 # 一页结论—固定版本—复算—缺口
 
-按[第四周要求](<../../反馈/2026-11-11-第四轮/验收条款-公开版.md>)压缩路由；正式成绩见[整合报告 v1.80](<../竞品评测报告-v1.80.md>)。下列短码均链接确切40位提交，按该代说明复算，不能换成任意HEAD；本页不新增样本或改旧分。
+按[第四周要求](<../../反馈/2026-11-11-第四轮/验收条款-公开版.md>)压缩路由；正式成绩见[整合报告 v1.81](<../竞品评测报告-v1.81.md>)。下列短码均链接确切40位提交，按该代说明复算，不能换成任意HEAD；本页不新增样本或改旧分。
 
 | 结论范围 | 当前可说什么 | 固定提交 | 公开复算入口 | 私档／未识别缺口 |
 |---|---|---|---|---|
@@ -28,5 +28,6 @@
 | Codex 环境对照（信封+行级） | developer层(17374B+398B)/工具面跨run（同一声明CODEX_HOME、不同workspace〔修订二订正〕）逐字节稳定，453B环境层被定位且行级差异恰2行（两行均为路径样式行）、5行恒等（初判env_line_5_2_1_7，修订二订正为env_line_5_2_2_7见下行；DSH system/tools三会话恒等旁证；0新运行） | [b938ec4](<https://github.com/B612-LP/harness-compare-bench/commit/b938ec4a8c1f8a254443a01215b2eea6a4f7ccfa>) | [信封层复算](<https://github.com/B612-LP/harness-compare-bench/blob/b938ec4a8c1f8a254443a01215b2eea6a4f7ccfa/4-打分细则/Codex信封层跨环境对照-2026-11-17/verify.py>) | req1捕获原件在私档；公开档只含逐item/行role与bytes/sha256与标签域；453B未拆字段级以下；单版本单通道不外推 |
 | Codex 环境对照修订二 | 非作者复核订正两包：HOME框架（同一声明HOME不同workspace，HOME因果不作主张）、PATH_LIKE扩展<cwd>（line2=2缩进+标签+42B路径值）、verdict=env_line_5_2_2_7取代5_2_1_7；路径值归一后4 run×11请求环境段逐字节相同；并补全v1.78漏发的§4.68/§4.69章节、问题表两行与H1标题停留v1.77；两包独审delta链闭合（SEAL-V3） | [19692ed0](<https://github.com/B612-LP/harness-compare-bench/commit/19692ed06adb9ec5200e9f520808716edf4ce815>) | [环境层复算](<https://github.com/B612-LP/harness-compare-bench/blob/19692ed06adb9ec5200e9f520808716edf4ce815/4-打分细则/Codex环境层字段级对照-2026-11-17/verify.py>) | req1捕获原件与归一化观察在私档；公开档只含行级role/bytes/sha与标签域；453B行级以下未拆；单版本单通道不外推 |
 | 请求侧跨日稳定性 | 双key跨日req1漂移+1035B完全归因凭据条件化web工具注入面（tools+system行）；固定凭据面req1/aux跨日逐字节恒等、req3仍4叶id类 | [9563d57](<https://github.com/B612-LP/harness-compare-bench/commit/9563d578d6e6b615b5b415f1937f9b93d1decddb>) | [跨日复算](<https://github.com/B612-LP/harness-compare-bench/blob/9563d578d6e6b615b5b415f1937f9b93d1decddb/4-打分细则/请求侧跨日稳定性-2026-11-17/verify.py>) | 私档请求/响应原文、代理日志与凭据面配置 |
+| Codex 跨时段稳定性（晚间两 run 对早间） | req1 差异恰 11 叶全 id 类、§4.62 同款归一恒等 351bc938…；第二主请求模型自由度不计分 | [c88661e](<https://github.com/B612-LP/harness-compare-bench/commit/c88661e901ce7adad054164a413113f841395f14>) | [复算](<../../4-打分细则/Codex请求侧跨时段稳定性-2026-11-17/verify.py>)·[口径](<../../4-打分细则/Codex请求侧跨时段稳定性-2026-11-17/README.md>) | 私档请求原文与捕获目录；凭据/key 导出过程 |
 
 公档PASS只说明各包声明的公开字节／投影算术相符，不认证私原或实际模型摄入。其余既有研究、勘误、完整提交与命令保留于[原字节详细索引](<snapshot-v1.58-2026-11-16.md>)，不以本页覆盖历史版本。
