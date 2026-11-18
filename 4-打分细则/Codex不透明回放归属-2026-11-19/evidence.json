@@ -1,0 +1,61 @@
+{
+  "schema": "codex-replay-ordinal-v1",
+  "runs": [
+    {
+      "run_ordinal": 1,
+      "request_native_turn_scope_matches": true,
+      "requests": [
+        {
+          "ordinal": 1,
+          "typed_input_count": 4,
+          "prior_typed_prefix_matches": null,
+          "added_types": ["message", "message", "message", "message"],
+          "reasoning_slots": []
+        },
+        {
+          "ordinal": 2,
+          "typed_input_count": 7,
+          "prior_typed_prefix_matches": true,
+          "added_types": ["reasoning", "function_call", "function_call_output"],
+          "reasoning_slots": [
+            {"position": 5, "item_id_state": "absent", "field_state": "present_string", "utf8_bytes": 38, "reported_equal_to_prior_slot": null}
+          ]
+        },
+        {
+          "ordinal": 3,
+          "typed_input_count": 10,
+          "prior_typed_prefix_matches": true,
+          "added_types": ["reasoning", "function_call", "function_call_output"],
+          "reasoning_slots": [
+            {"position": 5, "item_id_state": "absent", "field_state": "present_string", "utf8_bytes": 38, "reported_equal_to_prior_slot": true},
+            {"position": 8, "item_id_state": "absent", "field_state": "present_string", "utf8_bytes": 38, "reported_equal_to_prior_slot": null}
+          ]
+        }
+      ],
+      "links": [
+        {
+          "wire_ordinal": 1,
+          "next_request_ordinal": 2,
+          "history_reasoning_position": 5,
+          "completed_output_types": ["reasoning", "function_call"],
+          "ordered_wire_native_typed_item_ids_match": true,
+          "unique_adjacent_call_result_link_matches": true,
+          "wire": {"field_state": "present_string", "utf8_bytes": 38},
+          "native": {"field_state": "present_string", "utf8_bytes": 38},
+          "reported_equalities": {"wire_native": true, "wire_history": true, "native_history": true}
+        },
+        {
+          "wire_ordinal": 2,
+          "next_request_ordinal": 3,
+          "history_reasoning_position": 8,
+          "completed_output_types": ["reasoning", "function_call"],
+          "ordered_wire_native_typed_item_ids_match": true,
+          "unique_adjacent_call_result_link_matches": true,
+          "wire": {"field_state": "present_string", "utf8_bytes": 38},
+          "native": {"field_state": "present_string", "utf8_bytes": 38},
+          "reported_equalities": {"wire_native": true, "wire_history": true, "native_history": true}
+        }
+      ]
+    }
+  ]
+}
