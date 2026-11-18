@@ -1,0 +1,144 @@
+{
+  "clock": "CLOCK_MONOTONIC",
+  "contamination_upper_bound": null,
+  "format": "local-read-fd-paired-derived-v2",
+  "implementation_seal_sha256": "cd06df7f2091c00fa2871c83fffd4b4250c38717f9f52323eccde6b3591f7681",
+  "pairs": [
+    {
+      "arms": [
+        {
+          "action": "os.read",
+          "action_end_ns": 34030000,
+          "action_start_ns": 34021000,
+          "bytes": 512,
+          "close_end_ns": 655035000,
+          "close_start_ns": 655032000,
+          "final_offset": 512,
+          "initial_offset": 0,
+          "open_end_ns": 2756000,
+          "open_start_ns": 2710000,
+          "opened_on_target": true,
+          "post_fstat_ns": 34049000,
+          "pre_fstat_ns": 2793000,
+          "role": "read",
+          "sha256": "3f873db98d508638a8faac2f32f331893f2fc446c5ec5031ff1cb4a6f5f981fa"
+        },
+        {
+          "action": "no_content_read_marker",
+          "action_end_ns": 35013000,
+          "action_start_ns": 35013000,
+          "bytes": null,
+          "close_end_ns": 655037000,
+          "close_start_ns": 655032000,
+          "final_offset": 0,
+          "initial_offset": 0,
+          "open_end_ns": 5065000,
+          "open_start_ns": 5034000,
+          "opened_on_target": true,
+          "post_fstat_ns": 35020000,
+          "pre_fstat_ns": 5080000,
+          "role": "open_only",
+          "sha256": null
+        }
+      ],
+      "decision": "matched_same_fd_visibility",
+      "pair": "long",
+      "phase_tolerance_ns": 15000000,
+      "planned_action_ns": 30000000,
+      "planned_hold_ns": 650000000,
+      "planned_sample_ns": 120000000,
+      "sample": {
+        "attempted": true,
+        "end_ns": 142443000,
+        "exact_FD_target_matches_read_then_open_only": [
+          true,
+          true
+        ],
+        "exit": 0,
+        "start_ns": 125037000,
+        "stderr_empty": true,
+        "stdout_empty": false
+      },
+      "target_alias": "fixture-A",
+      "truth_pair_qualified": true
+    },
+    {
+      "arms": [
+        {
+          "action": "os.read",
+          "action_end_ns": 4882000,
+          "action_start_ns": 4877000,
+          "bytes": 512,
+          "close_end_ns": 13030000,
+          "close_start_ns": 13023000,
+          "final_offset": 512,
+          "initial_offset": 0,
+          "open_end_ns": 449000,
+          "open_start_ns": 406000,
+          "opened_on_target": true,
+          "post_fstat_ns": 4898000,
+          "pre_fstat_ns": 469000,
+          "role": "read",
+          "sha256": "3f873db98d508638a8faac2f32f331893f2fc446c5ec5031ff1cb4a6f5f981fa"
+        },
+        {
+          "action": "no_content_read_marker",
+          "action_end_ns": 5176000,
+          "action_start_ns": 5175000,
+          "bytes": null,
+          "close_end_ns": 13728000,
+          "close_start_ns": 13722000,
+          "final_offset": 0,
+          "initial_offset": 0,
+          "open_end_ns": 5076000,
+          "open_start_ns": 5048000,
+          "opened_on_target": true,
+          "post_fstat_ns": 5179000,
+          "pre_fstat_ns": 5096000,
+          "role": "open_only",
+          "sha256": null
+        }
+      ],
+      "decision": "unknown",
+      "pair": "short",
+      "phase_tolerance_ns": 3000000,
+      "planned_action_ns": 4000000,
+      "planned_hold_ns": 12000000,
+      "planned_sample_ns": 7000000,
+      "sample": {
+        "attempted": true,
+        "end_ns": 16413000,
+        "exact_FD_target_matches_read_then_open_only": null,
+        "exit": 1,
+        "start_ns": 7462000,
+        "stderr_empty": true,
+        "stdout_empty": true
+      },
+      "target_alias": "fixture-A",
+      "truth_pair_qualified": false
+    }
+  ],
+  "preregistration_sha256": "952cf7b59613e5601b12f5c0765effa61bf154bb6f07f42966dd4f2a54754f77",
+  "product_read_truth": null,
+  "product_recall": null,
+  "product_runs": 0,
+  "scope": "one_non_product_regular_fixture",
+  "sensor": {
+    "program": "lsof",
+    "record_binding": "own_PID+FD+REG+device+inode",
+    "selection": "own_PID_AND_FD"
+  },
+  "source_receipt": {
+    "bytes": 14246,
+    "sha256": "26a3e250461603d371f4c4589cd695036d9d4499e014d9f6c0dcfd0b8fd6637f"
+  },
+  "target": {
+    "alias": "fixture-A",
+    "bytes": 512,
+    "cleanup_recorded": true,
+    "mode_octal": "0600",
+    "regular": true,
+    "sha256": "3f873db98d508638a8faac2f32f331893f2fc446c5ec5031ff1cb4a6f5f981fa"
+  },
+  "time_unit": "nanoseconds_from_each_pair_T"
+}
