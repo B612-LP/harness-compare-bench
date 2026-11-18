@@ -1,0 +1,63 @@
+{
+  "schema": "codex-responses-attachment-aggregate-v1",
+  "archived_runs": 1,
+  "new_product_or_model_runs": 0,
+  "target_calls": 1,
+  "held_capture_pairs": 3,
+  "independent_internal_reprojection": true,
+  "controlled_third_party_reprojection": false,
+  "full_request_rebuilt": false,
+  "universal_format_frozen": false,
+  "positive": {
+    "response_frames": 234,
+    "target_output_index": 1,
+    "added_frame": 141,
+    "argument_delta_frames": 90,
+    "arguments_done_frame": 232,
+    "item_done_frame": 233,
+    "completed_frame": 234,
+    "all_argument_copies_match": true,
+    "same_native_and_next_request_call_result": true,
+    "three_carrier_shapes_distinct": true,
+    "required_string_parameter": "cmd",
+    "required_string_present_in_layers": [true, true, true]
+  },
+  "argument_checks": {
+    "archived_original": {
+      "status": "match",
+      "raw_argument_bytes": [255, 255, 255],
+      "canonical_object_bytes": [236, 236, 236],
+      "same_canonical_value_wn_wh_nh": [true, true, true]
+    },
+    "equivalent_representation_control": {
+      "status": "match",
+      "raw_argument_bytes": [277, 255, 255],
+      "canonical_object_bytes": [236, 236, 236],
+      "same_canonical_value_wn_wh_nh": [true, true, true]
+    },
+    "different_value_control": {
+      "status": "value_difference",
+      "raw_argument_bytes": [254, 255, 255],
+      "canonical_object_bytes": [254, 236, 236],
+      "same_canonical_value_wn_wh_nh": [false, false, true]
+    },
+    "same_name_other_call": {"status": "unknown_attachment"},
+    "genuine_other_capture_meta": {"status": "unknown_capture_meta"},
+    "missing_argument_boundary": {"status": "unknown_stream"},
+    "reordered_argument_boundary": {"status": "unknown_stream"},
+    "event_kind_disagrees": {"status": "unknown_stream"},
+    "unbound_native_call": {"status": "unknown_attachment"},
+    "incorrect_item_kind": {"status": "unknown_stream"}
+  },
+  "revision": {
+    "original_contract_accepted": false,
+    "original_cases_retained": 10,
+    "optional_identity_tests_known": 4,
+    "optional_identity_tests_unknown": 10,
+    "wrong_completion_id_original_status": "match",
+    "wrong_completion_id_revised_status": "unknown_stream",
+    "independent_wrong_first_delta_id_status": "unknown_stream",
+    "independent_wrong_history_result_status": "unknown_attachment",
+    "unknown_cases_emit_argument_projection": false
+  }
+}
