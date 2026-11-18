@@ -1,0 +1,146 @@
+{
+  "artifact_kind": "privacy_redacted_derived",
+  "attempt_count": 1,
+  "clock": "clock_gettime_ns(CLOCK_MONOTONIC)",
+  "expected_payload_sha256": "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b",
+  "max_late_ms": 25,
+  "pair_count": 1,
+  "phase_ms": {
+    "action": 340,
+    "after": 620,
+    "before": 30,
+    "close": 460,
+    "open": 220,
+    "witness_close": 900
+  },
+  "products": {
+    "false_negative_rate": null,
+    "file_read_denominator": null,
+    "invocations": 0,
+    "nontrivial_contamination_upper_bound": null,
+    "recall": null
+  },
+  "result": {
+    "arms": {
+      "open_only": {
+        "action": [
+          342618000,
+          342623000
+        ],
+        "content_bytes": 0,
+        "content_reads": 0,
+        "content_sha256": null,
+        "offsets": [
+          0,
+          0
+        ],
+        "os_read": null,
+        "target_close": [
+          470063000,
+          470115000
+        ],
+        "target_open": [
+          225975000,
+          226055000
+        ],
+        "witness_close": [
+          906775000,
+          906786000
+        ],
+        "witness_open": [
+          -250335000,
+          -250290000
+        ]
+      },
+      "read": {
+        "action": [
+          345224000,
+          345242000
+        ],
+        "content_bytes": 512,
+        "content_reads": 1,
+        "content_sha256": "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b",
+        "offsets": [
+          0,
+          512
+        ],
+        "os_read": [
+          345227000,
+          345231000
+        ],
+        "target_close": [
+          470054000,
+          470095000
+        ],
+        "target_open": [
+          230046000,
+          230091000
+        ],
+        "witness_close": [
+          903706000,
+          903720000
+        ],
+        "witness_open": [
+          -250335000,
+          -250290000
+        ]
+      }
+    },
+    "classification": "observed_gap_same_target_zero",
+    "owned_cleanup_confirmed": true,
+    "reasons": [],
+    "same_non_root_euid_bound": true,
+    "same_target_identity_bound": true,
+    "samples": {
+      "after": {
+        "envelope": [
+          626809000,
+          651521000
+        ],
+        "returncode": 0,
+        "stderr_empty": true,
+        "target_rows_by_arm": {
+          "open_only": 0,
+          "read": 0
+        },
+        "witness_exact_by_arm": {
+          "open_only": true,
+          "read": true
+        }
+      },
+      "before": {
+        "envelope": [
+          34830000,
+          52483000
+        ],
+        "returncode": 0,
+        "stderr_empty": true,
+        "target_rows_by_arm": {
+          "open_only": 0,
+          "read": 0
+        },
+        "witness_exact_by_arm": {
+          "open_only": true,
+          "read": true
+        }
+      }
+    },
+    "separate_same_witness_identity_bound": true,
+    "shared_target_window_ns": [
+      230091000,
+      470054000
+    ],
+    "shared_witness_window_ns": [
+      -250290000,
+      903706000
+    ]
+  },
+  "sample_max_ms": 125,
+  "schema": "local-read-gap-derived-v1",
+  "source_commitments": {
+    "implementation_seal_sha256": "9040d68393fd4179afde9286d6241b78ee01aed9d347417409363489ed800a3c",
+    "prereg_sha256": "90328d12d71fff2a1f31982e8f4bf53695713f765dab833b429e9ea891ffcd29",
+    "receipt_sha256": "62f10f95b0b9fb0f6a417ef71c35b31de9054a0b0212bb00eec70fc960e3e3fb",
+    "start_sha256": "b4a240e6ad60c1761266894595d9d53e49a5f1e913ce28101c27cb4fbe80e542"
+  }
+}
