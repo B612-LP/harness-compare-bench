@@ -1,0 +1,70 @@
+{
+  "schema": "workbuddy-local-ordinal-edges-v1",
+  "evidence_boundary": {
+    "input_layer": "selected_archival_derivatives",
+    "external_original_verification": "unknown",
+    "actual_successful_object": "unknown",
+    "fifo": "not_tested"
+  },
+  "blocks": [
+    {
+      "block": "A1",
+      "tool_type": "Read",
+      "roles": ["call", "call", "result", "result"],
+      "record_predecessors": [[2, 1], [3, 2], [4, 3]],
+      "declared_read_call_pair": "different",
+      "completions": [
+        {"result": 3, "call": 1, "recorded_status": "completed", "bounded_result_assertion": "not_admitted"},
+        {"result": 4, "call": 2, "recorded_status": "completed", "bounded_result_assertion": "not_admitted"}
+      ]
+    },
+    {
+      "block": "A2",
+      "tool_type": "Read",
+      "roles": ["call", "result"],
+      "record_predecessors": [[2, 1]],
+      "declared_read_call_pair": "not_applicable",
+      "completions": [
+        {"result": 2, "call": 1, "recorded_status": "completed", "bounded_result_assertion": "not_admitted"}
+      ]
+    },
+    {
+      "block": "A3",
+      "tool_type": "Bash",
+      "roles": ["call", "call", "result", "result"],
+      "record_predecessors": [[2, 1], [3, 2], [4, 3]],
+      "declared_read_call_pair": "not_applicable",
+      "completions": [
+        {"result": 3, "call": 1, "recorded_status": "completed", "bounded_result_assertion": "not_tested"},
+        {"result": 4, "call": 2, "recorded_status": "completed", "bounded_result_assertion": "not_tested"}
+      ]
+    },
+    {
+      "block": "B1",
+      "tool_type": "Read",
+      "roles": ["call", "call", "result", "result"],
+      "record_predecessors": [[2, 1], [3, 2], [4, 3]],
+      "declared_read_call_pair": "different",
+      "completions": [
+        {"result": 3, "call": 1, "recorded_status": "completed", "bounded_result_assertion": "not_admitted"},
+        {"result": 4, "call": 2, "recorded_status": "completed", "bounded_result_assertion": "not_admitted"}
+      ]
+    }
+  ],
+  "tallies": {
+    "sources": 2,
+    "blocks": 4,
+    "call_rows": 7,
+    "result_rows": 7,
+    "immediate_predecessor_matches": 10,
+    "predecessor_comparisons": 10,
+    "scoped_completion_bindings": 7,
+    "recorded_completed": 7,
+    "direct_same_call": 1,
+    "direct_different_call": 3,
+    "direct_parent_is_result": 3,
+    "completed_wrong_declared_read_target": 2,
+    "admitted_bounded_read_result_assertions": 0,
+    "read_result_assertion_checks": 5
+  }
+}
