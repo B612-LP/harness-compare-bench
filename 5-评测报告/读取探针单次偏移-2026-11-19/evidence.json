@@ -1,0 +1,146 @@
+{
+  "capsule": "one_fixed_four_arm_block",
+  "decision": "offset_not_sufficient",
+  "fixture_size_bytes": 1024,
+  "observed": {
+    "arms": {
+      "A": {
+        "action_rel_ns": [
+          260151000,
+          260175000
+        ],
+        "close_rel_ns": [
+          910035000,
+          910054000
+        ],
+        "collector_offset": 0,
+        "content_reads": 1,
+        "content_sha256": "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b",
+        "open_rel_ns": [
+          110080000,
+          110412000
+        ],
+        "operation": "pread",
+        "returned_content_bytes": 512,
+        "seek_return": null,
+        "worker_offsets": [
+          0,
+          0,
+          0
+        ]
+      },
+      "B": {
+        "action_rel_ns": [
+          267820000,
+          267821000
+        ],
+        "close_rel_ns": [
+          910035000,
+          910057000
+        ],
+        "collector_offset": 0,
+        "content_reads": 0,
+        "content_sha256": null,
+        "open_rel_ns": [
+          110079000,
+          110413000
+        ],
+        "operation": "open_only",
+        "returned_content_bytes": 0,
+        "seek_return": null,
+        "worker_offsets": [
+          0,
+          0,
+          0
+        ]
+      },
+      "C": {
+        "action_rel_ns": [
+          262275000,
+          262286000
+        ],
+        "close_rel_ns": [
+          910035000,
+          910054000
+        ],
+        "collector_offset": 512,
+        "content_reads": 0,
+        "content_sha256": null,
+        "open_rel_ns": [
+          110082000,
+          110412000
+        ],
+        "operation": "seek",
+        "returned_content_bytes": 0,
+        "seek_return": 512,
+        "worker_offsets": [
+          0,
+          512,
+          512
+        ]
+      },
+      "D": {
+        "action_rel_ns": [
+          267817000,
+          267833000
+        ],
+        "close_rel_ns": [
+          901441000,
+          901458000
+        ],
+        "collector_offset": 512,
+        "content_reads": 1,
+        "content_sha256": "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b",
+        "open_rel_ns": [
+          110077000,
+          110412000
+        ],
+        "operation": "read",
+        "returned_content_bytes": 512,
+        "seek_return": null,
+        "worker_offsets": [
+          0,
+          512,
+          512
+        ]
+      }
+    },
+    "collector_claims": {
+      "exact_scoped_pid_fd_rows": true,
+      "healthy_exit_and_empty_stderr": true,
+      "one_sample_after_all_actions": true,
+      "same_regular_identity_all_arms": true
+    },
+    "collector_envelope_rel_ns": [
+      430116000,
+      467734000
+    ],
+    "confirmed_common_hold_rel_ns": [
+      110413000,
+      901441000
+    ],
+    "fixture_claims": {
+      "all_owned_children_reaped_fixture_removed": true,
+      "independent_fd_per_arm": true,
+      "one_selected_shared_monotonic_barrier": true,
+      "same_nonroot_euid": true
+    }
+  },
+  "plan": {
+    "action_ns": 260000000,
+    "barrier_lead_ns": 300000000,
+    "close_ns": 900000000,
+    "collector_max_ns": 250000000,
+    "open_ns": 100000000,
+    "sample_ns": 420000000,
+    "tolerance_ns": 35000000
+  },
+  "positive_request_bytes": 512,
+  "schema": "paired-read-offset-derived-v1",
+  "source_commitments": {
+    "implementation_sha256": "6e86af5554351dd010fb13841e9ff2032f1d7f1cfccf1216ff63cb860c36b461",
+    "preregistration_sha256": "cb81a597a0253f73c53fd210b0a86f99cf2001e51e43550b9a81655ad7dfe150",
+    "receipt_sha256": "a71c9a299ce909aa65df36a4601366765e765d43e3c869e4cf13ec56c5b9c012",
+    "start_sha256": "0c94ff60062f54886c503293a74b159aebe77135397e9d8c62eeb59ead93c3a9"
+  }
+}
