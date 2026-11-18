@@ -1,0 +1,16 @@
+{
+  "schema": "codex-bounded-usage-bridge.public.v1",
+  "scope": "one_historical_session_three_bound_responses",
+  "count_labels": ["input", "cached_input", "output", "reasoning_output", "total"],
+  "responses": [
+    {"ordinal": 1, "frames": 234, "wire": [8117, 4608, 348, 133, 8465], "native_primary": [8117, 4608, 348, 133, 8465], "native_mirror_last": [8117, 4608, 348, 133, 8465], "native_mirror_prefix": [8117, 4608, 348, 133, 8465], "main_link": "direct_response_id", "mirror_link": "structural_no_response_id", "wire_cache_write": null, "native_cache_write": 0},
+    {"ordinal": 2, "frames": 115, "wire": [8533, 8320, 229, 4, 8762], "native_primary": [8533, 8320, 229, 4, 8762], "native_mirror_last": [8533, 8320, 229, 4, 8762], "native_mirror_prefix": [16650, 12928, 577, 137, 17227], "main_link": "direct_response_id", "mirror_link": "structural_no_response_id", "wire_cache_write": null, "native_cache_write": 0},
+    {"ordinal": 3, "frames": 46, "wire": [8821, 8576, 34, 25, 8855], "native_primary": [8821, 8576, 34, 25, 8855], "native_mirror_last": [8821, 8576, 34, 25, 8855], "native_mirror_prefix": [25471, 21504, 611, 162, 26082], "main_link": "direct_response_id", "mirror_link": "structural_no_response_id", "wire_cache_write": null, "native_cache_write": 0}
+  ],
+  "synthetic_controls": {
+    "swap_first_two_response_values": {"main_links_stay_direct": true, "prefix_equal_by_position": [false, true, true]},
+    "equal_counter_mirror_wrong_thread": {"main_links_stay_direct": true, "mirror_links_by_position": ["structural_no_response_id", "unknown", "structural_no_response_id"]},
+    "wrong_final_message_phase_not_fully_gated": true
+  },
+  "limits": {"new_product_or_model_runs": 0, "public_raw_authentication": false, "controlled_third_party_raw_review": false, "estimated_provider_cost": false}
+}
