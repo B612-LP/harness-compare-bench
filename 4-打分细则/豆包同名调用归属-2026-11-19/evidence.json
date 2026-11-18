@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "source_relation": "different_archived_tasks",
+  "native_identity_values_public": false,
+  "native_identity_absence_proven": false,
+  "A": {
+    "physical_row_window": [3, 11],
+    "blocks": [
+      {"assistant_row": 3, "call_name_classes": [1, 1, 1], "tool_rows": [4, 5, 6], "matched_call_positions": [1, 2, 3]},
+      {"assistant_row": 7, "call_name_classes": [1, 1, 1, 1], "tool_rows": [8, 9, 10, 11], "matched_call_positions": [1, 2, 3, 4]}
+    ],
+    "unique_join_blocks": 2,
+    "fifo_agree_edges": 7,
+    "fifo_disagree_edges": 0
+  },
+  "B": {
+    "physical_row_window": [5, 13],
+    "strict_guard": "assistant_summary_key_presence",
+    "membership": "unadjudicated",
+    "conditional_assumption": "all_adjacent_tool_rows_are_members_and_no_other_pairing_constraints",
+    "blocks": [
+      {"assistant_row": 5, "call_name_classes": [1, 1, 1], "tool_rows": [6, 7, 8], "identity": "unknown", "fifo": "unknown", "conditional_bijections": 6},
+      {"assistant_row": 9, "call_name_classes": [1, 1, 1, 1], "tool_rows": [10, 11, 12, 13], "identity": "unknown", "fifo": "unknown", "conditional_bijections": 24}
+    ],
+    "strict_guard_rejected_tool_rows": 7,
+    "strict_comparisons": 0,
+    "unknown_blocks": 2
+  }
+}
