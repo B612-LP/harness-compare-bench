@@ -6,8 +6,8 @@ import json
 import sys
 from pathlib import Path
 
-SCHEMA = "harness-observation-candidate-cases/0.3"
-CASE_SHA256 = "11213335778ca5a2b40c2e7852b3c83ab04961286e8ad8212c24252497bae67f"
+SCHEMA = "harness-observation-cases/1.0"
+CASE_SHA256 = "17e7294e66d2a72df39f418a663d715658293e5a36f08d83c1365be7aa4c5c6f"
 BASE = {"availability", "grammar", "attachment"}
 PROFILES = {"common", "dsh-v4/chat", "codex-native/responses"}
 VIEWS = {"event-values", "request-body", "selected-messages", "response-tool", "tool-arguments"}
@@ -145,7 +145,7 @@ def same(left, right):
 
 def check(data):
     obj(data, {"schema", "frozen", "cases"})
-    need(data["schema"] == SCHEMA and data["frozen"] is False, "schema_or_status")
+    need(data["schema"] == SCHEMA and data["frozen"] is True, "schema_or_status")
     cases = data["cases"]
     need(type(cases) is list and len(cases) == 14, "case_count")
     keys = set()
@@ -207,17 +207,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
+    frozen = None
     try:
         source = Path(__file__).with_name("cases.json")
         with source.open("rb") as handle:
             blob = handle.read(32769)
         need(hashlib.sha256(blob).hexdigest() == CASE_SHA256, "fixed_cases_digest")
-        cases = check(load_bytes(blob))
+        data = load_bytes(blob)
+        cases = check(data)
+        frozen = data["frozen"]
         tests = check_known_pairs(cases) if args.self_test else 0
     except (ValueError, OSError, KeyError, RecursionError):
-        print("candidate decision check failed", file=sys.stderr)
+        print("decision check failed", file=sys.stderr)
         return 1
-    print(json.dumps({"schema": SCHEMA, "frozen": False, "cases": len(cases), "controls": tests}, sort_keys=True))
+    print(json.dumps({"schema": SCHEMA, "frozen": frozen, "cases": len(cases), "controls": tests}, sort_keys=True))
     return 0
 
 
