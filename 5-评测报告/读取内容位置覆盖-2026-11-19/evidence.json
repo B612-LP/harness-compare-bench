@@ -1,0 +1,407 @@
+{
+  "new_fixture_or_product_runs": 0,
+  "new_synthetic_examples_not_runs": {
+    "coordinate_frame": {
+      "converted_file_interval": [
+        512,
+        1024
+      ],
+      "different_view_epoch": "not_combined",
+      "missing_file_extent": "unknown_whole_file_denominator",
+      "same_axis_view_covered_bytes": 512,
+      "same_numerical_file_range_no_transform": "unknown_not_file_coverage",
+      "stipulated_bound_view_origin_in_file_bytes": 512,
+      "stipulated_view_range": [
+        0,
+        512
+      ]
+    },
+    "other_object_or_window": {
+      "other_object_same_window": "excluded_different_object_not_an_unread_finding",
+      "outside_result": "excluded_outside_window_not_an_unread_finding",
+      "query_window_in_synthetic_ticks": [
+        200,
+        450
+      ],
+      "same_object_action_envelope_outside_ticks": [
+        550,
+        551
+      ],
+      "same_payload_bytes_each": 512,
+      "same_payload_sha256": "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b"
+    },
+    "same_returns_different_cover": {
+      "concatenated_returns_sha256": "785b0751fc2c53dc14a4ce3d800e69ef9ce1009eb327ccf458afe09c242c26c9",
+      "each_call_bytes": [
+        512,
+        512
+      ],
+      "each_call_sha256": [
+        "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b",
+        "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b"
+      ],
+      "query_file_range": [
+        0,
+        1024
+      ],
+      "repeat_first_half": {
+        "file_covered_bytes": 512,
+        "intervals": [
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            512
+          ]
+        ]
+      },
+      "separate_halves": {
+        "file_covered_bytes": 1024,
+        "intervals": [
+          [
+            0,
+            512
+          ],
+          [
+            512,
+            1024
+          ]
+        ]
+      },
+      "source_construction": "bytes(range(256))*4"
+    },
+    "zero_length": {
+      "empty_buffer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reported_pread_zero_no_witness": "unknown_not_an_unread_finding",
+      "separate_control_example": "bound_open_only_state_no_content_operation",
+      "stipulated_bound_pread_zero_receipt": "zero_length_return_witnessed_not_an_unread_finding"
+    }
+  },
+  "previous_public_baseline": "dd5a12f651527923a412f6727d5d2f9c22457026",
+  "prior_evidence_grade": "reported_public_fields_self_consistent_only",
+  "prior_public_fields_reprojection": {
+    "gap": {
+      "arms": {
+        "open_only": {
+          "action_or_control_marker_rel_ns": [
+            342618000,
+            342623000
+          ],
+          "coverage_status": "reported_control_no_content_operation",
+          "covered_bytes_given_denominator": null,
+          "operation": "open_only",
+          "reported_payload_sha256": null,
+          "reported_returned_bytes": 0,
+          "reported_source_intervals": []
+        },
+        "read": {
+          "action_or_control_marker_rel_ns": [
+            345227000,
+            345231000
+          ],
+          "coverage_status": "reported_interval_unknown_denominator",
+          "covered_bytes_given_denominator": null,
+          "operation": "os.read",
+          "reported_payload_sha256": "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b",
+          "reported_returned_bytes": 512,
+          "reported_source_intervals": [
+            [
+              0,
+              512
+            ]
+          ]
+        }
+      },
+      "denominator_bytes": null,
+      "fd_sampling": {
+        "after_envelope_rel_ns": [
+          626809000,
+          651521000
+        ],
+        "before_envelope_rel_ns": [
+          34830000,
+          52483000
+        ],
+        "target_lifecycle_between_samples": true
+      },
+      "reported_common_target_interval_rel_ns": [
+        230091000,
+        470054000
+      ],
+      "scope": "file_bytes_extent_unreported",
+      "source_pair_status": "observed_gap_same_target_zero"
+    },
+    "hold_long": {
+      "arms": {
+        "open_only": {
+          "action_or_control_marker_rel_ns": [
+            35013000,
+            35013000
+          ],
+          "coverage_status": "reported_control_no_content_operation",
+          "covered_bytes_given_denominator": null,
+          "operation": "no_content_read_marker",
+          "reported_payload_sha256": null,
+          "reported_returned_bytes": null,
+          "reported_source_intervals": []
+        },
+        "read": {
+          "action_or_control_marker_rel_ns": [
+            34021000,
+            34030000
+          ],
+          "coverage_status": "reported_complete_in_scope",
+          "covered_bytes_given_denominator": 512,
+          "operation": "os.read",
+          "reported_payload_sha256": "3f873db98d508638a8faac2f32f331893f2fc446c5ec5031ff1cb4a6f5f981fa",
+          "reported_returned_bytes": 512,
+          "reported_source_intervals": [
+            [
+              0,
+              512
+            ]
+          ]
+        }
+      },
+      "both_pre_fstat_before_first_action": true,
+      "denominator_bytes": 512,
+      "fd_sampling": {
+        "candidate_post_action_hold_rel_ns": [
+          35020000,
+          650000000
+        ],
+        "capture_inside_post_action_hold": true,
+        "envelope_rel_ns": [
+          125037000,
+          142443000
+        ],
+        "reported_exact_matches_in_read_open_order": [
+          true,
+          true
+        ]
+      },
+      "scope": "file_bytes",
+      "source_pair_qualified": true,
+      "source_pair_status": "matched_same_fd_visibility"
+    },
+    "hold_short": {
+      "arms": {
+        "open_only": {
+          "action_or_control_marker_rel_ns": [
+            5175000,
+            5176000
+          ],
+          "coverage_status": "reported_control_no_content_operation",
+          "covered_bytes_given_denominator": null,
+          "operation": "no_content_read_marker",
+          "reported_payload_sha256": null,
+          "reported_returned_bytes": null,
+          "reported_source_intervals": []
+        },
+        "read": {
+          "action_or_control_marker_rel_ns": [
+            4877000,
+            4882000
+          ],
+          "coverage_status": "reported_complete_in_scope",
+          "covered_bytes_given_denominator": 512,
+          "operation": "os.read",
+          "reported_payload_sha256": "3f873db98d508638a8faac2f32f331893f2fc446c5ec5031ff1cb4a6f5f981fa",
+          "reported_returned_bytes": 512,
+          "reported_source_intervals": [
+            [
+              0,
+              512
+            ]
+          ]
+        }
+      },
+      "both_pre_fstat_before_first_action": false,
+      "denominator_bytes": 512,
+      "fd_sampling": {
+        "candidate_post_action_hold_rel_ns": [
+          5179000,
+          12000000
+        ],
+        "capture_inside_post_action_hold": false,
+        "envelope_rel_ns": [
+          7462000,
+          16413000
+        ],
+        "reported_exact_matches_in_read_open_order": null
+      },
+      "scope": "file_bytes",
+      "source_pair_qualified": false,
+      "source_pair_status": "unknown"
+    },
+    "mmap": {
+      "arms": {
+        "consume": {
+          "action_or_control_marker_rel_ns": [
+            257739000,
+            257763000
+          ],
+          "coverage_status": "reported_partial_in_scope",
+          "covered_bytes_given_denominator": 512,
+          "operation": "copy_mapped_prefix",
+          "reported_payload_sha256": "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b",
+          "reported_returned_bytes": 512,
+          "reported_source_intervals": [
+            [
+              0,
+              512
+            ]
+          ]
+        },
+        "map_only": {
+          "action_or_control_marker_rel_ns": [
+            257557000,
+            257557000
+          ],
+          "coverage_status": "reported_control_no_content_operation",
+          "covered_bytes_given_denominator": null,
+          "operation": "map_only",
+          "reported_payload_sha256": null,
+          "reported_returned_bytes": 0,
+          "reported_source_intervals": []
+        }
+      },
+      "denominator_bytes": 16384,
+      "fd_sampling": {
+        "envelope_rel_ns": [
+          406502000,
+          442217000
+        ],
+        "reported_nonnumeric_labels": {
+          "consume": [
+            "txt"
+          ],
+          "map_only": [
+            "txt"
+          ]
+        },
+        "reported_numeric_target_rows": {
+          "consume": 0,
+          "map_only": 0
+        }
+      },
+      "file_denominator_bytes": null,
+      "reported_common_map_interval_rel_ns": [
+        104659000,
+        904244000
+      ],
+      "scope": "mapped_view_bytes_not_file_extent",
+      "source_pair_status": "mapped_pair_equal_nonnumeric",
+      "view_to_file_origin": null
+    },
+    "offset": {
+      "arms": {
+        "A": {
+          "action_or_control_marker_rel_ns": [
+            260151000,
+            260175000
+          ],
+          "coverage_status": "reported_partial_in_scope",
+          "covered_bytes_given_denominator": 512,
+          "operation": "pread",
+          "reported_interval_provenance": "offset_companion_readme_documented_explicit_pread_argument_and_reported_return_length",
+          "reported_payload_sha256": "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b",
+          "reported_returned_bytes": 512,
+          "reported_source_intervals": [
+            [
+              0,
+              512
+            ]
+          ]
+        },
+        "B": {
+          "action_or_control_marker_rel_ns": [
+            267820000,
+            267821000
+          ],
+          "coverage_status": "reported_control_no_content_operation",
+          "covered_bytes_given_denominator": null,
+          "operation": "open_only",
+          "reported_payload_sha256": null,
+          "reported_returned_bytes": 0,
+          "reported_source_intervals": []
+        },
+        "C": {
+          "action_or_control_marker_rel_ns": [
+            262275000,
+            262286000
+          ],
+          "coverage_status": "reported_control_no_content_operation",
+          "covered_bytes_given_denominator": null,
+          "operation": "seek",
+          "reported_payload_sha256": null,
+          "reported_returned_bytes": 0,
+          "reported_source_intervals": []
+        },
+        "D": {
+          "action_or_control_marker_rel_ns": [
+            267817000,
+            267833000
+          ],
+          "coverage_status": "reported_partial_in_scope",
+          "covered_bytes_given_denominator": 512,
+          "operation": "read",
+          "reported_interval_provenance": "reported_pre_read_worker_cursor_and_return_length",
+          "reported_payload_sha256": "110009dcee21620b166f3abfecb5eff7a873be729d1c2d53822e7acc5f34eb9b",
+          "reported_returned_bytes": 512,
+          "reported_source_intervals": [
+            [
+              0,
+              512
+            ]
+          ]
+        }
+      },
+      "denominator_bytes": 1024,
+      "fd_sampling": {
+        "envelope_rel_ns": [
+          430116000,
+          467734000
+        ],
+        "reported_offsets_bytes": {
+          "A": 0,
+          "B": 0,
+          "C": 512,
+          "D": 512
+        }
+      },
+      "reported_common_target_interval_rel_ns": [
+        110413000,
+        901441000
+      ],
+      "scope": "file_bytes",
+      "source_pair_status": "offset_not_sufficient"
+    }
+  },
+  "prior_public_inputs": {
+    "gap": {
+      "repository_relative_public_path": "5-评测报告/读取探针窗口空隙-2026-11-19/evidence.json",
+      "sha256": "c038bbb1da7751a24e06f63bd9f445e6b66e4f7f658a2f079ec91dbe5610aba8"
+    },
+    "hold": {
+      "repository_relative_public_path": "5-评测报告/同对象同窗读取检测校准-2026-11-19/evidence.json",
+      "sha256": "83a8e036c468d2636d183c2dbb316e523d4faa4b2810cf0e3c229ae112a10d4c"
+    },
+    "mmap": {
+      "repository_relative_public_path": "5-评测报告/读取探针文件映射-2026-11-19/evidence.json",
+      "sha256": "5f012a8aef09290dea9e794982f195710b373d49c9f64d263087a980a4a5f774"
+    },
+    "offset": {
+      "repository_relative_public_path": "5-评测报告/读取探针单次偏移-2026-11-19/evidence.json",
+      "sha256": "c8e5fd4527409bd550d266901566867779d6624fe497b5eb59a311b6d408f45d"
+    },
+    "offset_companion_readme": {
+      "repository_relative_public_path": "5-评测报告/读取探针单次偏移-2026-11-19/README.md",
+      "scope": "reports_arm_A_explicit_pread_argument_not_raw_call_receipt",
+      "sha256": "3639c7c79bbbfef5f2ac2364d565a3af6db4a689e39e038aa7e73909364794d2"
+    }
+  },
+  "schema": "reported-read-coverage-public-derivative-v2"
+}

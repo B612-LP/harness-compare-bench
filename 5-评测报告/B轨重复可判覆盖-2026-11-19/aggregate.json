@@ -1,0 +1,916 @@
+{
+  "schema": "b_cohort_coverage_v1",
+  "source_commit": "dd5a12f651527923a412f6727d5d2f9c22457026",
+  "source_blobs": [
+    {
+      "arm": "yuanbao",
+      "kind": "protocol",
+      "bytes": 6845,
+      "sha256": "967b8775fb27b485e3e3e0cadf560c041bc6df43f98a83f510c2a5de3d4a08c0",
+      "path": "3-表现现场/r20261101-yuanbao-n3/README.md"
+    },
+    {
+      "arm": "yuanbao",
+      "kind": "ledger",
+      "bytes": 18710,
+      "sha256": "d29744c74e17490a1a1e930e576ca87f5ccfdefacafd63f636e8b41009dc98c6",
+      "path": "3-表现现场/r20261101-yuanbao-n3/batch-summary.json"
+    },
+    {
+      "arm": "doubao",
+      "kind": "protocol",
+      "bytes": 3942,
+      "sha256": "3753d1724e9fd39890787b80f3afd8c0d40b6be8f6529c55371f92d3703c2fa6",
+      "path": "3-表现现场/r20261101-doubao-n3/README.md"
+    },
+    {
+      "arm": "doubao",
+      "kind": "ledger",
+      "bytes": 14293,
+      "sha256": "42736720c1051c074f4dbb5a338cabe3abe039a66290ba38169171152bee04e0",
+      "path": "3-表现现场/r20261101-doubao-n3/batch-summary.json"
+    }
+  ],
+  "arms": [
+    "yuanbao",
+    "doubao"
+  ],
+  "case_order": [
+    "Bird",
+    "Dabstep",
+    "Exercism",
+    "LCB",
+    "Cargo"
+  ],
+  "slot_order_within_case": [
+    "r1",
+    "r2",
+    "r3"
+  ],
+  "cell_order": [
+    "both_1",
+    "yuanbao_only_1",
+    "doubao_only_1",
+    "both_0"
+  ],
+  "null_reward_meaning": "no eligible grade; archive row counts distinguish absent row from recorded ungraded",
+  "coverage": {
+    "Bird": {
+      "yuanbao": {
+        "planned_slots": 3,
+        "archive_rows": 5,
+        "slots_with_rows": 3,
+        "extra_rows": 2,
+        "launch_invalid_rows": 2,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 3,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 2,
+        "nonpasses": 1,
+        "archive_rows_by_slot": [
+          1,
+          3,
+          1
+        ],
+        "reward_by_slot": [
+          0,
+          1,
+          1
+        ],
+        "first_row_eligible_slots": 2,
+        "first_row_passes": 1,
+        "first_row_nonpasses": 1,
+        "first_row_recorded_ungraded_slots": 1,
+        "first_row_reward_by_slot": [
+          0,
+          null,
+          1
+        ]
+      },
+      "doubao": {
+        "planned_slots": 3,
+        "archive_rows": 3,
+        "slots_with_rows": 3,
+        "extra_rows": 0,
+        "launch_invalid_rows": 0,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 3,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 3,
+        "nonpasses": 0,
+        "archive_rows_by_slot": [
+          1,
+          1,
+          1
+        ],
+        "reward_by_slot": [
+          1,
+          1,
+          1
+        ],
+        "first_row_eligible_slots": 3,
+        "first_row_passes": 3,
+        "first_row_nonpasses": 0,
+        "first_row_recorded_ungraded_slots": 0,
+        "first_row_reward_by_slot": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "Dabstep": {
+      "yuanbao": {
+        "planned_slots": 3,
+        "archive_rows": 5,
+        "slots_with_rows": 3,
+        "extra_rows": 2,
+        "launch_invalid_rows": 2,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 3,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 0,
+        "nonpasses": 3,
+        "archive_rows_by_slot": [
+          3,
+          1,
+          1
+        ],
+        "reward_by_slot": [
+          0,
+          0,
+          0
+        ],
+        "first_row_eligible_slots": 2,
+        "first_row_passes": 0,
+        "first_row_nonpasses": 2,
+        "first_row_recorded_ungraded_slots": 1,
+        "first_row_reward_by_slot": [
+          null,
+          0,
+          0
+        ]
+      },
+      "doubao": {
+        "planned_slots": 3,
+        "archive_rows": 3,
+        "slots_with_rows": 3,
+        "extra_rows": 0,
+        "launch_invalid_rows": 0,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 3,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 0,
+        "nonpasses": 3,
+        "archive_rows_by_slot": [
+          1,
+          1,
+          1
+        ],
+        "reward_by_slot": [
+          0,
+          0,
+          0
+        ],
+        "first_row_eligible_slots": 3,
+        "first_row_passes": 0,
+        "first_row_nonpasses": 3,
+        "first_row_recorded_ungraded_slots": 0,
+        "first_row_reward_by_slot": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "Exercism": {
+      "yuanbao": {
+        "planned_slots": 3,
+        "archive_rows": 4,
+        "slots_with_rows": 3,
+        "extra_rows": 1,
+        "launch_invalid_rows": 1,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 3,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 0,
+        "nonpasses": 3,
+        "archive_rows_by_slot": [
+          2,
+          1,
+          1
+        ],
+        "reward_by_slot": [
+          0,
+          0,
+          0
+        ],
+        "first_row_eligible_slots": 2,
+        "first_row_passes": 0,
+        "first_row_nonpasses": 2,
+        "first_row_recorded_ungraded_slots": 1,
+        "first_row_reward_by_slot": [
+          null,
+          0,
+          0
+        ]
+      },
+      "doubao": {
+        "planned_slots": 3,
+        "archive_rows": 4,
+        "slots_with_rows": 3,
+        "extra_rows": 1,
+        "launch_invalid_rows": 0,
+        "quota_interrupted_rows": 1,
+        "eligible_slots": 3,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 3,
+        "nonpasses": 0,
+        "archive_rows_by_slot": [
+          1,
+          2,
+          1
+        ],
+        "reward_by_slot": [
+          1,
+          1,
+          1
+        ],
+        "first_row_eligible_slots": 2,
+        "first_row_passes": 2,
+        "first_row_nonpasses": 0,
+        "first_row_recorded_ungraded_slots": 1,
+        "first_row_reward_by_slot": [
+          1,
+          null,
+          1
+        ]
+      }
+    },
+    "LCB": {
+      "yuanbao": {
+        "planned_slots": 3,
+        "archive_rows": 5,
+        "slots_with_rows": 3,
+        "extra_rows": 2,
+        "launch_invalid_rows": 2,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 3,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 0,
+        "nonpasses": 3,
+        "archive_rows_by_slot": [
+          2,
+          1,
+          2
+        ],
+        "reward_by_slot": [
+          0,
+          0,
+          0
+        ],
+        "first_row_eligible_slots": 1,
+        "first_row_passes": 0,
+        "first_row_nonpasses": 1,
+        "first_row_recorded_ungraded_slots": 2,
+        "first_row_reward_by_slot": [
+          null,
+          0,
+          null
+        ]
+      },
+      "doubao": {
+        "planned_slots": 3,
+        "archive_rows": 3,
+        "slots_with_rows": 3,
+        "extra_rows": 0,
+        "launch_invalid_rows": 0,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 3,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 3,
+        "nonpasses": 0,
+        "archive_rows_by_slot": [
+          1,
+          1,
+          1
+        ],
+        "reward_by_slot": [
+          1,
+          1,
+          1
+        ],
+        "first_row_eligible_slots": 3,
+        "first_row_passes": 3,
+        "first_row_nonpasses": 0,
+        "first_row_recorded_ungraded_slots": 0,
+        "first_row_reward_by_slot": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "Cargo": {
+      "yuanbao": {
+        "planned_slots": 3,
+        "archive_rows": 4,
+        "slots_with_rows": 2,
+        "extra_rows": 2,
+        "launch_invalid_rows": 4,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 0,
+        "recorded_ungraded_slots": 2,
+        "slots_without_rows": 1,
+        "passes": 0,
+        "nonpasses": 0,
+        "archive_rows_by_slot": [
+          2,
+          2,
+          0
+        ],
+        "reward_by_slot": [
+          null,
+          null,
+          null
+        ],
+        "first_row_eligible_slots": 0,
+        "first_row_passes": 0,
+        "first_row_nonpasses": 0,
+        "first_row_recorded_ungraded_slots": 2,
+        "first_row_reward_by_slot": [
+          null,
+          null,
+          null
+        ]
+      },
+      "doubao": {
+        "planned_slots": 3,
+        "archive_rows": 4,
+        "slots_with_rows": 3,
+        "extra_rows": 1,
+        "launch_invalid_rows": 1,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 3,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 0,
+        "nonpasses": 3,
+        "archive_rows_by_slot": [
+          1,
+          1,
+          2
+        ],
+        "reward_by_slot": [
+          0,
+          0,
+          0
+        ],
+        "first_row_eligible_slots": 2,
+        "first_row_passes": 0,
+        "first_row_nonpasses": 2,
+        "first_row_recorded_ungraded_slots": 1,
+        "first_row_reward_by_slot": [
+          0,
+          0,
+          null
+        ]
+      }
+    },
+    "total": {
+      "yuanbao": {
+        "planned_slots": 15,
+        "archive_rows": 23,
+        "slots_with_rows": 14,
+        "extra_rows": 9,
+        "launch_invalid_rows": 11,
+        "quota_interrupted_rows": 0,
+        "eligible_slots": 12,
+        "recorded_ungraded_slots": 2,
+        "slots_without_rows": 1,
+        "passes": 2,
+        "nonpasses": 10,
+        "archive_rows_by_slot": [
+          1,
+          3,
+          1,
+          3,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        "reward_by_slot": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null
+        ],
+        "first_row_eligible_slots": 7,
+        "first_row_passes": 1,
+        "first_row_nonpasses": 6,
+        "first_row_recorded_ungraded_slots": 7,
+        "first_row_reward_by_slot": [
+          0,
+          null,
+          1,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "doubao": {
+        "planned_slots": 15,
+        "archive_rows": 17,
+        "slots_with_rows": 15,
+        "extra_rows": 2,
+        "launch_invalid_rows": 1,
+        "quota_interrupted_rows": 1,
+        "eligible_slots": 15,
+        "recorded_ungraded_slots": 0,
+        "slots_without_rows": 0,
+        "passes": 9,
+        "nonpasses": 6,
+        "archive_rows_by_slot": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "reward_by_slot": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "first_row_eligible_slots": 13,
+        "first_row_passes": 8,
+        "first_row_nonpasses": 5,
+        "first_row_recorded_ungraded_slots": 2,
+        "first_row_reward_by_slot": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null
+        ]
+      }
+    }
+  },
+  "same_label_complete_case": {
+    "Bird": {
+      "joint_slots": 3,
+      "yuanbao_passes": 2,
+      "doubao_passes": 3,
+      "cells": [
+        2,
+        0,
+        1,
+        0
+      ],
+      "doubao_minus_yuanbao": 1
+    },
+    "Dabstep": {
+      "joint_slots": 3,
+      "yuanbao_passes": 0,
+      "doubao_passes": 0,
+      "cells": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "doubao_minus_yuanbao": 0
+    },
+    "Exercism": {
+      "joint_slots": 3,
+      "yuanbao_passes": 0,
+      "doubao_passes": 3,
+      "cells": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "doubao_minus_yuanbao": 3
+    },
+    "LCB": {
+      "joint_slots": 3,
+      "yuanbao_passes": 0,
+      "doubao_passes": 3,
+      "cells": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "doubao_minus_yuanbao": 3
+    },
+    "Cargo": {
+      "joint_slots": 0,
+      "yuanbao_passes": null,
+      "doubao_passes": null,
+      "cells": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "doubao_minus_yuanbao": null
+    },
+    "total": {
+      "joint_slots": 12,
+      "yuanbao_passes": 2,
+      "doubao_passes": 9,
+      "cells": [
+        2,
+        0,
+        7,
+        3
+      ],
+      "doubao_minus_yuanbao": 7
+    }
+  },
+  "first_row_same_label_complete_case": {
+    "Bird": {
+      "joint_slots": 2,
+      "yuanbao_passes": 1,
+      "doubao_passes": 2,
+      "cells": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "doubao_minus_yuanbao": 1
+    },
+    "Dabstep": {
+      "joint_slots": 2,
+      "yuanbao_passes": 0,
+      "doubao_passes": 0,
+      "cells": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "doubao_minus_yuanbao": 0
+    },
+    "Exercism": {
+      "joint_slots": 1,
+      "yuanbao_passes": 0,
+      "doubao_passes": 1,
+      "cells": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "doubao_minus_yuanbao": 1
+    },
+    "LCB": {
+      "joint_slots": 1,
+      "yuanbao_passes": 0,
+      "doubao_passes": 1,
+      "cells": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "doubao_minus_yuanbao": 1
+    },
+    "Cargo": {
+      "joint_slots": 0,
+      "yuanbao_passes": null,
+      "doubao_passes": null,
+      "cells": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "doubao_minus_yuanbao": null
+    },
+    "total": {
+      "joint_slots": 6,
+      "yuanbao_passes": 1,
+      "doubao_passes": 4,
+      "cells": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "doubao_minus_yuanbao": 3
+    }
+  },
+  "unresolved_slots_in_completion_order": [
+    {
+      "arm": "yuanbao",
+      "case": "Cargo",
+      "slot": "r1",
+      "archive_status": "recorded_ungraded",
+      "documented_not_attempted": null
+    },
+    {
+      "arm": "yuanbao",
+      "case": "Cargo",
+      "slot": "r2",
+      "archive_status": "recorded_ungraded",
+      "documented_not_attempted": null
+    },
+    {
+      "arm": "yuanbao",
+      "case": "Cargo",
+      "slot": "r3",
+      "archive_status": "no_archived_row",
+      "documented_not_attempted": true
+    }
+  ],
+  "possible_pass_counts_and_differences": {
+    "Bird": {
+      "yuanbao": [
+        2
+      ],
+      "doubao": [
+        3
+      ],
+      "doubao_minus_yuanbao": [
+        1
+      ]
+    },
+    "Dabstep": {
+      "yuanbao": [
+        0
+      ],
+      "doubao": [
+        0
+      ],
+      "doubao_minus_yuanbao": [
+        0
+      ]
+    },
+    "Exercism": {
+      "yuanbao": [
+        0
+      ],
+      "doubao": [
+        3
+      ],
+      "doubao_minus_yuanbao": [
+        3
+      ]
+    },
+    "LCB": {
+      "yuanbao": [
+        0
+      ],
+      "doubao": [
+        3
+      ],
+      "doubao_minus_yuanbao": [
+        3
+      ]
+    },
+    "Cargo": {
+      "yuanbao": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "doubao": [
+        0
+      ],
+      "doubao_minus_yuanbao": [
+        -3,
+        -2,
+        -1,
+        0
+      ]
+    },
+    "total": {
+      "yuanbao": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "doubao": [
+        9
+      ],
+      "doubao_minus_yuanbao": [
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  "full_binary_completions": [
+    {
+      "yuanbao_cargo_bits": [
+        0,
+        0,
+        0
+      ],
+      "cargo": {
+        "yuanbao": 0,
+        "doubao": 0,
+        "doubao_minus_yuanbao": 0
+      },
+      "total": {
+        "yuanbao": 2,
+        "doubao": 9,
+        "doubao_minus_yuanbao": 7
+      }
+    },
+    {
+      "yuanbao_cargo_bits": [
+        0,
+        0,
+        1
+      ],
+      "cargo": {
+        "yuanbao": 1,
+        "doubao": 0,
+        "doubao_minus_yuanbao": -1
+      },
+      "total": {
+        "yuanbao": 3,
+        "doubao": 9,
+        "doubao_minus_yuanbao": 6
+      }
+    },
+    {
+      "yuanbao_cargo_bits": [
+        0,
+        1,
+        0
+      ],
+      "cargo": {
+        "yuanbao": 1,
+        "doubao": 0,
+        "doubao_minus_yuanbao": -1
+      },
+      "total": {
+        "yuanbao": 3,
+        "doubao": 9,
+        "doubao_minus_yuanbao": 6
+      }
+    },
+    {
+      "yuanbao_cargo_bits": [
+        0,
+        1,
+        1
+      ],
+      "cargo": {
+        "yuanbao": 2,
+        "doubao": 0,
+        "doubao_minus_yuanbao": -2
+      },
+      "total": {
+        "yuanbao": 4,
+        "doubao": 9,
+        "doubao_minus_yuanbao": 5
+      }
+    },
+    {
+      "yuanbao_cargo_bits": [
+        1,
+        0,
+        0
+      ],
+      "cargo": {
+        "yuanbao": 1,
+        "doubao": 0,
+        "doubao_minus_yuanbao": -1
+      },
+      "total": {
+        "yuanbao": 3,
+        "doubao": 9,
+        "doubao_minus_yuanbao": 6
+      }
+    },
+    {
+      "yuanbao_cargo_bits": [
+        1,
+        0,
+        1
+      ],
+      "cargo": {
+        "yuanbao": 2,
+        "doubao": 0,
+        "doubao_minus_yuanbao": -2
+      },
+      "total": {
+        "yuanbao": 4,
+        "doubao": 9,
+        "doubao_minus_yuanbao": 5
+      }
+    },
+    {
+      "yuanbao_cargo_bits": [
+        1,
+        1,
+        0
+      ],
+      "cargo": {
+        "yuanbao": 2,
+        "doubao": 0,
+        "doubao_minus_yuanbao": -2
+      },
+      "total": {
+        "yuanbao": 4,
+        "doubao": 9,
+        "doubao_minus_yuanbao": 5
+      }
+    },
+    {
+      "yuanbao_cargo_bits": [
+        1,
+        1,
+        1
+      ],
+      "cargo": {
+        "yuanbao": 3,
+        "doubao": 0,
+        "doubao_minus_yuanbao": -3
+      },
+      "total": {
+        "yuanbao": 5,
+        "doubao": 9,
+        "doubao_minus_yuanbao": 4
+      }
+    }
+  ]
+}
