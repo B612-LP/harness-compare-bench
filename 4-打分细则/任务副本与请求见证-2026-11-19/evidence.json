@@ -1,0 +1,86 @@
+{
+  "schema": "archived-task-control-aggregate-v1",
+  "public_git_commit": "dd5a12f651527923a412f6727d5d2f9c22457026",
+  "scope": {
+    "arms": ["Codex", "DSH"],
+    "cases_per_arm": 5,
+    "same_arm_case_groups": 10,
+    "repeats_per_group": 3,
+    "archived_formal_a1_task_copies": 10,
+    "archived_repeat_task_copies": 30,
+    "historic_public_documents": 4,
+    "formal_companion_metadata_objects": 10,
+    "repeat_public_derived_companion_metadata_objects": 30,
+    "git_tree_leaf_object_binding_checks": 84
+  },
+  "archive_comparison": {
+    "equality_method": ["SHA-256", "complete byte equality"],
+    "transformation_applied": false,
+    "within_arm_case_repeat": {
+      "total_pairs": 30,
+      "workspace_bytes": {"equal": 30, "different": 0, "unknown": 0},
+      "declared_digest": {"equal": 30, "different": 0, "unknown": 0}
+    },
+    "own_formal_a1_to_repeat": {
+      "total_pairs": 30,
+      "workspace_bytes": {"equal": 30, "different": 0, "unknown": 0},
+      "declared_digest": {"equal": 30, "different": 0, "unknown": 0}
+    },
+    "cross_arm_repeat_same_case_descriptive": {
+      "total_pairs": 45,
+      "workspace_bytes": {"equal": 0, "different": 45, "unknown": 0},
+      "declared_digest": {"equal": 0, "different": 45, "unknown": 0}
+    },
+    "cross_arm_formal_same_case_descriptive": {
+      "total_pairs": 5,
+      "workspace_bytes": {"equal": 0, "different": 5, "unknown": 0},
+      "declared_digest": {"equal": 0, "different": 5, "unknown": 0}
+    },
+    "primary_pairs_with_zero_byte_length_delta": 60,
+    "cross_arm_numeric_differences": {
+      "pair_count": 50,
+      "dsh_minus_codex_byte_length": -4,
+      "remaining_span_after_common_prefix_and_nonoverlapping_suffix_bytes": {
+        "Codex": 99,
+        "DSH": 95
+      }
+    }
+  },
+  "declaration_and_gate": {
+    "formal_declared_sha_matches_own_archive": {"matched": 10, "total": 10},
+    "repeat_declared_sha_matches_own_archive": {"matched": 30, "total": 30},
+    "gate_absent": 24,
+    "gate_present": 6,
+    "present_gates_asserting_both_prompt_and_input_match": 6,
+    "present_gate_citation_scope": "batch only",
+    "formal_a1_candidates_in_cited_batch": 10,
+    "present_gate_citations_resolved_to_exact_formal_a1": 0,
+    "underlying_historic_gate_execution": "not evaluated by this comparison"
+  },
+  "selected_native_projection": {
+    "basis": "prior published derived evidence; not a new raw event projection",
+    "codex_within_repeat_comparable_groups": 5,
+    "codex_within_repeat_opening_pairs": {"equal": 15, "different": 0, "unknown": 0},
+    "codex_within_repeat_task_digest_pairs": {"equal": 15, "different": 0, "unknown": 0},
+    "dsh_within_repeat_equivalent_projection_unknown_pairs": 15,
+    "own_formal_a1_to_repeat_unknown_pairs": 30,
+    "comparison_to_workspace_or_declared_digest": "not directly comparable"
+  },
+  "full_client_request": {
+    "within_arm_case_repeat_unknown_pairs": 30,
+    "own_formal_a1_to_repeat_unknown_pairs": 30
+  },
+  "synthetic_near_miss": {
+    "included_in_real_counts": false,
+    "companion_digest_equality": {"before": "equal", "after": "different"},
+    "workspace_copy_equality": {"before": "equal", "after": "equal"},
+    "selected_opening_projection_equality": {"before": "equal", "after": "equal"},
+    "baseline_gate": {"before": "unknown (absent)", "after": "unknown (absent)"},
+    "full_client_request": {"before": "unknown", "after": "unknown"}
+  },
+  "nonauthor_recomputation": {
+    "matched_primary_pair_records": 60,
+    "matched_descriptive_cross_arm_pair_records": 50,
+    "controlled_third_party_raw_event_audit": false
+  }
+}
