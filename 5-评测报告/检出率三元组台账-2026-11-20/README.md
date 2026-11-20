@@ -137,6 +137,16 @@ Wilson 95% CI；运行原件存于私有档案，本页给出可复核口径与�
   harness 会话事件日志副本字段（两臂对称、同受截断策略），分账口径=会话
   内容层主张只计 messages 字段、该字段上游摄入未知不计；raw 请求体字节数
   含重复计数，不作为分母口径。
+- **Codex 请求侧基线（2026-11-20，独审整改后 AGREE）**：同法捕获 Codex CLI
+  （codex-cli 0.163.0、同模型同提示词同 16,000B 夹具、1 冒烟+2 主跑 9 请求
+  全 200、真值 3/3）。**请求侧 tool_result 截断默认行为分道**：DSH 默认臂
+  16,277 字符全量内联 vs **Codex 默认即截断**——cat 输出恒 10,207 字符=
+  包装头（Original token count: 4000/Warning: truncated output/Total output
+  lines: 247）+夹具头部 76 行+内联省略行（6000 chars truncated）+尾部 77 行；
+  marker（夹具中段）不在 cat 请求、经模型第二条 `rg` 命令改道进入终请求
+  （与 DSH 溢出臂搜索恢复同型）；11 字段 responses wire 家族
+  （prompt_cache_key/store/tool_choice，无 dsh_* 字段）。主张限本机两产品
+  两版本×本次任务；截断成因与通用阈值不推断；字节≠token≠费用分账维持。
 - **wire 顶层字段清单与 dsh_session_log 分账（2026-11-20，零发射离线，经独审
   两轮整改后 AGREE）**：23 个捕获请求逐字节定源——10 字段类 ×17 / 8 字段类
   ×6；3 个非标准 wire 字段=dsh_session_log（23/23，占请求字节 **14.2%–80.5%**
