@@ -35,7 +35,7 @@ v1.3 不变（§1–§5 冻结与 §6 活账、§8 依据显式分账）。
 
 ### 换对象复刻（对象泛化，n=1 pair × 对象切换）
 
-对象从 readpair 系夹具切换为 fixture-c（16,000B ASCII，MARKER L124 中部），
+对象从 readpair 系夹具切换为 fixture-c（16,000B ASCII，sha16 e4111904abbf9a9a，MARKER L124 中部），
 R91 两 CLI、R93 豆包轨迹面、R94 WB 同协议逐字沿用仅换对象（runner diff 仅
 FX 断言/路径/目录，独审逐行核对）：
 
