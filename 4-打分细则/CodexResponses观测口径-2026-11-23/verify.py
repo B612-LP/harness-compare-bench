@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""公开证据一致性自检（试行 0.1）。
+"""公开证据一致性自检（试行 0.2）。
 
 用法：python3 verify.py --self-test
 只核对本目录 evidence.json 的内部一致性与隐私边界（不含会话标识、
@@ -31,22 +31,22 @@ def self_test():
     assert scope['model'] == 'deepseek-flash' and scope['effort'] == 'low'
 
     chains = data['chains']
-    groups = chains['A_grouping']['groups']
+    groups = chains['V_group']['groups']
     assert sum(len(g) for g in groups) == scope['packets']
     flat = [n for g in groups for n in g]
     assert sorted(flat) == list(range(1, 13)), '分组序号应为 1..12 的划分'
-    assert chains['A_grouping']['cross_method_agree'] is True
-    assert chains['A_grouping']['top_level_keys_uniform'] == 12
+    assert chains['V_group']['cross_method_agree'] is True
+    assert chains['V_group']['top_level_keys_uniform'] == 12
 
-    b = chains['B_metadata']
+    b = chains['V_meta']
     assert b['model_deepseek_flash'] == b['effort_low'] == b['framing_rechunked'] == 12
 
-    c = chains['C_stream_gates']
+    c = chains['V_stream']
     assert c['envelope_and_item_gates_ok'] == 12
     assert c['response_ids_all_distinct'] == 12
     assert c['run_records_differ'] is True and c['within_run_input_growth'] is True
 
-    h = chains['H_persha']
+    h = chains['D_persha']
     assert h['bound'] == h['total'] == 12
 
     rows = data['g_w_binding']

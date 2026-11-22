@@ -1,12 +1,16 @@
 {
   "boundaries": [
     "只覆盖 Codex responses 流该冻结样本，不外推 messages 线或其他产品",
-    "不冻结；试行 0.1",
+    "不冻结；试行 0.2（0.1→0.2：字母映射落地+数字口径分账改述）",
     "不做单变量干预，不估 Harness 效果",
     "受控第三方原件核验未完成"
   ],
   "chains": {
-    "A_grouping": {
+    "D_persha": {
+      "bound": 12,
+      "total": 12
+    },
+    "V_group": {
       "cross_method_agree": true,
       "groups": [
         [
@@ -35,22 +39,18 @@
       "history_carry": "input 内承接（无 previous_response_id、store=false）",
       "top_level_keys_uniform": 12
     },
-    "B_metadata": {
+    "V_meta": {
       "effort_low": 12,
       "framing_rechunked": 12,
       "model_deepseek_flash": 12
     },
-    "C_stream_gates": {
+    "V_stream": {
       "envelope_and_item_gates_ok": 12,
       "response_ids_all_distinct": 12,
       "run_records_differ": true,
       "within_run_input_growth": true
     },
-    "H_persha": {
-      "bound": 12,
-      "total": 12
-    },
-    "W_tools_decl": {
+    "V_tool_decl": {
       "n_tools": 9,
       "note": "全部 12 请求的 tools 投影（名称+参数定义规范 SHA）同集；PREREG W 层声明核对门",
       "uniform": true
@@ -138,6 +138,7 @@
       "run": "50k"
     }
   ],
+  "key_note": "0.2 起链键名沿用冻结门清单映射 v1：A_grouping→V_group、B_metadata→V_meta、C_stream_gates→V_stream、H_persha→D_persha、W_tools_decl→V_tool_decl（0.1 数值不变）",
   "negative_gates_synthetic": [
     "尾部空帧（未 dispatch）拒",
     "名单外事件名携外 ID 信封帧拒",
