@@ -1,5 +1,5 @@
 {
-  "profile": "dsh-v4-observation-trial-0.2",
+  "profile": "dsh-v4-observation-trial-0.3",
   "scope": {
     "source": "private_held_originals_public_aggregates_only",
     "new_product_or_model_runs": 0,
@@ -9,41 +9,244 @@
     "raw_chain_publicly_reprojectable": false,
     "harness_intervention_identified": false
   },
-  "A_positive": {
+  "paired_runs": {
+    "paired_units": 1,
+    "pre_assistant_whole_rows_different_total": [
+      18,
+      18
+    ],
+    "pre_assistant_data_rows_different_total": [
+      8,
+      17
+    ],
+    "input_whole_rows_different_total": [
+      9,
+      9
+    ],
+    "input_data_rows_different_total": [
+      6,
+      9
+    ],
+    "input_data_difference_is_id_only": true,
+    "input_whole_canonical_bytes_by_arm": [
+      39887,
+      39887
+    ],
+    "input_data_canonical_bytes_by_arm": [
+      39217,
+      39217
+    ],
+    "generated_title_json_string_bytes_by_arm": [
+      51,
+      29
+    ],
+    "capture_bytes_by_arm_and_request": [
+      [
+        32937,
+        888,
+        33319
+      ],
+      [
+        32937,
+        888,
+        33797
+      ]
+    ],
+    "cross_arm_request_raw_equal": [
+      true,
+      true,
+      false
+    ],
+    "first_tool_names_by_arm": [
+      "bash",
+      "read"
+    ],
+    "first_tool_missing_required_keys_by_arm": [
+      [
+        "command"
+      ],
+      []
+    ],
+    "first_tool_local_result_is_error_by_arm": [
+      true,
+      false
+    ],
+    "first_tool_argument_bytes_by_arm": [
+      85,
+      66
+    ],
+    "first_tool_result_text_bytes_by_arm": [
+      61,
+      552
+    ],
+    "first_body_alone_authenticates_arm": false
+  },
+  "controls": {
+    "same_source_log_recoding": {
+      "same_carrier_bytes": false,
+      "same_canonical_event_values": true,
+      "same_selected_projection": true
+    },
+    "same_source_zstd_reframing": {
+      "frames_before_after": [
+        11,
+        1
+      ],
+      "same_carrier_bytes": false,
+      "same_canonical_event_values": true,
+      "same_selected_projection": true
+    },
+    "same_value_request_recoding": {
+      "same_capture_bytes": false,
+      "same_json_value": true,
+      "as_original_capture": "unknown"
+    },
+    "same_size_selected_user_change": {
+      "same_decoded_and_canonical_size": true,
+      "same_event_values": false,
+      "task_matches_initial_modified": [
+        8,
+        7
+      ],
+      "title_projection_unchanged": true
+    },
+    "invalid_log_or_binding_fixtures": {
+      "damaged_or_invalid_log": "unknown",
+      "wrong_aux_or_meta": "unknown",
+      "wrong_step_or_call": "unknown"
+    },
+    "known_success_steps_delta": {
+      "missing_result_after_resequence": [
+        "L1_available",
+        null
+      ],
+      "wrong_inner_call": [
+        "L1_available",
+        null
+      ],
+      "missing_assistant": [
+        "L1_available",
+        null
+      ]
+    },
+    "natural_failure_delta": {
+      "wrong_inner_result_call_id": "unknown",
+      "wrong_entire_stream_response_id": "unknown"
+    },
+    "paired_delta": {
+      "wrong_entire_stream_response_id": "unknown",
+      "wrong_title_effort": "unknown",
+      "missing_local_replay_marker": "unknown"
+    },
+    "unclosed_source_tag_fixture": {
+      "required": "unknown",
+      "observed": "known",
+      "applies_to": "natural_failure_delta"
+    },
+    "unclosed_terminal_wrapper_fixture": {
+      "required": "unknown",
+      "observed": "known",
+      "applies_to": "paired_delta"
+    }
+  },
+  "historical_main_gate_unchanged": {
+    "fails": 6,
+    "unverifiable": 4
+  },
+  "E_pos": {
     "raw_container_bytes": 18395,
     "zstd_frames": 11,
     "decoded_ndjson_bytes": 49278,
     "event_rows": 29,
-    "event_family_counts": [9, 12, 8],
-    "event_family_canonical_bytes": [40195, 6916, 2138],
+    "event_family_counts": [
+      9,
+      12,
+      8
+    ],
+    "event_family_canonical_bytes": [
+      40195,
+      6916,
+      2138
+    ],
     "events_canonical_bytes": 49249,
     "structurally_closed_steps": 2,
-    "requests_in_capture_order": ["first_main", "title_aux", "next_main"],
-    "captured_request_body_bytes": [33091, 1042, 34107],
-    "selected_task_messages_matched_total": [8, 8],
-    "local_calls_results": [2, 2],
-    "selected_declarations_matched_in_each_task_request": [[22, 22], [22, 22]],
+    "requests_in_capture_order": [
+      "first_main",
+      "title_aux",
+      "next_main"
+    ],
+    "captured_request_body_bytes": [
+      33091,
+      1042,
+      34107
+    ],
+    "selected_task_messages_matched_total": [
+      8,
+      8
+    ],
+    "local_calls_results": [
+      2,
+      2
+    ],
+    "selected_declarations_matched_in_each_task_request": [
+      [
+        22,
+        22
+      ],
+      [
+        22,
+        22
+      ]
+    ],
     "declaration_field_only_in_capture": "strict",
-    "main_adapter_keys_unreconstructed": ["stream", "stream_options", "thinking", "tool_stream"],
+    "main_adapter_keys_unreconstructed": [
+      "stream",
+      "stream_options",
+      "thinking",
+      "tool_stream"
+    ],
     "full_requests_reconstructed_from_log": 0
   },
-  "B_natural_failure": {
-    "layer_order": ["captured_response", "local_event", "next_main_history"],
+  "E_nat": {
+    "layer_order": [
+      "captured_response",
+      "local_event",
+      "next_main_history"
+    ],
     "argument_fragments": 27,
     "tool_finish_frame": 28,
     "done_frame": 29,
     "required_key": "command",
-    "required_key_states": ["absent", "absent", "absent"],
-    "complete_nonempty_objects": [true, true, true],
-    "raw_argument_utf8_bytes": [85, 85, 85],
-    "canonical_argument_bytes": [85, 85, 85],
+    "required_key_states": [
+      "absent",
+      "absent",
+      "absent"
+    ],
+    "complete_nonempty_objects": [
+      true,
+      true,
+      true
+    ],
+    "raw_argument_utf8_bytes": [
+      85,
+      85,
+      85
+    ],
+    "canonical_argument_bytes": [
+      85,
+      85,
+      85
+    ],
     "raw_arguments_identical": true,
     "canonical_arguments_identical": true,
     "local_result_is_error": true,
-    "local_and_history_result_text_bytes": [61, 61],
+    "local_and_history_result_text_bytes": [
+      61,
+      61
+    ],
     "local_and_history_result_text_identical": true
   },
-  "C_missing_capture": {
+  "E_miss": {
     "raw_container_bytes": 195959,
     "zstd_frames": 120,
     "decoded_ndjson_bytes": 709319,
@@ -53,36 +256,12 @@
     "captured_request_body_bytes": null,
     "wire_status": "unknown_no_matching_source"
   },
-  "paired_runs": {
-    "paired_units": 1,
-    "pre_assistant_whole_rows_different_total": [18, 18],
-    "pre_assistant_data_rows_different_total": [8, 17],
-    "input_whole_rows_different_total": [9, 9],
-    "input_data_rows_different_total": [6, 9],
-    "input_data_difference_is_id_only": true,
-    "input_whole_canonical_bytes_by_arm": [39887, 39887],
-    "input_data_canonical_bytes_by_arm": [39217, 39217],
-    "generated_title_json_string_bytes_by_arm": [51, 29],
-    "capture_bytes_by_arm_and_request": [[32937, 888, 33319], [32937, 888, 33797]],
-    "cross_arm_request_raw_equal": [true, true, false],
-    "first_tool_names_by_arm": ["bash", "read"],
-    "first_tool_missing_required_keys_by_arm": [["command"], []],
-    "first_tool_local_result_is_error_by_arm": [true, false],
-    "first_tool_argument_bytes_by_arm": [85, 66],
-    "first_tool_result_text_bytes_by_arm": [61, 552],
-    "first_body_alone_authenticates_arm": false
-  },
-  "controls": {
-    "same_source_log_recoding": {"same_carrier_bytes": false, "same_canonical_event_values": true, "same_selected_projection": true},
-    "same_source_zstd_reframing": {"frames_before_after": [11, 1], "same_carrier_bytes": false, "same_canonical_event_values": true, "same_selected_projection": true},
-    "same_value_request_recoding": {"same_capture_bytes": false, "same_json_value": true, "as_original_capture": "unknown"},
-    "same_size_selected_user_change": {"same_decoded_and_canonical_size": true, "same_event_values": false, "task_matches_initial_modified": [8, 7], "title_projection_unchanged": true},
-    "invalid_log_or_binding_fixtures": {"damaged_or_invalid_log": "unknown", "wrong_aux_or_meta": "unknown", "wrong_step_or_call": "unknown"},
-    "known_success_steps_delta": {"missing_result_after_resequence": ["L1_available", null], "wrong_inner_call": ["L1_available", null], "missing_assistant": ["L1_available", null]},
-    "natural_failure_delta": {"wrong_inner_result_call_id": "unknown", "wrong_entire_stream_response_id": "unknown"},
-    "paired_delta": {"wrong_entire_stream_response_id": "unknown", "wrong_title_effort": "unknown", "missing_local_replay_marker": "unknown"},
-    "unclosed_source_tag_fixture": {"required": "unknown", "observed": "known", "applies_to": "natural_failure_delta"},
-    "unclosed_terminal_wrapper_fixture": {"required": "unknown", "observed": "known", "applies_to": "paired_delta"}
-  },
-  "historical_main_gate_unchanged": {"fails": 6, "unverifiable": 4}
+  "number_profile_cross_impl_equivalence": {
+    "reference": "number-profile-candidate-v1",
+    "payloads": 9923,
+    "byte_equal": true,
+    "bounds_diverge": true,
+    "docs": 130,
+    "ring": "r115-number-equivalence-2026-11-23"
+  }
 }

@@ -44,11 +44,11 @@ def ratio(v):
 
 
 OBJECT_KEYS = {
-    (): 'profile scope A_positive B_natural_failure C_missing_capture paired_runs controls historical_main_gate_unchanged',
+    (): 'profile scope E_pos E_nat E_miss paired_runs controls historical_main_gate_unchanged number_profile_cross_impl_equivalence',
     ('scope',): 'source new_product_or_model_runs formal_cells_changed universal_format_frozen controlled_external_raw_review_completed raw_chain_publicly_reprojectable harness_intervention_identified',
-    ('A_positive',): 'raw_container_bytes zstd_frames decoded_ndjson_bytes event_rows event_family_counts event_family_canonical_bytes events_canonical_bytes structurally_closed_steps requests_in_capture_order captured_request_body_bytes selected_task_messages_matched_total local_calls_results selected_declarations_matched_in_each_task_request declaration_field_only_in_capture main_adapter_keys_unreconstructed full_requests_reconstructed_from_log',
-    ('B_natural_failure',): 'layer_order argument_fragments tool_finish_frame done_frame required_key required_key_states complete_nonempty_objects raw_argument_utf8_bytes canonical_argument_bytes raw_arguments_identical canonical_arguments_identical local_result_is_error local_and_history_result_text_bytes local_and_history_result_text_identical',
-    ('C_missing_capture',): 'raw_container_bytes zstd_frames decoded_ndjson_bytes event_rows events_canonical_bytes structurally_closed_steps captured_request_body_bytes wire_status',
+    ('E_pos',): 'raw_container_bytes zstd_frames decoded_ndjson_bytes event_rows event_family_counts event_family_canonical_bytes events_canonical_bytes structurally_closed_steps requests_in_capture_order captured_request_body_bytes selected_task_messages_matched_total local_calls_results selected_declarations_matched_in_each_task_request declaration_field_only_in_capture main_adapter_keys_unreconstructed full_requests_reconstructed_from_log',
+    ('E_nat',): 'layer_order argument_fragments tool_finish_frame done_frame required_key required_key_states complete_nonempty_objects raw_argument_utf8_bytes canonical_argument_bytes raw_arguments_identical canonical_arguments_identical local_result_is_error local_and_history_result_text_bytes local_and_history_result_text_identical',
+    ('E_miss',): 'raw_container_bytes zstd_frames decoded_ndjson_bytes event_rows events_canonical_bytes structurally_closed_steps captured_request_body_bytes wire_status',
     ('paired_runs',): 'paired_units pre_assistant_whole_rows_different_total pre_assistant_data_rows_different_total input_whole_rows_different_total input_data_rows_different_total input_data_difference_is_id_only input_whole_canonical_bytes_by_arm input_data_canonical_bytes_by_arm generated_title_json_string_bytes_by_arm capture_bytes_by_arm_and_request cross_arm_request_raw_equal first_tool_names_by_arm first_tool_missing_required_keys_by_arm first_tool_local_result_is_error_by_arm first_tool_argument_bytes_by_arm first_tool_result_text_bytes_by_arm first_body_alone_authenticates_arm',
     ('controls',): 'same_source_log_recoding same_source_zstd_reframing same_value_request_recoding same_size_selected_user_change invalid_log_or_binding_fixtures known_success_steps_delta natural_failure_delta paired_delta unclosed_source_tag_fixture unclosed_terminal_wrapper_fixture',
     ('controls','same_source_log_recoding'): 'same_carrier_bytes same_canonical_event_values same_selected_projection',
@@ -62,6 +62,7 @@ OBJECT_KEYS = {
     ('controls','unclosed_source_tag_fixture'): 'required observed applies_to',
     ('controls','unclosed_terminal_wrapper_fixture'): 'required observed applies_to',
     ('historical_main_gate_unchanged',): 'fails unverifiable',
+    ('number_profile_cross_impl_equivalence',): 'reference payloads byte_equal bounds_diverge docs ring',
 }
 
 
@@ -87,13 +88,13 @@ def load(path):
 
 def check(d):
     check_object_keys(d)
-    need(d['profile'] == 'dsh-v4-observation-trial-0.2', 'profile')
+    need(d['profile'] == 'dsh-v4-observation-trial-0.3', 'profile')
     s = d['scope']
     need(s['source'] == 'private_held_originals_public_aggregates_only', 'source scope')
     need(all(s[n] is False for n in ('universal_format_frozen','controlled_external_raw_review_completed',
           'raw_chain_publicly_reprojectable','harness_intervention_identified')), 'not an external, raw or causal check')
     need(all(count(s[k]) and s[k] == 0 for k in ('new_product_or_model_runs','formal_cells_changed')), 'not a product launch or rescore')
-    a,b,c,p,t = [d[k] for k in ('A_positive','B_natural_failure','C_missing_capture','paired_runs','controls')]
+    a,b,c,p,t = [d[k] for k in ('E_pos','E_nat','E_miss','paired_runs','controls')]
     for log in (a,c):
         fields = [log[k] for k in ('event_rows','decoded_ndjson_bytes','events_canonical_bytes','zstd_frames','raw_container_bytes','structurally_closed_steps')]
         need(all(count(x) and x > 0 for x in fields), 'event layer counts')
@@ -154,6 +155,8 @@ def check(d):
                        ('unclosed_terminal_wrapper_fixture','paired_delta')]:
         need(t[key]=={'required':'unknown','observed':'known','applies_to':layer}, 'retain unresolved fixture')
     need(d['historical_main_gate_unchanged']=={'fails':6,'unverifiable':4}, 'old gate unchanged')
+    eq=d['number_profile_cross_impl_equivalence']
+    need(eq=={'reference':'number-profile-candidate-v1','payloads':9923,'byte_equal':True,'bounds_diverge':True,'docs':130,'ring':'r115-number-equivalence-2026-11-23'}, 'number profile equivalence')
     return {'public_projection_consistent':True,'independent_raw_recheck_possible_here':False,
             'universal_format_frozen':False,'paired_units':p['paired_units']}
 
@@ -161,13 +164,15 @@ def check(d):
 def mutations(base):
     probes = (
         (('scope','controlled_external_raw_review_completed'),True),
-        (('A_positive','extra'), 'unexpected datum'),
+        (('E_pos','extra'), 'unexpected datum'),
         (('controls','same_source_log_recoding','extra'), 'unexpected nested datum'),
-        (('A_positive','captured_request_body_bytes'),[0,1042,34107]),
+        (('E_pos','captured_request_body_bytes'),[0,1042,34107]),
         (('paired_runs','capture_bytes_by_arm_and_request'),[[0,888,33319],[0,888,33797]]),
-        (('A_positive','event_family_counts'),[9,12,7]),
-        (('B_natural_failure','required_key_states'),['present','absent','absent']),
-        (('C_missing_capture','captured_request_body_bytes'),0),
+        (('E_pos','event_family_counts'),[9,12,7]),
+        (('E_nat','required_key_states'),['present','absent','absent']),
+        (('E_miss','captured_request_body_bytes'),0),
+        (('number_profile_cross_impl_equivalence','payloads'),9922),
+        (('number_profile_cross_impl_equivalence','byte_equal'),False),
         (('paired_runs','capture_bytes_by_arm_and_request'),[[32937,888,33319],[32938,888,33797]]),
         (('paired_runs','first_body_alone_authenticates_arm'),True),
         (('controls','same_size_selected_user_change','same_event_values'),True),
