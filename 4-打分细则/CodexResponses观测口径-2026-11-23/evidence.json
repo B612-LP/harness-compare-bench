@@ -1,0 +1,167 @@
+{
+  "boundaries": [
+    "只覆盖 Codex responses 流该冻结样本，不外推 messages 线或其他产品",
+    "不冻结；试行 0.1",
+    "不做单变量干预，不估 Harness 效果",
+    "受控第三方原件核验未完成"
+  ],
+  "chains": {
+    "A_grouping": {
+      "cross_method_agree": true,
+      "groups": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ]
+      ],
+      "history_carry": "input 内承接（无 previous_response_id、store=false）",
+      "top_level_keys_uniform": 12
+    },
+    "B_metadata": {
+      "effort_low": 12,
+      "framing_rechunked": 12,
+      "model_deepseek_flash": 12
+    },
+    "C_stream_gates": {
+      "envelope_and_item_gates_ok": 12,
+      "response_ids_all_distinct": 12,
+      "run_records_differ": true,
+      "within_run_input_growth": true
+    },
+    "H_persha": {
+      "bound": 12,
+      "total": 12
+    },
+    "W_tools_decl": {
+      "n_tools": 9,
+      "note": "全部 12 请求的 tools 投影（名称+参数定义规范 SHA）同集；PREREG W 层声明核对门",
+      "uniform": true
+    }
+  },
+  "equivalence_not_flipping": [
+    "CRLF 行尾",
+    "JSON 值规范重编码",
+    "gzip 重帧"
+  ],
+  "g_w_binding": [
+    {
+      "agent_message": {
+        "local": 1,
+        "matched": 1,
+        "wire": 1
+      },
+      "command": {
+        "adapter_matched": 1,
+        "local": 2,
+        "no_counterpart": 0,
+        "quoting_unprovable": 1,
+        "wire_calls": 2
+      },
+      "run": "1k"
+    },
+    {
+      "agent_message": {
+        "local": 1,
+        "matched": 1,
+        "wire": 1
+      },
+      "command": {
+        "adapter_matched": 1,
+        "local": 2,
+        "no_counterpart": 0,
+        "quoting_unprovable": 1,
+        "wire_calls": 2
+      },
+      "run": "2k"
+    },
+    {
+      "agent_message": {
+        "local": 1,
+        "matched": 1,
+        "wire": 1
+      },
+      "command": {
+        "adapter_matched": 1,
+        "local": 1,
+        "no_counterpart": 0,
+        "quoting_unprovable": 0,
+        "wire_calls": 1
+      },
+      "run": "4k"
+    },
+    {
+      "agent_message": {
+        "local": 1,
+        "matched": 1,
+        "wire": 1
+      },
+      "command": {
+        "adapter_matched": 1,
+        "local": 1,
+        "no_counterpart": 0,
+        "quoting_unprovable": 0,
+        "wire_calls": 1
+      },
+      "run": "10k"
+    },
+    {
+      "agent_message": {
+        "local": 2,
+        "matched": 2,
+        "wire": 2
+      },
+      "command": {
+        "adapter_matched": 1,
+        "local": 1,
+        "no_counterpart": 0,
+        "quoting_unprovable": 0,
+        "wire_calls": 1
+      },
+      "run": "50k"
+    }
+  ],
+  "negative_gates_synthetic": [
+    "尾部空帧（未 dispatch）拒",
+    "名单外事件名携外 ID 信封帧拒",
+    "in_progress 对象 status 改 completed 拒",
+    "末帧缺空行 dispatch 拒",
+    "截断流拒",
+    "跨运行 call_id 错绑拒",
+    "元数据正文摘要不符拒",
+    "请求顶层键异集标 unknown"
+  ],
+  "sample_gaps": [
+    "无 [DONE] 尾段原件（该门仅合成种子覆盖）",
+    "无日志层变体原件（rechunked 仅登记标记）",
+    "无独立捕获第二来源（类2 仅合成种子）"
+  ],
+  "scope": {
+    "cli": "0.163.0",
+    "effort": "low",
+    "endpoint": "/v1/responses",
+    "model": "deepseek-flash",
+    "packets": 12,
+    "run_label_note": "运行按剂量档标注；分组序号为捕获包的存档序号",
+    "runs": 5,
+    "source": "既有冻结存档（R53 采样，2026-11 批次），零新运行",
+    "wire": "responses"
+  }
+}
