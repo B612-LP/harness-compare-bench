@@ -1,0 +1,307 @@
+{
+ "scope": {
+  "archive": "fixed 2026-11-19 nine-pair read archive (offline projection, zero new runs)",
+  "seal_anchors": 26,
+  "run_columns": 18,
+  "paired_arms": 17,
+  "instrument_history_column": "codex-pos/a1 (kept separate, not a pair member)",
+  "unique_source_blobs": 112,
+  "projection_sha256": "5b076878581646bea0fac270d0825f8b8e75bc3e3c8742d196a48f7015291404"
+ },
+ "clock_domains": {
+  "poll_wall": "epoch wall seconds; pass row timestamp written BEFORE the scan window",
+  "kq_relative": "monotonic offset without common zero; only Codex CLI task_started/task_complete (explicit UTC) used for task windows; hit enclosure = (pass[n-1], pass[n]] per sampler source",
+  "dsh_second_clock": "per-process spawn/end markers folded into the conservative union only"
+ },
+ "headline": {
+  "complete_pairs": 8,
+  "disjoint_pairs": 8,
+  "old_hit_direction_control_pairs": 2,
+  "gap_seconds_min": 0.0683218,
+  "gap_seconds_max": 100.6988039,
+  "terminal_digest_binding": "17/17 arms contain own-object digest (>=16 chars) and no opposite-object digest; counterexample C shows terminal text is not a single native message",
+  "verdict": "conservative envelopes of all 8 complete pairs are disjoint -> the old pairs are NOT same-window positive/negative pairs; they stand as digest-witness + hit-direction evidence only"
+ },
+ "pairs": [
+  {
+   "product": "dsh",
+   "positive_arm": "dsh-pos/a6",
+   "negative_arm": "dsh-neg/a1",
+   "conservative_gap_seconds": "41.711128",
+   "window": "disjoint",
+   "old_hit_direction_control": false
+  },
+  {
+   "product": "dsh",
+   "positive_arm": "dsh-pos/a7",
+   "negative_arm": "dsh-neg/a2",
+   "conservative_gap_seconds": "0.0683218",
+   "window": "disjoint",
+   "old_hit_direction_control": false
+  },
+  {
+   "product": "dsh",
+   "positive_arm": "dsh-pos/a8",
+   "negative_arm": "dsh-neg/a3",
+   "conservative_gap_seconds": "0.078872",
+   "window": "disjoint",
+   "old_hit_direction_control": true
+  },
+  {
+   "product": "codex",
+   "positive_arm": "codex-pos/a2",
+   "negative_arm": "codex-neg/a2",
+   "conservative_gap_seconds": "1.954",
+   "window": "disjoint",
+   "old_hit_direction_control": false
+  },
+  {
+   "product": "codex",
+   "positive_arm": "codex-pos/a3",
+   "negative_arm": "codex-neg/a3",
+   "conservative_gap_seconds": "2.251",
+   "window": "disjoint",
+   "old_hit_direction_control": false
+  },
+  {
+   "product": "codex",
+   "positive_arm": "codex-pos/a4",
+   "negative_arm": "codex-neg/a4",
+   "conservative_gap_seconds": "1.907",
+   "window": "disjoint",
+   "old_hit_direction_control": false
+  },
+  {
+   "product": "wb",
+   "positive_arm": "wb-pos/a2",
+   "negative_arm": "wb-neg/a1",
+   "conservative_gap_seconds": "17.097291",
+   "window": "disjoint",
+   "old_hit_direction_control": true
+  },
+  {
+   "product": "db",
+   "positive_arm": "db-pos/a8",
+   "negative_arm": null,
+   "conservative_gap_seconds": null,
+   "window": "unfired",
+   "old_hit_direction_control": false
+  },
+  {
+   "product": "db",
+   "positive_arm": "db-pos/a10",
+   "negative_arm": "db-neg/a1",
+   "conservative_gap_seconds": "100.6988039",
+   "window": "disjoint",
+   "old_hit_direction_control": false
+  }
+ ],
+ "runs": {
+  "dsh-pos/a6": {
+   "sampler": "poll_wall",
+   "passes": 6176,
+   "fd_hits": {
+    "a": 2,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 1
+  },
+  "dsh-neg/a1": {
+   "sampler": "poll_wall",
+   "passes": 8163,
+   "fd_hits": {
+    "a": 0,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 2,
+   "incomplete_target_read_refusals": 1
+  },
+  "dsh-pos/a7": {
+   "sampler": "poll_wall",
+   "passes": 5875,
+   "fd_hits": {
+    "a": 0,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 1
+  },
+  "dsh-neg/a2": {
+   "sampler": "poll_wall",
+   "passes": 6991,
+   "fd_hits": {
+    "a": 0,
+    "b": 1
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 1
+  },
+  "dsh-pos/a8": {
+   "sampler": "poll_wall",
+   "passes": 5765,
+   "fd_hits": {
+    "a": 1,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 1
+  },
+  "dsh-neg/a3": {
+   "sampler": "poll_wall",
+   "passes": 5422,
+   "fd_hits": {
+    "a": 0,
+    "b": 1
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 1
+  },
+  "codex-pos/a2": {
+   "sampler": "kq_relative",
+   "passes": 2131,
+   "fd_hits": {
+    "a": 0,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 0
+  },
+  "codex-neg/a2": {
+   "sampler": "kq_relative",
+   "passes": 1662,
+   "fd_hits": {
+    "a": 0,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 0
+  },
+  "codex-pos/a3": {
+   "sampler": "kq_relative",
+   "passes": 1580,
+   "fd_hits": {
+    "a": 0,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 0
+  },
+  "codex-neg/a3": {
+   "sampler": "kq_relative",
+   "passes": 1686,
+   "fd_hits": {
+    "a": 0,
+    "b": 1
+   },
+   "path_race": 1,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 0
+  },
+  "codex-pos/a4": {
+   "sampler": "kq_relative",
+   "passes": 2010,
+   "fd_hits": {
+    "a": 0,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 0
+  },
+  "codex-neg/a4": {
+   "sampler": "kq_relative",
+   "passes": 1731,
+   "fd_hits": {
+    "a": 0,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 0
+  },
+  "wb-pos/a2": {
+   "sampler": "poll_wall",
+   "passes": 3569,
+   "fd_hits": {
+    "a": 1,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 0,
+   "incomplete_target_read_refusals": 1
+  },
+  "wb-neg/a1": {
+   "sampler": "poll_wall",
+   "passes": 2053,
+   "fd_hits": {
+    "a": 0,
+    "b": 3
+   },
+   "path_race": 0,
+   "bound_digest_reads": 0,
+   "incomplete_target_read_refusals": 1
+  },
+  "db-pos/a8": {
+   "sampler": "poll_wall",
+   "passes": 21962,
+   "fd_hits": {
+    "a": 0,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 1
+  },
+  "db-pos/a10": {
+   "sampler": "poll_wall",
+   "passes": 7659,
+   "fd_hits": {
+    "a": 0,
+    "b": 0
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 1
+  },
+  "db-neg/a1": {
+   "sampler": "poll_wall",
+   "passes": 7945,
+   "fd_hits": {
+    "a": 0,
+    "b": 1
+   },
+   "path_race": 0,
+   "bound_digest_reads": 1,
+   "incomplete_target_read_refusals": 1
+  }
+ },
+ "read_source_forms": {
+  "full_named_sha": 13,
+  "full_named_openssl_sha": 1,
+  "declared_cut_prefix": 1,
+  "full_sha_pipe_from_cat": 1
+ },
+ "counterexamples": {
+  "A_fd_hit_not_reading": "dsh-neg/a1 zero FD hits with 2 bound bash digest reads; all three codex positive arms zero FD hits with a bound digest read each",
+  "B_hit_direction_reversal": "dsh-pos/a7 positive arm 0 hits while its negative arm sees b once; db-pos/a10 positive arm 0 hits",
+  "C_terminal_not_single_message": "wb-neg/a1 native reply = two branch assistant messages joined by newline (lead-in + final answer)",
+  "D_pairing_artifact": "all 8 complete pairs disjoint under conservative envelopes"
+ },
+ "notes": [
+  "offline static analysis only; sampler scripts never executed commands",
+  "refusal rows: binary target Read rejected - dsh 6, wb 2, db 3, codex 0 (codex digests via bash)",
+  "db-pos/a8 negative arm unfired; wall=None recorded as unknown_no_read_hold_window_proof",
+  "no recall rate, no contamination upper bound, no product read ranking; #17-4 controlled third-party verification not claimed",
+  "old VERDICT rows unchanged; this page narrows interpretation only (digest witness + hit direction)"
+ ]
+}
