@@ -1,0 +1,154 @@
+{
+ "generated_from": {
+  "note": "raw 含逐 fc 序列与 credit 序列，仅私档；本合同槽级内容无关",
+  "raw_schema": "r1109-r16-raw-v1"
+ },
+ "near_miss": {
+  "all_passed": true,
+  "count": 4
+ },
+ "schema": "r1109-wb-temporal-usage-v1",
+ "slots": {
+  "wb__dabstep-payments-10__r1": {
+   "credit_sum": 5.49,
+   "first_fc_completion_tokens": 228,
+   "first_fc_credit": 0.13,
+   "first_fc_quota_percent": 0,
+   "first_fc_total_tokens": 31208,
+   "first_msg_usage_input": 85989,
+   "first_msg_usage_total": 86815,
+   "prompt_side": {
+    "prompt_cache_hit_tokens": 27904,
+    "prompt_cache_miss_tokens": 3076,
+    "prompt_tokens": 30980
+   },
+   "quota_monotonic": true,
+   "quota_percent_first": 0,
+   "quota_percent_last": 0,
+   "thinking_nonzero_count": 24,
+   "traj_sha256": "4ad625f691446c416f98ae094d483d271d45a961a12d85ff2e8f07bbf3747ea3"
+  },
+  "wb__dabstep-payments-10__r2": {
+   "credit_sum": 5.22,
+   "first_fc_completion_tokens": 163,
+   "first_fc_credit": 0.12,
+   "first_fc_quota_percent": 0,
+   "first_fc_total_tokens": 31143,
+   "first_msg_usage_input": 90555,
+   "first_msg_usage_total": 91738,
+   "prompt_side": {
+    "prompt_cache_hit_tokens": 27904,
+    "prompt_cache_miss_tokens": 3076,
+    "prompt_tokens": 30980
+   },
+   "quota_monotonic": true,
+   "quota_percent_first": 0,
+   "quota_percent_last": 1,
+   "thinking_nonzero_count": 22,
+   "traj_sha256": "8ebff581736ae6cf24c7cc5335c5a5b06bf3e4f1f7bac2026b61db9a00454da5"
+  },
+  "wb__dabstep-payments-10__r3": {
+   "credit_sum": 3.83,
+   "first_fc_completion_tokens": 162,
+   "first_fc_credit": 0.12,
+   "first_fc_quota_percent": 1,
+   "first_fc_total_tokens": 31142,
+   "first_msg_usage_input": 73337,
+   "first_msg_usage_total": 74082,
+   "prompt_side": {
+    "prompt_cache_hit_tokens": 27904,
+    "prompt_cache_miss_tokens": 3076,
+    "prompt_tokens": 30980
+   },
+   "quota_monotonic": true,
+   "quota_percent_first": 1,
+   "quota_percent_last": 2,
+   "thinking_nonzero_count": 24,
+   "traj_sha256": "63fb382e73c0e48c0f355efa13fb33b8f6347b98f075684cd54458a5c4a310d0"
+  },
+  "wb__tb-cargo-plan__r1": {
+   "credit_sum": 6.68,
+   "first_fc_completion_tokens": 175,
+   "first_fc_credit": 0.11,
+   "first_fc_quota_percent": 2,
+   "first_fc_total_tokens": 30627,
+   "first_msg_usage_input": 95129,
+   "first_msg_usage_total": 96034,
+   "prompt_side": {
+    "prompt_cache_hit_tokens": 27904,
+    "prompt_cache_miss_tokens": 2548,
+    "prompt_tokens": 30452
+   },
+   "quota_monotonic": true,
+   "quota_percent_first": 2,
+   "quota_percent_last": 3,
+   "thinking_nonzero_count": 19,
+   "traj_sha256": "379b8b52ba904fe927f3585f346ea9ee303dd5d02e51a8f5cf0e3db48191d0c7"
+  },
+  "wb__tb-cargo-plan__r2": {
+   "credit_sum": 5.1,
+   "first_fc_completion_tokens": 136,
+   "first_fc_credit": 0.11,
+   "first_fc_quota_percent": 3,
+   "first_fc_total_tokens": 30588,
+   "first_msg_usage_input": 80760,
+   "first_msg_usage_total": 81506,
+   "prompt_side": {
+    "prompt_cache_hit_tokens": 27904,
+    "prompt_cache_miss_tokens": 2548,
+    "prompt_tokens": 30452
+   },
+   "quota_monotonic": true,
+   "quota_percent_first": 3,
+   "quota_percent_last": 3,
+   "thinking_nonzero_count": 15,
+   "traj_sha256": "4c0c9c83ea8e09d661efca137519e3bee5354dc8b87c328add2cb25cd2f603d9"
+  },
+  "wb__tb-cargo-plan__r3": {
+   "credit_sum": 7.35,
+   "first_fc_completion_tokens": 190,
+   "first_fc_credit": 0.11,
+   "first_fc_quota_percent": 3,
+   "first_fc_total_tokens": 30642,
+   "first_msg_usage_input": 99770,
+   "first_msg_usage_total": 100732,
+   "prompt_side": {
+    "prompt_cache_hit_tokens": 27904,
+    "prompt_cache_miss_tokens": 2548,
+    "prompt_tokens": 30452
+   },
+   "quota_monotonic": true,
+   "quota_percent_first": 3,
+   "quota_percent_last": 5,
+   "thinking_nonzero_count": 27,
+   "traj_sha256": "7b2cb21a0c6f6a7555e4e17a22604159716b1531649c677638dc9349758c180b"
+  }
+ },
+ "three_way_comparison": {
+  "codex_input": "input_tokens 三 run 恒定、cached 随 run 变（R2）",
+  "dsh_first_response": "totalTokens 三 run 散布 0.35%–0.91%（R2）",
+  "note": "同一 provider（deepseek-v4.1-flash），三种 harness 载体呈现三种时序形态",
+  "wb_raw_prompt": "首 fc prompt 三分量同案例三 run 逐值恒定（本轮 PG1）"
+ },
+ "verdict": {
+  "PG1": {
+   "dabstep-payments-10": true,
+   "tb-cargo-plan": true
+  },
+  "PG2": true,
+  "PG3": {
+   "dabstep-payments-10": true,
+   "tb-cargo-plan": true
+  },
+  "PG4": true,
+  "PG5": true,
+  "PG5_thinking_branch_registered": {
+   "wb__dabstep-payments-10__r1": 24,
+   "wb__dabstep-payments-10__r2": 22,
+   "wb__dabstep-payments-10__r3": 24,
+   "wb__tb-cargo-plan__r1": 19,
+   "wb__tb-cargo-plan__r2": 15,
+   "wb__tb-cargo-plan__r3": 27
+  }
+ }
+}
