@@ -45,3 +45,5 @@
 - 掩蔽等值≠字节级逐字节等值≠服务端实际摄入（自报 usage 复算一致不证摄入，维持[分离账](<../自报usage分离账-2026-11-25/>)口径）。
 - 单批 r1109 数据面；掩蔽集以本合同声明为准（时间键类为勘察后补充，如实登记）。
 - 属观测口径校准（#17 第 1 条），不覆盖机制干预、读取检测与第三方核验项。
+
+- 本页经非作者独审（PASS-with-notes）：PD1–PD6 独立复算零数字分歧；`world_state` variability 表述订正（run 间差异仅行信封 timestamp，payload 跨 run 字节相同）、raw 全不等值、assistant 计数互异 4/5 限定均出自独审并已并入；绑定三链（rollout==evidence==ledger 15/15）经合同 `binding_triple` 字段承载。
