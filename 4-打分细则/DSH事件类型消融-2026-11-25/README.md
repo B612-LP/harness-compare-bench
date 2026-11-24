@@ -39,7 +39,7 @@
 - **整事件规范字节含 `time`/`seq` 信封**：跨 run 的整事件字节等值原则上不可能；钉定门的「极差 0」本质是 size 诊断。真实标本：两槽 `turn/start` 同为 68 B 而内容不同。本例数据层复核证明共同内容确实等值，size 等值在此未掩盖内容差异。
 - **每条消息 `data.id` 是每运行新 UUID**：按 id 对账的口径必然 100% 报差异。
 - **`user/message` 类型内含 Harness 注入子类**：本三槽出现 5 种 `source.kind`（`user` / `agent-instructions` / `runtime-context` / `tool-jobs` / `subagent-settled`）；输入侧切割与未来 inline/spill 类干预设计须按此分型，不能把整类当「真实用户输入」。
-- **15 槽事件类型并集无任何 usage/token/cost 类类型名**（对照 Codex 的 `token_usage_record`）；但**字段级计量数据真实存在（独审发现）**：`assistant/message` 事件 `data.message.usage` 内嵌 `{inputTokens, outputTokens, cacheReadTokens, cacheWriteTokens, totalTokens}`，15 槽共 338 条。「DSH 无自报用量」仅在类型名级为真；自报 usage 分离账可在 session v4 事件内分账，另行推进。
+- **15 槽事件类型并集无任何 usage/token/cost 类类型名**（对照 Codex 的 `token_usage_record`）；但**字段级计量数据真实存在（独审发现）**：`assistant/message` 事件内嵌 `{inputTokens, outputTokens, cacheReadTokens, cacheWriteTokens, totalTokens}`，15 槽共 338 条。「DSH 无自报用量」仅在类型名级为真。**订正（2026-11-25 R2）：权威载体为事件 `data.usage`（`data.message.usage` 是恒 null 字段，初稿路径有误）；详见[自报 usage 分离账](<../自报usage分离账-2026-11-25/README.md>)。**
 
 ## 边界与 unknown
 

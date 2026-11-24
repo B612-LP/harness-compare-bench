@@ -4,7 +4,7 @@
 
 ## [2026-11-25]
 
-- [DSH 事件类型消融与 dabstep 956 B 定源](<4-打分细则/DSH事件类型消融-2026-11-25/README.md>)：S3 单类切割矩阵 5 组×4 切法（dabstep 仅 −user/message 翻转，956 B 定源为 r1 独有的两条后台机制通知＝真实输入侧差异，非日志层假象）；原档 15 槽逐行重现钉定投影，数据层等值复核出信封/id/spliced 层观测事实；类型级 usage 缺席 + 字段级内嵌登记（338 条）。非作者独审 PASS-with-notes 后发布。无新增产品运行，不改历史成绩。
+- [DSH 事件类型消融与 dabstep 956 B 定源](<4-打分细则/DSH事件类型消融-2026-11-25/README.md>)：S3 单类切割矩阵 5 组×4 切法（dabstep 仅 −user/message 翻转，956 B 定源为 r1 独有的两条后台机制通知＝真实输入侧差异，非日志层假象）；原档 15 槽逐行重现钉定投影，数据层等值复核出信封/id/spliced 层观测事实；类型级 usage 缺席 + 字段级内嵌登记（338 条）；[自报 usage 分离账](<4-打分细则/自报usage分离账-2026-11-25/README.md>)：744 条自报数双侧分账——DSH 归一口径 total=in+out+cacheRead+cacheWrite 338/338（inputTokens=miss 专用字段）vs Codex total=in+output 406/406，同一 provider 两种相反归一口径＝harness 归一值非 provider 原始值；Codex 档案 thread 会话总量与逐条和 15/15 精确闭合而 DSH 无会话级载体（不对称入 finding）；字节门不能替代 token 账（chars/outputTokens 跨案例散布 1.70×，chars/4 估误差中位最高 99.8%）。两页均经非作者独审 PASS-with-notes 后登记式整改发布。无新增产品运行，不改历史成绩。
 
 ## [2026-11-24]
 
