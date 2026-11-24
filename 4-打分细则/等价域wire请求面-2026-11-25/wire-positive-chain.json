@@ -1,0 +1,100 @@
+{
+ "binding": [
+  {
+   "request_binding_ok": true,
+   "request_bytes": 33091,
+   "request_sha256": "92220699f215bbdfe0faa392587b8fc43ad6793f10da6baf8b7541518120ac10",
+   "response_bytes": 13203,
+   "response_sha256": "b05070fc190b2ec094a163d49429c3edb311510384e303fdc6a7be86c065951f",
+   "seq": 1
+  },
+  {
+   "request_binding_ok": true,
+   "request_bytes": 1042,
+   "request_sha256": "9f2b6b3e9b76dde704dd763efc1e60992ec2c798c987ae577c784ddd63e34e76",
+   "response_bytes": 1566,
+   "response_sha256": "2f1e345c88f9ef5478ec22fca4f1cebbbb9282965c3041c09565298f645f01a4",
+   "seq": 2
+  },
+  {
+   "request_binding_ok": true,
+   "request_bytes": 34107,
+   "request_sha256": "e14ff634dc415fc31ec9bdb387afdb4e2139bfd3ed475c895af84256b777bf67",
+   "response_bytes": 1577,
+   "response_sha256": "7db23a5946d1a50ba34ff03d9b97e830a0f52193ff480d6295701cebb52e9cfb",
+   "seq": 3
+  }
+ ],
+ "loop3_crosscheck": [
+  {
+   "equal_to_capture_r2": true,
+   "seq": 1
+  },
+  {
+   "equal_to_capture_r2": true,
+   "seq": 2
+  },
+  {
+   "equal_to_capture_r2": false,
+   "seq": 3
+  }
+ ],
+ "model_slice": "glm-5.3-flash",
+ "near_miss_declared": {
+  "PS1_tamper": true,
+  "PS3_done_remove": true,
+  "PS3_frame_drop": true,
+  "binding_break": true
+ },
+ "note": "正例链（11-16 glm-5.3-flash 历史切片）请求+响应等价域；内容无关合同：SHA/字节/布尔/计数/哨兵行号；绑定=meta.request_body_sha256 对表",
+ "requests": [
+  {
+   "int_carrier_paths": [
+    "$.max_tokens"
+   ],
+   "nfc_carrier_lines": 0,
+   "seq": 1,
+   "stable": true
+  },
+  {
+   "int_carrier_paths": [
+    "$.max_tokens"
+   ],
+   "nfc_carrier_lines": 0,
+   "seq": 2,
+   "stable": true
+  },
+  {
+   "int_carrier_paths": [
+    "$.max_tokens"
+   ],
+   "nfc_carrier_lines": 0,
+   "seq": 3,
+   "stable": true
+  }
+ ],
+ "responses": [
+  {
+   "done_line_count": 1,
+   "json_frames": 55,
+   "seq": 1
+  },
+  {
+   "done_line_count": 1,
+   "json_frames": 7,
+   "seq": 2
+  },
+  {
+   "done_line_count": 1,
+   "json_frames": 7,
+   "seq": 3
+  }
+ ],
+ "schema": "r1109-wire-positive-chain-v1",
+ "verdict": {
+  "PS1": "PASS",
+  "PS2": "PASS",
+  "PS3": "PASS",
+  "PS4": "PASS"
+ }
+}

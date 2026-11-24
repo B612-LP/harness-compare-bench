@@ -31,3 +31,7 @@ python3 4-打分细则/等价域wire请求面-2026-11-25/test_recompute.py
 ## 5. 结论边界
 
 本链（16 请求/16 响应）为 wire 请求面等价域的**单链落点**；其余会话链的请求面待扩（如实）；帧级 canon 明细只入私档；不产生分数；R9 的 SOURCE_MISSING_PRESERVED 判定不因本页改变。
+
+## 6. 正例链扩展（2026-11-25 登记式追加，合同 wire-positive-chain.json）
+
+11-16 正例链（glm-5.3-flash 历史切片批次，模型与等价域无关）3 请求+3 响应（meta.request_body_sha256 绑定 3/3 对表）：PT 同法复测——3 请求×5 风格全 stable（int 载体逐请求 `$.max_tokens`、NFC 0）；3 原始 SHA 互异；3 响应 69 JSON data 帧（55/7/7）canon 幂等、[DONE] 哨兵逐文件恰 1。loop3 独立副本互证：请求 001/002 字节同、003 不同（同槽两轮捕获演化体，如实登记，不并入绑定）。复算器 `recompute-positive.py`（+`test_recompute-positive.py` 1 正常+6 注入）；帧数/哨兵**正值**篡改不属公开层检测面（无原档重读），真值由原档 SHA 钉定+独审承担（同 §3 双层分账）。至此 wire 请求面等价域=**双链落点**（11-17 失败例链+11-16 正例链）。
