@@ -1,0 +1,157 @@
+{
+ "declared_distinct_variants": {
+  "int2float": "int→float 属数值域内容级变化，canon 必须翻转",
+  "nfc2nfd": "规范声明不做 Unicode 正规化，NFC→NFD 属内容级变化，canon 必须翻转"
+ },
+ "declared_equivalence_domain": {
+  "note": "规范 §L35 声明域：换行、空白、键序、Unicode 转义、合法重压缩；本合同以 5 种序列化风格实例化（未覆盖槽按其 representations 键为准）",
+  "styles": [
+   "canon",
+   "indent2",
+   "ensure_ascii",
+   "orig_key_order",
+   "spaced"
+  ]
+ },
+ "note": "R8 合法等价表示校准（真实原档）：同一原件换预声明合法等价表示后投影级判定必须不变（规范声明域真档验证）；语义级变体（int→float、NFC→NFD）声明为内容级、必须检出或如实报无载体。内容无关：只含文件级 SHA、行数、表示级判定与变体普查（载体行级）。",
+ "prereg_sha16": "0f2ac8583cdf88c6",
+ "schema": "r1109-equiv-calibration-v1",
+ "slots": [
+  {
+   "all_representations_stable": true,
+   "n_lines": 356,
+   "raw_sha256": "5282147d55d9d1045ba05257906e92e74db275eed9e2f83f1fb8096633371e29",
+   "representations": {
+    "canon": {
+     "lines": 356,
+     "projection_stable": true
+    },
+    "ensure_ascii": {
+     "lines": 356,
+     "projection_stable": true
+    },
+    "indent2": {
+     "lines": 356,
+     "projection_stable": true
+    },
+    "orig_key_order": {
+     "lines": 356,
+     "projection_stable": true
+    },
+    "spaced": {
+     "lines": 356,
+     "projection_stable": true
+    }
+   },
+   "semantic_variants": {
+    "int2float": {
+     "carrier_line": 0,
+     "verdict": "detected"
+    },
+    "nfc2nfd": {
+     "lines_with_carrier": 0,
+     "verdict": "no-carrier"
+    }
+   },
+   "slot": "dsh__dabstep-payments-10__r1",
+   "source_relative_to_archive": "dsh/runs/dsh__dabstep-payments-10__r1/agent-session/session.v4.jsonl.zstd"
+  },
+  {
+   "all_representations_stable": true,
+   "n_lines": 484,
+   "raw_sha256": "32d6d09316a5b5c2cb0c0e33e95e372fbe72f79cb97e02dfa11eae2cc3e06fa5",
+   "representations": {
+    "canon": {
+     "lines": 484,
+     "projection_stable": true
+    },
+    "ensure_ascii": {
+     "lines": 484,
+     "projection_stable": true
+    },
+    "indent2": {
+     "lines": 484,
+     "projection_stable": true
+    },
+    "orig_key_order": {
+     "lines": 484,
+     "projection_stable": true
+    }
+   },
+   "semantic_variants": {
+    "int2float": {
+     "carrier_line": 0,
+     "verdict": "detected"
+    },
+    "nfc2nfd": {
+     "lines_with_carrier": 0,
+     "verdict": "no-carrier"
+    }
+   },
+   "slot": "codex__dabstep-payments-10__r1",
+   "source_relative_to_archive": "codex/runs/codex__dabstep-payments-10__r1/agent-session/rollout-2026-11-09T13-15-08-01a1bebb-4ce6-70a2-b22d-a9b787e85946.jsonl"
+  },
+  {
+   "all_representations_stable": true,
+   "n_lines": 85,
+   "raw_sha256": "4ad625f691446c416f98ae094d483d271d45a961a12d85ff2e8f07bbf3747ea3",
+   "representations": {
+    "canon": {
+     "lines": 85,
+     "projection_stable": true
+    },
+    "ensure_ascii": {
+     "lines": 85,
+     "projection_stable": true
+    },
+    "indent2": {
+     "lines": 85,
+     "projection_stable": true
+    }
+   },
+   "semantic_variants": {
+    "int2float": {
+     "carrier_line": 0,
+     "verdict": "detected"
+    },
+    "nfc2nfd": {
+     "carrier_line": 30,
+     "verdict": "detected"
+    }
+   },
+   "slot": "wb__dabstep-payments-10__r1",
+   "source_relative_to_archive": "bw-retest/workbuddy/runs/dabstep-payments-10__r1/trace/b363e658-08b1-4ff9-84c8-468e7744b02d.jsonl"
+  },
+  {
+   "all_representations_stable": true,
+   "n_lines": 45,
+   "raw_sha256": "a5f04da5e23d88d0503b18df6fa32eec84e5f5e98523b49632c096b43ba24225",
+   "representations": {
+    "canon": {
+     "lines": 45,
+     "projection_stable": true
+    },
+    "ensure_ascii": {
+     "lines": 45,
+     "projection_stable": true
+    },
+    "indent2": {
+     "lines": 45,
+     "projection_stable": true
+    }
+   },
+   "semantic_variants": {
+    "int2float": {
+     "lines_with_carrier": 0,
+     "verdict": "no-carrier"
+    },
+    "nfc2nfd": {
+     "lines_with_carrier": 0,
+     "verdict": "no-carrier"
+    }
+   },
+   "slot": "doubao__tb-cargo-plan__r1",
+   "source_relative_to_archive": "bw-retest/doubao/runs/tb-cargo-plan__r1/trace/session/agents/m_0cwec0lNFEG/system/trajectory.jsonl"
+  }
+ ]
+}
