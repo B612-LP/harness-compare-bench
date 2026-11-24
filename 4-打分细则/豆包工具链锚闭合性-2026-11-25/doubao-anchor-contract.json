@@ -1,0 +1,188 @@
+{
+ "cross": {
+  "counts_equal_across_runs": false,
+  "lines": [
+   45,
+   37,
+   44
+  ],
+  "pc_registered": "跨 run 方差面如实登记（与 R12 tb 三槽工具名恒同恰成对照）",
+  "role_seq_sha256": [
+   "aebd23428510a425c3675debb91356f393ec46cffaf8220466308f70dc527ac3",
+   "a499332a22e7085aba7eb85097a56bca475ada54ff49d1cff9e03582481ab285",
+   "5d52a5c266da9c23f956bd40e41f481765ce06c1dac5912f2ea82277b32cd0db"
+  ],
+  "tool_names_equal_across_runs": false
+ },
+ "generated_from": {
+  "note": "raw 含逐 call id 明细与 mid 路径，仅私档；本合同内容无关（mid 槽级化为 <mid> 占位）",
+  "raw_schema": "r1109-r13-raw-v1"
+ },
+ "near_miss": {
+  "all_rejected": true,
+  "count": 5,
+  "detail": "NM_A 配对破坏/NM_B 碰撞唯一性/NM_C 跨槽计数对表/NM_D 悬挂注入检出/NM_E 信封伪造检出",
+  "weak_style": [
+   "NM_A",
+   "NM_B",
+   "NM_D",
+   "NM_E"
+  ]
+ },
+ "pe_correction_registered": "PREREG PE 字面判据「assistant 含 tool_calls 行数==tool 行数」不成立（18/15/18 vs 27/21/25，多对一正常）；订正判据=非空 calls 总数==非空 refs 总数（3/3 成立），登记不回改",
+ "schema": "r1109-doubao-anchor-contract-v1",
+ "slots": {
+  "tb-cargo-plan__r1": {
+   "assistant_with_calls": 18,
+   "calls_all_uuid": true,
+   "calls_unique": true,
+   "envelope_id_keys": 0,
+   "envelope_ts_keys": 0,
+   "n_calls": 27,
+   "n_lines": 45,
+   "n_refs": 27,
+   "pair_positional": true,
+   "ref_after_call": true,
+   "refs_all_uuid": true,
+   "refs_unique": true,
+   "role_counts": {
+    "assistant": 18,
+    "tool": 27
+   },
+   "seq_equal": true,
+   "set_equal": true,
+   "tool_names": [
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Write",
+    "Bash",
+    "task_create",
+    "task_update",
+    "Bash",
+    "Bash",
+    "Edit",
+    "Edit",
+    "Bash",
+    "Bash",
+    "task_update",
+    "present_files"
+   ],
+   "traj_relative": "tb-cargo-plan__r1/trace/session/agents/<mid>/system/trajectory.jsonl",
+   "traj_sha256": "a5f04da5e23d88d0503b18df6fa32eec84e5f5e98523b49632c096b43ba24225"
+  },
+  "tb-cargo-plan__r2": {
+   "assistant_with_calls": 15,
+   "calls_all_uuid": true,
+   "calls_unique": true,
+   "envelope_id_keys": 0,
+   "envelope_ts_keys": 0,
+   "n_calls": 21,
+   "n_lines": 37,
+   "n_refs": 21,
+   "pair_positional": true,
+   "ref_after_call": true,
+   "refs_all_uuid": true,
+   "refs_unique": true,
+   "role_counts": {
+    "assistant": 16,
+    "tool": 21
+   },
+   "seq_equal": true,
+   "set_equal": true,
+   "tool_names": [
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Edit",
+    "Edit",
+    "Write",
+    "Bash",
+    "Bash",
+    "Read",
+    "task_create",
+    "task_update",
+    "Bash",
+    "Bash",
+    "task_update",
+    "present_files"
+   ],
+   "traj_relative": "tb-cargo-plan__r2/trace/session/agents/<mid>/system/trajectory.jsonl",
+   "traj_sha256": "e143faec82d08518709d81f71f95545c910fae6fa956e9340f10eb1e6a9671cb"
+  },
+  "tb-cargo-plan__r3": {
+   "assistant_with_calls": 18,
+   "calls_all_uuid": true,
+   "calls_unique": true,
+   "envelope_id_keys": 0,
+   "envelope_ts_keys": 0,
+   "n_calls": 25,
+   "n_lines": 44,
+   "n_refs": 25,
+   "pair_positional": true,
+   "ref_after_call": true,
+   "refs_all_uuid": true,
+   "refs_unique": true,
+   "role_counts": {
+    "assistant": 19,
+    "tool": 25
+   },
+   "seq_equal": true,
+   "set_equal": true,
+   "tool_names": [
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Bash",
+    "Bash",
+    "Read",
+    "Bash",
+    "Edit",
+    "Edit",
+    "Bash",
+    "Bash",
+    "present_files"
+   ],
+   "traj_relative": "tb-cargo-plan__r3/trace/session/agents/<mid>/system/trajectory.jsonl",
+   "traj_sha256": "44466e99440dc39b6531f325d52602029adde7b7e115f7af40de8143023e7b42"
+  }
+ },
+ "verdict": {
+  "PA": "PASS",
+  "PB": "PASS",
+  "PC": "PASS_variance_registered",
+  "PD": "PASS",
+  "PE": "PASS_with_correction_registered"
+ }
+}
