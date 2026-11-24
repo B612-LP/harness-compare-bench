@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Frozen W/L/H single-call study. Standard-library only; never executes tools.
 
-Build: --archive-root <loop8> --build-evidence <new.json> --output <new.json>
+Build: --archive-root <archive-root> --build-evidence <new.json> --output <new.json>
 Replay: --evidence <public evidence.json> --output <new.json>
 Both modes pin README and all input bytes. Output is exclusive. Replay proves
 consistency of the public projection, NOT authenticity of private captures.

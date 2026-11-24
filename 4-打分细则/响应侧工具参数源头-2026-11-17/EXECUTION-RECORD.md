@@ -95,3 +95,11 @@ python3 -B 4-打分细则/响应侧工具参数源头-2026-11-17/test_verify.py 
 可以采用：“该次捕获 SSE 中已无必需顶层 command，本地调用及最早后续请求历史保留了同一个缺参对象。”不要继续仅以历史文本声称已认证“模型内部误调”，更不能泛化为 Harness 因果排名。相邻可见层同值不认证所有不可见中间步骤；本地rechunked捕获、原档真实性、捕获前适配、模型/provider生成者均仍有边界。
 
 本包不改变旧请求历史追加、错误对永久携带、13/13对齐、usage/cache、旧门、正式25格、n或分数。新增的是缺参源头的**观测层级**，不是新模型试验或一般错误率。
+
+## 8. 非作者独审（2026-11-25，登记式追加）
+
+冻结页第 77 行承诺的非作者独审已于 2026-11-25 完成（audit-r9，非作者子代理，只读原档+复算，原判定与冻结页字节未动）。非作者自写重建（未调用作者函数）：001 响应严格 SSE 重建得唯一目标 bash 调用——29 data 帧、28 片段（function.name 4B + arguments 合 85B）、arguments 为单个可解析 JSON 对象、顶层键仅 `description`/`workdir`、顶层 `command` 缺失、目标 choice 终态完整且其后仅 `[DONE]`；L（事件层第 20 行 seq18 + 结果第 21 行 seq19，`sourceEventSeqs=[18]`）与 H（最早携带同调用的后续主请求，历史 assistant.tool_calls 与同 `tool_call_id` 结果）均 85B，与 W 的 canonical（=原始串）SHA 三层全等（`40e14c2a…`），`command_present` 三层全 False。**SOURCE_MISSING_PRESERVED 独立复现成立，数字级零分歧。**
+
+交叉与负例：verify.py 四种运行 rc=0 且 replay≡公档 result.json、私档重建 evidence≡公档 evidence.json 逐字节全等；34 项测试双模式 rc=0；三 CLI 负例（改第 1 请求/改第 1 响应保 meta/改事件压缩副本）rc=2、无成功产物、原档三锚未变。近错 12/12（错绑拒/截断 SSE 记 UNKNOWN_STREAM 不称缺参/键重排 canonical 不计值差/L 缺失仅区间级观察）。
+
+登记：①本轮为内部非作者复现，**不构成受控第三方原件核验**（第三方缺口如实保留）；②`verify.py` 第 4 行文档占位符 `<loop8>` 已更正为 `<archive-root>`（不触碰任何 SHA 钉，复跑行为不变）；③其余措辞级备注（H 封印跨节拼接、负例输出不区分失配 pin 等）留待下版。三链分账：正例（11-16）已有 2026-11-23 非作者复验；失败例（本页）本轮收口；不可核例（r1109 bird 缺完整请求捕获槽）候选固定、未执行。
