@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""R11 公开测试：正常夹具 + 近错注入全部拒绝。"""
+"""R11 公开测试：正常合同接受，字段变异合同拒绝。"""
 import copy, importlib.util, json, sys, tempfile
 from pathlib import Path
 
@@ -74,4 +74,4 @@ def nm_h(c):
     return c
 must_reject('重投影降级', nm_h)
 
-print(f'全部夹具拒绝通过：{REJECTED + 1} 项（1 正常 + {REJECTED} 注入）')
+print(f'合同测试通过：1 个正常接受，{REJECTED} 个变异拒绝')
