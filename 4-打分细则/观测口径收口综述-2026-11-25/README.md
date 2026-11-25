@@ -21,7 +21,7 @@
 | R13 | 豆包工具链锚闭合性 | PA–PE | 信封弱锚下局部 id 锚 3/3 闭合（27/21/25）；跨 run 方差面登记 | [豆包锚点](<../豆包工具链锚闭合性-2026-11-25/README.md>) |
 | R14 | 等价域全集 | PF1–PF3 | 9 槽×5 风格全 stable；全集新增 wb tb r2 NFD 载体槽（抽样推断不完备实证） | [等价域全集](<../等价域全集-2026-11-25/README.md>) |
 | R15 | 全仓走查 | PW1–PW5 全绿 | 29/29 回归+全账 sha 实测零手填+跨页交叉一致；登记口径演进 | （走查器，登记于本页） |
-| R16 | WB usage 时序面 | PG1–PG5 | 首 fc prompt 三分量三 run 恒定 30980/27904/3076（hit+miss==prompt）；completion 六槽全异；quota 全局单调 0,0,1,2,3,3；载体口径分裂；thinking 非零行 24/22/24/19/15/27 分支登记 | [WB 时序面](<../WB时序面usage-2026-11-25/README.md>) |
+| R16 | WB usage 时序面 | PG1–PG5 | 首 fc prompt 三分量三 run 恒定 30980/27904/3076（hit+miss==prompt）；completion 六槽全异；quota 槽首值依次 0,0,1,2,3,3（不能据此证明共享计数器）；载体口径分裂；thinking 非零行 24/22/24/19/15/27 分支登记 | [WB 时序面](<../WB时序面usage-2026-11-25/README.md>) |
 | R17 | 本页首版（16 环汇总） | 七项 PASS | 判定链表+usage 三形态对照+剩余不确定性 6 条；初审抓出标题泄漏与 CHANGELOG 自指并修复 | （本页） |
 | R18 | 走查器覆盖面全集 | PJ1–PJ4 | pages 8→13 扫描单元+EXPLAINED 白名单带语义说明 8 条+R15 版回归 29/29；两处历史口径命中补登记 | （走查器，登记于本页 §3） |
 | R19 | 规范 v1.5 候选条款草案 | 12 条 C 锚定 | C1–C12 带来源环+登记位置汇总，候选不冻结；v1.4 冻结件字节不变 | [v1.5 草案](<../规范v1.5候选条款草案-2026-11-25/README.md>) |
@@ -38,7 +38,7 @@
 |---|---|---|---|---|
 | 归一口径 | total=in+out+cacheRead+cacheWrite（input=miss 专用） | total=in+output（cached/reasoning 内嵌 detail） | 同 Codex 形（160 载体） | 轨迹内 usage 载体缺席（R3；旁证内无 usage 类文件，内容级比对未做） |
 | 会话级总量 | 无 | thread==逐条和 15/15 | message.usage≈累计口径（与 fc 单请求分裂） | 无 |
-| 时序面 | 首响 totalTokens 波动 <1% | input 恒+cached 变 | raw prompt 恒+completion 波动+quota 全局累计 0→5 | — |
+| 时序面 | 首条自报 totalTokens 波动 <1% | input 数恒+cached 变 | raw prompt 数恒+completion 变；quota 槽首值 0,0,1,2,3,3，共享未知 | — |
 
 ## 3. 剩余不确定性（如实清单）
 

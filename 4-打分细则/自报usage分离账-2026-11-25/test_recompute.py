@@ -62,9 +62,10 @@ class TestRecompute(unittest.TestCase):
             s += v
             prefix.append(s)
         self.assertNotEqual(sum(prefix), prefix[-1])
-        # 真实 Codex 序列：n×first > last ⇒ 累计口径不可能
+        # 旧名称仅表示不等式成立，不能排除累计；真实累计序列也可满足。
         cseq = [r['usage']['input_tokens'] for r in LED['codex']['codex__bird-ca-schools-15__r1']['records']]
         self.assertTrue(R.is_cumulative_impossible(cseq))
+        self.assertTrue(R.is_cumulative_impossible([10, 11]))  # 有效累计反例
 
     def test_thread_closure_normal_and_near_miss(self):
         """独审 N1：会话级闭合正常载入 + 两类破坏必须被拒。"""

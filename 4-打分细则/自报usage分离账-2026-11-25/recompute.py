@@ -42,7 +42,11 @@ def struct_check(u, fields):
         if v < 0: raise Invalid(f'negative {f}={v!r}')
 
 def is_cumulative_impossible(series):
-    """累计口径不可能性判据：running total 不会减少，故累计时 total=last ≥ n×first 不成立即排除累计。"""
+    """兼容旧名称：仅返回 n×first > last；该式不能排除累计口径。
+
+    例如累计序列 [10, 11] 满足此式，故返回 True 不等于累计不可能。
+    保留输出字段名以兼容历史账本；以独立会话总量对账为主要证据。
+    """
     return len(series) * series[0] > series[-1]
 
 def load_closure(tc=None):
