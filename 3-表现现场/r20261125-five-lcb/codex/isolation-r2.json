@@ -1,0 +1,36 @@
+{
+ "run": "r2",
+ "isolated_home": "/Users/b612-lp/bench-private/harness-compare-bench/until22-20261125-week5/native-cli-r2-homes/codex-home",
+ "real_home": "/Users/b612-lp/.codex",
+ "real_home_writes": "NONE — top-level listing+mtime snapshot byte-identical before vs after",
+ "evidence": {
+  "snapshot_before": "/Users/b612-lp/bench-private/harness-compare-bench/until22-20261125-week5/native-cli-codex/homes-snapshot-before-r2.txt (sha256 79a4c8abf189cc17a67970dc149a27e31ce9d0240851353a18303c10acfeba7d)",
+  "snapshot_after": "/Users/b612-lp/bench-private/harness-compare-bench/until22-20261125-week5/native-cli-codex/homes-snapshot-after-r2.txt",
+  "diff": "normalized diff identical (no header-only noise; both sections compared)",
+  "thread_id_search": "grep r2 thread id 01a21236-bb02-7c41-ac77-6b60fd469e11 across ~/.codex tree: NONE (2.8G tree)",
+  "env_isolation": "CODEX_HOME isolated; ambient CODEX_HOME unset before launch"
+ },
+ "isolated_home_inventory": {
+  "config.toml": "9f3c5114b929f6e8bc1a404bfc9db556763ec90427c81a5db6347b89d933d055 (956 B)",
+  "rollout": "sessions/2026/11/25/rollout-2026-11-25T18-18-26-01a21236-bb02-7c41-ac77-6b60fd469e11.jsonl (746516 B)",
+  "other": "sqlite stores (thread_history/state/logs/goals/queue/memories), .tmp/plugins catalog cache, thread-writer-locks — all inside isolated CODEX_HOME"
+ },
+ "config_verification_readback": {
+  "source": "rollout session_meta + turn_context",
+  "session_id": "01a21236-bb02-7c41-ac77-6b60fd469e11",
+  "model_provider": "deepseek",
+  "model": "deepseek-flash",
+  "effort": "low",
+  "summary": "none",
+  "approval_policy": "never",
+  "sandbox_policy": {
+   "type": "workspace-write",
+   "network_access": false
+  },
+  "cwd": "/Users/b612-lp/bench-workspaces/until22-20261125-five-lcb/codex",
+  "originator": "codex_exec",
+  "cli_version": "0.163.0",
+  "r1_regression_check": "r1 used real ~/.codex default (openai/gpt-6.1-sol → usage_limit_exceeded); r2 rollout confirms deepseek provider — fixed"
+ },
+ "outbound_network_note": "model API traffic to api.deepseek.com (expected); CLI plugin-featured-cache warm attempt to chatgpt.com failed 401 (no ChatGPT auth in isolated home, recorded as stderr WARN, no task impact)"
+}

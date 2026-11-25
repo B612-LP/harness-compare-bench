@@ -1,0 +1,27 @@
+# 2026-11-25 r2 五产品 LCB · Codex 0.163.0 · DeepSeek V4.1-Flash · reasoning=low
+# 全新专用 CODEX_HOME（native-cli-r2-homes/codex-home）：真实 ~/.codex 零写入。
+# 先例：3-表现现场/r1025-candidates/codex-home/config.toml；r2 修改：projects trust
+# 改指本批工作区、sandbox 改 workspace-write（lead 18:11 指定）。
+model = "deepseek-flash"
+model_provider = "deepseek"
+model_reasoning_effort = "low"
+approval_policy = "never"
+sandbox_mode = "workspace-write"
+
+# 官方开关：关闭联网工具
+web_search = "disabled"
+
+# SKILL 层隔离：关闭 Codex 默认注入的 <skills_instructions> 与内置技能
+[skills]
+include_instructions = false
+[skills.bundled]
+enabled = false
+
+[model_providers.deepseek]
+name = "DeepSeek"
+base_url = "https://api.deepseek.com"
+env_key = "DEEPSEEK_API_KEY"
+wire_api = "responses"
+
+[projects."/Users/b612-lp/bench-workspaces/until22-20261125-five-lcb/codex"]
+trust_level = "trusted"

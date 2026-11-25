@@ -1,0 +1,28 @@
+{
+ "run": "r2",
+ "isolated_home": "/Users/b612-lp/bench-private/harness-compare-bench/until22-20261125-week5/native-cli-r2-homes/dsh-home",
+ "real_home": "/Users/b612-lp/.dsh",
+ "real_home_writes": "NONE detected from r2 run",
+ "evidence": {
+  "snapshot_before": "/Users/b612-lp/bench-private/harness-compare-bench/until22-20261125-week5/native-cli-dsh/homes-snapshot-before-r2.txt (sha256 79a4c8abf189cc17a67970dc149a27e31ce9d0240851353a18303c10acfeba7d)",
+  "snapshot_after": "/Users/b612-lp/bench-private/harness-compare-bench/until22-20261125-week5/native-cli-dsh/homes-snapshot-after-r2.txt",
+  "diff": "top-level listing+mtime: identical except state/ and storages/ dir mtimes advanced (18:14→18:27, 18:11→18:27) — attributed to THIS agent session (cli-relaunch DSH session) which continuously writes real ~/.dsh; no new/removed top-level entries",
+  "session_id_search": "grep r2 session id 279e1d9f-2371-4f93-96de-e42d65f38199 across ~/.dsh tree: NONE (28G tree, binary-files=without-match)",
+  "env_isolation": "DSH_HOME isolated; 7 ambient DSH_* vars unset before launch"
+ },
+ "isolated_home_inventory": {
+  "profiles/headless/cordis.patch.yml": "d543ae94297cb7d8cb8852dd966f86c75d9262c1136c99d540577e726f076305",
+  "session_projection": "sessions/--Users-…-dsh--/session-279e1d9f-2371-4f93-96de-e42d65f38199/session.v4.jsonl.zstd (194103 B) + storages/session_projcache/sessions/session-279e1d9f-….json (7377 B)",
+  "note": "launcher auto-materialized package.json/pnpm-workspace.yaml/cordis.yml (bundles=@deepseek-ai/dsh-base+@deepseek-ai/dsh-headless, empty root list); model listing fetch to api.deepseek.com loaded 2 models (credential accepted)"
+ },
+ "config_verification_readback": {
+  "source": "storages/session_projcache/sessions/session-279e1d9f-….json",
+  "provider": "deepseek-official",
+  "model": "deepseek-flash",
+  "reasoningEffort": "low",
+  "approval": "never",
+  "cwd": "/Users/b612-lp/bench-workspaces/until22-20261125-five-lcb/dsh",
+  "skills_disabled_tools_disabled": "dump-config-r2.txt: all 25 target rows disabled:true, zero stderr warnings; user skills/instructions not loaded"
+ },
+ "outbound_network_note": "model API traffic to api.deepseek.com (expected); telemetry disabled"
+}
