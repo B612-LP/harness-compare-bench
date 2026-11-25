@@ -20,7 +20,7 @@
 | 缓存 | cached_input 占比口径 | 逐步 cacheWrite 全 0；cacheRead 末值 51,584（单调不减、15 个互异值） |
 | total | 未报 total | 末步 totalTokens 51,927 |
 
-两流计进口径不同（turn 累计 vs step 逐段）、缓存语义不同（服务端缓存读 vs 逐步缓存写≈0），**数值不可换算、不比大小**；usage 为 Harness 自报，不等于服务端实际摄入或计费。两流 postflight 与 stdout 互证一致（codex `usage_turn_completed` 与 turn.completed usage 逐字段相同；dsh `usage_last_step` 与末步相同）。
+两流计进口径不同（turn 累计 vs step 逐段）、缓存语义不同（服务端缓存读 vs 逐步缓存写≈0），**数值不可换算、不比大小**；usage 为 Harness 自报，不等于服务端实际摄入或计费。两流 postflight 与 stdout 互证一致（codex `usage_turn_completed` 与 turn.completed usage 逐字段相同；dsh `usage_last_step` 与末步四个数值字段相同——该对象另含 `note`、不含 cacheWriteTokens，postflight 自注「仅末步快照」）。
 
 ## 判读（谨慎口径）
 
@@ -28,6 +28,37 @@
 2. Codex 流的模型元数据回退是 Harness 层现象（流内原文可查）；其影响未评估，仅登记。
 3. final 文本「4 题解全部样例通过并对拍通过」为被试自述，判卷隔离不达标未验证、不计分；本页不回填正式 25 格。
 4. 两流事件均无墙钟时间戳，本页不含时延类主张。
+
+## 附录：两流事件 schema 速览（2026-11-25 补记）
+
+供观测规范引用的字段级事实（同日、同源件盘点；只列字段与计数，不作语义推断）：
+
+**Codex（84 行 JSONL）**——顶层键仅 `type` + 至多一个（`thread_id` / `item` / `usage`）：
+
+| 事件类型 | 行数 | 携带 |
+|---|---|---|
+| `thread.started` | 1 | `thread_id` |
+| `turn.started` | 1 | 仅 `type` |
+| `item.started` | 35 | item：command_execution（`command`/`aggregated_output`/`exit_code`/`status`） |
+| `item.completed` | 46 | item：command_execution 35（同上四键）、agent_message 10（`text`）、error 1（`message`） |
+| `turn.completed` | 1 | `usage`：input_tokens / cached_input_tokens / cache_write_input_tokens / output_tokens / reasoning_output_tokens |
+
+item id 配对：35 个 command_execution 均为 started→completed 成对；11 个 completed-only item 全部是 agent_message（10）与 error（1）。两流均无墙钟时间戳字段。
+
+**DSH（78 行 JSONL）**——首行 `session`（`sessionId`/`cwd`），全文 type 值共 7 种（下表列其余 6 种，合计 77 行）：
+
+| 事件类型 | 行数 | 携带 |
+|---|---|---|
+| `status` | 32 | `phase`（turn_start 1 / step_start 15 / step_end 15 / turn_end 1）+ `turn`（32）+ `step`（30，turn_start/turn_end 无）+ `usage`（仅 step_end 15 条：inputTokens/outputTokens/cacheReadTokens/cacheWriteTokens/totalTokens）+ `reason`（仅 turn_end：`{kind: completed}`） |
+| `thinking` | 15 | `text` + 可选 `truncated`（实测 1 条 true） |
+| `tool_call` | 14 | `callId`/`tool`（bash 13、read 1）/`input`（对象） |
+| `tool_result` | 14 | `callId`/`status`（全 completed）/`result` + 可选 `truncated`（实测 1 条 true） |
+| `text` | 1 | `text` |
+| `final` | 1 | `text`（与 text 同文）+ `reason`（`{kind: completed}`）+ `sessionId` |
+
+turn 最大 1、step 最大 15；`callId` 14↔14 全部回指前序声明（本轮豆包导出之外的第二例调用-结果闭环，schema 与豆包导出不同）。
+
+schema 速览是字段清单登记，不与[统一观测规范](<../Harness统一观测规范-2026-11-19/README.md>)正文混同；两流 schema 各自陈述、不做等值断言。
 
 ## 复核
 
