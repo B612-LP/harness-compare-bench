@@ -25,7 +25,7 @@
 - 首发 17:22 终态失败（MISSING_CREDENTIAL）；r2 于 18:18 经临时 `DSH_HOME`（无用户 skills/memory/插件）重发，`reason=completed`、exit 0（session `279e1d9f-2371-4f93-96de-e42d65f38199`，78 事件/1 turn/15 steps）。stderr 见官方端点模型列表加载成功（凭据被接受，不含值）。
 - 回读确证 provider `deepseek-official`、model `deepseek-flash`、reasoningEffort low、approval never（[`dump-config-r2.txt`](dsh/dump-config-r2.txt)）。末步自报 cacheRead 51,584。
 - 证据：[`stdout-r2.jsonl`](dsh/stdout-r2.jsonl)、[`stderr-r2.txt`](dsh/stderr-r2.txt)、[`launch-r2.json`](dsh/launch-r2.json)、[`postflight-r2.json`](dsh/postflight-r2.json)、[`isolation-r2.json`](dsh/isolation-r2.json)。
-- 产物 SHA-256：abc387_f `f03cfec6…f6386c6a08`、abc388_f `7297268a…945b6c9e`、abc388_g `9c57caff…3cc71d77`、abc389_g `e6ac90a8…872ee0615`（[`solutions/`](dsh/solutions/)）。
+- 产物 SHA-256：abc387_f `f03cfec6…f6386c6a08`、abc388_f `7297268a…945b6c9e`、abc388_g `9c57caff…3c7cc71d77`、abc389_g `e6ac90a8…872ee0615`（[`solutions/`](dsh/solutions/)）。
 
 ## WorkBuddy 桌面（5.11.3）
 
@@ -41,7 +41,7 @@
 
 - 17:36:40 单次提交；发前偏离：附件控件无效，改为正文携带题面（从页面 DOM 重建的 JSON 投影与源输入同哈希）。页面「正在思考」贯穿 3000 秒观察窗（18:02–18:19 思维链冻结 ≥16 分钟后恢复推进，非死链）。
 - 18:29–18:36 原浏览器页面随客户端会话消亡（非代理操作）；经产品「最近会话」列表**只读**恢复原会话（标题「AtCoder近期竞赛难题解析」），确认回答完成于 (18:29:20, 18:48:38]，总时长约 ≤72 分钟——超出 3000 秒任务窗后仍在生成直至完成。页面无 token/usage 显示。回答为纯代码交付：四个带文件名标识的代码块、无解释性正文（与题面「不需要写解释文档」一致）；窗口关闭后经只读恢复复核，四代码块与下述已发布产物逐字节一致（SHA-256 重算相同），回答已完整持久化，无遗失内容。
-- 证据与产物（SHA-256）：abc387_f `c8e1ff0a…27cb897`、abc388_f `6da7914e…3888fce`、abc388_g `b65eee96…b56d86`、abc389_g `10dba9eb…90a384`（[`yuanbao/`](yuanbao/)，含代码块捕获 [`codes-evaluate-capture-1852.json`](yuanbao/codes-evaluate-capture-1852.json) 与溯源清单 [`MANIFEST.json`](yuanbao/MANIFEST.json)）。
+- 证据与产物（SHA-256）：abc387_f `c8e1ff0a…27cb897`、abc388_f `6da7914e…46b0388fce`、abc388_g `b65eee96…b56d86`、abc389_g `10dba9eb…90a384`（[`yuanbao/`](yuanbao/)，含代码块捕获 [`codes-evaluate-capture-1852.json`](yuanbao/codes-evaluate-capture-1852.json) 与溯源清单 [`MANIFEST.json`](yuanbao/MANIFEST.json)）。
 
 ## 自述与产物对照（2026-11-25 补记）
 
@@ -68,3 +68,7 @@
 - 判卷隔离不达标故无分数；四产品 12 份产物仅经语法层核验（ast.parse 12/12，未执行）。
 - 独立复核为项目内非作者静态独审（登记覆盖、回执链、隔离快照、SHA 重算、泄漏扫描），不是老师要求的外部受控第三方核验；元宝恢复路径的动态过程仅有观察者时间戳记录。
 - WorkBuddy 未运行，不计 0 分；本轮不回填正式 25 格与历史成绩。
+
+## 勘误记录（2026-11-28）
+
+本页两处截断 SHA 展示尾段笔误，经 2026-11-28 三题小实例复算页的内部非作者独审发现（MF-4）并更正：DSH abc388_g 展示尾段 `…3cc71d77` → `…3c7cc71d77`；元宝 abc388_f `…3888fce` → `…46b0388fce`。仅展示截断笔误，各文件完整 SHA-256 与磁盘归档一贯一致（本页其余截断尾段经逐一子串核验无误；钉定以完整 64 位哈希为准）。
