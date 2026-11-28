@@ -1,7 +1,7 @@
 # PREREG — M1 外溢呈现单变量机制实验（备发射稿；**本稿不构成发射授权**）
 
 - 冻结：2026-11-28（备发射稿；窗口截至 2026-11-29 10:00+08:00）；状态：**待放行（NOT LAUNCHED）**。发射需用户在到点后另行放行。
-- 发射前置条件：①[留出原档盲验-2026-11-29](<../留出原档盲验-2026-11-29/README.md>) 主环验收通过；②发射时 §4 等控清单与捕获完整性预检全部通过并留收据。
+- 发射前置条件：①[留出原档盲验-2026-11-29](<../留出原档盲验-2026-11-29/README.md>) 主环验收通过——判据以该页 §3 门表为准：除错绑检出门（G4a，其缺口归因作者侧规则包、对应修订候选 R1）外全部通过，且未检出项已按诚实条款归因登记；②发射时 §4 等控清单与捕获完整性预检全部通过并留收据。
 
 ## 1. 研究问题
 
@@ -26,7 +26,7 @@
 
 ## 3. 固定材料与臂
 
-- 模型：DeepSeek V4.1-Flash（`deepseek-official` 路由，`deepseek-flash`，reasoningEfforts 最低档；凭据经本机 vault 注入，密钥不入任何记录）。
+- 模型：DeepSeek V4.1-Flash（`deepseek-official` 路由，`deepseek-flash`，reasoningEfforts 最低档；凭据经本机密钥注入机制提供，密钥不入任何记录）。
 - 臂 A（inline）：`maxInlineTokens=12500`（DSH 默认）；臂 B（spill）：`maxInlineTokens=500`。两臂配置逐字段 diff 仅此一项（diff 收据入档）。
 - fixture：复用 11-20 先导的 16,000B 同源文件与 5 事实 TASK.md（发射时登记字节 SHA；fixture 本体与 checker 私存）。
 - 槽位：n=5/臂，A/B 逐槽交替（A1,B1,…），每槽全新会话与全新工作区（仓外目录，只放 inputs+TASK.md；checker/truth 不入工作区）。
